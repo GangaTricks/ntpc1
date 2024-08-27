@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Flashcard for Awareness</title>
+			<script src="../../urlRewrite.js"></script>
+		<link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+
+     .flashcard {
+font-family: Verdana;
+    background-color: #fff;
+    border: 1px solid purple;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    position: relative; /* Ensure relative positioning for absolute positioning of save button */
+}
+.question {
+    width: 90%; /* Question text occupies 90% of flashcard area */
+    word-wrap: break-word; /* Breaks long words to fit within the container */
+}
+
+.flashcard .save-toggle-btn {
+    position: absolute;
+    border: 2px solid indigo;
+	font-size: 10px;
+    top: 5px;
+    right: 5px;
+	padding: 00px;
+	background: gold;
+	font-weight: bold;
+    z-index: 1; /* Ensure save button is above flashcard content */
+}
+
+.flashcard-answer {
+    display: none;
+}
+
+.flashcard.saved {
+    background-color: lightgreen;
+}
+
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">
+  
+   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+  
+  
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+				 <h3 id="total-saved">Total Saved Questions: 0</h3>
+
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+<main>
+<div class="flashcard-container" id="flashcard-container">
+        <!-- Flashcard content will be dynamically populated here -->
+    </div>
+
+</main>
+   <div class="navbot" id="navbot">
+    <input type="file" id="importBtn" accept=".json" style="position: absolute; display: none; opacity: 0;">
+    <label for="importBtn" style="display: block; cursor: pointer; color: black; border: 3px solid orange; padding: 0; font-size: 10px;">IMPORT</label>
+    <button id="exportBtn" style="border: 3px solid orange; cursor: pointer; padding: 0; font-size: 10px;">EXPORT</button>
+    <button class="h6" onclick="goBack()" style="border: 3px solid orange; cursor: pointer; padding: 0; font-size: 10px;">
+        <h5>RETURN</h5>
+    </button>
+</div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const flashcardContainer = document.getElementById('flashcard-container');
+    const uniqueIdentifier = 'flashcardrailway1234@'; // Unique identifier for local storage
+
+   
+       let currentIndex = 0;
+    let flashcards = [];
+	
+	// Function to count the total number of saved questions
+    function countSavedQuestions() {
+        let totalSaved = 0;
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key.startsWith(`${uniqueIdentifier}_`) && localStorage.getItem(key) === 'true') {
+                totalSaved++;
+            }
+        }
+        return totalSaved;
+    }
+
+    // Function to update the display of total saved questions
+    function updateTotalSavedDisplay() {
+        const totalSaved = countSavedQuestions();
+        const totalSavedDisplay = document.getElementById('total-saved');
+        totalSavedDisplay.textContent = `Total Saved Questions: ${totalSaved}`;
+    }
+
+    // Call the function to update the display initially
+    updateTotalSavedDisplay();
+
+// Function to export flashcards saved state to JSON data
+function exportFlashcards() {
+    // Extract saved state of each flashcard
+    const savedState = [];
+    for (let i = 0; i < flashcards.length; i++) {
+        const saved = localStorage.getItem(`${uniqueIdentifier}_${i + 1}`) === 'true';
+        savedState.push(saved);
+    }
+
+    const jsonData = JSON.stringify(savedState);
+    const blob = new Blob([jsonData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'flashcards_saved_state.json'; // Name of the downloaded file
+    document.body.appendChild(link);
+    
+    // Trigger the download
+    link.click();
+    
+    // Cleanup
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    
+    console.log('Flashcards saved state exported successfully.');
+}
+
+
+
+    // Event listener for export button
+    document.getElementById('exportBtn').addEventListener('click', exportFlashcards);
+
+// Function to import flashcards saved state from JSON data
+function importFlashcardsSavedState(jsonData) {
+    const savedState = JSON.parse(jsonData);
+    // Save imported flashcards saved state to local storage
+    for (let i = 0; i < savedState.length; i++) {
+        localStorage.setItem(`${uniqueIdentifier}_${i + 1}`, savedState[i] ? 'true' : 'false');
+    }
+    console.log('Flashcards saved state imported successfully.');
+}
+
+// Event listener for import button
+document.getElementById('importBtn').addEventListener('change', function (event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        importFlashcardsSavedState(e.target.result);
+    };
+    reader.readAsText(file);
+});
+
+
+    function loadFlashcards() {
+        fetch('railway.txt')
+            .then(response => response.text())
+            .then(text => {
+                flashcards = text.split('⬥');
+                displayFlashcards();
+            })
+            .catch(error => console.error('Error fetching flashcards:', error));
+    }
+
+    function displayFlashcards() {
+        const endIndex = Math.min(currentIndex + 250, flashcards.length);
+
+        for (let i = currentIndex; i < endIndex; i++) {
+            const flashcard = flashcards[i].trim();
+            if (flashcard !== '') {
+                const parts = flashcard.split('-');
+                const questionNumber = i + 0; // Question number starts from 1
+
+                const questionParts = parts.slice(0, parts.length - 1);
+                const answer = parts[parts.length - 1].trim();
+                const question = questionParts.join('-').trim();
+
+                const card = document.createElement('div');
+                card.classList.add('flashcard');
+                card.innerHTML = `<div class="question">${questionNumber}: ${question}</div><div class="flashcard-answer">${answer}</div>`;
+                addToggleSaveButton(card, questionNumber);
+                addAnswerToggleListener(card);
+
+                // Check if the question was previously saved
+                const saved = localStorage.getItem(`${uniqueIdentifier}_${questionNumber}`) === 'true';
+                if (saved) {
+                    card.classList.add('saved');
+                }
+
+                flashcardContainer.appendChild(card);
+            }
+        }
+
+        currentIndex = endIndex;
+    }
+
+    function addToggleSaveButton(card, questionNumber) {
+        const saveButton = document.createElement('button');
+        saveButton.classList.add('save-toggle-btn');
+        const saved = localStorage.getItem(`${uniqueIdentifier}_${questionNumber}`) === 'true';
+        saveButton.textContent = saved ? '📖' : 'Save';
+        card.appendChild(saveButton);
+
+        // Style save button to be at the most right edge in the same line as the question
+        saveButton.style.position = 'absolute';
+        saveButton.style.right = '5px';
+        saveButton.style.top = '5px';
+
+        saveButton.addEventListener('click', function () {
+            const saved = localStorage.getItem(`${uniqueIdentifier}_${questionNumber}`) === 'true';
+            if (saved) {
+                localStorage.removeItem(`${uniqueIdentifier}_${questionNumber}`);
+                card.classList.remove('saved');
+                saveButton.textContent = 'Save';
+             } else {
+                localStorage.setItem(`${uniqueIdentifier}_${questionNumber}`, 'true');
+                card.classList.add('saved');
+                saveButton.textContent = '📖';
+            }
+			 // Update total saved display when a question is saved or unsaved
+            updateTotalSavedDisplay();
+        });
+    }
+
+    function addAnswerToggleListener(card) {
+        card.addEventListener('click', function () {
+            const answerElement = card.querySelector('.flashcard-answer');
+            if (answerElement.style.display === 'block') {
+                answerElement.style.display = 'none';
+            } else {
+                answerElement.style.display = 'block';
+            }
+        });
+    }
+
+    function isScrolledToBottom() {
+        return window.innerHeight + window.scrollY >= document.body.offsetHeight;
+    }
+
+    // Load more flashcards when user scrolls to the bottom of the page
+    window.addEventListener('scroll', function () {
+        if (isScrolledToBottom()) {
+            displayFlashcards();
+        }
+    });
+
+    loadFlashcards(); // Initial load of flashcards
+});
+</script>
+</body>
+</html>
