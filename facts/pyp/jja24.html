@@ -1,0 +1,4115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JJA Court 2024</title> 
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Junior Judicial Assistant 2024 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'jja241xhsywcool';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+     
+  
+  {
+    "question": "Which of the following is one of the prominent languages of Uttarakhand?",
+    "options": ["Khasi", "Garhwali", "Meitei", "Karbi"],
+    "correctOption": "Garhwali"
+  },
+  {
+    "question": "In 2022, Jammu and Kashmir Police launched two women’s squads for ensuring the safety and security of women in which city?",
+    "options": ["Srinagar", "Jammu", "Anantnag", "Baramulla"],
+    "correctOption": "Srinagar"
+  },
+  {
+    "question": "Which of the following bio-reserves is located in Himachal Pradesh?",
+    "options": ["Nanda Devi", "Cold Desert", "Sunderban", "Similipal"],
+    "correctOption": "Cold Desert"
+  },
+  {
+    "question": "Identify the INCORRECT pair of state and its literacy rate according to the Census of India 2011 from the following options.",
+    "options": ["Rajasthan 66.11%", "Bihar 61.80%", "Jharkhand 66.41%", "Arunachal Pradesh 62.20%"],
+    "correctOption": "Arunachal Pradesh 62.20%"
+  },
+  {
+    "question": "Rann Utsav is related to which of the following cultures?",
+    "options": ["Kashmiri Culture", "Gujrati Culture", "Rajasthani Culture", "Maharashtrian Culture"],
+    "correctOption": "Gujrati Culture"
+  },
+  {
+    "question": "According to the Indian calendar, the ‘varsha’ season falls in which months?",
+    "options": ["Sravana-Bhadra", "Jyaistha-Asadha", "Magha-Phalguna", "Chaitra-Vaisakha"],
+    "correctOption": "Sravana-Bhadra"
+  },
+  {
+    "question": "In which year was the Dakshin Bharat Hindi Prachar Sabha established?",
+    "options": ["1916", "1918", "1917", "1919"],
+    "correctOption": "1918"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India states that the Parliament may by law confer on the Supreme Court, the power to issue directions, orders or writs, including writs in the nature of habeas corpus, mandamus, prohibition, quo warranto and certiorari, or any of them, for any purposes other than those mentioned in clause (2) of Article 32?",
+    "options": ["Article 141", "Article 142", "Article 140", "Article 139"],
+    "correctOption": "Article 139"
+  },
+  {
+    "question": "The southern part of the coastal plains along the Bay of Bengal is known as",
+    "options": ["Malabar Coast", "Northern Circar", "Coromandel Coast", "Kannad Plains"],
+    "correctOption": "Coromandel Coast"
+  },
+  {
+    "question": "Holi is celebrated in which of the following Hindu months?",
+    "options": ["Chaitra", "Baisakh", "Kartik", "Phaigun"],
+    "correctOption": "Phaigun"
+  },
+  {
+    "question": "Under which ministry does the Central Institute of Indian Languages Mysuru work?",
+    "options": ["Ministry of Home Affairs", "Defence Ministry", "Ministry of External Affairs", "Education Ministry"],
+    "correctOption": "Education Ministry"
+  },
+  {
+    "question": "Which of the following is considered the guardian of the public purse?",
+    "options": ["Finance Minister", "Comptroller and Auditor General of India (CAG)", "Public Accounts Committee", "Finance Commission"],
+    "correctOption": "Comptroller and Auditor General of India (CAG)"
+  },
+  {
+    "question": "Who won Gold Medal for Men’s 67 kg Category Weightlifting at the Commonwealth Games held in Aug 2022?",
+    "options": ["Gururaja Poojary", "Jeremy Lalrinnunga", "Achinta Sheuli", "Sanket Sargar"],
+    "correctOption": "Jeremy Lalrinnunga"
+  },
+  {
+    "question": "‘Ashtadhyayi’ of Panini was written in:",
+    "options": ["Sanskrit", "Hindi", "Tamil", "Bengali"],
+    "correctOption": "Sanskrit"
+  },
+  {
+    "question": "New India Literacy Programme in 2020 will cover non-literates of the age group of years and above in all states/UTs in India.",
+    "options": ["15", "16", "17", "14"],
+    "correctOption": "15"
+  },
+  {
+    "question": "From which year has 2nd October Gandhi Jayanti been declared as the Non-Violence Day?",
+    "options": ["2008", "2007", "2011", "2009"],
+    "correctOption": "2007"
+  },
+  {
+    "question": "Consider the following statements about climatic characteristics of India and identify the correct statements using the codes given below:\n\n1. Average annual rainfall in Andaman and Nicobar Islands is more than 200 centimetres.\n\n2. In Jaisalmer district of Rajasthan, the annual rainfall variability is more than 60%.\n\n3. According to Koeppen’s climatic scheme, ‘Dfc’ type of climate is found in Arunachal Pradesh.\n\n4. According to the Indian Calendar, Magha-Phalguna months have ‘Shishira’ season.",
+    "options": ["1 and 3 are correct", "1, 2, 3 and 4 are correct", "1, 2 and 3 are correct", "1, 3 and 4 are correct"],
+    "correctOption": "1, 2, 3 and 4 are correct"
+  },
+  {
+    "question": "According to Census 2011, which group of union territories has the highest density of population?",
+    "options": ["Lakshadweep and Chandigarh", "Lakshadweep and Puducherry", "Delhi and Chandigarh", "Delhi and Daman-Diu"],
+    "correctOption": "Delhi and Chandigarh"
+  },
+  {
+    "question": "The Chota Nagpur plateau is drained by which of the following rivers?",
+    "options": ["Narmada", "Kaveri", "Krishna", "Damodar"],
+    "correctOption": "Damodar"
+  },
+  {
+    "question": "A UNESCO World Heritage Site is in which of these Union Territories?",
+    "options": ["Lakshadweep", "Ladakh", "Andaman and Nicobar Islands", "Puducherry"],
+    "correctOption": "Puducherry"
+  },
+  {
+    "question": "Identify the pH of lime juice.",
+    "options": ["10", "7.4", "2.2", "1.2"],
+    "correctOption": "2.2"
+  },
+  {
+    "question": "Which of the following is the balancing organs in arthropods?",
+    "options": ["Statocyst", "Nephridium", "Operculum", "Proboscis"],
+    "correctOption": "Statocyst"
+  },
+  {
+    "question": "Which of the following is the State Animal of Puducherry?",
+    "options": ["Goat", "Horse", "Squirrel", "Cow"],
+    "correctOption": "Squirrel"
+  },
+  {
+    "question": "Which of the Union Territories comprises four erstwhile French colonies?",
+    "options": ["Puducherry", "Lakshadweep", "Chandigarh", "Daman and Diu"],
+    "correctOption": "Puducherry"
+  },
+  {
+    "question": "Which of the following is NOT an example of an invisible (microbiological) hazard?",
+    "options": ["Protozoa", "Worms", "Moulds", "Yeasts"],
+    "correctOption": "Worms"
+  },
+  {
+    "question": "When was the canning process discovered?",
+    "options": ["1700", "1810", "2000", "1500"],
+    "correctOption": "1810"
+  },
+  {
+    "question": "Which of the following is NOT a healthy dietary practice?",
+    "options": ["Limited television viewing", "Dieting every few weeks", "Drinking water", "Maintaining a diet journal"],
+    "correctOption": "Dieting every few weeks"
+  },
+  {
+    "question": "In the pea plant, leaves are modified into:",
+    "options": ["spines", "tendrils", "cladodes", "thorns"],
+    "correctOption": "tendrils"
+  },
+  {
+    "question": "Match the following Union Territories to their year of formation.",
+    "options": ["1-(d), 2-(c), 3-(a), 4-(b)", "1-(c), 2-(d), 3-(b), 4-(a)", "1-(b), 2-(a), 3-(d), 4-(c)", "1-(a), 2-(b), 3-(c), 4-(d)"],
+    "correctOption": "1-(d), 2-(c), 3-(a), 4-(b)"
+  },
+  {
+    "question": "Identify the organism on which the Chromosomal theory of inheritance was experimented.",
+    "options": ["Mus musculus", "Drosophila melanogaster", "Pisum sativum", "Escherichia coli"],
+    "correctOption": "Drosophila melanogaster"
+  },
+  {
+    "question": "Shaggy horn wild ibex, red panda and jack rabbit are common animals found in which forests?",
+    "options": ["Mangrove Forests", "Tropical Evergreen Forests", "Thorn Forests", "Montane Forests"],
+    "correctOption": "Montane Forests"
+  },
+  {
+    "question": "According to the Census of India 2011, what was the literacy rate of females in India?",
+    "options": ["82.14%", "73%", "65.46%", "93.91%"],
+    "correctOption": "65.46%"
+  },
+  {
+    "question": "Which river originates in the snow-covered hills of Kullu?",
+    "options": ["Ravi", "Jhelum", "Ganga", "Indus"],
+    "correctOption": "Ravi"
+  },
+  {
+    "question": "In which of the following years did the National Youth Festival begin in India under the programme of National Integration Camp?",
+    "options": ["1995", "1979", "1987", "1973"],
+    "correctOption": "1995"
+  },
+  {
+    "question": "In which of the following festival of Assam (celebrated in the month of October), the farmers lit up a special kind of lamp, known as ‘Akash Banti’?",
+    "options": ["Baishagu", "Kati Bihu", "Me-Dum-Me-Phi", "Ambubachi Mela"],
+    "correctOption": "Kati Bihu"
+  },
+  {
+    "question": "To study and research the status of classical languages in India, centres such as ‘The Center of Excellence for Studies in Classical Telugu (CESCT)’ and ‘Centre for Excellence of Classical Tamil (CECT)’ was set up in which institute of India?",
+    "options": ["English and Foreign Language University (EFLU), Hyderabad", "Central Institute of Indian Languages (CIIL), Mysore", "Jawaharlal Nehru University (JNU), New Delhi", "Mahatma Gandhi Antarrashtriya Hindi Vishwavidyalay (MGAHV), Wardha"],
+    "correctOption": "Central Institute of Indian Languages (CIIL), Mysore"
+  },
+  {
+    "question": "When is the ‘Bhim Jayanti’ celebrated in India?",
+    "options": ["15 November", "14 April", "2 October", "31 October"],
+    "correctOption": "14 April"
+  },
+  {
+    "question": "Which of the following Union Territories is near the river Sutlej?",
+    "options": ["Lakshadweep", "Chandigarh", "Dadra and Nagar Haveli", "Daman and Diu"],
+    "correctOption": "Chandigarh"
+  },
+  {
+    "question": "Which factor is responsible for deflecting winds towards the right in the northern hemisphere and towards the left in the southern hemisphere?",
+    "options": ["Jet Stream", "Coriolis Force", "Western Disturbances", "El Nino"],
+    "correctOption": "Coriolis Force"
+  },
+  {
+    "question": "In which of the following sessions of the Parliament was the Wild Life Protection Amendment Bill introduced?",
+    "options": ["Monsoon Session 2021", "Monsoon Session 2022", "Winter Session 2021", "Winter Session 2022"],
+    "correctOption": "Winter Session 2021"
+  },
+  {
+    "question": "In which month did the Vigilance Awareness Week start in 2022?",
+    "options": ["November", "December", "October", "September"],
+    "correctOption": "October"
+  },
+  {
+    "question": "During which season does a low-pressure area develop over interior Asia and northwestern India?",
+    "options": ["Autumn", "Summer", "Winter", "Spring"],
+    "correctOption": "Summer"
+  },
+  {
+    "question": "Indian National blind Cricket team won the Twenty 20 World Cup for the Blind 2022, by defeating the team.",
+    "options": ["Australia", "Bangladesh", "Canada", "Nepal"],
+    "correctOption": "Bangladesh"
+  },
+  {
+    "question": "During the Gupta Empire, a new class of Buddhist sacred literature began to develop that were called the",
+    "options": ["mahayana", "pali nikayas", "tantras", "sastra"],
+    "correctOption": "tantras"
+  },
+  {
+    "question": "How many Christian majority states are there in north-east India?",
+    "options": ["Four", "Three", "Seven", "Five"],
+    "correctOption": "Three"
+  },
+  {
+    "question": "According to the Census 2011 of India, which of the following group of states/union territories has recorded the highest sex ratio?",
+    "options": ["Kerala, Assam, Odisha", "Kerala, Puducherry, Tamil Nadu", "Kerala, Puducherry, Andhra Pradesh", "Kerala, Chandigarh, Tamil Nadu"],
+    "correctOption": "Kerala, Puducherry, Tamil Nadu"
+  },
+  {
+    "question": "Who among the following proposed the basic features of the Constitution as supremacy of the Constitution, republican and democratic form of government, secular character, separation of powers between the legislature, executive and judiciary, and the federal character of the Constitution?",
+    "options": ["Justice Hegde", "Justice Sikri", "Justice Jagmohan Reddy", "Justice Shelat"],
+    "correctOption": "Justice Sikri"
+  },
+  {
+    "question": "Which type of body is the Finance Commission?",
+    "options": ["Administrative body", "Judicial body", "Quasi-judicial body", "Elected body"],
+    "correctOption": "Quasi-judicial body"
+  },
+  {
+    "question": "The headquarter and the main campus of Maulana Azad National Urdu University is located at",
+    "options": ["New Delhi", "Bengaluru", "Patna", "Hyderabad"],
+    "correctOption": "Hyderabad"
+  },
+  {
+    "question": "As per the Census of 2011, which of the following statements is/are FALSE for the prominent languages of India?",
+    "options": ["Both 1 and 2", "Only 3", "Both 2 and 3", "Only 1"],
+    "correctOption": "Only 3"
+  },
+  {
+    "question": "Which of the following is used as one of Vitamin/Micronutrients/Material/Substance during the fortification of wheat flour?",
+    "options": ["Citric acid", "Oxalic acid", "Iodine", "Folic acid"],
+    "correctOption": "Folic acid"
+  },
+  {
+    "question": "The Election Commission does NOT conduct the elections for which of the following?",
+    "options": ["Office of the Vice President of India", "Office of the President of India", "Elections to Panchayats", "Elections to the Parliament"],
+    "correctOption": "Elections to Panchayats"
+  },
+  {
+    "question": "Rhodophyceae is known as red algae due to the presence of which type of pigment?",
+    "options": ["Phycobilin", "Xanthophyll-A", "Phycoerythrin", "Xanthophyll-B"],
+    "correctOption": "Phycoerythrin"
+  },
+  {
+    "question": "Friedrich Meischer initially named DNA as",
+    "options": ["Pyrimidines", "Nuclein", "Polynucleotide chains", "Purines"],
+    "correctOption": "Nuclein"
+  },
+  {
+    "question": "Which Article of the Constitution of India empowers the Parliament to constitute a High Court for a Union Territory?",
+    "options": ["Article 239", "Article 242", "Article 240", "Article 241"],
+    "correctOption": "Article 241"
+  },
+  {
+    "question": "Pinctada, Dentalium and Unio are soft-bodied invertebrates of which phylum?",
+    "options": ["Mollusca", "Echinodermata", "Annelida", "Platyhelminthes"],
+    "correctOption": "Mollusca"
+  },
+  {
+    "question": "Which of the following Union Territories has a legislature?",
+    "options": ["Chandigarh", "Puducherry", "Lakshadweep", "Ladakh"],
+    "correctOption": "Puducherry"
+  },
+  {
+    "question": "Which of the following is the recessive gene that makes the pea plant wrinkled and green?",
+    "options": ["Oo", "RrYy", "RRYY", "RrYy"],
+    "correctOption": "Oo"
+  },
+  {
+    "question": "The full form of EAA in context of health and nutrition is:",
+    "options": ["Ethylene Acrylic Acid", "Effective Amino Acid", "Efficient Amino Acid", "Essential Amino Acid"],
+    "correctOption": "Essential Amino Acid"
+  },
+  {
+    "question": "According to the Indian calendar, the ‘shishira’ season falls in which months?",
+    "options": ["Jyaistha-Asadha", "Asvina-Kartika", "Magha-Phalguna", "Sravana-Bhadra"],
+    "correctOption": "Magha-Phalguna"
+  },
+  {
+    "question": "National Sanskrit University (Rastriya Sanskrit Vidyapeetha) is located in",
+    "options": ["Mumbai", "Hyderabad", "Tirupati", "Wardha"],
+    "correctOption": "Tirupati"
+  },
+  {
+    "question": "On the basis of the total schedule castes population (Census 2011), arrange the following states in descending order.",
+    "options": ["A,B,C,D", "C,B,A,D", "D,C,B,A", "D,B,C,A"],
+    "correctOption": "A,B,C,D"
+  },
+  {
+    "question": "Who among the following won Sir Garfield Sobers Trophy for the Cricketer of the Decade award in December 2020?",
+    "options": ["Virat Kohli", "Rohit Sharma", "Ajinkya Rahane", "MS Dhoni"],
+    "correctOption": "Virat Kohli"
+  },
+  {
+    "question": "Who has the power to appoint the acting Chief Justice of India?",
+    "options": ["Senior most Judge of the Supreme Court", "Prime Minister", "Vice-President", "President"],
+    "correctOption": "President"
+  },
+  {
+    "question": "Whose birth anniversary is celebrated every year as the National Youth Day in India?",
+    "options": ["Pandit Jawaharlal Nehru", "Subhash Chandra Bose", "Dr. BR Ambedkar", "Swami Vivekananda"],
+    "correctOption": "Swami Vivekananda"
+  },
+  {
+    "question": "Where is the main campus of the English and Foreign Languages University located?",
+    "options": ["Amravati", "Hyderabad", "Mysuru", "Chennai"],
+    "correctOption": "Hyderabad"
+  },
+  {
+    "question": "Which of the following rivers flows only in India?",
+    "options": ["Indus", "Sabarmati", "Ganga", "Brahmaputra"],
+    "correctOption": "Sabarmati"
+  },
+  {
+    "question": "‘Nai Chetna’, the month-long campaign envisioned as a ‘Jan Andolan’ (people's movement), was launched by Union Minister for Rural Development in November 2022, to mark the",
+    "options": ["International Day for Elimination of Violence Against Women", "International Day of Remembrance and Tribute to the Victims of Terrorism", "World Day for the Prevention of and Healing from Child Sexual Exploitation, Abuse and Violence", "International Day for the Elimination of Sexual Violence in Conflict"],
+    "correctOption": "International Day for Elimination of Violence Against Women"
+  },
+  {
+    "question": "Who among the following, on the advice of the Comptroller and Auditor-General of India, can prescribe the manner in which the accounts of the Union and States shall be kept?",
+    "options": ["Vice-President", "Prime Minister", "Parliament", "President"],
+    "correctOption": "President"
+  },
+  {
+    "question": "Match the following based on the Census of India 2011.",
+    "options": ["1-8, 2-0, 3-0, 4-c", "1-b, 2-a, 3-c, 4-d", "1-0, 2-a, 3-0, 4-c", "1-b, 2-0, 3-8, 4-c"],
+    "correctOption": "1-0, 2-a, 3-0, 4-c"
+  },
+  {
+    "question": "At which of the following places is the beating retreat with military bands held in New Delhi?",
+    "options": ["Parliament House", "Red fort", "Chanakyapuri", "Vijay Chowk"],
+    "correctOption": "Vijay Chowk"
+  },
+  {
+    "question": "According to Green Hydrogen Mission, launched in 2023, India’s green hydrogen production capacity is likely to reach 5 MMT per annum by",
+    "options": ["2025", "2040", "2030", "2035"],
+    "correctOption": "2030"
+  },
+  {
+    "question": "Which are the much dreaded evening thunderstorms and showers in Bengal and Assam?",
+    "options": ["Mango showers", "Nor Westers", "Loo", "Blossom showers"],
+    "correctOption": "Nor Westers"
+  },
+  {
+    "question": "Which famous harvest festival of Karnataka is associated with the buffalo race?",
+    "options": ["Ugadi", "Mahamastakabhisheka", "Kambala", "Pongal"],
+    "correctOption": "Kambala"
+  },
+  {
+    "question": "According to Census 2011 of India, which union territory has the highest female literacy rate?",
+    "options": ["Chandigarh", "Delhi", "Lakshadweep", "Daman and Diu"],
+    "correctOption": "Lakshadweep"
+  },
+  {
+    "question": "In case of a question, whether a bill is a money bill or not, the decision of the",
+    "options": ["Deputy Chairman", "President", "Secretary", "Speaker"],
+    "correctOption": "Speaker"
+  },
+  {
+    "question": "Mandovi and Zuari are two important rivers of which state?",
+    "options": ["Telangana", "Goa", "Maharashtra", "Jharkhand"],
+    "correctOption": "Goa"
+  },
+  {
+    "question": "Where is the famous mangrove forest in the Indian state of Tamil Nadu located?",
+    "options": ["Bhitarkanika", "Chorao islands", "Sundarbans", "Pichavaram"],
+    "correctOption": "Pichavaram"
+  },
+  {
+    "question": "Which of the given language institute is NOT located in New Delhi?",
+    "options": ["English and Foreign Language University", "Indian Sign Language Research and Training Centre", "Central Sanskrit University", "Central Hindi Training Institute"],
+    "correctOption": "English and Foreign Language University"
+  },
+  {
+    "question": "Before 1956 the present-day Union Territories were characterised as:",
+    "options": ["Part A States and Part B Territories", "Part G)State and Part H Territories", "Part C State and Part D Territories", "Part E State and Part F Territories"],
+    "correctOption": "Part C State and Part D Territories"
+  },
+  {
+    "question": "Select the correct statement from among the following.",
+    "options": ["Y chromosome is shorter than X chromosome.", "A child who inherits an X chromosome from the father will be a boy.", "Both X and Y chromosomes have the same size.", "A child who inherits an X chromosome from the father will be a girl."],
+    "correctOption": "A child who inherits an X chromosome from the father will be a girl."
+  },
+  {
+    "question": "Which of the following acid is mostly found in Tomato?",
+    "options": ["Butyric acid", "Oxalic acid", "Ascorbic acid", "Tartaric acid"],
+    "correctOption": "Oxalic acid"
+  },
+  {
+    "question": "The expression ‘Public Interest Litigation’ has been borrowed from which country?",
+    "options": ["Africa", "Germany", "USA", "Russia"],
+    "correctOption": "USA"
+  },
+  {
+    "question": "Why was cimetidine designed?",
+    "options": ["It relieves anxiety, stress, irritability or excitement by inducing a sense of well-being.", "It makes the stomach alkaline and triggers the production of even more acid.", "It prevents the interaction of histamine with the receptors present in the stomach wall.", "It contracts the smooth muscles in the bronchi."],
+    "correctOption": "It prevents the interaction of histamine with the receptors present in the stomach wall."
+  },
+  {
+    "question": "The number of calories required to keep your body functioning at rest is called:",
+    "options": ["Basal metabolic rate", "Metabolism", "High metabolic rate", "Threshold metabolic rate"],
+    "correctOption": "Basal metabolic rate"
+  },
+  {
+    "question": "What is the activation energy for acid hydrolysis of sucrose?",
+    "options": ["6.24 kJ mol^(-1)", "6.20 kJ mol^(-1)", "6.21 kJ mol^(-1)", "6.22 kJ mol^(-1)"],
+    "correctOption": "6.22 kJ mol^(-1)"
+  },
+  {
+    "question": "The Garden of Five Senses is located in",
+    "options": ["Ladakh", "Jammu and Kashmir", "Delhi", "Goa"],
+    "correctOption": "Delhi"
+  },
+  {
+    "question": "Which biologist had classified the Monera further dividing it into Archaebacteria (or Archaea) and Eubacteria (or Bacteria)?",
+    "options": ["Robert Whittaker", "Charles Darwin", "Ernst Haeckel", "Carl Woese"],
+    "correctOption": "Carl Woese"
+  },
+  {
+    "question": "Gymnosperms are plants:",
+    "options": ["That grow only in water", "That have only flowers", "That have fruits without seeds", "That have seeds but no flowers or fruits"],
+    "correctOption": "That have seeds but no flowers or fruits"
+  },
+  {
+    "question": "Where is the Central University for the promotion of the Hindi language - Mahatma Gandhi Antarrashtriya Hindi Vishwa Vidyalaya located?",
+    "options": ["Hyderabad", "Wardha", "Patna", "Chennai"],
+    "correctOption": "Wardha"
+  },
+  {
+    "question": "What was the literacy rate of India, according to 2011 Census?",
+    "options": ["73.0%", "74.04%", "75.0%", "75.02%"],
+    "correctOption": "74.04%"
+  },
+  {
+    "question": "In April 2022, which of the following ministries appraised a proposal for an amount of 6.35 crore rupees for procurement of tabs for security of women under the ‘Nirbhaya Fund’?",
+    "options": ["Ministry of Tourism", "Ministry of Home Affairs", "Ministry of Railways", "Ministry of Road Transport and Highways"],
+    "correctOption": "Ministry of Railways"
+  },
+  {
+    "question": "On which of the following days does the beating retreat ceremony of Republic Day take place every year?",
+    "options": ["29 January", "27 January", "28 January", "30 January"],
+    "correctOption": "29 January"
+  },
+  {
+    "question": "Which Article of the Constitution of India deals with the composition of the Election Commission?",
+    "options": ["Article 324", "Article 327", "Article 325", "Article 326"],
+    "correctOption": "Article 324"
+  },
+  {
+    "question": "Which of the following players won the bronze medal in the women's 10-metre air rifle at ISSF World Cup 2023 in Cairo?",
+    "options": ["Elavenil Valarivan", "Ramita", "Tilottama Sen", "Shreya Agarwal"],
+    "correctOption": "Tilottama Sen"
+  },
+  {
+    "question": "Which Article of the Indian Constitution provides for the Office of the Attorney General of India?",
+    "options": ["Article 324", "Article 148", "Article 78", "Article 76"],
+    "correctOption": "Article 76"
+  },
+  {
+    "question": "Which of the alternative is the best description of Abujmaria, Garo, Aaria, Santhali and Tsangla, languages?",
+    "options": ["These are classical languages.", "These are foreign languages.", "These are official languages.", "These are tribal languages."],
+    "correctOption": "These are tribal languages."
+  },
+  {
+    "question": "Which of the following reasons is correct for western disturbance in northern India?",
+    "options": ["Shifting of pressure belts in central and west Asia", "Impact of the Arabian sea and Bay of Bengal", "North east trade winds blow from land to sea.", "Internal locations of the Northern Plains"],
+    "correctOption": "Shifting of pressure belts in central and west Asia"
+  },
+  {
+    "question": "In May 2023, ‘State Robotics Framework’ a first-of-its-kind policy in India, was launched by which of the following states?",
+    "options": ["Tamil Nadu", "Telangana", "Karnataka", "Maharashtra"],
+    "correctOption": "Telangana"
+  },
+  {
+    "question": "According to the Indian calendar, Varsha season falls in which of the following months?",
+    "options": ["Jyaistha-Asadha", "Sravana-Bhadra", "Asvina-Kartika", "Magha-Phalguna"],
+    "correctOption": "Sravana-Bhadra"
+  },
+  {
+    "question": "Which day marks the transition of India from an autonomous Commonwealth realm with a British Monarch as the nominal head of the Indian Dominion to a fully sovereign Commonwealth republic with the President of India as the nominal head of the Indian Union?",
+    "options": ["National Integration Day", "Republic Day", "Independence Day", "Vijay Diwas"],
+    "correctOption": "Republic Day"
+  },
+  {
+    "question": "Onam is the harvest festival in the state of",
+    "options": ["Punjab", "Gujarat", "Kerala", "Haryana"],
+    "correctOption": "Kerala"
+  },
+  {
+    "question": "Through how many states does river Ganga flow?",
+    "options": ["10", "11", "13", "12"],
+    "correctOption": "11"
+  },
+  {
+    "question": "Which of the following states has Montane forests?",
+    "options": ["Bihar", "Mizoram", "Himachal Pradesh", "Gujarat"],
+    "correctOption": "Himachal Pradesh"
+  },
+  {
+    "question": "As per Article 324, who among the following is responsible for superintendence, direction and control of elections?",
+    "options": ["Divisional Commissioner", "Census Commissioner", "Municipal Commissioner", "Election Commissioner"],
+    "correctOption": "Election Commissioner"
+  },
+  {
+    "question": "Match the following union territories in column A with their corresponding sex-ratios (according to Census 2011) in column B.",
+    "options": ["1-0, 2-0, 3-9, 4-0", "1-0, 2-0, 3-0, 4-8", "1-8, 2-8, 3-0, 4-0", "1-6, 2-0, 3-0, 4-8"],
+    "correctOption": "1-8, 2-8, 3-0, 4-0"
+  },
+  {
+    "question": "According to Census 2011, arrange the following union territories on the basis of their literacy rates in descending order.",
+    "options": ["B, C, A", "C, B, A", "6, 8, 7", "5, 6, 8"],
+    "correctOption": "B, C, A"
+  },
+  {
+    "question": "Where was the Dakshin Bharat Hindi Prachar Sabha founded by Mahatma Gandhi?",
+    "options": ["Madras", "Hyderabad", "Thiruvananthapuram", "Bangalore"],
+    "correctOption": "Madras"
+  },
+  {
+    "question": "According to Census 2011, which state of India has highest schedule tribes population?",
+    "options": ["Uttar Pradesh", "West Bengal", "Maharashtra", "Madhya Pradesh"],
+    "correctOption": "Madhya Pradesh"
+  },
+  {
+    "question": "Who among the following performs such duties and exercises such powers in relation to the accounts of the Union and the States and any other authority or body as may be prescribed by or under any law made by Parliament?",
+    "options": ["Advocate General", "Comptroller and Auditor-General", "Attorney General of India", "Union Public Service Commission"],
+    "correctOption": "Comptroller and Auditor-General"
+  },
+  {
+    "question": "Phyllotaxy is the:",
+    "options": ["pattern of arrangement of leaves on the stem or branch", "pattern of arrangement of sepals on the flower", "pattern of arrangement of petals on the stem or branch", "pattern of arrangement of the perianth on the flower"],
+    "correctOption": "pattern of arrangement of leaves on the stem or branch"
+  },
+  {
+    "question": "The decomposition of proteins, breakdown of the tissues and liquefaction of the organs is called:",
+    "options": ["ammonification", "putrefaction", "denitrification", "nitrification"],
+    "correctOption": "putrefaction"
+  },
+  {
+    "question": "Which Article of the Constitution deals with appropriation bills?",
+    "options": ["Article 114", "Article 112", "Article 118", "Article 116"],
+    "correctOption": "Article 114"
+  },
+  {
+    "question": "Under Article 243K, conduct of all elections of the Panchayats shall be vested in:",
+    "options": ["Tehsil", "Gram Panchayat", "Panchayati Samiti", "State Election Commission"],
+    "correctOption": "State Election Commission"
+  },
+  {
+    "question": "What is another name for tobacco budworms and army worms?",
+    "options": ["Lepidopterans", "Hemipterans", "Dipterans", "Coleopterans"],
+    "correctOption": "Lepidopterans"
+  },
+  {
+    "question": "Which of the following statement/statements is/are true about sex-linked diseases?",
+    "options": ["Only 1 and 4 are correct", "All 1, 2, 3, and 4 are correct", "Only 1 and 2 are correct", "Only 1 is correct"],
+    "correctOption": "Only 1 and 4 are correct"
+  },
+  {
+    "question": "Match the hormone/vitamin/nutrients in column A with the respective disease/disorder caused by its deficiency in column B.",
+    "options": ["i-c, ii-b, iii-a, iv-d", "i-c, ii-d, iii-a, iv-b", "i-b, ii-a, iii-d, iv-c", "i, ii-d, iii-a, iv-c"],
+    "correctOption": "i-c, ii-d, iii-a, iv-b"
+  },
+  {
+    "question": "The leaves of which Pteridophytes look more like a four-leaf clover than a typical fern leaf?",
+    "options": ["Alsophila", "Dicksonia", "Psilotum", "Marsilea"],
+    "correctOption": "Marsilea"
+  },
+  {
+    "question": "Which is a cell organelle found only in prokaryotes?",
+    "options": ["Vesicles", "Nucleus", "Ribosomes", "Nuclear membrane"],
+    "correctOption": "Ribosomes"
+  },
+  {
+    "question": "In which state of India are the local storms known as Kal-Baisakhi?",
+    "options": ["Kerala", "Punjab", "Odisha", "West Bengal"],
+    "correctOption": "West Bengal"
+  },
+  {
+    "question": "Which of the following countries got the 15 rank in the medal tally, in the International Boxing Association (IBA) Women’s World Boxing Championship, 2023?",
+    "options": ["China", "Russia", "India", "Italy"],
+    "correctOption": "India"
+  },
+  {
+    "question": "Out of the following, which UT/State has the highest male literacy as per Census 2011?",
+    "options": ["Kerala", "Mizoram", "Daman and Diu", "Chandigarh"],
+    "correctOption": "Kerala"
+  },
+  {
+    "question": "Which of the following festivals is also popularly known as the ‘Festival of Lights’?",
+    "options": ["Janmashtami", "Rama Navami", "Deepawali", "Holi"],
+    "correctOption": "Deepawali"
+  },
+  {
+    "question": "Which of the following states in India has the largest number of Buddhist population?",
+    "options": ["Meghalaya", "Jharkhand", "Bihar", "Maharashtra"],
+    "correctOption": "Maharashtra"
+  },
+  {
+    "question": "Which of the following state governments organises the Hampi festival every year in the month of October and November?",
+    "options": ["Tamil Nadu", "Andhra Pradesh", "Kerala", "Karnataka"],
+    "correctOption": "Karnataka"
+  },
+  {
+    "question": "Usually, the South-west monsoon season in India sets in by early",
+    "options": ["August", "October", "April", "June"],
+    "correctOption": "June"
+  },
+  {
+    "question": "Match the following pairs correctly. Tributaries",
+    "options": ["1-0, 2-9, 3-b", "1-८, 2-b, 3-8", "1-0, 2-9, 3-c", "1-9, 2-0, 3-c"],
+    "correctOption": "1-0, 2-9, 3-८"
+  },
+  {
+    "question": "Which of the following states has a topical evergreen forest?",
+    "options": ["Arunachal Pradesh", "Andhra Pradesh", "Assam", "Gujarat"],
+    "correctOption": "Assam"
+  },
+  {
+    "question": "Delhi got the status of special state through Amendment Act.",
+    "options": ["7", "62", "52", "69"],
+    "correctOption": "69"
+  },
+  {
+    "question": "In which state in India 15 the Bheldiya Festival celebrated in the month of May, to worship the River Goddess by farmers and boatmen whose lives and livelihoods depend on the rivers?",
+    "options": ["Gujarat", "Assam", "Maharashtra", "Manipur"],
+    "correctOption": "Assam"
+  },
+  {
+    "question": "As per Article 1 of the Indian Constitution, how many categories of territories does the territory of India comprise?",
+    "options": ["3", "1", "4", "2"],
+    "correctOption": "3"
+  },
+  {
+    "question": "The Chairman and members of the Union Public Service Commission hold office for a term of years or until they attain the age of 65 years.",
+    "options": ["six", "seven", "two", "one"],
+    "correctOption": "six"
+  },
+  {
+    "question": "As of January 2024, the Eighth schedule to the Indian Constitution consists of languages.",
+    "options": ["22", "है", "28", "34"],
+    "correctOption": "26"
+  },
+  {
+    "question": "As of March 2023, which of the following is NOT a scheduled language?",
+    "options": ["Tulu", "Tamil", "Malayalam", "Punjabi"],
+    "correctOption": "Tulu"
+  },
+  {
+    "question": "Sutta Pitika is one of the important religious resources, containing the main teachings of",
+    "options": ["Mahavira", "Lord Shiva", "Lord Vishnu", "Buddha"],
+    "correctOption": "Buddha"
+  },
+  {
+    "question": "Which of the following ministries had formulated a draft Bill titled ‘The Digital Personal Data Protection Bill, 2022’?",
+    "options": ["Ministry of Science and Technology", "Ministry of Communications", "Ministry of Information and Broadcasting", "Ministry of Electronics and Information Technology"],
+    "correctOption": "Ministry of Electronics and Information Technology"
+  },
+  {
+    "question": "Which of the following designates is responsible for establishing a Committee or Commission of Parliament on official language?",
+    "options": ["The President of India", "The Chief Justice of India", "The Prime Minister of India", "The Speaker of the Lok Sabha"],
+    "correctOption": "The President of India"
+  },
+  {
+    "question": "Which of the following is NOT considered as the national festival of India?",
+    "options": ["Independence Day", "Republic Day", "Chhath", "Gandhi Jayanti"],
+    "correctOption": "Chhath"
+  },
+  {
+    "question": "A parliamentary committee in December 2022 has expressed its disappointment over the ‘abysmally low’ number of women in the Central Armed Police Forces (CAPFs) which stands at",
+    "options": ["2.61%", "3.68%", "4.47%", "5.12%"],
+    "correctOption": "3.68%"
+  },
+  {
+    "question": "Which of the following is an inherited trait?",
+    "options": ["Attached ear lobe", "Large muscle size", "Scars from an injury", "Calluses on fingers"],
+    "correctOption": "Attached ear lobe"
+  },
+  {
+    "question": "Identify the odd one out.",
+    "options": ["Oswald Avery", "Maclyn McCarty", "Frederick Griffith", "Colin MacLeod"],
+    "correctOption": "Frederick Griffith"
+  },
+  {
+    "question": "When is Uttarayan celebrated in Gujarat?",
+    "options": ["15 January", "16 January", "14 January", "13 January"],
+    "correctOption": "14 January"
+  },
+  {
+    "question": "Which of the following hyphae are continuous tubes filled with multinucleated cytoplasm?",
+    "options": ["Coenocytic", "Septate with multinucleated cell", "Ciliate", "Septate with uninucleated cell"],
+    "correctOption": "Coenocytic"
+  },
+  {
+    "question": "Kharchi Puja is a Hindu festival of which of the following states?",
+    "options": ["Tripura", "Uttar Pradesh", "Nagaland", "Mizoram"],
+    "correctOption": "Tripura"
+  },
+  {
+    "question": "Which of the following is NOT an example of a physical hazard in food?",
+    "options": ["Button", "Hair", "Bore", "Weevils"],
+    "correctOption": "Button"
+  },
+  {
+    "question": "Which Union Territory was under the rule of the French?",
+    "options": ["Andaman and Nicobar", "Chandigarh", "Dadar and Nagar Haveli", "Puducherry"],
+    "correctOption": "Puducherry"
+  },
+  {
+    "question": "FSSAI is responsible for protecting and promoting public health through the regulation and supervision of food safety. What is the full form of FSSAI?",
+    "options": ["Food Safety and Supervision Authority of India", "Food Safety and Standard Association of India", "Food Safety and Standards Authority of India", "Food Safety and Security Association of India"],
+    "correctOption": "Food Safety and Standards Authority of India"
+  },
+  {
+    "question": "How do plant cell divide without centrioles?",
+    "options": ["Plant cell divide by using machinery of ETS of mitochondria.", "Plant cells can divide randomly with the help of ribosomes:", "Plant cells produce a bewildering assortment of microtubule,arrays in the absence of centrosomes.", "Plant cells contain centrioles in the later stage of development and divide."],
+    "correctOption": "Plant cells produce a bewildering assortment of microtubule,arrays in the absence of centrosomes."
+  },
+  {
+    "question": "When the leaf base gets swollen in a leguminous plant what is it called?",
+    "options": ["Pulvinus", "Petiole", "Lamina", "Rachis"],
+    "correctOption": "Pulvinus"
+  },
+  {
+    "question": "Select the pair of languages which are listed under the 8 Schedule of the Indian Constitution as of January 2023.",
+    "options": ["Angika and Lepcha", "Sindhi and Maithili", "Mundari and Magahi", "Siraiki and Khasi"],
+    "correctOption": "Sindhi and Maithili"
+  },
+  {
+    "question": "As of December 2021, which of the following desires linking electoral roll data with Aadhaar?",
+    "options": ["Manual of Election Law", "The Election Laws (Amendment) Bill, 2021", "Readjustment of Representation of Scheduled Castes and Scheduled Tribes in Parliamentary and Assembly Constituencies (Third) Ordinance, 2013 (10 of 2013)", "People's representation act 2018"],
+    "correctOption": "The Election Laws (Amendment) Bill, 2021"
+  },
+  {
+    "question": "Which of the following languages is prominently used in Mizoram?",
+    "options": ["Konkani", "Lushai", "Bangni", "Boro"],
+    "correctOption": "Lushai"
+  },
+  {
+    "question": "____ underlines that the purpose of human life is to break the cycle of birth and death and unite with God. This can be accomplished by following the teachings of the Guru, meditating on the Holy Name and performing acts of service and charity.",
+    "options": ["Zoroastrianism", "Sikhism", "Buddhism", "Jainism"],
+    "correctOption": "Sikhism"
+  },
+  {
+    "question": "What is the growth rate of Hindu population, as per 2001-2011?",
+    "options": ["16.67%", "15.76%", "16.76%", "15.77%"],
+    "correctOption": "16.76%"
+  },
+  {
+    "question": "The National Youth Festival is celebrated in India annually to commemorate the birth anniversary of",
+    "options": ["Lal Bahadur Shastri", "Swami Vivekananda", "Sarvepalli Radhakrishnan", "Jawaharlal Nehru"],
+    "correctOption": "Swami Vivekananda"
+  },
+  {
+    "question": "Due to its proximity to the the coastal regions of southern India have a uniform or maritime climate.",
+    "options": ["cloud", "wind", "sea", "weather"],
+    "correctOption": "sea"
+  },
+  {
+    "question": "According to Koeppen’s Scheme, which type of climate is denoted by ‘Dfc’ in India?",
+    "options": ["Semi-arid/steppe climate", "Polar type", "Monsoon with dry winter", "Cold humid winter with short summer"],
+    "correctOption": "Cold humid winter with short summer"
+  },
+  {
+    "question": "Baisakhi is the main festival of which of the following states?",
+    "options": ["Gujarat", "Punjab", "Uttar Pradesh", "West Bengal"],
+    "correctOption": "Punjab"
+  },
+  {
+    "question": "In which of the following cities in India is Nepali widely spoken?",
+    "options": ["Agra", "Agartala", "Darjeeling", "Darbhanga"],
+    "correctOption": "Darjeeling"
+  },
+  {
+    "question": "When is the Dhulivandan festival celebrated?",
+    "options": ["Second day of Mahashivratri", "Second day of Holika Dahan", "Second day of Diwali", "Second day of Dusshera"],
+    "correctOption": "Second day of Holika Dahan"
+  },
+  {
+    "question": "At which of the following places is the Republic Day celebrated with a grand parade?",
+    "options": ["Red Fort", "Kartavya Path", "Parliament/House", "Vijaya Chowk"],
+    "correctOption": "Kartavya Path"
+  },
+  {
+    "question": "Which of the following cities in India has the lowest rainfall?",
+    "options": ["Jaisalmer (Rajasthan)", "Bhuj (Gujarat)", "Abohar (Punjab)", "Kanpur (Uttar Pradesh)"],
+    "correctOption": "Jaisalmer (Rajasthan)"
+  },
+  {
+    "question": "‘Sundari’ trees that provide durable hard timber are found in:",
+    "options": ["mangrove forests", "tropical deciduous forests", "tropical evergreen forests", "tropical thorn forests"],
+    "correctOption": "mangrove forests"
+  },
+  {
+    "question": "According to Census 2011, how much percentage of the total population of India are followers of Hinduism?",
+    "options": ["82.56%", "85.65%", "75.90%", "79.80%"],
+    "correctOption": "79.80%"
+  },
+  {
+    "question": "Seema Punia, a recipient of Arjuna Award 2022, is related to",
+    "options": ["discus throw", "badminton", "boxing", "triple jump"],
+    "correctOption": "discus throw"
+  },
+  {
+    "question": "Which NBFC-MFI was granted approval for starting a universal bank in 2014?",
+    "options": ["Bandhan Financial Services Limited", "Aarohan Financial Services Limited", "Ujjivan Financial Services Limited", "EASF Financial Services Limited"],
+    "correctOption": "Bandhan Financial Services Limited"
+  },
+  {
+    "question": "According to Census 2011 of India, identify the option that correctly arranges the given states in ascending order on the basis of Christian population.",
+    "options": ["(A), (B), (C)", "(A), (C), (B)", "(C), (B), (A)", "(B), (A), (C)"],
+    "correctOption": "(C), (B), (A)"
+  },
+  {
+    "question": "The Karnataka Research, Development and Innovation Policy was released during the inaugural session of a tech summit organised in",
+    "options": ["Bengaluru", "Mangaluru", "Vijaypura", "Chennai"],
+    "correctOption": "Bengaluru"
+  },
+  {
+    "question": "Which of the following rivers originates on the western flank of the Amarkantak plateau?",
+    "options": ["Sharda", "Narmada", "Karnali", "Tapi"],
+    "correctOption": "Narmada"
+  },
+  {
+    "question": "Which of the following is an example of food without flame?",
+    "options": ["Peda", "Mango pudding", "Maggi", "Idli"],
+    "correctOption": "Mango pudding"
+  },
+  {
+    "question": "Mahavir Jayanti is celebrated on the occasion of the birthday of Lord Mahavira, the tirthankara of the Jain sect.",
+    "options": ["24/7", "7th", "23:12", "20%"],
+    "correctOption": "24/7"
+  },
+  {
+    "question": "The arrangement of a cluster of flowers on a floral axis is called:",
+    "options": ["sepals arrangement", "pedicle", "inflorescence", "petal pattern"],
+    "correctOption": "inflorescence"
+  },
+  {
+    "question": "Which of the following colleges was established by Jonathan Duncan in the year 1791?",
+    "options": ["Delhi College", "College of Fort William", "Sanskrit College at Benares", "Hindu College"],
+    "correctOption": "Sanskrit College at Benares"
+  },
+  {
+    "question": "How is the non-polar tail of saturated hydrocarbons protected from the aqueous environment?",
+    "options": ["As the peripheral proteins lie on the surface of membrane.", "The lipids are arranged within the membrane with the hydrophobic tails towards the outside part.", "The lipids are arranged outside the membrane with the polar head towards the inner part.", "The lipids are arranged within the membrane with the polar head towards the outer sides and the hydrophobic tails towards the inner part."],
+    "correctOption": "The lipids are arranged within the membrane with the polar head towards the outer sides and the hydrophobic tails towards the inner part."
+  },
+  {
+    "question": "The lipids are arranged within the membrane with the polar head towards the outer sides and the hydrophobic tails towards the inner part.",
+    "options": [],
+    "correctOption": ""
+  },
+  {
+    "question": "Who among the following addressed the nation on the eve of the 7eth Independence Day?",
+    "options": ["Hon'ble Vice President of India", "Hon'ble Chief Justice of India", "Hon'ble Speaker of the Lok Sabha", "Hon'ble President of India"],
+    "correctOption": "Hon'ble President of India"
+  },
+  {
+    "question": "Who was the scientist to discover the law of independent assortment?",
+    "options": ["Gregor Mendel", "Francis Harry Compton Crick", "Friedrich Miescher", "James Dewey Watson"],
+    "correctOption": "Gregor Mendel"
+  },
+  {
+    "question": "Which of the following is an example of an inherited trait found in humans?",
+    "options": ["Low body weight", "Change in non-reproductive tissues", "Large muscle size", "Free and attached ear lobes"],
+    "correctOption": "Free and attached ear lobes"
+  },
+  {
+    "question": "What are milk products rich in?",
+    "options": ["Iron, fibre, calcium", "Protein, fibres, folic acid", "Carotenoids, fibres, folic acid", "Calcium, vitamin, fat and protein"],
+    "correctOption": "Calcium, vitamin, fat and protein"
+  },
+  {
+    "question": "Which of the following does NOT happen in food deterioration?",
+    "options": ["Loss of nutritional value", "Enhanced nutritional value", "Development of off-flavours", "Deterioration of textures"],
+    "correctOption": "Enhanced nutritional value"
+  },
+  {
+    "question": "According to the Indian calendar, Hemanta season falls in which months?",
+    "options": ["Chaitra—Vaisakha", "Margasirsa - Pausha", "Shravana - Bhadra", "Jyaistha - Asadha"],
+    "correctOption": "Margasirsa - Pausha"
+  },
+  {
+    "question": "Bhagoria festival is related to which tribe?",
+    "options": ["Bhariya", "Sahariya", "Gond", "Bhil"],
+    "correctOption": "Bhil"
+  },
+  {
+    "question": "Which of the following is a part of consumption expenditure?",
+    "options": ["Law and order", "Building of highways", "Construction of roads", "Installation of power plants"],
+    "correctOption": "Law and order"
+  },
+  {
+    "question": "Kokborok is one of the official languages of a",
+    "options": ["Tripura", "Arunachal Pradesh", "Uttarakhand", "Goa"],
+    "correctOption": "Tripura"
+  },
+  {
+    "question": "According to which of the following Articles of the Indian Constitution is Hindi declared as the official language of the Union in the Devanagari script?",
+    "options": ["Article 98", "Article 343", "Article 123", "Article 112"],
+    "correctOption": "Article 343"
+  },
+  {
+    "question": "Which of the following was the first pre-monsoon cyclone in West Bengal in the year 2020?",
+    "options": ["Yaas", "Nisarga", "Amphan", "Gulab"],
+    "correctOption": "Amphan"
+  },
+  {
+    "question": "Which of the following festivals is celebrated as the beginning of Kannada new year, which falls on Chaitra Shuddha Padyami?",
+    "options": ["Hampi", "Yugadi", "Thrissur Pooram", "Pongal"],
+    "correctOption": "Yugadi"
+  },
+  {
+    "question": "Who won the Gold Medal in men’s 57 kg freestyle category in Asian Wrestling Championships 2023?",
+    "options": ["Deepak Punia", "Sunil Kumar", "Aman Sehrawat", "Anirudh Kumar"],
+    "correctOption": "Aman Sehrawat"
+  },
+  {
+    "question": "The river Tsang PO after entering Assam is known as",
+    "options": ["The Luit", "Jamuna", "Baspa", "Subarnarekha"],
+    "correctOption": "The Luit"
+  },
+  {
+    "question": "Marble rocks are found in the basin of:",
+    "options": ["River Tapi", "River Ganga", "River Sabarmati", "River Narmada"],
+    "correctOption": "River Narmada"
+  },
+  {
+    "question": "According to Census of India 2011, which union territory of India has the largest Jain population?",
+    "options": ["Daman and Diu", "Chandigarh", "Delhi", "Lakshadweep"],
+    "correctOption": "Delhi"
+  },
+  {
+    "question": "At which location does river Beas meet Sutlej?",
+    "options": ["Dhun", "Harike", "Dineke", "Bishanpur"],
+    "correctOption": "Harike"
+  },
+  {
+    "question": "Pongal is observed in the state of in mid-January every year.",
+    "options": ["Haryana", "Punjab", "Tamil Nadu", "Kerala"],
+    "correctOption": "Tamil Nadu"
+  },
+  {
+    "question": "The Islamic festivals are based on which calendar?",
+    "options": ["Julian calendar", "Saka calendar", "Gregorian calendar", "Lunar calendar"],
+    "correctOption": "Lunar calendar"
+  },
+  {
+    "question": "Name the script in which Urdu language is written.",
+    "options": ["Armaniac", "Kharosthi", "Nastalig", "Devanagari"],
+    "correctOption": "Nastaliq"
+  },
+  {
+    "question": "In which two states of India are one-horned rhinoceroses found?",
+    "options": ["Assam and West Bengal", "Gujarat and Rajasthan", "Karnataka and Kerala", "Maharashtra and Madhya Pradesh"],
+    "correctOption": "Assam and West Bengal"
+  },
+  {
+    "question": "In February 2023, Uttarakhand Governor gave his consent to an ordinance meant to prevent the use of unfair means in recruitment examinations in the state, the Uttarakhand Competitive Examination (Measures for Prevention of Unfair Means in Recruitment).",
+    "options": ["RN Ravi", "Lakshman Prasad Acharya", "Lt Gen (Retd) Gurmit Singh", "Gulab Chand Kataria"],
+    "correctOption": "Lt Gen (Retd) Gurmit Singh"
+  },
+  {
+    "question": "India’s heaviest communication satellite was launched by the ISRO from Kuorou, French Guiana in November 2022.",
+    "options": ["GSAT-16", "GSAT-31", "GSAT-17", "GSAT-11"],
+    "correctOption": "GSAT-11"
+  },
+  {
+    "question": "Which of the following cities is famous for its religious and cultural value?",
+    "options": ["Mumbai", "Varanasi", "Pune", "Shimla"],
+    "correctOption": "Varanasi"
+  },
+    {
+        "question": "What is the name of the holy book of the Parsis?",
+        "options": ["ZendAvesta", "Agamn Sutras", "Guru Granth Sahib", "Bible"],
+        "correctOption": "ZendAvesta"
+    },
+    {
+        "question": "Prafulla Chaki was involved in which of the following revolutionary events?",
+        "options": ["Howrah Gang Case", "Curzon Wyllie’s Assassination", "Muzaffarpur Bomb Case", "Kakori Conspiracy Case"],
+        "correctOption": "Muzaffarpur Bomb Case"
+    },
+    {
+        "question": "Which German botanist observed that all kinds of plants have different cells that form different tissues of the plant?",
+        "options": ["Matthias Schleiden", "Camillo Golgi", "SJ Singer", "Theodor Schwann"],
+        "correctOption": "Matthias Schleiden"
+    },
+    {
+        "question": "Nauroz is celebrated as the new year of which of the following communities?",
+        "options": ["Iranian & Persian", "Buddhist & Persian", "Iranian & Christian", "Farsi & Persian"],
+        "correctOption": "Iranian & Persian"
+    },
+    {
+        "question": "Which of the following scientists described the laws of inheritance?",
+        "options": ["Theodor Schwann", "Carl Linhaeus", "Gregor Mendel", "Charles Darwin"],
+        "correctOption": "Gregor Mendel"
+    },
+    {
+        "question": "What is the name of the green pigment found in leaves?",
+        "options": ["Xanthophyll", "Betalains", "Chlorophyll", "Phycobilin"],
+        "correctOption": "Chlorophyll"
+    },
+    {
+        "question": "Give an example of a bacteria that has a high rate of biomass production and growth and is expected to produce 25 tonnes of protein in food.",
+        "options": ["Campylobacter", "Methylophilus methylotrophus", "Salmonella", "Staphylococcus aureus"],
+        "correctOption": "Methylophilus methylotrophus"
+    },
+    {
+        "question": "What is the correct statement regarding the venation of leaves?",
+        "options": [
+            "Monocot leaves have reticulate venation while dicots have parallel arrangement of leaves.",
+            "Monocot leaves have parallel arrangement while dicots have reticulate venation of leaves.",
+            "Monocot and dicots both have parallel arrangement of leaves.",
+            "Monocot and dicots both have reticulate venation of leaves."
+        ],
+        "correctOption": "Monocot leaves have parallel arrangement while dicots have reticulate venation of leaves."
+    },
+    {
+        "question": "What is the calorie content of one gram of carbohydrates?",
+        "options": ["14", "34", "3024", "24"],
+        "correctOption": "34"
+    },
+    {
+        "question": "Which of the following is a perishable item?",
+        "options": ["Dal", "Curd", "Rice", "Oilseeds"],
+        "correctOption": "Curd"
+    },
+    {
+        "question": "In how many years is the anointing ceremony held in the Basadi temple of Jains?",
+        "options": ["12", "8", "4", "10"],
+        "correctOption": "12"
+    },
+    {
+        "question": "The United Nations observes World Toilet Day annually, with the primary purpose to raise public awareness of broader sanitation systems, such as wastewater treatment, stormwater management and hand washing.",
+        "options": ["1 December", "4 October", "28 December", "19 November"],
+        "correctOption": "19 November"
+    },
+    {
+        "question": "Which of the following is a feature of Fundamental Duties?",
+        "options": ["They are non-justiciable.", "They are in Part III of the Constitution.", "They are for foreigners as well.", "They are enforceable."],
+        "correctOption": "They are non-justiciable."
+    },
+    {
+        "question": "Which of the following rivers is NOT a peninsular river?",
+        "options": ["Ghaghara", "Mahanadi", "Tapi", "Krishna"],
+        "correctOption": "Ghaghara"
+    },
+    {
+        "question": "In which Indian Institute of Technology (IIT) will the India Centre for Lab Grown Diamond (InCent-LGD) be set up with the estimated cost of $242.96 crores over 5 years?",
+        "options": ["IIT, Roorkee", "IIT, Ropar", "IIT, Madras", "IIT, Delhi"],
+        "correctOption": "IIT, Madras"
+    },
+    {
+        "question": "Which country is the winner of the Men’s Junior Asia Cup Hockey 2023?",
+        "options": ["Malaysia", "Pakistan", "Republic of Korea", "India"],
+        "correctOption": "India"
+    },
+    {
+        "question": "Which of the following is NOT a part of the Purvanchal Hills?",
+        "options": ["Naga Hills", "Patkai Hills", "Mizo Hills", "Javadi Hills"],
+        "correctOption": "Javadi Hills"
+    },
+    {
+        "question": "Which of the following festivals is celebrated by the Buddhists of Sikkim to mark the birth, enlightenment and attainment of Nirvana of Gautam Buddha?",
+        "options": ["Saga Dawa", "Dree Festival", "Dui-NgaiANi", "Moatsu Mong"],
+        "correctOption": "Saga Dawa"
+    },
+    {
+        "question": "Which Article of the Constitution of India deals with the appointment of district judges?",
+        "options": ["Article 236", "Article 233", "Article 234", "Article 235"],
+        "correctOption": "Article 233"
+    },
+    {
+        "question": "Which of the following lakes is in the Zurbaran mountain valley, in the foothills of the Shankaracharya Hill?",
+        "options": ["Wular Lake", "Kolleru Lake", "Dal Lake", "Loktak Lake"],
+        "correctOption": "Dal Lake"
+    },
+    {
+        "question": "In which of the following states is the Hornbill Festival, a festival of colours and traditions, celebrated usually between December 1st and 10th every year?",
+        "options": ["Karnataka", "Nagaland", "Tamil Nadu", "Assam"],
+        "correctOption": "Nagaland"
+    },
+    {
+        "question": "Which of the following crops grown in India has a variety called Arabica?",
+        "options": ["Tea", "Oilseeds", "Coffee", "Silk"],
+        "correctOption": "Coffee"
+    },
+    {
+        "question": "Which are the most widespread forests in India?",
+        "options": ["Montane Forests", "Tropical Thorn Forests", "Littoral and Swamp Forests", "Tropical Deciduous Forests"],
+        "correctOption": "Tropical Deciduous Forests"
+    },
+    {
+        "question": "Which of the following festivals is associated with the tradition of breaking dahi-handi?",
+        "options": ["Janmashtami", "Shivratri", "Nirjala Ekadashi", "Navratri"],
+        "correctOption": "Janmashtami"
+    },
+    {
+        "question": "Match the dams in column A with their corresponding states in column B.",
+        "options": ["1-b, 2-a, 3-c, 4-d", "1-a, 2-c, 3-b, 4-d", "1-c, 2-a, 3-d, 4-b", "1-d, 2-c, 3-b, 4-a"],
+        "correctOption": "1-b, 2-a, 3-c, 4-d"
+    },
+    {
+        "question": "Which among the following is primarily celebrated in Jharkhand?",
+        "options": ["Saga Dawa", "Tusu", "Nuakhai", "Raja Parba"],
+        "correctOption": "Tusu"
+    },
+    {
+        "question": "In which of the following temperature ranges is considered to be a ‘danger zone’ for handling food?",
+        "options": ["40°F-140°F", "50°F-70°F", "10°F-30°F", "110°F-220°F"],
+        "correctOption": "40°F-140°F"
+    },
+    {
+        "question": "Article 239-AB of the Indian Constitution deals with",
+        "options": ["special provisions with respect to Delhi", "the administration of Union Territories", "provisions in case of failure of the Constitutional machinery", "the High Courts for Union Territories"],
+        "correctOption": "provisions in case of failure of the Constitutional machinery"
+    },
+    {
+        "question": "The ‘Chikal Kalo’ festival is primarily celebrated by which community in Goa?",
+        "options": ["Buddhist", "Christian", "Muslim", "Hindu"],
+        "correctOption": "Hindu"
+    },
+    {
+        "question": "Which of the following union territories has a legislative assembly?",
+        "options": ["Dadra Nagar Haveli & Daman and Diu", "Andaman and Nicobar Islands", "Lakshadweep", "Delhi"],
+        "correctOption": "Delhi"
+    },
+    {
+        "question": "As per Article 60 of the Constitution of India, every President shall, before entering upon his/her office, make and subscribe in the presence of the Chief Justice of India or, in his absence, the available, an oath or affirmation.",
+        "options": [
+            "Senior-most Judge of the Supreme Court",
+            "Speaker of Lok Sabha",
+            "Senior-most member of the Parliament",
+            "Chief Justice of the High Court"
+        ],
+        "correctOption": "Senior-most Judge of the Supreme Court"
+    },
+    {
+        "question": "Which of the following is the correct formula for GDP Deflator?",
+        "options": [
+            "GDP deflator = nominal GDP - taxes / real GDP",
+            "GDP deflator =,real GDP / nominal GDP",
+            "GDP.deflator = real GDP — taxes / nominal GDP",
+            "GDP deflator = nominal GDP / real GDP"
+        ],
+        "correctOption": "GDP deflator = nominal GDP / real GDP"
+    },
+    {
+        "question": "Which Article of the Constitution of India empowers the Parliament for creation of new states or alteration of names, areas or boundaries of any state?",
+        "options": [
+            "Article 304",
+            "Article 3",
+            "Article 274",
+            "Article 117"
+        ],
+        "correctOption": "Article 3"
+    },
+    {
+        "question": "What is the term given to the evening thunderstorms in Bengal and Assam?",
+        "options": [
+            "Baisakhi",
+            "Blossom Showers",
+            "Nor Westers",
+            "Monsoon"
+        ],
+        "correctOption": "Nor Westers"
+    },
+    {
+        "question": "Which of the following plants captures and consumes insects?",
+        "options": [
+            "Pitcher plant",
+            "Cuscuta plant",
+            "Sunflower plant",
+            "Cactus plant"
+        ],
+        "correctOption": "Pitcher plant"
+    },
+    {
+        "question": "Which of the following mosques during the Bahmani reign had a covered courtyard?",
+        "options": [
+            "Babri Masjid",
+            "Mecca Masjid",
+            "Jami Masjid",
+            "Moti Masjid"
+        ],
+        "correctOption": "Jami Masjid"
+    },
+    {
+        "question": "Who introduced the Green Energy bond scheme?",
+        "options": [
+            "SEBI",
+            "ul",
+            "RBI",
+            "MGNREGS"
+        ],
+        "correctOption": "RBI"
+    },
+    {
+        "question": "According to the Climate Change Performance Index (CCPI, 2023), which was released in COP 27, assessing 59 countries and the European Union on climate change policies and actions in November 2022, what is the rank of India?",
+        "options": [
+            "301",
+            "202",
+            "3th",
+            "59"
+        ],
+        "correctOption": "3th"
+    },
+    {
+        "question": "Solar Energy Corporation of India Ltd (SECI) is a CPSU under the administrative control of the Ministry of New and Renewable Energy (MNRE), set up on .",
+        "options": [
+            "2010",
+            "2012",
+            "2011",
+            "2013"
+        ],
+        "correctOption": "2011"
+    },
+    {
+        "question": "When is the National Bravery Award given?",
+        "options": [
+            "23 January",
+            "24 January",
+            "25 January",
+            "26 January"
+        ],
+        "correctOption": "26 January"
+    },
+    {
+        "question": "Match the following.\n\nNames of Dams\n\n1. Dharoi Dam\n2. Manjira river",
+        "options": [
+            "1-a, 2-b, 3-d, 4-c",
+            "1-b, 2-d, 3-a, 4-c",
+            "1-a, 2-b, 3-c, 4-d",
+            "1-a, 2-b, 3-d, 4-c"
+        ],
+        "correctOption": "1-a, 2-b, 3-d, 4-c"
+    },
+    {
+        "question": "Which of the following parts of the Indian Constitution deals with citizenship?",
+        "options": [
+            "Part II",
+            "Part X",
+            "Part VII",
+            "Part I"
+        ],
+        "correctOption": "Part II"
+    },
+    {
+        "question": "Which of the following is the correct statement about the festival of Holi?",
+        "options": [
+            "Holi is a festival of lights.",
+            "Holi festival lasts for a week.",
+            "Holi is celebrated in the month of July.",
+            "The Holi fire is prepared by piling up wood."
+        ],
+        "correctOption": "The Holi fire is prepared by piling up wood."
+    },
+    {
+        "question": "The Budget (annual financial statement) of the Union of India is introduced in the Lok Sabha with the prior permission of the",
+        "options": [
+            "President of India",
+            "CAG",
+            "Reserve Bank of India",
+            "Chairman of the Rajya Sabha"
+        ],
+        "correctOption": "President of India"
+    },
+    {
+        "question": "In Assam, in which month is Bhogali Bihu celebrated?",
+        "options": [
+            "June",
+            "January",
+            "April",
+            "October"
+        ],
+        "correctOption": "January"
+    },
+    {
+        "question": "In which of the following states is the Pushkar Mela held every year?",
+        "options": [
+            "Uttar Pradesh",
+            "Rajasthan",
+            "Odisha",
+            "Meghalaya"
+        ],
+        "correctOption": "Rajasthan"
+    },
+    {
+        "question": "Under which article of the Indian Constitution does the Supreme Court issue writs?",
+        "options": [
+            "Article 226",
+            "Article 32",
+            "Article 29",
+            "Article 368"
+        ],
+        "correctOption": "Article 32"
+    },
+    {
+        "question": "Which of the following is a narrow belt ranging between 8-10 km parallel to the Shiwalik foothills?",
+        "options": [
+            "Tarai",
+            "Khadar",
+            "Bhabar",
+            "Bhangar"
+        ],
+        "correctOption": "Bhabar"
+    },
+    {
+        "question": "Match the renewable sources of energy in column A with the regions producing them in column B.\n\nColumn A\n(Renewable sources of energy)\n\na. Gulf of Kuchchh",
+        "options": [
+            "1-a, 2-b, 3-c",
+            "1-b, 2-c, 3-a",
+            "1-c, 2-b, 3-a",
+            "1-d, 2-c, 3-b"
+        ],
+        "correctOption": "1-a, 2-b, 3-c"
+    },
+    {
+        "question": "Which house of worship was built between 1192 and 1198 by Qutbuddin Aibak that means ‘might of Islam’?",
+        "options": [
+            "Bara Imambara",
+            "Jamia Masjid",
+            "Adina Mosque",
+            "Quwwat-ul-Islam Mosque"
+        ],
+        "correctOption": "Quwwat-ul-Islam Mosque"
+    },
+    {
+        "question": "Who among the following was the first Indian women cricketer to be signed for the Women’s Caribbean Premier League in June 2023?",
+        "options": [
+            "Deepti Sharma",
+            "Jemima Rodrigues",
+            "Shreyanka Patil",
+            "Shafali Verma"
+        ],
+        "correctOption": "Shreyanka Patil"
+    },
+    {
+        "question": "By which of the following names is the Brahmaputra river known in Bangladesh?",
+        "options": [
+            "Jamuna",
+            "Gandak",
+            "Lohit",
+            "Dibang"
+        ],
+        "correctOption": "Jamuna"
+    },
+    {
+        "question": "The Republic of India commemorates the occasion of Independence Day by a traditional ceremony at the",
+        "options": [
+            "India Gate",
+            "Rashtrapati Bhavan",
+            "Red Fort",
+            "Rajpath"
+        ],
+        "correctOption": "Red Fort"
+    },
+    {
+        "question": "In May 2023, which state government signed Sachin Tendulkar as its ‘Smile Ambassador’ for the state's ‘Swachh Mukh Abhiyan’?",
+        "options": [
+            "Uttar Pradesh",
+            "Karnataka",
+            "Andhra Pradesh",
+            "Maharashtra"
+        ],
+        "correctOption": "Maharashtra"
+    },
+    {
+        "question": "Which of the following types of drainage patterns do rivers originating from Amarkantak have?",
+        "options": [
+            "Dendritic",
+            "Centripetal",
+            "Radial",
+            "Trellis"
+        ],
+        "correctOption": "Radial"
+    },
+    {
+        "question": "Pulicat lake lies at the border of the two southern states is related to:",
+        "options": [
+            "Tamil Nadu Plains",
+            "Malabar Coast",
+            "Andhra Coastal Plains",
+            "Utkal Konkan Coast"
+        ],
+        "correctOption": "Andhra Coastal Plains"
+    },
+    {
+        "question": "In measuring poverty in India, NSSO makes use of the MRP method. What does R refer to in MRP?",
+        "options": [
+            "Report",
+            "Reference",
+            "Remember",
+            "Referred"
+        ],
+        "correctOption": "Reference"
+    },
+    {
+        "question": "Alpashi Utsavam is associated with which of the following temples?",
+        "options": [
+            "Sree Padmanabhaswamy Temple",
+            "Brihadisvara Temple",
+            "Tirupati Temple",
+            "Ramanathaswamy Temple"
+        ],
+        "correctOption": "Sree Padmanabhaswamy Temple"
+    },
+    {
+        "question": "Under which article of the Indian Constitution does High Court issue writs?",
+        "options": [
+            "Article 226",
+            "Article 224",
+            "Article 221",
+            "Article 220"
+        ],
+        "correctOption": "Article 226"
+    },
+    {
+        "question": "The oath of the office of president of India is conducted by the",
+        "options": [
+            "prime minister of India",
+            "chief justice of India",
+            "speaker of the Lok Sabha",
+            "president of India"
+        ],
+        "correctOption": "chief justice of India"
+    },
+    {
+        "question": "Which of the following terms refers to the outer 'square railing' around a Buddhist stupa?",
+        "options": [
+            "Medhi",
+            "Torana",
+            "Vedika",
+            "Chatra"
+        ],
+        "correctOption": "Vedika"
+    },
+    {
+        "question": "How many laws were passed by the Indian Parliament to reform the agriculture marketing system in 2020?",
+        "options": [
+            "4",
+            "5",
+            "3",
+            "0"
+        ],
+        "correctOption": "3"
+    },
+    {
+        "question": "Where is the Desert Festival celebrated in Rajasthan?",
+        "options": [
+            "Jaisalmer",
+            "Ajmer",
+            "Jaipur",
+            "Bikaner"
+        ],
+        "correctOption": "Jaisalmer"
+    },
+    {
+        "question": "Which Union Territory consists of the areas of Agatti, Amini, Kadmat and Chetlat?",
+        "options": [
+            "Ladakh",
+            "Lakshadweep",
+            "Chandigarh",
+            "Andaman and Nicobar Islands"
+        ],
+        "correctOption": "Lakshadweep"
+    },
+    {
+        "question": "Which article of the Constitution of India lays down that 'The executive power of the Union shall be vested in the President'?",
+        "options": [
+            "Article 55",
+            "Article 54",
+            "Article 53",
+            "Article 52"
+        ],
+        "correctOption": "Article 53"
+    },
+    {
+        "question": "A square fence-like enclosure symbolising heaven on the top of the dome of stupa is called",
+        "options": [
+            "Yashti",
+            "Harmika",
+            "Toranas",
+            "Medhi"
+        ],
+        "correctOption": "Harmika"
+    },
+    {
+        "question": "Which schedule of the Constitution of India is related to emoluments, allowances and privileges of the President?",
+        "options": [
+            "Second schedule",
+            "First schedule",
+            "Third schedule",
+            "Fourth schedule"
+        ],
+        "correctOption": "Second schedule"
+    },
+    {
+        "question": "Who among the following was the hero of the Tamil epic Silappadikaram?",
+        "options": [
+            "Nediyon",
+            "Nedunjeliyan",
+            "Kovalan",
+            "Karikal"
+        ],
+        "correctOption": "Kovalan"
+    },
+    {
+        "question": "Which of the following ports of Satavahana was situated on the western coast of India?",
+        "options": [
+            "Sopara",
+            "Koddura",
+            "Kantakassela",
+            "Kotalingala"
+        ],
+        "correctOption": "Sopara"
+    },
+    {
+        "question": "Which of these factors lead to disguised unemployment?",
+        "options": [
+            "Labour intensive economy",
+            "More number of people and a smaller number of jobs",
+            "Limited skills and knowledge"
+        ],
+        "correctOption": "Labour intensive economy, More number of people and a smaller number of jobs, Limited skills and knowledge"
+    },
+    {
+        "question": "The famous Buddhist monument Karle Chaitya is located in",
+        "options": [
+            "Andhra Pradesh",
+            "Karnataka",
+            "Madhya Pradesh",
+            "Maharashtra"
+        ],
+        "correctOption": "Maharashtra"
+    },
+    {
+        "question": "Which of the following is the institution that regulates the share and security market?",
+        "options": [
+            "Unit Trust of India (UTI)",
+            "Mutual Fund (MF)",
+            "Life Insurance Corporation (LIC)",
+            "Security Exchange Board of India (SEBI)"
+        ],
+        "correctOption": "Security Exchange Board of India (SEBI)"
+    },
+    {
+        "question": "Who among the following was an important Huna king?",
+        "options": [
+            "Shashanka",
+            "Simhavishnu",
+            "Menander",
+            "Mihirakula"
+        ],
+        "correctOption": "Mihirakula"
+    },
+    {
+        "question": "Agricultural Marketing process involves:",
+        "options": [
+            "Gathering the produce after harvesting",
+            "Storing the produce for future sale",
+            "Selling the produce when the price is lucrative"
+        ],
+        "correctOption": "Gathering the produce after harvesting, Storing the produce for future sale, Selling the produce when the price is lucrative"
+    },
+    {
+        "question": "The Latin term for 'Other things remaining equal' is",
+        "options": [
+            "Ceteris Paribus",
+            "Mutatis mutandis",
+            "Quid Pro Quo",
+            "Pari passu"
+        ],
+        "correctOption": "Ceteris Paribus"
+    },
+    {
+        "question": "Who among the following was the Chairman of the Fourth Finance Commission of India?",
+        "options": [
+            "KC Pant",
+            "Dr. C Rangarajan",
+            "Dr. Vijay Kelkar",
+            "Dr. PV Rajamannar"
+        ],
+        "correctOption": "Dr. PV Rajamannar"
+    },
+    {
+        "question": "Who was the leader of Young Bengal Movement?",
+        "options": [
+            "David Hare",
+            "James Mill",
+            "Grant Duff",
+            "Henry Derozio"
+        ],
+        "correctOption": "Henry Derozio"
+    },
+    {
+        "question": "Which Article of the Indian Constitution is related to continuance of the right of citizenship?",
+        "options": [
+            "Article 5",
+            "Article 11",
+            "Article 10",
+            "Article 7"
+        ],
+        "correctOption": "Article 10"
+    },
+    {
+        "question": "Which of the following e-governance initiatives has been taken by the government for the comprehensive coverage of the corporate sector both in manufacturing and services by the incorporation of annual accounts of companies?",
+        "options": [
+            "MCA20",
+            "MCA21",
+            "MCA22",
+            "MCA23"
+        ],
+        "correctOption": "MCA21"
+    },
+    {
+        "question": "How many Union Territories have Legislative Assemblies?",
+        "options": [
+            "4",
+            "5"
+        ],
+        "correctOption": "5"
+    },
+    {
+        "question": "Which of the following titles was assumed by the Pushyabhuti king Prabhakarvardhana?",
+        "options": [
+            "Vikramaditya",
+            "Maharajadhiraj",
+            "Devaraja",
+            "Mahendratitya"
+        ],
+        "correctOption": "Maharajadhiraj"
+    },
+    {
+        "question": "What is the cause for income inequalities in India?",
+        "options": [
+            "Concentration of assets in the private sector",
+            "Open economy",
+            "Monopolies",
+            "High income"
+        ],
+        "correctOption": "Concentration of assets in the private sector"
+    },
+    {
+        "question": "Which event occurred immediately after the suppression of the revolt of 1857?",
+        "options": [
+            "Act of 1858",
+            "Setting up Universities",
+            "Amnesty to Indians",
+            "Queen's proclamation"
+        ],
+        "correctOption": "Act of 1858"
+    },
+    {
+        "question": "The Chairman and members of the UPSC hold office",
+        "options": [
+            "until they attain the age of 58 years",
+            "until they attain the age of 62 years",
+            "until they attain the age of 60 years",
+            "until they attain the age of 65 years"
+        ],
+        "correctOption": "until they attain the age of 65 years"
+    },
+    {
+        "question": "Who was the President of the third annual session of Indian National Congress?",
+        "options": [
+            "Badruddin Tyabji",
+            "George Yule",
+            "Surendranath Banerjee",
+            "Pherozeshah Mehta"
+        ],
+        "correctOption": "Badruddin Tyabji"
+    },
+    {
+        "question": "Which of the above pairs is/are correctly matched?",
+        "options": [
+            "Both 1 and 2",
+            "Only 2",
+            "Both 1 and 3",
+            "Only 3"
+        ],
+        "correctOption": "Both 1 and 2"
+    },
+    {
+        "question": "Who among the following was NOT associated with Kakori train robbery case?",
+        "options": [
+            "Shachindra Bakshi",
+            "Keshab Chakravarty",
+            "Ram Prasad Bismil",
+            "Prafulla Chaki"
+        ],
+        "correctOption": "Prafulla Chaki"
+    },
+    {
+        "question": "Who has the power to regulate the right of citizenship?",
+        "options": [
+            "Parliament",
+            "President",
+            "Legislative Assembly",
+            "Legislative Council"
+        ],
+        "correctOption": "Parliament"
+    },
+    {
+        "question": "Who among the following was the court poet of Harshavardhana and composer of Harshacharita?",
+        "options": [
+            "Mayur",
+            "Banbhatta",
+            "Patanjali",
+            "Vatsyayan"
+        ],
+        "correctOption": "Banbhatta"
+    },
+    {
+        "question": "Which Article of the Indian Constitution provides for constitution of the Union Parliament?",
+        "options": [
+            "Article 74",
+            "Article 77",
+            "Article 79",
+            "Article 75"
+        ],
+        "correctOption": "Article 79"
+    },
+    {
+        "question": "Which NBFC-MFI has got merged with Indusind bank in July 2019?",
+        "options": [
+            "Bharat Financial Inclusion Limited",
+            "Janalakshmi Financial Services Private Limited",
+            "Au Financiers (India) Ltd",
+            "Utkarsh Micro Finance Private Ltd"
+        ],
+        "correctOption": "Bharat Financial Inclusion Limited"
+    },
+    {
+        "question": "In which of the following states, is Kurnool, a palaeolithic site situated?",
+        "options": [
+            "Karnataka",
+            "Andhra Pradesh",
+            "Tamil Nadu",
+            "Maharashtra"
+        ],
+        "correctOption": "Andhra Pradesh"
+    },
+    {
+        "question": "Which of the following is a major Palaeolithic site presently situated in the state of Uttar Pradesh?",
+        "options": [
+            "Bhimbetka",
+            "Belan Valley",
+            "Patne",
+            "Nevasa"
+        ],
+        "correctOption": "Belan Valley"
+    },
+    {
+        "question": "Which article of the Constitution of India mentions that there shall be an Attorney General of India?",
+        "options": [
+            "Article 76",
+            "Article 77",
+            "Article 75",
+            "Article 78"
+        ],
+        "correctOption": "Article 76"
+    },
+    {
+        "question": "Which article of the Constitution of India lays down that it shall be the duty of the Prime Minister ‘to communicate to the President all decisions of the Council of Ministers relating to the administration of the affairs of the union and proposals for legislation’?",
+        "options": [
+            "Article 77",
+            "Article 76",
+            "Article 78",
+            "Article 79"
+        ],
+        "correctOption": "Article 78"
+    },
+    {
+        "question": "How is GVA at market price defined?",
+        "options": [
+            "GVA at market prices = GVA at basic prices + Product taxes — Product subsidies",
+            "GVA at market prices = GVA at basic prices + Production taxes — Production subsidies",
+            "GVA at market prices = GVA at factor prices + Product taxes — Product subsidies",
+            "GVA at market price = GVA at factor costs + Production taxes — Production subsidies"
+        ],
+        "correctOption": "GVA at market prices = GVA at basic prices + Product taxes — Product subsidies"
+    },
+    {
+        "question": "Which of the following is a Non-Banking Financial Company?",
+        "options": [
+            "Muthoot Finance Limited",
+            "Axis Bank",
+            "State Bank of India",
+            "Housing Development Finance Corporation"
+        ],
+        "correctOption": "Muthoot Finance Limited"
+    },
+    {
+        "question": "The Gupta empire was divided into provinces known as",
+        "options": [
+            "Bhukti",
+            "Vishaya",
+            "Vithi",
+            "Uparika"
+        ],
+        "correctOption": "Bhukti"
+    },
+    {
+        "question": "The basic identity of GDP is",
+        "options": [
+            "GDP = Consumption + Investment + Government Spending + (exports + imports)",
+            "GDP = Consumption + Investment + Government Spending - (net export)",
+            "GDP = Consumption + Investment + Government Spending + (exports - imports)",
+            "GDP = Consumption + Investment + Government Spending - (exports — imports)"
+        ],
+        "correctOption": "GDP = Consumption + Investment + Government Spending + (exports - imports)"
+    },
+    {
+        "question": "The PLI scheme for the food processing industry was approved in March 2021, with a budget outlay of 10,900 crore. PLI stands for",
+        "options": [
+            "Performance Linked Investment",
+            "Production Linked Incentive",
+            "Performance Linked Incentive",
+            "Production Linked Investment"
+        ],
+        "correctOption": "Production Linked Incentive"
+    },
+    {
+        "question": "Satyashodhak Samaj was formed by in 1873.",
+        "options": [
+            "Ramakrishna Paramahamsa",
+            "Jyotirao Phule",
+            "Dadabhai Naoroji",
+            "Karsandas Mulji"
+        ],
+        "correctOption": "Jyotirao Phule"
+    },
+    {
+        "question": "Who among the following was the father of King Harshavardhana?",
+        "options": [
+            "Rajyavardhana",
+            "Adityavardhana",
+            "Naravardhana",
+            "Prabhakaravardhana"
+        ],
+        "correctOption": "Prabhakaravardhana"
+    },
+    {
+        "question": "The hold of which dynasty over Gandhara led to the development of the Gandhara school of art?",
+        "options": [
+            "Mauryan",
+            "Parthians",
+            "Kushans",
+            "Indo-Greeks"
+        ],
+        "correctOption": "Kushans"
+    },
+    {
+        "question": "Who was/were the member(s) of the Cabinet Mission sent to India?",
+        "options": [
+            "Stafford Cripps",
+            "Pethick Lawrence",
+            "AV Alexander"
+        ],
+        "correctOption": "All1,2and3"
+    },
+    {
+        "question": "According to the latest NSSO data for the year 2004-05, poverty level in India has come down to:",
+        "options": [
+            "21.9 percent",
+            "21.8 percent",
+            "21.11 percent",
+            "21.7 percent"
+        ],
+        "correctOption": "21.8 percent"
+    },
+    {
+        "question": "Which of the following statements is/are correct about Satya Shodhak Samaj?",
+        "options": [
+            "Only 1 is correct",
+            "Only 2 is correct",
+            "1, 2 and 3 are correct",
+            "Only 2 and 3 are correct"
+        ],
+        "correctOption": "Only 2 is correct"
+    },
+    {
+        "question": "The classical analysis of determination of output and employment is characterized as:",
+        "options": [
+            "Dynamic Analysis",
+            "Comparative Dynamic Analysis",
+            "Static Analysis",
+            "Comparative Static Analysis"
+        ],
+        "correctOption": "Static Analysis"
+    },
+    {
+        "question": "Which of the following methods considers the value of all goods and services produced during a particular period of time to estimate the Gross Domestic Product?",
+        "options": [
+            "Consumption method",
+            "Income method",
+            "Product method",
+            "Expenditure method"
+        ],
+        "correctOption": "Product method"
+    },
+    {
+        "question": "Consumption function explains:",
+        "options": [
+            "The inverse relationship between income and consumption",
+            "The relationship between demand and supply",
+            "The direct relationship between current consumption and previous consumption",
+            "The direct relationship between income and consumption"
+        ],
+        "correctOption": "The direct relationship between income and consumption"
+    },
+    {
+        "question": "What is the degree of the aggregate supply curve at the macroeconomic equilibrium position?",
+        "options": [
+            "1.45",
+            "2.30",
+            "3.120",
+            "4.90"
+        ],
+        "correctOption": "1.45"
+    },
+    {
+        "question": "Who among the following founded the Shunga dynasty?",
+        "options": [
+            "Vasujyestha Shunga",
+            "Pushyamitra Shunga",
+            "Devabhuti Shunga",
+            "Pulindaka Shunga"
+        ],
+        "correctOption": "Pushyamitra Shunga"
+    },
+    {
+        "question": "In 1856, Governor-General Canning decided that would be the last Mughal king and after his death none of his descendants would be recognized as kings - they would just be called princes. Who was this last Mughal king?",
+        "options": [
+            "Bahadur Shah Zafar",
+            "Muhammad Azam Shah",
+            "Muhammed Shah",
+            "Ahmad Shah Bahadur"
+        ],
+        "correctOption": "Bahadur Shah Zafar"
+    },
+    {
+        "question": "According to the Phillips curve, which of the following is true?",
+        "options": [
+            "There is a positive relationship between inflation and unemployment in the long run",
+            "There is a negative relationship between inflation and unemployment in the long run",
+            "There is a positive relationship between inflation and unemployment in the short run",
+            "There is a negative relationship between inflation and unemployment in the short run"
+        ],
+        "correctOption": "There is a negative relationship between inflation and unemployment in the short run"
+    },
+    {
+        "question": "Which of the following institutions provides financial aid to developing countries of Asia?",
+        "options": [
+            "Asian Development Bank",
+            "Association of Southeast Asian Nations",
+            "World Bank",
+            "International Development Association"
+        ],
+        "correctOption": "Asian Development Bank"
+    },
+    {
+        "question": "If the total output produced is 180 units by employing 3 workers, what will be the average product of labor?",
+        "options": [
+            "90",
+            "180",
+            "60",
+            "120"
+        ],
+        "correctOption": "60"
+    },
+    {
+        "question": "What are unsold goods due to an unexpected fall in sales?",
+        "options": [
+            "Unplanned accumulation of inventories",
+            "Planned accumulation of inventories",
+            "Unplanned documentation of inventories",
+            "Planned documentation of inventories"
+        ],
+        "correctOption": "Unplanned accumulation of inventories"
+    },
+    {
+        "question": "Which of the following additions to the stock of physical capital changes in the inventory of a producer?",
+        "options": [
+            "Consumption",
+            "Depreciation",
+            "Income",
+            "Investment"
+        ],
+        "correctOption": "Investment"
+    },
+    {
+        "question": "In 1909, who among the following declared that British rule was established in India with the cooperation of Indians and had survived only because of this cooperation?",
+        "options": [
+            "Mahatma Gandhi",
+            "Dadabhai Naoroji",
+            "Bipin Chandra Pal",
+            "Pherozeshah Mehta"
+        ],
+        "correctOption": "Mahatma Gandhi"
+    },
+    {
+        "question": "Who among the following rulers moved his capital from Thaneshwar to Kannauj?",
+        "options": [
+            "Harshavardhana",
+            "Grahavarman",
+            "Shashanka",
+            "Rajyavardhana"
+        ],
+        "correctOption": "Harshavardhana"
+    },
+    {
+        "question": "When were the first Palaeolithic tools discovered in India?",
+        "options": [
+            "1858",
+            "1863",
+            "1843",
+            "1872"
+        ],
+        "correctOption": "1863"
+    },
+    {
+        "question": "In which year did the Government of India target the quantum of agricultural credit and subsidy was the highest?",
+        "options": [
+            "2009-10",
+            "2008-09",
+            "2020-21",
+            "2023-24"
+        ],
+        "correctOption": "2023-24"
+    },
+    {
+        "question": "Which of the following statements is NOT correct about the women workers in India?",
+        "options": [
+            "Many household activities done by women are not recognized as productive work",
+            "Women's work is not recognized in society",
+            "Most of the women are less interested in work",
+            "Other family members discourage female members from taking up jobs"
+        ],
+        "correctOption": "Most of the women are less interested in work"
+    },
+    {
+        "question": "Which programme was announced in the budget 2023 to encourage behavioral change and incentivize environmentally responsible and sustainable actions?",
+        "options": [
+            "Go Green Initiative Programme",
+            "Green Credit Programme",
+            "Green Revolution Programme",
+            "Green GDP Programme"
+        ],
+        "correctOption": "Green Credit Programme"
+    },
+    {
+        "question": "Attirampakkam is a Palaeolithic site located in",
+        "options": [
+            "Kerala",
+            "Tamil Nadu",
+            "Andhra Pradesh",
+            "Telangana"
+        ],
+        "correctOption": "Tamil Nadu"
+    },
+    {
+        "question": "Which among the following titles was used by the Kushana Kings?",
+        "options": [
+            "Vikramaditya",
+            "Chakravarti",
+            "Devaputra",
+            "Maharaja Dhiraja"
+        ],
+        "correctOption": "Devaputra"
+    },
+    {
+        "question": "What was launched on 12 November 2021 to provide one-stop access to facilitate investment in government securities by retail investors?",
+        "options": [
+            "Retail Direct Gilt Holder Scheme",
+            "RBL Retail Direct Scheme",
+            "Request for Trade Scheme",
+            "RBI Negotiated Dealing Scheme"
+        ],
+        "correctOption": "RBL Retail Direct Scheme"
+    },
+    {
+        "question": "The federal structure of Indian polity rests on the principle of parliamentary form of government which makes the executive accountable to the:",
+        "options": [
+            "Legislature",
+            "President",
+            "Legislative Council",
+            "Legislative Assembly"
+        ],
+        "correctOption": "Legislature"
+    },
+    {
+        "question": "Which of the following statements is INCORRECT about the Gupta empire?",
+        "options": [
+            "The Kumaramatyas were the high-level central officers of the empire",
+            "The seal with the imprint of Garuda was used in royal affairs",
+            "They started the practice of donating tax-free land to the priests",
+            "The Gupta rulers issued the maximum numbers of gold coins called ‘dinar’"
+        ],
+        "correctOption": "They started the practice of donating tax-free land to the priests"
+    },
+    {
+        "question": "To introduce a public bill in the parliament, the house (either Lok Sabha or Rajya Sabha) requires a prior notice of how many days?",
+        "options": [
+            "30",
+            "15",
+            "21",
+            "7"
+        ],
+        "correctOption": "7"
+    },
+    {
+        "question": "Which of the following is a permanent payroll worker?",
+        "options": [
+            "Casual worker",
+            "Hired worker",
+            "Self-employed worker",
+            "Regular worker"
+        ],
+        "correctOption": "Regular worker"
+    },
+    {
+        "question": "Who among the following Chalukya kings defeated Harshavardhana on the banks of river Narmada?",
+        "options": [
+            "Kirtivarmana II",
+            "Mangalesha",
+            "Pulakeshin II",
+            "Vikramaditya II"
+        ],
+        "correctOption": "Pulakeshin II"
+    },
+    {
+        "question": "Which of the following financial institutes was established in India to foster rural prosperity?",
+        "options": [
+            "IFCL",
+            "NABARD",
+            "NCGTC",
+            "SIDBI"
+        ],
+        "correctOption": "NABARD"
+    },
+    {
+        "question": "Which categories of persons are NOT considered in the category of Indian citizens?",
+        "options": [
+            "Persons granted asylum in India",
+            "Persons of Indian origin living abroad",
+            "Persons born in India to foreign diplomats",
+            "Persons living in India for more than 10 years without proper documentation"
+        ],
+        "correctOption": "Persons born in India to foreign diplomats"
+    },
+    {
+        "question": "Who was the first ruler of Gupta dynasty who took the title of Maharajadhiraja (king of kings)?",
+        "options": [
+            "Kumaragupta",
+            "Skandagupta",
+            "Srigupta",
+            "Chandragupta I"
+        ],
+        "correctOption": "Chandragupta I"
+    },
+    {
+        "question": "Samudragupta is referred to as Lichchhavi-dauhitra in which of the following?",
+        "options": [
+            "Deopara Prashasti",
+            "Allahabad Prashasti",
+            "Mandsaur inscription",
+            "Velvikudi inscription"
+        ],
+        "correctOption": "Allahabad Prashasti"
+    },
+    {
+        "question": "In which of the following years was the Bombay Presidency Association established with the aim of awakening national consciousness?",
+        "options": [
+            "1889",
+            "1880",
+            "1885",
+            "1882"
+        ],
+        "correctOption": "1885"
+    },
+    {
+        "question": "The fossil of a human ancestor from South Asia on the banks of the Narmada was found at which place in Madhya Pradesh?",
+        "options": [
+            "Hathnora",
+            "Shatgwari",
+            "Bindrai",
+            "Kehalpur"
+        ],
+        "correctOption": "Hathnora"
+    },
+    {
+        "question": "Which of the following indicate rural development?",
+        "options": [
+            "More rural bank branches",
+            "Construction of rural roads",
+            "Construction of toilets for every household in rural areas"
+        ],
+        "correctOption": "Both 1, 2 and 3"
+    },
+    {
+        "question": "Who among the following started ‘Nibandhmala’, a monthly Marathi magazine, devoted to the cause of social reform, in 1874?",
+        "options": [
+            "Narayan Mahadev Parmanand",
+            "Gopal Ganesh Agarkar",
+            "Ramkrishna Gopal Bhandarkar",
+            "Vishnushastri Chiplunkar"
+        ],
+        "correctOption": "Vishnushastri Chiplunkar"
+    },
+    {
+        "question": "Which articles of the Indian Constitution mention special provisions relating to certain classes?",
+        "options": [
+            "Article 343 to 351 in part XVII",
+            "Article 324 to 329A in part XV",
+            "Article 52 to 151 in part V",
+            "Article 330 to 342 in part XVI"
+        ],
+        "correctOption": "Article 330 to 342 in part XVI"
+    },
+    {
+        "question": "Palaeolithic tools were found around which of the following rivers in Rajasthan?",
+        "options": [
+            "Luni",
+            "Tons",
+            "Panjnad",
+            "Belan"
+        ],
+        "correctOption": "Luni"
+    },
+    {
+        "question": "The Asian Cricket Council (ACC) has extended the tenure of as president till 2024.",
+        "options": [
+            "Ramiz Raza",
+            "Chaminda vas",
+            "Jay Shah",
+            "Ali Murtaza"
+        ],
+        "correctOption": "Jay Shah"
+    },
+    {
+        "question": "Fill in the blank: The book titled ________ written by Mridula Ramesh, the founder of the Sundaram Climate Institute deals with the water crisis in India.",
+        "options": [
+            "Watershed - How We Destroyed India’s Water and How We Can Save It",
+            "The Politics and Poetics of Water: The Naturalisation of Scarcity in Western India",
+            "Water: The Looming Crisis in India",
+            "Towards Water Wisdom: Limits, Justice, Harmony"
+        ],
+        "correctOption": "Watershed - How We Destroyed India’s Water and How We Can Save It"
+    },
+    {
+        "question": "Which of the following statements about Sangam literature is NOT correct?",
+        "options": [
+            "The book Tolkappiyam is encyclopaedic in range as it covers rhetoric and prosody",
+            "According to the tradition, three Sangams flourished in the Pandyan kingdom",
+            "The famous work, Tolkappiyam, was composed in the third Sangam",
+            "None of the works of the first Sangam is available"
+        ],
+        "correctOption": "The famous work, Tolkappiyam, was composed in the third Sangam"
+    },
+    {
+        "question": "Which of the following two union territories are merged as one?",
+        "options": [
+            "Daman and Diu and Andaman and Nicobar Islands",
+            "Andaman and Nicobar Islands and Puducherry",
+            "Dadra and Nagar Haveli and Daman and Diu",
+            "Lakshadweep and Andaman and Nicobar Islands"
+        ],
+        "correctOption": "Dadra and Nagar Haveli and Daman and Diu"
+    },
+    {
+        "question": "Which of the following sectors shows a negative growth in new loans by SCBs in 2020-21?",
+        "options": [
+            "Services",
+            "Agriculture",
+            "Industry",
+            "Personal loans"
+        ],
+        "correctOption": "Industry"
+    },
+    {
+        "question": "As of July 2022, how many districts are there in Chandigarh?",
+        "options": [
+            "101",
+            "22",
+            "33",
+            "44"
+        ],
+        "correctOption": "33"
+    },
+    {
+        "question": "Which Article of the Indian Constitution is related to the Election Commission of India?",
+        "options": [
+            "Article 280",
+            "Article 324",
+            "Article 315",
+            "Article 52"
+        ],
+        "correctOption": "Article 324"
+    },
+    {
+        "question": "Which Article of the Constitution of India lays down that ‘There shall be a Parliament consisting of two Houses to be known respectively as the Council of States and the House of the People’?",
+        "options": [
+            "Article 78",
+            "Article 80",
+            "Article 77",
+            "Article 79"
+        ],
+        "correctOption": "Article 79"
+    },
+    {
+        "question": "The Palaeolithic site Singi Talav is found in which state of India?",
+        "options": [
+            "Madhya Pradesh",
+            "Haryana",
+            "Rajasthan",
+            "Gujarat"
+        ],
+        "correctOption": "Rajasthan"
+    },
+    {
+        "question": "To regulate liquidity in the economy, at Reserve Bank of India (RBI) lends money to commercial banks.",
+        "options": [
+            "Discount rate",
+            "Repo rate",
+            "Reverse repo rate",
+            "Bank rate"
+        ],
+        "correctOption": "Repo rate"
+    },
+    {
+        "question": "What is the prime objective of financial institutions in India?",
+        "options": [
+            "Economic development of consumers",
+            "Economic development of a foreign country",
+            "Economic development of private institutions",
+            "Economic development of the country"
+        ],
+        "correctOption": "Economic development of the country"
+    },
+    {
+        "question": "Hartog Commission appointed in 1929 was concerned with the reforms in which of the following areas?",
+        "options": [
+            "Famine",
+            "Education",
+            "Labour",
+            "Banking"
+        ],
+        "correctOption": "Education"
+    },
+    {
+        "question": "Which of the following is NOT a fundamental right guaranteed to Indian citizens?",
+        "options": [
+            "Right to equality",
+            "Right to assemble peacefully",
+            "Right to property",
+            "Right to freedom of speech and expression"
+        ],
+        "correctOption": "Right to property"
+    },
+    {
+        "question": "With reference to the provisions regarding Indian citizenship at the commencement of the Constitution as per Article 5 of the Constitution of India, which of the following statements is/are correct?",
+        "options": [
+            "Only 1 and 2",
+            "Only 1 and 3",
+            "Only 1",
+            "Only 2 and 3"
+        ],
+        "correctOption": "Only 1 and 3"
+    },
+    {
+        "question": "Who was the minister that killed the last Sunga king Devabhuti?",
+        "options": [
+            "Vasudeva",
+            "Bhumimitra",
+            "Vashumitra",
+            "Susarman"
+        ],
+        "correctOption": "Vasudeva"
+    },
+    {
+        "question": "According to Xuan Zang, Harshvardhana was a follower of",
+        "options": [
+            "Svetambara Jainism",
+            "Hinyana Buddhism",
+            "Mahayana Buddhism",
+            "Digambara Jainism"
+        ],
+        "correctOption": "Mahayana Buddhism"
+    },
+    {
+        "question": "Which of the following was the capital of the kingdom of the Pallavas?",
+        "options": [
+            "Badami",
+            "Kanchipuram",
+            "Ellora",
+            "Kannauj"
+        ],
+        "correctOption": "Kanchipuram"
+    },
+    {
+        "question": "The orthodox Hindus organised a ‘Dharma Sabha’, to counter the propaganda of Brahmo Samaj, under the leadership of:",
+        "options": [
+            "Debendranath Tagore",
+            "Radhakanta Deb",
+            "Keshub Chandra Sen",
+            "Ram Mohan Roy"
+        ],
+        "correctOption": "Radhakanta Deb"
+    },
+    {
+        "question": "Identify the year in which the National Food Security Mission was introduced.",
+        "options": [
+            "2010-11",
+            "2001-02",
+            "2020-21",
+            "2007-08"
+        ],
+        "correctOption": "2007-08"
+    },
+    {
+        "question": "During the period 1950-2010, employment grew at the rate of",
+        "options": [
+            "More than 5%",
+            "Not more than 2%",
+            "More than 4%",
+            "Not more than 5%"
+        ],
+        "correctOption": "Not more than 2%"
+    },
+    {
+        "question": "Which of the following development programs receives 100 per cent funding as a centrally sponsored scheme from the Government of India?",
+        "options": [
+            "Jawahar Yojana",
+            "Child Development",
+            "Rashtriya Krishi Vikas Yojana",
+            "Women Development"
+        ],
+        "correctOption": "Rashtriya Krishi Vikas Yojana"
+    },
+    {
+        "question": "Profit is the difference between:",
+        "options": [
+            "Revenue and cost",
+            "Direct and indirect tax",
+            "Value of inputs and taxes",
+            "Gross and net cost"
+        ],
+        "correctOption": "Revenue and cost"
+    },
+    {
+        "question": "In August 2005, the Parliament passed a new Act to provide guaranteed wage employment to every rural household whose adult volunteer is to do unskilled manual work for a minimum of 100 days in a year. This is known as",
+        "options": [
+            "Mahatma Gandhi National Rural Employment Guarantee Act",
+            "Samridh Relief and Employment Guarantee Act",
+            "Mahatma Gandhi National Relief and Employment Generation Act",
+            "National Rural Employment Generation Act"
+        ],
+        "correctOption": "Mahatma Gandhi National Rural Employment Guarantee Act"
+    },
+    {
+        "question": "Under Article 280 of the Indian Constitution, the President of India constitutes the:",
+        "options": [
+            "National Commission for BC",
+            "Planning Commission",
+            "Finance Commission",
+            "National Commission for ST/SC"
+        ],
+        "correctOption": "Finance Commission"
+    },
+    {
+        "question": "In the Ayodhya inscription of___, Pushyamitra Sunga is credited with the performance of two Asvamedha sacrifices.",
+        "options": [
+            "Dhanadeva",
+            "Devabhuti",
+            "Menander",
+            "Vasumitra"
+        ],
+        "correctOption": "Dhanadeva"
+    },
+    {
+        "question": "If a firm’s average total cost is 60, then its average variable cost will be",
+        "options": [
+            "More than 760",
+            "More than 690",
+            "Less than 660",
+            "Between 660 to 790"
+        ],
+        "correctOption": "Less than 660"
+    },
+    {
+        "question": "National Income is often calculated as:",
+        "options": [
+            "NDP at MP",
+            "NNP at FC",
+            "GNP at FC",
+            "GDP at MP"
+        ],
+        "correctOption": "NNP at FC"
+    },
+    {
+        "question": "Which of the following is true about the multiplier effect?",
+        "options": [
+            "It occurs when an initial change in spending leads to a larger change in output and income.",
+            "It occurs only when there is a balanced budget.",
+            "It occurs only in closed economies.",
+            "It occurs only when the government intervenes in the economy."
+        ],
+        "correctOption": "It occurs when an initial change in spending leads to a larger change in output and income."
+    },
+    {
+        "question": "Match List I with List II and identify the correct option.",
+        "options": [
+            "1-(D); 2-(A); 3-(C); 4-(B)",
+            "1-(D); 2-(A); 3-(B); 4-(C)",
+            "1-(C); 2-(A); 3-(D); 4-(B)",
+            "1-(A); 2-(C); 3-(B); 4-(D)"
+        ],
+        "correctOption": "1-(C); 2-(A); 3-(D); 4-(B)"
+    },
+    {
+        "question": "Which of the following dynasties was succeeded by the Ikshvaku dynasty in the Deccan region of Ancient India?",
+        "options": [
+            "Pala Dynasty",
+            "Kushana Dynasty",
+            "Sena Dynasty",
+            "Satavahana Dynasty"
+        ],
+        "correctOption": "Satavahana Dynasty"
+    },
+    {
+        "question": "Which of the following is included in the national income accounting?",
+        "options": [
+            "Intermediate goods that have been turned into final goods",
+            "Transfer payments",
+            "Intermediate goods that have not yet been used in final goods",
+            "Non-market activities"
+        ],
+        "correctOption": "Intermediate goods that have not yet been used in final goods"
+    },
+    {
+        "question": "Who among the following is NOT a participant in the Money Market?",
+        "options": [
+            "Mutual Funds",
+            "SEBI",
+            "NBFCs",
+            "RBI"
+        ],
+        "correctOption": "SEBI"
+    },
+    {
+        "question": "Who among the following is considered as the Father of the Renaissance Movement in Andhra Pradesh?",
+        "options": [
+            "Tanguturi Prakasam Panthulu",
+            "Veeresalingam Kandukuri",
+            "Kapilavai Lingamurthy",
+            "Viswanatha Satyanarayana"
+        ],
+        "correctOption": "Veeresalingam Kandukuri"
+    },
+    {
+        "question": "Who among the following was NOT a founder of a religious association called the Rahnumai Mazdayasnan Sabha?",
+        "options": [
+            "KT Telang",
+            "SS Bengalee",
+            "Dadabhai Naoroji",
+            "Naoroji Furdunji"
+        ],
+        "correctOption": "KT Telang"
+    },
+    {
+        "question": "Which of the following Chalukya kings defeated Harshavardhana?",
+        "options": [
+            "Pulakeshin II",
+            "Kirttivarman",
+            "Pulakeshin",
+            "Kirttivarman II"
+        ],
+        "correctOption": "Pulakeshin II"
+    },
+    {
+        "question": "In 2017 National Statistical Office (NSO) launched a new survey called PLFS for employment and unemployment situation in India. What does P stand for in PLFS?",
+        "options": [
+            "Periodically",
+            "Provisional",
+            "People",
+            "Periodic"
+        ],
+        "correctOption": "Periodic"
+    },
+    {
+        "question": "The archaeological site of Daimabad is located in the state of",
+        "options": [
+            "Rajasthan",
+            "Madhya Pradesh",
+            "Odisha",
+            "Maharashtra"
+        ],
+        "correctOption": "Maharashtra"
+    },
+    {
+        "question": "Who among the following Indo Scythians ruler issued coins with the title ‘King of Kings’?",
+        "options": [
+            "Spalirises",
+            "Maues",
+            "Azes",
+            "Azes II"
+        ],
+        "correctOption": "Azes"
+    },
+    {
+        "question": "A worker working on daily wages is known as a",
+        "options": [
+            "Self-employed worker",
+            "Regular worker",
+            "Rural worker",
+            "Casual worker"
+        ],
+        "correctOption": "Casual worker"
+    },
+    {
+        "question": "When was the first global multi-dimensional poverty index released?",
+        "options": [
+            "2000",
+            "1990",
+            "2010",
+            "2020"
+        ],
+        "correctOption": "2010"
+    },
+    {
+        "question": "Who among the following was a Saka ruler who repaired the embankments of the lake SudarSana that was constructed by the Mauryas for checking floods?",
+        "options": [
+            "Bhumaka",
+            "Nahapana",
+            "Chastana",
+            "Rudradaman"
+        ],
+        "correctOption": "Rudradaman"
+    },
+    {
+        "question": "Which of the following costs is defined as the value of a factor in its next best alternative use?",
+        "options": [
+            "Real cost",
+            "Implicit cost",
+            "Explicit cost",
+            "Opportunity cost"
+        ],
+        "correctOption": "Opportunity cost"
+    },
+    {
+        "question": "Who was the Viceroy of India when the Indian National Congress was founded?",
+        "options": [
+            "Lord Auckland",
+            "Lord Dufferin",
+            "Lord Minto",
+            "Lord Curzon"
+        ],
+        "correctOption": "Lord Dufferin"
+    },
+    {
+        "question": "Which king adopted the title of ‘Parameshvara’ after defeating Harshavardhana?",
+        "options": [
+            "Krishna I",
+            "Rudrasena II",
+            "Pulakesin II",
+            "Devgupta"
+        ],
+        "correctOption": "Pulakesin II"
+    },
+    {
+        "question": "The famous tribal revolt known as the of 1922 was led by Alluri Sitarama Raju.",
+        "options": [
+            "Munda Rebellion",
+            "Santhal Rebellion",
+            "Rampa Rebellion",
+            "Bhil Rebellion"
+        ],
+        "correctOption": "Rampa Rebellion"
+    },
+    {
+        "question": "Normally, sessions of Parliament are held in a year.",
+        "options": [
+            "6",
+            "2",
+            "4",
+            "3"
+        ],
+        "correctOption": "3"
+    },
+    {
+        "question": "What does the ‘Mahotsav’ of ‘Azadi ka Amrit Mahotsav’ indicate?",
+        "options": [
+            "1.75 years of independence of progressive India",
+            "60 years of independence of progressive India",
+            "70 years of independence of progressive India",
+            "50 years of independence of progressive India"
+        ],
+        "correctOption": "1.75 years of independence of progressive India"
+    },
+    {
+        "question": "For how many days is the Hemis festival held?",
+        "options": [
+            "Two",
+            "Seven",
+            "One",
+            "Four"
+        ],
+        "correctOption": "Two"
+    },
+    {
+        "question": "Among the various committees of the Constituent Assembly, who headed the Union Powers Committee?",
+        "options": [
+            "Dr. Rajendra Prasad",
+            "Dr. BR Ambedkar",
+            "Pandit Jawaharlal Nehru",
+            "Sardar Vallabhbhai Patel"
+        ],
+        "correctOption": "Pandit Jawaharlal Nehru"
+    },
+    {
+        "question": "Which of the following best describes the term ‘monolithic’ in the context of Indian temple architecture?",
+        "options": [
+            "Buildings that are made of well-baked bricks",
+            "Buildings that are carved out using multiple pieces of stones",
+            "Buildings that are made using mud and soil",
+            "Buildings that are carved out of a huge, single piece of stone"
+        ],
+        "correctOption": "Buildings that are carved out of a huge, single piece of stone"
+    },
+    {
+        "question": "Fort Saint George, situated in the state of Tamil Nadu, was built by the",
+        "options": [
+            "French",
+            "British",
+            "Portuguese",
+            "Dutch"
+        ],
+        "correctOption": "British"
+    },
+    {
+        "question": "As of December 2022, which of the following languages is NOT a part of the Eighth Schedule of the Indian Constitution?",
+        "options": [
+            "Santhali",
+            "Dogri",
+            "Khortha",
+            "Maithili"
+        ],
+        "correctOption": "Khortha"
+    },
+    {
+        "question": "The red sandstone tomb of Sher Shah Suri, built in 1545 CE, is present in which of the following states of India?",
+        "options": [
+            "Rajasthan",
+            "Uttar Pradesh",
+            "Bihar",
+            "Madhya Pradesh"
+        ],
+        "correctOption": "Bihar"
+    },
+    {
+        "question": "The main patrons of the Amravati Art form were the",
+        "options": [
+            "Satavahanas",
+            "Shakas",
+            "Chedis",
+            "Kushanas"
+        ],
+        "correctOption": "Satavahanas"
+    },
+    {
+        "question": "In June 2023, flash floods wreaked havoc in the city of Manali. In which state is Manali located?",
+        "options": [
+            "Himachal Pradesh",
+            "Uttarakhand",
+            "Sikkim",
+            "Arunachal Pradesh"
+        ],
+        "correctOption": "Himachal Pradesh"
+    },
+    {
+        "question": "In which of the following years was IFCI, the first development bank in India, established?",
+        "options": [
+            "1948",
+            "1964",
+            "1969",
+            "1956"
+        ],
+        "correctOption": "1948"
+    },
+    {
+        "question": "Which of the following is the feature of poverty in India?",
+        "options": [
+            "Starvation and good living standard",
+            "Starvation and hunger",
+            "Unhealthy food and stable employment",
+            "Hunger and good healthy food"
+        ],
+        "correctOption": "Starvation and hunger"
+    },
+    {
+        "question": "When C = 100 + 0.4Y, what would be the autonomous consumption at Y = 200?",
+        "options": [
+            "0",
+            "180",
+            "80",
+            "100"
+        ],
+        "correctOption": "100"
+    },
+    {
+        "question": "Which two water sports were included for the first time in the Khelo India Youth Games during its 5th edition held in Madhya Pradesh from 30 January 2023 to 11 February 2023?",
+        "options": [
+            "Snorkelling and diving",
+            "Water polo and sailing",
+            "Kayaking and canoeing",
+            "Surfing and wakeboarding"
+        ],
+        "correctOption": "Kayaking and canoeing"
+    },
+    {
+        "question": "Which group of animal symbols or icons is a part of the original national emblem of India?",
+        "options": [
+            "Cow, Peacock, Tiger and Horse",
+            "Crocodile, Lion, Cow and Parrot",
+            "Lion, Elephant, Bull and Horse",
+            "Buffalo, Blackbuck, Bull and Tiger"
+        ],
+        "correctOption": "Lion, Elephant, Bull and Horse"
+    },
+    {
+        "question": "Match the Indian National Congress’ sessions in column A with their respective presidents in column B.",
+        "options": [
+            "a. Calcutta session of 1886 - iii. Dadabhai Naoroji",
+            "b. Lahore session of 1929 - iv. Jawaharlal Nehru",
+            "c. Belgaum session of 1924 - ii. Mahatma Gandhi",
+            "d. Tripuri session of 1939 - i. Subhas Chandra Bose"
+        ],
+        "correctOption": "a. Calcutta session of 1886 - iii. Dadabhai Naoroji"
+    },
+    {
+        "question": "Who among the following personalities was a lawyer by profession and the co-founder of the Swaraj Party?",
+        "options": [
+            "Bal Gangadhar Tilak",
+            "Chittaranjan Das",
+            "Subhash ChandrayBose",
+            "Chandra Shekhar Azad"
+        ],
+        "correctOption": "Chittaranjan Das"
+    },
+    {
+        "question": "The blending of Greek and Indian Art led to the development of which art?",
+        "options": [
+            "Mauryan",
+            "Gandhara",
+            "Mathura",
+            "Amravati"
+        ],
+        "correctOption": "Gandhara"
+    },
+    {
+        "question": "Which Indian Cricketer won the Player of the Match award in the final match of the ICC Women’s Under-19 T20 Cricket World Cup held in January, 2023?",
+        "options": [
+            "Hrishita Basu",
+            "Mannat Kashyap",
+            "Titas Sadhu",
+            "Sonia Mendhiya"
+        ],
+        "correctOption": "Titas Sadhu"
+    },
+    {
+        "question": "In which year was the Commonwealth citizenship, provided under the Citizen’s Act, repealed?",
+"options": [
+"2003",
+"2014",
+"2000",
+"2009"
+],
+"correctOption": "2003"
+},
+{
+"question": "Who among the following did NOT participate in the Second Round Table Conference?",
+"options": [
+"Mohammed Ali Jinnah",
+"Pattabhi Sitaramayya",
+"CY Chintamani",
+"CP Ramaswami lyer"
+],
+"correctOption": "Pattabhi Sitaramayya"
+},
+{
+"question": "On 20th March 1919, a Khilafat Committee was formed in which city?",
+"options": [
+"New Delhi",
+"Bombay",
+"Allahabad",
+"Nagpur"
+],
+"correctOption": "Bombay"
+},
+{
+"question": "Which Constitutional Amendment Act has granted a special status to the Union Territory of Delhi?",
+"options": [
+"71st Constitutional Amendment Act",
+"68th Constitutional Amendment Act",
+"69th Constitutional Amendment Act",
+"70th Constitutional Amendment Act"
+],
+"correctOption": "69th Constitutional Amendment Act"
+},
+{
+"question": "If a money bill passed by the Lok Sabha and transmitted to the Rajya Sabha for its recommendations is not returned to it within days, it is deemed to have been passed by both the Houses at the expiry of the said period in the original form.",
+"options": [
+"28",
+"30",
+"14",
+"21"
+],
+"correctOption": "14"
+},
+{
+"question": "Who among the following is the MD and CEO of the Punjab and Sind Bank, as of August 2021?",
+"options": [
+"Dinesh Kumar Khara",
+"Atul Kumar Goel",
+"Rajkiran Rai G",
+"S Krishnan"
+],
+"correctOption": "S Krishnan"
+},
+{
+"question": "Which of the following institutions launched the first mutual fund in India with the support of the Government of India and the RBI?",
+"options": [
+"HDFC Bank",
+"UTI",
+"SEBI",
+"NABARD"
+],
+"correctOption": "UTI"
+},
+{
+"question": "In which year was the Interstate Council set up by a Presidential order?",
+"options": [
+"1999",
+"2017",
+"1990",
+"2008"
+],
+"correctOption": "1990"
+},
+{
+"question": "Who among the following is called the Head of the Government in the Union Executive?",
+"options": [
+"Speaker of the Lok Sabha",
+"Vice President of India",
+"Prime Minister of India",
+"President of India"
+],
+"correctOption": "Prime Minister of India"
+},
+{
+"question": "Which Article of the Indian Constitution gives powers to the Parliament to regulate the right of citizenship by law?",
+"options": [
+"Article 11",
+"Article 6",
+"Article 5",
+"Article 8"
+],
+"correctOption": "Article 11"
+},
+{
+"question": "The pillar inscription of king Ashoka, on which the commendation of Gupta emperor Samudragupta was inscribed by his minister Harisena, was situated at which of the following cities of ancient India?",
+"options": [
+"Meerut",
+"Rampurva",
+"Prayagraj",
+"Topra"
+],
+"correctOption": "Prayagraj"
+},
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>
