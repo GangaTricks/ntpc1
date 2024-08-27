@@ -1,0 +1,4401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Demand and Supply</title>
+			<script src="../../urlRewrite.js"></script>
+		<link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">
+  
+   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+  
+  
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Demand and Supply | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+ const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'economicsdemandandsupply';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+       const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+<script>
+const questions = [
+ 
+
+      {
+        "question": "from here ca's question, from question no. 287 for ssc aao",
+        "options": [
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Demand for a commodity refers to:",
+        "options": [
+            "Desire backed by ability to pay for the commodity.",
+            "Need for the commodity and willingness to pay for it.",
+            "The quantity demanded of that commodity at a certain price.",
+            "The quantity of the commodity demanded at a certain price during any particular period of time."
+        ],
+        "correctOption": "The quantity of the commodity demanded at a certain price during any particular period of time."
+    },
+    {
+        "question": "Demand is the ________.",
+        "options": [
+            "the desire for a commodity given its price and those of related commodities.",
+            "the entire relationship between the quantity demanded and the price of a good other things re-maining the same.",
+            "willingness to pay for a good if income is larger enough.",
+            "ability to pay for a good."
+        ],
+        "correctOption": "the entire relationship between the quantity demanded and the price of a good other things re-maining the same."
+    },
+    {
+        "question": "The quantity demanded is always expressed ________.",
+        "options": [
+            "Separately in isolation",
+            "Separately with quantity supplied",
+            "At a given price",
+            "None of these"
+        ],
+        "correctOption": "At a given price"
+    },
+    {
+        "question": "The quantity demanded is a ________.",
+        "options": [
+            "Flow",
+            "Stock",
+            "Single isolated purchase",
+            "Concept without reference to time."
+        ],
+        "correctOption": "Flow"
+    },
+    {
+        "question": "In economics, Effective Demand for a thing depends on:",
+        "options": [
+            "Desire",
+            "Means to purchase",
+            "Willingness to use those means for that purchase",
+            "All of the above."
+        ],
+        "correctOption": "All of the above."
+    },
+    {
+        "question": "All of the following are determinants of demand except:",
+        "options": [
+            "Tastes and preferences.",
+            "Quantity supplied.",
+            "Income of the consumer.",
+            "Price of related goods."
+        ],
+        "correctOption": "Quantity supplied."
+    },
+    {
+        "question": "Which of the following will affect the demand for non-durable goods?",
+        "options": [
+            "Disposable income",
+            "Price",
+            "Demography",
+            "All of the above"
+        ],
+        "correctOption": "All of the above"
+    },
+    {
+        "question": "The term “Ceteris Paribus” refers to ________.",
+        "options": [
+            "Other things being equal",
+            "Other things also change",
+            "Other things may change",
+            "None of the above"
+        ],
+        "correctOption": "Other things being equal"
+    },
+    {
+        "question": "Ceteris Paribus, the demand for a commodity is inversely related to its price. This happens because of:",
+        "options": [
+            "Income Effect",
+            "Substitution Effect",
+            "Both (a) & (b)",
+            "None of above"
+        ],
+        "correctOption": "Both (a) & (b)"
+    },
+    {
+        "question": "________ is/are the types of Related Commodities.",
+        "options": [
+            "Complementary",
+            "Substitutes",
+            "Complementary and Substitutes",
+            "Complementary or Substitutes"
+        ],
+        "correctOption": "Complementary and Substitutes"
+    },
+    {
+        "question": "Which one of the following set of Commodities represents Complementary goods?",
+        "options": [
+            "Tea and Sugar",
+            "Automobile and Petrol",
+            "Pen and ink",
+            "All of the above"
+        ],
+        "correctOption": "All of the above"
+    },
+    {
+        "question": "________ are those goods which are consumed together or simultaneously.",
+        "options": [
+            "Complementary",
+            "Substitutes",
+            "Similar",
+            "Un-related"
+        ],
+        "correctOption": "Complementary"
+    },
+    {
+        "question": "When two commodities are complementary, a fall in the price of one (other things being equal) will cause the demand for the other to ________.",
+        "options": [
+            "Fall",
+            "Rise",
+            "Remain constant",
+            "Fall substantially"
+        ],
+        "correctOption": "Rise"
+    },
+    {
+        "question": "Two Commodities are called ________ when they satisfy the same want and can be used with ease in place of one another.",
+        "options": [
+            "Substitutes",
+            "Complementary",
+            "Un-related",
+            "Opposite"
+        ],
+        "correctOption": "Substitutes"
+    },
+    {
+        "question": "There is a ________ relation between the demand for a product and the price of its substitutes.",
+        "options": [
+            "Direct",
+            "Positive",
+            "Indirect",
+            "Both (a)&(b)"
+        ],
+        "correctOption": "Both (a)&(b)"
+    },
+    {
+        "question": "Highly priced goods are consumed by status seeking rich people to satisfy their need for conspicuous consumption. This is called as ________.",
+        "options": [
+            "Veblen Effect",
+            "Snob Effect",
+            "Helen Effect",
+            "None of these"
+        ],
+        "correctOption": "Veblen Effect"
+    },
+    {
+        "question": "________ are the commodities for which the quantity demanded rises only up to a certain level of in-come and decreases with an increase in money income beyond this level.",
+        "options": [
+            "Inferior Goods",
+            "Normal Goods",
+            "Consumption Goods",
+            "Durable Goods"
+        ],
+        "correctOption": "Inferior Goods"
+    },
+    {
+        "question": "When goods are substitutes, a fall in the price of one (Ceteris Paribus) leads to ________ in the quantity demanded of its substitutes.",
+        "options": [
+            "Rise",
+            "Fall",
+            "Constant",
+            "No effect."
+        ],
+        "correctOption": "Fall"
+    },
+    {
+        "question": "Which of the following pairs of goods is an example of substitutes?",
+        "options": [
+            "Tea and sugar.",
+            "Tea and coffee.",
+            "Pen and ink.",
+            "Shirt and trousers."
+        ],
+        "correctOption": "Tea and coffee."
+    },
+    {
+        "question": "If the price of Pepsi decreases relative to the price of Coke and 7-UP, the demand for:",
+        "options": [
+            "Coke will decrease.",
+            "7-Up will decrease.",
+            "Coke and 7-UP will increase.",
+            "Coke and 7-Up will decrease."
+        ],
+        "correctOption": "Coke and 7-Up will decrease."
+    },
+    {
+        "question": "Which of the following is an incorrect statement?",
+        "options": [
+            "When goods are substitutes, a fall in the price of one (ceteris paribus) leads to a fall in the quantity demanded of its substitutes.",
+            "When commodities are complements, a fall in the price of one (other things being equal) will cause the demand of the other to rise.",
+            "As the income of the consumer increases, the demand for the commodity increases always and vice versa.",
+            "When a commodity becomes fashionable people prefer to buy it and therefore its demand increases."
+        ],
+        "correctOption": "As the income of the consumer increases, the demand for the commodity increases always and vice versa."
+    },
+    {
+        "question": "What will happen in the rice market if buyers are expecting higher rice prices in the near future?",
+        "options": [
+            "The demand for rice will increase.",
+            "The demand for rice will decrease.",
+            "The demand for rice will be unaffected.",
+            "None of the above."
+        ],
+        "correctOption": "The demand for rice will increase."
+    },
+    {
+        "question": "Conspicuous goods are also known as:",
+        "options": [
+            "Prestige goods.",
+            "Snob goods.",
+            "Veblen goods.",
+            "All of the above."
+        ],
+        "correctOption": "All of the above."
+    },
+    {
+        "question": "A good which cannot be consumed more than once is known as ________.",
+        "options": [
+            "Durable good",
+            "Non-durable good",
+            "Producer good",
+            "None of the above"
+        ],
+        "correctOption": "Non-durable good"
+    },
+    {
+        "question": "A relative price is ________.",
+        "options": [
+            "Price expressed in terms of money.",
+            "What you get paid for babysitting your cousin.",
+            "The ratio of one money price to another.",
+            "Equal to a money price."
+        ],
+        "correctOption": "The ratio of one money price to another."
+    },
+    {
+        "question": "The price of tomatoes increases and people buy tomato puree. You infer that tomato puree and tomatoes are ________.",
+        "options": [
+            "Normal goods.",
+            "Complements.",
+            "Substitutes.",
+            "Inferior goods."
+        ],
+        "correctOption": "Substitutes."
+    },
+    {
+        "question": "Chicken and fish are substitutes. If the price of chicken increases, the demand for fish will ________.",
+        "options": [
+            "Increase or decrease but the demand curve for chicken will not change.",
+            "Increase and the demand curve for fish will shift rightwards.",
+            "Not change but there will be a movement along the demand curve for fish.",
+            "Decrease and the demand curve for fish will shift leftwards."
+        ],
+        "correctOption": "Increase and the demand curve for fish will shift rightwards."
+    },
+    {
+        "question": "Potato chips and popcorn are substitutes. A rise in the price of potato chips will ________ the demand for popcorn and the quantity of popcorn will ________.",
+        "options": [
+            "Increase; increase.",
+            "Increase; decrease.",
+            "Decrease; decrease.",
+            "Decrease; increase."
+        ],
+        "correctOption": "Increase; increase."
+    },
+    {
+        "question": "“High priced goods consumed by status seeking rich people to satisfy their need for conspicuous goods” is:",
+        "options": [
+            "Veblen effect",
+            "Bandwagon effect",
+            "Snob effect",
+            "Demonstration effect"
+        ],
+        "correctOption": "Veblen effect"
+    },
+    {
+        "question": "If the price of Orange Juice increases, the demand for Apple Juice will ________.",
+        "options": [
+            "Increase",
+            "Decrease",
+            "Remain the same.",
+            "Become negative."
+        ],
+        "correctOption": "Increase"
+    },
+    {
+        "question": "At higher prices people demand more of certain goods not for their worth but for their prestige value – This is called ________.",
+        "options": [
+            "Veblen effect.",
+            "Giffen paradox.",
+            "Speculative effect.",
+            "None of the above."
+        ],
+        "correctOption": "Veblen effect."
+    },
+    {
+        "question": "With a fall in the price of a commodity:",
+        "options": [
+            "Consumer’s real income increases.",
+            "Consumer’s real income decreases.",
+            "There is no change in the real income of the consumer.",
+            "None of the above."
+        ],
+        "correctOption": "Consumer’s real income increases."
+    },
+    {
+        "question": "With an increase in the price of diamond, the quantity demanded also increases. This is because it is a:",
+        "options": [
+            "Substitute good.",
+            "Complementary good.",
+            "Conspicuous good.",
+            "None of the above."
+        ],
+        "correctOption": "Conspicuous good."
+    },
+    {
+        "question": "When the price of tea decreases, people reduce the consumption of coffee. Then the goods are ________.",
+        "options": [
+            "Independent Variable",
+            "Substitutes",
+            "Inferior goods",
+            "Normal goods"
+        ],
+        "correctOption": "Substitutes"
+    },
+    {
+        "question": "A Symbolic statement of a relationship between the dependent and the independent variables is called as ________.",
+        "options": [
+            "Function",
+            "Sets",
+            "Equation",
+            "Variable"
+        ],
+        "correctOption": "Function"
+    },
+    {
+        "question": "In a demand function, the demand for a product is the ________.",
+        "options": [
+            "Independent Variable",
+            "Explanatory Variable",
+            "Dependent variable",
+            "Complex variable"
+        ],
+        "correctOption": "Dependent variable"
+    },
+    {
+        "question": "In a demand function, the determinants of demand like price, money income, tastes & preferences, etc. may be regarded as",
+        "options": [
+            "Dependent Variables",
+            "Independent Variables",
+            "Related Variables",
+            "Complex variables"
+        ],
+        "correctOption": "Independent Variables"
+    },
+    {
+        "question": "The Law of Demand, assuming other things to remain constant, establishes the relationship between:",
+        "options": [
+            "Income of the consumer and the quantity of a good demanded by him.",
+            "Price of a good and the quantity demanded.",
+            "Price of a good and the demand for its substitute.",
+            "Quantity demanded of a good and the relative prices of its complementary goods."
+        ],
+        "correctOption": "Price of a good and the quantity demanded."
+    },
+    {
+        "question": "When Price of a commodity increases what will be the affect on Quantity demanded?",
+        "options": [
+            "Increases",
+            "Decreases",
+            "No change",
+            "None of these"
+        ],
+        "correctOption": "Decreases"
+    },
+    {
+        "question": "An increase in the demand for computers, other things remaining same, will:",
+        "options": [
+            "Increase the number of computers bought.",
+            "Decrease the price but increase the number of computers bought.",
+            "Increase the price of computers.",
+            "Increase the price and number of computers bought."
+        ],
+        "correctOption": "Increase the price and number of computers bought."
+    },
+    {
+        "question": "In case of Normal goods, Rise in price leads to ________?",
+        "options": [
+            "Fall in demand",
+            "Rise in demand",
+            "No Change",
+            "Initially rise then ultimately fall"
+        ],
+        "correctOption": "Fall in demand"
+    },
+    {
+        "question": "A decrease in the demand for cameras, other things remaining the same will.",
+        "options": [
+            "Increase the number of cameras bought.",
+            "Decrease the price but increase the number of cameras bought.",
+            "Increase the price of cameras.",
+            "Decrease the price and decrease in the number of cameras bought."
+        ],
+        "correctOption": "Decrease the price and decrease in the number of cameras bought."
+    },
+    {
+        "question": "Comforts lies between ________.",
+        "options": [
+            "Inferior goods and necessaries.",
+            "Luxuries and inferior goods.",
+            "Necessaries and luxuries.",
+            "None of the above."
+        ],
+        "correctOption": "Necessaries and luxuries."
+    },
+    {
+        "question": "If price of the commodity increases, what will be the effect on Quantity demanded?",
+        "options": [
+            "Decreases",
+            "Increases",
+            "No change",
+            "Can’t say"
+        ],
+        "correctOption": "Decreases"
+    },
+    {
+        "question": "Who has given the law of Demand?",
+        "options": [
+            "Alfred Marshall",
+            "Paul Samuelson",
+            "Robbins",
+            "J.B. Say"
+        ],
+        "correctOption": "Alfred Marshall"
+    },
+    {
+        "question": "A Table which represents the different prices of a good and the corresponding quantity demanded per unit of time is called as ________.",
+        "options": [
+            "Demand Curve",
+            "Demand Table",
+            "Demand Schedule",
+            "Demand Tabulation"
+        ],
+        "correctOption": "Demand Schedule"
+    },
+    {
+        "question": "The Demand Schedule depicts ________ relationship between price and quantity demanded.",
+        "options": [
+            "Direct",
+            "Inverse",
+            "Adverse",
+            "None of these"
+        ],
+        "correctOption": "Inverse"
+    },
+    {
+        "question": "_______ is a graphical presentation of the ________.",
+        "options": [
+            "Demand Curve, Demand Schedule",
+            "Demand Schedule, Demand Curve",
+            "Demand Curve, Supply Schedule",
+            "Supply Curve, Demand Schedule"
+        ],
+        "correctOption": "Demand Curve, Demand Schedule"
+    },
+    {
+        "question": "All but one of the following are assumed to remain the same while drawing an individual’s demand curve for a commodity. Which one is it?",
+        "options": [
+            "The preference of the individual.",
+            "His monetary income.",
+            "Price of the commodity.",
+            "Price of related goods."
+        ],
+        "correctOption": "Price of the commodity."
+    },
+    {
+        "question": "The demand curve has a ________ Slope.",
+        "options": [
+            "Positive",
+            "Negative",
+            "Circular",
+            "No"
+        ],
+        "correctOption": "Negative"
+    },
+    {
+        "question": "The ________ sloping Demand Curve is in accordance with the law of demand which describes a price-demand relationship.",
+        "options": [
+            "Upward, inverse",
+            "Downward, Inverse",
+            "Upward, direct",
+            "Download, direct"
+        ],
+        "correctOption": "Downward, Inverse"
+    },
+    {
+        "question": "The sum of individual demands for a product at a price per unit of time is called as ________.",
+        "options": [
+            "Firm’s Demand",
+            "Market Demand",
+            "Goods available in market",
+            "Goods to be sold in market."
+        ],
+        "correctOption": "Market Demand"
+    },
+    {
+        "question": "The table which represents the sum of various quantities demanded by different consumers in the market is called as ________.",
+        "options": [
+            "Demand Schedule",
+            "Individual Demand Schedule",
+            "Market Demand Schedule",
+            "Market Demand Curve."
+        ],
+        "correctOption": "Market Demand Schedule"
+    },
+    {
+        "question": "The market Demand Schedule indicates ________ relationship between price and quantity demanded of a commodity.",
+        "options": [
+            "Direct",
+            "Inverse",
+            "Circular",
+            "No"
+        ],
+        "correctOption": "Inverse"
+    },
+    {
+        "question": "If we plot the market demand schedule on a graph, we get ________.",
+        "options": [
+            "Demand Chart",
+            "Market Demand Chart",
+            "Demand Curve",
+            "Market Demand Curve"
+        ],
+        "correctOption": "Market Demand Curve"
+    },
+    {
+        "question": "The lateral summation of individual demand Curves is regarded as ________.",
+        "options": [
+            "Economy Demand Curve",
+            "Market Demand Curve",
+            "Product Demand Curve",
+            "Marginal Demand Curve"
+        ],
+        "correctOption": "Market Demand Curve"
+    },
+    {
+        "question": "According to ________, the consumer has diminishing utility for each additional unit of a commodity and therefore, he will be willing to pay only less for each additional unit.",
+        "options": [
+            "Marshall",
+            "Robbins",
+            "Samuelson",
+            "None of these"
+        ],
+        "correctOption": "Marshall"
+    },
+    {
+        "question": "A Consumer maximizes his satisfaction when the Marginal utility of the commodity is ________ its price.",
+        "options": [
+            "Equal to",
+            "Less than",
+            "More than",
+            "Less than or equal to"
+        ],
+        "correctOption": "Equal to"
+    },
+    {
+        "question": "The operations of diminishing marginal utility and the act of the Consumer to equalize the utility of the commodity with its price result in a ________ demand curve.",
+        "options": [
+            "Downward Sloping",
+            "Upward Sloping",
+            "Straight line",
+            "Hyperbola upward"
+        ],
+        "correctOption": "Downward Sloping"
+    },
+    {
+        "question": "______ has/have explained the law of demand in terms of Substitution Effect and Income Effect.",
+        "options": [
+            "Marshall",
+            "Hicks",
+            "Allen",
+            "Both (b) & (c)"
+        ],
+        "correctOption": "Both (b) & (c)"
+    },
+    {
+        "question": "As a result of fall in the price of a commodity, consumer’s real income or purchasing power increases. This increase in the real income induces him to buy more of that commodity. This is technically termed as:",
+        "options": [
+            "Price Effect",
+            "Substitution Effect",
+            "Income Effect",
+            "Both (b) & (c)"
+        ],
+        "correctOption": "Income Effect"
+    },
+    {
+        "question": "Which one of the following is not the rationale of the law of Demand?",
+        "options": [
+            "Law of Diminishing Marginal Utility",
+            "Price Effect",
+            "Arrival of New Customers.",
+            "Change of Taste & Performances."
+        ],
+        "correctOption": "Change of Taste & Performances."
+    },
+    {
+        "question": "Certain commodities have multiple uses. These different uses of a commodity make the demand curve ________ reacting to changes in price.",
+        "options": [
+            "Slope downwards",
+            "Slope Upwards",
+            "Straight Line",
+            "Both (a) & (b)"
+        ],
+        "correctOption": "Slope downwards"
+    },
+    {
+        "question": "When total demand for a commodity whose price has fallen increases, it is due to:",
+        "options": [
+            "Income effect.",
+            "Substitution effect.",
+            "Complementary effect.",
+            "Price effect."
+        ],
+        "correctOption": "Price effect."
+    },
+    {
+        "question": "Which one of the following may be Considered as a rationale of the law of demand?",
+        "options": [
+            "Price Effect",
+            "Giffen Goods",
+            "Returns to Scale",
+            "None of these"
+        ],
+        "correctOption": "Price Effect"
+    },
+    {
+        "question": "In which of the following cases, the law of demand holds true?",
+        "options": [
+            "Normal Goods",
+            "Giffen Goods",
+            "Speculative Goods",
+            "Necessary Goods"
+        ],
+        "correctOption": "Normal Goods"
+    },
+    {
+        "question": "Higher the price of diamonds, higher is the prestige value attached to them and hence higher is the demand for them. These goods are called as ________.",
+        "options": [
+            "Conspicuous goods",
+            "Giffen goods",
+            "Normal goods",
+            "None of these"
+        ],
+        "correctOption": "Conspicuous goods"
+    },
+    {
+        "question": "Which one of the following is an exception to the law of demand?",
+        "options": [
+            "Future expectations about prices",
+            "Demand for necessaries",
+            "Speculative Goods",
+            "All of these"
+        ],
+        "correctOption": "All of these"
+    },
+    {
+        "question": "For what type of goods does demand fall with a rise in income levels of households?",
+        "options": [
+            "Inferior goods",
+            "Substitutes",
+            "Luxuries",
+            "Necessities"
+        ],
+        "correctOption": "Inferior goods"
+    },
+    {
+        "question": "In case of inferior goods, with rise of income of consumes, demand of goodwill?",
+        "options": [
+            "Increases",
+            "Decreases",
+            "No change",
+            "None of these"
+        ],
+        "correctOption": "Decreases"
+    },
+    {
+        "question": "In the case of a Giffen good, the demand curve will be:",
+        "options": [
+            "Horizontal.",
+            "Downward-sloping to the right.",
+            "Vertical.",
+            "Upward-sloping to the right."
+        ],
+        "correctOption": "Upward-sloping to the right."
+    },
+    {
+        "question": "In case ________, there is an inverse relationship between income and demand for a product.",
+        "options": [
+            "Substitute goods",
+            "Complementary goods",
+            "Giffen Goods",
+            "None of the above"
+        ],
+        "correctOption": "Giffen Goods"
+    },
+    {
+        "question": "An example of a good that exhibits a direct price-demand relationship is ________.",
+        "options": [
+            "Giffen goods.",
+            "Complementary goods.",
+            "Substitute goods.",
+            "None of the above."
+        ],
+        "correctOption": "Giffen goods."
+    },
+    {
+        "question": "In Economics, when demand for a commodity increases with a fall in its price it is known as:",
+        "options": [
+            "Contraction of demand.",
+            "Expansion of demand.",
+            "No change in demand.",
+            "None of the above."
+        ],
+        "correctOption": "Expansion of demand."
+    },
+    {
+        "question": "When, as a result of an increase in price, the quantity demanded decreases, it is called as ________.",
+        "options": [
+            "Expansion of Demand",
+            "Increase in demand",
+            "Both (a) & (b)",
+            "None of these"
+        ],
+        "correctOption": "Expansion of Demand"
+    },
+    {
+        "question": "The change in demand will be regarded as expansion of demand, if the increase in quantity demanded is due to ________.",
+        "options": [
+            "Price of Related Goods",
+            "Price of goods",
+            "Change in income",
+            "Change in Taste & Preferences."
+        ],
+        "correctOption": "Price of goods"
+    },
+    {
+        "question": "________ refers to a change along a curve i.e. movement from one point to another on the same curve.",
+        "options": [
+            "Expansion/Contraction of Demand",
+            "Increase/Decrease in Demand",
+            "Shift of Demand Curve",
+            "None of these."
+        ],
+        "correctOption": "Expansion/Contraction of Demand"
+    },
+    {
+        "question": "Movement along the demand curve may be due to ________.",
+        "options": [
+            "Expansion of Demand",
+            "Contraction of Demand",
+            "Increase/Decrease in Demand",
+            "Both (a) & (b)"
+        ],
+        "correctOption": "Both (a) & (b)"
+    },
+    {
+        "question": "Contraction of demand is the result of:",
+        "options": [
+            "Decrease in the number of consumers.",
+            "Increase in the price of the good concerned.",
+            "Increase in the prices of other goods.",
+            "Decrease in the income of purchasers."
+        ],
+        "correctOption": "Increase in the price of the good concerned."
+    },
+    {
+        "question": "A movement along the demand curve for soft drinks is best described as:",
+        "options": [
+            "An increase in demand.",
+            "A decrease in demand.",
+            "A change in quantity demanded.",
+            "A change in demand."
+        ],
+        "correctOption": "A change in quantity demanded."
+    },
+    {
+        "question": "________ the demand curve indicates that there is a change in demand at each possible price because one or more other factors, such as income, tastes or the price of some other goods, etc. have changed.",
+        "options": [
+            "A Shift of",
+            "A movement along",
+            "No movement in",
+            "None of these"
+        ],
+        "correctOption": "A Shift of"
+    },
+    {
+        "question": "When more quantities are demanded at the same price due to reasons other than the price of the commodity, there will be ________ in the demand Curve:",
+        "options": [
+            "Rightward shift",
+            "Leftward shift",
+            "No shift",
+            "Any of (a) & (b)"
+        ],
+        "correctOption": "Rightward shift"
+    },
+    {
+        "question": "An Increase in demand can result from:",
+        "options": [
+            "A decline in the market price",
+            "An increase in income",
+            "A reduction in the price of substitutes",
+            "An increase in the price of complements"
+        ],
+        "correctOption": "An increase in income"
+    },
+    {
+        "question": "Suppose the price of Pepsi increases, we will expect the demand curve of Coca Cola to:",
+        "options": [
+            "Shift towards left since these are substitutes.",
+            "Shift towards right since these are substitutes.",
+            "Remain at the same level.",
+            "None of the above."
+        ],
+        "correctOption": "Shift towards right since these are substitutes."
+    },
+    {
+        "question": "A leftward shift in the demand curve may be due to :",
+        "options": [
+            "Fall in income",
+            "Fall in the Price of Substitute",
+            "Decrease in Population",
+            "Any of the above"
+        ],
+        "correctOption": "Any of the above"
+    },
+    {
+        "question": "The movement upwards or downwards on the same demand curve resulting from a change in the price of the commodity is called as ________.",
+        "options": [
+            "Change in demand",
+            "Change in quantity demanded",
+            "Shifting of demand Curve",
+            "Increase in demand"
+        ],
+        "correctOption": "Change in quantity demanded"
+    },
+    {
+        "question": "Which of the following may be a reason behind the rightward shift of the demand curve?",
+        "options": [
+            "Rise in the price of substitute",
+            "Fall in the price of substitute",
+            "Rise in the price of the same commodity",
+            "Fall in the price of the same commodity"
+        ],
+        "correctOption": "Rise in the price of substitute"
+    },
+    {
+        "question": "Elasticity of demand is the percentage change in ________ divided by the percentage change in on which demand depends.",
+        "options": [
+            "Quantity demanded, one of the variables",
+            "Quantity demanded, all the valuables",
+            "Quantity supplied, all the valuables",
+            "Quantity supplied, one of the variables"
+        ],
+        "correctOption": "Quantity demanded, one of the variables"
+    },
+    {
+        "question": "The price of a commodity decreases from ₹ 6 per unit to ₹ 4 per unit and the quantity demanded of the goods increased from 10 units to 15 units. The Coefficient of Price Elasticity will be ________.",
+        "options": [
+            "3",
+            "2",
+            "1",
+            "4"
+        ],
+        "correctOption": "3"
+    },
+    {
+        "question": "Identify the coefficient of price elasticity of demand when the percentage increase in the quantity of a good demanded is smaller than the percentage fall in its price:",
+        "options": [
+            "Equal to one.",
+            "Greater than one.",
+            "Smaller than one.",
+            "Zero."
+        ],
+        "correctOption": "Smaller than one."
+    },
+    {
+        "question": "A decrease in price will result in an increase in total revenue if :",
+        "options": [
+            "The percentage change in quantity demanded is less than the percentage change in price.",
+            "The percentage change in quantity demanded is greater than the percentage change in price.",
+            "Demand is inelastic.",
+            "The consumer is operating along a linear demand curve at a point at which the price is very low and the quantity demanded is very high."
+        ],
+        "correctOption": "The percentage change in quantity demanded is greater than the percentage change in price."
+    },
+    {
+        "question": "An increase in price will result in an increase in total revenue if:",
+        "options": [
+            "The percentage change in quantity demanded is less than the percentage change in price.",
+            "The percentage change in quantity demanded is greater than the percentage change in price.",
+            "Demand is elastic.",
+            "The consumer is operating along a linear demand curve at a point at which the price is very high and the quantity demanded is very low."
+        ],
+        "correctOption": "The percentage change in quantity demanded is less than the percentage change in price."
+    },
+    {
+        "question": "If the price decreases from ₹ 80 to ₹ 60 and elasticity of demand is 1.25 then ________.",
+        "options": [
+            "Demand increase by 25%",
+            "Demand decrease by 25%",
+            "Remains constant",
+            "None of the above"
+        ],
+        "correctOption": "None of the above"
+    },
+    {
+        "question": "Which of the following statements about price elasticity of demand is correct?",
+        "options": [
+            "Price elasticity of demand is a measure of how much the quantity demanded of a good responds to a change in the price of that good.",
+            "Price elasticity of demand is computed as the percentage change in quantity demanded divided by the percentage change in price.",
+            "Price elasticity of demand in the long run would be different from that of the short run.",
+            "All the above."
+        ],
+        "correctOption": "All the above."
+    },
+    {
+        "question": "In the case of a straight-line demand curve meeting the two axes, the price elasticity of demand at the midpoint of the line would be:",
+        "options": [
+            "0",
+            "1",
+            "1.5",
+            "2"
+        ],
+        "correctOption": "1"
+    },
+    {
+        "question": "The Concept of point elasticity is used for measuring price elasticity where the change in price is ________.",
+        "options": [
+            "Finite",
+            "Limited",
+            "Infinite small",
+            "None of the above."
+        ],
+        "correctOption": "Infinite small"
+    },
+    {
+        "question": "Elasticity at point A = ∞, at B = > 1, at C = 1, at D = < 1 and E = 0",
+        "options": [
+            "Elasticity at point A = ∞, at B = > 1, at C = 1, at D = < 1 and E = 0",
+            "Elasticity at A = 0, at B = < 1, at C = 1, at D = > 1 and E = ∞",
+            "Elasticity at A = 0, at B > 1, at C = 1, at D = < 1 and at E = 0",
+            "None of these"
+        ],
+        "correctOption": "Elasticity at point A = ∞, at B = > 1, at C = 1, at D = < 1 and E = 0"
+    },
+    {
+        "question": "The price elasticity of demand at the midpoint of the straight-line demand curve under point method is ________.",
+        "options": [
+            "0",
+            "1",
+            "> 1",
+            "< 1"
+        ],
+        "correctOption": "1"
+    },
+    {
+        "question": "Point elasticity is useful for which of the following situations?",
+        "options": [
+            "The bookstore is considering doubling the price of notebooks.",
+            "A restaurant is considering lowering the price of its most expensive dishes by 50 per cent.",
+            "An auto producer is interested in determining the response of consumers to the price of cars being lowered by ₹ 100.",
+            "None of the above."
+        ],
+        "correctOption": "An auto producer is interested in determining the response of consumers to the price of cars being lowered by ₹ 100."
+    },
+    {
+        "question": "The price of a commodity decreases from ₹ 6 to ₹ 4 and the quantity demanded of the good increases from 10 units to 15 units, and the coefficient of price elasticity. (Use Point Elasticity Method)",
+        "options": [
+            "1.5",
+            "2.5",
+            "-1.5",
+            "0.5"
+        ],
+        "correctOption": "-1.5"
+    },
+    {
+        "question": "If the price of an air conditioner increases from ₹ 30,000 to ₹ 30,010 and the resultant change in demand is negligible, we use the measure of ________ to measure elasticity.",
+        "options": [
+            "Point elasticity.",
+            "Perfect elasticity.",
+            "Perfect inelasticity.",
+            "Price elasticity."
+        ],
+        "correctOption": "Point elasticity."
+    },
+    {
+        "question": "Elasticity between two points:",
+        "options": [
+            "Point elasticity",
+            "Arc elasticity",
+            "Cross elasticity",
+            "None"
+        ],
+        "correctOption": "Arc elasticity"
+    },
+    {
+        "question": "Suppose the price of movies seen at a theatre rises from ₹ 120 per person to ₹ 200 per person. The theatre manager observes that the rise in price causes attendance at a given movie to fall from 300 persons to 200 persons. What is the price elasticity of demand for movies? (Use Arc Elasticity Method)",
+        "options": [
+            "5",
+            "8",
+            "1.0",
+            "1.2"
+        ],
+        "correctOption": "8"
+    },
+    {
+        "question": "Suppose a department store has a sale on its silverware. If the price of a plate-setting is reduced from ₹ 300 to ₹ 200 and the quantity demanded increases from 3,000 plate-settings to 5,000 plate-settings, what is the price elasticity of demand for silverware? (Use Arc Elasticity Method)",
+        "options": [
+            ".8",
+            "1.0",
+            "1.25",
+            "1.50"
+        ],
+        "correctOption": "1.25"
+    },
+    {
+        "question": "If the local pizzeria raises the price of a medium pizza from ₹ 60 to ₹ 100 and quantity demanded falls from 700 pizzas a night to 100 pizzas a night, the price elasticity of demand for pizzas is: (Use Arc Elasticity Method)",
+        "options": [
+            ".67",
+            "1.5",
+            "2.0",
+            "3.0"
+        ],
+        "correctOption": "3.0"
+    },
+    {
+        "question": "If regardless of changes in its price, the quantity demanded of a good remains unchanged, then the demand curve for the good will be:",
+        "options": [
+            "Horizontal.",
+            "Vertical.",
+            "Positively sloped.",
+            "Negatively sloped."
+        ],
+        "correctOption": "Vertical."
+    },
+    {
+        "question": "The price of hot dogs increases by 22% and the quantity of hot dogs demanded falls by 25%. This indicates that demand for hot dogs is:",
+        "options": [
+            "Elastic.",
+            "Inelastic.",
+            "Unitarily elastic.",
+            "Perfectly elastic."
+        ],
+        "correctOption": "Elastic."
+    },
+    {
+        "question": "If electricity demand is inelastic, and electricity charges increase, which of the following is likely to occur?",
+        "options": [
+            "Quantity demanded will fall by a relatively large amount.",
+            "Quantity demanded will fall by a relatively small amount.",
+            "Quantity demanded will rise in the short run, but fall in the long run.",
+            "Quantity demanded will fall in the short run, but rise in the long run."
+        ],
+        "correctOption": "Quantity demanded will fall by a relatively small amount."
+    },
+    {
+        "question": "Suppose the demand for meals at a medium-priced restaurant is elastic. If the management of the restaurant is considering raising prices, it can expect a relatively:",
+        "options": [
+            "Large fall in quantity demanded.",
+            "Large fall in demand.",
+            "Small fall in quantity demanded.",
+            "Small fall in demand."
+        ],
+        "correctOption": "Large fall in quantity demanded."
+    },
+    {
+        "question": "Demand for a good will tend to be more elastic if it exhibits which of the following characteristics?",
+        "options": [
+            "It represents a small part of the consumer’s income.",
+            "The good has many substitutes available.",
+            "It is a necessity (as opposed to a luxury).",
+            "There is little time for the consumer to adjust to the price change."
+        ],
+        "correctOption": "The good has many substitutes available."
+    },
+    {
+        "question": "Demand for a good will tend to be more inelastic if it exhibits which of the following characteristics?",
+        "options": [
+            "The good has many substitutes.",
+            "The good is a luxury (as opposed to a necessity).",
+            "The good is a small part of the consumer’s income.",
+            "There is a great deal of time for the consumer to adjust to the change in prices."
+        ],
+        "correctOption": "The good is a small part of the consumer’s income."
+    },
+    {
+        "question": "Using total outlay method,",
+        "options": [
+            "We cannot find exact co-efficient of Price Elasticity.",
+            "We can find exact co-efficient of Price Elasticity.",
+            "We cannot determine whether the good is elastic or inelastic.",
+            "None of the above."
+        ],
+        "correctOption": "We cannot find exact co-efficient of Price Elasticity."
+    },
+    {
+        "question": "When, as a result of the change in price of a good, the total expenditure on the goods or total revenue received from those good remains the same, the price elasticity for the good is equal to ________.",
+        "options": [
+            "Zero",
+            "Unity",
+            "More than one",
+            "Less than one"
+        ],
+        "correctOption": "Unity"
+    },
+    {
+        "question": "Which one of the following is / are the determinants of price elasticity?",
+        "options": [
+            "Availability of substitutes.",
+            "Time period",
+            "Price range",
+            "All of the above."
+        ],
+        "correctOption": "All of the above."
+    },
+    {
+        "question": "The demand for goods like common salt, matches, buttons, etc. tends to be ________ because a household spends only a fraction of their income on each of them.",
+        "options": [
+            "Elastic",
+            "Inelastic",
+            "Highly inelastic",
+            "Highly elastic"
+        ],
+        "correctOption": "Highly inelastic"
+    },
+    {
+        "question": "The price of a good has decreased from ₹ 100 to ₹ 60 per unit. If the price elasticity of demand for it is 1.5 and the original quantity demanded is 30 units, the new quantity demanded will be ________.",
+        "options": [
+            "18 Units",
+            "30 Units",
+            "48 Units",
+            "60 Units"
+        ],
+        "correctOption": "48 Units"
+    },
+    {
+        "question": "If there is no change at all in the quantity demanded, when price changes, the elasticity will be ________.",
+        "options": [
+            "Zero",
+            "Unitary",
+            "Greater than one",
+            "Less than one"
+        ],
+        "correctOption": "Zero"
+    },
+    {
+        "question": "If elasticity is ________, then the quantity demanded does not respond at all to a price change.",
+        "options": [
+            "Zero",
+            "One",
+            "Greater than one",
+            "Less than one"
+        ],
+        "correctOption": "Zero"
+    },
+    {
+        "question": "The demand is said to be ________ when the percentage change in quantity demanded is less than the percentage change in price.",
+        "options": [
+            "Elastic",
+            "Inelastic",
+            "Perfectly elastic",
+            "None of the above"
+        ],
+        "correctOption": "Inelastic"
+    },
+    {
+        "question": "In case of wheat & Common salt, the nature of Price elasticity of demand is ________.",
+        "options": [
+            "Elastic",
+            "Inelastic",
+            "Perfectly Elastic",
+            "None of the above."
+        ],
+        "correctOption": "Inelastic"
+    },
+    {
+        "question": "If a Consumer is a habitual consumer of a commodity, no matter how much its price changes, the demand for the Commodity will be ________.",
+        "options": [
+            "Elastic",
+            "Inelastic",
+            "Perfectly Elastic",
+            "Unitary"
+        ],
+        "correctOption": "Inelastic"
+    },
+    {
+        "question": "The greater the proportion of income spent on a commodity, generally the ________ will be its elasticity of demand and vice versa.",
+        "options": [
+            "Greater",
+            "Lesser",
+            "Either (a) or (b)",
+            "None of these"
+        ],
+        "correctOption": "Greater"
+    },
+    {
+        "question": "If the demand for a good is inelastic, an increase in its price will cause the total expenditure of the consumers of the good to:",
+        "options": [
+            "Remain the same.",
+            "Increase.",
+            "Decrease.",
+            "Any of these."
+        ],
+        "correctOption": "Increase."
+    },
+    {
+        "question": "Given the following four possibilities, which one results in an increase in total consumer expenditure?",
+        "options": [
+            "Demand is unitary elastic and price falls.",
+            "Demand is elastic and price rises.",
+            "Demand is inelastic and price falls.",
+            "Demand is inelastic and prices rises."
+        ],
+        "correctOption": "Demand is inelastic and prices rises."
+    },
+    {
+        "question": "Suppose a consumer’s income increases from ₹ 30,000 to ₹ 36,000. As a result, the consumer increases her purchases of compact discs (CDs) from 25 CDs to 30 CDs. What is the consumer’s income elasticity of demand for CDs? (Use Arc Elasticity Method)",
+        "options": [
+            "0.5",
+            "1.0",
+            "1.5",
+            "2.0"
+        ],
+        "correctOption": "1.0"
+    },
+    {
+        "question": "The quantity purchased remains constant irrespective of the change in income. This is known as ________.",
+        "options": [
+            "Negative income elasticity of demand.",
+            "Income elasticity of demand less than one.",
+            "Zero income elasticity of demand.",
+            "Income elasticity of demand is greater than one."
+        ],
+        "correctOption": "Zero income elasticity of demand."
+    },
+    {
+        "question": "When income increases the money spent on necessaries of life may not increase in the same proportion. This means:",
+        "options": [
+            "Income elasticity of demand is zero.",
+            "Income elasticity of demand is one.",
+            "Income elasticity of demand is greater than one.",
+            "Income elasticity of demand is less than one."
+        ],
+        "correctOption": "Income elasticity of demand is less than one."
+    },
+    {
+        "question": "As income increases, the consumer will go in for superior goods and consequently the demand for inferior goods will fall. This means:",
+        "options": [
+            "Income elasticity of demand less than one.",
+            "Negative income elasticity of demand.",
+            "Zero income elasticity of demand.",
+            "Unitary income elasticity of demand."
+        ],
+        "correctOption": "Negative income elasticity of demand."
+    },
+    {
+        "question": "Income elasticity of demand is calculated by dividing percentage change in ________ by the percentage change in ________.",
+        "options": [
+            "Income, Demand",
+            "Demand, Income",
+            "Income, Price",
+            "Demand, Price"
+        ],
+        "correctOption": "Demand, Income"
+    },
+    {
+        "question": "Which one of the following is the preposition on the relationship between income elasticity of demand and the proportion of income spent on it?",
+        "options": [
+            "If the proportion of income on a good remains the same as income increase, then income elasticity for the good is equal to one.",
+            "If the proportion of Income spent on good increases as income increases, then the income elasticity for the goods is greater than one.",
+            "If the proportion of income spent on a good decreases as income rises, the income elasticity for the good is less than one.",
+            "All of the above"
+        ],
+        "correctOption": "All of the above"
+    },
+    {
+        "question": "For all ________ goods, the income elasticity is positive.",
+        "options": [
+            "Normal",
+            "Interior",
+            "Luxury",
+            "All of the above."
+        ],
+        "correctOption": "Normal"
+    },
+    {
+        "question": "For all ________ goods, the income elasticity is greater than one.",
+        "options": [
+            "Normal",
+            "Interior",
+            "Luxury",
+            "All of the above."
+        ],
+        "correctOption": "Luxury"
+    },
+    {
+        "question": "If a good is a luxury, its income elasticity of demand is:",
+        "options": [
+            "Positive and less than 1.",
+            "Negative but greater than 1.",
+            "Positive and greater than 1.",
+            "Zero."
+        ],
+        "correctOption": "Positive and greater than 1."
+    },
+    {
+        "question": "If, as people’s income increases, the quantity demanded of a good decreases, the good is called ________.",
+        "options": [
+            "A substitute.",
+            "A normal good.",
+            "An inferior good.",
+            "A complement."
+        ],
+        "correctOption": "An inferior good."
+    },
+    {
+        "question": "The income elasticity of tomatoes is 0.25, it means tomatoes are:",
+        "options": [
+            "Inferior goods.",
+            "Luxury goods.",
+            "Normal goods.",
+            "Can’t say."
+        ],
+        "correctOption": "Normal goods."
+    },
+    {
+        "question": "Suppose the income elasticity of education in private school in India is 1.6. What does this indicate:",
+        "options": [
+            "Private school education is a luxury.",
+            "Private school education is a necessity.",
+            "Private school education is an inferior commodity.",
+            "We should have more private schools."
+        ],
+        "correctOption": "Private school education is a luxury."
+    },
+    {
+        "question": "Suppose potatoes have (-).0.4 as income elasticity. We can say from the data given that:",
+        "options": [
+            "Potatoes are inferior goods.",
+            "Potatoes are superior goods.",
+            "Potatoes are necessities.",
+            "There is a need to increase the income of consumers so that they can purchase potatoes."
+        ],
+        "correctOption": "Potatoes are inferior goods."
+    },
+    {
+        "question": "If the income elasticity is less than one, it shows that the goods is either relatively least important in the eyes of consumer or it is a ________.",
+        "options": [
+            "Inferior",
+            "Luxury",
+            "Necessity",
+            "None of these"
+        ],
+        "correctOption": "Necessity"
+    },
+    {
+        "question": "The income elasticity of demand of commodity “Buttons” is ________.",
+        "options": [
+            "Greater than one",
+            "Lest than one",
+            "Zero",
+            "One"
+        ],
+        "correctOption": "Zero"
+    },
+    {
+        "question": "‘Bajra’ is an inferior commodity in the eyes of the household. Its income elasticity of demand will be ________.",
+        "options": [
+            "More than 1",
+            "Equal to 1",
+            "Less than 1, but greater than 0",
+            "Negative"
+        ],
+        "correctOption": "Negative"
+    },
+    {
+        "question": "Cross elasticity of demand refers to the quantities of commodity which will be demanded in response to ________, keeping other things remaining the same.",
+        "options": [
+            "Income of consumer",
+            "Price of same commodity",
+            "Price of Related commodity",
+            "Both (b) & (c)"
+        ],
+        "correctOption": "Price of Related commodity"
+    },
+    {
+        "question": "In case of substitute commodities, the cross demand curve slopes ________.",
+        "options": [
+            "Upwards",
+            "Downwards",
+            "Circular",
+            "Parabolic"
+        ],
+        "correctOption": "Upwards"
+    },
+    {
+        "question": "There is a relationship between price of a commodity and the demand for its complementary goods (other things remaining the same).",
+        "options": [
+            "Inverse",
+            "Positive",
+            "Direct",
+            "Any of (b) & (c)"
+        ],
+        "correctOption": "Inverse"
+    },
+    {
+        "question": "Cross elasticity of perfect substitutes is:",
+        "options": [
+            "Zero",
+            "Negative",
+            "One",
+            "Infinity"
+        ],
+        "correctOption": "Infinity"
+    },
+    {
+        "question": "The cross elasticity between Bread and DVDs is:",
+        "options": [
+            "Positive.",
+            "Negative.",
+            "Zero.",
+            "One."
+        ],
+        "correctOption": "Zero."
+    },
+    {
+        "question": "The cross elasticity between personal computers and software’s is:",
+        "options": [
+            "Positive.",
+            "Negative.",
+            "zero.",
+            "One."
+        ],
+        "correctOption": "Negative."
+    },
+    {
+        "question": "If two goods are perfect substitutes for each other, the cross elasticity between them is ________.",
+        "options": [
+            "One",
+            "More than one",
+            "Less than one",
+            "Infinite"
+        ],
+        "correctOption": "Infinite"
+    },
+    {
+        "question": "When the numerical value of cross elasticity between two goods is very high, it means:",
+        "options": [
+            "The goods are perfect complements and therefore have to be used together.",
+            "The goods are perfect substitutes and can be used with ease in place of one another.",
+            "There is a high degree of substitutability between the two goods.",
+            "The goods are neutral and therefore cannot be considered as substitutes."
+        ],
+        "correctOption": "There is a high degree of substitutability between the two goods."
+    },
+    {
+        "question": "If the goods are substituted (like tea and coffee), the cross elasticity between them is ________.",
+        "options": [
+            "Positive",
+            "Negative",
+            "Zero",
+            "Infinity"
+        ],
+        "correctOption": "Positive"
+    },
+    {
+        "question": "If the quantity demanded of mutton increases by 5% when the price of chicken increases by 20%, the cross-price elasticity of demand between mutton and chicken is:",
+        "options": [
+            "-0.25",
+            "0.25",
+            "-4",
+            "4"
+        ],
+        "correctOption": "0.25"
+    },
+    {
+        "question": "In case of Complementary Goods, a rise in the price of one leads to a fall in the quantity demanded of the other. The cross elasticity of demand between these will be ________.",
+        "options": [
+            "Positive",
+            "Negative",
+            "Zero",
+            "Infinity"
+        ],
+        "correctOption": "Negative"
+    },
+    {
+        "question": "When the numerical value of cross elasticity between two goods is very high, it means ________.",
+        "options": [
+            "The goods are perfect complements and therefore have to be used together.",
+            "The goods are perfect substitutes and can be used with ease in place of one another.",
+            "There is a high degree of substitutability between the two goods.",
+            "The goods are neutral and therefore cannot be considered as substitutes."
+        ],
+        "correctOption": "There is a high degree of substitutability between the two goods."
+    },
+    {
+        "question": "The price of 1 kg. of tea is ₹ 30. At this price, 5 kg of tea is demanded. If the price of coffee rises from ₹ 25 to ₹ 35 per kg, the quantity demanded of tea rises from 5 kg. to 8 kg. The cross price elasticity of tea is ________.",
+        "options": [
+            "1",
+            "0.5",
+            "1.5",
+            "0"
+        ],
+        "correctOption": "1.5"
+    },
+    {
+        "question": "The Cross elasticity is – 1.2. It represents that the commodities are: ________ in nature.",
+        "options": [
+            "Complementary",
+            "Substituted",
+            "Inferior",
+            "Giffen"
+        ],
+        "correctOption": "Complementary"
+    },
+    {
+        "question": "Advertisement elasticity of sales or promotional elasticity of demand is the responsive of a good demanded to changes in ________.",
+        "options": [
+            "Price of Commodity",
+            "Per Unit advertisement budget",
+            "Firms spending on advertising",
+            "Firms spending on distribution."
+        ],
+        "correctOption": "Firms spending on advertising"
+    },
+    {
+        "question": "Usually, higher the value of advertising elasticity, greater will be the responsiveness of demand to change in advertisement. Therefore, usually advertising elasticity of demand is typically ________.",
+        "options": [
+            "Positive",
+            "Unitary",
+            "Negative",
+            "Zero"
+        ],
+        "correctOption": "Positive"
+    },
+    {
+        "question": "Advertisement elasticity of demand values between ________ and ________.",
+        "options": [
+            "One, infinity",
+            "Zero, infinity",
+            "Zero, one",
+            "(-) Infinity to (+) Infinity."
+        ],
+        "correctOption": "Zero, infinity"
+    },
+    {
+        "question": "What will be the advertisement elasticity?\n% Change in Demand = 30%\n% change in Price = Nil\n% change in advertisement Expenditure = 25%",
+        "options": [
+            "1.2",
+            "0.83",
+            "1",
+            "25"
+        ],
+        "correctOption": "1.2"
+    },
+    {
+        "question": "When the demand changes at a higher rate than change in advertisement expenditure, the advertisement elasticity will be ________.",
+        "options": [
+            "Zero",
+            "One",
+            "More than one",
+            "Less than one"
+        ],
+        "correctOption": "Less than one"
+    },
+    {
+        "question": "The zero advertisement Elasticity represents :",
+        "options": [
+            "Demand responds proportionately",
+            "Demand does not respond proportionately",
+            "Demand does not respond at all.",
+            "None of the above."
+        ],
+        "correctOption": "Demand does not respond at all."
+    },
+    {
+        "question": "When the change in demand is less than proportionate change in advertisement expenditure, the advertisement elasticity (Ea) will be equal to ________.",
+        "options": [
+            "Ea = 0",
+            "Ea > 0",
+            "Ea < 1",
+            "Ea > 0 but < 1."
+        ],
+        "correctOption": "Ea > 0 but < 1."
+    },
+    {
+        "question": "Which of the following statements is correct?",
+        "options": [
+            "With the help of statistical tools, the demand can be forecasted accurately.",
+            "The more the number of substitutes of a commodity, more elastic is the demand.",
+            "Demand for butter is perfectly elastic.",
+            "Gold jewellery will have negative income elasticity."
+        ],
+        "correctOption": "The more the number of substitutes of a commodity, more elastic is the demand."
+    },
+    {
+        "question": "Method of demand forecasting does not include?",
+        "options": [
+            "Mathematical method",
+            "Barometric method",
+            "Expert opinion method",
+            "Statistical method"
+        ],
+        "correctOption": "Mathematical method"
+    },
+    {
+        "question": "Forecasting of demand is the Art and Science of predicting?",
+        "options": [
+            "Actual demand of a product at same future date",
+            "Probable demand in future",
+            "Total demand in future",
+            "None of these"
+        ],
+        "correctOption": "Probable demand in future"
+    },
+    {
+        "question": "Forecasting refers to knowing or measuring the status or nature of an event or variable ________ it occurs.",
+        "options": [
+            "Before",
+            "When",
+            "After",
+            "Both (b) & (c)"
+        ],
+        "correctOption": "Before"
+    },
+    {
+        "question": "The demand for cement in India is forecasted. It refers to ________.",
+        "options": [
+            "Micro level forecasting",
+            "Long Term forecasting",
+            "Industry level forecasting",
+            "Firm level forecasting."
+        ],
+        "correctOption": "Industry level forecasting"
+    },
+    {
+        "question": "________ demand forecasting is generally useful in tactical decisions.",
+        "options": [
+            "Short-term",
+            "Long-Term",
+            "Very Long Period",
+            "Both (a) & (b)"
+        ],
+        "correctOption": "Short-term"
+    },
+    {
+        "question": "The demand for a commodity that arises because of the demand for some other commodity (prevent product) is called as ________.",
+        "options": [
+            "Demand",
+            "Direct Demand",
+            "Derived Demand",
+            "Implied Demand"
+        ],
+        "correctOption": "Derived Demand"
+    },
+    {
+        "question": "If the demand for a product is independent of the demand for other goods, then it is called as ________.",
+        "options": [
+            "Derived Demand",
+            "Autonomous Demand",
+            "Industry Demand",
+            "Implied Demand."
+        ],
+        "correctOption": "Autonomous Demand"
+    },
+    {
+        "question": "Which of the following are consumer’s goods?",
+        "options": [
+            "Readymade clothes",
+            "Prepared Food",
+            "Residential Houses",
+            "All of the above."
+        ],
+        "correctOption": "All of the above."
+    },
+    {
+        "question": "Identify Producer’s goods out of following :",
+        "options": [
+            "Plant and Equipment",
+            "Readymade clothes",
+            "Residential Houses",
+            "All of the above"
+        ],
+        "correctOption": "Plant and Equipment"
+    },
+    {
+        "question": "Which of the following factors affects demand for non-durable consumer goods?",
+        "options": [
+            "Disposable Income",
+            "Price",
+            "Demography",
+            "All of the above."
+        ],
+        "correctOption": "All of the above."
+    },
+    {
+        "question": "In order to find out turning points, it is necessary to find out the general behaviour of the economy. This method of forecasting is called as :",
+        "options": [
+            "Controlled Experiments",
+            "Barometric Method",
+            "Statistical Method",
+            "None of these"
+        ],
+        "correctOption": "Barometric Method"
+    },
+    {
+        "question": "________ method of forecasting includes the methods: # Complete Enumerations # Sample Survey # End Use",
+        "options": [
+            "Collective opinion",
+            "Survey of Buyer’s intentions",
+            "Expert Opinion",
+            "Barometric"
+        ],
+        "correctOption": "Survey of Buyer’s intentions"
+    },
+    {
+        "question": "Under ________ method of demand forecasting, the future demand is estimated by conducting market studies and experiments on consumer behaviour under actual, though controlled, market conditions.",
+        "options": [
+            "Controlled Experiment method",
+            "Market Experiment Method",
+            "Barometric Method",
+            "Both (a) & (b)"
+        ],
+        "correctOption": "Both (a) & (b)"
+    },
+    {
+        "question": "Which one of the following is the statistical method of demand forecasting?",
+        "options": [
+            "Trend Projection Method",
+            "Fitting Equation Method",
+            "Regression Analysis",
+            "All of the above."
+        ],
+        "correctOption": "All of the above."
+    },
+    {
+        "question": "All ________ of human beings are called wants in Economics.",
+        "options": [
+            "Desires",
+            "Tastes",
+            "Motives",
+            "All of these"
+        ],
+        "correctOption": "All of these"
+    },
+    {
+        "question": "Wants may arise due to multiple causes including ________.",
+        "options": [
+            "Natural instincts",
+            "Social obligations",
+            "Individual’s economic & social status",
+            "All of the above"
+        ],
+        "correctOption": "All of the above"
+    },
+    {
+        "question": "Which of the following is not the characteristic of wants of human beings?",
+        "options": [
+            "Wants are unlimited",
+            "Wants are subjective & relative",
+            "Wants are affected by income, taste, fashion, advertisements and social customs",
+            "Wants do not vary with time, place & person."
+        ],
+        "correctOption": "Wants do not vary with time, place & person."
+    },
+    {
+        "question": "Wants arise from multiple causes including ________.",
+        "options": [
+            "Natural instincts",
+            "Social obligations",
+            "Individual’s economic & social status",
+            "All of the above"
+        ],
+        "correctOption": "All of the above"
+    },
+    {
+        "question": "________ is the ________ by the Consumer and ________ is the actual satisfaction derived:",
+        "options": [
+            "Utility, anticipated satisfaction, satisfaction",
+            "Utility, actual satisfactory, desire",
+            "Desire, utility, satisfaction",
+            "None of these."
+        ],
+        "correctOption": "Utility, anticipated satisfaction, satisfaction"
+    },
+    {
+        "question": "________ is the want satisfying power of a Commodity.",
+        "options": [
+            "Utility",
+            "Marginal Utility",
+            "Desire",
+            "Desired Utility"
+        ],
+        "correctOption": "Utility"
+    },
+    {
+        "question": "Which of the following theories explains consumer behaviours?",
+        "options": [
+            "Marginal Utility Analysis",
+            "Indifference Curve",
+            "Returns to scale",
+            "Both (a) & (b)."
+        ],
+        "correctOption": "Both (a) & (b)."
+    },
+    {
+        "question": "Marginal Utility Analysis has been propounded by :",
+        "options": [
+            "Marshall",
+            "Hicks",
+            "Allen",
+            "Hicks & Allen"
+        ],
+        "correctOption": "Marshall"
+    },
+    {
+        "question": "Alfred Marshall was a ________ economist.",
+        "options": [
+            "British",
+            "American",
+            "European",
+            "Asian"
+        ],
+        "correctOption": "British"
+    },
+    {
+        "question": "________ is the sum of marginal utilities derived from the consumption of different units.",
+        "options": [
+            "Marginal Utility",
+            "Average Utility",
+            "Total Utility",
+            "Incremental Marginal Utility"
+        ],
+        "correctOption": "Total Utility"
+    },
+    {
+        "question": "________ is the additional made to total utility by the consumption of an additional unit of a commodity.",
+        "options": [
+            "Marginal Utility",
+            "Average Utility",
+            "Total Utility",
+            "Incremental Marginal Utility"
+        ],
+        "correctOption": "Marginal Utility"
+    },
+    {
+        "question": "When economists speak of the utility of a certain good, they are referring to:",
+        "options": [
+            "The demand for the good.",
+            "The usefulness of the good in consumption.",
+            "The expected satisfaction derived from consuming the good.",
+            "The rate at which consumers are willing to exchange one good for another."
+        ],
+        "correctOption": "The expected satisfaction derived from consuming the good."
+    },
+    {
+        "question": "The aim of the consumer in allocating his income is to ________.",
+        "options": [
+            "Maximize his total utility.",
+            "Maximize his marginal utility.",
+            "To buy the goods he wants most whatever the price.",
+            "To buy the goods which he expects to be short in supply."
+        ],
+        "correctOption": "Maximize his total utility."
+    },
+    {
+        "question": "Additional made to total utility refers to?",
+        "options": [
+            "Total utility",
+            "Average utility",
+            "Marginal utility",
+            "All of the above"
+        ],
+        "correctOption": "Marginal utility"
+    },
+    {
+        "question": "Which Equation is correct –",
+        "options": [
+            "MUXMUy=PxPy",
+            "MUXMUy>PxPy",
+            "MUXMUy<PxPy",
+            "MUXMUy≠PxPy"
+        ],
+        "correctOption": "MUXMUy=PxPy"
+    },
+    {
+        "question": "From the following data given below answer questions 18 and 19 –\nUnits TU MU\n1 200\n2 – 180\n3 480 –\nTotal utility derived from 2nd unit?",
+        "options": [
+            "380",
+            "20",
+            "100",
+            "280"
+        ],
+        "correctOption": "380"
+    },
+    {
+        "question": "Marginal utility of 3rd unit is?",
+        "options": [
+            "200",
+            "280",
+            "100",
+            "50"
+        ],
+        "correctOption": "280"
+    },
+    {
+        "question": "The Consumer is in equilibrium when the following condition is satisfied:",
+        "options": [
+            "Budget line is tangent to the Ic curve",
+            "MUxPx=MUyPy=MU2Pz",
+            "Both (a) and (b)",
+            "None of the above"
+        ],
+        "correctOption": "Both (a) and (b)"
+    },
+    {
+        "question": "Cardinal approach is related to:",
+        "options": [
+            "Indifference curve",
+            "Equi marginal utility",
+            "Law of diminishing returns",
+            "None of these"
+        ],
+        "correctOption": "Equi marginal utility"
+    },
+    {
+        "question": "Which economist said that money is the measuring rod of utility?",
+        "options": [
+            "A.C. Pigou",
+            "Marshall",
+            "Adam Smith",
+            "Robbins"
+        ],
+        "correctOption": "Marshall"
+    },
+    {
+        "question": "Which of the following relation is true with MU?",
+        "options": [
+            "When MU is positive, Total utility rises at a diminishing rate",
+            "When marginal utility is zero, total utility is maximum",
+            "When marginal utility is negative, total utility is diminishing",
+            "All of the above"
+        ],
+        "correctOption": "All of the above"
+    },
+    {
+        "question": "Total utility is maximum when:",
+        "options": [
+            "Marginal utility is zero.",
+            "Marginal utility is at its highest point.",
+            "Marginal utility is negative.",
+            "None of the above."
+        ],
+        "correctOption": "Marginal utility is zero."
+    },
+    {
+        "question": "The second glass of lemonade gives lesser satisfaction to a thirsty boy. This is a clear case of:",
+        "options": [
+            "Law of demand.",
+            "Law of diminishing returns.",
+            "Law of diminishing utility.",
+            "Law of supply."
+        ],
+        "correctOption": "Law of diminishing utility."
+    },
+    {
+        "question": "When TUn-1 is deducted from TUn, the resultant is ________.",
+        "options": [
+            "Marginal Utility",
+            "Average Utility",
+            "Total Utility",
+            "Incremental Marginal Utility"
+        ],
+        "correctOption": "Marginal Utility"
+    },
+    {
+        "question": "Marginal Utility Analysis is ________ Concept.",
+        "options": [
+            "Cardinal",
+            "Ordinal",
+            "Sequential",
+            "None of these."
+        ],
+        "correctOption": "Cardinal"
+    },
+    {
+        "question": "Which of the following is not an assumption of Marginal Utility Analysis?",
+        "options": [
+            "Rationality",
+            "Cardinal Measurability of Utility",
+            "Hypothesis of independent utility",
+            "Increasing Marginal Utility of Money."
+        ],
+        "correctOption": "Increasing Marginal Utility of Money."
+    },
+    {
+        "question": "As per the hypothesis of ________ Utility, the total utility which a person gets from the whole collection of goods purchased by him is simply the sum total of the separate utilities of the goods.",
+        "options": [
+            "Dependent",
+            "Independent",
+            "Related",
+            "Affected"
+        ],
+        "correctOption": "Independent"
+    },
+    {
+        "question": "According to neo-classical economists, utility is a cardinal concept. It means:",
+        "options": [
+            "Utility is a measurable and quantifiable entity",
+            "A psychological unit of measurement of utility is available called as ‘UTILS’",
+            "Utilities from different units of the commodity can be added.",
+            "All of the above."
+        ],
+        "correctOption": "All of the above."
+    },
+    {
+        "question": "The Marginal Utility can be ________.",
+        "options": [
+            "Positive",
+            "Zero",
+            "Negative",
+            "Any of above"
+        ],
+        "correctOption": "Any of above"
+    },
+    {
+        "question": "The concept of Consumer’s Surplus was propounded by ________.",
+        "options": [
+            "Alfred Marshall",
+            "Hicks & Allen",
+            "J.B. Say",
+            "None of these"
+        ],
+        "correctOption": "Alfred Marshall"
+    },
+    {
+        "question": "If a Consumer gets more utility from a commodity, he would be willing to pay a higher price and vice versa. This extra satisfaction which consumer gets from the purchase of goods is called as ________.",
+        "options": [
+            "Producer’s Supply",
+            "Consumer’s Surplus",
+            "Extra Utility",
+            "Excess Marginal Utility"
+        ],
+        "correctOption": "Consumer’s Surplus"
+    },
+    {
+        "question": "Which of the following statement is incorrect as regards Consumer’s Surplus?",
+        "options": [
+            "It can be measured in money",
+            "It cannot be measured precisely",
+            "It is affected by a variability of substitutes",
+            "It is always infinite for necessaries."
+        ],
+        "correctOption": "It can be measured in money"
+    },
+    {
+        "question": "By consumer surplus, economists mean ________",
+        "options": [
+            "The area inside the budget line.",
+            "The area between the average revenue and marginal revenue curves.",
+            "The difference between the maximum amount a person is willing to pay for a good and its market price.",
+            "None of the above."
+        ],
+        "correctOption": "The difference between the maximum amount a person is willing to pay for a good and its market price."
+    },
+    {
+        "question": "In the diagram given below, the shaded portion represents.",
+        "options": [
+            "Price above which there is no demand for the commodity.",
+            "Monopoly price of the commodity.",
+            "Consumer surplus.",
+            "None of the above."
+        ],
+        "correctOption": "Consumer surplus."
+    },
+    {
+        "question": "Which of the following is/are the condition’s of theory of consumer surplus if price is same for all the units he purchased?",
+        "options": [
+            "Consumer gains extra utility or surplus",
+            "Consumer surplus for the last commodity is zero",
+            "Both",
+            "None"
+        ],
+        "correctOption": "Both"
+    },
+    {
+        "question": "The concept of consumer’s surplus is derived from:",
+        "options": [
+            "The law of diminishing marginal utility",
+            "The law of equal-marginal utility",
+            "The law of diminishing returns",
+            "Engel’s law"
+        ],
+        "correctOption": "The law of diminishing marginal utility"
+    },
+    {
+        "question": "In case of necessaries, consumer surplus is?",
+        "options": [
+            "Infinite",
+            "Zero",
+            "Equals to one",
+            "More than one"
+        ],
+        "correctOption": "Infinite"
+    },
+    {
+        "question": "Consider the following:\nThe Consumer’s surplus in above diagram is ________.",
+        "options": [
+            "OQRP",
+            "RQD1",
+            "DPR",
+            "ODD1"
+        ],
+        "correctOption": "DPR"
+    },
+    {
+        "question": "The indifference curve analysis is based on ________ utility.",
+        "options": [
+            "Ordinal",
+            "Cardinal",
+            "Quantitative",
+            "Numeric"
+        ],
+        "correctOption": "Ordinal"
+    },
+    {
+        "question": "Which one is not an assumption of the theory of demand based on analysis of indifference curves?",
+        "options": [
+            "Given scale of preferences as between different combinations of two goods.",
+            "Diminishing marginal rate of substitution.",
+            "Constant marginal utility of money.",
+            "Consumers would always prefer more of a particular good to less of it, other things remaining the same."
+        ],
+        "correctOption": "Constant marginal utility of money."
+    },
+    {
+        "question": "Which of the following is not the property of indifference curve?",
+        "options": [
+            "Slopes downwards to the right",
+            "Always convex to the origin",
+            "Intersects each other",
+            "Will not touch either of the axes"
+        ],
+        "correctOption": "Intersects each other"
+    },
+    {
+        "question": "Which of the following is not the property of indifference curve?",
+        "options": [
+            "IC is convex to the origin",
+            "IC scopes downwards from left to right",
+            "Two IC can touch each other",
+            "IC cannot touch either of the axis"
+        ],
+        "correctOption": "Two IC can touch each other"
+    },
+    {
+        "question": "An indifference curve slopes down towards right since more of one commodity and less of another result in:",
+        "options": [
+            "Same level of satisfaction.",
+            "Greater satisfaction.",
+            "Maximum satisfaction.",
+            "Any of the above."
+        ],
+        "correctOption": "Same level of satisfaction."
+    },
+    {
+        "question": "Which of the following is a property of an indifference curve?",
+        "options": [
+            "It is convex to the origin.",
+            "The marginal rate of substitution is constant as you move along an indifference curve.",
+            "Marginal utility is constant as you move along an indifference curve.",
+            "Total utility is greatest where the 45 degree line cuts the indifference curve."
+        ],
+        "correctOption": "It is convex to the origin."
+    },
+    {
+        "question": "An IC shows ________ MRS between the commodity?",
+        "options": [
+            "Increasing",
+            "Decreasing",
+            "Constant",
+            "Zero"
+        ],
+        "correctOption": "Decreasing"
+    },
+    {
+        "question": "The figure below shows the budget constraint of a consumer with an income of ₹ 900 to spend on two commodities, namely ice cream and chocolates.\nThe prices of these two commodities respectively are:",
+        "options": [
+            "₹ 10 and ₹ 20",
+            "₹ 20 and ₹ 10",
+            "₹ 10 and ₹ 5",
+            "Any of the above."
+        ],
+        "correctOption": "₹ 20 and ₹ 10"
+    },
+    {
+        "question": "Indifference curve is L shaped then two goods will be:",
+        "options": [
+            "Perfect substitute goods",
+            "Substitute goods",
+            "Perfect complementary goods",
+            "Complementary goods"
+        ],
+        "correctOption": "Perfect complementary goods"
+    },
+    {
+        "question": "Which of the following statements is incorrect?",
+        "options": [
+            "An indifference curve must be downward-sloping to the right.",
+            "Convexity of a curve implies that the slope of the curve diminishes as one moves from left to right.",
+            "The income elasticity for inferior goods to a consumer is positive.",
+            "The total effect of a change in the price of a good on its quantity demanded is called the price effect."
+        ],
+        "correctOption": "The income elasticity for inferior goods to a consumer is positive."
+    },
+    {
+        "question": "A point below the budget line of a consumer ________.",
+        "options": [
+            "Represents a combination of goods which costs the whole of consumer’s income.",
+            "Represents a combination of goods which costs less than the consumer’s income.",
+            "Represents a combination of goods which is unattainable to the consumer given his/her money income.",
+            "Represents a combination of goods which costs more than the consumers’ income."
+        ],
+        "correctOption": "Represents a combination of goods which costs less than the consumer’s income."
+    },
+    {
+        "question": "________ is a curve which represents all those combinations of two goods which give same satisfaction to the consumer.",
+        "options": [
+            "Indifference Curve",
+            "Iso-Utility Curve",
+            "Equal-Utility Curve",
+            "All of the above"
+        ],
+        "correctOption": "All of the above"
+    },
+    {
+        "question": "________ represents a collection of many indifference curves where each curve represents a certain level of satisfaction.",
+        "options": [
+            "Indifference Group",
+            "Indifference Map",
+            "Indifference Aggregate",
+            "Market Map"
+        ],
+        "correctOption": "Indifference Map"
+    },
+    {
+        "question": "Consider the following:\nIn the above indifference map, which point gives highest satisfaction?",
+        "options": [
+            "A",
+            "B",
+            "C",
+            "Both (c) and (d)"
+        ],
+        "correctOption": "Both (c) and (d)"
+    },
+    {
+        "question": "________ is the rate at which a consumer is prepared to exchange group X and Y.",
+        "options": [
+            "Marginal Rate of Substitution",
+            "Average Rate of Substitution",
+            "Mathematical Rate of Substitution",
+            "None of the above"
+        ],
+        "correctOption": "Marginal Rate of Substitution"
+    },
+    {
+        "question": "When MUA is divided by MUB, then it is the marginal rate of substitution of ________.",
+        "options": [
+            "A for B",
+            "B for A",
+            "A & B for other Product",
+            "None of these"
+        ],
+        "correctOption": "A for B"
+    },
+    {
+        "question": "When the consumer has more and more unit of food, he is prepared to give up less and less units of clothing. It is due to ________.",
+        "options": [
+            "Falling MRS",
+            "Rising MRS",
+            "Constant MRS",
+            "None of the above."
+        ],
+        "correctOption": "Falling MRS"
+    },
+    {
+        "question": "Which one of the following Statement is incorrect about Indifference Curve?",
+        "options": [
+            "Always Convex to the origin",
+            "Never intersects each other",
+            "Higher Curve represents higher level of satisfaction.",
+            "It may touch X axis but never Y axis."
+        ],
+        "correctOption": "It may touch X axis but never Y axis."
+    },
+    {
+        "question": "A higher indifference curve shows a higher level of satisfaction than a lower one. Therefore, a consumer, in his attempt to maximize satisfaction will try to reach the ________ possible indifference curve.",
+        "options": [
+            "Highest",
+            "Lowest",
+            "Any of (a) or (b)",
+            "None of these"
+        ],
+        "correctOption": "Highest"
+    },
+    {
+        "question": "The consumer is in equilibrium at a point where the budget line:",
+        "options": [
+            "Is above an indifference curve.",
+            "Is below an indifference curve.",
+            "Is tangent to an indifference curve.",
+            "Cuts an indifference curve."
+        ],
+        "correctOption": "Is tangent to an indifference curve."
+    },
+    {
+        "question": "The scope of the indifference curve shows consumer equilibrium at point where MRS(xy) ________ PxPy (Price line).",
+        "options": [
+            "Less than",
+            "More than",
+            "Equal to",
+            "None of the above"
+        ],
+        "correctOption": "Equal to"
+    },
+    {
+        "question": "The Slope of Indifference curve is ________.",
+        "options": [
+            "Marginal Rate of Substitution",
+            "Minimal Rate of Substitution",
+            "Average Rate of Substitution",
+            "Total Rate of Substitution"
+        ],
+        "correctOption": "Marginal Rate of Substitution"
+    },
+    {
+        "question": "The slope of the ‘Price line’ indicates the ratio between ________ of the two goods.",
+        "options": [
+            "Prices",
+            "Quantities demanded",
+            "Quantities Sold",
+            "Marginal Utility"
+        ],
+        "correctOption": "Prices"
+    },
+    {
+        "question": "The supply of a good refers to:",
+        "options": [
+            "Actual production of the good.",
+            "Total existing stock of the good.",
+            "Stock available for sale.",
+            "Amount of the good offered for sale at a particular price per unit of time."
+        ],
+        "correctOption": "Amount of the good offered for sale at a particular price per unit of time."
+    },
+    {
+        "question": "Supply is a ________ concept.",
+        "options": [
+            "Flow",
+            "Stock",
+            "Flow and stock, both",
+            "Qualitative"
+        ],
+        "correctOption": "Flow"
+    },
+    {
+        "question": "Supply is the:",
+        "options": [
+            "Limited resources that are available with the seller.",
+            "Cost of producing a good.",
+            "Entire relationship between the quantity supplied and the price of good.",
+            "Willingness to produce a good if the technology to produce it becomes available."
+        ],
+        "correctOption": "Entire relationship between the quantity supplied and the price of good."
+    },
+    {
+        "question": "The quantity supplied of a good or service is the amount that ________",
+        "options": [
+            "Is actually bought during a given time period at a given price.",
+            "Producers wish they could sell at a higher price.",
+            "Producers plan to sell during a given time period at a given price.",
+            "People are willing to buy during a given time period at a given price."
+        ],
+        "correctOption": "Producers plan to sell during a given time period at a given price."
+    },
+    {
+        "question": "In a very short period, the supply:",
+        "options": [
+            "Can be changed.",
+            "Cannot be changed.",
+            "Can be increased.",
+            "None of the above."
+        ],
+        "correctOption": "Cannot be changed."
+    },
+    {
+        "question": "Which of the following statement is correct?",
+        "options": [
+            "Supply is inversely related to its cost of production",
+            "Price and quantity demand of a goods have direct relationship",
+            "Taxes and subsidy has no impact on the supply of the product",
+            "Seasonal changes have no impact on the supply of the commodity"
+        ],
+        "correctOption": "Supply is inversely related to its cost of production"
+    },
+    {
+        "question": "The term supply refers to the amount of goods or services that the producers are ________ to the market at value prices during a given period of time.",
+        "options": [
+            "Willing to offer",
+            "Able to Offer",
+            "Actually Sold",
+            "Both (a) & (b)"
+        ],
+        "correctOption": "Both (a) & (b)"
+    },
+    {
+        "question": "Which of the following is a factor determining the supply?",
+        "options": [
+            "Price of the good",
+            "Price of related goods",
+            "Price of factor of Production",
+            "All of the above."
+        ],
+        "correctOption": "All of the above."
+    },
+    {
+        "question": "Other things being equal, the ________ the relative price of a good the ________ the quantity of it that will be supplied.",
+        "options": [
+            "Higher, Lesser",
+            "Higher, Greater",
+            "Lower, Lower",
+            "None of these"
+        ],
+        "correctOption": "Higher, Greater"
+    },
+    {
+        "question": "Under ________ conditions, Supply will be more than that under ________ conditions.",
+        "options": [
+            "Competitive, Monopolized",
+            "Monopolized, Competitive",
+            "Monopolized, Oligopoly",
+            "Duopoly, Monopolized."
+        ],
+        "correctOption": "Competitive, Monopolized"
+    },
+    {
+        "question": "The supply of a particular product depends upon the state of technology also. Inventions and innovations tend to make it possible to produce ________ goods with the same resources.",
+        "options": [
+            "More",
+            "Better",
+            "Lesser",
+            "More and/or Better"
+        ],
+        "correctOption": "More and/or Better"
+    },
+    {
+        "question": "According to law of supply, change in supply is related to?",
+        "options": [
+            "Price of goods",
+            "Price of related goods",
+            "Factors of production",
+            "None of the above"
+        ],
+        "correctOption": "Price of goods"
+    },
+    {
+        "question": "If the demand is more than supply, then the pressure on price will be:",
+        "options": [
+            "Upward",
+            "Downward",
+            "Constant",
+            "None of the above"
+        ],
+        "correctOption": "Upward"
+    },
+    {
+        "question": "If the supply of bottled water decreases, other things remaining the same, the equilibrium price ________ and the equilibrium quantity ________.",
+        "options": [
+            "Increases; decreases.",
+            "Decreases; increases.",
+            "Decreases; decreases.",
+            "Increases; increases."
+        ],
+        "correctOption": "Increases; decreases."
+    },
+    {
+        "question": "In the book market, the supply of books will decrease if any of the following occurs except ________.",
+        "options": [
+            "A decrease in the number of book publishers.",
+            "A decrease in the price of the book.",
+            "An increase in the future expected price of the book.",
+            "An increase in the price of paper used."
+        ],
+        "correctOption": "A decrease in the price of the book."
+    },
+    {
+        "question": "An increase in the number of sellers of bikes will increase the ________.",
+        "options": [
+            "The price of a bike.",
+            "Demand for bikes.",
+            "The supply of bikes.",
+            "Demand for helmets."
+        ],
+        "correctOption": "The supply of bikes."
+    },
+    {
+        "question": "If good growing conditions increases the supply of strawberries and hot weather increases the demand for strawberries, the quantity of strawberries bought.",
+        "options": [
+            "Increases and the price might rise, fall or not change.",
+            "Does not change but the price rises.",
+            "Does not change but the price falls.",
+            "Increases and the price rises."
+        ],
+        "correctOption": "Increases and the price might rise, fall or not change."
+    },
+    {
+        "question": "The supply curve for perishable commodities is ________.",
+        "options": [
+            "Elastic",
+            "Inelastic",
+            "Perfectly elastic",
+            "Perfectly inelastic"
+        ],
+        "correctOption": "Perfectly inelastic"
+    },
+    {
+        "question": "When supply price increase in the short run, the profit of the producer ________.",
+        "options": [
+            "Increases",
+            "Decreases",
+            "Remains constant",
+            "Decreases marginally"
+        ],
+        "correctOption": "Increases"
+    },
+    {
+        "question": "The ________ is a graphical presentation of the ________.",
+        "options": [
+            "Supply Curve, Demand Schedule",
+            "Supply Curve, Supply Schedule",
+            "Demand Curve, Supply Schedule",
+            "None of these."
+        ],
+        "correctOption": "Supply Curve, Supply Schedule"
+    },
+    {
+        "question": "Contraction of supply is the result of:",
+        "options": [
+            "Decrease in the number of producers.",
+            "Decrease in the price of the good concerned.",
+            "Increase in the prices of other goods.",
+            "Decrease in the outlay of sellers."
+        ],
+        "correctOption": "Decrease in the price of the good concerned."
+    },
+    {
+        "question": "When the supply of a good increase as a result of an increase in its price, then it is an increase in ________ and there is a upward ________ the supply curve.",
+        "options": [
+            "Quantity Supplied, movement on",
+            "Quantity Supplied, Shift of",
+            "Supply, movement on",
+            "Supply, Shift of"
+        ],
+        "correctOption": "Quantity Supplied, movement on"
+    },
+    {
+        "question": "Movements on the supply curve may be due to:",
+        "options": [
+            "Change in price of goods",
+            "Change in price of related goods",
+            "Change in technology",
+            "None of the above."
+        ],
+        "correctOption": "Change in price of goods"
+    },
+    {
+        "question": "Contraction of supply implies ________.",
+        "options": [
+            "Decrease in cost of production",
+            "Decrease in price of the good concerned",
+            "Decrease in price of related good",
+            "Increase in price of the good concerned"
+        ],
+        "correctOption": "Decrease in price of the good concerned"
+    },
+    {
+        "question": "An increase in the supply of a good is caused by:",
+        "options": [
+            "Improvements in its technology.",
+            "Fall in the prices of other goods.",
+            "Fall in the prices of factors of production.",
+            "All of the above."
+        ],
+        "correctOption": "All of the above."
+    },
+    {
+        "question": "When supply curve moves to right, it means ________.",
+        "options": [
+            "Supply increases.",
+            "Supply decreases.",
+            "Supply remains constant.",
+            "None of the above."
+        ],
+        "correctOption": "Supply increases."
+    },
+    {
+        "question": "When supply curve shifts to the right there is:",
+        "options": [
+            "An increase",
+            "Expansion",
+            "Contraction",
+            "Decrease"
+        ],
+        "correctOption": "An increase"
+    },
+    {
+        "question": "When supply curve moves to the left, it means ________.",
+        "options": [
+            "Smaller supply at a given price.",
+            "Larger supply at a given price.",
+            "Constant supply at a lower price.",
+            "None of the above."
+        ],
+        "correctOption": "Smaller supply at a given price."
+    },
+    {
+        "question": "When the supply curve shifts to the left or right, it is called as ________ or ________ in supply, respectively.",
+        "options": [
+            "Decrease, Decrease",
+            "Decreases, Increase",
+            "Increase, Increase",
+            "Increase, Decrease."
+        ],
+        "correctOption": "Decreases, Increase"
+    },
+    {
+        "question": "Elasticity of supply refers to the degree of responsiveness of supply of a good to changes in its:",
+        "options": [
+            "Demand.",
+            "Price.",
+            "Cost of production.",
+            "State of technology."
+        ],
+        "correctOption": "Price."
+    },
+    {
+        "question": "The elasticity of supply is defined as the ________.",
+        "options": [
+            "Responsiveness of the quantity supplied of a good to a change in its price.",
+            "Responsiveness of the quantity supplied of a good without change in its price.",
+            "Responsiveness of the quantity demanded of a good to a change in its price.",
+            "Responsiveness of the quantity demanded of a good without change in its price."
+        ],
+        "correctOption": "Responsiveness of the quantity supplied of a good to a change in its price."
+    },
+    {
+        "question": "Elasticity of supply is measured by dividing the percentage change in quantity supplied of a good by ________.",
+        "options": [
+            "Percentage change in income.",
+            "Percentage change in quantity demanded of goods.",
+            "Percentage change in price.",
+            "Percentage change in taste and preference."
+        ],
+        "correctOption": "Percentage change in price."
+    },
+    {
+        "question": "Which of the following statements is correct?",
+        "options": [
+            "When the price falls the quantity demanded falls.",
+            "Seasonal changes do not affect the supply of a commodity.",
+            "Taxes and subsidies do not influence the supply of the commodity.",
+            "With lower cost, it is profitable to supply more of the commodity."
+        ],
+        "correctOption": "With lower cost, it is profitable to supply more of the commodity."
+    },
+    {
+        "question": "When price of a commodity Rises from 200 to ₹ 300 and Quantity supply increases from 2,000 to 5,000 units find elasticity of supply?",
+        "options": [
+            "3.0",
+            "2.5",
+            "0.3",
+            "3.5"
+        ],
+        "correctOption": "3.0"
+    },
+    {
+        "question": "If price of computers increases by 10% and supply increases by 25%. The elasticity of supply is :",
+        "options": [
+            "2.5",
+            "0.4",
+            "(-) 2.5",
+            "(-) 0.4"
+        ],
+        "correctOption": "2.5"
+    },
+    {
+        "question": "The Price of Commodity X in-creased from ₹ 2,000 per unit to ₹ 2,100 per unit and consequently the quantity supplied rises from 2,500 units to 3,000 units. The Elasticity of supply will be",
+        "options": [
+            "2",
+            "4",
+            ".25",
+            "0"
+        ],
+        "correctOption": "4"
+    },
+    {
+        "question": "Perishable commodities will have ________.",
+        "options": [
+            "Perfectly elastic curve",
+            "Perfectly inelastic curve",
+            "Elastic",
+            "Inelastic"
+        ],
+        "correctOption": "Perfectly inelastic curve"
+    },
+    {
+        "question": "A vertical supply curve parallel to Y axis implies that the elasticity of supply is:",
+        "options": [
+            "Zero.",
+            "Infinity.",
+            "Equal to one.",
+            "Greater than zero but less than infinity."
+        ],
+        "correctOption": "Zero."
+    },
+    {
+        "question": "A horizontal supply curve parallel to the quantity axis implies that the elasticity of supply is:",
+        "options": [
+            "Zero.",
+            "Infinite.",
+            "Equal to one.",
+            "Greater than zero but less than one."
+        ],
+        "correctOption": "Infinite."
+    },
+    {
+        "question": "If the percentage change in supply is less than the percentage change in price it is called ________.",
+        "options": [
+            "Unit elasticity of supply.",
+            "Perfectly elastic.",
+            "More elastic supply.",
+            "Inelastic supply."
+        ],
+        "correctOption": "Inelastic supply."
+    },
+    {
+        "question": "Elasticity of supply is zero means?",
+        "options": [
+            "Perfectly inelastic",
+            "Perfectly elastic",
+            "Imperfectly elastic",
+            "All of the above"
+        ],
+        "correctOption": "Perfectly inelastic"
+    },
+    {
+        "question": "If the quantity supplied is exactly equal to the relative change in price then the elasticity of supply is:",
+        "options": [
+            "Less than one.",
+            "Greater than one.",
+            "One.",
+            "None of the above."
+        ],
+        "correctOption": "One."
+    },
+    {
+        "question": "Elasticity of supply is greater than one when ________.",
+        "options": [
+            "Proportionate change in quantity supplied is more than the proportionate change in price.",
+            "Proportionate change in price is greater than the proportionate change in quantity supplied.",
+            "Change in price and quantity supplied are equal.",
+            "None of the above."
+        ],
+        "correctOption": "Proportionate change in quantity supplied is more than the proportionate change in price."
+    },
+    {
+        "question": "When the supply of a product is perfectly inelastic then the curve will be",
+        "options": [
+            "Parallel to Y – axis",
+            "Parallel to X – axis",
+            "At the angle of 45°",
+            "Sloping upwards"
+        ],
+        "correctOption": "Parallel to Y – axis"
+    },
+    {
+        "question": "The cross elasticity between Rye bread and Whole Wheat bread is expected to be:",
+        "options": [
+            "Positive",
+            "Negative",
+            "Zero",
+            "Can’t say"
+        ],
+        "correctOption": "Positive"
+    },
+    {
+        "question": "The supply function is given as Q = 100 + 10 P. Find the elasticity using point method, when price is ₹ 15.",
+        "options": [
+            "4",
+            "-3",
+            "-5",
+            "3"
+        ],
+        "correctOption": "3"
+    },
+    {
+        "question": "Equilibrium refers to a market situation where quantity demand is to quantity supplied.",
+        "options": [
+            "Equal",
+            "Less than or Equal",
+            "More than",
+            "More than or equal"
+        ],
+        "correctOption": "Equal"
+    },
+    {
+        "question": "The equilibrium price is determined by the intersection between ________ and ________ It is also called as the equilibrium.",
+        "options": [
+            "Demand, Supply, Static",
+            "Demand Supply, Dynamic",
+            "Supply, Demand, Partial",
+            "Demand, Supply, Market"
+        ],
+        "correctOption": "Demand, Supply, Market"
+    },
+		 {
+    "question": "SSC Question Begins Here",
+    "options": [
+     
+    ],
+    "correctOption": "11500"
+  },
+	
+	 {
+    "question": "Q1. A businessman currently selling 10,000 units of its product per month, plans to reduce the retail price from Rs. 1 to Rs. 0.90. He knows from previous experience that the price elasticity of demand for the product is (-) 1.5. Assuming no other changes, his new sales will be:",
+    "options": [
+      "8500",
+      "10500",
+      "11000",
+      "11500"
+    ],
+    "correctOption": "11500"
+  },
+  {
+    "question": "Q2. Expansion and Contraction of demand means:",
+    "options": [
+      "Movement to a higher demand curve",
+      "Movement to a lower demand curve",
+      "Movement along the same demand curve",
+      "Both 1 and 2"
+    ],
+    "correctOption": "Movement along the same demand curve"
+  },
+  {
+    "question": "Q3. ‘Ceteris Paribus’ clause in the law of demand does not mean:",
+    "options": [
+      "The price of commodity does not change.",
+      "The price of its substitutes does not change.",
+      "The income of consumer does not change.",
+      "The price of complementary goods does not change"
+    ],
+    "correctOption": "The price of commodity does not change."
+  },
+  {
+    "question": "Q4. At the point above the middle of a straight-line demand curve, elasticity of demand is:",
+    "options": [
+      ">1",
+      "<1",
+      "=1",
+      "=0"
+    ],
+    "correctOption": ">1"
+  },
+  {
+    "question": "Q5. The cross elasticity of monthly demand of Tea when the price of sugar increases by 20% and demand for Tea falls by 30% is equal to:",
+    "options": [
+      "(-) 0.71",
+      "(+) 0.25",
+      "(-) 0.19",
+      "(-) 1.5"
+    ],
+    "correctOption": "(-) 1.5"
+  },
+  {
+    "question": "Q6. Elasticity of supply is zero means:",
+    "options": [
+      "Imperfectly elastic supply",
+      "Perfectly elastic supply",
+      "Imperfectly inelastic supply",
+      "Perfectly inelastic supply"
+    ],
+    "correctOption": "Perfectly inelastic supply"
+  },
+  {
+    "question": "Q7. The supply curve shifts to the right because of:",
+    "options": [
+      "Improved technology",
+      "Increased price of factors of production",
+      "Increased excise duty",
+      "All of the above"
+    ],
+    "correctOption": "Improved technology"
+  },
+  {
+    "question": "Q8. The luxury goods like diamond and jewellery will have:",
+    "options": [
+      "Low income elasticity of demand",
+      "High income elasticity of demand",
+      "Zero income elasticity of demand",
+      "None of the above"
+    ],
+    "correctOption": "High income elasticity of demand"
+  },
+  {
+    "question": "Q9. If regardless of change in its price, the quantity demanded of a commodity remains unchanged then the demand curve for the good will be:",
+    "options": [
+      "Horizontal",
+      "Vertical",
+      "Positively sloped",
+      "Negatively Sloped"
+    ],
+    "correctOption": "Vertical"
+  },
+  {
+    "question": "Q10. Which of the following statements is correct?",
+    "options": [
+      "When the price falls the quantity demanded falls.",
+      "With lower cost, it is profitable to supply more of the commodity.",
+      "Taxes and subsidies do not influence the supply of commodity.",
+      "Sessional changes do not affect the supply of a commodity"
+    ],
+    "correctOption": "With lower cost, it is profitable to supply more of the commodity."
+  },
+  {
+    "question": "Q11. If the quantity demanded of beef increase by 5% when the price of chicken increase by 25%, the cross-price elasticity of demand between beef and chicken is:",
+    "options": [
+      "0.2",
+      "(-)0.2",
+      "5",
+      "(-) 5"
+    ],
+    "correctOption": "0.2"
+  },
+  {
+    "question": "Q12. Marginal utility approach to demand was given by .",
+    "options": [
+      "AC Pigou.",
+      "Adam Smith",
+      "Alfred Marshall",
+      "J.M. Keynes"
+    ],
+    "correctOption": "Alfred Marshall"
+  },
+  {
+    "question": "Q13. In the below table what is marginal utility when consumption increase from 3 units to 4 units?",
+    "options": [
+      "3600",
+      "12000",
+      "2400",
+      "2000"
+    ],
+    "correctOption": "2400"
+  },
+  {
+    "question": "Q14. Consumer surplus is highest in the case of:",
+    "options": [
+      "Necessities",
+      "Luxuries",
+      "Conventional necessities",
+      "Comforts"
+    ],
+    "correctOption": "Necessities"
+  },
+  {
+    "question": "Q15. All the points on a budget line represent:",
+    "options": [
+      "The same total expenditure.",
+      "Decreasing Total Expenditure",
+      "Increasing total expenditure",
+      "None of the above"
+    ],
+    "correctOption": "The same total expenditure."
+  },
+  {
+    "question": "Q16. An indifference curve slopes down towards right since more of one commodity and less of another result in:",
+    "options": [
+      "Same Satisfaction",
+      "Greater Satisfaction",
+      "Maximum Satisfaction",
+      "Decreasing expenditure."
+    ],
+    "correctOption": "Same Satisfaction"
+  },
+  {
+    "question": "Q17. The value of elasticity co-efficient varies between:",
+    "options": [
+      "One and Infinity",
+      "Zero and One",
+      "Zero and Infinity",
+      "One and Ten"
+    ],
+    "correctOption": "Zero and Infinity"
+  },
+  {
+    "question": "Q18. When total demand for a commodity whose price has fallen increases, it is due to:",
+    "options": [
+      "Price Effect",
+      "Substitute Effect",
+      "Complementary Effect",
+      "Income Effect."
+    ],
+    "correctOption": "Price Effect"
+  },
+  {
+    "question": "Q19. With a given supply curve, a decrease in demand causes:",
+    "options": [
+      "No change in overall price but a reduction in equilibrium quantity.",
+      "An overall decrease in price and a decrease in equilibrium quantity",
+      "An overall decrease in price but an increase in equilibrium quantity.",
+      "An overall increase in price but a decrease in equilibrium quantity."
+    ],
+    "correctOption": "An overall decrease in price and a decrease in equilibrium quantity"
+  },
+  {
+    "question": "Q20. Demand curve in most cases slopes:",
+    "options": [
+      "Downward towards right",
+      "Vertical and parallel to X-axis",
+      "Upwards towards left",
+      "Horizontal and parallel to X-axis"
+    ],
+    "correctOption": "Downward towards right"
+  },
+  {
+    "question": "Q21. Giffen goods are those goods .",
+    "options": [
+      "For which demand increases as price increases.",
+      "Which have a high-income elasticity of demand",
+      "Which are in short supplies.",
+      "None of these"
+    ],
+    "correctOption": "For which demand increases as price increases."
+  },
+  {
+    "question": "Q22. Suppose income of the residents of locality increases by 50% and the quantity of gel pens demanded increases by 20%. What is income elasticity of demand for gel pen?",
+    "options": [
+      "0.4",
+      "0.6",
+      "1.25",
+      "1.5"
+    ],
+    "correctOption": "0.4"
+  },
+  {
+    "question": "Q23. Given the following four possibilities, which one results in an increase in total consumer expenditure?",
+    "options": [
+      "Demand is unitary elastic and price falls.",
+      "Demand is elastic and price rises.",
+      "Demand is inelastic and price falls.",
+      "Demand is inelastic and price rises."
+    ],
+    "correctOption": "Demand is inelastic and price rises."
+  },
+  {
+    "question": "Q24. At higher prices people demand more of certain goods not for their worth but for their prestige value - This is called:",
+    "options": [
+      "Giffen paradox",
+      "Speculative effect",
+      "Veblen effect",
+      "None of the above."
+    ],
+    "correctOption": "Veblen effect"
+  },
+  {
+    "question": "Q25. Contraction of demand is the result of:",
+    "options": [
+      "Decrease in the number of consumers.",
+      "Increase in the price of the good concerned.",
+      "Increase in the price of other goods.",
+      "Decrease in the income of purchasers"
+    ],
+    "correctOption": "Increase in the price of the good concerned."
+  },
+  {
+    "question": "Q26. Total utility is maximum when:",
+    "options": [
+      "Marginal utility is at its highest point.",
+      "Marginal Utility is equal to average utility.",
+      "Average utility is maximum.",
+      "Marginal Utility is zero"
+    ],
+    "correctOption": "Marginal Utility is zero"
+  },
+  {
+    "question": "Q27. Which factor generally keeps the price-elasticity of demand for a good low?",
+    "options": [
+      "Its Low Price",
+      "Variety of uses for that good.",
+      "Close substitute for that good.",
+      "High Proportion of the consumer’s income spent on it"
+    ],
+    "correctOption": "Its Low Price"
+  },
+  {
+    "question": "Q28. Marginal utility of a consumer is also his:",
+    "options": [
+      "Demand Curve",
+      "Supply curve",
+      "Total utility curve",
+      "Indifference curve"
+    ],
+    "correctOption": "Demand Curve"
+  },
+  {
+    "question": "Q29. If the price of apples rises from Rs. 30 per kg to Rs. 40 per kg and the supply increases from 240 kg to 300 kg, Elasticity of supply is:",
+    "options": [
+      "0.75",
+      "0.67",
+      "(-)0.67",
+      "(-)0.75"
+    ],
+    "correctOption": "0.75"
+  },
+  {
+    "question": "Q30. Marginal utility approach to demand was given by .",
+    "options": [
+      "J.R. Hicks",
+      "Alfred Marshall",
+      "Robbins",
+      "A.C. Pigou"
+    ],
+    "correctOption": "Alfred Marshall"
+  },
+  {
+    "question": "Q31. A necessity is defined as a good having:",
+    "options": [
+      "Zero Income elasticity of demand.",
+      "A negative income elasticity of demand.",
+      "An income elasticity of demand between zero and one.",
+      "None of the above."
+    ],
+    "correctOption": "An income elasticity of demand between zero and one."
+  },
+  {
+    "question": "Q32. The indifference curve, which is ‘L’ shape, represents:",
+    "options": [
+      "Perfect Complementary",
+      "Perfect Substitutability",
+      "No Substitutability",
+      "Non-Complementary."
+    ],
+    "correctOption": "Perfect Complementary"
+  },
+  {
+    "question": "Q33. If the demand is more than supply, then the pressure on price will be:",
+    "options": [
+      "Upward",
+      "Downward",
+      "Constant",
+      "None of the above"
+    ],
+    "correctOption": "Upward"
+  },
+  {
+    "question": "Q34. If the price of Orange juice increases, the demand for apple juice will .",
+    "options": [
+      "Increase",
+      "Decrease",
+      "Remain the same",
+      "Become negative"
+    ],
+    "correctOption": "Increase"
+  },
+  {
+    "question": "Q35. Income elasticity of an inferior good is:",
+    "options": [
+      "Positive",
+      "Negative",
+      "Zero",
+      "None"
+    ],
+    "correctOption": "Negative"
+  },
+  {
+    "question": "Q36. Which of the following pairs of goods is an example of substitutes?",
+    "options": [
+      "Tea and sugar",
+      "Tea and Coffee",
+      "Pen and Ink",
+      "Shirt and Trouser"
+    ],
+    "correctOption": "Tea and Coffee"
+  },
+  {
+    "question": "Q37. The supply curve for perishable commodities is .",
+    "options": [
+      "Elastic.",
+      "Inelastic",
+      "Perfectly Elastic.",
+      "Perfectly Inelastic."
+    ],
+    "correctOption": "Perfectly Inelastic."
+  },
+  {
+    "question": "Q38. If the price of a Smartphone increase by 15% and supply decreases by 30%. The price elasticity of supply is:",
+    "options": [
+      "2.00",
+      "(-) 0.5",
+      "0.5",
+      "(-) 2.00"
+    ],
+    "correctOption": "(-) 2.00"
+  },
+  {
+    "question": "Q39. In economics, what a consumer is ready to pay minus what he actually pays, is termed as:",
+    "options": [
+      "Consumer’s equilibrium",
+      "Consumer’s surplus",
+      "Consumer’s profit",
+      "None of the above."
+    ],
+    "correctOption": "Consumer’s surplus"
+  },
+  {
+    "question": "Q40. If the elasticity of demand for a commodity is perfectly inelastic then which of the following is incorrect?",
+    "options": [
+      "The elasticity of demand for this commodity must equal zero.",
+      "The commodity will be purchased regardless of increase in its price.",
+      "The commodity must have many substitutes",
+      "The commodity must be essential to those who purchase it."
+    ],
+    "correctOption": "The commodity must have many substitutes"
+  },
+  {
+    "question": "Q41. If supply of a commodity falls by 20% due to decrease in price of the commodity by 10%, the elasticity of supply will be:",
+    "options": [
+      "Elastic",
+      "Unit elastic",
+      "Perfectly elastic",
+      "None of the above"
+    ],
+    "correctOption": "Elastic"
+  },
+  {
+    "question": "Q42. In a typical demand schedule quantity demanded:",
+    "options": [
+      "Varies directly with price",
+      "Varies proportionately with price.",
+      "Is independent of price.",
+      "Varies inversely with price"
+    ],
+    "correctOption": "Varies inversely with price"
+  },
+	
+
+
+ // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

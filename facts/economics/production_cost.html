@@ -1,0 +1,4179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Production and Cost</title>
+			<script src="../../urlRewrite.js"></script>
+		<link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">
+  
+   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+  
+  
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Production and Cost | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+ const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'economicsproductionandcosts';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+       const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+<script>
+const questions = [
+ 
+  {
+    "question": "From here ca's questions, from question no. 269 you get ssc aao's questions",
+	"options": [],
+    "correctOption": ""
+  },
+  {
+    "question": "What is Production is Economics?",
+    "options": [
+      "Creating/Addition of Utility",
+      "Production of food grains",
+      "Creation of services",
+      "Manufacturing of goods"
+    ],
+    "correctOption": "Creating/Addition of Utility"
+  },
+  {
+    "question": "Which of the following is considered as production in economics?",
+    "options": [
+      "Helping a blind person in crossing the road",
+      "Group dance performance in a college annual function",
+      "Holding a child who is falling from a wall",
+      "Performing an art in a theatre"
+    ],
+    "correctOption": "Performing an art in a theatre"
+  },
+  {
+    "question": "Which of the following is considered production in Economics?",
+    "options": [
+      "Tilling of soil.",
+      "Singing a song before friends.",
+      "Preventing a child from falling into a manhole on the road.",
+      "Painting a picture for pleasure."
+    ],
+    "correctOption": "Tilling of soil."
+  },
+  {
+    "question": "Which of the following statements is true?",
+    "options": [
+      "The services of a doctor are considered production.",
+      "Man can create matter.",
+      "The services of a housewife are considered production.",
+      "When a man creates a table, he creates matter."
+    ],
+    "correctOption": "The services of a doctor are con-sidered production."
+  },
+  {
+    "question": "In Economics, entire process of ________ is nothing but creation of utilities in the form of goods and services.",
+    "options": [
+      "Consumption",
+      "Production",
+      "Exchange",
+      "Distribution"
+    ],
+    "correctOption": "Production"
+  },
+  {
+    "question": "Production is defined as:",
+    "options": [
+      "Creation of matter",
+      "Creation of utility in matter",
+      "Creation of infrastructural facilities",
+      "None of the above"
+    ],
+    "correctOption": "Creation of utility in matter"
+  },
+  {
+    "question": "According to ________, Production is the organized activity of transforming resources into finished products in the form of goods and services, and the objective of production is to satisfy the demand of such transformed “resources”.",
+    "options": [
+      "James Bates",
+      "J.R. Parkinson",
+      "Marshall",
+      "Both (a) and (b)"
+    ],
+    "correctOption": "Both (a) and (b)"
+  },
+  {
+    "question": "________ to exchange in the market is an essential component of production.",
+    "options": [
+      "Intention",
+      "Ability",
+      "Capacity",
+      "Possibility"
+    ],
+    "correctOption": "Intention"
+  },
+  {
+    "question": "Production does not include work done ________.",
+    "options": [
+      "Within a household out of love & affection",
+      "Voluntary services",
+      "For self consumption",
+      "All of the above."
+    ],
+    "correctOption": "All of the above."
+  },
+  {
+    "question": "Factors of production refer to :",
+    "options": [
+      "Inputs",
+      "Outputs",
+      "Both (a) & (b)",
+      "Either (a) or (b)"
+    ],
+    "correctOption": "Inputs"
+  },
+  {
+    "question": "________ are the factors or resources which make it possible to produce goods and services.",
+    "options": [
+      "Land, Labour, and Bank",
+      "Capital, Owner and manpower",
+      "Land, Labour and Entrepreneurial ability",
+      "Land, Labour, Capital and Entre preneurial ability"
+    ],
+    "correctOption": "Land, Labour, Capital and Entre preneurial ability"
+  },
+  {
+    "question": "Which of the following factors of production is a free gift of nature and refers to Natural resources?",
+    "options": [
+      "Land",
+      "Labour",
+      "Capital",
+      "Entrepreneurial Ability"
+    ],
+    "correctOption": "Land"
+  },
+  {
+    "question": "Which of the following is not a characteristic of land?",
+    "options": [
+      "Its supply for the economy is limited.",
+      "It is immobile.",
+      "Its usefulness depends on human efforts.",
+      "It is produced by our forefathers."
+    ],
+    "correctOption": "It is produced by our forefathers."
+  },
+  {
+    "question": "Which of the following is not a characteristics of Land?",
+    "options": [
+      "It is a free gift of nature",
+      "It is a mobile factor of production",
+      "It is limited in quantity",
+      "Its productive power is indestruc-tible"
+    ],
+    "correctOption": "It is a mobile factor of production"
+  },
+  {
+    "question": "Which among the following is not a characteristic of land?",
+    "options": [
+      "It is an active factor",
+      "It has variety of uses",
+      "Its production powers are inde-structible",
+      "Its supply is limited"
+    ],
+    "correctOption": "It is an active factor"
+  },
+  {
+    "question": "Which of the following statement about factors of production is not true?",
+    "options": [
+      "Land is a passive factor",
+      "Land is a free gift of nature",
+      "Land is immobile",
+      "Land is perishable"
+    ],
+    "correctOption": "Land is perishable"
+  },
+  {
+    "question": "No two pieces of land and alike. They differ in fertility and situation. Therefore, Land is ________.",
+    "options": [
+      "Homogenous",
+      "Heterogeneous",
+      "Bitrogeneous",
+      "None of these."
+    ],
+    "correctOption": "Heterogeneous"
+  },
+  {
+    "question": "Which of the following is correct about Land?",
+    "options": [
+      "It is mobile",
+      "It has single use",
+      "Its supply is fixed",
+      "It is homogeneous."
+    ],
+    "correctOption": "Its supply is fixed"
+  },
+  {
+    "question": "The total supply of Land is ________ from the point of view of the economy. However, it is relatively ________ from the point of view of a firm.",
+    "options": [
+      "Perfectly Inelastic, Inelastic",
+      "Perfectly Inelastic, Relatively Elastic",
+      "Perfectly Elastic, Inelastic",
+      "Perfectly Elastic, elastic"
+    ],
+    "correctOption": "Perfectly Inelastic, Relatively Elastic"
+  },
+  {
+    "question": "Labour force wants more ________",
+    "options": [
+      "Facility",
+      "Leisure",
+      "Benefit",
+      "All of the above"
+    ],
+    "correctOption": "Leisure"
+  },
+  {
+    "question": "Which of the following is not a characteristic of labour?",
+    "options": [
+      "It is perishable",
+      "It has weak bargaining power",
+      "Labour and Labour power cannot be separated",
+      "Labour is not mobile"
+    ],
+    "correctOption": "Labour is not mobile"
+  },
+  {
+    "question": "The labour power or efficiency of labour depends upon the ________",
+    "options": [
+      "Laborer’s inherent and acquired qualities.",
+      "Features of work environment",
+      "Incentive to work",
+      "All of the above."
+    ],
+    "correctOption": "All of the above."
+  },
+  {
+    "question": "Labour is highly perishable in the sense that ________.",
+    "options": [
+      "A labourer cannot store his labour.",
+      "The life of labour is short.",
+      "The labourer sells his labour against wages, but retains the capacity to work.",
+      "The labour is always low priced."
+    ],
+    "correctOption": "A labourer cannot store his labour."
+  },
+  {
+    "question": "Without the active participation of labour, land and capital may not produce anything. It means labour is factor.",
+    "options": [
+      "Passive",
+      "Active",
+      "Working",
+      "Executing"
+    ],
+    "correctOption": "Active"
+  },
+  {
+    "question": "Human capital refers to:",
+    "options": [
+      "Savings by individuals",
+      "Mobilisation of saving",
+      "Human skills and abilities",
+      "Productive investment"
+    ],
+    "correctOption": "Human skills and abilities"
+  },
+  {
+    "question": "________ Capital performs its function is production in a single use and is not available for future use.",
+    "options": [
+      "Circulating",
+      "Fixed",
+      "Tangible",
+      "Human"
+    ],
+    "correctOption": "Circulating"
+  },
+  {
+    "question": "Which one of the following may be regarded as a part of social capital?",
+    "options": [
+      "Roads",
+      "Bridges",
+      "Machinery",
+      "Both (a) & (b)"
+    ],
+    "correctOption": "Both (a) & (b)"
+  },
+  {
+    "question": "The three stages of capital formation are :",
+    "options": [
+      "Savings, Mobilization of Savings and investment",
+      "Mobilization of Saving, Savings, and investment",
+      "Investment, Saving and mobiliza-tion of Saving",
+      "Saving, Investment and mobiliza-tion of savings."
+    ],
+    "correctOption": "Savings, Mobilization of Savings and investment"
+  },
+  {
+    "question": "________ means a sustained increase in the stock of real capital in a Country.",
+    "options": [
+      "Capital formation",
+      "Savings",
+      "Mobilization of Savings",
+      "Mobilization of Capital"
+    ],
+    "correctOption": "Capital formation"
+  },
+  {
+    "question": "Which one of the following statements is not correct?",
+    "options": [
+      "Land has indestructible powers",
+      "Labour is mobile",
+      "Capital is nature’s gift",
+      "Land is a passive factor."
+    ],
+    "correctOption": "Capital is nature’s gift"
+  },
+  {
+    "question": "Functions of the entrepreneur are:",
+    "options": [
+      "Risk bearing",
+      "Initiating a business enterprise and resource co-ordinating",
+      "Introducing new innovations",
+      "All of the above"
+    ],
+    "correctOption": "All of the above"
+  },
+  {
+    "question": "An Entrepreneur undertakes which one of the following functions?",
+    "options": [
+      "Initiating a business and resource co-ordination",
+      "Risk or uncertainty bearing",
+      "Innovations",
+      "All of the above"
+    ],
+    "correctOption": "All of the above"
+  },
+  {
+    "question": "Innovation theory of entrepreneurship is propounded by:",
+    "options": [
+      "Knight",
+      "Schumpeter",
+      "Max Weber",
+      "Peter Drucker"
+    ],
+    "correctOption": "Schumpeter"
+  },
+  {
+    "question": "The most important function of an entrepreneur is to ________.",
+    "options": [
+      "Innovate",
+      "Bear the sense of responsibility",
+      "Finance",
+      "Earn profit"
+    ],
+    "correctOption": "Innovate"
+  },
+  {
+    "question": "Who has given the concept of Innovative Entrepreneurship?",
+    "options": [
+      "Robbins",
+      "Adam Smith",
+      "Schumpeter",
+      "Sweezy"
+    ],
+    "correctOption": "Schumpeter"
+  },
+  {
+    "question": "The basic minimum objective of all kinds of enterprises is to survive or to stay alive. It may be regarded as ________ objective of the enterprise.",
+    "options": [
+      "Organic",
+      "Economic",
+      "Social",
+      "National"
+    ],
+    "correctOption": "Organic"
+  },
+  {
+    "question": "________ objective implies the profit maximizing behaviour of the firm.",
+    "options": [
+      "Organic",
+      "Economic",
+      "Social",
+      "National"
+    ],
+    "correctOption": "Economic"
+  },
+  {
+    "question": "________ mobilizes factors of production, combines them in the right proportion, initiates the process of production and bears the risks involved in it.",
+    "options": [
+      "Businessman",
+      "Manager",
+      "CEO",
+      "Entrepreneur"
+    ],
+    "correctOption": "Entrepreneur"
+  },
+  {
+    "question": "Which one of the following function is performed by entrepreneur?",
+    "options": [
+      "Initiating Business Enterprise and resource Co-ordination",
+      "Risk-bearing or uncertainty bearing",
+      "Innovations",
+      "All of the above."
+    ],
+    "correctOption": "All of the above."
+  },
+  {
+    "question": "According to ________, the true function of an entrepreneur is to introduce innovations.",
+    "options": [
+      "Schumpeter",
+      "Peter Ducker",
+      "Paul Samuelson",
+      "None of the above."
+    ],
+    "correctOption": "Schumpeter"
+  },
+  {
+    "question": "Which of the following is the best definition of “production function”?",
+    "options": [
+      "The relationship between market price and quantity supplied.",
+      "The relationship between the firm’s total revenue and the cost of production.",
+      "The relationship between the quantities of inputs needed to produce a given level of output.",
+      "The relationship between the quantity of inputs and the firm’s marginal cost of production."
+    ],
+    "correctOption": "The relationship between the quantities of inputs needed to produce a given level of output."
+  },
+  {
+    "question": "A production function is defined as the relationship between ________.",
+    "options": [
+      "The quantity of physical inputs and physical output of a firm",
+      "Stock of inputs and stock of output",
+      "Prices of inputs and output",
+      "Price and supply of a firm"
+    ],
+    "correctOption": "The quantity of physical inputs and physical output of a firm"
+  },
+  {
+    "question": "The production function is a relationship between a given combination of inputs and:",
+    "options": [
+      "Another combination that yields the same output.",
+      "The highest resulting output.",
+      "The increase in output generated by one-unit increase in one output.",
+      "All levels of output that can be generated by those inputs."
+    ],
+    "correctOption": "The highest resulting output."
+  },
+  {
+    "question": "What is a production function?",
+    "options": [
+      "Technical relationship between physical inputs and physical output.",
+      "Relationship between fixed factors of production and variable factors of production.",
+      "Relationship between a factor of production and the utility created by it.",
+      "Relationship between quantity of output produced and time taken to produce the output."
+    ],
+    "correctOption": "Technical relationship between physical inputs and physical output."
+  },
+  {
+    "question": "Production function is:",
+    "options": [
+      "Purely a technical relationship between input & output",
+      "Purely an economic relationship between input & output",
+      "Both the technical &economical relationship between input & output",
+      "None of the above"
+    ],
+    "correctOption": "Purely a technical relationship between input & output"
+  },
+  {
+    "question": "The production function:",
+    "options": [
+      "Is the relationship between the quantity of inputs used and the resulting quantity of product.",
+      "Tells us the maximum attainable output from a given combination of inputs.",
+      "Expresses the technological relationship between inputs and output of a product.",
+      "All the above."
+    ],
+    "correctOption": "All the above."
+  },
+  {
+    "question": "________ shows the overall output generated at a given level of input:",
+    "options": [
+      "Cost function",
+      "Production function",
+      "ISO cost",
+      "Marginal rate of technical substitution"
+    ],
+    "correctOption": "Production function"
+  },
+  {
+    "question": "Which function shows relationship between input and output?",
+    "options": [
+      "Consumption function",
+      "Investment function",
+      "Production function",
+      "Cost function"
+    ],
+    "correctOption": "Production function"
+  },
+  {
+    "question": "Which of the following statements is true?",
+    "options": [
+      "After the inflection point of the production function, a greater use of the variable input induces a reduction in the marginal product.",
+      "Before reaching the inevitable point of decreasing marginal returns, the quantity of output obtained can increase at an increasing rate.",
+      "The first stage corresponds to the range in which the AP is increasing as a result of utilizing increasing quantities of variable inputs.",
+      "All the above."
+    ],
+    "correctOption": "All the above."
+  },
+  {
+    "question": "Which one of the following is the assumption underlying any production function?",
+    "options": [
+      "Relationship between inputs and outputs exists for a period of time.",
+      "There is a given “State -of- the act” in the production technology.",
+      "Whatever input combinations one included in a particular function, the output resulting from their utilization is at the maximum level.",
+      "All of the above."
+    ],
+    "correctOption": "All of the above."
+  },
+  {
+    "question": "The short run, as economists use the phrase, is characterized by:",
+    "options": [
+      "At least one fixed factor of production and firms neither leaving nor entering the industry.",
+      "Generally a period which is shorter than one year.",
+      "All factors of production are fixed and no variable inputs.",
+      "All inputs are variable and production is done in less than one year."
+    ],
+    "correctOption": "At least one fixed factor of production and firms neither leaving nor entering the industry."
+  },
+  {
+    "question": "To economists, the main difference between the short run and the long run is that:",
+    "options": [
+      "In the short run all inputs are fixed, while in the long run all inputs are variable.",
+      "In the short run the firm varies all of its inputs to find the least-cost combination of inputs.",
+      "In the short run, at least one of the firm’s input levels is fixed.",
+      "In the long run, the firm is making a constrained decision about how to use existing plant and equipment efficiently."
+    ],
+    "correctOption": "In the short run, at least one of the firm’s input levels is fixed."
+  },
+  {
+    "question": "In describing a given production technology, the short run is best described as lasting:",
+    "options": [
+      "Up to six months from now.",
+      "Up to five years from now.",
+      "As long as all inputs are fixed.",
+      "As long as at least one input is fixed."
+    ],
+    "correctOption": "As long as at least one input is fixed."
+  },
+  {
+    "question": "In the short run, the firm’s product curves show that ________",
+    "options": [
+      "Total product begins to decrease when average product begins to decrease but continues to increase at a decreasing rate.",
+      "When marginal product is equal to average product, average product is decreasing but at its highest.",
+      "When the marginal product curve cuts the average product curve from below, the average product is equal to marginal product.",
+      "In stage two, total product increases at a diminishing rate and reaches maximum at the end of this stage."
+    ],
+    "correctOption": "In stage two, total product increases at a diminishing rate and reaches maximum at the end of this stage."
+  },
+  {
+    "question": "Long period production function is related to:",
+    "options": [
+      "Law of variable proportions",
+      "Laws of returns to scale",
+      "Law of diminishing returns",
+      "None of the above"
+    ],
+    "correctOption": "Laws of returns to scale"
+  },
+  {
+    "question": "Long-run does not have:",
+    "options": [
+      "Average Cost",
+      "Total Cost",
+      "Fixed Cost",
+      "Variable Cost"
+    ],
+    "correctOption": "Fixed Cost"
+  },
+  {
+    "question": "A fixed input is defined as ________.",
+    "options": [
+      "That input whose quantity can be quickly changed in the short run, in response to the desire of the company to change its production.",
+      "That input whose quantity cannot be quickly changed in the short run, in response to the desire of the company to change its production.",
+      "That input whose quantities can be easily changed in response to the desire to increase or reduce the level of production.",
+      "That input whose demand can be easily changed in response to the desire to increase or reduce the level of production."
+    ],
+    "correctOption": "That input whose quantity cannot be quickly changed in the short run, in response to the desire of the company to change its production."
+  },
+  {
+    "question": "In the long run, if a very small factory were to expand its scale of operations, it is likely that it would initially experience ________",
+    "options": [
+      "An increase in pollution level.",
+      "Diseconomies of scale.",
+      "Economies of scale.",
+      "Constant returns to scale."
+    ],
+    "correctOption": "Economies of scale."
+  },
+  {
+    "question": "Paul Douglas and Cobb studied the production function of the ________ manufacturing industries.",
+    "options": [
+      "American",
+      "Japanese",
+      "British",
+      "Asian"
+    ],
+    "correctOption": "American"
+  },
+  {
+    "question": "In its original form, the Cobb- Douglas production function applies:",
+    "options": [
+      "To individual firm",
+      "To selected Firms",
+      "To whole of manufacturing in the USA",
+      "None of the above."
+    ],
+    "correctOption": "To whole of manufacturing in the USA"
+  },
+  {
+    "question": "In Cobb-Douglas production function, two inputs are:",
+    "options": [
+      "Land and Labour",
+      "Labour and Capital",
+      "Capital and Entrepreneur",
+      "Entrepreneur and land"
+    ],
+    "correctOption": "Labour and Capital"
+  },
+  {
+    "question": "The famous Cobb-Douglas production function is based on studies of ________ industries in the United States of America.",
+    "options": [
+      "Manufacturing",
+      "Construction",
+      "Consumer",
+      "Aviation"
+    ],
+    "correctOption": "Manufacturing"
+  },
+  {
+    "question": "If Cobb-Douglas function is given by Q = KLaCb, then there will be ________ when (a+b) ________.",
+    "options": [
+      "Increasing returns, > 1",
+      "Increasing returns to scale, > 1",
+      "Diminishing returns, < 1",
+      "Decreasing returns to scale, = 1"
+    ],
+    "correctOption": "Increasing returns to scale, > 1"
+  },
+  {
+    "question": "The conclusion drawn from Cobb-Douglas production function is that labour contributed about ________ and capital about ________ of the increase in the manufacturing production.",
+    "options": [
+      "3rd 4,1st 4",
+      "12,12",
+      "1th 4,3th 4",
+      "None of the above"
+    ],
+    "correctOption": "12,12"
+  },
+  {
+    "question": "According to Cobb-Douglas production function, will get ________ returns to scale?",
+    "options": [
+      "Constant",
+      "Diminishing",
+      "Increasing",
+      "Any of the above"
+    ],
+    "correctOption": "Constant"
+  },
+  {
+    "question": "What will be the total product when two labourers are hired according to the table given below?\nNo. of labourers Total Product Marginal product\n0 — —\n1 350 350\n2 — 250",
+    "options": [
+      "680",
+      "580",
+      "350",
+      "230"
+    ],
+    "correctOption": "580"
+  },
+  {
+    "question": "Consider the following table:\nLabour Total Output Marginal Product\n0\n1 100 100\n2 80\n3 240",
+    "options": [
+      "80",
+      "100",
+      "180",
+      "200"
+    ],
+    "correctOption": "180"
+  },
+  {
+    "question": "________ is the total output resulting from the efforts of all the factors of production combined together at any time.",
+    "options": [
+      "Total Product",
+      "Average Product",
+      "Marginal Product",
+      "None of the above."
+    ],
+    "correctOption": "Total Product"
+  },
+  {
+    "question": "Average product is defined as ________",
+    "options": [
+      "Total product divided by the total cost.",
+      "Total product divided by marginal product.",
+      "Total product divided by the number of units of variable input.",
+      "Marginal product divided by the number of units of variable input."
+    ],
+    "correctOption": "Total product divided by the number of units of variable input."
+  },
+  {
+    "question": "Suppose the first four units of a variable input generate corresponding total outputs of 200, 350, 450, 500. The marginal product of the third unit of input is:",
+    "options": [
+      "50",
+      "100",
+      "150",
+      "200"
+    ],
+    "correctOption": "100"
+  },
+  {
+    "question": "Use the following diagram to answer the question given below it The marginal physical product of the third unit of labour is ________, the MP of the ________ labour is Negative",
+    "options": [
+      "Six; fourth",
+      "Six; third",
+      "Six; fifth",
+      "Six; sixth"
+    ],
+    "correctOption": "Six; fifth"
+  },
+  {
+    "question": "At the point of inflexion, the marginal product is:",
+    "options": [
+      "Increasing",
+      "Decreasing",
+      "Maximum",
+      "Negative"
+    ],
+    "correctOption": "Maximum"
+  },
+  {
+    "question": "Suppose the first four units of a variable input generate corresponding total output of 150, 200, 350, 550. What will be the marginal product of the third unit of input?",
+    "options": [
+      "50",
+      "100",
+      "150",
+      "200"
+    ],
+    "correctOption": "200"
+  },
+  {
+    "question": "The production process described below exhibits.",
+    "options": [
+      "Constant marginal product of labour.",
+      "Diminishing marginal product of labour.",
+      "Increasing return to scale.",
+      "Increasing marginal product of labour."
+    ],
+    "correctOption": "Diminishing marginal product of labour."
+  },
+  {
+    "question": "Marginal product, mathematically, is the slope of the ________.",
+    "options": [
+      "Total product curve.",
+      "Average product curve.",
+      "Marginal product curve.",
+      "Implicit product curve."
+    ],
+    "correctOption": "Total product curve."
+  },
+  {
+    "question": "Which of the following is Correct?",
+    "options": [
+      "MPn = TPn – TPn-1",
+      "MPn = MPn – MPn-1",
+      "MPn = TPn + TPn-1",
+      "None of the above"
+    ],
+    "correctOption": "MPn = TPn – TPn-1"
+  },
+  {
+    "question": "Marginal, average and total product of a firm in the short run will not comprise with ________.",
+    "options": [
+      "When marginal production is at a maximum, average product is equal to marginal product, and total product is rising",
+      "When average product is maximum, average product is equal to marginal product, and total product is rising",
+      "When marginal product is negative, total product and average product are falling",
+      "When total product is increasing, average product and marginal product may be either rising or falling"
+    ],
+    "correctOption": "When marginal production is at a maximum, average product is equal to marginal product, and total product is rising"
+  },
+  {
+    "question": "When average product rises as a result of an increase in the quantity of variable factor, marginal product is:",
+    "options": [
+      "Equal to average product",
+      "More than average product",
+      "Less than average product",
+      "Becomes negative"
+    ],
+    "correctOption": "More than average product"
+  },
+  {
+    "question": "The marginal product curve is above the average product curve when the average product is:",
+    "options": [
+      "Increasing",
+      "Decreasing",
+      "Constant",
+      "None"
+    ],
+    "correctOption": "Increasing"
+  },
+  {
+    "question": "Identify the correct statement:",
+    "options": [
+      "The average product is at its maximum when marginal product is equal to average product.",
+      "The law of increasing returns to scale relates to the effect of changes in factor proportions.",
+      "Economies of scale arise only because of indivisibilities of factor proportions.",
+      "Internal economies of scale can accrue when industry expands beyond optimum."
+    ],
+    "correctOption": "The average product is at its maximum when marginal product is equal to average product."
+  },
+  {
+    "question": "If the marginal product of labour is below the average product of labour, it must be true that:",
+    "options": [
+      "The marginal product of labour is negative.",
+      "The marginal product of labour is zero.",
+      "The average product of labour is falling.",
+      "The average product of labour is negative."
+    ],
+    "correctOption": "The average product of labour is falling."
+  },
+  {
+    "question": "The average product of labour is maximized when marginal product of labour:",
+    "options": [
+      "Equals the average product of labour.",
+      "Equals zero.",
+      "Is maximized.",
+      "None of the above."
+    ],
+    "correctOption": "Equals the average product of labour."
+  },
+  {
+    "question": "The marginal, average, and total product curves encountered by the firm producing in the short run exhibit all of the following relationships except:",
+    "options": [
+      "When total product is rising, average and marginal product may be either rising or falling.",
+      "When marginal product is negative, total product and average product are falling.",
+      "When average product is at a maximum, marginal product equals average product, and total product is rising.",
+      "When marginal product is at a maximum, average product equals marginal product, and total product is rising."
+    ],
+    "correctOption": "When marginal product is at a maximum, average product equals marginal product, and total product is rising."
+  },
+  {
+    "question": "If the marginal product of labour is below the average product of labour. It must be true that:",
+    "options": [
+      "Marginal product of labour is negative",
+      "Marginal product of labour is zero",
+      "Average product of labour is falling",
+      "Average product of labour is negative"
+    ],
+    "correctOption": "Marginal product of labour is negative"
+  },
+  {
+    "question": "In the production of wheat, all of the following are variable factors that are used by the farmer except:",
+    "options": [
+      "The seed and fertilizer used when the crop is planted.",
+      "The field that has been cleared of trees and in which the crop is planted.",
+      "The tractor used by the farmer in planting and cultivating not only wheat but also corn and barley.",
+      "The number of hours that the farmer spends in cultivating the wheat fields."
+    ],
+    "correctOption": "The field that has been cleared of trees and in which the crop is planted."
+  },
+  {
+    "question": "Law of variable proportion is valid when:",
+    "options": [
+      "Only one input is fixed and all other inputs are kept variable",
+      "All factors are kept constant",
+      "All inputs are varied in the same proportion",
+      "None of these"
+    ],
+    "correctOption": "Only one input is fixed and all other inputs are kept variable"
+  },
+  {
+    "question": "Production activity in the short period is analysed with the help of:",
+    "options": [
+      "Law of variable proportion",
+      "Laws of returns to scale",
+      "Both (a) & (b)",
+      "None of the above"
+    ],
+    "correctOption": "Law of variable proportion"
+  },
+  {
+    "question": "The Law of Variable Proportions is associated with:",
+    "options": [
+      "Short period",
+      "Long period",
+      "Both short and long periods",
+      "Neither short nor long period"
+    ],
+    "correctOption": "Short period"
+  },
+  {
+    "question": "The law of variable proportions is drawn under all of the assumptions mentioned below except the assumption that:",
+    "options": [
+      "The technology is changing.",
+      "There must be some inputs whose quantity is kept fixed.",
+      "We consider only physical inputs and not economically profitability in monetary terms.",
+      "The technology is given and stable."
+    ],
+    "correctOption": "The technology is changing."
+  },
+  {
+    "question": "Law of increasing returns is ap-plicable because of ________.",
+    "options": [
+      "Indivisibility of factors.",
+      "Specialization.",
+      "Economies of scale.",
+      "Both (a) &L (b) above."
+    ],
+    "correctOption": "Both (a) &L (b) above."
+  },
+  {
+    "question": "In the first stage of law of variable proportions, total product increases at the ________.",
+    "options": [
+      "Decreasing rate",
+      "Increasing rate",
+      "Constant rate",
+      "Both (a) and (b)."
+    ],
+    "correctOption": "Increasing rate"
+  },
+  {
+    "question": "During 2nd stage of law of Dimin-ishing returns:",
+    "options": [
+      "MP and TP is maximum",
+      "MP and AP are decreasing",
+      "AP is negative",
+      "TP is negative"
+    ],
+    "correctOption": "MP and AP are decreasing"
+  },
+  {
+    "question": "A rational producer will produce in the stage in which marginal product is positive and :",
+    "options": [
+      "MP> AP",
+      "MP = AP",
+      "MP < AP",
+      "MP is zero"
+    ],
+    "correctOption": "MP < AP"
+  },
+  {
+    "question": "Diminishing marginal returns implies:",
+    "options": [
+      "Decreasing average variable costs",
+      "Decreasing marginal costs",
+      "Increasing marginal costs",
+      "Decreasing average fixed costs"
+    ],
+    "correctOption": "Increasing marginal costs"
+  },
+  {
+    "question": "The phenomenon of diminishing returns rests upon the ________ of the fixed factor:",
+    "options": [
+      "Divisibility",
+      "Flexibility",
+      "Indivisibility",
+      "None of these"
+    ],
+    "correctOption": "Indivisibility"
+  },
+  {
+    "question": "Law of diminishing returns is applicable in:",
+    "options": [
+      "Manufacturing industry",
+      "Agriculture",
+      "Neither (a) nor (b)",
+      "Any economic activity at a point of time."
+    ],
+    "correctOption": "Any economic activity at a point of time."
+  },
+  {
+    "question": "In the third of the three stages of production:",
+    "options": [
+      "The marginal product curve has a positive slope.",
+      "The marginal product curve lies completely below the average product curve.",
+      "Total product increases.",
+      "Marginal product is positive."
+    ],
+    "correctOption": "The marginal product curve lies completely below the average product curve."
+  },
+  {
+    "question": "Diminishing marginal returns implies ________",
+    "options": [
+      "Decreasing average variable costs",
+      "Decreasing marginal costs",
+      "Increasing marginal costs",
+      "Decreasing fixed costs."
+    ],
+    "correctOption": "Increasing marginal costs"
+  },
+  {
+    "question": "The “law of diminishing returns” applies to ________.",
+    "options": [
+      "The short run, but not the long run",
+      "The long run, but not the short run",
+      "Both the short run and the long run",
+      "Neither the short run nor the long run"
+    ],
+    "correctOption": "The short run, but not the long run"
+  },
+  {
+    "question": "Diminishing returns occur:",
+    "options": [
+      "When units of a variable input are added to a fixed input and total product falls.",
+      "When units of a variable input are added to a fixed input and marginal product falls.",
+      "When the size of the plant is increased in the long run.",
+      "When the quantity of the fixed input is increased and returns to the variable input falls."
+    ],
+    "correctOption": "When units of a variable input are added to a fixed input and marginal product falls."
+  },
+  {
+    "question": "The concept of Returns to Scale is related with:",
+    "options": [
+      "Very short period",
+      "Short period",
+      "Long period",
+      "None of above"
+    ],
+    "correctOption": "Long period"
+  },
+  {
+    "question": "Increasing returns to scale can be explained in terms of:",
+    "options": [
+      "External and internal economies",
+      "External and internal dis-econo- mies",
+      "External economics and internal dis-economies",
+      "All of these"
+    ],
+    "correctOption": "External and internal economies"
+  },
+  {
+    "question": "Increasing returns to scale occurs due to:",
+    "options": [
+      "Economies of scale",
+      "Specialization",
+      "Indivisibility of factors",
+      "All of these"
+    ],
+    "correctOption": "All of these"
+  },
+  {
+    "question": "Which of the following statements describes increasing returns to scale?",
+    "options": [
+      "Doubling of all inputs used leads to doubling of the output.",
+      "Increasing the inputs by 50% leads to a 25% increase in output.",
+      "Increasing inputs by 1 / 4 leads to an increase in output of 1/3.",
+      "None of the above."
+    ],
+    "correctOption": "Increasing inputs by 1 / 4 leads to an increase in output of 1/3."
+  },
+  {
+    "question": "Returns to scale will said to be in operation when quantity of :",
+    "options": [
+      "All inputs are changed",
+      "All inputs are changed in already established proportion",
+      "All inputs are not changed",
+      "One input is changed while quantity of all other inputs remain the same"
+    ],
+    "correctOption": "All inputs are changed in already established proportion"
+  },
+  {
+    "question": "Which of the following is the reason of the working of law of increasing returns?",
+    "options": [
+      "Fuller utilisation of fixed factors",
+      "Indivisibility of the factors",
+      "Greater specialization of labour",
+      "All of the above"
+    ],
+    "correctOption": "All of the above"
+  },
+  {
+    "question": "Consider the following combinations of inputs and outputs: This production technology satisfies",
+    "options": [
+      "Increasing returns to scale",
+      "Diminishing returns to scale",
+      "Constant returns to scale",
+      "Increasing returns initially, following by decreasing returns to scale."
+    ],
+    "correctOption": "Constant returns to scale"
+  },
+  {
+    "question": "Linear homogeneous production function is based on:",
+    "options": [
+      "Increasing returns to scale",
+      "Decreasing returns to scale",
+      "Constant returns to scale",
+      "None of the above"
+    ],
+    "correctOption": "Constant returns to scale"
+  },
+  {
+    "question": "If decreasing returns to scale are present, then if all inputs are increased by 10% then:",
+    "options": [
+      "Output will also decrease by 10%.",
+      "Output will increase by 10%.",
+      "Output will increase by less than 10%.",
+      "Output will increase by more than 10%."
+    ],
+    "correctOption": "Output will increase by less than 10%."
+  },
+  {
+    "question": "In Cobb-Douglas Production function[Q = KLaCb], there will be increasing returns to scale if :",
+    "options": [
+      "a + b > 1",
+      "a + b = 1",
+      "a + b = 0",
+      "a + b < 1"
+    ],
+    "correctOption": "a + b > 1"
+  },
+  {
+    "question": "A change in scale means that ________ factors of production are increased or decreased in the same production.",
+    "options": [
+      "Two",
+      "Three",
+      "No",
+      "All"
+    ],
+    "correctOption": "All"
+  },
+  {
+    "question": "Increase in all input leading to less than proportional increase in output is called ________.",
+    "options": [
+      "Increasing returns to scale",
+      "Decreasing returns to scale",
+      "Constant returns to scale",
+      "Both increasing and decreasing returns to scale"
+    ],
+    "correctOption": "Decreasing returns to scale"
+  },
+  {
+    "question": "When output decreases by 20% due to increase in inputs by 20%, this stage is called the law of ________.",
+    "options": [
+      "Increasing returns to scale",
+      "Decreasing returns to scale",
+      "Constant returns to scale",
+      "None of the above"
+    ],
+    "correctOption": "None of the above"
+  },
+  {
+    "question": "Constant Returns to Scale are also called as ________ Production Function.",
+    "options": [
+      "Linear",
+      "Curvilinear",
+      "Linear Homogenous",
+      "Curvilinear Homogenous"
+    ],
+    "correctOption": "Linear Homogenous"
+  },
+  {
+    "question": "With a view to increase his production, Hariharan a manufacturer of shoes, increases all the factors of production in his unit by 100%. But at the end of the year, he finds that instead of an increase of 100%, his production has increased by only 80%. Which law of returns to scale is operating in this case?",
+    "options": [
+      "Increasing returns to scale",
+      "Decreasing returns to scale",
+      "Constant returns to scale",
+      "None of the above"
+    ],
+    "correctOption": "Decreasing returns to scale"
+  },
+  {
+    "question": "When output increase in a smaller proportion with an increase in all inputs ________ returns to scale set in.",
+    "options": [
+      "Increasing",
+      "Decreasing",
+      "Constant",
+      "Circular"
+    ],
+    "correctOption": "Decreasing"
+  },
+  {
+    "question": "ISO quants are equal to:",
+    "options": [
+      "Product Lines",
+      "Total utility lines",
+      "Cost lines",
+      "Revenue lines"
+    ],
+    "correctOption": "Product Lines"
+  },
+  {
+    "question": "ISO quants are also known as:",
+    "options": [
+      "Production possibility curves",
+      "Indifference curves",
+      "Production indifference curves",
+      "None of the above"
+    ],
+    "correctOption": "Production indifference curves"
+  },
+  {
+    "question": "An ISO quant is ________ to an ISO cost line at equilibrium point:",
+    "options": [
+      "Convex",
+      "Concave",
+      "Tangent",
+      "Perpendicular"
+    ],
+    "correctOption": "Tangent"
+  },
+  {
+    "question": "An ISO quant shows ________.",
+    "options": [
+      "All the alternative combinations of two inputs that can be produced by using a given set of output fully and in the best possible way.",
+      "All the alternative combinations of two products among which a producer is indifferent because they yield the same profit.",
+      "All the alternative combinations of two inputs that yield the same total product.",
+      "Both (b) and (c)."
+    ],
+    "correctOption": "All the alternative combinations of two inputs that yield the same total product."
+  },
+  {
+    "question": "ISO quants are negatively sloped & ________ to the origin due to ________ Marginal Rate of Technical Substitution (MRTS).",
+    "options": [
+      "Convex, Increasing",
+      "Convex, Decreasing",
+      "Concave, Increasing",
+      "Concave, Decreasing"
+    ],
+    "correctOption": "Convex, Decreasing"
+  },
+  {
+    "question": "Which of the following statement is true in relation to an ISO Quant Curve?",
+    "options": [
+      "It represents those combination of two factors of production that will give the same level of output",
+      "It represents those combinations of all the factors that will give the same level of output",
+      "It slopes upward to the right",
+      "It can tough either axis"
+    ],
+    "correctOption": "It represents those combination of two factors of production that will give the same level of output"
+  },
+  {
+    "question": "Suppose, the total cost of production of commodity X is ₹ 1,25,000. Out of this cost implicit cost is ₹ 35,000 and normal profits is ₹ 25,000. What will be the explicit cost of commodity X?",
+    "options": [
+      "90,000",
+      "65,000",
+      "60,000",
+      "1,00,000"
+    ],
+    "correctOption": "60,000"
+  },
+  {
+    "question": "Which of the following is an example of “explicit cost”?",
+    "options": [
+      "Convex, Increasing",
+      "Convex, Decreasing",
+      "Concave, Increasing",
+      "Concave, Decreasing"
+    ],
+    "correctOption": "Convex, Increasing"
+  },
+  {
+    "question": "Which of the following is an example of an “implicit cost”?",
+    "options": [
+      "Interest that could have been earned on retained earnings used by the firm to finance expansion.",
+      "The payment of rent by the firm for the building in which it is housed.",
+      "The interest payment made by the firm for funds borrowed from a bank.",
+      "The Payment of wages by the firm."
+    ],
+    "correctOption": "The payment of rent by the firm for the building in which it is housed."
+  },
+  {
+    "question": "Implicit cost can be defined as ________.",
+    "options": [
+      "Money payments made to the non-owners of the firm for the self-owned factors employed in the business and therefore not entered into books of account.",
+      "Money not paid out to the owners of the firm for the self owned factors employed in a business and therefore not entered into books of account.",
+      "Money payments which the self owned and employed resources could have earned in their next best alternative employment and therefore entered into books of account.",
+      "Money payments which the self owned and employed resources earn in their best use and therefore entered into books of ac-count."
+    ],
+    "correctOption": "Money not paid out to the owners of the firm for the self owned factors employed in a business and therefore not entered into books of account."
+  },
+  {
+    "question": "Implicit cost may be defined as the:",
+    "options": [
+      "Costs which do not change over a period of time",
+      "Costs which the firm incurs but doesn’t disclose",
+      "Payment to the non-owners of the firm for the resources",
+      "Money payment which the self employed resources could have earned in their best alternative employment."
+    ],
+    "correctOption": "Money payment which the self employed resources could have earned in their best alternative employment."
+  },
+  {
+    "question": "Which of the following is including in cost of production and is termed as accounting cost?",
+    "options": [
+      "Wages to workers employed",
+      "Prices for the raw materials",
+      "Fuel and Power Used",
+      "All of these"
+    ],
+    "correctOption": "All of these"
+  },
+  {
+    "question": "Economic cost excludes which of the following :",
+    "options": [
+      "Accounting cost + explicit cost",
+      "Accounting cost + implicit cost",
+      "Explicit cost + Implicit cost",
+      "Accounting cost + opportunity cost"
+    ],
+    "correctOption": "Accounting cost + explicit cost"
+  },
+  {
+    "question": "The cost of resources owned and employed by the entrepreneur himself in his business is termed as ________ cost.",
+    "options": [
+      "Explicit",
+      "Implicit",
+      "Fixed",
+      "Variable"
+    ],
+    "correctOption": "Implicit"
+  },
+  {
+    "question": "Cost in terms of pain, discomfort, disability involved in supplying the various factors of production by their owners are termed as ________.",
+    "options": [
+      "Social cost",
+      "Explicit cost",
+      "Real cost",
+      "Implicit cost"
+    ],
+    "correctOption": "Real cost"
+  },
+  {
+    "question": "Economic costs of production differ from accounting costs of production because ________.",
+    "options": [
+      "Economic costs include expenditures for hired resources while accounting costs do not.",
+      "Accounting costs include opportunity costs which are deducted later to find paid out costs.",
+      "Accounting costs include expenditures for hired resources while economic costs do not.",
+      "Economic costs add the opportunity cost of a firm which uses its own resources."
+    ],
+    "correctOption": "Economic costs add the opportunity cost of a firm which uses its own resources."
+  },
+  {
+    "question": "Accounting cost is ________ of Economic cost.",
+    "options": [
+      "Equal to",
+      "Less than",
+      "More than",
+      "Not Included"
+    ],
+    "correctOption": "Less than"
+  },
+  {
+    "question": "Economic Costs comprises ________.",
+    "options": [
+      "Accounting Costs",
+      "Implicit Cost",
+      "Explicit Cost",
+      "Both (a) & (b)"
+    ],
+    "correctOption": "Both (a) & (b)"
+  },
+  {
+    "question": "Which of the following will be included in implicit Cost?",
+    "options": [
+      "Normal return on money Capital invested by the entrepreneur himself in his own business.",
+      "The wages or Salary not paid to the entrepreneur, but could have earned if the services has been sold somewhere else.",
+      "Wages or Salary paid to workers",
+      "Both (a) and ( b)"
+    ],
+    "correctOption": "Both (a) and ( b)"
+  },
+  {
+    "question": "Accounting Costs are also called as ________ costs whereas the cost of factors owned by the entrepreneur himself and employed in his own business is called as costs.",
+    "options": [
+      "Explicit, implicit",
+      "Implicit, Explicit",
+      "Economic, Non-Economic",
+      "Explicit, Non-Economic."
+    ],
+    "correctOption": "Explicit, implicit"
+  },
+  {
+    "question": "Outlay Costs involve ________ expenditure of funds on wages, mate-rial, returns interest, etc.",
+    "options": [
+      "Actual",
+      "Expected",
+      "Fixed",
+      "Planned"
+    ],
+    "correctOption": "Actual"
+  },
+  {
+    "question": "Outlay costs involve ________ expenditure at some point of time and hence ________ recorded in the books of account.",
+    "options": [
+      "Financial, are not",
+      "Financial, are",
+      "Non-Financial, are not",
+      "Non- Financial, are"
+    ],
+    "correctOption": "Financial, are"
+  },
+  {
+    "question": "Opportunity cost is:",
+    "options": [
+      "Direct cost",
+      "Total cost",
+      "Accounting cost",
+      "Cost of forgone opportunity"
+    ],
+    "correctOption": "Cost of forgone opportunity"
+  },
+  {
+    "question": "The cost of one thing in terms of alternative given up is known as:",
+    "options": [
+      "Opportunity Cost",
+      "Real Cost",
+      "Production Cost",
+      "Physical Cost"
+    ],
+    "correctOption": "Opportunity Cost"
+  },
+  {
+    "question": "If the market price of good is more than the opportunity cost of producing it, then:",
+    "options": [
+      "The market price of the product will increase in the long run",
+      "Producers will increase supply in the long run",
+      "Resources will flow away from production of the good, causing supply to decline with the passage of time",
+      "The situation will remain unchanged as long as supply and demand remain in balance."
+    ],
+    "correctOption": "Producers will increase supply in the long run"
+  },
+  {
+    "question": "In which of the following cases opportunity cost concept applies?",
+    "options": [
+      "Resources have alternative uses",
+      "Resources have limited uses",
+      "Resources have no use",
+      "None of the above."
+    ],
+    "correctOption": "Resources have alternative uses"
+  },
+  {
+    "question": "Opportunity Cost is:",
+    "options": [
+      "Marginal cost",
+      "Variable cost",
+      "Total fixed cost",
+      "None of these"
+    ],
+    "correctOption": "None of these"
+  },
+  {
+    "question": "Opportunity Cost is ________",
+    "options": [
+      "Recorded in the books of account",
+      "Sacrificed alternative",
+      "Both (a) and (b)",
+      "None of the above"
+    ],
+    "correctOption": "Sacrificed alternative"
+  },
+  {
+    "question": "The concept of opportunity cost has to be considered whenever :",
+    "options": [
+      "Resources are scarce",
+      "Decision involving choice of one option over other(s) is involved",
+      "Both (a) & (b)",
+      "Neither (a) nor (b)"
+    ],
+    "correctOption": "Both (a) & (b)"
+  },
+  {
+    "question": "Opportunity cost is the ________ value that is foregone in choosing one activity over the alternative.",
+    "options": [
+      "Subjective, other",
+      "Subjective, next best",
+      "Principal, other",
+      "Principal, next best"
+    ],
+    "correctOption": "Subjective, next best"
+  },
+  {
+    "question": "Opportunity Cost is the cost of the ________ opportunity and involves a comparison between the policy that was ________ and the policy that was ________.",
+    "options": [
+      "Other, Chosen, Should be chosen",
+      "Missed, Chosen, should be chosen",
+      "Missed, Chosen, rejected",
+      "None of these"
+    ],
+    "correctOption": "Missed, Chosen, rejected"
+  },
+  {
+    "question": "Direct Cost is also known as :",
+    "options": [
+      "Indirect Cost",
+      "Traceable Cost",
+      "Opportunity Cost",
+      "Accounting Cost."
+    ],
+    "correctOption": "Traceable Cost"
+  },
+  {
+    "question": "________ costs are the costs that are readily identified and are traceable to a particular product, operations or plant.",
+    "options": [
+      "Direct Cost",
+      "Traceable Cost",
+      "Indirect Cost",
+      "Both (a) & (b)"
+    ],
+    "correctOption": "Both (a) & (b)"
+  },
+  {
+    "question": "________ may vary according to the changes accruing to the product process or machine.",
+    "options": [
+      "Direct Cost",
+      "Implicit-Cost",
+      "Indirect Cost",
+      "Non Traceable Cost."
+    ],
+    "correctOption": "Direct Cost"
+  },
+  {
+    "question": "Indirect Costs are not easily and definitely identifiable in relation to a plants, products, process or department. These are ________ changed to different jobs or products in stan-dard accounting practice.",
+    "options": [
+      "Not",
+      "Never",
+      "Nevertheless",
+      "Cannot"
+    ],
+    "correctOption": "Nevertheless"
+  },
+  {
+    "question": "Identify the indirect Cost.",
+    "options": [
+      "Common cost incurred for general operations",
+      "Wages paid to worker",
+      "Material Purchased",
+      "Commission Paid"
+    ],
+    "correctOption": "Common cost incurred for general operations"
+  },
+  {
+    "question": "Theoretically, incremental costs are related to the concept of ________.",
+    "options": [
+      "Marginal Cost",
+      "Fixed Cost",
+      "Judgmental Cost",
+      "Semi Variable Cost."
+    ],
+    "correctOption": "Marginal Cost"
+  },
+  {
+    "question": "Which of the following is part of incremental costs?",
+    "options": [
+      "Change in product line",
+      "Replacement of worn-out machinery",
+      "Buy a new production facility",
+      "All of these"
+    ],
+    "correctOption": "All of these"
+  },
+  {
+    "question": "________ refer to those costs which are already incurred once and for all and cannot be recovered.",
+    "options": [
+      "Sunk Cost",
+      "Fixed Cost",
+      "Variable Cost",
+      "Incremental"
+    ],
+    "correctOption": "Sunk Cost"
+  },
+  {
+    "question": "Which one of the following is an example of Sunk Cost?",
+    "options": [
+      "Expenses on advertising",
+      "Research & Development Expenditure",
+      "Specialized equipment & fixed facilities",
+      "All of these."
+    ],
+    "correctOption": "All of these."
+  },
+  {
+    "question": "Which of the following in incurred first?",
+    "options": [
+      "Historical Cost",
+      "Replacement Cost",
+      "Realized Value",
+      "None of these"
+    ],
+    "correctOption": "Historical Cost"
+  },
+  {
+    "question": "________ Cost refers to the cost incurred in the past on the acquisition of a productive asset.",
+    "options": [
+      "Current Cost",
+      "Historical Cost",
+      "Future Cost",
+      "Desired cost."
+    ],
+    "correctOption": "Historical Cost"
+  },
+  {
+    "question": "A Company is willing to change its existing Machinery (5 years old) by a new machinery at a cost of ₹ 10,00,000. The cost of ₹ 10,00,000 may be regarded as:",
+    "options": [
+      "Historical Cost",
+      "Replacement Cost",
+      "New Cost",
+      "Market Cost"
+    ],
+    "correctOption": "Replacement Cost"
+  },
+  {
+    "question": "Other things remaining the same, an increase in price will make ________ cost higher than ________ cost.",
+    "options": [
+      "Historical, Replacement",
+      "Replacement, Historical",
+      "Historical, reliable",
+      "Fixed, Historical."
+    ],
+    "correctOption": "Replacement, Historical"
+  },
+  {
+    "question": "Usually in the case of continuous decrease in price of an asset, which one of the following shall be the highest?",
+    "options": [
+      "Replacement Cost",
+      "Historical Cost",
+      "Realisable Value",
+      "Variable Cost."
+    ],
+    "correctOption": "Historical Cost"
+  },
+  {
+    "question": "Private Costs are costs actually incurred or provided for by firms. These may be ________.",
+    "options": [
+      "Explicit",
+      "Implicit",
+      "Either (a) or(b)",
+      "None of these"
+    ],
+    "correctOption": "Either (a) or(b)"
+  },
+  {
+    "question": "The Cost of resources for which the firm is not required to pay price is called as ________ cost.",
+    "options": [
+      "Fixed",
+      "Private",
+      "Social",
+      "Welfare"
+    ],
+    "correctOption": "Social"
+  },
+  {
+    "question": "________ Costs normally figure in business decisions as they Form part of total cost and are inter-nalized by the firm.",
+    "options": [
+      "Fixed",
+      "Private",
+      "Social",
+      "Welfare"
+    ],
+    "correctOption": "Private"
+  },
+  {
+    "question": "Which of the following is not a determinant of the firm’s cost function?",
+    "options": [
+      "The production function.",
+      "The price of labour.",
+      "Taxes.",
+      "The price of the firm’s output"
+    ],
+    "correctOption": "The price of the firm’s output"
+  },
+  {
+    "question": "Which of the following statements is correct concerning the relationships among the firm’s cost functions?",
+    "options": [
+      "TC = TFC – TVC.",
+      "TVC = TFC – TC.",
+      "TFC = TC – TVC.",
+      "TC = TVC – TFC."
+    ],
+    "correctOption": "TFC = TC – TVC."
+  },
+  {
+    "question": "In the long run all factors are ________.",
+    "options": [
+      "Fixed",
+      "Variable",
+      "All factors remain unchanged",
+      "None"
+    ],
+    "correctOption": "Variable"
+  },
+  {
+    "question": "Cost Function is the mathematical relation between ________ of a Product and the various determinants of ________.",
+    "options": [
+      "Cost, Costs",
+      "Revenue, Revenues",
+      "Cost, Revenues",
+      "Revenue, Costs."
+    ],
+    "correctOption": "Cost, Costs"
+  },
+  {
+    "question": "In a cost function, the dependent variable is unit cost or total cost and the independent variable(s)are ________.",
+    "options": [
+      "Units sold and purchased.",
+      "Price of factor, & size of output",
+      "Relevant phenomenon which has a bearing on cost like technology, level of capacity utilisation, efficiency, etc.",
+      "Both (b) & (c)"
+    ],
+    "correctOption": "Both (b) & (c)"
+  },
+  {
+    "question": "Cost function is a function which is obtained from ________.",
+    "options": [
+      "Production Function",
+      "Market Supply of inputs",
+      "Market Supply of outputs",
+      "Both (a) & (b)."
+    ],
+    "correctOption": "Both (a) & (b)."
+  },
+  {
+    "question": "The Cost function expresses the relationship between ________ and ________.",
+    "options": [
+      "Costs, input",
+      "Costs, Output",
+      "Dependent Variable, Cost",
+      "None of these"
+    ],
+    "correctOption": "Costs, Output"
+  },
+  {
+    "question": "Cost Functions are derived from ________ cost data of the firms.",
+    "options": [
+      "Actual",
+      "Expected",
+      "Desired",
+      "Standard."
+    ],
+    "correctOption": "Actual"
+  },
+  {
+    "question": "Which of the following is a kind of Cost function?",
+    "options": [
+      "Short-Run Cost Function",
+      "Long Run Cost Function",
+      "Short/Long Run Cost Curve",
+      "Both (a) and (b)"
+    ],
+    "correctOption": "Both (a) and (b)"
+  },
+  {
+    "question": "A company produces 10 units of output and incurs ₹ 30 per unit as variable cost and ₹ 5 per unit of fixed cost. What will be its total cost of producing 10 units₹",
+    "options": [
+      "₹ 300",
+      "₹ 35",
+      "₹ 305",
+      "₹ 350"
+    ],
+    "correctOption": "₹ 350"
+  },
+  {
+    "question": "What is the total cost of production of 20 units, if fixed cost ₹ 5,000 and variable cost is ₹ 2/-?",
+    "options": [
+      "5,400",
+      "5,040",
+      "4,960",
+      "5,020"
+    ],
+    "correctOption": "5,020"
+  },
+  {
+    "question": "Suppose output increases in the short run. Total cost will:",
+    "options": [
+      "Increase due to an increase in fixed costs only.",
+      "Increase due to an increase in variable costs only.",
+      "Increase due to an increase in both fixed and variable costs.",
+      "Decrease if the firm is in the region of diminishing returns."
+    ],
+    "correctOption": "Increase due to an increase in variable costs only."
+  },
+  {
+    "question": "Calculate total cost of 4 units : Units Total cost (₹) Marginal cost (₹) 2 80 40 4 – 30",
+    "options": [
+      "140",
+      "120",
+      "50",
+      "40"
+    ],
+    "correctOption": "140"
+  },
+  {
+    "question": "Calculate total cost of 4 units : Output 0 10 20 Total cost ₹ 200 ₹ 400 ₹ 800",
+    "options": [
+      "₹ 40",
+      "₹ 20",
+      "₹ 200",
+      "₹ 400"
+    ],
+    "correctOption": "₹ 20"
+  },
+  {
+    "question": "________ Costs do not change with changes in Output.",
+    "options": [
+      "Fixed",
+      "Valuable",
+      "Semi Valuable",
+      "Both (a) & (b)"
+    ],
+    "correctOption": "Fixed"
+  },
+  {
+    "question": "If fixed cost is plotted on a graph taking output on X-axis and Cost on Y axis, the Fixed cost will be represented by ________.",
+    "options": [
+      "Straight line parallel to Y axis",
+      "Straight line parallel to X axis",
+      "U Shaped Curve",
+      "Hyper-parabola Curve."
+    ],
+    "correctOption": "Straight line parallel to X axis"
+  },
+  {
+    "question": "Fixed costs are ________ a function of output.",
+    "options": [
+      "Not",
+      "Always",
+      "Treated as",
+      "Directly related"
+    ],
+    "correctOption": "Not"
+  },
+  {
+    "question": "Fixed costs may also be called as:",
+    "options": [
+      "Inescapable",
+      "Uncontrollable",
+      "Constant",
+      "All of the above"
+    ],
+    "correctOption": "All of the above"
+  },
+  {
+    "question": "Fixed cost curve normally:",
+    "options": [
+      "Starts from the origin",
+      "Is U shaped",
+      "Is vertical line",
+      "Is horizontal line."
+    ],
+    "correctOption": "Is horizontal line."
+  },
+  {
+    "question": "The vertical difference between TVC and TC curves is equal to:",
+    "options": [
+      "MC",
+      "AVC",
+      "TFC",
+      "None of the above"
+    ],
+    "correctOption": "TFC"
+  },
+  {
+    "question": "What will be the TVC if we produce 2 units? Units 0 1 2 Total cost 20 37 50",
+    "options": [
+      "15",
+      "05",
+      "17",
+      "30"
+    ],
+    "correctOption": "30"
+  },
+  {
+    "question": "A firm producing 9 units of output has an average total cost of f 200 and has to pay ₹ 630 to its fixed cost of production. How much of the average total cost is made up of variable cost?",
+    "options": [
+      "₹ 150",
+      "₹ 130",
+      "₹ 70",
+      "₹ 300"
+    ],
+    "correctOption": "₹ 130"
+  },
+  {
+    "question": "Which cost increases continuously with the increase in production?",
+    "options": [
+      "Average cost.",
+      "Marginal cost.",
+      "Fixed cost.",
+      "Variable cost."
+    ],
+    "correctOption": "Variable cost."
+  },
+  {
+    "question": "Total cost in the short run is classified into fixed costs and variable costs. Which one of the following is a variable cost?",
+    "options": [
+      "Cost of raw materials.",
+      "Cost of equipment.",
+      "Interestpaymentonpastborrowings.",
+      "Payment of rent on building."
+    ],
+    "correctOption": "Cost of raw materials."
+  },
+  {
+    "question": "Which of the following is a variable cost in the short run₹",
+    "options": [
+      "Rent of the factory.",
+      "Wages paid to the factory labour.",
+      "Interest payments on borrowed financial capital.",
+      "Payment on the lease for factory equipment."
+    ],
+    "correctOption": "Wages paid to the factory labour."
+  },
+  {
+    "question": "What will be the TVC if we produce 2 units? Units 0 1 2 3 4 Total cost 20 30 40 45 50",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "correctOption": "5"
+  },
+  {
+    "question": "If a Firm shuts down for a short period, it will not incur any ________ cost.",
+    "options": [
+      "Fixed",
+      "Semi-Variable",
+      "Variable",
+      "Both (a) & (b)"
+    ],
+    "correctOption": "Variable"
+  },
+  {
+    "question": "________ are those costs which change with changes in output.",
+    "options": [
+      "Fixed",
+      "Semi-Variable",
+      "Variable",
+      "Both (a) & (b)"
+    ],
+    "correctOption": "Variable"
+  },
+  {
+    "question": "Semi-Variable Costs are ________ Variable, ________ fixed in relation to the changes in the size of output.",
+    "options": [
+      "Neither, nor",
+      "Neither, nor absolutely",
+      "Absolutely, but relatively",
+      "Absolutely, but is by nature."
+    ],
+    "correctOption": "Neither, nor absolutely"
+  },
+  {
+    "question": "Electricity charges include both a fixed charge and a charge based on consumption. It should be classified as ________.",
+    "options": [
+      "Fixed Cost",
+      "Variable Cost",
+      "Semi-Variable Cost",
+      "Quasi Cost."
+    ],
+    "correctOption": "Semi-Variable Cost"
+  },
+  {
+    "question": "The Semi-Variable Cost: ________",
+    "options": [
+      "Remains Constant",
+      "Remains variable proportionately",
+      "Increases in stair-step fashion",
+      "Increases proportionately"
+    ],
+    "correctOption": "Increases in stair-step fashion"
+  },
+  {
+    "question": "Which of the following cost remains fixed over certain range of output but suddenly jump to a new higher level when output goes beyond a given limit?",
+    "options": [
+      "Total Fixed cost",
+      "Total Variable Cost",
+      "Both (a) & ( b)",
+      "Semi-Variable Cost"
+    ],
+    "correctOption": "Semi-Variable Cost"
+  },
+  {
+    "question": "The total Cost Curve is obtained by adding ________ the ________ curve and the Curve.",
+    "options": [
+      "Vertically, Total Fixed Cost, Total Variable Cost",
+      "Horizontally, Cost, Total",
+      "Vertically, Total Cost, Total Variable cost",
+      "Horizontally, Cost Valuable"
+    ],
+    "correctOption": "Vertically, Total Fixed Cost, Total Variable Cost"
+  },
+  {
+    "question": "The costs which remain fixed over certain range of output but suddenly jump to a new higher level when production goes beyond a given limit are called:",
+    "options": [
+      "Variable cost",
+      "Semi-variable cost",
+      "Stair – step variable cost",
+      "Jumping cost."
+    ],
+    "correctOption": "Stair – step variable cost"
+  },
+  {
+    "question": "Average fixed cost can be obtained through:",
+    "options": [
+      "AFC = TFCTS",
+      "AFC = ECTU",
+      "AFC = TCPC",
+      "AFC = TFCTU"
+    ],
+    "correctOption": "AFC = TFCTU"
+  },
+  {
+    "question": "Which one of the following is correct?",
+    "options": [
+      "AFC = AVC + ATC",
+      "ATC = AFC – AVC",
+      "AVC = AFC + ATC",
+      "AFC = ATC – AVC"
+    ],
+    "correctOption": "AFC = ATC – AVC"
+  },
+  {
+    "question": "Which of the following cost curves is never ‘U’ shaped?",
+    "options": [
+      "Average total cost curve",
+      "Marginal cost curve",
+      "Total cost curve",
+      "Total Fixed cost curve"
+    ],
+    "correctOption": "Total Fixed cost curve"
+  },
+  {
+    "question": "AFC curve is :",
+    "options": [
+      "Convex & downward sloping",
+      "Concave & downward sloping",
+      "Convex & upward sloping",
+      "Concave & upward rising"
+    ],
+    "correctOption": "Convex & downward sloping"
+  },
+  {
+    "question": "Which of the following curves never tough any axis but is downward ________.",
+    "options": [
+      "Marginal cost curve",
+      "Total cost curve",
+      "Average fixed cost curve",
+      "Average variable cost curve"
+    ],
+    "correctOption": "Average fixed cost curve"
+  },
+  {
+    "question": "The slope of Average Fixed cost curve is?",
+    "options": [
+      "Falls from left to right",
+      "Rises from left to right",
+      "Parallel to x-axis",
+      "Parallel to y-axis"
+    ],
+    "correctOption": "Falls from left to right"
+  },
+  {
+    "question": "When the output of a firm increase in the short run, its average fixed cost.",
+    "options": [
+      "Increases",
+      "Decreases",
+      "Remains constant",
+      "First declines and then rises."
+    ],
+    "correctOption": "Decreases"
+  },
+  {
+    "question": "Which statement among below is correct in reference in Average Fixed Cost.",
+    "options": [
+      "Never becomes zero",
+      "Curve never touches x-axis",
+      "Curve never touches y-axis",
+      "All of the above"
+    ],
+    "correctOption": "All of the above"
+  },
+  {
+    "question": "Average fixed cost curve is always:",
+    "options": [
+      "Declining when output increases",
+      "U-Shaped, if there are increasing returns to scale",
+      "U-Shaped, if there are decreasing returns to scale",
+      "Intersected by marginal cost at its minimum point"
+    ],
+    "correctOption": "Declining when output increases"
+  },
+  {
+    "question": "Which of the following curves never touch any axis but is downward.",
+    "options": [
+      "Marginal cost curve",
+      "Total cost curve",
+      "Average fixed cost curve",
+      "Average variable cost curve"
+    ],
+    "correctOption": "Average fixed cost curve"
+  },
+  {
+    "question": "A firm’s average fixed cost is ₹ 20 at 6 units of output. What will it be at 4 units of output?",
+    "options": [
+      "₹ 60",
+      "₹ 30",
+      "₹ 40",
+      "₹ 20"
+    ],
+    "correctOption": "₹ 30"
+  },
+  {
+    "question": "A firm’s average fixed cost is ₹ 40 at 12 units. What will be the average fixed cost at 8 units:",
+    "options": [
+      "₹ 60",
+      "₹ 70",
+      "₹ 90",
+      "₹ 80"
+    ],
+    "correctOption": "₹ 60"
+  },
+  {
+    "question": "A firms AFC is ₹ 200 at 10 units of output what will be it at 20 units of output?",
+    "options": [
+      "500",
+      "100",
+      "150",
+      "200"
+    ],
+    "correctOption": "100"
+  },
+  {
+    "question": "Average cost of producing 50 units of any commodity is ₹ 250 and fixed cost is ₹ 1,000. What will be the average fixed cost of producing 100 units of the commodity?",
+    "options": [
+      "₹ 10",
+      "₹ 30",
+      "₹ 20",
+      "₹ 05"
+    ],
+    "correctOption": "₹ 10"
+  },
+  {
+    "question": "Average Fixed Cost = ₹ 20 Quantity Produced =10 units What will be the Average Fixed Cost of 20th unit?",
+    "options": [
+      "₹ 10",
+      "₹ 20",
+      "₹ 5",
+      "None"
+    ],
+    "correctOption": "₹ 10"
+  },
+  {
+    "question": "Find AFC of 3 units : Units 0 1 2 3 Total cost 15 25 35 45",
+    "options": [
+      "5",
+      "10",
+      "15",
+      "25"
+    ],
+    "correctOption": "5"
+  },
+  {
+    "question": "What will be the AFC of 2 units according to the table given below: Units 0 1 2 Total cost (in ₹) 580 689 850",
+    "options": [
+      "105",
+      "135",
+      "235",
+      "290"
+    ],
+    "correctOption": "290"
+  },
+  {
+    "question": "A firm producing 7 units of output has an average total cost of ₹ 150 and has to pay ₹ 350 to its fixed factors of production whether it produces or not. How much of the average total cost is made up of variable cost?",
+    "options": [
+      "₹ 200",
+      "₹ 50",
+      "₹ 300",
+      "₹ 100"
+    ],
+    "correctOption": "₹ 100"
+  },
+  {
+    "question": "Consider the following data Units 0 1 2 3 4 Total cost 25 45 60 85 105 The Average Variable Cost (AVC) for an output of 4 units will be:",
+    "options": [
+      "₹ 20",
+      "₹ 35",
+      "₹ 25",
+      "₹ 26"
+    ],
+    "correctOption": "₹ 20"
+  },
+  {
+    "question": "A firm produces 10 units of a commodity at an average total cost of ₹ 200 and with a fixed cost of ₹ 500. Find out the component of average variable cost in the total cost:",
+    "options": [
+      "₹ 300",
+      "₹ 200",
+      "₹ 150",
+      "₹ 100"
+    ],
+    "correctOption": "₹ 300"
+  },
+  {
+    "question": "A firm producing 15 units of output has average cost of ₹ 250 and ₹ 125 as per unit cost for fixed factors of production. Then average variable cost will be ________.",
+    "options": [
+      "180",
+      "150",
+      "125",
+      "None of the above"
+    ],
+    "correctOption": "180"
+  },
+  {
+    "question": "If a firm’s output is zero, then:",
+    "options": [
+      "AFC will be positive",
+      "AVC will be zero",
+      "Both of (a) and (b)",
+      "None of (a) and (b)"
+    ],
+    "correctOption": "AFC will be positive"
+  },
+  {
+    "question": "Which of the following statements is true of the relationship among the average cost functions?",
+    "options": [
+      "ATC = AFC – AVC.",
+      "AVC = AFC + ATC.",
+      "AFC = ATC + AVC.",
+      "AFC = ATC – AVC."
+    ],
+    "correctOption": "AFC = ATC – AVC."
+  },
+  {
+    "question": "A firm has a variable cost of ₹ 1000 at 5 units of output. If fixed costs are ₹ 400, what will be the average total cost at 5 units of output?",
+    "options": [
+      "₹ 280",
+      "₹ 60",
+      "₹ 120",
+      "₹ 1400"
+    ],
+    "correctOption": "₹ 280"
+  },
+  {
+    "question": "U-shaped average cost curve is based on:",
+    "options": [
+      "Law of increasing cost",
+      "Law of decreasing cost",
+      "Law of constant returns to scale",
+      "Law of variable proportions"
+    ],
+    "correctOption": "Law of variable proportions"
+  },
+  {
+    "question": "A firm producing 7 units of output has an average total cost of ₹ 150 and has to pay ₹ 350 to its fixed factors of production. How much of the average total cost is made up of variable cost?",
+    "options": [
+      "₹ 200",
+      "₹ 50",
+      "₹ 300",
+      "₹ 100"
+    ],
+    "correctOption": "₹ 100"
+  },
+  {
+    "question": "Marginal cost is defined as:",
+    "options": [
+      "The change in total cost due to a one unit change in output.",
+      "Total cost divided by output.",
+      "The change in output due to a one unit change in an input.",
+      "Total product divided by the quantity of input."
+    ],
+    "correctOption": "The change in total cost due to a one unit change in output."
+  },
+  {
+    "question": "The change in total cost due to one unit change in the output is called ________ cost.",
+    "options": [
+      "Marginal",
+      "Average",
+      "Average variable",
+      "Average fixed."
+    ],
+    "correctOption": "Marginal"
+  },
+  {
+    "question": "Marginal cost changes due to change in ________ cost.",
+    "options": [
+      "Total",
+      "Fixed",
+      "Average",
+      "Variable"
+    ],
+    "correctOption": "Variable"
+  },
+  {
+    "question": "In figure below, possible reason why the average variable cost curve approaches the average total cost curve as output rises is:",
+    "options": [
+      "Fixed costs are falling while total costs are rising at rising output.",
+      "Total costs are rising and average costs are also rising.",
+      "Marginal costs are above average variable costs as output rises.",
+      "Average fixed costs are falling as output rises."
+    ],
+    "correctOption": "Average fixed costs are falling as output rises."
+  },
+  {
+    "question": "MC curve of a firm in a perfectly competitive industry depicts?",
+    "options": [
+      "Demand curve",
+      "Supply curve",
+      "Average cost curve",
+      "Total cost curve"
+    ],
+    "correctOption": "Supply curve"
+  },
+  {
+    "question": "When shape of average cost curve is upward, marginal cost:",
+    "options": [
+      "Must be decreasing",
+      "Must be constant",
+      "Must be rising",
+      "Any of these"
+    ],
+    "correctOption": "Must be rising"
+  },
+  {
+    "question": "With which of the following is the concept of marginal cost closely related?",
+    "options": [
+      "Variable cost.",
+      "Fixed cost.",
+      "Opportunity cost.",
+      "Economic cost."
+    ],
+    "correctOption": "Variable cost."
+  },
+  {
+    "question": "What will be marginal cost of 67 units of production accounting to the table given below: Units of production 0 10 25 3 67 Total cost 160 200 300 500 1,400",
+    "options": [
+      "10",
+      "20",
+      "30",
+      "50"
+    ],
+    "correctOption": "30"
+  },
+  {
+    "question": "On the basis of the following data what will be the marginal cost of the 6th unit of output? Output 0 1 2 3 4 5 6Total cost (in ₹) 240 330 410 480 540 610 6",
+    "options": [
+      "₹ 133",
+      "₹ 75",
+      "₹ 80",
+      "₹ 450"
+    ],
+    "correctOption": "₹ 80"
+  },
+  {
+    "question": "Solve question no. 77 given below the following table: Output (Units) TFC (in ₹) TVC (in ₹) MC (in ₹) 0 500 – – 1 500 400 400 5 500 1600 – What will be marginal cost, when output is 5 units?",
+    "options": [
+      "300",
+      "400",
+      "500",
+      "600"
+    ],
+    "correctOption": "300"
+  },
+  {
+    "question": "Marginal cost changes due to changes in ________.",
+    "options": [
+      "Total cost",
+      "Average cost",
+      "Variable cost",
+      "Quantity of output"
+    ],
+    "correctOption": "Variable cost"
+  },
+  {
+    "question": "Which of the following statements is correct?",
+    "options": [
+      "Fixed costs vary with change in output.",
+      "If we add total variable cost and total fixed cost we get the average cost.",
+      "Marginal cost is the result of total cost divided by number of units produced.",
+      "Total cost is obtained by adding up the fixed cost and total variable cost."
+    ],
+    "correctOption": "Total cost is obtained by adding up the fixed cost and total variable cost."
+  },
+  {
+    "question": "If total cost at 10 units is ₹ 600 and ₹ 640 for 11th unit. The marginal cost of 11th unit is:",
+    "options": [
+      "₹ 20",
+      "₹ 30",
+      "₹ 40",
+      "₹ 50"
+    ],
+    "correctOption": "₹ 40"
+  },
+  {
+    "question": "At 10 units Total Cost – ₹ 200, 20 units Total Cost – 600, Marginal Cost = ?",
+    "options": [
+      "50",
+      "40",
+      "30",
+      "400"
+    ],
+    "correctOption": "40"
+  },
+  {
+    "question": "The total cost incurred for 10 units is ₹ 400 and 20 units is ₹ 800. Find the marginal cost.",
+    "options": [
+      "₹ 400",
+      "₹ 40",
+      "₹ 200",
+      "₹ 20"
+    ],
+    "correctOption": "₹ 40"
+  },
+  {
+    "question": "Which of the following statements is correct?",
+    "options": [
+      "When the average cost is rising, the marginal cost must also be rising.",
+      "When the average cost is rising, the marginal cost must be falling.",
+      "When the average cost is rising, the marginal cost is above the average cost.",
+      "When the average cost is falling, the marginal cost must be rising."
+    ],
+    "correctOption": "When the average cost is rising, the marginal cost is above the average cost."
+  },
+  {
+    "question": "When AC curve is rising, the MC curve must be ________ to it.",
+    "options": [
+      "Equal",
+      "Above",
+      "Below",
+      "Parallel"
+    ],
+    "correctOption": "Above"
+  },
+  {
+    "question": "What happens to marginal cost when average cost increases?",
+    "options": [
+      "Marginal cost is below average cost",
+      "Marginal cost is above average cost",
+      "Marginal cost is equal to average variable cost",
+      "Marginal cost is equal to average cost"
+    ],
+    "correctOption": "Marginal cost is equal to average cost"
+  },
+  {
+    "question": "When AC Curve is at minimum then MC Curve is ________?",
+    "options": [
+      "Minimum then AC Curve",
+      "Equals to AC Curve",
+      "Above AC Curve",
+      "Less than AC Curve"
+    ],
+    "correctOption": "Equals to AC Curve"
+  },
+  {
+    "question": "Which of the following statement is incorrect?",
+    "options": [
+      "AC is sloping downwards, MC is below AC",
+      "AC is sloping downwards, MC must fall",
+      "AC is sloping upwards, MC is above AC",
+      "MC cuts AC from its lowest point."
+    ],
+    "correctOption": "AC is sloping downwards, MC must fall"
+  },
+  {
+    "question": "Which of the following is true of the relationship between the marginal cost function and the average cost function?",
+    "options": [
+      "If MC is greater than ATC, then ATC is falling.",
+      "The ATC curve intersects the MC curve at minimum MC.",
+      "The MC curve intersects the ATC curve at minimum ATC.",
+      "If MC is less than ATC, then ATC is increasing."
+    ],
+    "correctOption": "The MC curve intersects the ATC curve at minimum ATC."
+  },
+  {
+    "question": "If LAC curve falls as output expands, this is due to :",
+    "options": [
+      "Law of diminishing returns",
+      "Economics of scale",
+      "Law of variable proportion",
+      "Dis-economics of scale"
+    ],
+    "correctOption": "Economics of scale"
+  },
+  {
+    "question": "Planning curve is related to which of the following?",
+    "options": [
+      "Short run average cost curve",
+      "Long run average cost curve",
+      "Average variable cost",
+      "Average total cost"
+    ],
+    "correctOption": "Long run average cost curve"
+  },
+  {
+    "question": "Which of the following is known as Envelope curve?",
+    "options": [
+      "Marginal Cost Curve",
+      "Average Fixed Cost Curve",
+      "Long Run Average cost Curve",
+      "Total Fixed Cost Curve"
+    ],
+    "correctOption": "Long Run Average cost Curve"
+  },
+  {
+    "question": "Which of the following statements concerning the long-run average cost curve is false?",
+    "options": [
+      "It represents the least-cost input combination for producing each level of output.",
+      "It is derived from a series of short- run average cost curves.",
+      "The short-run cost curve at the minimum point of the long-run average cost curve represents the least-cost plant size for all levels of output.",
+      "As output increases, the amount of capital employed by the firm increases along the curve."
+    ],
+    "correctOption": "The short-run cost curve at the minimum point of the long-run average cost curve represents the least-cost plant size for all levels of output."
+  },
+  {
+    "question": "The negatively-sloped (i.e. falling) part of the long-run average total cost curve is due to which of the following?",
+    "options": [
+      "Diseconomies of scale.",
+      "Diminishing returns.",
+      "The difficulties encountered in coordinating the many activities of a large firm.",
+      "The increase in productivity that results from specialization."
+    ],
+    "correctOption": "The increase in productivity that results from specialization."
+  },
+  {
+    "question": "A firm’s long-run average total cost curve is.",
+    "options": [
+      "Identical to its long-run marginal- cost curve as all factors are variable.",
+      "Also its long-run total cost curve because it explains the relationship cost and quantity supplied in the long run.",
+      "In fact the average total cost curve of the optimal plant in the short run as it tries to produce at least cost.",
+      "Tangent to all short-run average total cost the curves and represents the lowest average total cost for producing each level of output."
+    ],
+    "correctOption": "Tangent to all short-run average total cost the curves and represents the lowest average total cost for producing each level of output."
+  },
+  {
+    "question": "The positively sloped (rising) part of the long run average cost curve indicates working of the ________.",
+    "options": [
+      "Diseconomies of scale",
+      "Increasing returns to scale",
+      "Constant returns to scale",
+      "Economies of scale"
+    ],
+    "correctOption": "Diseconomies of scale"
+  },
+  {
+    "question": "External economies accrue due to ________:",
+    "options": [
+      "Increasing returns to scale",
+      "Increasing returns to factor",
+      "Law of variable proportion",
+      "Low cost"
+    ],
+    "correctOption": "Increasing returns to scale"
+  },
+  {
+    "question": "External Economies arise due to:",
+    "options": [
+      "Growth of ancillary industries",
+      "High cost of technologies",
+      "Increase in the price of factors of production",
+      "None of the above"
+    ],
+    "correctOption": "Growth of ancillary industries"
+  },
+  {
+    "question": "External economies can be achieved through:",
+    "options": [
+      "Foreign trade only",
+      "Superior managerial skill",
+      "Extension of transport and credit facilities",
+      "External assistance"
+    ],
+    "correctOption": "Extension of transport and credit facilities"
+  },
+  {
+    "question": "Economies of scale exist because as a firm increases its size in the long run:",
+    "options": [
+      "Labour and management can specialize in their activities more.",
+      "As a larger input buyer, the firm can get finance at lower cost and purchase inputs at a lower per unit cost.",
+      "The firm can afford to employ more sophisticated technology in production.",
+      "All of these."
+    ],
+    "correctOption": "All of these."
+  },
+  {
+    "question": "External Economies of Scale are obtained by:",
+    "options": [
+      "A firm",
+      "A group of firm",
+      "Small Production",
+      "Society"
+    ],
+    "correctOption": "A group of firm"
+  },
+  {
+    "question": "External economics are enjoyed:",
+    "options": [
+      "By large producers only",
+      "As firm expands",
+      "Both (a) and (b)",
+      "None of the above"
+    ],
+    "correctOption": "Both (a) and (b)"
+  },
+  {
+    "question": "Issue requiring decision making in the context of business are:",
+    "options": [
+      "How much should be the optimum output at what price should the firm sell?",
+      "How will the product be placed in the market?",
+      "How to combat the risks and uncertainties involved?",
+      "All of the above"
+    ],
+    "correctOption": "All of the above"
+  },
+  {
+    "question": "Long run price is also called by the name of ________.",
+    "options": [
+      "Market price",
+      "Normal price",
+      "Administered price",
+      "Wholesale price."
+    ],
+    "correctOption": "Normal price"
+  },
+  {
+    "question": "Which of the following equa¬tion represents profit maximization condition?",
+    "options": [
+      "MC = MR",
+      "MC > MR",
+      "MC < MR",
+      "None"
+    ],
+    "correctOption": "MC = MR"
+  },
+  {
+    "question": "Which of the following statements is true?",
+    "options": [
+      "Accumulation of capital depends solely on income of individuals.",
+      "Savings can be influenced by government policies.",
+      "External economies go with size and internal economies with loca¬tion.",
+      "The supply curve of labour is an upward slopping curve."
+    ],
+    "correctOption": "Savings can be influenced by government policies."
+  },
+  {
+    "question": "Supply curve remaining un-changed, an increase in demand will lead to.",
+    "options": [
+      "A fall in price",
+      "A rise in price",
+      "No change in price",
+      "AN increase in supply"
+    ],
+    "correctOption": "A fall in price"
+  },
+  {
+    "question": "Price of a commodity is best expressed as ________.",
+    "options": [
+      "Exchange value",
+      "Cost of goods sold",
+      "Production cost",
+      "Nominal value"
+    ],
+    "correctOption": "Cost of goods sold"
+  },
+  {
+    "question": "A firm will close down in the short period if its average revenue is less than its:",
+    "options": [
+      "Average cost",
+      "Average variable cost",
+      "Marginal cost",
+      "Average fixed cost"
+    ],
+    "correctOption": "Average variable cost"
+  },
+  {
+    "question": "Which of the following statements is incorrect?",
+    "options": [
+      "The LAC curve is also called the planning curve of a firm.",
+      "Total revenue = price per unit X number of units sold.",
+      "Opportunity cost is also called alternative cost.",
+      "If total revenue is divided by the number of units sold we get marginal revenue."
+    ],
+    "correctOption": "If total revenue is divided by the number of units sold we get marginal revenue."
+  },
+  {
+    "question": "Average Revenue Curve is also known as ________.",
+    "options": [
+      "Profit curve",
+      "Demand curve",
+      "Supply curve",
+      "Average cost curve"
+    ],
+    "correctOption": "Demand curve"
+  },
+
+
+     
+
+ {
+        "question": "Begins here SSC Questions",
+        "options": [
+           
+        ],
+        "correctOption": "All of these"
+    },
+
+
+
+ {
+        "question": "Q1. Which of the followings is a factor of production?",
+        "options": [
+            "Land",
+            "Labour",
+            "Capital",
+            "All of these"
+        ],
+        "correctOption": "All of these"
+    },
+    {
+        "question": "Q2. The marginal product of a variable inputs is best described as:",
+        "options": [
+            "Total product divided by the number of units of variable input.",
+            "The additional output resulting from a one-unit increase in the variable input.",
+            "The additional output resulting from a one-unit increase in both the variable and fixed inputs.",
+            "Any of the above"
+        ],
+        "correctOption": "The additional output resulting from a one-unit increase in the variable input."
+    },
+    {
+        "question": "Q5. The following are some of the costs of a clothing manufacturer. State which among them will you consider as fixed cost?",
+        "options": [
+            "Cost of cloth",
+            "Piece wages paid to workers",
+            "Cost of electricity for running machines",
+            "Depreciation on machines owing to time"
+        ],
+        "correctOption": "Depreciation on machines owing to time"
+    },
+    {
+        "question": "Q6. Which of the following curve is a rectangular hyperbola?",
+        "options": [
+            "ATC",
+            "AFC",
+            "AVC",
+            "MC"
+        ],
+        "correctOption": "AFC"
+    },
+    {
+        "question": "Q7. Both marginal and average costs are equal when:",
+        "options": [
+            "Marginal cost is minimum",
+            "Average cost is minimum",
+            "Both marginal and average costs are minimum",
+            "None of the above"
+        ],
+        "correctOption": "Average cost is minimum"
+    },
+    {
+        "question": "Q8. Economies of scale means:",
+        "options": [
+            "Reduction in unit cost of production",
+            "Reductions in unit cost of distribution",
+            "Addition to the unit cost of production",
+            "Reduction in the total cost of production"
+        ],
+        "correctOption": "Reduction in unit cost of production"
+    },
+    {
+        "question": "Q9. In general, most of the production functions measure:",
+        "options": [
+            "The productivity of factors of production",
+            "The relation between the factors of production",
+            "The economies of scale",
+            "The relations between change in physical inputs and physical output."
+        ],
+        "correctOption": "The relations between change in physical inputs and physical output."
+    },
+    {
+        "question": "Q12. The ‘Diamond Water’ controversy is explained by -",
+        "options": [
+            "Total utility",
+            "Quantity supplied",
+            "Marginal utility",
+            "Price offered"
+        ],
+        "correctOption": "Marginal utility"
+    },
+    {
+        "question": "Q13. Which of the following is an example of an “explicit cost”?",
+        "options": [
+            "The payment of wages by the firm.",
+            "The normal profit earned by the firm.",
+            "The income that could have been earned in alternative uses by the resources owned by the firm.",
+            "The wages a proprietor could have made by working as an employee of a large firm."
+        ],
+        "correctOption": "The payment of wages by the firm."
+    },
+    {
+        "question": "Q14. A firm has a variable cost of Rs. 1,000/- at 5 units of output. If fixed cost is Rs. 400/-, what will be the average total cost at 5 units of output?",
+        "options": [
+            "1400",
+            "120",
+            "60",
+            "280"
+        ],
+        "correctOption": "280"
+    },
+    {
+        "question": "Q15. Laws of production does not include:",
+        "options": [
+            "Law of variable proportions.",
+            "Least cost combination of factors.",
+            "Law of diminishing returns to a factor.",
+            "Returns to scale."
+        ],
+        "correctOption": "Least cost combination of factors."
+    },
+    {
+        "question": "Q16. Minimum marginal cost occurs at the output where:",
+        "options": [
+            "The total product is at maximum",
+            "The average product of the variable factors is at maximum",
+            "The factors are combined in their best possible proportion.",
+            "The marginal product of the variable factors is at a maximum"
+        ],
+        "correctOption": "The marginal product of the variable factors is at a maximum"
+    },
+    {
+        "question": "Q17. Suresh inherited 5 acres of land from his grandfather who paid Rs. 50,000/- cash for this land back in 1950. Today, land in the area sells for Rs. 2,00,000/- per acre. What is the opportunity cost to Suresh for keeping the land?",
+        "options": [
+            "Nothing, since the grandfather paid cash.",
+            "Nothing since the land was inherited.",
+            "Rs. 50,000/- since this is what is cost Suresh’s grandfather paid.",
+            "Rs. 10,00,000/, since this what Suresh is giving up by keeping the land."
+        ],
+        "correctOption": "Rs. 10,00,000/, since this what Suresh is giving up by keeping the land."
+    },
+    {
+        "question": "Q18. The term ‘Land’ is used in a special sense in Economics. Which of the following is not correct about Land?",
+        "options": [
+            "Land is a free gift of nature.",
+            "Supply of land is fixed.",
+            "Land is an active factor of production.",
+            "Land is immobile"
+        ],
+        "correctOption": "Land is an active factor of production."
+    },
+    {
+        "question": "Q19. Which of the following is a function of an entrepreneur?",
+        "options": [
+            "Initiating business enterprise and resource co-ordination.",
+            "Risk bearing or uncertainty bearing.",
+            "Innovations.",
+            "All of the above."
+        ],
+        "correctOption": "All of the above."
+    },
+    {
+        "question": "Q20. Which of the following is not a correct relation between Marginal Product and Average Product?",
+        "options": [
+            "When Average Product rises because of an increase in the quantity of variable inputs, marginal product is more than the average product.",
+            "When average product is maximum, marginal product is equal to average product. In other words, the marginal product curve cuts the average product curve at its maximum.",
+            "When average product falls, marginal product is more than the average product.",
+            "All are correct."
+        ],
+        "correctOption": "When average product falls, marginal product is more than the average product."
+    },
+    {
+        "question": "Q21. Which the following is incorrect?",
+        "options": [
+            "AFC = TFC / Q",
+            "AVC = TVC / Q",
+            "ATC = AFC - AVC",
+            "MC = ∆TC / ∆Q"
+        ],
+        "correctOption": "ATC = AFC - AVC"
+    },
+    {
+        "question": "Q22. Which of the following is an incorrect statement?",
+        "options": [
+            "Accounting cost are explicit cost and includes all the payments and charges made by the entrepreneur to the suppliers of various productive factors.",
+            "Economic cost considers explicit cost as well as implicit costs. A firm must cover its economic cost if it wants to earn normal profits.",
+            "Outlay cost is concerned with the cost of the next best alternative opportunity which was foregone to pursue a certain action.",
+            "Direct costs are those which have direct relationship with a component of operation. They are readily identified and are traceable to a product, operation or plant."
+        ],
+        "correctOption": "Outlay cost is concerned with the cost of the next best alternative opportunity which was foregone to pursue a certain action."
+    },
+    {
+        "question": "Q23. Diminishing marginal returns for the first four units of a variable input is exhibited by the total product sequence:",
+        "options": [
+            "50, 50, 50, 50",
+            "50, 110, 180, 260",
+            "50, 100, 150, 200",
+            "50, 90, 120, 140"
+        ],
+        "correctOption": "50, 90, 120, 140"
+    },
+    {
+        "question": "Q24. A firm’s average fixed cost is Rs. 20 at 6 units of output. What will it be at 4 units of output?",
+        "options": [
+            "60",
+            "30",
+            "40",
+            "20"
+        ],
+        "correctOption": "30"
+    },
+    {
+        "question": "Q25. To economists, the main difference between the short run and the long run is that:",
+        "options": [
+            "In the short run all inputs are fixed, while in the long run all inputs are variable.",
+            "In the short run, the firm varies all of its inputs to find the least cost combination of inputs.",
+            "In the short run, at least one of the firm’s input level is fixed.",
+            "In the long run, the firm is making a constrained decision about how to use existing plant and equipment efficiently."
+        ],
+        "correctOption": "In the short run, at least one of the firm’s input level is fixed."
+    },
+    {
+        "question": "Q26. Which of the following statements describes increasing returns to scale?",
+        "options": [
+            "Increasing inputs by 1/5 leads to an increase in output of 1/4.",
+            "Increasing the inputs by 100% leads to an 80% increase in output.",
+            "Increasing the inputs by 50% leads to 50% increase in output.",
+            "None of the above."
+        ],
+        "correctOption": "Increasing inputs by 1/5 leads to an increase in output of 1/4."
+    },
+    {
+        "question": "Q27. The negatively sloped (i.e. falling) part of the long-run average total cost curve is due to which of the following?",
+        "options": [
+            "Diseconomies of scale.",
+            "Diminishing returns.",
+            "The difficulties encountered in coordinating the many activities of a large firm.",
+            "The increase in productivity that results from specialization."
+        ],
+        "correctOption": "The increase in productivity that results from specialization."
+    },
+    {
+        "question": "Q28. The “law of diminishing returns” applies to:",
+        "options": [
+            "The short run, but not the long run.",
+            "The long run, but not the short run.",
+            "Both the short run and the long run.",
+            "Neither short run nor the long run."
+        ],
+        "correctOption": "The short run, but not the long run."
+    },
+	 {
+        "question": "Q29. Which of the following is a variable cost in the short run?",
+        "options": [
+            "Rent of the factory",
+            "Wages paid to the factory labour.",
+            "Interest payments on borrowed financial capital.",
+            "Payment on the lease for factory equipment"
+        ],
+        "correctOption": "Wages paid to the factory labour."
+    },
+    {
+        "question": "Q30. Marginal cost is:",
+        "options": [
+            "Always less than the average cost.",
+            "Always more than the average cost.",
+            "Equal to average cost at its minimum point.",
+            "Never equal to average cost."
+        ],
+        "correctOption": "Equal to average cost at its minimum point."
+    },
+    {
+        "question": "Q31. What will be the total cost of production of 50 units, if Fixed cost is Rs. 10,000/- and variable cost is Rs. 100 per unit?",
+        "options": [
+            "10100",
+            "505000",
+            "15000",
+            "500100"
+        ],
+        "correctOption": "15000"
+    },
+    {
+        "question": "Q32. All the following curves are U-shaped except:",
+        "options": [
+            "The AVC curve",
+            "The AFC curves",
+            "The AC curves",
+            "The MC curves"
+        ],
+        "correctOption": "The AFC curves"
+    },
+    {
+        "question": "Q33. If as result of 30% increase in all inputs, the output increases by 20% this is a case of:",
+        "options": [
+            "Increasing returns to scale",
+            "Constant returns to scale",
+            "Increasing returns to factor",
+            "Decreasing returns to scale."
+        ],
+        "correctOption": "Decreasing returns to scale."
+    },
+    {
+        "question": "Q34. Marginal Revenue is equal to:",
+        "options": [
+            "Price, but only if the firm is price searcher.",
+            "The change in P x Q due to a one-unit change in output.",
+            "The change in quantity divided by the change in price.",
+            "The change in price divided by the change in output."
+        ],
+        "correctOption": "The change in P x Q due to a one-unit change in output."
+    },
+    {
+        "question": "Q35. Which of the following is best definition of the 'Production function'?",
+        "options": [
+            "The relationship between market price and quantity supplied.",
+            "The relationship between the quantities of inputs needed to produce a given level of output.",
+            "The relationship between the quantity of inputs and the firm’s marginal cost of production.",
+            "The relationship between the firm’s total revenue and the cost of production"
+        ],
+        "correctOption": "The relationship between the quantities of inputs needed to produce a given level of output."
+    },
+    {
+        "question": "Q36. The vertical difference between TVC and TC is equal to:",
+        "options": [
+            "MC",
+            "AVC",
+            "TFC",
+            "None of the above"
+        ],
+        "correctOption": "TFC"
+    },
+    {
+        "question": "Q37. Marginal cost is defined as:",
+        "options": [
+            "The change in total cost due to a one-unit change in output.",
+            "Total cost divided by output.",
+            "The change in output due to a one-unit change in an input.",
+            "Total product divided by the quantity of input."
+        ],
+        "correctOption": "The change in total cost due to a one-unit change in output."
+    },
+    {
+        "question": "Q38. Why the AFC curve does not touch the output axis?",
+        "options": [
+            "Because AFC cannot be negative.",
+            "Because AFC cannot be zero",
+            "Because AFC cannot be less than one",
+            "None of the above."
+        ],
+        "correctOption": "Because AFC cannot be zero"
+    },
+    {
+        "question": "Q39. Who among of the followings creates time utility?",
+        "options": [
+            "Farmer",
+            "Carpenter",
+            "Trader",
+            "Driver"
+        ],
+        "correctOption": "Carpenter"
+    },
+    {
+        "question": "Q40. Marginal cost curve:",
+        "options": [
+            "Has the shape of inverted U",
+            "Has the shape of alphabet U",
+            "Has the shape of a rectangular hyperbola",
+            "None of the above"
+        ],
+        "correctOption": "Has the shape of alphabet U"
+    },
+    {
+        "question": "Q41. Which stage of the given stages is relevant for a firm which aims at maximum economic efficiency in the law of variable proportion.",
+        "options": [
+            "Stage I",
+            "Stage II",
+            "Stage III",
+            "Stage IV"
+        ],
+        "correctOption": "Stage II"
+    },
+
+
+
+
+	 
+
+
+ // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

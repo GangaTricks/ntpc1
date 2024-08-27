@@ -1,0 +1,3259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Introductory into the Economics</title>
+			<script src="../../urlRewrite.js"></script>
+		<link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">
+  
+   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+  
+  
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Introduction into the Economics | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+ const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'economicsintroductory';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+       const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+<script>
+const questions = [
+ 
+
+      {
+        "question": "From here ca's questions, from question no. 177 you get ssc aao's questions",
+        "options": [
+            "",
+            "",
+            "",
+            ""
+        ],
+        "correctOption": ""
+    },
+	{
+        "question": "The term ‘Economics’ owes its origin to the Greek word.",
+        "options": [
+            "Aikonomia",
+            "Wikonornia",
+            "Oikonomia",
+            "None of the above"
+        ],
+        "correctOption": "Oikonomia"
+    },
+    {
+        "question": "Adam Smith published his master piece “An enquiry into the nature and causes of wealth of nations” in the year __________.",
+        "options": [
+            "1776",
+            "1786",
+            "1789",
+            "1790"
+        ],
+        "correctOption": "1776"
+    },
+    {
+        "question": "Oikonomia means __________.",
+        "options": [
+            "Industry",
+            "Management of household",
+            "Services",
+            "None of these"
+        ],
+        "correctOption": "Management of household"
+    },
+    {
+        "question": "Economists regard decision making as important because:",
+        "options": [
+            "The resources required to satisfy our unlimited wants and needs are finite or scarce.",
+            "It is crucial to understand how we can best allocate our scarce resources to satisfy society’s unlimited wants and needs.",
+            "Resources have alternative uses.",
+            "All of the above."
+        ],
+        "correctOption": "All of the above."
+    },
+    {
+        "question": "‘Economics is the science of choice making’. It implies:",
+        "options": [
+            "No choice is to be made",
+            "Choice to be made between alternative uses",
+            "Choice to be made between means and ends",
+            "None of the above"
+        ],
+        "correctOption": "Choice to be made between alternative uses"
+    },
+    {
+        "question": "Which one is the feature of Marshall’s definition?",
+        "options": [
+            "Limited ends",
+            "Scarce means",
+            "Study of wealth as well as study of man",
+            "Study of allocation of resources"
+        ],
+        "correctOption": "Study of wealth as well as study of man"
+    },
+    {
+        "question": "According to Robbins, ‘means’ are:",
+        "options": [
+            "Scarce",
+            "Unlimited",
+            "Undefined",
+            "All of these"
+        ],
+        "correctOption": "Scarce"
+    },
+    {
+        "question": "Economics is the study of:",
+        "options": [
+            "How society manages its unlimited resources",
+            "How to reduce our wants until we are satisfied",
+            "How society manages its scarce resources",
+            "How to fully satisfy our unlimited wants."
+        ],
+        "correctOption": "How society manages its scarce resources"
+    },
+    {
+        "question": "In Economics, we use the term scarcity to mean:",
+        "options": [
+            "Absolute scarcity and lack of resources in less developed countries.",
+            "Relative scarcity i.e. scarcity in relation to the wants of the society.",
+            "Scarcity during times of business failure and natural calamities.",
+            "Scarcity caused on account of excessive consumption by the rich."
+        ],
+        "correctOption": "Relative scarcity i.e. scarcity in relation to the wants of the society."
+    },
+    {
+        "question": "What implication(s) does resource scarcity have for the satisfaction of wants?",
+        "options": [
+            "Not all wants can be satisfied.",
+            "We will never be faced with the need to make choices.",
+            "We must develop ways to decrease our individual wants.",
+            "The discovery of new natural resources is necessary to increase our ability to satisfy wants."
+        ],
+        "correctOption": "Not all wants can be satisfied."
+    },
+    {
+        "question": "Adam Smith defined Economics in terms of:",
+        "options": [
+            "The Science of welfare",
+            "The Science of scarcity",
+            "The Science of wealth",
+            "The Science of wealth and welfare"
+        ],
+        "correctOption": "The Science of wealth"
+    },
+    {
+        "question": "Who defines Economics in terms of Dynamic Growth and Development?",
+        "options": [
+            "Robbins",
+            "Paul A Samuelson",
+            "Adam Smith",
+            "None of these"
+        ],
+        "correctOption": "Paul A Samuelson"
+    },
+    {
+        "question": "In every economic system, scarcity imposes limitations on __________.",
+        "options": [
+            "Households, business firms, governments and the nation as a whole.",
+            "Households and business firms, but not the governments.",
+            "Local and state governments, but not the federal government.",
+            "Households and governments, but not business firms."
+        ],
+        "correctOption": "Households, business firms, governments and the nation as a whole."
+    },
+    {
+        "question": "Economic goods are considered scarce resources because they __________.",
+        "options": [
+            "Cannot be increased in quantity.",
+            "Do not exist in adequate quantity to satisfy the requirements of the society.",
+            "Are of primary importance in satisfying social requirements.",
+            "Are limited to man made goods."
+        ],
+        "correctOption": "Do not exist in adequate quantity to satisfy the requirements of the society."
+    },
+    {
+        "question": "‘Economics is the study of mankind in the ordinary business of life’ was given by:",
+        "options": [
+            "Adam Smith",
+            "Lord Robbins",
+            "Alfred Marshall",
+            "Samuelson"
+        ],
+        "correctOption": "Alfred Marshall"
+    },
+    {
+        "question": "Consider the following and decide which, if any, economy is without scarcity:",
+        "options": [
+            "The pre-independent Indian economy, where most people were farmers.",
+            "A mythical economy where everybody is a billionaire.",
+            "Any economy where income is distributed equally among its people.",
+            "None of the above"
+        ],
+        "correctOption": "None of the above"
+    },
+    {
+        "question": "Human wants are in response to satisfy their wants?",
+        "options": [
+            "Unlimited",
+            "Limited",
+            "Scarce",
+            "Multiple"
+        ],
+        "correctOption": "Unlimited"
+    },
+    {
+        "question": "Economic goods are considered as scarce resources because __________.",
+        "options": [
+            "Inadequate quantity to satisfy the needs of the society",
+            "Not possible to increase in quantity",
+            "Limited hands to make goods",
+            "Primary importance in satisfying social requirements"
+        ],
+        "correctOption": "Inadequate quantity to satisfy the needs of the society"
+    },
+    {
+        "question": "The meaning of time element in Economics is:",
+        "options": [
+            "Calendar time",
+            "Clock time",
+            "Operational time in which supply adjusts with the market demand",
+            "None of the above"
+        ],
+        "correctOption": "Operational time in which supply adjusts with the market demand"
+    },
+    {
+        "question": "All wants of an individual are not of:",
+        "options": [
+            "Equal importance",
+            "Immediate importance",
+            "Fixed importance",
+            "All of the above"
+        ],
+        "correctOption": "Equal importance"
+    },
+    {
+        "question": "__________ refers to the process of selecting an appropriate alternative that will provide the most efficient means of attaining a desired end, from two or more alternative courses of action.",
+        "options": [
+            "Decision making",
+            "Strategy",
+            "Problem Solving",
+            "Effectiveness"
+        ],
+        "correctOption": "Decision making"
+    },
+    {
+        "question": "Business Economics is __________.",
+        "options": [
+            "Abstract and applies the tools of Microeconomics.",
+            "Involves practical application of economic theory in business decision making.",
+            "Incorporates tools from multiple disciplines.",
+            "(b) and (c) above."
+        ],
+        "correctOption": "(b) and (c) above."
+    },
+    {
+        "question": "Business Economics is also known as?",
+        "options": [
+            "Applied Economics",
+            "Managerial Economics",
+            "Micro Economics",
+            "All of the above"
+        ],
+        "correctOption": "Managerial Economics"
+    },
+    {
+        "question": "The question of choice arises because our productive resources __________.",
+        "options": [
+            "Are limited",
+            "Can be employed in alternatives",
+            "Both (a) & (b)",
+            "None of the above"
+        ],
+        "correctOption": "Both (a) & (b)"
+    },
+    {
+        "question": "The management of a business unit generally needs to make __________.",
+        "options": [
+            "Strategic Decision",
+            "Tactical Decision",
+            "Operational Decision",
+            "All of the above"
+        ],
+        "correctOption": "All of the above"
+    },
+    {
+        "question": "Concept of Business Economics was given by:",
+        "options": [
+            "Joel Dean",
+            "Alfred Marshall",
+            "Adam Smith",
+            "L. Robbins"
+        ],
+        "correctOption": "Joel Dean"
+    },
+    {
+        "question": "Which one of the following is incorrect about Business Economics?",
+        "options": [
+            "It is applied economics that fills the gap between economic theory and business practice.",
+            "Business Economics integrates economic theory with business practice.",
+            "Business Economics is also referred to as Managerial Economics.",
+            "Business Economics is more concerned with Macro Economics."
+        ],
+        "correctOption": "Business Economics is more concerned with Macro Economics."
+    },
+    {
+        "question": "__________ defined Business Economics in terms of the use of economics analysis in the formulation of business policies.",
+        "options": [
+            "Joel Dean",
+            "Karl Marks",
+            "Adam Smith",
+            "Schumpeter"
+        ],
+        "correctOption": "Joel Dean"
+    },
+    {
+        "question": "Business Economics is essentially a component of __________ as it includes application of selected quantitative techniques.",
+        "options": [
+            "Pure Economics",
+            "Applied Economics",
+            "Statistical Economics",
+            "None of the above"
+        ],
+        "correctOption": "Applied Economics"
+    },
+    {
+        "question": "Which of the following is not included in Economics?",
+        "options": [
+            "Family Structure",
+            "Managerial Economics",
+            "Micro Economics",
+            "Macro Economics"
+        ],
+        "correctOption": "Family Structure"
+    },
+    {
+        "question": "The heart of Business Economics is __________.",
+        "options": [
+            "Micro Economic Theory of the behaviour of consumers and firms in competitive markets.",
+            "Macro-Economic Theory of the national income",
+            "Income Economic analysis to analyze the industry.",
+            "All of the above."
+        ],
+        "correctOption": "Micro Economic Theory of the behaviour of consumers and firms in competitive markets."
+    },
+    {
+        "question": "Which one of the following is not a subject matter of Micro-Economics?",
+        "options": [
+            "Behaviour of Firms",
+            "External Value of Currency",
+            "Factor Pricing",
+            "Location of Industry"
+        ],
+        "correctOption": "External Value of Currency"
+    },
+    {
+        "question": "Micro economics does not study __________.",
+        "options": [
+            "Consumer behaviour",
+            "Factor pricing",
+            "General price level",
+            "Firms equilibrium"
+        ],
+        "correctOption": "General price level"
+    },
+    {
+        "question": "Micro Economics is the study of:",
+        "options": [
+            "Individual parts of the economy",
+            "The economy as a whole",
+            "Choice making",
+            "Development of the economy"
+        ],
+        "correctOption": "Individual parts of the economy"
+    },
+    {
+        "question": "The branch of economic theory that deals with the problem of allocation of resources is __________.",
+        "options": [
+            "Micro-Economic theory.",
+            "Macro-Economic theory.",
+            "Econometrics.",
+            "None of the above"
+        ],
+        "correctOption": "Micro-Economic theory."
+    },
+    {
+        "question": "Which of the following is not the subject matter of Business Economics?",
+        "options": [
+            "Should our firm be in this business?",
+            "How much should be produced and at price should be kept?",
+            "How will the product be placed in the market?",
+            "How should we decrease unemployment in the economy?"
+        ],
+        "correctOption": "How should we decrease unemployment in the economy?"
+    },
+    {
+        "question": "The branch of economic theory that deals with the problem of allocation of resources is:",
+        "options": [
+            "Micro Economics",
+            "Macro Economics",
+            "Econometrics",
+            "None of these"
+        ],
+        "correctOption": "Micro Economics"
+    },
+    {
+        "question": "Micro Economics Covers:",
+        "options": [
+            "National Income and National Output",
+            "External Value of Currency",
+            "Overall level of Savings and Investment",
+            "Location of Industry"
+        ],
+        "correctOption": "Location of Industry"
+    },
+    {
+        "question": "A study of how increase in the corporate income tax rate will affect the natural unemployment rate is an example of:",
+        "options": [
+            "Micro Economics",
+            "Descriptive Economics",
+            "Micro Economics",
+            "Normative Economics"
+        ],
+        "correctOption": "Micro Economics"
+    },
+    {
+        "question": "__________ examines how the individual units (Consumers or firms) make decisions as to how to efficiently allocate their scare resources.",
+        "options": [
+            "Macro Economics",
+            "Micro Economics",
+            "Mathematical Economics",
+            "Consumer Economics."
+        ],
+        "correctOption": "Micro Economics"
+    },
+    {
+        "question": "Which of the following falls under micro economics?",
+        "options": [
+            "National Income",
+            "General price level",
+            "Factor pricing",
+            "National saving and investment"
+        ],
+        "correctOption": "Factor pricing"
+    },
+    {
+        "question": "Which of these is a part of micro economics?",
+        "options": [
+            "Factor pricing",
+            "National Income",
+            "Balance of payment",
+            "None of the above"
+        ],
+        "correctOption": "Factor pricing"
+    },
+    {
+        "question": "Micro economics is also known as __________.",
+        "options": [
+            "Public economics",
+            "Price theory",
+            "Income theory",
+            "Demand theory"
+        ],
+        "correctOption": "Price theory"
+    },
+    {
+        "question": "Micro Economics is concerned with:",
+        "options": [
+            "Consumer Behaviour",
+            "Product pricing",
+            "Factor Pricing",
+            "All of the above"
+        ],
+        "correctOption": "All of the above"
+    },
+    {
+        "question": "Macro Economics is also called __________ economics.",
+        "options": [
+            "Applied",
+            "Aggregate",
+            "Experimental",
+            "None of the above"
+        ],
+        "correctOption": "Aggregate"
+    },
+    {
+        "question": "Which of the following does not suggest a macro approach for India?",
+        "options": [
+            "Determining the GNP of India.",
+            "Finding the causes of failure of ABC Ltd.",
+            "Identifying the causes of inflation in India.",
+            "Analyse the causes of failure of industry in providing large scale employment"
+        ],
+        "correctOption": "Finding the causes of failure of ABC Ltd."
+    },
+    {
+        "question": "Macro Economics is the study of __________.",
+        "options": [
+            "All aspects of scarcity.",
+            "The national economy and the global economy as a whole.",
+            "Big businesses.",
+            "The decisions of individual businesses and people."
+        ],
+        "correctOption": "The national economy and the global economy as a whole."
+    },
+    {
+        "question": "A study of how increases in the corporate income tax rate will affect the national unemployment rate is an example of __________.",
+        "options": [
+            "Macro-Economics.",
+            "Descriptive Economics.",
+            "Micro-economics.",
+            "Normative economics."
+        ],
+        "correctOption": "Macro-Economics."
+    },
+    {
+        "question": "Which of these is an example of macro economics:",
+        "options": [
+            "Problem of unemployment in India",
+            "Rising price level in the country",
+            "Increase in disparities of income",
+            "All of the above"
+        ],
+        "correctOption": "All of the above"
+    },
+    {
+        "question": "Macro economics include __________.",
+        "options": [
+            "Product pricing",
+            "Consumer behaviour",
+            "External value of money",
+            "Location of industry"
+        ],
+        "correctOption": "External value of money"
+    },
+    {
+        "question": "Which of the following is not a subject matter of Micro-economics?",
+        "options": [
+            "The price of mangoes.",
+            "The cost of producing a fire truck for the fire department of Delhi, India.",
+            "The quantity of mangoes produced for the mangoes market.",
+            "The national economy’s annual rate of growth."
+        ],
+        "correctOption": "The national economy’s annual rate of growth."
+    },
+    {
+        "question": "Which of the following would be considered a topic of study in Macroeconomics?",
+        "options": [
+            "The effect of increase in wages on the profitability of cotton industry",
+            "The effect on steel prices when more steel is imported",
+            "The effect of an increasing inflation rate on living standards of people in India",
+            "The effect of an increase in the price of coffee on the quantity of tea consumed"
+        ],
+        "correctOption": "The effect of an increasing inflation rate on living standards of people in India"
+    },
+    {
+        "question": "Which of the following is a part of the subject matter of macro economics?",
+        "options": [
+            "Study of firms",
+            "Aggregate profits of a firm",
+            "Market demand for a product",
+            "Net national product"
+        ],
+        "correctOption": "Net national product"
+    },
+    {
+        "question": "The Macro Economics does not cover the area of __________.",
+        "options": [
+            "General price level and interest rates",
+            "Level of employment and rate of economic growth",
+            "Balance of trade & Balance of payments",
+            "Product Pricing."
+        ],
+        "correctOption": "Product Pricing."
+    },
+    {
+        "question": "Shyam : This year due to heavy rainfall my option crop was damaged\nKrishna: Climates affects crop yields. Some years are bad, other are good\nHari: Don’t worry – Price increase will compensate for the fall in quantity supplied\nRadhe: The Government ought to guarantee that our income will not fall.\nIn this conversation, the normative statement is made by",
+        "options": [
+            "Shyam",
+            "Krishna",
+            "Hari",
+            "Radhe"
+        ],
+        "correctOption": "Radhe"
+    },
+    {
+        "question": "Business Economics enables application of economic logic and analytical tools to __________.",
+        "options": [
+            "Bridge the gap between theory and practice.",
+            "Increase the implementation science.",
+            "Increase the effectiveness.",
+            "Apply tools of macro economics."
+        ],
+        "correctOption": "Bridge the gap between theory and practice."
+    },
+    {
+        "question": "Business Economics relies heavily on the techniques of __________.",
+        "options": [
+            "Micro Economics",
+            "Macro Economics",
+            "Normative Science only",
+            "Economics discipline only."
+        ],
+        "correctOption": "Micro Economics"
+    },
+    {
+        "question": "Which of the following is a normative statement?",
+        "options": [
+            "Planned economies allocate resources via government departments.",
+            "Most transitional economies have experienced problems of falling output and rising prices over the past decade.",
+            "There is a greater degree of consumer sovereignty in market economies than planned economies.",
+            "Reducing inequality should be a major priority for mixed economies"
+        ],
+        "correctOption": "Reducing inequality should be a major priority for mixed economies"
+    },
+    {
+        "question": "An example of ‘positive’ economic analysis would be:",
+        "options": [
+            "An analysis of the relationship between the price of food and the quantity purchased.",
+            "Determining how much income each person should be guaranteed.",
+            "Determining the ‘fair’ price for food.",
+            "Deciding how to distribute the output of the economy."
+        ],
+        "correctOption": "An analysis of the relationship between the price of food and the quantity purchased."
+    },
+    {
+        "question": "Business Economics is __________ in its approach as it tackles practical problems which the firm faces in the real world.",
+        "options": [
+            "Scientific",
+            "Programmatic",
+            "Theoretical",
+            "Mathematical"
+        ],
+        "correctOption": "Programmatic"
+    },
+    {
+        "question": "The difference between positive and normative Economics is:",
+        "options": [
+            "Positive Economics explains the performance of the economy while normative Economics finds out the reasons for poor performance.",
+            "Positive Economics describes the facts of the economy while normative Economics involves evaluating whether some of these are good or bad for the welfare of the people.",
+            "Normative Economics describes the facts of the economy while positive Economics involves evaluating whether some of these are good or bad for the welfare of the people.",
+            "Positive Economics prescribes while normative Economics describes."
+        ],
+        "correctOption": "Positive Economics describes the facts of the economy while normative Economics involves evaluating whether some of these are good or bad for the welfare of the people."
+    },
+    {
+        "question": "Normative aspect of Economics is given by:",
+        "options": [
+            "Marshall",
+            "Robbins",
+            "Adam Smith",
+            "Samuelson"
+        ],
+        "correctOption": "Marshall"
+    },
+    {
+        "question": "Normative Economics is based on:",
+        "options": [
+            "Ethical Considerations",
+            "Facts and Generalization",
+            "What is?",
+            "All of the above"
+        ],
+        "correctOption": "Ethical Considerations"
+    },
+    {
+        "question": "Deductive and Inductive methods are complimentary to each other. It is:",
+        "options": [
+            "Absolutely correct",
+            "Absolutely incorrect",
+            "Partially incorrect",
+            "None of the above"
+        ],
+        "correctOption": "Absolutely correct"
+    },
+    {
+        "question": "In inductive method, logic proceeds from:",
+        "options": [
+            "General to Particular",
+            "Particular to General",
+            "Both (a) and (b)",
+            "None of these"
+        ],
+        "correctOption": "Particular to General"
+    },
+    {
+        "question": "Which of the following is a normative economic statement?",
+        "options": [
+            "Unemployment rate decreases with industrialization",
+            "Economics is a social science that studies human behaviour.",
+            "The minimum wage should be raised to ₹ 200 per day",
+            "India spends a huge amount of money on national defence."
+        ],
+        "correctOption": "The minimum wage should be raised to ₹ 200 per day"
+    },
+    {
+        "question": "Ram: My corn harvest this year is poor.\nKrishan: Don’t worry. Price increases will compensate for the fall in quantity supplied.\nVinod: Climate affects crop yields. Some years are bad, others are good.\nMadhu: The Government ought to guarantee that our income will not fall.\nIn this conversation, the normative statement is made by",
+        "options": [
+            "Ram",
+            "Krishan",
+            "Vinod",
+            "Madhu"
+        ],
+        "correctOption": "Madhu"
+    },
+    {
+        "question": "Positive science only explains __________",
+        "options": [
+            "What is?",
+            "What ought to be?",
+            "What is right or wrong",
+            "None of the above"
+        ],
+        "correctOption": "What is?"
+    },
+    {
+        "question": "Under Inductive method logic proceeds from:",
+        "options": [
+            "General to particular",
+            "Positive to normative",
+            "Normative to positive",
+            "Particular to general"
+        ],
+        "correctOption": "Particular to general"
+    },
+    {
+        "question": "__________ analyses causes and effect relationship between variables in an objective and scientific manner.",
+        "options": [
+            "Positive Science",
+            "Normative Science",
+            "Negative Science",
+            "Analytical Science"
+        ],
+        "correctOption": "Positive Science"
+    },
+    {
+        "question": "Business Economics is generally in nature.",
+        "options": [
+            "Normative",
+            "Prescriptive",
+            "Normative or Prescriptive",
+            "Theoretical"
+        ],
+        "correctOption": "Normative or Prescriptive"
+    },
+    {
+        "question": "Which of the following statements is incorrect?",
+        "options": [
+            "Business economics is normative in nature.",
+            "Business Economics has a close connection with statistics.",
+            "Business Economist need not worry about macro variables.",
+            "Business Economics is also called Managerial Economics."
+        ],
+        "correctOption": "Business Economist need not worry about macro variables."
+    },
+    {
+        "question": "Under Inductive method, the logic proceeds from:",
+        "options": [
+            "General to particulars",
+            "Particular to general",
+            "Both (a) and (b)",
+            "None"
+        ],
+        "correctOption": "Particular to general"
+    },
+    {
+        "question": "Who gave the positive aspect of science?",
+        "options": [
+            "Alfred Marshall",
+            "A.C. Pigou",
+            "Adam Smith",
+            "Robbins"
+        ],
+        "correctOption": "Robbins"
+    },
+    {
+        "question": "Although business economics combines the essentials of normative and positive economic theory but the emphasis is on :",
+        "options": [
+            "Positive",
+            "Normative",
+            "Both Positive and Normative",
+            "Neither Positive nor Normative."
+        ],
+        "correctOption": "Normative"
+    },
+    {
+        "question": "Business Economics is __________.",
+        "options": [
+            "Normative in nature",
+            "Interdisciplinary in nature",
+            "Both",
+            "None"
+        ],
+        "correctOption": "Normative in nature"
+    },
+    {
+        "question": "Find out the correct statement __________",
+        "options": [
+            "Higher the prices, lower the quality demanded of a product are a normative statement",
+            "Micro and macro-economics are interdependent",
+            "In a capitalist economy, the economic problems are solved by planning commission",
+            "In deductive method logic proceeds from particular to the general"
+        ],
+        "correctOption": "Micro and macro-economics are interdependent"
+    },
+    {
+        "question": "“Economics is neutral between ends”. The statement is given by:",
+        "options": [
+            "L. Robbins",
+            "Mrs. Joan",
+            "Alfred Marshall",
+            "A.C. Pigou"
+        ],
+        "correctOption": "L. Robbins"
+    },
+    {
+        "question": "Economics which is concerned with welfare propositions is called __________.",
+        "options": [
+            "Socialistic economics",
+            "Capitalistic economics",
+            "Positive economics",
+            "Normative economics"
+        ],
+        "correctOption": "Normative economics"
+    },
+    {
+        "question": "The Business Economics incorporates tools from other disciplines such as Mathematics, operations Research, Management theory, Accounting, etc. Therefore, Business Economics is",
+        "options": [
+            "Intra-disciplinary",
+            "Inter-disciplinary",
+            "Multi-disciplinary",
+            "Flexi-disciplinary"
+        ],
+        "correctOption": "Inter-disciplinary"
+    },
+    {
+        "question": "Under inductive method logic proceeds from:",
+        "options": [
+            "General to particular",
+            "Positive to narrative",
+            "Normative to positive",
+            "Particular to general"
+        ],
+        "correctOption": "Particular to general"
+    },
+    {
+        "question": "Business Economics involves the elements of __________.",
+        "options": [
+            "Micro Environment",
+            "Macro Environment",
+            "Both (a) and (b)",
+            "None of the above."
+        ],
+        "correctOption": "Both (a) and (b)"
+    },
+    {
+        "question": "In which of the following methods conclusions are drawn on the basis of collection and analysis of facts?",
+        "options": [
+            "Deductive method",
+            "Scientific method",
+            "Inductive method",
+            "Experimental method"
+        ],
+        "correctOption": "Inductive method"
+    },
+    {
+        "question": "Business economy involves theory of Business economics with __________.",
+        "options": [
+            "Normative Economics",
+            "Business practices",
+            "Micro Economics",
+            "Macro Economics"
+        ],
+        "correctOption": "Business practices"
+    },
+    {
+        "question": "The operational or interval issues to which economic theories can be directly applied are related with.",
+        "options": [
+            "Micro Economics",
+            "Macro Economics",
+            "Business Economics",
+            "Environmental Economics"
+        ],
+        "correctOption": "Micro Economics"
+    },
+    {
+        "question": "Which factor is included in business Economics?",
+        "options": [
+            "Business Economics is an art",
+            "Inter-disciplinary in nature",
+            "Normative in nature",
+            "All of the above"
+        ],
+        "correctOption": "All of the above"
+    },
+    {
+        "question": "Applied economics includes __________.",
+        "options": [
+            "Regression analysis and mathematical linear programming",
+            "Capital budgeting",
+            "Both (a) and (b)",
+            "None"
+        ],
+        "correctOption": "Both (a) and (b)"
+    },
+    {
+        "question": "Which of the following is not within the scope of Business Economics?",
+        "options": [
+            "Capital Budgeting",
+            "Risk Analysis",
+            "Business Cycles",
+            "Accounting Standards"
+        ],
+        "correctOption": "Accounting Standards"
+    },
+    {
+        "question": "__________ explains the relationship between inputs and output.",
+        "options": [
+            "Production Theory",
+            "Demand Analysis",
+            "Inventory Management",
+            "None of the above"
+        ],
+        "correctOption": "Production Theory"
+    },
+    {
+        "question": "Business Economics with the help of advanced tools like __________ enables the firm to arrive at the best course of action for optimum utilisation of available resources.",
+        "options": [
+            "Accounting",
+            "Finance",
+            "Linear Programming",
+            "Marketing Mix"
+        ],
+        "correctOption": "Linear Programming"
+    },
+    {
+        "question": "Business Economists use method(s) __________ to maintain optimum stock of inventories.",
+        "options": [
+            "ABC Analysis",
+            "Simple simulation exercises",
+            "Mathematical models",
+            "All of the above"
+        ],
+        "correctOption": "All of the above"
+    },
+    {
+        "question": "Which of the following Macro-Economic Factor is considered in Business Economics?",
+        "options": [
+            "Business Cycles",
+            "Employment, Prices",
+            "Saving & investment",
+            "All of the above."
+        ],
+        "correctOption": "All of the above."
+    },
+    {
+        "question": "Which of the following statement is false?",
+        "options": [
+            "The Resources are limited.",
+            "The Resources have alternative uses.",
+            "If resources are unlimited, people would be able to satisfy all their wants.",
+            "The economics problem arises because resource has only a single use."
+        ],
+        "correctOption": "The economics problem arises because resource has only a single use."
+    },
+    {
+        "question": "Which of the following economic system has to deal with the control problem of scarcity of resources?",
+        "options": [
+            "Capitalist",
+            "Socialist",
+            "Mixed",
+            "All of the above"
+        ],
+        "correctOption": "All of the above"
+    },
+    {
+        "question": "The Central problem in every economic society is:",
+        "options": [
+            "To ensure a minimum level of income for every individual.",
+            "To allocate scarce resources in such a manner that societies unlimited wants are satisfied in the best possible manner.",
+            "To ensure that production occurs in the most efficient manner.",
+            "Toprovidejobtoeveryjobseeker."
+        ],
+        "correctOption": "To allocate scarce resources in such a manner that societies unlimited wants are satisfied in the best possible manner."
+    },
+    {
+        "question": "A developed economy uses technique in production.",
+        "options": [
+            "Labour intensive.",
+            "Capital intensive",
+            "Home-based",
+            "Traditional"
+        ],
+        "correctOption": "Capital intensive"
+    },
+    {
+        "question": "The central problem in economics is that of __________.",
+        "options": [
+            "Comparing the success of command versus market economies.",
+            "Guaranteeing that production occurs in the most efficient manner.",
+            "Guaranteeing a minimum level of income for every citizen.",
+            "Allocating scarce resources in such a manner that society’s unlimited needs or wants are satisfied in the best possible manner."
+        ],
+        "correctOption": "Allocating scarce resources in such a manner that society’s unlimited needs or wants are satisfied in the best possible manner."
+    },
+    {
+        "question": "Capital intensive technique would get chosen in a __________.",
+        "options": [
+            "Labour surplus economy where the relative price of capital is lower.",
+            "Capital surplus economy where the relative price of capital is lower.",
+            "Developed economy where technology is better.",
+            "Developing economy where technology is poor."
+        ],
+        "correctOption": "Capital surplus economy where the relative price of capital is lower."
+    },
+    {
+        "question": "Which of the following is not a part of central economic Problem?",
+        "options": [
+            "What to Produce?",
+            "How to Produce?",
+            "For whom to Produce?",
+            "Price fixation of Production."
+        ],
+        "correctOption": "Price fixation of Production."
+    },
+    {
+        "question": "refers to the sum total of arrangements for the production and distribution of goods and services in a Society.",
+        "options": [
+            "Economic System",
+            "Social System",
+            "Business system",
+            "Comprehensive System"
+        ],
+        "correctOption": "Economic System"
+    },
+    {
+        "question": "Economic Problem arises when:",
+        "options": [
+            "Wants are unlimited",
+            "Resources are limited",
+            "Alternative uses of resources",
+            "All of the above"
+        ],
+        "correctOption": "All of the above"
+    },
+    {
+        "question": "Which of the following is not one of the four central questions that the study of economics is supposed to answer?",
+        "options": [
+            "Who produces what ?",
+            "When are goods produced?",
+            "Who consumes what?",
+            "How are goods produced?"
+        ],
+        "correctOption": "When are goods produced?"
+    },
+    {
+        "question": "The classification of economies into Capitalist, Socialist and Mixed is based on their:",
+        "options": [
+            "Mode of Production, exchange and distribution",
+            "Government’s role in economic activity.",
+            "Both (a) and (b)",
+            "Neither (a) nor (b)"
+        ],
+        "correctOption": "Both (a) and (b)"
+    },
+    {
+        "question": "The choice between labour and Capital intensive techniques is related with.",
+        "options": [
+            "What to Produce?",
+            "How to Produce?",
+            "For whom to Produce",
+            "All of the above."
+        ],
+        "correctOption": "How to Produce?"
+    },
+    {
+        "question": "Which one of the following is not an example of capitalist economy?",
+        "options": [
+            "Japan",
+            "Mexico",
+            "Germany",
+            "Cuba"
+        ],
+        "correctOption": "Cuba"
+    },
+    {
+        "question": "Freedom of choice is the advantage of __________.",
+        "options": [
+            "Socialism",
+            "Capitalist",
+            "Mixed economy",
+            "None of the above"
+        ],
+        "correctOption": "Capitalist"
+    },
+    {
+        "question": "A capitalist economy consists of __________.",
+        "options": [
+            "Central planning authority",
+            "A mechanism to decide as what, how and for whom to produce",
+            "Both (a) and (h)",
+            "None of the above"
+        ],
+        "correctOption": "A mechanism to decide as what, how and for whom to produce"
+    },
+    {
+        "question": "In a free market economy the allocation of resources is determined by __________.",
+        "options": [
+            "Voting done by consumers",
+            "A central planning authority.",
+            "Consumer preferences.",
+            "The level of profits of firms."
+        ],
+        "correctOption": "Consumer preferences."
+    },
+    {
+        "question": "A capitalist economy uses __________ as the principal means of allocating resources.",
+        "options": [
+            "Demand",
+            "Supply",
+            "Efficiency",
+            "Prices"
+        ],
+        "correctOption": "Prices"
+    },
+    {
+        "question": "Price Mechanism is the main feature of which economy __________.",
+        "options": [
+            "Capitalistic Economy",
+            "Mixed Economy",
+            "Socialist Economy",
+            "All of the above"
+        ],
+        "correctOption": "Capitalistic Economy"
+    },
+    {
+        "question": "Which out of these are the feature of capitalism?",
+        "options": [
+            "Profit motive",
+            "Human welfare",
+            "Work through price mechanism",
+            "All of these"
+        ],
+        "correctOption": "Profit motive"
+    },
+    {
+        "question": "__________ is an economic system in which all means of production are owned and controlled by private individuals for profit.",
+        "options": [
+            "Capitalist",
+            "Socialist",
+            "Mixed",
+            "None of the above"
+        ],
+        "correctOption": "Capitalist"
+    },
+    {
+        "question": "Which of the following is considered as a disadvantage of allocating resources using the market system?",
+        "options": [
+            "Income will tend to be unevenly distributed.",
+            "People do not get goods of their choice.",
+            "Men of Initiative and enterprise are not rewarded.",
+            "Profits will tend to be low."
+        ],
+        "correctOption": "Income will tend to be unevenly distributed."
+    },
+    {
+        "question": "Exploitation and inequality will be more in __________.",
+        "options": [
+            "Socialism",
+            "Capitalism",
+            "Mixed",
+            "All of the above"
+        ],
+        "correctOption": "Capitalism"
+    },
+    {
+        "question": "__________ means that buyers ultimately determine which goods and services will be produced and in what quantities.",
+        "options": [
+            "Capitalist Economic",
+            "Socialist Economy",
+            "Mixed Economy",
+            "Consumer Sovereignty"
+        ],
+        "correctOption": "Consumer Sovereignty"
+    },
+    {
+        "question": "In which type of economy do consumers and producers make their choices based on the market forces of demand and supply?",
+        "options": [
+            "Open Economy",
+            "Controlled Economy",
+            "Command Economy",
+            "Market Economy"
+        ],
+        "correctOption": "Market Economy"
+    },
+    {
+        "question": "The economic system in which all the means of production are owned and controlled by private individuals for profit.",
+        "options": [
+            "Socialism",
+            "Capitalism",
+            "Mixed economy",
+            "Communism"
+        ],
+        "correctOption": "Capitalism"
+    },
+    {
+        "question": "In a free market economy, when consumers increase their purchase of a goods and the level of exceeds then prices tend to rise:",
+        "options": [
+            "Demand, supply",
+            "Supply, demand",
+            "Prices, demand",
+            "Profits, supply"
+        ],
+        "correctOption": "Demand, supply"
+    },
+    {
+        "question": "Capitalistic Economy uses as principal means of allocating resources.",
+        "options": [
+            "Demand",
+            "Supply",
+            "Price",
+            "All of the above"
+        ],
+        "correctOption": "Price"
+    },
+    {
+        "question": "In a capitalist economy, allocation of resources is done by:",
+        "options": [
+            "Producers",
+            "Government",
+            "Planners",
+            "Price mechanism"
+        ],
+        "correctOption": "Price mechanism"
+    },
+    {
+        "question": "A Free Market economy solves its Central Problems through __________.",
+        "options": [
+            "Planning authority",
+            "Market mechanism",
+            "Both",
+            "None"
+        ],
+        "correctOption": "Market mechanism"
+    },
+    {
+        "question": "A capitalist economy is by and large __________.",
+        "options": [
+            "A closed economy",
+            "A free market economy",
+            "A centrally controlled economy",
+            "An economy in which a government neither collects any taxes nor incurs any expenditure."
+        ],
+        "correctOption": "A free market economy"
+    },
+    {
+        "question": "Which one is not the characteristic of capitalistic economy?",
+        "options": [
+            "Profit motive",
+            "Income inequality",
+            "Free employment",
+            "Collective ownership"
+        ],
+        "correctOption": "Collective ownership"
+    },
+    {
+        "question": "Capitalistic Economy uses as principal means of allocating resources.",
+        "options": [
+            "Demand",
+            "Supply",
+            "Price",
+            "All of the above"
+        ],
+        "correctOption": "Price"
+    },
+    {
+        "question": "Which one of the following is not true about capitalist economy?",
+        "options": [
+            "There is freedom of economic choice.",
+            "Profit motive is the driving force.",
+            "It is also called as free market economy or laissez Faire economy.",
+            "Producer is the king under capitalism"
+        ],
+        "correctOption": "Producer is the king under capitalism"
+    },
+    {
+        "question": "The merits of Capitalist economy do not include:",
+        "options": [
+            "Faster process of economic growth",
+            "Efficient economic decisions and their implementation",
+            "Incentives for innovation and technological progress",
+            "Welfare of labour"
+        ],
+        "correctOption": "Welfare of labour"
+    },
+    {
+        "question": "A free market economy’s driving force is:",
+        "options": [
+            "Profit motive",
+            "Welfare of the people",
+            "Rising income and levels of living",
+            "None of the above."
+        ],
+        "correctOption": "Profit motive"
+    },
+    {
+        "question": "An economic system in which all means of production are owned and controlled by private individuals for profit is called:",
+        "options": [
+            "Mixed Economy",
+            "Socialist Economy",
+            "Capitalist Economy",
+            "Developed Economy"
+        ],
+        "correctOption": "Capitalist Economy"
+    },
+    {
+        "question": "Where does price mechanism exists?",
+        "options": [
+            "Capitalist Economy",
+            "Socialist Economy",
+            "Both type of economies",
+            "None of the above."
+        ],
+        "correctOption": "Capitalist Economy"
+    },
+    {
+        "question": "In which among the following systems the ‘right to property’ exists __________.",
+        "options": [
+            "Mixed economy",
+            "Capitalist economy",
+            "Socialist economy",
+            "Traditional economy"
+        ],
+        "correctOption": "Capitalist economy"
+    },
+    {
+        "question": "A system of economy in which all the means of production are owned and controlled by the private individuals for the purpose of profit, is called:",
+        "options": [
+            "Socialist Economy",
+            "Capitalist Economy",
+            "Mixed Economy",
+            "All of the above"
+        ],
+        "correctOption": "Capitalist Economy"
+    },
+    {
+        "question": "Capitalistic Economy user __________ as principal means of allocating resources:",
+        "options": [
+            "Demand",
+            "Supply",
+            "Price",
+            "All of the above"
+        ],
+        "correctOption": "Price"
+    },
+    {
+        "question": "Which of the following is not demerit of Capitalism?",
+        "options": [
+            "Precedence of property rights over human rights.",
+            "Misallocation of resources.",
+            "Punishment for inefficient & imprudent men.",
+            "Environmental degradation due to excessive materialism."
+        ],
+        "correctOption": "Punishment for inefficient & imprudent men."
+    },
+    {
+        "question": "Freedom of choice is the advantage of __________.",
+        "options": [
+            "Socialism",
+            "Capitalism",
+            "Mixed Economy",
+            "Communism"
+        ],
+        "correctOption": "Capitalism"
+    },
+    {
+        "question": "Under a free economy, prices are:",
+        "options": [
+            "Regulated",
+            "Determined through free inter-play of demand and supply",
+            "Partly regulated",
+            "None of these"
+        ],
+        "correctOption": "Determined through free inter-play of demand and supply"
+    },
+    {
+        "question": "Which of the following statements does not apply to a market economy?",
+        "options": [
+            "Firms decide whom to hire and what to produce.",
+            "Firms aim at maximizing profits.",
+            "Households decide which firms to work for and what to buy with their incomes.",
+            "Government policies are the primary forces that guide the decisions of firms and households."
+        ],
+        "correctOption": "Government policies are the primary forces that guide the decisions of firms and households."
+    },
+    {
+        "question": "Which of the following is not a feature of a capitalist economy?",
+        "options": [
+            "Right to private property",
+            "Restrictions on consumers' Right to choose",
+            "Profit motive",
+            "Freedom of enterprise"
+        ],
+        "correctOption": "Restrictions on consumers' Right to choose"
+    },
+    {
+        "question": "Freedom of choice is the advantage of __________.",
+        "options": [
+            "Socialism",
+            "Capitalism",
+            "Communism",
+            "None of the above"
+        ],
+        "correctOption": "Capitalism"
+    },
+    {
+        "question": "A Capitalist Economy follows the policy of:",
+        "options": [
+            "Laissez faire",
+            "Regulated markets",
+            "Promoting public sector",
+            "None of the above"
+        ],
+        "correctOption": "Laissez faire"
+    },
+    {
+        "question": "In a capitalist economy the allocation of resources is performed by:",
+        "options": [
+            "Producers",
+            "Government",
+            "Planners",
+            "Price mechanism"
+        ],
+        "correctOption": "Price mechanism"
+    },
+    {
+        "question": "The Concept of socialist economy was propounded by __________.",
+        "options": [
+            "Karl Mark",
+            "Frederic Engels",
+            "Adam Smith",
+            "Both (a) & (b)"
+        ],
+        "correctOption": "Both (a) & (b)"
+    },
+    {
+        "question": "Socialist economy is __________.",
+        "options": [
+            "Self regulation",
+            "Profit Oriented",
+            "Command economy",
+            "Allocation of resources as per market requirements"
+        ],
+        "correctOption": "Command economy"
+    },
+    {
+        "question": "Exploitation and inequality are minimal under:",
+        "options": [
+            "Socialism",
+            "Capitalism",
+            "Mixed economy",
+            "None of the above"
+        ],
+        "correctOption": "Socialism"
+    },
+    {
+        "question": "Socialist Economy was propounded by:",
+        "options": [
+            "Karl Marx",
+            "Samuelson",
+            "A.C. Pigou",
+            "Adam Smith"
+        ],
+        "correctOption": "Karl Marx"
+    },
+    {
+        "question": "Socialist economy is also called as __________.",
+        "options": [
+            "Command Economy",
+            "Centrally Planned Economy",
+            "Free market Economy",
+            "Both (a) & (b)"
+        ],
+        "correctOption": "Both (a) & (b)"
+    },
+    {
+        "question": "Although Price mechanism exists in __________, but it has only a secondary role.",
+        "options": [
+            "Capitalist economy",
+            "Socialist economy",
+            "Mixed Economy",
+            "Price Economy."
+        ],
+        "correctOption": "Socialist economy"
+    },
+    {
+        "question": "Inequalities of income do not perpetuate in __________.",
+        "options": [
+            "Socialism",
+            "Mixed economy",
+            "Capitalism",
+            "None"
+        ],
+        "correctOption": "Socialism"
+    },
+    {
+        "question": "Administered prices refer to:",
+        "options": [
+            "Prices determined by forces of demand and supply",
+            "Prices determined by sellers in the market",
+            "Prices determined by an external authority which is usually the government",
+            "None of the above"
+        ],
+        "correctOption": "Prices determined by an external authority which is usually the government"
+    },
+    {
+        "question": "Socialism ensures __________.",
+        "options": [
+            "Rapid growth and balanced development",
+            "Right to work",
+            "Incentives for efficient economic decisions",
+            "Both (a) and (b)"
+        ],
+        "correctOption": "Both (a) and (b)"
+    },
+    {
+        "question": "The erstwhile U.S.S.R. is an example of __________ economy.",
+        "options": [
+            "Capitalist",
+            "Socialist",
+            "Mixed",
+            "Price"
+        ],
+        "correctOption": "Socialist"
+    },
+    {
+        "question": "Which one of the following is Not a feature of socialist economy?",
+        "options": [
+            "Collective ownership",
+            "Absence of consumer choice",
+            "Minimum role of Price Mechanism",
+            "High Competition"
+        ],
+        "correctOption": "High Competition"
+    },
+    {
+        "question": "Which of the following is an example of Socialist economy?",
+        "options": [
+            "Erstwhile U.S.S.R.",
+            "North Korea",
+            "China and Cuba",
+            "All of the above"
+        ],
+        "correctOption": "All of the above"
+    },
+    {
+        "question": "The demerits of Socialism do not include:",
+        "options": [
+            "Predominance of bureaucracy",
+            "Red tapism & favoritism",
+            "Corruption",
+            "Consumer Sovereignty"
+        ],
+        "correctOption": "Consumer Sovereignty"
+    },
+    {
+        "question": "Under __________, the Consumers have no freedom of choice.",
+        "options": [
+            "Capitalist",
+            "Socialist",
+            "Mixed",
+            "None of the above"
+        ],
+        "correctOption": "Socialist"
+    },
+    {
+        "question": "Socialist Economy is also known as __________.",
+        "options": [
+            "Mixed Economy",
+            "Planned Economy",
+            "Capitalist Economy",
+            "None of the above"
+        ],
+        "correctOption": "None of the above"
+    },
+    {
+        "question": "In which economy market and government both play an important role?",
+        "options": [
+            "Mixed economy",
+            "Socialistic economy",
+            "Capitalistic economy",
+            "Business economy"
+        ],
+        "correctOption": "Mixed economy"
+    },
+    {
+        "question": "Which economic system is described by Schumpeter as capitalism in the oxygen tent?",
+        "options": [
+            "Laissez-faire Economy",
+            "Command Economy",
+            "Mixed Economy",
+            "Agrarian Economy"
+        ],
+        "correctOption": "Mixed Economy"
+    },
+    {
+        "question": "The Government itself must run important and selected industries and eliminate the free play of profit motive and self-interest. It is applicable in case of the economy.",
+        "options": [
+            "Capitalist",
+            "Socialist",
+            "Mixed",
+            "Price"
+        ],
+        "correctOption": "Mixed"
+    },
+    {
+        "question": "The term “Mixed Economy” denotes:",
+        "options": [
+            "Co-existence of both consumers and producers goods’ industries in the economy.",
+            "Co-existence of both private and public sectors in the economy.",
+            "Co-existence of both rural and urban sectors in the economy.",
+            "Co-existence of both large and small industries in the economy"
+        ],
+        "correctOption": "Co-existence of both private and public sectors in the economy."
+    },
+    {
+        "question": "Mixed economy means __________.",
+        "options": [
+            "All economic decisions are taken by Central Authority",
+            "All economic decisions are taken by private entrepreneurs",
+            "Economic decisions are partly taken by the state and partly by private entrepreneurs",
+            "None of these"
+        ],
+        "correctOption": "Economic decisions are partly taken by the state and partly by private entrepreneurs"
+    },
+    {
+        "question": "Which of the following are the features of a mixed economy?",
+        "options": [
+            "Planned economy",
+            "Dual system of pricing exists",
+            "Balance regional development",
+            "All of the above"
+        ],
+        "correctOption": "All of the above"
+    },
+    {
+        "question": "In a mixed economy __________.",
+        "options": [
+            "All economic decisions are taken by the central authority.",
+            "All economic decisions are taken by private entrepreneurs.",
+            "Economic decisions are partly taken by the state and partly by the private entrepreneurs.",
+            "None of the above."
+        ],
+        "correctOption": "Economic decisions are partly taken by the state and partly by the private entrepreneurs."
+    },
+    {
+        "question": "Dual system of pricing exists in:",
+        "options": [
+            "Free market economy",
+            "Socialistic economy",
+            "Mixed economy",
+            "None of the above"
+        ],
+        "correctOption": "Mixed economy"
+    },
+    {
+        "question": "Which Economic System is described by Schumpeter as ‘capitalism in the oxygen tent’?",
+        "options": [
+            "Laissez- Faire Economy",
+            "Command Economy",
+            "Mixed Economy",
+            "Agrarian Economy"
+        ],
+        "correctOption": "Mixed Economy"
+    },
+    {
+        "question": "The existence of three sectors of industries (Private, Public and Combined sector) is one of the futures of __________.",
+        "options": [
+            "Capitalist",
+            "Socialist",
+            "Mixed",
+            "Price"
+        ],
+        "correctOption": "Mixed"
+    },
+    {
+        "question": "Mixed economy means:",
+        "options": [
+            "Coexistence of both private and public sector",
+            "Coexistence of poor and rich people",
+            "Both (a) and (b)",
+            "None"
+        ],
+        "correctOption": "Coexistence of both private and public sector"
+    },
+    {
+        "question": "Mixed economy means:",
+        "options": [
+            "Co-existence of small and large industries",
+            "Promoting both agriculture and industries in the economy",
+            "Co-existence of rich and poor",
+            "Co-existence of public and private sectors"
+        ],
+        "correctOption": "Co-existence of public and private sectors"
+    },
+    {
+        "question": "__________ is a sector in which both the government and the private enterprises have equal access and join hands to produce commodities and services, leading to the establishment of joint sector.",
+        "options": [
+            "Private Sector",
+            "Public Sector",
+            "Combined sector",
+            "Price"
+        ],
+        "correctOption": "Combined sector"
+    },
+    {
+        "question": "In India Mixed Economy exists due to:",
+        "options": [
+            "Coexistence of public sector and private sector.",
+            "Individual forces of demand and supply.",
+            "Orders by government.",
+            "None of these."
+        ],
+        "correctOption": "Coexistence of public sector and private sector."
+    },
+    {
+        "question": "Larger production of __________ goods would lead to higher production in future.",
+        "options": [
+            "Consumer goods",
+            "Capital goods",
+            "Agricultural goods",
+            "Public goods"
+        ],
+        "correctOption": "Capital goods"
+    },
+    {
+        "question": "__________ refers to the work area where surplus manpower is employed out of which some individuals have zero or almost zero marginal productivity, such that if they are removed the total level of output remains unchanged.",
+        "options": [
+            "Voluntary",
+            "Disguised",
+            "Structural",
+            "Technological"
+        ],
+        "correctOption": "Disguised"
+    },
+    {
+        "question": "Which of the following statements is incorrect?",
+        "options": [
+            "Alfred marshall propagated the wealth definition of Economics",
+            "L. Robbins introduces the “Scarcity” definition of Economics",
+            "Samuelson emphasized upon the “growth” aspect of Economics",
+            "A.C. Pigou believed in “welfare” aspect of Economics"
+        ],
+        "correctOption": "Alfred marshall propagated the wealth definition of Economics"
+    },
+    {
+        "question": "Who has defined economics as “Science which deals with wealth”?",
+        "options": [
+            "Adam Smith",
+            "Canon",
+            "J.B. Say",
+            "A.C. Pigou"
+        ],
+        "correctOption": "J.B. Say"
+    },
+    {
+        "question": "Who is the author of “The Nature and causes of wealth of Nation”?",
+        "options": [
+            "Karl Marx",
+            "Adam Smith",
+            "JB Say",
+            "AC Pigou"
+        ],
+        "correctOption": "Adam Smith"
+    },
+    {
+        "question": "Features of the book wealth of __________.",
+        "options": [
+            "It was the first book user on economics",
+            "It was created in 1776.",
+            "It was also known as ‘wealth of nations” nations’.",
+            "All of the above."
+        ],
+        "correctOption": "All of the above."
+    },
+
+
+ {
+    "question": "From Here Begins SSC questions",
+    "options": [
+     
+    ],
+    "correctOption": "Aggregate Economics"
+  },
+
+ {
+    "question": "Macroeconomics is also called economics.",
+    "options": [
+      "Applied economics",
+      "Aggregate Economics",
+      "Experimental Economics",
+      "None of the above"
+    ],
+    "correctOption": "Aggregate Economics"
+  },
+  {
+    "question": "In this conversation, the normative statement is made by?",
+    "options": [
+      "Suresh",
+      "Mukesh",
+      "Harish",
+      "Swati"
+    ],
+    "correctOption": "Swati"
+  },
+  {
+    "question": "Economics according to Lionel Robbins, is a .",
+    "options": [
+      "Normative Science",
+      "Applied Science",
+      "Positive Science",
+      "Experimental Science"
+    ],
+    "correctOption": "Positive Science"
+  },
+  {
+    "question": "Periods of less than full employment correspond to:",
+    "options": [
+      "Points outside the PPC",
+      "Points inside the PPC",
+      "Points on the PPC",
+      "Either points inside or outside the PPC"
+    ],
+    "correctOption": "Points inside the PPC"
+  },
+  {
+    "question": "Which of the following statements is correct?",
+    "options": [
+      "In a two-good economy, the production possibilities frontier reflects the maximum amount of one good that can be produce when a given amount of other good is produced.",
+      "Positive economics focuses on welfare of people of a society.",
+      "Microeconomics is the study of the behavior of the economy as a whole.",
+      "All are correct."
+    ],
+    "correctOption": "In a two-good economy, the production possibilities frontier reflects the maximum amount of one good that can be produce when a given amount of other good is produced."
+  },
+  {
+    "question": "Which of the following is a normative economic statement?",
+    "options": [
+      "Economics is a social science that studies human behavior.",
+      "India spends a huge amount of money on national defense.",
+      "The minimum wage should be raised to Rs. 500/- per day.",
+      "Unemployment rate decrease with industrialization"
+    ],
+    "correctOption": "The minimum wage should be raised to Rs. 500/- per day."
+  },
+  {
+    "question": "Which of the following statement is not correct in respect of Microeconomics?",
+    "options": [
+      "It is the study of individual economic units.",
+      "Its central problem is price determination of commodities or factors of production.",
+      "Prices determined under this are called ‘absolute price’.",
+      "It is a partial equilibrium analysis."
+    ],
+    "correctOption": "Prices determined under this are called ‘absolute price’."
+  },
+  {
+    "question": "Deductive and Inductive are two methods of study of Economics. All the below statements are correct in respect of Deduction method except:",
+    "options": [
+      "In Deduction Method Process of reasoning is from Particular to General.",
+      "Deduction methods were advocated by Classical economists.",
+      "Deduction methods are based on certain assumptions.",
+      "Deduction Methods are free from Bias."
+    ],
+    "correctOption": "In Deduction Method Process of reasoning is from Particular to General."
+  },
+  {
+    "question": "Which of the following is not a merit of Capitalist System of Economy?",
+    "options": [
+      "New varieties of goods.",
+      "Initiative and enterprise.",
+      "Growth of business.",
+      "Welfare of people"
+    ],
+    "correctOption": "Welfare of people."
+  },
+  {
+    "question": "In the figure given above, which of the following points on the PPF shows a 'Productive efficient' level of output?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "All of the above"
+    ],
+    "correctOption": "All of the above"
+  },
+  {
+    "question": "What does an outward shift of the PPC indicates?",
+    "options": [
+      "Inflation",
+      "Economic Growth",
+      "Over production",
+      "Over employment production"
+    ],
+    "correctOption": "Economic Growth"
+  },
+  {
+    "question": "Which of the following is related to micro economics?",
+    "options": [
+      "Inflation in economy.",
+      "Problem of unemployment",
+      "National Income",
+      "Income from the railways."
+    ],
+    "correctOption": "Income from the railways."
+  },
+  {
+    "question": "Which of the following is a central problem of economics?",
+    "options": [
+      "What to Produce?",
+      "How to produce?",
+      "For whom to produce?",
+      "All of the above"
+    ],
+    "correctOption": "All of the above"
+  },
+  {
+    "question": "Which of the following is a correct statement?",
+    "options": [
+      "Capitalist economic system depends on both market and government for allocation of resources.",
+      "In the socialist system of economy, the material means of production i.e. Factories, Capital, Mines etc. are owned by the whole community represented by the state.",
+      "The Mixed Economic System is an economic system in in which all means of production are owned and controlled by private individuals for profit.",
+      "None of the above"
+    ],
+    "correctOption": "In the socialist system of economy, the material means of production i.e. Factories, Capital, Mines etc. are owned by the whole community represented by the state."
+  },
+  {
+    "question": "Administered prices refer to:",
+    "options": [
+      "Prices determined by sellers in the market.",
+      "Prices determined by an external authority which is usually the government.",
+      "Price determined by forces of demand and supply.",
+      "None of the above."
+    ],
+    "correctOption": "Prices determined by an external authority which is usually the government."
+  },
+  {
+    "question": "Freedom of choice is the advantage of:",
+    "options": [
+      "Communism",
+      "Socialism",
+      "Capitalism",
+      "None of the above."
+    ],
+    "correctOption": "Capitalism"
+  },
+  {
+    "question": "The difference between positive and normative economics is:",
+    "options": [
+      "Positive Economics prescribes while normative economics describes.",
+      "Normative Economics describes the facts of the economy while positive economics involves evaluating whether some of these are good or bad for the welfare of the people.",
+      "Positive Economics explains the performance of the economy while normative economics finds out the reasons for poor performance.",
+      "Positive Economics describes the facts of the economy while Normative economics involves evaluating whether some of these are good or bad for the welfare of the people."
+    ],
+    "correctOption": "Positive Economics describes the facts of the economy while Normative economics involves evaluating whether some of these are good or bad for the welfare of the people."
+  },
+  {
+    "question": "The term 'Economics' owes it origin to Greek Word:",
+    "options": [
+      "Aikonomia",
+      "Wikonomia",
+      "Oikonomia",
+      "None of the above"
+    ],
+    "correctOption": "Oikonomia"
+  },
+  {
+    "question": "Price theory is an important constituent of Economics.",
+    "options": [
+      "Micro",
+      "Macro",
+      "Developed",
+      "Welfare"
+    ],
+    "correctOption": "Micro"
+  },
+  {
+    "question": "Who expressed the words 'The range of enquiry becomes restricted to that part of social welfare that can be brought directly or indirectly into relation with the measuring rod of money'.?",
+    "options": [
+      "Alfred Marshall",
+      "A.C. Pigou",
+      "Keynes",
+      "Robbins"
+    ],
+    "correctOption": "A.C. Pigou"
+  },
+  {
+    "question": "The PPC does not give the desirable point of production it only indicates the possible combination of that can be produced with the available resources.",
+    "options": [
+      "Two goods",
+      "Three Goods",
+      "Number of goods",
+      "Single Good"
+    ],
+    "correctOption": "Two goods"
+  },
+  {
+    "question": "Opportunity cost are a result of:",
+    "options": [
+      "Scarcity",
+      "Overproduction",
+      "Technology obsolescence",
+      "Abundance of resources"
+    ],
+    "correctOption": "Scarcity"
+  },
+  
+  
+  {
+    "question": "In Economics, we use term scarcity to mean:",
+    "options": [
+      "Scarcity caused on account of excessive consumption by the rich.",
+      "Scarcity during times of business failure and natural calamities.",
+      "Absolute scarcity and lack of resources in less developed countries.",
+      "Relative scarcity i.e. scarcity in relation to the wants of the society"
+    ],
+    "correctOption": "Relative scarcity i.e. scarcity in relation to the wants of the society."
+  },
+  {
+    "question": "The branch of economic theory that deals with the problem of allocation of resource is:",
+    "options": [
+      "Macroeconomics",
+      "Microeconomics",
+      "Fiscal Economics.",
+      "None of the above"
+    ],
+    "correctOption": "Microeconomics"
+  },
+  {
+    "question": "The law of scarcity:",
+    "options": [
+      "Implies that consumer’s want will never be completely satisfied.",
+      "Applies only to the less developed countries.",
+      "Implies that consumer’s want will be satisfied in a socialistic system.",
+      "Does not apply to rich, developed countries"
+    ],
+    "correctOption": "Implies that consumer’s want will never be completely satisfied."
+  },
+  {
+    "question": "Which of the flowing falls under Microeconomics?",
+    "options": [
+      "National Income",
+      "General Price level.",
+      "Factor Pricing",
+      "National saving and investment."
+    ],
+    "correctOption": "Factor Pricing"
+  },
+  {
+    "question": "Indian economy is mixed economy because:",
+    "options": [
+      "Agriculture and industry have both simultaneously developed in India.",
+      "Agriculture and Industry have both developed in the public sector.",
+      "Private ownership and public ownership over means of production co-exists.",
+      "Any of the above."
+    ],
+    "correctOption": "Private ownership and public ownership over means of production co-exists."
+  },
+  {
+    "question": "Choice is created by the:",
+    "options": [
+      "Abundance of resources.",
+      "Urgency of needs.",
+      "Non-availability of resources.",
+      "Scarcity of resources"
+    ],
+    "correctOption": "Scarcity of resources"
+  },
+  {
+    "question": "If the opportunity cost is constant, then PPC would be:",
+    "options": [
+      "Convex",
+      "Straight line",
+      "Backward bending",
+      "Concave."
+    ],
+    "correctOption": "Straight line"
+  },
+  {
+    "question": "Which of the following is the best general definition of the study of Economics?",
+    "options": [
+      "Inflation and unemployment in a growing economy.",
+      "Business decision making under foreign competition.",
+      "Individual and social choice in the face of scarcity.",
+      "The best way to invest in the stock market."
+    ],
+    "correctOption": "Individual and social choice in the face of scarcity."
+  },
+  {
+    "question": "Which of the following is not correctly matched?",
+    "options": [
+      "Economics is a \"Science which deals with wealth\": J.B. Say",
+      "\"The Wealth of Nations\" was written by Adam Smith",
+      "\"Nature and significance of Economics\" was written by A.C. Pigou",
+      "\"The General Theory of Employment, Interest and Money was written by John Maynard Keynes."
+    ],
+    "correctOption": "\"Nature and significance of Economics\" was written by A.C. Pigou"
+  },
+  {
+    "question": "Which of the following statement is an incorrect statement?",
+    "options": [
+      "Individual economic units are studied in Microeconomics.",
+      "Aggregate economic units are studied in Macro economics",
+      "Micro Economics is also defined as Income Theory.",
+      "All are correct"
+    ],
+    "correctOption": "Micro Economics is also defined as Income Theory."
+  },
+  {
+    "question": "If a point falls outside the production possibility curve, what does it indicate?",
+    "options": [
+      "Resources are underutilized",
+      "Resources are efficiently utilized",
+      "It is an output combination that is not yet attainable",
+      "None"
+    ],
+    "correctOption": "It is an output combination that is not yet attainable"
+  },
+  {
+    "question": "India is an Example of:",
+    "options": [
+      "Mixed Economy",
+      "Capitalism",
+      "Socialism",
+      "None of the above"
+    ],
+    "correctOption": "Mixed Economy"
+  },
+  {
+    "question": "Positive science only explains:",
+    "options": [
+      "What ought to be?",
+      "What is?",
+      "What is right or wrong?",
+      "None of the above"
+    ],
+    "correctOption": "What is?"
+  },
+  {
+    "question": "A movement from one PPC to another PPC on the right indicates of the economy.",
+    "options": [
+      "Depression",
+      "Growth",
+      "Absolute decrease in total production.",
+      "None"
+    ],
+    "correctOption": "Growth"
+  },
+  {
+    "question": "Which of the following is not a characteristic of socialist form of economy?",
+    "options": [
+      "Waste of all kinds are avoided through strict economic planning",
+      "Socialism involves the predominance of bureaucracy.",
+      "It ensures right to work and minimum standard of living to people.",
+      "It works automatically through price mechanism."
+    ],
+    "correctOption": "It works automatically through price mechanism."
+  },
+
+
+
+ // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

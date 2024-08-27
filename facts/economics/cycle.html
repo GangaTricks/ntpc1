@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Business Cycle</title>
+			<script src="../../urlRewrite.js"></script>
+		<link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">
+  
+   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+  
+  
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Business Cycle | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+ const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'economicsbuinesscycle';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+       const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+<script>
+const questions = [
+ 
+     {
+    "question": "from here ca's question, from question no. 98 begins aao but the thing is business cycle is not in the syllabus in SSC AAO",
+    "options": [
+    ],
+    "correctOption": "The fluctuating levels of economic activity over a period of time."
+  },
+
+  {
+    "question": "The term business cycle refers to _________.",
+    "options": [
+      "The ups and downs in production of commodities.",
+      "The fluctuating levels of economic activity over a period of time.",
+      "Decline in economic activities over prolonged period of time.",
+      "Increasing unemployment rate and diminishing rate of savings.",
+      "None of the above."
+    ],
+    "correctOption": "The fluctuating levels of economic activity over a period of time."
+  },
+  {
+    "question": "The economy-wide fluctuations in production, trade and general economic activity is referred as :",
+    "options": [
+      "Business Cycle",
+      "Economic cycle",
+      "Boom-bust Cycle",
+      "All of the above.",
+      "None of the above."
+    ],
+    "correctOption": "All of the above."
+  },
+  {
+    "question": "Greatest depression suffered by economy in which year.",
+    "options": [
+      "1924",
+      "1930",
+      "2008",
+      "2009",
+      "None of the above."
+    ],
+    "correctOption": "1930"
+  },
+  {
+    "question": "Which is not related to great depression of 1930?",
+    "options": [
+      "It stated in USA",
+      "John Maynard Keynes regarded lower aggregate expenditure as the cause",
+      "Excess Money Supply",
+      "Both (a) and (b)",
+      "None of the above."
+    ],
+    "correctOption": "Excess Money Supply"
+  },
+  {
+    "question": "The business Cycles or the periodic booms and slumps in economic activities reflect the _________ in economic activities.",
+    "options": [
+      "Upward movements",
+      "Downward movements",
+      "Upward and downward movements",
+      "Extreme rise",
+      "None of the above."
+    ],
+    "correctOption": "Upward and downward movements"
+  },
+  {
+    "question": "Select the odd out:",
+    "options": [
+      "Expansion",
+      "Boom",
+      "Upswing",
+      "Trough",
+      "None of the above."
+    ],
+    "correctOption": "Trough"
+  },
+  {
+    "question": "_________ represents the steady growth lien or the growth of the economy when there are no business cycles.",
+    "options": [
+      "Peak",
+      "Trend",
+      "Depression",
+      "Expansion",
+      "None of the above."
+    ],
+    "correctOption": "Trend"
+  },
+  {
+    "question": "The four phases of the business cycle are _________.",
+    "options": [
+      "Peak, recession, trough, and boom",
+      "Peak, depression, trough, and boom",
+      "Peak, recession, trough, and recovery",
+      "Peak, depression, bust, and boom",
+      "None of the above."
+    ],
+    "correctOption": "Peak, recession, trough, and recovery"
+  },
+  {
+    "question": "_________ state continues till there is full employment of resources and production is at its maximum possible level using available productive resources.",
+    "options": [
+      "Expansion",
+      "Peak",
+      "Contraction",
+      "Depression",
+      "None of the above."
+    ],
+    "correctOption": "Expansion"
+  },
+  {
+    "question": "The different phases of a business cycle _________.",
+    "options": [
+      "Do not have the same length and severity",
+      "Expansion phase always last more than ten years",
+      "Last many years and are difficult to get over in short periods",
+      "None of the above.",
+      "All of the above."
+    ],
+    "correctOption": "Do not have the same length and severity"
+  },
+  {
+    "question": "In _________ phase, the overall economic activities (i.e. Production and Employment) are at the lowest level.",
+    "options": [
+      "Expansion",
+      "Trough",
+      "Peak",
+      "Bottom",
+      "None of the above."
+    ],
+    "correctOption": "Trough"
+  },
+  {
+    "question": "Peaks and troughs of the business cycle are known collectively as _________.",
+    "options": [
+      "Volatility.",
+      "Turning points.",
+      "Equilibrium points.",
+      "Real business cycle events.",
+      "None of the above."
+    ],
+    "correctOption": "Turning points."
+  },
+  {
+    "question": "The expansion phase is characterized by high growth rate. What is the next phase after expansion?",
+    "options": [
+      "Peak",
+      "Contraction",
+      "Downstream",
+      "None of the above.",
+      "All of the above."
+    ],
+    "correctOption": "Peak"
+  },
+  {
+    "question": "Which of the following does not occur during an expansion?",
+    "options": [
+      "Consumer purchases of all types of goods tend to increase.",
+      "Employment increases as demand for labour rises.",
+      "Business profits and business confidence tend to increase",
+      "None of the above.",
+      "All of the above."
+    ],
+    "correctOption": "None of the above."
+  },
+  {
+    "question": "Which phase is the Highest point of the business Cycle?",
+    "options": [
+      "Upswing",
+      "Downswing",
+      "Peak",
+      "Trough",
+      "None of the above."
+    ],
+    "correctOption": "Peak"
+  },
+  {
+    "question": "_________ is the turning point and the beginning of recession.",
+    "options": [
+      "Contraction",
+      "Depression",
+      "Upswing",
+      "Boom",
+      "None of the above."
+    ],
+    "correctOption": "Contraction"
+  },
+  {
+    "question": "A significant decline in general economic activity extending over a period of time is _________.",
+    "options": [
+      "Business cycle",
+      "Contraction phase",
+      "Recession",
+      "Recovery",
+      "None of the above."
+    ],
+    "correctOption": "Recession"
+  },
+  {
+    "question": "When aggregate economic activity is declining, the economy is said to be in _________",
+    "options": [
+      "Contraction.",
+      "An expansion.",
+      "A trough.",
+      "A turning point.",
+      "None of the above."
+    ],
+    "correctOption": "Contraction."
+  },
+  {
+    "question": "Economic recession shares all of these characteristics except.",
+    "options": [
+      "Fall in the levels of investment, employment",
+      "Incomes of wage and interest earners gradually decline resulting in decreased demand for goods and services",
+      "Investor confidence is adversely affected and new investments may not be forthcoming",
+      "Increase in the price of inputs due to increased demand for inputs",
+      "None of the above."
+    ],
+    "correctOption": "Increase in the price of inputs due to increased demand for inputs"
+  },
+  {
+    "question": "Which one of the following is not a feature of Contraction?",
+    "options": [
+      "Decrease in input demand pulls input prices down",
+      "Increases of wage and interest earns gradually decline",
+      "Producers lower their prices in order to dispose of their inventories",
+      "Business Firms become optimistic about future state of economy.",
+      "None of the above."
+    ],
+    "correctOption": "Business Firms become optimistic about future state of economy."
+  },
+  {
+    "question": "During recession, the unemployment rate and output",
+    "options": [
+      "Rises; falls",
+      "Rises; rises",
+      "Falls; rises",
+      "Falls; falls",
+      "None of the above."
+    ],
+    "correctOption": "Rises; falls"
+  },
+  {
+    "question": "_________ phase of business cycle marks the end of pessimism and the beginning of optimism.",
+    "options": [
+      "Recovery",
+      "Depression",
+      "Upswing",
+      "Downswing",
+      "None of the above."
+    ],
+    "correctOption": "Recovery"
+  },
+  {
+    "question": "The trough of a business cycle occurs when _________ hits its lowest point.",
+    "options": [
+      "Inflation in the economy",
+      "The money supply",
+      "Aggregate economic activity",
+      "The unemployment rate",
+      "None of the above."
+    ],
+    "correctOption": "Aggregate economic activity"
+  },
+  {
+    "question": "The lowest point in the business cycle is referred to as the _________.",
+    "options": [
+      "Expansion.",
+      "Boom.",
+      "Peak.",
+      "Trough.",
+      "None of the above."
+    ],
+    "correctOption": "Trough."
+  },
+  {
+    "question": "The period 1929-33 is cited for _________ of world economy.",
+    "options": [
+      "Great depression",
+      "Great Recovery",
+      "Great upswing",
+      "Great downswing",
+      "None of the above."
+    ],
+    "correctOption": "Great depression"
+  },
+  {
+    "question": "In Recovery phase of business Cycle, the process of reversal is initially felt in the _________.",
+    "options": [
+      "Capital market",
+      "Labour market",
+      "Production level",
+      "Financial market.",
+      "None of the above."
+    ],
+    "correctOption": "Labour market"
+  },
+  {
+    "question": "Boom and depreciation in business cycle are",
+    "options": [
+      "Turning points",
+      "Equilibrium points",
+      "Both (a) and (b)",
+      "None of the above.",
+      "All of the above."
+    ],
+    "correctOption": "Turning points"
+  },
+  {
+    "question": "Which of the following is not the phase of business cycles?",
+    "options": [
+      "Prosperity",
+      "Upswing",
+      "Reconstruction",
+      "Depression",
+      "None of the above."
+    ],
+    "correctOption": "Reconstruction"
+  },
+  {
+    "question": "Which of the following is not an example of coincident indicator?",
+    "options": [
+      "Industrial production",
+      "Inflation",
+      "Retail sales",
+      "New orders for plant and equipment",
+      "None of the above."
+    ],
+    "correctOption": "New orders for plant and equipment"
+  },
+  {
+    "question": "Leading economic indicators _________.",
+    "options": [
+      "Are used to forecast probable shifts in economic policies",
+      "Are generally used to forecast economic fluctuations",
+      "Are indicators of stock prices existing in an economy",
+      "Are indicators of probable recession and depression",
+      "None of the above."
+    ],
+    "correctOption": "Are generally used to forecast economic fluctuations"
+  },
+  {
+    "question": "A leading indicator is _________.",
+    "options": [
+      "A variable that tends to move along with the level of economic activity.",
+      "A variable that tends to move in advance of aggregate economic activity.",
+      "A variable that tends to move consequent on the level of aggregate economic activity.",
+      "None of the above.",
+      "All of the above."
+    ],
+    "correctOption": "A variable that tends to move in advance of aggregate economic activity."
+  },
+  {
+    "question": "A variable that tends to move later than aggregate economic activity is called _________.",
+    "options": [
+      "A leading variable.",
+      "A coincident variable.",
+      "A lagging variable.",
+      "A cyclical variable.",
+      "None of the above."
+    ],
+    "correctOption": "A lagging variable."
+  },
+  {
+    "question": "Which of the following best describes a typical business cycle?",
+    "options": [
+      "Economic expansions are followed by economic contractions.",
+      "Inflation is followed by rising income and unemployment.",
+      "Economic expansions are followed by economic growth and development.",
+      "Stagflation is followed by inflationary economic growth.",
+      "None of the above."
+    ],
+    "correctOption": "Economic expansions are followed by economic contractions."
+  },
+  {
+    "question": "Which of the following is true about leading indicators?",
+    "options": [
+      "Measurable economic factors",
+      "Changes after real output",
+      "Both (a) and (b)",
+      "None",
+      "All of the above."
+    ],
+    "correctOption": "Measurable economic factors"
+  },
+  {
+    "question": "Last stage of recession is called:",
+    "options": [
+      "Depreciation",
+      "Recovery",
+      "Slowdown",
+      "All of these",
+      "None of the above."
+    ],
+    "correctOption": "Depreciation"
+  },
+  {
+    "question": "When once peak is reached, increase in demand is salted, then _________ phase begins?",
+    "options": [
+      "Trough",
+      "Contraction",
+      "Expansion",
+      "Trend",
+      "None of the above."
+    ],
+    "correctOption": "Contraction"
+  },
+  {
+    "question": "Which of the following macro economic variables would you include in an index of leading economic indicators?",
+    "options": [
+      "Employment",
+      "Inflation",
+      "Real interest rates",
+      "Presidential investment",
+      "None of the above."
+    ],
+    "correctOption": "Presidential investment"
+  },
+  {
+    "question": "An economic variable that moves in the opposite direction as aggregate economic activity down in expansions, up in contractions is called.",
+    "options": [
+      "Procyclical",
+      "Countercyclical",
+      "A cyclical",
+      "A leading variable",
+      "None of the above."
+    ],
+    "correctOption": "Countercyclical"
+  },
+  {
+    "question": "Fashion Retailer is business of?",
+    "options": [
+      "Cyclical business",
+      "Sun rise business",
+      "Sluggish business",
+      "None of these",
+      "All of the above."
+    ],
+    "correctOption": "Cyclical business"
+  },
+  {
+    "question": "Rampant unemployment is found in:",
+    "options": [
+      "Boom",
+      "Recovery",
+      "Contraction",
+      "Depression",
+      "None of the above."
+    ],
+    "correctOption": "Depression"
+  },
+  {
+    "question": "Economics activities will be declining in the phase of _________.",
+    "options": [
+      "Expansion",
+      "Depression",
+      "Contraction",
+      "Peak",
+      "None of the above."
+    ],
+    "correctOption": "Contraction"
+  },
+  {
+    "question": "In the later stages of expansion, inputs are difficult to find as they are _________ of their demand and therefore input prices _________.",
+    "options": [
+      "(a) Short, increase",
+      "(b) Excess, increases",
+      "(c) Short, decrease",
+      "(d) Excess, decrease"
+    ],
+    "correctOption": "(a) Short, increase"
+  },
+  {
+    "question": "The economy cannot continue to grow endlessly. Once Peak is reached, _________ in demand is halted & starts _________ in certain sectors.",
+    "options": [
+      "(a) Increase, decreasing",
+      "(b) Decrease, Increasing",
+      "(c) Increase, Increasing",
+      "(d) Decrease, Decreasing"
+    ],
+    "correctOption": "(a) Increase, decreasing"
+  },
+  {
+    "question": "_________ is the severe form of _________.",
+    "options": [
+      "(a) Depression, Recovery",
+      "(b) Depression, Recession",
+      "(c) Recession, Depreciation",
+      "(d) Recession, Recovery"
+    ],
+    "correctOption": "(b) Depression, Recession"
+  },
+  {
+    "question": "The great depression of _________ is still cited for the enormous misery and human sufferings it caused.",
+    "options": [
+      "(a) 1929- 1930",
+      "(b) 1929- 1931",
+      "(c) 1929 – 1932",
+      "(d) 1929 – 1933"
+    ],
+    "correctOption": "(d) 1929 – 1933"
+  },
+  {
+    "question": "Which of the following statement is False?",
+    "options": [
+      "(a) No economy follows a perfectly timed Cycle.",
+      "(b) Business Cycles vary in intensity and length.",
+      "(c) There is no set pattern which Business Cycles follow.",
+      "(d) Every Business Cycle has relatively longer period."
+    ],
+    "correctOption": "(d) Every Business Cycle has relatively longer period."
+  },
+  {
+    "question": "Industries that are extremely sensitive to the business cycle are the _________.",
+    "options": [
+      "(a) Durable goods and service sec-tors.",
+      "(b) Non-durable goods and service sectors.",
+      "(c) Capital goods and non-durable goods sectors.",
+      "(d) Capital goods and durable goods sectors."
+    ],
+    "correctOption": "(d) Capital goods and durable goods sectors."
+  },
+  {
+    "question": "Business Cycle occurs _________.",
+    "options": [
+      "(a) Periodically",
+      "(b) In different phases",
+      "(c) Both (a) and (b)",
+      "(d) None of the above"
+    ],
+    "correctOption": "(c) Both (a) and (b)"
+  },
+  {
+    "question": "Features of business cycles include?",
+    "options": [
+      "(a) Discuss periodically",
+      "(b) Have four different phases",
+      "(c) Originate in free Market Economy",
+      "(d) All of the above."
+    ],
+    "correctOption": "(d) All of the above."
+  },
+  {
+    "question": "Which of the following is not a characteristic of business cycles _________.",
+    "options": [
+      "(a) Business cycles have serious consequences on the well being of the society.",
+      "(b) Business cycles occur periodically, although they do not exhibit the same regularity.",
+      "(c) Business cycles have uniform characteristics and causes.",
+      "(d) Business cycles are contagious and unpredictable."
+    ],
+    "correctOption": "(c) Business cycles have uniform characteristics and causes."
+  },
+  {
+    "question": "Which is not the characteristic feature of expansion phase in business cycle?",
+    "options": [
+      "(a) Increase in national output",
+      "(b) Unemployment",
+      "(c) Rise in price and costs",
+      "(d) Boost in business confidence"
+    ],
+    "correctOption": "(b) Unemployment"
+  },
+  {
+    "question": "Business Cycles are exceedingly Complex phenomena because.",
+    "options": [
+      "(a) They do not have uniform characteristics and causes.",
+      "(b) They are caused by varying factor.",
+      "(c) It is difficult to make an accurate prediction of trade cycles before their occurrence.",
+      "(d) All of the above"
+    ],
+    "correctOption": "(d) All of the above"
+  },
+  {
+    "question": "Repercussions of Business Cycles get simultaneously felt on the economic variable:",
+    "options": [
+      "(a) Output and employment.",
+      "(b) Investment & Consumption",
+      "(c) Interest, Trade & Price levels",
+      "(d) All of the above."
+    ],
+    "correctOption": "(d) All of the above."
+  },
+  {
+    "question": "Business Cycles have _________ consequences on the well-being of the society.",
+    "options": [
+      "(a) Some",
+      "(b) Serious",
+      "(c) No",
+      "(d) Moderate"
+    ],
+    "correctOption": "(b) Serious"
+  },
+  {
+    "question": "What is incorrect about business Cycle?",
+    "options": [
+      "(a) They occur periodically",
+      "(b) They exhibit same regularity",
+      "(c) The duration of Cycles vary",
+      "(d) The intercity of fluctuations also varies."
+    ],
+    "correctOption": "(b) They exhibit same regularity"
+  },
+  {
+    "question": "The disturbances in one or more Sectors _________ other Sectors.",
+    "options": [
+      "(a) Do not affect",
+      "(b) Equally affect",
+      "(c) Gets easily transmitted to all",
+      "(d) None of the above."
+    ],
+    "correctOption": "(c) Gets easily transmitted to all"
+  },
+  {
+    "question": "Business Cycles may occur due to _________.",
+    "options": [
+      "(a) External Causes",
+      "(b) Internal Causes",
+      "(c) Both (a) and (b)",
+      "(d) None"
+    ],
+    "correctOption": "(c) Both (a) and (b)"
+  },
+  {
+    "question": "According to some economists, _________ are the prime causes of business cycles.",
+    "options": [
+      "(a) Fluctuations in effective demand",
+      "(b) Fluctuations in investments",
+      "(c) Macroeconomic policies",
+      "(d) All of the above"
+    ],
+    "correctOption": "(d) All of the above"
+  },
+  {
+    "question": "Which internal factor affect the Business cycle?",
+    "options": [
+      "(a) Fluctuations in investment",
+      "(b) Natural factors",
+      "(c) Technology shocks",
+      "(d) Population growth"
+    ],
+    "correctOption": "(a) Fluctuations in investment"
+  },
+  {
+    "question": "The internal causes of business cycle is _________.",
+    "options": [
+      "(a) Fluctuation in effective demand",
+      "(b) Technology shocks",
+      "(c) Both (a) and (b)",
+      "(d) None"
+    ],
+    "correctOption": "(a) Fluctuation in effective demand"
+  },
+  {
+    "question": "A decrease in government spending would cause _________.",
+    "options": [
+      "(a) The aggregate demand curve to shift to the right.",
+      "(b) The aggregate demand curve to shift to the left.",
+      "(c) A movement down and to the right along the aggregate demand curve.",
+      "(d) A movement up and to the left along the aggregate demand curve."
+    ],
+    "correctOption": "(b) The aggregate demand curve to shift to the left."
+  },
+  {
+    "question": "Modern business activities are based on the anticipations of business community and are affected by waves of optimism or pessimism, according to _________.",
+    "options": [
+      "(a) External Causes",
+      "(b) Internal Causes",
+      "(c) Both (a) & (b)",
+      "(d) Either (a) or (b)"
+    ],
+    "correctOption": "(a) External Causes"
+  },
+  {
+    "question": "According to _________ trade cycles occur due to onset of innovations.",
+    "options": [
+      "(a) Hawtrev",
+      "(b) ADAM Smith",
+      "(c) J M Kevnes",
+      "(d) Schumpeter"
+    ],
+    "correctOption": "(d) Schumpeter"
+  },
+  {
+    "question": "Whose statement out of these is false?",
+    "options": [
+      "(a) Hawtrey – “Trade cycle is purely Monetary phenomena”",
+      "(b) Keynes – “Fluctuations in aggregate Demand”",
+      "(c) Pigou – “Fluctuations in investment”",
+      "(d) Schumpeter – “Innovations”"
+    ],
+    "correctOption": "(c) Pigou – “Fluctuations in investment”"
+  },
+  {
+    "question": "The most probable outcome of an increase in the money supply is _________.",
+    "options": [
+      "(a) Interest rates to rise, investment spending to rise, and aggregate demand to rise.",
+      "(b) Interest rates to rise, investment spending to fall, and aggregate demand to fall.",
+      "(c) Interest rates to fall, investment spending to rise, and aggregate demand to rise.",
+      "(d) Interest rates to fall, investment spending to fall, and aggregate demand to fall."
+    ],
+    "correctOption": "(c) Interest rates to fall, investment spending to rise, and aggregate demand to rise."
+  },
+  {
+    "question": "In the long run, a reduction in labour supply would cause output to _________ and the aggregate price level to _________.",
+    "options": [
+      "(a) Fall, rise",
+      "(b) Fall, fall",
+      "(c) Rise, fall",
+      "(d) Rise, rise."
+    ],
+    "correctOption": "(a) Fall, rise"
+  },
+  {
+    "question": "Endogenous factors refers to _________ causes:",
+    "options": [
+      "(a) Internal",
+      "(b) External",
+      "(c) Economic",
+      "(d) Ecological"
+    ],
+    "correctOption": "(a) Internal"
+  },
+  {
+    "question": "According to which economist trade cycle is a purely monetary for phenomenon _________.",
+    "options": [
+      "(a) Schumpeter",
+      "(b) Pigou",
+      "(c) Hawtrey",
+      "(d) Marshall"
+    ],
+    "correctOption": "(c) Hawtrey"
+  },
+  {
+    "question": "The difference between exports and imports is the _________ for goods and Services.",
+    "options": [
+      "(a) Not foreign demand",
+      "(b) Gross Foreign demand",
+      "(c) Net Outflow",
+      "(d) Net Inflow"
+    ],
+    "correctOption": "(a) Not foreign demand"
+  },
+  {
+    "question": "The external causes which may lead to boom or bust do not include:",
+    "options": [
+      "(a) Psychological Factors",
+      "(b) Wars",
+      "(c) Technology Shocks",
+      "(d) Natural Factors"
+    ],
+    "correctOption": "(a) Psychological Factors"
+  },
+  {
+    "question": "_________ theory holds that business cycles result from the fact that present prices substantially influence the production at some future date.",
+    "options": [
+      "(a) Schumpeter’s",
+      "(b) Hawtrev’s",
+      "(c) Cobweb",
+      "(d) Pigou’s"
+    ],
+    "correctOption": "(c) Cobweb"
+  },
+  {
+    "question": "Who propounded the Cobweb theory?",
+    "options": [
+      "(a) Nicholas Kaldor",
+      "(b) Hawtrey",
+      "(c) Adam Smith",
+      "(d) Schumpeter"
+    ],
+    "correctOption": "(a) Nicholas Kaldor"
+  },
+  {
+    "question": "According to _________, Trade Cycle is a purely monetary phenomenon.",
+    "options": [
+      "(a) Nicholas Kaldor",
+      "(b) Hawtrey",
+      "(c) Adam Smith",
+      "(d) Schumpeter"
+    ],
+    "correctOption": "(b) Hawtrey"
+  },
+  {
+    "question": "According to _________, modern business activities are based on the anticipations of business Community and one affected by waves of optimism or pessimism.",
+    "options": [
+      "(a) Pigou",
+      "(b) Schumpeter",
+      "(c) Adam Smith",
+      "(d) Hawtrey"
+    ],
+    "correctOption": "(a) Pigou"
+  },
+  {
+    "question": "In a free market economy, where maximization of profits is the aim of business, a higher level of aggregate demand will induce businessmen to produce more. As a request, there will be more _________.",
+    "options": [
+      "(a) Output",
+      "(b) Income",
+      "(c) Employment",
+      "(d) All of these"
+    ],
+    "correctOption": "(d) All of these"
+  },
+  {
+    "question": "When companies lay off workers, consumers lose their jobs and stop buying anything but necessitates. That causes a _________.",
+    "options": [
+      "(a) Downward Spiral",
+      "(b) Cross Spiral",
+      "(c) Upward Spiral",
+      "(d) Triangle Spiral"
+    ],
+    "correctOption": "(a) Downward Spiral"
+  },
+  {
+    "question": "_________ is considered to be the most volatile Component of the aggregate demand.",
+    "options": [
+      "(a) Investment Spending",
+      "(b) Saving Flow",
+      "(c) Expenditure behaviour",
+      "(d) None of these"
+    ],
+    "correctOption": "(a) Investment Spending"
+  },
+  {
+    "question": "Investments may rise when the rate of interest is _________ in the economy.",
+    "options": [
+      "(a) High",
+      "(b) Moderate",
+      "(c) Low",
+      "(d) Very high"
+    ],
+    "correctOption": "(c) Low"
+  },
+  {
+    "question": "Increase in investment; shift the aggregate demand to the _________, leading to _________.",
+    "options": [
+      "(a) Right, economic expansion",
+      "(b) Right, depression",
+      "(c) Left, economic expansion",
+      "(d) Left, depression."
+    ],
+    "correctOption": "(a) Right, economic expansion"
+  },
+  {
+    "question": "The most common method of boosting aggregate demand is _________.",
+    "options": [
+      "(a) Increased Government Spending",
+      "(b) Tax Cuts",
+      "(c) Both (a) & (b)",
+      "(d) None of these"
+    ],
+    "correctOption": "(c) Both (a) & (b)"
+  },
+  {
+    "question": "The macroeconomic policies which cause business Cycles may be :",
+    "options": [
+      "(a) Monetary Policy",
+      "(b) Fiscal Policy",
+      "(c) Both (a) & (b)",
+      "(d) None of these"
+    ],
+    "correctOption": "(c) Both (a) & (b)"
+  },
+  {
+    "question": "In case of softening of interest rates, _________.",
+    "options": [
+      "(a) There will be inflationary effects and increase in unemployment rates.",
+      "(b) There will be deflationary effects and increase in unemployment rates.",
+      "(c) There will be inflationary effect and decline in employment rates.",
+      "(d) There will be deflationary effects and decline in employment rates."
+    ],
+    "correctOption": "(c) There will be inflationary effect and decline in employment rates."
+  },
+  {
+    "question": "Which of the following is anti-inflationary measure which causes a downward pressure on the aggregate demand and the economy slows down?",
+    "options": [
+      "(a) Reduction in Government Spending.",
+      "(b) Increase in Taxes",
+      "(c) Increase in Interest Rates",
+      "(d) All of these."
+    ],
+    "correctOption": "(d) All of these."
+  },
+  {
+    "question": "How many phases are their in business cycle?",
+    "options": [
+      "(a) Four",
+      "(b) Five",
+      "(c) One",
+      "(d) Many"
+    ],
+    "correctOption": "(a) Four"
+  },
+  {
+    "question": "Business Cycles effect _________ of an economy.",
+    "options": [
+      "(a) Social Aspects",
+      "(b) Economic Aspects",
+      "(c) All Aspects",
+      "(d) No Aspects"
+    ],
+    "correctOption": "(c) All Aspects"
+  },
+  {
+    "question": "The period of prosperity opens up new and superior opportunities for _________ thereby promotes business.",
+    "options": [
+      "(a) Investment and Unemployment",
+      "(b) Employment and Production",
+      "(c) Production, Unemployment & Savings",
+      "(d) Investment, Employment and Production"
+    ],
+    "correctOption": "(d) Investment, Employment and Production"
+  },
+  {
+    "question": "A period of _________ reduces business opportunities and profits.",
+    "options": [
+      "(a) Recession",
+      "(b) Depression",
+      "(c) Either (a) or (b)",
+      "(d) None of these"
+    ],
+    "correctOption": "(c) Either (a) or (b)"
+  },
+  {
+    "question": "Business Cycles have _________ influence on Business decisions.",
+    "options": [
+      "(a) Negligible",
+      "(b) Least",
+      "(c) No",
+      "(d) Tremendous"
+    ],
+    "correctOption": "(d) Tremendous"
+  },
+  {
+    "question": "Which External Factor affect the business cycle?",
+    "options": [
+      "(a) Population growth",
+      "(b) Variation in government spending",
+      "(c) Money supply",
+      "(d) Macro economic policies"
+    ],
+    "correctOption": "(a) Population growth"
+  },
+  {
+    "question": "Economy-wide trends can have significant impact on _________.",
+    "options": [
+      "(a) Capital Goods Industries",
+      "(b) FMCG Industries",
+      "(c) Social activities",
+      "(d) All types of business."
+    ],
+    "correctOption": "(d) All types of business."
+  },
+  {
+    "question": "Business cycle is contagious and _________ in character?",
+    "options": [
+      "(a) Local",
+      "(b) Regional",
+      "(c) National",
+      "(d) International"
+    ],
+    "correctOption": "(d) International"
+  },
+  {
+    "question": "Businesses whose fortunes are closely linked to the rate of economic growth are referred to as business.",
+    "options": [
+      "(a) FMCG",
+      "(b) Durable goods",
+      "(c) Fluctuating",
+      "(d) Cyclical"
+    ],
+    "correctOption": "(d) Cyclical"
+  },
+  {
+    "question": "The world economy suffered the longest, deepest and most widespread depreciation of the 20th century during?",
+    "options": [
+      "(a) 1934",
+      "(b) 1928",
+      "(c) 1930",
+      "(d) 1932"
+    ],
+    "correctOption": "(c) 1930"
+  },
+  {
+    "question": "Which of the following business are examples of “Cyclical business”",
+    "options": [
+      "(a) Fashion retailers, electrical goods & house-builders",
+      "(b) Restaurants, advertising and overseas tour operators",
+      "(c) Construction and other infrastructure firms",
+      "(d) All of the above"
+    ],
+    "correctOption": "(d) All of the above"
+  },
+  {
+    "question": "The Stage/phase of the business Cycle is important for _________.",
+    "options": [
+      "(a) Making managerial decisions regarding expansion or down-sizing.",
+      "(b) A new business to decide on entry into the market.",
+      "(c) The success of a new product.",
+      "(d) All of the above."
+    ],
+    "correctOption": "(d) All of the above."
+  },
+  {
+    "question": "Due to recession, employment rate and output _________ respectively.",
+    "options": [
+      "(a) Rises and rises",
+      "(b) Falls and falls",
+      "(c) Rises and falls",
+      "(d) All of the above"
+    ],
+    "correctOption": "(b) Falls and falls"
+  },
+
+
+
+ // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

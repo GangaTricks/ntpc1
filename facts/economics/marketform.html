@@ -1,0 +1,4044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Market Forms Pricing</title>
+			<script src="../../urlRewrite.js"></script>
+		<link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">
+  
+   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+  
+  
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Market forms, price determinations | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+ const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+ const uniqueIdentifier = 'economicsmarketforms';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+       const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+<script>
+const questions = [
+ 
+   
+  {
+    "question": "from here ca's question, from question no. 319 begins aao's questions",
+    "options": [],
+    "correctOption": "place where buyer and seller bargain a product or service for a price"
+  },
+     
+  {
+    "question": "In Economics, the term ‘market’ refers to a:",
+    "options": ["place where buyer and seller bargain a product or service for a price", "place where buyer does not bargain", "place where seller does not bargain", "none of the above"],
+    "correctOption": "place where buyer and seller bargain a product or service for a price"
+  },
+  {
+    "question": "Market consists of __________.",
+    "options": ["Buyer and Seller", "One price for one product at a given time", "Both (a) and (b)", "None"],
+    "correctOption": "Both (a) and (b)"
+  },
+  {
+    "question": "The Price Elasticity of demand of a firm in Pure Competition is :",
+    "options": ["Infinite", "Finite", "Large", "Small"],
+    "correctOption": "Infinite"
+  },
+  {
+    "question": "__________ conceived the “Time” element in markets and on the basis of this markets are classified into very short period, Short-Period, Long- Period & Very Long period.",
+    "options": ["Alfred Marshall", "Schumpeter", "Adam Smith", "Paul Samuelson"],
+    "correctOption": "Alfred Marshall"
+  },
+  {
+    "question": "On the basis of nature of transactions, a market may be classified into:",
+    "options": ["Spot market and future market", "Regulated market and unregulated market", "Wholesale market and retail market", "Local market and national market."],
+    "correctOption": "Spot market and future market"
+  },
+  {
+    "question": "Secular period is also known as __________.",
+    "options": ["very short period", "short period", "very long period", "long period"],
+    "correctOption": "very long period"
+  },
+  {
+    "question": "Stock exchange market is an example of __________.",
+    "options": ["unregulated market", "regulated market", "spot market", "none of the above"],
+    "correctOption": "regulated market"
+  },
+  {
+    "question": "The market for ultimate consumer is known as:",
+    "options": ["Wholesale market", "Regulated market", "Unregulated market", "Retail market"],
+    "correctOption": "Retail market"
+  },
+  {
+    "question": "__________ are those markets in which firm buy the resources they need (Land, Labour, Capital and entrepreneurship) to produce goods and services.",
+    "options": ["Regular Markets", "Producer’s Markets", "Product Markets", "Factor Markets"],
+    "correctOption": "Factor Markets"
+  },
+  {
+    "question": "When the commodities are sold in small quantities, it is called as __________.",
+    "options": ["Retail Market", "Wholesale Market", "Small Market", "Local Market"],
+    "correctOption": "Retail Market"
+  },
+  {
+    "question": "Generally, perishable goods like butter, eggs, milk, vegetables etc., will have __________.",
+    "options": ["Regional market", "Local market", "National market", "None of the above"],
+    "correctOption": "Local market"
+  },
+  {
+    "question": "__________ implies that the time available is adequate for altering the supplies by altering even the fixed factors of production.",
+    "options": ["Very Short Period", "Short Period", "Long Period", "Secular Period"],
+    "correctOption": "Long Period"
+  },
+  {
+    "question": "The classification of market on the basis of Area does not include __________.",
+    "options": ["Local Market", "Regional Market", "Spot Market", "National Market Types of Market Structure"],
+    "correctOption": "Spot Market"
+  },
+  {
+    "question": "Monopsony means __________.",
+    "options": ["Where there are large firms", "There is a single buyer", "Small number of large buyers", "Single seller and single buyer"],
+    "correctOption": "There is a single buyer"
+  },
+  {
+    "question": "Which of the following Competition is characterized by many sellers who are selling identical products to many buyers?",
+    "options": ["Perfect Competition", "Monopolistic Competition", "Monopoly", "Oligopoly"],
+    "correctOption": "Perfect Competition"
+  },
+  {
+    "question": "In __________, there are few sellers who are selling competing products to many buyers.",
+    "options": ["Monopoly", "Perfect Competition", "Oligopoly", "None of these"],
+    "correctOption": "Oligopoly"
+  },
+  {
+    "question": "The degree of control is very considerable in case of __________.",
+    "options": ["Monopoly", "Perfect Competition", "Oligopoly", "None of these"],
+    "correctOption": "Monopoly"
+  },
+  {
+    "question": "Average Revenue is also known as:",
+    "options": ["Price", "Income", "Revenue", "None of the above"],
+    "correctOption": "Price"
+  },
+  {
+    "question": "Average revenue curve is also known as:",
+    "options": ["Profit Curve", "Demand Curve", "Average Cost Curve", "Indifference Curve"],
+    "correctOption": "Demand Curve"
+  },
+  {
+    "question": "Average revenue is the revenue earned __________.",
+    "options": ["per unit of input", "per unit of output", "different units of input", "different units of output"],
+    "correctOption": "per unit of output"
+  },
+  {
+    "question": "Average Revenue can be symbolically written as:",
+    "options": ["MR/Q", "Price X quantity", "TR/Q", "none of the above"],
+    "correctOption": "TR/Q"
+  },
+  {
+    "question": "When price is ₹ 20, Quantity demanded is 10 units and price is decreased by 5% then quantity demand increased by 10% then Marginal revenue is __________.",
+    "options": ["₹ 10", "₹ 11", "₹ 9", "₹ 20"],
+    "correctOption": "₹ 9"
+  },
+  {
+    "question": "If a seller obtains ₹ 3,000 after selling 50 units and ₹ 3,100 after selling 52 units, then marginal revenue will be:",
+    "options": ["₹ 59.62", "₹ 50.00", "₹ 60.00", "₹ 59.80"],
+    "correctOption": "₹ 50.00"
+  },
+  {
+    "question": "Marginal revenue can be defined as the change in total revenue resulting from the:",
+    "options": ["Purchase of an additional unit of a commodity.", "Sales of an additional unit of a commodity.", "Sale of subsequent units of a product.", "None of the above."],
+    "correctOption": "Sales of an additional unit of a commodity."
+  },
+  {
+    "question": "MR of nth unit is given by :",
+    "options": ["TRn/TRn-1", "TRn + TRn-1", "TRn – TRn-1", "All of these"],
+    "correctOption": "TRn – TRn-1"
+  },
+  {
+    "question": "Assume that when price is ₹ 20, the quantity demanded is 9 units, and when price is ₹ 19, the quantity demanded is 10 units. Based on this information, what is the marginal revenue resulting from an increase in output from 9 units to 10 units.",
+    "options": ["₹ 20", "₹ 19", "₹ 10", "₹ 1"],
+    "correctOption": "₹ 10"
+  },
+  {
+    "question": "Assume that when price is ₹ 20, the quantity demanded is 15 units, and when price is ₹ 18, the quantity demanded is 16 units. Based on this information, what is the marginal revenue resulting from an increase in output from 15 units to 16 units?",
+    "options": ["₹ 18", "₹ 16", "₹ 12", "₹ 28"],
+    "correctOption": "₹ 12"
+  },
+  {
+    "question": "Total revenue = _______________.",
+    "options": ["price × quantity", "price × income", "income × quantity", "none of the above"],
+    "correctOption": "income × quantity"
+  },
+  {
+    "question": "The amount realized by the firm by selling certain units of commodity is called as :",
+    "options": ["Average Revenue", "Cost of Operations", "Total Revenue", "Marginal Revenue"],
+    "correctOption": "Total Revenue"
+  },
+  {
+    "question": "When TR is at its peak then MR is equal to __________.",
+    "options": ["Zero", "Positive", "Negative", "None of the above"],
+    "correctOption": "Zero"
+  },
+  {
+    "question": "When the price of a commodity is ₹ 20, the quantity demanded is 9 units and when its price is ₹ 19, the Quantity demanded is 10 units. Based on this information what will be the marginal revenue resulting from an increase in output from 9 units to 10 units.",
+    "options": ["₹ 20", "₹ 19", "₹ 10", "₹ 01"],
+    "correctOption": "₹ 10"
+  },
+  {
+    "question": "Which one of the following expressions is correct for Marginal Revenue?",
+    "options": ["MR = AR(1−ee)", "MR = TRn – TRn+1", "MR = ΔTRΔQ", "MR = TRQ"],
+    "correctOption": "MR = ΔTRΔQ"
+  },
+  {
+    "question": "Given the relation MR = P(1 – 1e), if e < 1, then:",
+    "options": ["MR < 0", "MR > 0", "MR = 0", "None of these"],
+    "correctOption": "MR < 0"
+  },
+  {
+    "question": "Given the relation MR = P(1 – 1e), if e > 1, then:",
+    "options": ["MR > 0", "MR < 0", "MR = 0", "None"],
+    "correctOption": "MR > 0"
+  },
+  {
+    "question": "Which of the following is correct?",
+    "options": ["MR = AR (e-1)/e", "MR = AR (e + 1)/e", "MR = AR (1-e)/e", "None of the above"],
+    "correctOption": "MR = AR (e-1)/e"
+  },
+  {
+    "question": "When e = 1 then MR is __________.",
+    "options": ["Positive", "Zero", "One", "Negative"],
+    "correctOption": "Zero"
+  },
+  {
+    "question": "When e < 1 then MR is:",
+    "options": ["Negative", "Zero", "Positive", "One"],
+    "correctOption": "Negative"
+  },
+  {
+    "question": "When e > 1 then MR is:",
+    "options": ["Zero", "Negative", "Positive", "One"],
+    "correctOption": "Positive"
+  },
+  {
+    "question": "Demand for a product is unitary elastic then:",
+    "options": ["MR = 0", "MR > 0", "MR < 0", "None of the above"],
+    "correctOption": "MR = 0"
+  },
+  {
+    "question": "Given, AR = 5 and Elasticity of demand = 2 Find MR.",
+    "options": ["+2.5", "– 2.5", "+ 1.5", "+ 2.0"],
+    "correctOption": "+ 2.5"
+  },
+  {
+    "question": "What should firm do when Marginal revenue is greater than marginal cost?",
+    "options": ["Firm should expand output", "Effect should be made to make them equal", "Prices should be covered down", "All of these"],
+    "correctOption": "Firm should expand output"
+  },
+  {
+    "question": "Suppose a firm is producing a level of output such that MR > MC, what should be firm do to maximize its profits?",
+    "options": ["The firm should do nothing.", "The firm should hire less labour.", "The firm should increase price.", "The firm should increase output."],
+    "correctOption": "The firm should increase output."
+  },
+  {
+    "question": "In a Straight line demand Curve, the price elasticity at the middle point is equal to __________.",
+    "options": ["0", "1", "> 1", "< 1"],
+    "correctOption": "1"
+  },
+  {
+    "question": "Which one of the following is Correct?",
+    "options": ["MR = AR x e−1e", "MR2 = AR2 x e−1e", "MR = AR x ee−1", "MR = AR x (e−1)2e"],
+    "correctOption": "MR = AR x e−1e"
+  },
+  {
+    "question": "The Marginal Revenue corresponding to the middle point of the demand curve (or AR Curve) will be",
+    "options": ["Zero", "One", "Less than one", "More than one"],
+    "correctOption": "Zero"
+  },
+  {
+    "question": "According to Behavioural Principles.",
+    "options": ["A firm should not produce at all if its total variable costs are not met.", "A firm will be making maximum profits by expending output to the level where marginal revenue is equal to marginal cost.", "Both (a) and (b)", "None of these"],
+    "correctOption": "Both (a) and (b)"
+  },
+  {
+    "question": "Time element was conceived by __________.",
+    "options": ["Adam Smith", "Alfred Marshall", "Pigou", "Lionel Robinson"],
+    "correctOption": "Alfred Marshall"
+  },
+  {
+    "question": "In very short period market:",
+    "options": ["Supply changes but demand remains same", "Supply changes but price remains same", "Supply remains fixed", "Supply and demand both changes"],
+    "correctOption": "Supply remains fixed"
+  },
+  {
+    "question": "In the long run:",
+    "options": ["Only demand can change", "Only supply can change", "Both demand and supply can change", "None of these"],
+    "correctOption": "Both demand and supply can change"
+  },
+  {
+    "question": "A Firm should __________ if the total revenue from its product does not __________ its total valuable cost.",
+    "options": ["Produce, equal", "Produce at all, equal or exceed", "Not Produce, equal", "Not Produce, equal or exceed"],
+    "correctOption": "Not Produce, equal or exceed"
+  },
+  {
+    "question": "As per Behavioural Principles, It will be profitable for the firm to expand output whenever Marginal __________ is __________ than Marginal.",
+    "options": ["Cost, greater, Revenue", "Revenue, greater, Cost", "Revenue, less, cost", "None of above"],
+    "correctOption": "Revenue, greater, Cost"
+  },
+  {
+    "question": "As per Behavioural Principle, which one of following Statement is Correct?",
+    "options": ["If any unit of production adds more to revenue than to Cost, that cost, that unit will increase Profits.", "If any unit of production adds more to Cost, than to revenue, it will decrease profits.", "Profits will be maximum of the point where additional revenue from a unit equals to its additional cost.", "All of the above."],
+    "correctOption": "All of the above."
+  },
+  {
+    "question": "In the table below what will be equilibrium market price?\nPrice (₹) Demand (tonnes per annum) Supply (tonnes per annum)\n1 1,000 400\n2 900 500\n3 800 600\n4 700 700\n5 600 800\n6 500 900\n7 400 1,000\n8 300 1,100",
+    "options": ["₹ 2", "₹ 3", "₹ 4", "₹ 5"],
+    "correctOption": "₹ 4"
+  },
+  {
+    "question": "Equilibrium price for an industry in prefect completion is fixed through:",
+    "options": ["Input and output", "Market demand and market supply", "Market demand and firms supply", "None of the above"],
+    "correctOption": "Market demand and market supply"
+  },
+  {
+    "question": "Equilibrium price may be determined through:",
+    "options": ["Only demand", "Only supply", "Both demand & supply", "None"],
+    "correctOption": "Both demand & supply"
+  },
+  {
+    "question": "From the following table, what will be equilibrium market price?\nPrice (₹) Demand (tonnes per annum) Supply (tonnes per annum)\n1 500 200\n2 450 250\n3 400 300\n4 350 350\n5 300 400\n6 250 450\n7 200 500\n8 150 550",
+    "options": ["₹ 2", "₹ 3", "₹ 4", "₹ 5"],
+    "correctOption": "₹ 4"
+  },
+  {
+    "question": "The equilibrium is restored automatically through:",
+    "options": ["The fundamental working of the market.", "Price movements eliminate shortage or Surplus.", "Both (a) and (b)", "None of these."],
+    "correctOption": "Both (a) and (b)"
+  },
+  {
+    "question": "__________ is the price at which demand for a commodity is equal to its supply:",
+    "options": ["Normal Price", "Equilibrium Price", "Short run Price", "Secular Price"],
+    "correctOption": "Equilibrium Price"
+  },
+  {
+    "question": "When increase in demand is equal to increase in supply and equilibrium price remains constant, then what about equilibrium quantity?",
+    "options": ["Increases", "Decreases", "Remains Constant", "None of the above"],
+    "correctOption": "Increases"
+  },
+  {
+    "question": "With a given supply curve, a decrease in demand causes __________.",
+    "options": ["An overall decrease in price but an increase in equilibrium quantity.", "An overall increase in price but a decrease in equilibrium quantity.", "An overall decrease in price and a decrease in equilibrium quantity.", "No change in overall price but a reduction in equilibrium quantity."],
+    "correctOption": "An overall decrease in price and a decrease in equilibrium quantity"
+  },
+  {
+    "question": "If supply decreases and demand remains constant, then equilibrium price will be?",
+    "options": ["Increases", "Decreases", "No change", "Become Negative"],
+    "correctOption": "Increases"
+  },
+  {
+    "question": "Assume that in the market for good Z there is a simultaneous increase in demand and the quantity supplied. The result will be:",
+    "options": ["An increase in equilibrium price and quantity.", "A decrease in equilibrium price and quantity.", "An increase in equilibrium quantity and uncertain effect on equilibrium price.", "A decrease in equilibrium price and increase in equilibrium quantity."],
+    "correctOption": "An increase in equilibrium quantity and uncertain effect on equilibrium price."
+  },
+  {
+    "question": "An increase in supply with demand remaining the same, brings about.",
+    "options": ["An increase in equilibrium quantity and decrease in equilibrium price.", "An increase in equilibrium price and decrease in equilibrium quantity.", "Decrease in both equilibrium price and quantity.", "None of these."],
+    "correctOption": "An increase in equilibrium quantity and decrease in equilibrium price."
+  },
+  {
+    "question": "An increase in supply with un-changed demand leads to:",
+    "options": ["Rise in price and fall in quantity", "Fall in both price and quantity", "Rise in both price and quantity", "Fall in price and rise in quantity"],
+    "correctOption": "Fall in price and rise in quantity"
+  },
+  {
+    "question": "Suppose the technology for producing personal computers improves and, at the same time, individuals discover new uses for personal computers so that there is greater utilisation of personal computers. Which of the following will happen to equilibrium price and equilibrium quantity?",
+    "options": ["Price will increase; quantity cannot be determined.", "Price will decrease; quantity cannot be determined.", "Quantity will increase; price cannot be determined.", "Quantity will decrease; price cannot be determined."],
+    "correctOption": "Quantity will decrease; price cannot be determined."
+  },
+  {
+    "question": "Which of the following may lead to changes in demand and Supply?",
+    "options": ["Income and population", "Tastes and Preferences", "Technology & Prices of Factors of Production", "All of the above."],
+    "correctOption": "Technology & Prices of Factors of Production"
+  },
+  {
+    "question": "Changes in Demand & Supply may be due to __________.",
+    "options": ["Increase in Price", "Decrease in Price", "Change in determinants of Demand & other", "None of the above."],
+    "correctOption": "Decrease in Price"
+  },
+  {
+    "question": "If price is forced to stay below equilibrium price then consequently it can be said that:",
+    "options": ["Excess supply exists", "Excess demand exists", "Either (a) or (b)", "Neither (a) nor (b)"],
+    "correctOption": "Excess supply exists"
+  },
+  {
+    "question": "If the price of a commodity is fixed, then with every increase in its sold quantity the total revenue will __________ and the marginal revenue will __________.",
+    "options": ["Increase, also increase", "Increase, remain unchanged", "Increase, decline", "Remain fixed, increase"],
+    "correctOption": "Increase, remain unchanged"
+  },
+  {
+    "question": "If supply increases in a greater proportion than demand __________.",
+    "options": ["The new equilibrium price and quantity will be greater than the original equilibrium price and quantity.", "The new equilibrium price will be greater than the original equilibrium price but equilibrium quantity will be higher.", "The new equilibrium price and quantity will be lower than the original equilibrium price and quantity.", "The new equilibrium price will be lower than the original equi-librium and the new equilibrium quantity will be higher."],
+    "correctOption": "The new equilibrium price will be lower than the original equi-librium and the new equilibrium quantity will be higher."
+  },
+  {
+    "question": "Assume that consumers’ incomes and the number of sellers in the market for good A both decrease. Based upon this information, we can conclude, with certainty, that the equilibrium:",
+    "options": ["Price will increase.", "Price will decrease.", "Quantity will increase.", "Quantity will decrease."],
+    "correctOption": "Quantity will decrease."
+  },
+  {
+    "question": "It is assumed in economic theory that:",
+    "options": ["Decision making within the firm is usually undertaken by managers, but never by the owners.", "The ultimate goal of the firm is to maximize profits, regardless of firm size or type of business organization.", "As the firm’s size increases, so do its goals.", "the basic decision making unit of any firm is its owners."],
+    "correctOption": "The ultimate goal of the firm is to maximize profits, regardless of firm size or type of business organization."
+  },
+  {
+    "question": "Suppose that a sole proprietorship is earning total revenues of 11,00,000 and is incurring explicit costs of ₹ 75,000 If the owner could work for another company for ₹ 30,000 a year, we would conclude that:",
+    "options": ["The firm is incurring an economic loss.", "Implicit costs are ₹ 25,000.", "The total economic costs are ₹ 1,00,000.", "The individual is earning an economic profit of ₹ 25,000."],
+    "correctOption": "The firm is incurring an economic loss."
+  },
+  {
+    "question": "Shift of the Demand curve to the means increase in demand.",
+    "options": ["Right", "Left", "Downward", "No change in Demand Curve."],
+    "correctOption": "Right"
+  },
+  {
+    "question": "If demand does not change but there is an increase in supply due to improved technology, then :",
+    "options": ["Demand Curve will shift to the right.", "Demand Curve will shift to the Left.", "Supply curve will shift to the right.", "Supply curve will shift to the Left."],
+    "correctOption": "Supply curve will shift to the right."
+  },
+  {
+    "question": "When the Supply and demand curves shift in the same direction and both demand & and Supply __________, the equilibrium quantity __________ but the change in equilibrium price is __________.",
+    "options": ["Increase, Increases, Uncertain", "Increase, Increases, Increases", "Increase, Increases, decreases", "None of the above"],
+    "correctOption": "Increase, Increases, Uncertain"
+  },
+  {
+    "question": "When demand increases and supply __________, the equilibrium price __________ but nothing certain can be said about the change in equilibrium quantity.",
+    "options": ["Decreases, decreases", "Decreases, rises", "Decreases, remain constant", "None of the above"],
+    "correctOption": "Decreases, rises"
+  },
+  {
+    "question": "If demand increases without any corresponding increase in supply, there will be :",
+    "options": ["Increase in equilibrium price", "Quantity sold increases", "Quantity purchased increases", "All of the above"],
+    "correctOption": "All of the above"
+  },
+  {
+    "question": "There can be simultaneous change in both demand and Supply. In that case, the equilibrium price will be __________.",
+    "options": ["Increased", "Decreased", "Changes as per the Proportionate change in demand & Supply.", "None of the above"],
+    "correctOption": "Changes as per the Proportionate change in demand & Supply."
+  },
+  {
+    "question": "Which of the following is not an essential condition of pure competition?",
+    "options": ["Large number of buyers and sellers", "Homogeneous product", "Freedom of entry", "Absence of transport cost"],
+    "correctOption": "Absence of transport cost"
+  },
+  {
+    "question": "Under which of the following forms of market structure does a firm has no control over the price of its product:",
+    "options": ["Monopoly", "Oligopoly", "Monopolistic competition", "Perfect competition"],
+    "correctOption": "Perfect competition"
+  },
+  {
+    "question": "Which of the following is not a condition of perfect competition?",
+    "options": ["A large number of firms.", "Perfect mobility of factors.", "Informative advertising to ensure that consumers have good information.", "Freedom of entry and exit into and out of the market."],
+    "correctOption": "Informative advertising to ensure that consumers have good information."
+  },
+  {
+    "question": "__________ is a ideal Market.",
+    "options": ["Monopoly", "Monopolistic", "Perfect Competition", "Oligopoly"],
+    "correctOption": "Perfect Competition"
+  },
+  {
+    "question": "Which of these are characteristics of Perfect Competition.",
+    "options": ["Many Sellers & Buyers", "Homogeneous Product", "Free Entry and Exit", "All of the above"],
+    "correctOption": "All of the above"
+  },
+  {
+    "question": "Price-taking firms, i.e., firms that operate in a perfectly competitive market, are said to be “small” relative to the market. Which of the following best describes this smallness?",
+    "options": ["The individual firm must have fewer than 10 employees.", "The individual firm faces a downward-sloping demand curve.", "The individual firm has assets of less than ₹ 20 lakhs.", "The individual firm is unable to affect market price through its output decisions."],
+    "correctOption": "The individual firm is unable to affect market price through its output decisions."
+  },
+  {
+    "question": "The firm in a perfectly competitive market is a price-taker. This designation as a price-taker is based on the assumption that __________.",
+    "options": ["The firm has some, but not complete, control over its product price.", "There are so many buyers and sellers in the market that any individual firm cannot affect the market.", "Each firm produces a homoge-neous product.", "There is easy entry into or exit from the market place."],
+    "correctOption": "There are so many buyers and sellers in the market that any individual firm cannot affect the market."
+  },
+  {
+    "question": "MR Curve = AR = Demand Curve is a feature of which kind of Market?",
+    "options": ["Perfect Competition", "Monopoly", "Monopolistic", "Oligopoly"],
+    "correctOption": "Monopoly"
+  },
+  {
+    "question": "Demand curve is equal to M.R. curve in which market?",
+    "options": ["Oligopoly", "Monopoly", "Monopolistic Competition", "Perfect Competition"],
+    "correctOption": "Perfect Competition"
+  },
+  {
+    "question": "A perfect market is characterized by __________.",
+    "options": ["Existence of large number of buyers and sellers", "Homogenous products", "Perfect knowledge of the market", "All of the above"],
+    "correctOption": "All of the above"
+  },
+  {
+    "question": "One of the essential conditions of Perfect Competition is :",
+    "options": ["Product differentiation", "Many sellers and few buyers", "Only one price for identical goods at any one time", "Multiplicity of prices for identical product at any one time"],
+    "correctOption": "Only one price for identical goods at any one time"
+  },
+  {
+    "question": "Agricultural goods markets depict characteristics close to:",
+    "options": ["Perfect competition.", "Oligopoly.", "Monopoly.", "Monopolistic competition."],
+    "correctOption": "Perfect competition."
+  },
+  {
+    "question": "Which of the following is not a characteristic of a competitive market?",
+    "options": ["There are many buyers and sell-ers in the market.", "The goods offered for sales are largely the same.", "Firms generate small but positive supernormal profits in the long run.", "Firms can freely enter or exit the market."],
+    "correctOption": "Firms generate small but positive supernormal profits in the long run."
+  },
+  {
+    "question": "A market structure in which many firms sell products that are similar and identical is known as __________.",
+    "options": ["Monopolistic competition", "Monopoly", "Perfect competition", "Oligopoly"],
+    "correctOption": "Perfect competition"
+  },
+  {
+    "question": "One of the following is not correct about perfect competition:",
+    "options": ["Purchase and Sale of homogeneous goods", "Existence of marketing costs", "Absence of transportation costs", "Perfect mobility of factors of production."],
+    "correctOption": "Existence of marketing costs"
+  },
+  {
+    "question": "Under which of the following form of market structure does a firm have no control over the price of its production?",
+    "options": ["Monopoly", "Monopolistic Completion", "Oligopoly", "Perfect Competition."],
+    "correctOption": "Perfect Competition"
+  },
+  {
+    "question": "What is incorrect about Perfect Competition?",
+    "options": [
+      "All Firms are Price takers.",
+      "Firms have to accept the price determined by the market forces of total demand & total supply.",
+      "The assumption of Price taking does not applies to Consumers.",
+      "All are incorrect."
+    ],
+    "correctOption": "The assumption of Price taking does not applies to Consumers."
+  },
+  {
+    "question": "The essential feature of Pure competition is __________.",
+    "options": [
+      "Presence of Monopoly",
+      "Absence of Monopoly",
+      "Dual existence of Pure Competition & Monopoly",
+      "All of the above."
+    ],
+    "correctOption": "Absence of Monopoly"
+  },
+  {
+    "question": "The Condition of perfect Competition are fulfilled to same extent in case of __________.",
+    "options": [
+      "Agricultural Products",
+      "Financial Instruments",
+      "Precious Metals",
+      "All of the above"
+    ],
+    "correctOption": "All of the above"
+  },
+  {
+    "question": "Which out of these are not a feature of perfect competition?",
+    "options": [
+      "Homogeneous",
+      "Large number of buyer and sellers",
+      "Free entry and exist",
+      "Selling cost."
+    ],
+    "correctOption": "Selling cost."
+  },
+  {
+    "question": "Perfectly Competitive markets have __________ transactions Costs.",
+    "options": [
+      "Absolutely no",
+      "Very Low",
+      "High",
+      "Very high"
+    ],
+    "correctOption": "Very Low"
+  },
+  {
+    "question": "Which of the following statement is correct?",
+    "options": [
+      "Price rigidity is an important feature of monopoly.",
+      "Selling cost are possible under perfect completion.",
+      "An industry consists of many firm.",
+      "Under perfect completion factor of production do not move freely as these are legal restriction."
+    ],
+    "correctOption": "Under perfect completion factor of production do not move freely as these are legal restriction."
+  },
+  {
+    "question": "An industry in economic terminology consists of a __________ number of firms.",
+    "options": [
+      "Large, independent",
+      "Large, dependent",
+      "Small, independent",
+      "Small, dependent"
+    ],
+    "correctOption": "Large, independent"
+  },
+  {
+    "question": "In case of perfect Competition, the industry is in equilibrium, when __________.",
+    "options": [
+      "There is enough demand of products in the market.",
+      "There is enough supply of products in the market.",
+      "Total output of the industry is equal to the total demand.",
+      "Total output is less than the quantity demanded."
+    ],
+    "correctOption": "Total output of the industry is equal to the total demand."
+  },
+  {
+    "question": "Price under perfect competition is determined by the __________.",
+    "options": [
+      "Firm",
+      "Industry",
+      "Government",
+      "Society"
+    ],
+    "correctOption": "Industry"
+  },
+  {
+    "question": "Equilibrium price for an industry in perfect competition is fixed through.",
+    "options": [
+      "Input and Output",
+      "Market demand and market Supply",
+      "Market demand and firms supply",
+      "None of the above"
+    ],
+    "correctOption": "Market demand and market Supply"
+  },
+  {
+    "question": "Who sets the price of the product under perfect competition?",
+    "options": [
+      "Government",
+      "Consumers",
+      "Sellers",
+      "Both buyers and sellers"
+    ],
+    "correctOption": "Both buyers and sellers"
+  },
+  {
+    "question": "A firm is said to be in equilibrium when __________.",
+    "options": [
+      "It is maximizing its profits",
+      "It has no incentive to expand production",
+      "It has no incentive to contract production",
+      "All of the above."
+    ],
+    "correctOption": "All of the above."
+  },
+  {
+    "question": "What is the shape of the demand curve faced by a firm under perfect competition?",
+    "options": [
+      "Horizontal",
+      "Vertical",
+      "Positively sloped",
+      "Negatively sloped"
+    ],
+    "correctOption": "Vertical"
+  },
+  {
+    "question": "Which of the following is not a characteristic of a “price-taker”?",
+    "options": [
+      "TR = P X Q",
+      "AR = Price",
+      "Negatively – sloped demand curve",
+      "Marginal Revenue = Price"
+    ],
+    "correctOption": "Negatively – sloped demand curve"
+  },
+  {
+    "question": "In perfect competition, since the firm is a price taker, the __________ curve is a straight line :",
+    "options": [
+      "Marginal cost",
+      "Total cost",
+      "Total revenue",
+      "Marginal revenue"
+    ],
+    "correctOption": "Marginal revenue"
+  },
+  {
+    "question": "Average revenue curve is also known as:",
+    "options": [
+      "Profit curve",
+      "Demand curve",
+      "Supply curve",
+      "Average cost curve"
+    ],
+    "correctOption": "Demand curve"
+  },
+  {
+    "question": "For a price-taking firm :",
+    "options": [
+      "Marginal revenue is less than price.",
+      "Marginal revenue is equal to price.",
+      "Marginal revenue is greater than price.",
+      "The relationship between marginal revenue and price is indeterminate."
+    ],
+    "correctOption": "Marginal revenue is equal to price."
+  },
+  {
+    "question": "Which of the following statements is accurate regarding a perfectly competitive firm?",
+    "options": [
+      "Demand curve is downward sloping",
+      "The demand curve always lies above the marginal revenue curve",
+      "Average revenue need not be equal to price",
+      "Price is given and is determined by the equilibrium in the entire market"
+    ],
+    "correctOption": "Price is given and is determined by the equilibrium in the entire market"
+  },
+  {
+    "question": "What is the shape of perfectly competitive Average Revenue Curve?",
+    "options": [
+      "Parallel to X axis",
+      "Parallel to Y axis",
+      "Fall from left to right",
+      "Rise from left to right"
+    ],
+    "correctOption": "Parallel to X axis"
+  },
+  {
+    "question": "Under which of the following market structure AR of the firm will be equal to MR?",
+    "options": [
+      "Monopoly",
+      "Monopolistic Competition",
+      "Oligopoly",
+      "Perfect Competition"
+    ],
+    "correctOption": "Perfect Competition"
+  },
+  {
+    "question": "Under perfect competition a firm is the __________.",
+    "options": [
+      "price-maker and not price-taker",
+      "price-taker and not price-maker",
+      "neither price-maker nor price-taker",
+      "none of the above"
+    ],
+    "correctOption": "price-taker and not price-maker"
+  },
+  {
+    "question": "Under which Market Situation demand curve is linear and parallel to X axis:",
+    "options": [
+      "Perfect Competition",
+      "Monopoly",
+      "Monopolistic Competition",
+      "Oligopoly"
+    ],
+    "correctOption": "Perfect Competition"
+  },
+  {
+    "question": "Price taker firms __________.",
+    "options": [
+      "Do not advertise their product because it misleads the customers.",
+      "Advertise their products to boost the level of demand.",
+      "Do not advertise but give gifts along with the sold items to attract customers.",
+      "Do not advertise because they can sells as much as they wish at the prevailing price."
+    ],
+    "correctOption": "Do not advertise because they can sells as much as they wish at the prevailing price."
+  },
+  {
+    "question": "Under which of the following market structure AR of the firm will be equal to MR?",
+    "options": [
+      "Monopoly",
+      "Monopolistic Competition",
+      "Oligopoly",
+      "Perfect Competition"
+    ],
+    "correctOption": "Perfect Competition"
+  },
+  {
+    "question": "Perfectly competitive firm faces:",
+    "options": [
+      "Perfectly elastic demand curve",
+      "Perfectly inelastic demand curve",
+      "Zero",
+      "Negative"
+    ],
+    "correctOption": "Perfectly elastic demand curve"
+  },
+  {
+    "question": "Which of the following is not the characteristic of MR?",
+    "options": [
+      "When TR is minimum, the MR is zero",
+      "MR can be negative",
+      "MR slopes downward from left to right",
+      "MR Curve is below AR Curve"
+    ],
+    "correctOption": "MR can be negative"
+  },
+  {
+    "question": "MR Curve in perfect competition is __________.",
+    "options": [
+      "Parallel to X-axis",
+      "Parallel to Y-axis",
+      "Fall from left to right",
+      "Rise from left to right"
+    ],
+    "correctOption": "Parallel to X-axis"
+  },
+  {
+    "question": "In perfect Competition when the firm is a price taker, which curve among the following will be a straight line?",
+    "options": [
+      "Marginal Cost",
+      "Average Cost",
+      "Total Cost",
+      "Marginal Revenue"
+    ],
+    "correctOption": "Marginal Revenue"
+  },
+  {
+    "question": "The firm in a perfectly competitive market is a price taker. This designation as a price taker is based on the assumption that:",
+    "options": [
+      "The firm has some but not complete control over its product price.",
+      "There are so many buyers and sellers in the market that any one buyer or seller cannot affect the market.",
+      "Each firm produces a homogeneous product.",
+      "There is easy entry into or exist from the market place."
+    ],
+    "correctOption": "There are so many buyers and sellers in the market that any one buyer or seller cannot affect the market."
+  },
+  {
+    "question": "Which of the following is incorrect?",
+    "options": [
+      "Even monopolistic can earn losses.",
+      "Firms in perfect competitive market is price taker.",
+      "It is always beneficial for a firm in a perfectly competitive market to discriminative prices.",
+      "Kinked demand curve is related to an oligopolistic market."
+    ],
+    "correctOption": "It is always beneficial for a firm in a perfectly competitive market to discriminative prices."
+  },
+  {
+    "question": "Which perfect completion firm is described as:",
+    "options": [
+      "Price taker and not price maker.",
+      "Price maker and not price taker.",
+      "Neither price maker nor price taker.",
+      "None of the above."
+    ],
+    "correctOption": "Price taker and not price maker."
+  },
+  {
+    "question": "Which of the following Statement is false as regards Perfect Competition?",
+    "options": [
+      "Firm is said to be in equilibrium when it maximizes its profit.",
+      "The output which gives maximum profit to the firm is called equilibrium output.",
+      "In the equilibrium State, the firm has no incentive either to increase or decrease its output.",
+      "Firms in a Competitive market are Price Makers."
+    ],
+    "correctOption": "Firms in a Competitive market are Price Makers."
+  },
+  {
+    "question": "Which is the first order condition for the profit of a firm to be maximum?",
+    "options": [
+      "AC = MR",
+      "MC = MR",
+      "MR = AR",
+      "AC = AR"
+    ],
+    "correctOption": "MC = MR"
+  },
+  {
+    "question": "For maximum profit, the condition is:",
+    "options": [
+      "AR = AC",
+      "MR = MC",
+      "MR = AR",
+      "MC = AR"
+    ],
+    "correctOption": "MR = MC"
+  },
+  {
+    "question": "Condition for producer equilibrium is:",
+    "options": [
+      "TR = TVC",
+      "MC = MR",
+      "TC = TAC",
+      "None of these"
+    ],
+    "correctOption": "MC = MR"
+  },
+  {
+    "question": "In market, the price and output equilibrium is determined on the basis of:",
+    "options": [
+      "Total revenue and total cost",
+      "Total cost and marginal cost",
+      "Marginal revenue and marginal cost",
+      "Only marginal cost"
+    ],
+    "correctOption": "Marginal revenue and marginal cost"
+  },
+  {
+    "question": "In a perfectly competitive market the demand curve of a firm is:",
+    "options": [
+      "Elastic",
+      "Perfectly elastic",
+      "Inelastic",
+      "Perfectly inelastic"
+    ],
+    "correctOption": "Perfectly elastic"
+  },
+  {
+    "question": "The firm will attain equilibrium at a point where MC curve cuts from below __________.",
+    "options": [
+      "AR curve",
+      "MR curve",
+      "AC curve",
+      "AVC curve"
+    ],
+    "correctOption": "MR curve"
+  },
+  {
+    "question": "Which is the first order condition for the firm to maximize the profit __________.",
+    "options": [
+      "AC = MR",
+      "AC = AR",
+      "MC = MR",
+      "MR = AR"
+    ],
+    "correctOption": "MC = MR"
+  },
+  {
+    "question": "Average revenue curve is also known as:",
+    "options": [
+      "Profit Curve",
+      "Demand Curve",
+      "Average Cost Curve",
+      "Indifference Curve"
+    ],
+    "correctOption": "Demand Curve"
+  },
+  {
+    "question": "Condition for equilibrium of firm:",
+    "options": [
+      "MR = MC",
+      "AR = AC",
+      "MC curve cuts MR curve from below",
+      "Both (a) and (c)"
+    ],
+    "correctOption": "Both (a) and (c)"
+  },
+  {
+    "question": "Demand curve is horizontal in the case of __________.",
+    "options": [
+      "Monopoly",
+      "Perfect Competition",
+      "Imperfect Competition",
+      "Monopolistic Competition"
+    ],
+    "correctOption": "Perfect Competition"
+  },
+  {
+    "question": "In the short run, a firm operates with a __________ amount of capital and must choose the level of its __________ so as to __________ profit.",
+    "options": [
+      "Fixed, Variable inputs, maximize",
+      "Variable, fixed inputs, minimize",
+      "Fixed, Fixed inputs, maximize",
+      "Valuable, Variable inputs, minimize"
+    ],
+    "correctOption": "Fixed, Variable inputs, maximize"
+  },
+  {
+    "question": "At the equilibrium position of a firm Under perfect Competition, __________.",
+    "options": [
+      "The Marginal revenue is equal to the marginal Cost.",
+      "The MC Curve cuts MR Curve from below.",
+      "Both (a) & (b)",
+      "Either (a) or (b)"
+    ],
+    "correctOption": "Both (a) & (b)"
+  },
+  {
+    "question": "A purely competitive firm’s supply schedule in the short run is determined by __________.",
+    "options": [
+      "Its average revenue.",
+      "Its marginal revenue.",
+      "Its marginal utility for money curve.",
+      "Its marginal cost curve."
+    ],
+    "correctOption": "Its marginal cost curve."
+  },
+  {
+    "question": "In a perfectly Competitive Indus-try, the MC Curve of a firm depicts.",
+    "options": [
+      "The industry demand Curve",
+      "The Firm’s demand Curve",
+      "The industry’s supply Curve",
+      "The Firm’s supply Curve."
+    ],
+    "correctOption": "The Firm’s supply Curve."
+  },
+  {
+    "question": "As regards short run supply curve of the firm in a Competitive market, for Prices __________ Average Variable Cost, the firm will Supply __________ units because the firm is to __________ meet even its variable Cost.",
+    "options": [
+      "Above, maximum. Unable",
+      "Below, Zero, Unable",
+      "Above, Maximum, able",
+      "Below, Zero, able"
+    ],
+    "correctOption": "Below, Zero, Unable"
+  },
+  {
+    "question": "When the average revenues are more than its average total Cost, the Firm is said to have earned:",
+    "options": [
+      "Normal Profits",
+      "Super Normal Profits",
+      "Exceptional Profits",
+      "Expected Profits."
+    ],
+    "correctOption": "Super Normal Profits"
+  },
+  {
+    "question": "The total Cost of production is ₹ 40,000 (1,000 units). If the firm is selling the product at ₹ 45 per unit, it is earning .",
+    "options": [
+      "Normal Profits @ ₹ 5 Per Unit",
+      "Normal Profits @ ₹ 45 Per Unit",
+      "Super normal profits @ ₹ 5 Per Unit",
+      "Super Normal profits @ ₹ 45 Per Unit"
+    ],
+    "correctOption": "Super normal profits @ ₹ 5 Per Unit"
+  },
+  {
+    "question": "When AR = ₹ 10 and AC = ₹ 8 the firm makes __________:",
+    "options": [
+      "Normal profit",
+      "Net profit",
+      "Gross profit",
+      "Super normal profit"
+    ],
+    "correctOption": "Super normal profit"
+  },
+  {
+    "question": "In a perfectly competitive market, if MR is greater than MC, then a firm should __________.",
+    "options": [
+      "Increase its production",
+      "Decrease its production",
+      "Decrease its sales",
+      "Increase its sales"
+    ],
+    "correctOption": "Increase its production"
+  },
+  {
+    "question": "In a perfectly competitive market, if MR is greater than MC, then a firm should:",
+    "options": [
+      "Increase its production",
+      "Decease its production",
+      "Decrease its sales",
+      "Increase its sales"
+    ],
+    "correctOption": "Increase its production"
+  },
+  {
+    "question": "If a perfectly competitive firms earns super normal profits then __________.",
+    "options": [
+      "AR > MR",
+      "AR < MR",
+      "AR = MR",
+      "None of the above"
+    ],
+    "correctOption": "AR = MR"
+  },
+  {
+    "question": "When __________, we know that the firms are earning just normal profits.",
+    "options": [
+      "AC = AR",
+      "MC = MR",
+      "MC = AC",
+      "AR = MR"
+    ],
+    "correctOption": "AC = AR"
+  },
+  {
+    "question": "When __________, we know that the firms must be producing at the minimum point of the average cost curve and so there will be productive efficiency.",
+    "options": [
+      "AC = AR",
+      "MC = AC",
+      "MC = MR",
+      "AR = MR"
+    ],
+    "correctOption": "MC = AC"
+  },
+  {
+    "question": "A firm encounters its “shutdown point” when:",
+    "options": [
+      "Average total cost equals price at the profit-maximizing level of output.",
+      "Average variable cost equals price at the profit-maximizing level of output.",
+      "Average fixed cost equals price at the profit-maximizing level of output.",
+      "Marginal cost equals price at the profit-maximizing level of output."
+    ],
+    "correctOption": "Average variable cost equals price at the profit-maximizing level of output."
+  },
+  {
+    "question": "When __________, there will be a locative efficiency meaning thereby that the cost of the last unit is exactly equal to the price consumers are willing to pay for it and so that the right goods are being sold to the right people at the right price.",
+    "options": [
+      "MC = MR",
+      "MC = AC",
+      "MC = AR",
+      "AR = MR"
+    ],
+    "correctOption": "MC = AR"
+  },
+  {
+    "question": "A firm will close down in the short period, if its AR is less than:",
+    "options": [
+      "AC",
+      "AVC",
+      "MC",
+      "None of the above"
+    ],
+    "correctOption": "AVC"
+  },
+  {
+    "question": "A competitive firm in the short run incur losses. The firm continues production, if:",
+    "options": [
+      "P > AVC",
+      "P = AVC",
+      "P < AVC",
+      "P > = AVC"
+    ],
+    "correctOption": "P > = AVC"
+  },
+  {
+    "question": "If under perfect competition, the price line lies below the average cost curve, the firm would:",
+    "options": [
+      "Make only Normal profits",
+      "Incur losses",
+      "Make abnormal profit",
+      "Profit cannot be determined"
+    ],
+    "correctOption": "Make abnormal profit"
+  },
+  {
+    "question": "If under perfect competition, the price line lies below the average cost curve, the firm would:",
+    "options": [
+      "Make only Normal profits",
+      "Incur losses",
+      "Make abnormal profit",
+      "Profit cannot be determined"
+    ],
+    "correctOption": "Make abnormal profit"
+  },
+  {
+    "question": "A firm will shut down in the short run if :",
+    "options": [
+      "It is suffering a loss",
+      "Fixed costs exceeds revenue",
+      "Variable costs exceed revenues",
+      "Total costs exceed revenues"
+    ],
+    "correctOption": "Variable costs exceed revenues"
+  },
+  {
+    "question": "A firm encounters “shut down” point when __________.",
+    "options": [
+      "Marginal cost equals the price of the profit maximizing level of output.",
+      "Average fixed cost equals the price at the profit maximizing level of output.",
+      "Average variable cost equals the price at the profit maximizing level of output.",
+      "Average total cost equals the price at the profit maximizing level of output."
+    ],
+    "correctOption": "Average variable cost equals the price at the profit maximizing level of output."
+  },
+  {
+    "question": "In a competitive market, if price exceeds Average Variable Cost (AVC) but remains less than Average Cost (AC) at the equilibrium, the firm is:",
+    "options": [
+      "Making a profit",
+      "Planning to quit",
+      "Experiencing loss but should continue production",
+      "Experiencing loss but should discontinue production"
+    ],
+    "correctOption": "Experiencing loss but should continue production"
+  },
+  {
+    "question": "A competitive firm in the short rum insure losses. The firm continues production, if:",
+    "options": [
+      "P > AVC",
+      "P = AVC",
+      "P < AVC",
+      "P AVC"
+    ],
+    "correctOption": "P AVC"
+  },
+  {
+    "question": "In perfect Competition, if a firm is unable to meet its average variable Cost, it will be better for it to shut-down. This shut-down __________.",
+    "options": [
+      "Is permanent",
+      "Is temporary",
+      "May be temporary as the firm resumes production when the market price rises.",
+      "None of the above"
+    ],
+    "correctOption": "May be temporary as the firm resumes production when the market price rises."
+  },
+  {
+    "question": "The Firm can be in an equilibrium position and still makes losses. This is the situation where __________.",
+    "options": [
+      "AR = AC",
+      "AR > AC",
+      "AR < AC",
+      "Either (b) or (c)"
+    ],
+    "correctOption": "AR < AC"
+  },
+  {
+    "question": "Under perfect competition, in the long run, there will be no __________.",
+    "options": [
+      "Normal profits.",
+      "Super normal profits.",
+      "Production.",
+      "Costs."
+    ],
+    "correctOption": "Super normal profits."
+  },
+  {
+    "question": "In the long-run equilibrium of a competitive market, firms operate at:",
+    "options": [
+      "the intersection of the marginal cost and marginal revenue",
+      "their efficient scale",
+      "zero economic profit",
+      "all of these answers are correct"
+    ],
+    "correctOption": "all of these answers are correct"
+  },
+  {
+    "question": "Under market condition, firms make normal profits in the long run:",
+    "options": [
+      "Perfect competition",
+      "Monopoly",
+      "Oligopoly",
+      "None"
+    ],
+    "correctOption": "Perfect competition"
+  },
+  {
+    "question": "What are the conditions for the long run equilibrium of the competitive firm?",
+    "options": [
+      "LMC = LAC = P",
+      "SMC = SAC = LMC",
+      "R = MR",
+      "All of these"
+    ],
+    "correctOption": "All of these"
+  },
+  {
+    "question": "In the long run, which of the fol-lowing statement is true for a firm in a perfectly competitive industry?",
+    "options": [
+      "It operates at its minimum aver-age cost",
+      "The price is more than the aver-age fixed cost",
+      "The marginal cost is greatest than marginal revenue",
+      "The fixed cost is lower than the total variable cost"
+    ],
+    "correctOption": "It operates at its minimum aver-age cost"
+  },
+  {
+    "question": "“I am making a loss, but with the rent I have to pay, I can’t afford to shut down at this point of time.” If this entrepreneur is attempting to maximize profits or minimize losses.",
+    "options": [
+      "Rational, if the firm is covering its variable cost.",
+      "Rational, if the firm is covering its fixed cost.",
+      "Irrational, since plant closing is necessary to eliminate losses.",
+      "Irrational, since fixed costs are eliminated if a firm shut down."
+    ],
+    "correctOption": "Rational, if the firm is covering its variable cost."
+  },
+  {
+    "question": "In long run equilibrium undue perfect completion is/are satisfied by which condition.",
+    "options": [
+      "MC = MR",
+      "AC = AR",
+      "CMC = LAC = P",
+      "All of the above."
+    ],
+    "correctOption": "All of the above."
+  },
+  {
+    "question": "In Long run perfect competitive market incurs:",
+    "options": [
+      "Normal profit",
+      "Super normal profit",
+      "Losses",
+      "Constant Returns"
+    ],
+    "correctOption": "Normal profit"
+  },
+  {
+    "question": "A long run Competitive equilibrium of a perfectly competitive industry occurs when:",
+    "options": [
+      "All Firms in the industry are in equilibrium.",
+      "No Firm has an incentive either to enter or exit the industry.",
+      "The price of the product is such that the quantity supplied by the industry is equal to the quantity demanded by Consumers.",
+      "All above three conditions hold true."
+    ],
+    "correctOption": "All above three conditions hold true."
+  },
+  {
+    "question": "In the long run, under perfect competition, there will be optimum allocation of resources and __________.",
+    "options": [
+      "LAR = LMR",
+      "LAR = LMR = P",
+      "LAR = LMR = P = LMC",
+      "LAR = LMR = P = LMC = LAC"
+    ],
+    "correctOption": "LAR = LMR = P = LMC = LAC"
+  },
+  {
+    "question": "Monopoly may arise in a product market because __________.",
+    "options": [
+      "A significantly important re-source for the production of the commodity is owned by a single firm.",
+      "The government has given the firm patent right to produce the commodity.",
+      "The costs of production and economies of scale makes production by a single producer more efficient.",
+      "All the above."
+    ],
+    "correctOption": "All the above."
+  },
+  {
+    "question": "Monopolist can determine :",
+    "options": [
+      "Price",
+      "Output",
+      "Either price or output",
+      "None"
+    ],
+    "correctOption": "Either price or output"
+  },
+  {
+    "question": "Under which of the following forms of market structure does a firm has a very considerable control over the price of its product?",
+    "options": [
+      "Monopoly",
+      "Monopolistic Competition",
+      "Oligopoly",
+      "Perfect Competition"
+    ],
+    "correctOption": "Monopoly"
+  },
+  {
+    "question": "The distinction between a single firm and an Industry vanishes in which of the following market conditions?",
+    "options": [
+      "Perfect Competition",
+      "Imperfect Competition",
+      "Pure Competition",
+      "Monopoly"
+    ],
+    "correctOption": "Monopoly"
+  },
+  {
+    "question": "Which of the following is the distinguishing characteristic of oligopolies?",
+    "options": [
+      "A standardized product",
+      "The goal of profit maximization",
+      "The interdependence among firms",
+      "Downward-sloping demand curves faced by firms."
+    ],
+    "correctOption": "The interdependence among firms"
+  },
+  {
+    "question": "In a monopoly market, a producer has control only over:",
+    "options": [
+      "Price of the commodity",
+      "Demand of the commodity",
+      "Both (a) and (b)",
+      "Utility of the product"
+    ],
+    "correctOption": "Price of the commodity"
+  },
+  {
+    "question": "Which is not characteristic of monopoly?",
+    "options": [
+      "The firm is price-taker",
+      "There is a single firm",
+      "The firm produces a unique product",
+      "The existence of some advertising."
+    ],
+    "correctOption": "The firm is price-taker"
+  },
+  {
+    "question": "Monopoly is undesirable due to:",
+    "options": [
+      "It has prices higher than competitive firms",
+      "It produces less output than competitive firms",
+      "It discriminates on prices",
+      "All of the above."
+    ],
+    "correctOption": "All of the above."
+  },
+  {
+    "question": "A Monopolist is a __________.",
+    "options": [
+      "price-maker",
+      "price-taker",
+      "price-adjuster",
+      "none of the above"
+    ],
+    "correctOption": "price-maker"
+  },
+  {
+    "question": "Under monopoly, the degree of control over price is:",
+    "options": [
+      "None",
+      "Some",
+      "Very considerable",
+      "None of the above"
+    ],
+    "correctOption": "Very considerable"
+  },
+  {
+    "question": "The demand curve of the firm and industry will be same in which form of market:",
+    "options": [
+      "Monopolistic competition",
+      "Perfect competition",
+      "Monopoly",
+      "Oligopoly"
+    ],
+    "correctOption": "Monopoly"
+  },
+  {
+    "question": "Market form in which there is only one buyer and one seller is:",
+    "options": [
+      "Oligopoly",
+      "Duopoly",
+      "Bilateral Monopoly",
+      "Monopsony"
+    ],
+    "correctOption": "Bilateral Monopoly"
+  },
+  {
+    "question": "Which market is having a single seller and single Buyer?",
+    "options": [
+      "Duopoly",
+      "Monopsony",
+      "Bilateral Monopoly",
+      "None of the above"
+    ],
+    "correctOption": "Bilateral Monopoly"
+  },
+  {
+    "question": "Monopoly is a situation in which __________.",
+    "options": [
+      "There is a Single Seller of a product",
+      "The Product has no close Substitute",
+      "Both (a) & (b)",
+      "Neither (a) or (b)"
+    ],
+    "correctOption": "Both (a) & (b)"
+  },
+  {
+    "question": "In a Monopolistic market, there are __________ barriers to entry.",
+    "options": [
+      "No",
+      "Negligible",
+      "Light",
+      "Strong"
+    ],
+    "correctOption": "Strong"
+  },
+  {
+    "question": "Which is the characteristic feature of monopoly?",
+    "options": [
+      "Homogenous goods",
+      "Strong barriers to entry",
+      "Perfect competition",
+      "Perfectly elastic demand curve"
+    ],
+    "correctOption": "Strong barriers to entry"
+  },
+  {
+    "question": "Discriminating monopoly implies that the monopolist charges different prices for his commodity:",
+    "options": [
+      "From different groups of consumers",
+      "For different uses",
+      "At different places",
+      "Any of the above."
+    ],
+    "correctOption": "Any of the above."
+  },
+  {
+    "question": "In which form of the market structure is the degree of control over the price of its product by a firm very large?",
+    "options": [
+      "Monopoly",
+      "Imperfect Competition",
+      "Oligopoly",
+      "Perfect competition"
+    ],
+    "correctOption": "Monopoly"
+  },
+  {
+    "question": "Suppose that the demand curve for the XYZ Co. slopes downward and to the right. We can conclude that __________.",
+    "options": [
+      "The firm operates in a perfectly competitive market.",
+      "The firm can sell all that it wants to at the established market price.",
+      "The XYZ Co. is not a price-taker in the market because it must lower price to sell additional units of output.",
+      "The XYZ Co. will not be able to maximize profits because price and revenue are subject to change."
+    ],
+    "correctOption": "The XYZ Co. is not a price-taker in the market because it must lower price to sell additional units of output."
+  },
+  {
+    "question": "The demand curve of a monopoly firm will be __________.",
+    "options": [
+      "Upward sloping",
+      "Downward sloping",
+      "Horizontal",
+      "Vertical"
+    ],
+    "correctOption": "Downward sloping"
+  },
+  {
+    "question": "What is the shape of monopolist Average Revenue Curve?",
+    "options": [
+      "Falls from left to right",
+      "Is parallel to X – axis",
+      "Is parallel to Y – axis",
+      "Rise from left to right"
+    ],
+    "correctOption": "Falls from left to right"
+  },
+  {
+    "question": "The MR curve cuts the horizontal line between Y axis and demand curve into:",
+    "options": [
+      "Two unequal parts",
+      "Two equal parts",
+      "May be equal or unequal parts",
+      "None of these"
+    ],
+    "correctOption": "Two equal parts"
+  },
+  {
+    "question": "When elasticity of demand is Equal to one in monopoly, marginal Revenue will be __________.",
+    "options": [
+      "Equal to one.",
+      "Greater than one.",
+      "Less than one.",
+      "Zero."
+    ],
+    "correctOption": "Zero."
+  },
+  {
+    "question": "If a firm under monopoly wants to sell more, its average revenue curve will be a __________ line.",
+    "options": [
+      "Horizontal",
+      "Vertical",
+      "Downward sloping",
+      "Upward sloping"
+    ],
+    "correctOption": "Downward sloping"
+  },
+  {
+    "question": "Marginal Revenue is equal to:",
+    "options": [
+      "The change in price divided by the change in output.",
+      "The change in quantity divided by the change in price.",
+      "The change in P X Q due to a one unit change in output.",
+      "Price, but only if the firm is a price searcher."
+    ],
+    "correctOption": "The change in P X Q due to a one unit change in output."
+  },
+  {
+    "question": "When price is less than average variable cost at the profit-maximizing level of output, a firm should:",
+    "options": [
+      "Produce where marginal revenue equals marginal cost if it is operating in the short run.",
+      "Produce where marginal revenue equals marginal cost if it is operating is the long run.",
+      "Shutdown, since it will lose nothing in that case.",
+      "Shutdown, since it cannot even cover its variable costs if it stays in business."
+    ],
+    "correctOption": "Shutdown, since it cannot even cover its variable costs if it stays in business."
+  },
+  {
+    "question": "At price PI, the firm in the figure would produce __________.",
+    "options": [
+      "Zero output",
+      "Q3",
+      "Q5",
+      "Q6"
+    ],
+    "correctOption": "Zero output"
+  },
+  {
+    "question": "Profits of the firm will be more at:",
+    "options": [
+      "MR = MC",
+      "Additional revenue from extra unit equals its additional cost",
+      "Both of above",
+      "None"
+    ],
+    "correctOption": "Both of above"
+  },
+  {
+    "question": "Which of the following is true, when the firm is at equilibrium?",
+    "options": [
+      "MC < MR",
+      "MC curve cuts the MR curve from below",
+      "Both (a) and (b)",
+      "None of the above"
+    ],
+    "correctOption": "MC curve cuts the MR curve from below"
+  },
+  {
+    "question": "A monopolist is able to maximize his profits when:",
+    "options": [
+      "His output is maximum",
+      "He charges a high price",
+      "His average cost is minimum",
+      "His marginal cost is equal to marginal revenue"
+    ],
+    "correctOption": "His marginal cost is equal to marginal revenue"
+  },
+  {
+    "question": "For a monopolist, the necessary condition for equilibrium is:",
+    "options": [
+      "P = MC",
+      "P = MR = AR",
+      "MR = MC",
+      "None"
+    ],
+    "correctOption": "MR = MC"
+  },
+  {
+    "question": "A monopolist can fix:",
+    "options": [
+      "Both price and output",
+      "Either price or output",
+      "Neither price nor output",
+      "None of the above"
+    ],
+    "correctOption": "Both price and output"
+  },
+  {
+    "question": "Under monopoly, which of the following is correct:",
+    "options": [
+      "AR and MR both are downward sloping",
+      "MR lies halfway between AR and Y-axis",
+      "MR can be zero or even negative",
+      "All of the above"
+    ],
+    "correctOption": "All of the above"
+  },
+  {
+    "question": "Supernormal profits occur, when:",
+    "options": [
+      "Total revenue is equal to total cost",
+      "Total revenue is equal to variable cost",
+      "Average revenue is more than average cost",
+      "Average revenue is equal to average cost"
+    ],
+    "correctOption": "Total revenue is equal to variable cost"
+  },
+  {
+    "question": "A monopolist has to determine __________.",
+    "options": [
+      "His output",
+      "The Price of his Product",
+      "Total market demand",
+      "Both (a) & (b)"
+    ],
+    "correctOption": "Both (a) & (b)"
+  },
+  {
+    "question": "A Monopolist faces __________ sloping demand Curve.",
+    "options": [
+      "Upward",
+      "Downward",
+      "Horizontal to X-axis",
+      "Horizontal to Y-axis"
+    ],
+    "correctOption": "Downward"
+  },
+  {
+    "question": "In case of Monopoly, the firm and industry are __________.",
+    "options": [
+      "Different",
+      "Identical",
+      "Similar",
+      "Opposite to each other"
+    ],
+    "correctOption": "Identical"
+  },
+  {
+    "question": "Suppose that, at the profit-maximizing level of output, a firm finds that market price is less than average total cost, but greater than average variable cost. Which of the following statements is correct?",
+    "options": [
+      "The firm should shutdown in order to minimize its losses.",
+      "The firm should raise its price enough to cover its losses.",
+      "The firm should move its resources to another industry.",
+      "The firm should continue to operate in the short run in order to minimize its losses."
+    ],
+    "correctOption": "The firm should continue to operate in the short run in order to minimize its losses."
+  },
+  {
+    "question": "If the average cost is higher than the average revenue then the firm incurs __________.",
+    "options": [
+      "Normal profit",
+      "Abnormal profit",
+      "Loss",
+      "No profit, no loss"
+    ],
+    "correctOption": "Loss"
+  },
+  {
+    "question": "Price discrimination will be profitable only if the elasticity of demand in different sub-markets is:",
+    "options": [
+      "Uniform",
+      "Different",
+      "Less",
+      "Zero"
+    ],
+    "correctOption": "Different"
+  },
+  {
+    "question": "Price discrimination is one of the features of __________.",
+    "options": [
+      "monopolistic competition",
+      "Monopoly",
+      "perfect competition",
+      "Oligopoly"
+    ],
+    "correctOption": "Monopoly"
+  },
+  {
+    "question": "When the monopolist divides the consumers into separate sub markets and charges different prices in different sub-markets it is known as:",
+    "options": [
+      "First degree of price discrimination.",
+      "Second degree of price discrimination.",
+      "Third degree of price discrimination.",
+      "None of the above."
+    ],
+    "correctOption": "Third degree of price discrimination."
+  },
+  {
+    "question": "Under __________ the monopolist will fix a price which will take away the entire consumers’ surplus.",
+    "options": [
+      "Second degree of price discrimination.",
+      "First degree of price discrimination.",
+      "Third degree of price discrimination.",
+      "None of the above."
+    ],
+    "correctOption": "First degree of price discrimination."
+  },
+  {
+    "question": "Price discrimination is related to __________",
+    "options": [
+      "Time",
+      "Size of the purchase",
+      "Income",
+      "Any of the above"
+    ],
+    "correctOption": "Any of the above"
+  },
+  {
+    "question": "Under monopoly price discrimination depends upon :",
+    "options": [
+      "Elasticity of demand for com-modity",
+      "Elasticity of supply for commodity",
+      "Size of market",
+      "All of the above"
+    ],
+    "correctOption": "Elasticity of demand for com-modity"
+  },
+  {
+    "question": "Which one of the following statement is Incorrect?",
+    "options": [
+      "Competitive firms are price takers and not price makers.",
+      "Price discrimination is possible in monopoly only.",
+      "Duopoly may lead to monopoly.",
+      "Competitive firm always seeks to discriminate prices."
+    ],
+    "correctOption": "Competitive firm always seeks to discriminate prices."
+  },
+  {
+    "question": "For a discriminating monopolist the condition for equilibrium is:",
+    "options": [
+      "MR > MC",
+      "MR1 = MR2",
+      "MRa = MRb =MC",
+      "All of the above"
+    ],
+    "correctOption": "MRa = MRb =MC"
+  },
+  {
+    "question": "Price discrimination can take place only in __________.",
+    "options": [
+      "Monopolistic competition",
+      "Oligopoly",
+      "Perfect competition",
+      "Monopoly"
+    ],
+    "correctOption": "Monopolistic competition"
+  },
+  {
+    "question": "Price Discrimination is possible only when.",
+    "options": [
+      "Seller is alone.",
+      "Goods are homogeneous.",
+      "Market is controlled by the government.",
+      "None of the above."
+    ],
+    "correctOption": "None of the above."
+  },
+  {
+    "question": "For price discrimination to be successful, the elasticity of demand for the commodity in the two markets should be:",
+    "options": [
+      "Same",
+      "Different",
+      "Constant",
+      "Zero"
+    ],
+    "correctOption": "Different"
+  },
+  {
+    "question": "Price discrimination will be profitable only if the elasticity of demand in different markets is __________.",
+    "options": [
+      "Uniform",
+      "Different",
+      "Less",
+      "Zero"
+    ],
+    "correctOption": "Different"
+  },
+  {
+    "question": "A discriminating monopolist to reach equilibrium position, his decision on total output depends upon.",
+    "options": [
+      "How much total output should be produce?",
+      "How the total output should be distributed between the two sub-market?",
+      "Both (a) and (b)",
+      "None"
+    ],
+    "correctOption": "Both (a) and (b)"
+  },
+  {
+    "question": "Price discrimination is possible only in __________.",
+    "options": [
+      "Monopoly",
+      "Perfect Competition",
+      "Oligopoly",
+      "Monopolistic Competition"
+    ],
+    "correctOption": "Monopoly"
+  },
+  {
+    "question": "Price discrimination will not be profitable, if the elasticity of demand is __________ in different markets.",
+    "options": [
+      "Uniform",
+      "Different",
+      "Less",
+      "Zero"
+    ],
+    "correctOption": "Uniform"
+  },
+  {
+    "question": "The price discrimination under monopoly will be possible under which of the following conditions?",
+    "options": [
+      "The seller has no control over the supply of his product.",
+      "The market has the same condition all over.",
+      "The price elasticity of demand is different in different markets.",
+      "The price elasticity of demand is uniform."
+    ],
+    "correctOption": "The price elasticity of demand is different in different markets."
+  },
+  {
+    "question": "Monopolist can fix him price of goods whose elasticity is __________.",
+    "options": [
+      "Less than 1",
+      "More than 1",
+      "Elastic",
+      "Inelastic."
+    ],
+    "correctOption": "Less than 1"
+  },
+  {
+    "question": "“Price Discrimination” can be best exercised by the Seller in __________.",
+    "options": [
+      "Oligopoly",
+      "Monopoly",
+      "Monopolistic competition",
+      "Perfect competition"
+    ],
+    "correctOption": "Monopoly"
+  },
+  {
+    "question": "A discriminating monopolist will charge a higher price in the market in which the demand for its product is __________.",
+    "options": [
+      "Highly elastic",
+      "Relatively elastic",
+      "Relatively inelastic",
+      "Perfectly elastic"
+    ],
+    "correctOption": "Relatively inelastic"
+  },
+  {
+    "question": "Price discrimination is profitable only when:",
+    "options": [
+      "Different markets are kept sepa-rate.",
+      "Distance between the consumer and the market is more.",
+      "Elasticity of demand in different markets is different.",
+      "The consumers are segregated on the basis of their purpose of use of the commodity."
+    ],
+    "correctOption": "Elasticity of demand in different markets is different."
+  },
+  {
+    "question": "Which amongst the following is not an objective of price discrimination?",
+    "options": [
+      "To hold the extra stocks.",
+      "To earn maximum profits.",
+      "To enjoy economies of scale.",
+      "To secure equity through pricing."
+    ],
+    "correctOption": "To hold the extra stocks."
+  },
+  {
+    "question": "In the long run monopolist __________.",
+    "options": [
+      "Incur losses",
+      "Must earn super normal profits",
+      "Wants to shut down",
+      "Earns only normal profits."
+    ],
+    "correctOption": "Must earn super normal profits"
+  },
+  {
+    "question": "Competitive firms in the long- run earn:",
+    "options": [
+      "Super normal profit",
+      "Normal profit",
+      "Losses",
+      "None"
+    ],
+    "correctOption": "Normal profit"
+  },
+  {
+    "question": "In the long-run monopolist can:",
+    "options": [
+      "Incur losses",
+      "Must earn super normal profits",
+      "Wants to shut-down",
+      "Earns only normal profits"
+    ],
+    "correctOption": "Must earn super normal profits"
+  },
+  {
+    "question": "In the long run a monopolist always earns __________.",
+    "options": [
+      "Normal profit",
+      "Abnormal profit",
+      "Zero profit",
+      "Loss"
+    ],
+    "correctOption": "Abnormal profit"
+  },
+  {
+    "question": "Abnormal profits exist in the long run only under __________.",
+    "options": [
+      "Perfect competition",
+      "Monopoly",
+      "Monopolistic competition",
+      "Oligopoly"
+    ],
+    "correctOption": "Monopoly"
+  },
+  {
+    "question": "The Electricity Companies Sell electricity at a cheaper rate for home Consumption in rural areas than for industrial use. It is example of:",
+    "options": [
+      "Price-discrimination",
+      "Price – Adjustment",
+      "Price – Variability",
+      "Price-biased attitude."
+    ],
+    "correctOption": "Price-discrimination"
+  },
+  {
+    "question": "Which of the following is not a characteristic of a perfectly competitive market?",
+    "options": [
+      "Large number of firms in the industry.",
+      "Outputs of the firms are perfect substitutes for one another.",
+      "Firms face downward-sloping demand curves.",
+      "Resources are very mobile."
+    ],
+    "correctOption": "Firms face downward-sloping demand curves."
+  },
+  {
+    "question": "Firms in a monopolistic market are price __________:",
+    "options": [
+      "Takers",
+      "Givers",
+      "Makers",
+      "Acceptors"
+    ],
+    "correctOption": "Makers"
+  },
+  {
+    "question": "Under Monopolistic competition the cross elasticity of demand for the product of a single firm would be:",
+    "options": [
+      "Infinite",
+      "Highly elastic",
+      "Highly inelastic",
+      "Zero"
+    ],
+    "correctOption": "Infinite"
+  },
+  {
+    "question": "Which of the following is not a characteristic of monopolistic competition?",
+    "options": [
+      "Ease of entry into the industry.",
+      "Product differentiation.",
+      "A relatively large number of sellers.",
+      "A homogeneous product."
+    ],
+    "correctOption": "A homogeneous product."
+  },
+  {
+    "question": "Monopolistic competition differs from perfect competition primarily because __________.",
+    "options": [
+      "In monopolistic competition, firms can differentiate their products.",
+      "In perfect competition, firms can differentiate their products.",
+      "In monopolistic competition, entry into the industry is blocked.",
+      "In monopolistic competition, there are relatively few barriers to entry."
+    ],
+    "correctOption": "In monopolistic competition, firms can differentiate their products."
+  },
+  {
+    "question": "Which market have characteristic of product differentiation?",
+    "options": [
+      "Perfect Competition",
+      "Monopoly",
+      "Monopolistic Competition",
+      "Oligopoly"
+    ],
+    "correctOption": "Monopolistic Competition"
+  },
+  {
+    "question": "Which of the following is not the feature of an imperfect competition?",
+    "options": [
+      "Product differentiation.",
+      "Few sellers.",
+      "Homogeneous products.",
+      "Price wars."
+    ],
+    "correctOption": "Homogeneous products."
+  },
+  {
+    "question": "Tooth paste industry is an example of __________.",
+    "options": [
+      "Monopoly",
+      "Monopolistic competition",
+      "Oligopoly",
+      "Perfect competition"
+    ],
+    "correctOption": "Monopolistic competition"
+  },
+  {
+    "question": "The structure of the toothpaste industry in India is best described as __________.",
+    "options": [
+      "Perfectly competitive.",
+      "Monopolistic.",
+      "Monopolistically competitive.",
+      "Oligopolistic."
+    ],
+    "correctOption": "Monopolistically competitive."
+  },
+  {
+    "question": "A market structure in which many firms sell products that are similar but not identical is known as:",
+    "options": [
+      "Monopolistic competition",
+      "Monopoly",
+      "Perfect competition",
+      "Oligopoly"
+    ],
+    "correctOption": "Monopolistic competition"
+  },
+  {
+    "question": "Non-price competition is very popular in:",
+    "options": [
+      "Monopoly market",
+      "Monopolistic competition",
+      "Oligopolistic market",
+      "Perfect competition"
+    ],
+    "correctOption": "Monopolistic competition"
+  },
+  {
+    "question": "Selling outlay is an essential part of which of the following market situations?",
+    "options": [
+      "Perfect Competition",
+      "Monopoly",
+      "Monopolistic Competition",
+      "Pure Competition"
+    ],
+    "correctOption": "Monopolistic Competition"
+  },
+  {
+    "question": "Which of the following is not a characteristic of a monopolistically competitive market?",
+    "options": [
+      "Free entry and exit",
+      "Abnormal profits in the long run",
+      "Many sellers",
+      "Differentiated products"
+    ],
+    "correctOption": "Abnormal profits in the long run"
+  },
+  {
+    "question": "Which of the following statements is correct?",
+    "options": [
+      "Price rigidity is an important feature of monopoly.",
+      "Selling costs are possible under perfect competition.",
+      "Under perfect competition factors of production do not move freely as there are legal restrictions.",
+      "An industry consists of many firms."
+    ],
+    "correctOption": "An industry consists of many firms."
+  },
+  {
+    "question": "Which market has the concept of ‘group’ equilibrium in the long-run __________.",
+    "options": [
+      "Oligopoly",
+      "Monopoly",
+      "Monopolistic competition",
+      "Perfect competition."
+    ],
+    "correctOption": "Monopolistic competition"
+  },
+  {
+    "question": "In monopolistic competition excess capacity in the firm __________.",
+    "options": [
+      "Always exists",
+      "Sometimes exists",
+      "Never exists",
+      "None of the above"
+    ],
+    "correctOption": "Always exists"
+  },
+  {
+    "question": "Which market has the concept of ‘group’ equilibrium in the long-run __________.",
+    "options": [
+      "Oligopoly",
+      "Monopoly",
+      "Monopolistic competition",
+      "Perfect competition."
+    ],
+    "correctOption": "Monopolistic competition"
+  },
+  {
+    "question": "Product differentiation is the main features of which market?",
+    "options": [
+      "Oligopoly",
+      "Monopolistic",
+      "Discriminating Monopoly",
+      "Perfect completion"
+    ],
+    "correctOption": "Monopolistic"
+  },
+  {
+    "question": "What is the characteristic of monopolistic Competition?",
+    "options": [
+      "Price elasticity is low for the product concerned",
+      "Large number of sellers",
+      "No degree of control over price",
+      "One buyer"
+    ],
+    "correctOption": "Large number of sellers"
+  },
+  {
+    "question": "Monopolistic Competitive firms __________.",
+    "options": [
+      "Are small in size",
+      "Have small share in total market",
+      "Are very large in size",
+      "Both (A) and (B)"
+    ],
+    "correctOption": "Both (A) and (B)"
+  },
+  {
+    "question": "The long-run equilibrium outcomes in monopolistic competition and perfect competition are similar, because in both market structures __________",
+    "options": [
+      "The efficient output level will be produced in the long run.",
+      "Firms will be producing at mini-mum average cost.",
+      "Firms will only earn a normal profit.",
+      "Firms realise all economies of scale."
+    ],
+    "correctOption": "Firms will only earn a normal profit."
+  },
+  {
+    "question": "Which of the following statements is incorrect?",
+    "options": [
+      "Even a monopolistic firm can have losses.",
+      "Firms in a perfectly competitive market are price takers.",
+      "It is always beneficial for a firm in a perfectly competitive market to discriminate prices.",
+      "Kinked demand curve is related to an oligopolistic market."
+    ],
+    "correctOption": "It is always beneficial for a firm in a perfectly competitive market to discriminate prices."
+  },
+  {
+    "question": "Which of the following statements is incorrect?",
+    "options": [
+      "Under monopoly there is no difference between a firm and an industry.",
+      "A monopolist may restrict the output and raise the price.",
+      "Commodities offered for sale under a perfect competition will be heterogeneous.",
+      "Product differentiation is peculiar to monopolistic competition."
+    ],
+    "correctOption": "Commodities offered for sale under a perfect competition will be heterogeneous."
+  },
+  {
+    "question": "Under which market Condition firms make only normal profits in the long run?",
+    "options": [
+      "Oligopoly",
+      "Monopoly",
+      "Monopolistic competition",
+      "Duopoly"
+    ],
+    "correctOption": "Monopolistic competition"
+  },
+  {
+    "question": "Comparing a Monopoly and Competitive firm the Monopolist will:",
+    "options": [
+      "Produce less and sell at a lower price.",
+      "Produce more and sell at a lower price.",
+      "Produce less and sell at a higher price.",
+      "Produce zero and sell at a lower price."
+    ],
+    "correctOption": "Produce less and sell at a higher price."
+  },
+  {
+    "question": "There is absolutely no consumer exploitation in case of __________.",
+    "options": [
+      "Perfect Competition",
+      "Monopoly",
+      "Monopolistic Competitions",
+      "All of the above"
+    ],
+    "correctOption": "Perfect Competition"
+  },
+  {
+    "question": "There is efficient allocation of resources in case of __________.",
+    "options": [
+      "Perfect Competition",
+      "Monopoly",
+      "Monopolistic Competition",
+      "All of the above"
+    ],
+    "correctOption": "Perfect Competition"
+  },
+  {
+    "question": "In which of the following type of competition, supernormal profits can be earned both in short run and long run?",
+    "options": [
+      "Perfect Competition",
+      "Monopoly",
+      "Monopolistic Competition",
+      "All of the above"
+    ],
+    "correctOption": "Monopoly"
+  },
+  {
+    "question": "Oligopolistic industries are char-acterized by :",
+    "options": [
+      "A few dominant firms and sub-stantial barriers to entry.",
+      "A few large firms and no entry barriers.",
+      "A large number of small firms and no entry barriers.",
+      "One dominant firm and low entry barriers."
+    ],
+    "correctOption": "A few dominant firms and sub-stantial barriers to entry."
+  },
+  {
+    "question": "If firms in the toothpaste industry have the following market shares, which market structure would best describe the industry? Market Share (% of market) Toothpaste 18.7 Dentipaste 14.3 Shinibright 11.6 I can’t believe its not toothpaste 9.4 Brighter than white 8.8 Pasty stuff 7.4 Others 29.8",
+    "options": [
+      "Perfect competition.",
+      "Monopolistic competition.",
+      "Oligopoly.",
+      "Monopoly."
+    ],
+    "correctOption": "Oligopoly."
+  },
+  {
+    "question": "Market which have two firms are known as :",
+    "options": [
+      "Oligopoly",
+      "Duopoly",
+      "Monopsony",
+      "Oligopsony"
+    ],
+    "correctOption": "Duopoly"
+  },
+  {
+    "question": "The market structure in which the number of sellers is small and there is inter dependence in decision making by the firms is known as :",
+    "options": [
+      "Perfect competition",
+      "Oligopoly",
+      "Monopoly",
+      "Monopolistic competition"
+    ],
+    "correctOption": "Oligopoly"
+  },
+  {
+    "question": "OPEC is an example of :",
+    "options": [
+      "Monopolistic competition",
+      "Monopoly",
+      "Oligopoly",
+      "Duopoly"
+    ],
+    "correctOption": "Oligopoly"
+  },
+  {
+    "question": "One characteristic not typical of oligopolistic industry is:",
+    "options": [
+      "Horizontal demand curve.",
+      "Too much importance to non-price competition.",
+      "Price leadership.",
+      "A small number of firms in the industry."
+    ],
+    "correctOption": "Horizontal demand curve."
+  },
+  {
+    "question": "The structure of the cold drink industry in India is best described as:",
+    "options": [
+      "Perfectly competitive.",
+      "Monopolistic.",
+      "Monopolistically competitive.",
+      "Oligopolistic."
+    ],
+    "correctOption": "Oligopolistic."
+  },
+  {
+    "question": "Oligopoly having identical prod-ucts is:",
+    "options": [
+      "Pure oligopoly",
+      "Imperfect oligopoly",
+      "Price leadership",
+      "Collusion."
+    ],
+    "correctOption": "Pure oligopoly"
+  },
+  {
+    "question": "Price rigidity is a situation found in which of the following market forms?",
+    "options": [
+      "Perfect competition.",
+      "Monopoly.",
+      "Monopolistic competition.",
+      "Oligopoly."
+    ],
+    "correctOption": "Oligopoly."
+  },
+  {
+    "question": "Oligopoly having identical products is known as __________.",
+    "options": [
+      "Pure oligopoly",
+      "Collusive oligopoly",
+      "Independent oligopoly",
+      "None of these"
+    ],
+    "correctOption": "Pure oligopoly"
+  },
+  {
+    "question": "The market for hand tools (such as hammers and screwdrivers) is dominated by Draper, Stanley, and Craftsman. This market is best described as:",
+    "options": [
+      "Monopolistically competitive",
+      "a monopoly",
+      "an oligopoly",
+      "perfectly competitive"
+    ],
+    "correctOption": "an oligopoly"
+  },
+  {
+    "question": "When the industry is dominated by one large firm which is considered as the leader of the group, the market is described as:",
+    "options": [
+      "Open oligopoly",
+      "Perfect oligopoly",
+      "Partial oligopoly",
+      "Organized oligopoly."
+    ],
+    "correctOption": "Partial oligopoly"
+  },
+  {
+    "question": "Which of these is the best example of oligopoly?",
+    "options": [
+      "OPEC",
+      "SAARC",
+      "WTO",
+      "GATT"
+    ],
+    "correctOption": "OPEC"
+  },
+  {
+    "question": "In oligopoly, when the industry is dominated by one large firm which is considered as leader of the group, Then it is called:",
+    "options": [
+      "Full oligopoly.",
+      "Collusive oligopoly.",
+      "Partial oligopoly.",
+      "Syndicated oligopoly."
+    ],
+    "correctOption": "Partial oligopoly."
+  },
+  {
+    "question": "When the products are sold through a centralized body, oligopoly is known as:",
+    "options": [
+      "Organized oligopoly",
+      "Partial oligopoly",
+      "Competitive oligopoly",
+      "Syndicated oligopoly"
+    ],
+    "correctOption": "Syndicated oligopoly"
+  },
+  {
+    "question": "The demand curve of oligopoly is:",
+    "options": [
+      "Horizontal",
+      "Vertical",
+      "Kinked",
+      "Rising left to right"
+    ],
+    "correctOption": "Kinked"
+  },
+  {
+    "question": "When new firms of the oligopoly market come to a common understanding or act in collusion with each other either in fixing price or output or both, then it is called as __________.",
+    "options": [
+      "Competitive oligopoly",
+      "Syndicated oligopoly",
+      "Collusive oligopoly",
+      "Partial oligopoly"
+    ],
+    "correctOption": "Collusive oligopoly"
+  },
+  {
+    "question": "When the industry is dominated by one large firm which is considered or looked upon as the leader of the group, the oligopoly is regarded as __________.",
+    "options": [
+      "Competitive oligopoly",
+      "Syndicated oligopoly",
+      "Collusive oligopoly",
+      "Partial oligopoly"
+    ],
+    "correctOption": "Partial oligopoly"
+  },
+  {
+    "question": "OPEC is an example of :",
+    "options": [
+      "Monopolistic competition",
+      "Monopoly",
+      "Oligopoly",
+      "Duopoly"
+    ],
+    "correctOption": "Oligopoly"
+  },
+  {
+    "question": "Which of the following is not a feature of oligopoly market?",
+    "options": [
+      "Interdependence of the firms in decision making",
+      "Price rigidity",
+      "Group behaviour",
+      "Existence of large number of firms."
+    ],
+    "correctOption": "Existence of large number of firms."
+  },
+  {
+    "question": "__________ is that situation in which a firm bases its market policy, in part on the expected behaviour of a few close rivals.",
+    "options": [
+      "Oligopoly",
+      "Monopolistic Competition",
+      "Monopoly",
+      "Perfect Competition"
+    ],
+    "correctOption": "Oligopoly"
+  },
+  {
+    "question": "When an oligopolist individually chooses its level of production to maximize its profits, it charges a price that is:",
+    "options": [
+      "More than the price charged by either monopoly or a competitive market.",
+      "Less than the price charged by either monopoly or a competitive market.",
+      "More than the price charged by a monopoly and less than the price charged by a competitive market.",
+      "Less than the price charged by a monopoly and more than the price charged by a competitive market."
+    ],
+    "correctOption": "Less than the price charged by a monopoly and more than the price charged by a competitive market."
+  },
+  {
+    "question": "Pure oligopoly is based on the __________ products:",
+    "options": [
+      "Differentiated",
+      "Homogeneous",
+      "Unrelated",
+      "None of the above"
+    ],
+    "correctOption": "Homogeneous"
+  },
+  {
+    "question": "What is/are feature(s) of oligopoly __________",
+    "options": [
+      "Kinked Demand curve",
+      "Cartel",
+      "Downward sloping demand curve",
+      "Both (a) and (b) are correct"
+    ],
+    "correctOption": "Both (a) and (b) are correct"
+  },
+  {
+    "question": "Which of these is the best example of oligopoly __________",
+    "options": [
+      "OPEC",
+      "SAARC",
+      "WTO",
+      "GATT"
+    ],
+    "correctOption": "OPEC"
+  },
+  {
+    "question": "Which one of the following is not the feature of Oligopoly?",
+    "options": [
+      "Interdependency",
+      "Selling cost",
+      "Free Entry",
+      "One of the above/groupbehaviour"
+    ],
+    "correctOption": "Free Entry"
+  },
+  {
+    "question": "The theory of oligopoly is a theory of __________.",
+    "options": [
+      "Group Behaviour",
+      "Mass Behaviour",
+      "Individual Behaviour",
+      "Single Behaviour"
+    ],
+    "correctOption": "Group Behaviour"
+  },
+  {
+    "question": "Which one of following statement is incorrect as regards oligopoly?",
+    "options": [
+      "It is dominated by a Small number of large firms.",
+      "There is importance of advertis-ing & selling cost.",
+      "The oligopoly is interdependent in decision-making of the new firms which comprise the industry.",
+      "No new firm is allowed to enter in oligopoly market in any case."
+    ],
+    "correctOption": "No new firm is allowed to enter in oligopoly market in any case."
+  },
+  {
+    "question": "Price leadership is the characteristic of __________.",
+    "options": [
+      "Oligopoly",
+      "Monopoly",
+      "Perfect competition",
+      "Discriminating Monopoly"
+    ],
+    "correctOption": "Oligopoly"
+  },
+  {
+    "question": "The demand curve of an oligopolist is :",
+    "options": [
+      "Determinate",
+      "Indeterminate",
+      "Circular",
+      "Vertical"
+    ],
+    "correctOption": "Indeterminate"
+  },
+  {
+    "question": "An oligopolistic firm has to behave strategically when it makes a __________ about its __________.",
+    "options": [
+      "Decision, Price",
+      "Price, Output",
+      "Policy, Material",
+      "None of these"
+    ],
+    "correctOption": "Decision, Price"
+  },
+  {
+    "question": "Entering into collusion or form¬ing a cartel is generally considered __________.",
+    "options": [
+      "Legal",
+      "Illegal",
+      "Desirable",
+      "Mandatory"
+    ],
+    "correctOption": "Illegal"
+  },
+  {
+    "question": "According to Pigou, first degree price discrimination charges price to;",
+    "options": [
+      "Individual capacity",
+      "Quantities sold",
+      "Location",
+      "None of the above"
+    ],
+    "correctOption": "Individual capacity"
+  },
+  {
+    "question": "In case of oligopoly, the price leader sets the price in such a manner that it allows same profits to the followers also. This type of Price leadership is by __________.",
+    "options": ["Low Cost Firm", "Low Share Firm", "High Cost Firm", "Dominating Profit Firm"],
+    "correctOption": "Low Cost Firm"
+  },
+  {
+    "question": "In the context of oligopoly, the kinked demand hypothesis is designed to explain __________.",
+    "options": ["Price and output determination", "Price rigidity", "Price leadership", "Collusion among rivals"],
+    "correctOption": "Price rigidity"
+  },
+  {
+    "question": "The kinked demand curve model of oligopoly assumes that:",
+    "options": ["The response (of consumers) to a price increase is less than the response to a price decrease.", "The response (of consumers) to a price increase is more than the response to a price decrease.", "The elasticity of demand is constant regardless of whether price increases or decreases.", "The elasticity of demand is perfectly elastic if price increases and perfectly inelastic if price decreases."],
+    "correctOption": "The response (of consumers) to a price increase is more than the response to a price decrease."
+  },
+  {
+    "question": "Kinked demand curve hypothesis is given by:",
+    "options": ["Alfred marshal", "A.C Pigou", "Sweezy", "Hicks & Allen"],
+    "correctOption": "Sweezy"
+  },
+  {
+    "question": "Kinked demand curve is observed in __________.",
+    "options": ["Duopoly market", "Monopoly market", "Competitive market", "Oligopoly market"],
+    "correctOption": "Oligopoly market"
+  },
+  {
+    "question": "The demand curve of oligopoly is:",
+    "options": ["Horizontal", "Vertical", "Kinked", "Rising left to right"],
+    "correctOption": "Kinked"
+  },
+  {
+    "question": "Kinked demand hypothesis is designed to explain __________ in context of oligopoly.",
+    "options": ["Price and output determination", "Price rigidity", "Collusion between firm", "All of the above"],
+    "correctOption": "Price rigidity"
+  },
+  {
+    "question": "In oligopoly, the kink on the demand curve is more due to __________.",
+    "options": ["Discontinuity in MR.", "Discontinuity in AR.", "Fulfilment of the assumption that a price cut is followed by others and a price increase by a firm is not followed by others.", "Price war amongst the firms."],
+    "correctOption": "Fulfilment of the assumption that a price cut is followed by others and a price increase by a firm is not followed by others."
+  },
+  {
+    "question": "Kinked demand curve is observed in __________.",
+    "options": ["Duopoly market", "Monopoly market", "Competitive market", "Oligopoly market"],
+    "correctOption": "Oligopoly market"
+  },
+  {
+    "question": "In Oligopoly the kink in the demand curve is more due to __________.",
+    "options": ["Discontinuity in MR", "Discontinuity in AR", "Fulfilment of the assumption that a price fall is followed by other and a price increase by a firm is not followed by the other", "Price war among the firms"],
+    "correctOption": "Fulfilment of the assumption that a price fall is followed by other and a price increase by a firm is not followed by the other"
+  },
+  {
+    "question": "In the ‘kinked-demand’ curve model, the upper portion of the demand curve is:",
+    "options": ["Elastic", "Inelastic", "Perfectly Elastic", "Unitary Elastic"],
+    "correctOption": "Elastic"
+  },
+  {
+    "question": "Kinked demand curve is related to which market structure __________.",
+    "options": ["Oligopoly", "Monopoly", "Monopsony", "Monopolistic competition"],
+    "correctOption": "Oligopoly"
+  },
+  {
+    "question": "The Kinked demand curve model explains the market situation __________.",
+    "options": ["Pure Oligopoly", "Differentiated Oligopoly", "Collusive Oligopoly", "Price Rigidity"],
+    "correctOption": "Price Rigidity"
+  },
+  {
+    "question": "A firm having kinked demand curve indicates that:",
+    "options": ["If the firm reduces the price, competitive firms also reduce the price.", "If the firm increases the price, competitive firms also increases the price.", "If the firm reduces the price, competitive firms do not reduce the price.", "If the firm increases the price, competitive firms do not increase the price."],
+    "correctOption": "Both (i) and (iv) above"
+  },
+  {
+    "question": "Kinked demand curve under oligopoly is designed to show:",
+    "options": ["Price and output determination", "Price rigidity", "Price leadership", "Collusion among rivals"],
+    "correctOption": "Price rigidity"
+  },
+  {
+    "question": "Kinked demand curve is the demand curve of __________.",
+    "options": ["Perfect Competition", "Monopoly", "Monopolistic Competition", "None of the above"],
+    "correctOption": "None of the above"
+  },
+  {
+    "question": "The reason for the kinked demand curve is that:",
+    "options": ["The oligopolist believe that competitors will follow output increases but not output reductions.", "The oligopolist believe that competitors will follow price increases but not output reductions.", "The oligopolist believe that competitors will follow price cuts but not price rises.", "The oligopolist believe that competitors will follow price increases but not output increases."],
+    "correctOption": "The oligopolist believe that competitors will follow price increases but not output increases."
+  },
+  {
+    "question": "Kinked demand curve is __________.",
+    "options": ["Highly elastic at above the prevailing price", "Inelastic at below the prevailing price", "Both (a) and (b)", "None of the above"],
+    "correctOption": "Both (a) and (b)"
+  },
+{
+        "question": "SSC Begins Here",
+        "options": [
+            
+        ],
+        "correctOption": "Capital Market"
+    },
+
+{
+        "question": "Q1. Which of the following is not a classification of market on the basis of area?",
+        "options": [
+            "National Market",
+            "International Market",
+            "Capital Market",
+            "Local Market"
+        ],
+        "correctOption": "Capital Market"
+    },
+    {
+        "question": "Q2. Which of the following is a correct relation between Marginal Revenue & Average Revenue? (where “e” is price elasticity of demand)",
+        "options": [
+            "MR = AR × (e+1)",
+            "MR = AR × [(e+1)/e]",
+            "MR = AR × [(e-1)/e]",
+            "MR = AR × (e-1)"
+        ],
+        "correctOption": "MR = AR × [(e-1)/e]"
+    },
+    {
+        "question": "Q3. When both demand and supply increase, the equilibrium increases but the change in equilibrium is uncertain.",
+        "options": [
+            "Price, quantity",
+            "Quantity, price",
+            "Supply, demand",
+            "Demand, supply"
+        ],
+        "correctOption": "Quantity, price"
+    },
+    {
+        "question": "Q4. Which of the following is not a feature of Monopoly market?",
+        "options": [
+            "Single Seller of the product",
+            "Market Power",
+            "Freedom to Entry",
+            "No close-substitutes available"
+        ],
+        "correctOption": "Freedom to Entry"
+    },
+    {
+        "question": "Q5. Which of the following is an example of price discrimination?",
+        "options": [
+            "Railways separate high-value or relatively small-bulk commodities which can bear higher freight charges from other categories of goods.",
+            "Some countries dump goods at low prices in foreign markets to capture them.",
+            "A lower subscription is charged from student readers in case of certain journals.",
+            "All of these."
+        ],
+        "correctOption": "All of these."
+    },
+    {
+        "question": "Q6. Which of the following statements is incorrect about monopolistic competition?",
+        "options": [
+            "Product Differentiation is an important feature of monopolistic competition.",
+            "Freedom of entry and exit",
+            "Only a single firm exists",
+            "All are correct"
+        ],
+        "correctOption": "Only a single firm exists"
+    },
+    {
+        "question": "Q7. Group behavior exists in:",
+        "options": [
+            "Perfect Competition",
+            "Monopoly",
+            "Oligopoly",
+            "All of them"
+        ],
+        "correctOption": "Oligopoly"
+    },
+    {
+        "question": "Q8. When the monopolist divides the consumers into separate sub markets and charges different prices in different sub-markets it is known as:",
+        "options": [
+            "First degree of price discrimination",
+            "Second degree of price discrimination",
+            "Third degree of price discrimination",
+            "None of the above"
+        ],
+        "correctOption": "Third degree of price discrimination"
+    },
+    {
+        "question": "Q9. Which of the following statements is incorrect?",
+        "options": [
+            "Kinked demand curve is related to an oligopolistic market.",
+            "Even monopolistic can earn losses.",
+            "Firms in a perfectly competitive market are price takers.",
+            "It is always beneficial for a firm in a perfectly competitive market to discriminate price."
+        ],
+        "correctOption": "It is always beneficial for a firm in a perfectly competitive market to discriminate price."
+    },
+    {
+        "question": "Q10. Suppose that the demand curve for the ABC co. slopes downward and to the right. We can conclude that:",
+        "options": [
+            "The ABC Co. is not a price taker in market because it must lower price to sell additional units of output.",
+            "The ABC Co. will not be able to maximize profits because price and revenue are subject to change.",
+            "The firm operates in a perfectly competitive market.",
+            "The firm can sell all that it wants to at the established market price"
+        ],
+        "correctOption": "The ABC Co. is not a price taker in market because it must lower price to sell additional units of output."
+    },
+    {
+        "question": "Q11. Which of the following is not a characteristic of Price-taker?",
+        "options": [
+            "TR = P × Q",
+            "AR = Price",
+            "Negatively – sloped demand curve",
+            "Marginal Revenue = Price"
+        ],
+        "correctOption": "Negatively – sloped demand curve"
+    },
+    {
+        "question": "Q12. Which of the following statements is incorrect?",
+        "options": [
+            "Product differentiation is peculiar to monopolistic competition.",
+            "Commodities offered for sale under a perfect competition will be heterogeneous.",
+            "A monopolist may restrict the output and raise the price.",
+            "Under monopoly there is no difference between a firm and an industry."
+        ],
+        "correctOption": "Commodities offered for sale under a perfect competition will be heterogeneous."
+    },
+    {
+        "question": "Q13. The market for hand tools (such as hammers and screwdrivers) is dominated by Draper, Stanley, and Craftsman. This market is based described as:",
+        "options": [
+            "A Monopoly",
+            "Monopolistically competitive",
+            "Perfect Competition",
+            "An Oligopoly"
+        ],
+        "correctOption": "An Oligopoly"
+    },
+    {
+        "question": "Q14. In the context of oligopoly, the kinked demand hypothesis is designed to explain:",
+        "options": [
+            "Price leadership",
+            "Collusion among rivals",
+            "Price rigidity",
+            "Price and output determination"
+        ],
+        "correctOption": "Price rigidity"
+    },
+    {
+        "question": "Q15. Which of the following is incorrect?",
+        "options": [
+            "Oligopoly: a state of limited competition, in which a market is shared by a small number of producers or sellers.",
+            "Perfect competition: it is a type of market which is characterized by many sellers selling identical products to many buyers.",
+            "Monopoly: It is a situation where there is a single seller and many buyers. The product sold does not have any close substitutes.",
+            "Monopolistic Competition: This type of market is characterized by few sellers selling differentiated products to many buyers."
+        ],
+        "correctOption": "Monopolistic Competition: This type of market is characterized by few sellers selling differentiated products to many buyers."
+    },
+    {
+        "question": "Q16. A monopoly is a:",
+        "options": [
+            "Price-maker",
+            "Price-taker",
+            "Price-adjuster",
+            "None of the above"
+        ],
+        "correctOption": "Price-maker"
+    },
+    {
+        "question": "Q17. In the below table what will be equilibrium market price?",
+        "options": [
+            "Rs. 2",
+            "Rs. 3",
+            "Rs. 4",
+            "Rs. 5"
+        ],
+        "correctOption": "Rs. 4"
+    },
+    {
+        "question": "Q18. Excess capacity is not found under:",
+        "options": [
+            "Monopoly",
+            "Imperfect Competition",
+            "Perfect Competition",
+            "Monopsony"
+        ],
+        "correctOption": "Perfect Competition"
+    },
+    {
+        "question": "Q19. In monopoly, the relationship between average and marginal revenue curve is as follows:",
+        "options": [
+            "AR Curve lies above the MR curve",
+            "AR curve coincides with the MR curve",
+            "AR curve lies below the MR curve",
+            "AR curve is parallel to the MR curve"
+        ],
+        "correctOption": "AR Curve lies above the MR curve"
+    },
+    {
+        "question": "Q20. If the average cost is higher than the average revenue then the firm incurs:",
+        "options": [
+            "Normal Profit",
+            "Abnormal Profit",
+            "Normal Loss",
+            "Abnormal loss"
+        ],
+        "correctOption": "Normal Loss"
+    },
+    {
+        "question": "Q21. Which is the first order condition for the profit of a firm to be maximum?",
+        "options": [
+            "AC = AR",
+            "AC = MR",
+            "MR = AR",
+            "MC = MR"
+        ],
+        "correctOption": "MC = MR"
+    },
+    {
+        "question": "Q22. Price Discrimination is related to:",
+        "options": [
+            "Income",
+            "Size of Purchase",
+            "Time",
+            "Any of the above."
+        ],
+        "correctOption": "Any of the above."
+    },
+    {
+        "question": "Q23. The demand curve of a monopoly firm will be:",
+        "options": [
+            "Upward Sloping",
+            "Downward Sloping",
+            "Horizontal",
+            "Vertical"
+        ],
+        "correctOption": "Downward Sloping"
+    },
+    {
+        "question": "Q24. Pure Oligopoly is based on the products.",
+        "options": [
+            "Differentiated",
+            "Homogeneous",
+            "Unrelated",
+            "None of the above"
+        ],
+        "correctOption": "Homogeneous"
+    },
+    {
+        "question": "Q25. In perfect competition in the long run there will be no .",
+        "options": [
+            "Normal Profits",
+            "Supernormal profits",
+            "Production",
+            "Cost"
+        ],
+        "correctOption": "Normal Profits"
+    },
+    {
+        "question": "Q27. Suppose that a sole proprietorship is earning total revenues of Rs. 80,000/- per month and is incurring explicit cost of Rs. 70,000/- per month. If the owner could work for another company for Rs. 15, 000/- per month, we would conclude that:",
+        "options": [
+            "Firm is earning an economic profit.",
+            "Firm is incurring an economic loss",
+            "Firm is neither making profit nor incurring loss",
+            "Firm is in the stage of maximum profit."
+        ],
+        "correctOption": "Firm is incurring an economic loss"
+    },
+    {
+        "question": "Q28. The sale of branded articles is common in a situation of .",
+        "options": [
+            "Monopoly",
+            "Monopolistic Competition",
+            "Pure Competition",
+            "Excess capacity"
+        ],
+        "correctOption": "Monopolistic Competition"
+    },
+    {
+        "question": "Q29. Price-taking firms i.e., firms that operate in a perfectly competitive market are said to be 'small' relative to the market. Which of the following best describes this smallness?",
+        "options": [
+            "The individual firm is unable to affect market price through its output decisions.",
+            "The individual firms face a downward – sloping demand curve.",
+            "The individual firm has assets of less than Rs. 20 Lakh.",
+            "Total turnover of any firm is not more than Rs 1 Lakh."
+        ],
+        "correctOption": "The individual firm is unable to affect market price through its output decisions."
+    },
+    {
+        "question": "Q30. The term market refers to a:",
+        "options": [
+            "Place where buyers and seller bargain a product or service for a price.",
+            "Place where buyers does not bargain",
+            "Place where sellers does not bargain",
+            "None of the above."
+        ],
+        "correctOption": "Place where buyers and seller bargain a product or service for a price."
+    },
+    {
+        "question": "Q32. If price is Rs. 20, quantity demanded is 9 units & if price is Rs. 19, quantity demanded is 10 units. Based on this information, what is the marginal revenue resulting from an increase in output from 9 units to 10 units.",
+        "options": [
+            "Rs. 1",
+            "Rs. 10",
+            "Rs. 19",
+            "Rs. 20"
+        ],
+        "correctOption": "Rs. 10"
+    },
+    {
+        "question": "Q33. Average revenue is the revenue earned:",
+        "options": [
+            "Per unit of input",
+            "Per unit of output",
+            "Different units of input",
+            "Different units of output"
+        ],
+        "correctOption": "Per unit of output"
+    },
+
+	 
+
+
+ // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>
