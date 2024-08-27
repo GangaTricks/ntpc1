@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Awareness QUIZ APP</title>
+			<script src="../../urlRewrite.js"></script>
+		<link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">
+  
+   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+  
+  
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Brahmos Edition | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+      <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+ const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'brahmosxyztset002';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    if (navigator.userAgent.includes('Android')) {
+        // For Android WebView in APK file
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+    } else {
+        // For regular web browser
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+        a.click();
+    }
+}
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+        // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+    const explanation = document.createElement('p');
+    explanation.innerHTML = ``;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+<script>
+const questions = [
+
+{
+        "question": "What is the Kala Pani controversy related to?",
+        "options": [
+            "India-China",
+            "India-Nepal",
+            "India-Sri Lanka",
+            "India-Pakistan"
+        ],
+        "correctOption": "India-Nepal"
+    },
+    {
+        "question": "How many borders does India share with neighboring countries?",
+        "options": [
+            "15",
+            "16",
+            "18",
+            "12"
+        ],
+        "correctOption": "16"
+    },
+    {
+        "question": "What is the total number of states in India?",
+        "options": [
+            "25",
+            "28",
+            "29",
+            "36"
+        ],
+        "correctOption": "28"
+    },
+    {
+        "question": "Magnot Line is between which two countries?",
+        "options": [
+            "North Korea",
+            "America and Canada",
+            "Germany and France",
+            "India and Pakistan"
+        ],
+        "correctOption": "Germany and France"
+    },
+    {
+        "question": "Surakrok controversy is related to?",
+        "options": [
+            "India-Sri Lanka",
+            "India-Bangladesh",
+            "India-Pakistan",
+            "India-Nepal"
+        ],
+        "correctOption": "India-Pakistan"
+    },
+    {
+        "question": "By what name is the border line between India and Bangladesh known?",
+        "options": [
+            "38th parallel line",
+            "49th parallel line",
+            "17th latitude line",
+            "zero line"
+        ],
+        "correctOption": "zero line"
+    },
+    {
+        "question": "Which is the capital of Pakistan Occupied Kashmir?",
+        "options": [
+            "ask",
+            "Gilgit",
+            "Kargil",
+            "Muzaffarabad"
+        ],
+        "correctOption": "Muzaffarabad"
+    },
+    {
+        "question": "Which is the longest international border of India? Is it with which country?",
+        "options": [
+            "China",
+            "Nepal",
+            "Pakistan",
+            "Bangladesh"
+        ],
+        "correctOption": "Bangladesh"
+    },
+    {
+        "question": "Ceylon is the ancient name of which country?",
+        "options": [
+            "Myanmar",
+            "Sri Lanka",
+            "China",
+            "Thailand"
+        ],
+        "correctOption": "Sri Lanka"
+    },
+    {
+        "question": "The 38th parallel line determines the boundary line between which two countries?",
+        "options": [
+            "Germany and Poland",
+            "England and France",
+            "North Korea and South Korea",
+            "America and Canada"
+        ],
+        "correctOption": "North Korea and South Korea"
+    },
+    {
+        "question": "India's highest mountain peak K-2 is located in which range of the Himalayas?",
+        "options": [
+            "Karakoram",
+            "Himadri",
+            "Ladakh",
+            "Himachal"
+        ],
+        "correctOption": "Karakoram"
+    },
+    {
+        "question": "In which country is Mount Everest located?",
+        "options": [
+            "India",
+            "Nepal",
+            "Pakistan",
+            "Chaun"
+        ],
+        "correctOption": "Nepal"
+    },
+    {
+        "question": "Farakka dispute is between which two countries?",
+        "options": [
+            "India-Pakistan",
+            "India-Bangladesh",
+            "India-Nepal",
+            "India-Myanmar"
+        ],
+        "correctOption": "India-Bangladesh"
+    },
+    {
+        "question": "Which strait is between India and Sri Lanka?",
+        "options": [
+            "Gibraltar",
+            "Dover",
+            "Palk Strait",
+            "Sircreek"
+        ],
+        "correctOption": "Palk Strait"
+    },
+    {
+        "question": "Which state does not share its border with Bangladesh?",
+        "options": [
+            "Arunachal Pradesh",
+            "West Bengal",
+            "Assam",
+            "Meghalaya"
+        ],
+        "correctOption": "Arunachal Pradesh"
+    },
+    {
+        "question": "The 49th parallel line determines the boundary line between which two countries?",
+        "options": [
+            "Germany and France",
+            "USA and Canada",
+            "France and England",
+            "India and Sri Lanka"
+        ],
+        "correctOption": "USA and Canada"
+    },
+    {
+        "question": "Where is Mandalan Jail located?",
+        "options": [
+            "Sri Lanka",
+            "Brown",
+            "China",
+            "Myanmar"
+        ],
+        "correctOption": "Myanmar"
+    },
+    {
+        "question": "Radcliffe Line is situated between which two countries?",
+        "options": [
+            "India-Nepal",
+            "India-China",
+            "India-Pakistan",
+            "India-Myanmar"
+        ],
+        "correctOption": "India-Pakistan"
+    },
+    {
+        "question": "Durand is the border line between which two countries?",
+        "options": [
+            "Afghanistan and Pakistan",
+            "India and Pakistan",
+            "India and Sri Lanka",
+            "India and Nepal"
+        ],
+        "correctOption": "Afghanistan and Pakistan"
+    },
+    {
+        "question": "Siachen dispute is between which two countries?",
+        "options": [
+            "India-Afghanistan",
+            "India-Pakistan",
+            "India-Myanmar",
+            "India-Bhutan"
+        ],
+        "correctOption": "India-Pakistan"
+    },
+    {
+        "question": "When did Verma (Myanmar) separate?",
+        "options": [
+            "1937",
+            "1938",
+            "1940",
+            "1945"
+        ],
+        "correctOption": "1937"
+    },
+    {
+        "question": "Which state's Soma does not touch China?",
+        "options": [
+            "Himachal Pradesh",
+            "Uttarakhand",
+            "Sikkim",
+            "Mizoram"
+        ],
+        "correctOption": "Mizoram"
+    },
+    {
+        "question": "Hindenburg Line is the border line between which two countries?",
+        "options": [
+            "Germany and Poland",
+            "North and South Korea",
+            "North and South Vietnam",
+            "Russia and Finland"
+        ],
+        "correctOption": "Germany and Poland"
+    },
+    {
+        "question": "With which state of India does Pakistan form the longest border line?",
+        "options": [
+            "Gujarat",
+            "Rajasthan",
+            "Punjab",
+            "None of these"
+        ],
+        "correctOption": "Rajasthan"
+    },
+    {
+        "question": "In which country is the Arakanyama mountain range located?",
+        "options": [
+            "India",
+            "China",
+            "Bhutan",
+            "Myanmar"
+        ],
+        "correctOption": "Myanmar"
+    },
+    {
+        "question": "Which state of India is surrounded by Bangladesh on three sides?",
+        "options": [
+            "Meghalaya",
+            "Tripura",
+            "Mizoram",
+            "Assam"
+        ],
+        "correctOption": "Tripura"
+    },
+    {
+        "question": "Where is the grave of Bahadur Shah Zafar located?",
+        "options": [
+            "Yangon",
+            "Bangkok",
+            "Dhaka",
+            "Bhutan"
+        ],
+        "correctOption": "Yangon"
+    },
+    {
+        "question": "Where is Panjshir Valley located?",
+        "options": [
+            "Pakistan",
+            "Germany",
+            "Bhutan",
+            "Afghanistan"
+        ],
+        "correctOption": "Afghanistan"
+    },
+    {
+        "question": "The Soma Line between which two countries is Manharin?",
+        "options": [
+            "Russia and Finland",
+            "Germany and France",
+            "America and Canada",
+            "India and Sri Lanka"
+        ],
+        "correctOption": "Russia and Finland"
+    },
+    {
+        "question": "With which country does India share its shortest international border?",
+        "options": [
+            "Bhutan",
+            "Nepal",
+            "Myanmar",
+            "Afghanistan"
+        ],
+        "correctOption": "Afghanistan"
+    },
+    {
+        "question": "Between which places does Maitri Express run?",
+        "options": [
+            "Delhi and Lahore",
+            "Delhi and Karachi",
+            "Dhaka and Kolkata",
+            "Guwahati and Dacca"
+        ],
+        "correctOption": "Dhaka and Kolkata"
+    },
+    {
+        "question": "Which Union Territory does India share its border with China?",
+        "options": [
+            "Jammu and Kashmir",
+            "Ladakh",
+            "Delhi",
+            "Chandigarh"
+        ],
+        "correctOption": "Ladakh"
+    },
+    {
+        "question": "Where was Operation Meghdoot conducted by the Indian Army in 1984?",
+        "options": [
+            "Siachen",
+            "Kargil",
+            "Uri",
+            "tail"
+        ],
+        "correctOption": "Siachen"
+    },
+    {
+        "question": "Which state's border of India does not touch with Myanmar?",
+        "options": [
+            "Arunachal Pradesh",
+            "Nagaland",
+            "Manipur",
+            "Assam"
+        ],
+        "correctOption": "Assam"
+    },
+    {
+        "question": "What is Teesta river water dispute related to?",
+        "options": [
+            "India-Myanmar",
+            "India-Nepal",
+            "India-Bangladesh",
+            "India-China"
+        ],
+        "correctOption": "India-Bangladesh"
+    },
+    {
+        "question": "Between which places does Samjhauta Express run?",
+        "options": [
+            "India-China",
+            "India-Pakistan",
+            "India-Nepal",
+            "India-Bangladesh"
+        ],
+        "correctOption": "India-Pakistan"
+    },
+    {
+        "question": "Which Indian state forms the longest border with Bangladesh?",
+        "options": [
+            "Assam",
+            "West Bengal",
+            "Tripura",
+            "Mizoram"
+        ],
+        "correctOption": "West Bengal"
+    },
+    {
+        "question": "How many union territories are there in India?",
+        "options": [
+            "5",
+            "6",
+            "8",
+            "9"
+        ],
+        "correctOption": "8"
+    },
+    {
+        "question": "McMahon is the border line between which two countries?",
+        "options": [
+            "India-Pakistan",
+            "India-Afghanistan",
+            "India-Bangladesh",
+            "India-China"
+        ],
+        "correctOption": "India-China"
+    },
+
+
+ ];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>
