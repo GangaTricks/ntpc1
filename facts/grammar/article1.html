@@ -1,0 +1,2572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Preposition QUIZ APP</title>
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Article Part 1 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        }); 
+		
+		
+		
+		// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'article1';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+     // Display explanation
+    const explanation = document.createElement('explanation');
+explanation.innerHTML = `${currentQuestion.explanation || ''}`;
+optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+
+   {
+    question: "1. You must be aware (a) / of the fact that none but (b) / the brave deserve (c) / the favour of the God. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+	,explanation: "you are fool"
+  , explanation: "AnsweKey 1. (d) Do not use any 'article' before 'God'.'  " },
+{
+    question: "2. Sooner or later you (a) / will come to know the truth (b) / that the man is mortal (c) / and love is eternal. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 2. (c) When 'Man' means the entire human race then article is not used.'  " },
+{
+    question: "3. That the dishonesty is (a) / the best policy these days is known (b) / to not only me but also (c) / all the people present here. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 3. (a) 'Dishonesty' is an Uncountable Noun. It shows a General Fact. No 'Article' will be used here, hence remove 'The'.'  " },
+{
+    question: "4. If you want to live (a) / a successful life, (b) / I must advise you to go (c) / through Gita every morning with your clean heart. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 4. (d) Will use 'The' before 'Gita'. 'The' is used before any 'Classic or Ancient Scripture'.'  " },
+{
+    question: "5. I am calling a spade a spade (a) / that it is a news for me (b) / that she has eloped (c) / with her boy friend. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 5. (b) 'News' is an 'Uncountable Noun' so remove 'A'. Know the rule: A/an is used before singular countable noun. A/an is not used before uncountable nouns.'  " },
+{
+    question: "6. It is difficult to understand (a)/ why they have (b)/ appointed him the prime minister of India. (c) / No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 6. (c) Things to note: (a) When an object is used as a singular countable noun after elect, make, appoint, then a/an is used before it. Now the people have to elect a president I have to appoint an accountant.'  " },
+{
+    question: "7. A number of students (a) / are unaware of the (b) / fact that their principal (c) / is the man of principle. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 7. (d) Use 'A Man of Principle'.'  " },
+{
+    question: "8. Indian government wants to (a) / make Mumbai a Shanghi of China, (b) / which can be possible (c) / only by 2020. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 8. (b) Use 'The Shanghai of China' in place of 'A Shanghai of China'.'  " },
+{
+    question: "9. Sachin Tendulkar is greatest (a) / cricket player (b) / India has ever (c) / produced in this millennium. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 9. (a) Use 'The' before 'Greatest' because know the rule: 'The' is definitely used before 'Superlative Degree' of 'Adjective'.'  " },
+{
+    question: "10. Next year I am going (a) / to be a M.A. (b) / and she is going (c) / to be a B.A. exactly two years later. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 10. (b) 'A M.A.' Instead of 'An M.A.' would use. Know the rule: To know whether 'A' will come before a word or 'an', it is important to understand what is the sound of the first letter of that word. There are 26 letters in English but 44 sounds. In Hindi, letters and sounds are similar, so while using A/An before any word, you can take the help of Hindi sounds (which are also letters). If the first sound of a word is a Hindi vowel.'  " },
+{
+    question: "11. Summer of last year (a) / was very hot and I never (b) / expect such a summer (c) / to come again in our lives. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 11. (a) We will use 'The' before 'Summer' because a special 'Summer' is being talked about here.'  " },
+{
+    question: "12. Book you bought yesterday (a) / is on common errors (b) / but it is not so useful (c) / as the book named” Common Errors Made Easy.” (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 12. (a) We will use 'The' before 'Book' because here we are talking about a 'Particular Book'.'  " },
+{
+    question: "13. I was born on second (a) / of November, 1979 (b) / but she was born on (c) / the first of November. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 13. (a) 'The' is used before 'Ordinal' Number, hence 'Second' Will use 'The' before '. Know the rule: Generally 'the' is also used before ordinal number (first, second, third).'  " },
+{
+    question: "14. Although English is the language (a) / of English, yet we (b) / the Indians can learn (c) / and speak it more fluently than they. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 14. (b) We will use 'The' before 'English' because here we are talking about the people of 'England'.'  " },
+{
+    question: "15. You had better (a) / take some warm clothes, (b) / as the higher (c) / you go, cooler you feel. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 15. (d) 'The Cooler you Feel' will be used in place of 'Cooler You Feel'. Know the rule: 'the' is also used in the following structure to show parallel increase or decrease.'  " },
+{
+    question: "16. An article published in (a) / Hindu was completely meant (b) / for tarnishing his (c) / reputation and dethroning him. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 16. (b) Will use 'The' before 'Hindu'. 'The' is always used before the names of; The + C.D + S + V +The+C.D + S + V'  " },
+{
+    question: "17. The rich should never (a) / look down upon poor, (b) / rather they should be given (c) / respect and love. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 17. (b) Use 'The' before 'Poor'. 'The Poor' means all the poor people (The+Adjective = Plural Noun)'  " },
+{
+    question: "18. If you buy this piece of furniture, (a) / it will cost you (b) / exactly thousand rupees (c) / after giving you discount. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 18. (c) Use 'A' before 'Thousand'.'  " },
+{
+    question: "19. If you are not able to continue (a) / this project, you had (b) / better put end (c) / to it as soon as possible. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 19. (c) Will use 'An' before 'End'.'  " },
+{
+    question: "20. Hindus and Muslims can (a) / live amicably only when (b) / they are made to realize (c) / that no religion is more important than life itself. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 20. (a) 'The' will be used before 'Hindus and Muslims'.'  " },
+{
+    question: "21. Red fort of Delhi (a) / is one of those monuments of (b) / India which I never (c) / miss to admire when I visit Delhi. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 21. (a) 'The' will be used before 'Red Fort'. There are two reasons for using 'the' here. Firstly, it is a historical memory and secondly, 'of+N/Pronoun' construction has been used after this. st p Know the rule: In constructions with Noun + of + Noun, 'the' is generally used with the first Noun.'  " },
+{
+    question: "22. The breakfast I had yesterday (a) / morning was very delicious (b) / and I want to (c) / have such breakfast everyday. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 22. (d) In place of 'Such Break Fast' we will use 'Such a breakfast'. (Such+A/an+Noun)'  " },
+{
+    question: "23. Gold used in (a) / this piece of jewellery (b) / has been imported (c) / from the U.S.A. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 23. (a) 'The' will be used before 'Gold' because here we are talking about 'Particular' Gold.'  " },
+{
+    question: "24. Whenever you are (a) / in trouble, pray to (b) / God, because the (c) / almighty helps one who needs Him. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 24. (e) There is no error.'  " },
+{
+    question: "25. The reason why the (a) / coffee is popular among (b) / students is that (c) / it contains caffeine. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 25. (a) Do not use 'The' before 'Coffee'.'  " },
+
+{
+    question: "1. An Indian driver or carpenter has to work (a)/about two hours to buy kilogram of rice (b)/while his counterparts in Austria, the Neatherlands and Switzerland (c)/need to work only fifteen minutes for it. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnsweKey 1. (b) Article 'a' will be used before 'Kilogram' because kilogram is a Countable Noun. Hence, 'a kilogrlam of rice', a liter of milk etc. are used.'  " },
+{
+    question: "2. Sunil is (a)/a best student (b)/in our class (c)/at present. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 2. (b) 'The' will be used instead of 'A' because Sunil has been compared with other boys in the class in Superlative Degree; And 'the' is used before the adjective of superlative degree. E.g.: Suji is the best singer in this orchestra.'  " },
+{
+    question: "3. Everyone agrees that (a)/the Ganga is the holiest (b)/of all other rivers (c)/of India. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 3. (c) Use of 'Other' is superfluous. In fact, 'the' will be used instead of other.'  " },
+{
+    question: "4. We have carefully (a)/considered the (b)/importance of issues raised (c)/in the report. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 4. (c) 'The' will be used before 'Issues' because here 'issues' is definite. pay attention: (i) The issues raised in the report.'  " },
+{
+    question: "5. Every man, woman and child (a)/is now aware of the terrible consequences (b)/of habit of smoking. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 5. (c) 'The' will be used before 'Habit' because when 'Noun + of + Noun' is used then 'the' is generally used before the Noun which is before 'of'; E.g.: The boys of his class.'  " },
+{
+    question: "6. Ravi prefers (a)/self-employment (b)/to job (c)/in any office. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 6. (c) 'a' will be used before job because 'job' is a Singular Countable Noun; E.g.: He has a job in this office.'  " },
+{
+    question: "7. In a fit of temper (a)/he tore up a sweet letter (b)/which his wife had (c)/written to him. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 7. (b) 'the' will be used instead of 'A' because 'sweet letter' is definite here; E.g.: I have the book which he gave me.'  " },
+{
+    question: "8. He used (a)/very inaccurate language (b)/for he knew (c)/no better. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 8. (b) 'a' will be used before 'Very' because if 'language' is used as a Countable Noun then 'a' or 'an' is used before it as per requirement, and its plural 'languages' is also used. It happens; As- (i) English is a popular language. (ii) Hindi and English are two important languages. But, if 'language' is used in a 'broad' sense then it is uncountable.'  " },
+{
+    question: "9. A first step in a (a)/rational solution to any problem (b)/is the recognition (c)/that a problem exists. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 9. (a) 'The' will be used instead of 'A'. Rule: In the use of first, second, third + Noun, gem is used before the adjectives indicating order, like- (i) The first boy. (ii) The last bus.'  " },
+{
+    question: "10. I am very (a)/thirsty, so give (b)/me little water (c)/to drink. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 10. (c) 'a' will be used before 'little' because 'little' means 'almost none' whereas 'a little' means 'some'. Hence, 'little water' means 'almost no water' while 'a little water' means 'a little water'.'  " },
+{
+    question: "11. Knowledge of regional language is (a)/necessary for bank officers because (b)/they are to understand (c)/what their customers say. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 11. (a) Instead of 'Knowledge of regional language', 'The knowledge of a regional language' will be used because generally The + Noun+of+ Noun is used.'  " },
+{
+    question: "12. On my request (a)/Amar introduced me (b)/to his friend, who is a singer (c)/and a scientist. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 12. (d) 'A' will not be used before 'Scientist' because when two nouns are joined by 'and', 'as well as' etc. to denote the same person, then the article comes only before the first noun. ; E.g.: He is a writer and critic.'  " },
+{
+    question: "13. Nathan's habit of (a)/delaying his work (b)/put his colleagues (c)/to lot of trouble. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 13. (d) 'a' will be used before 'Lot' or the plural of 'lot' will be 'lots' because 'a lot of' or 'lots of' is used; As- (i) He has done a lot of work. (ii) He has done lots of work.'  " },
+{
+    question: "14. Important Congress dissident source (a)/said at one (b)/stage that Raman Rao and Chandra Shekhar had even asked the (c)/dissident group to suggest suitable names. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 14. (a) Article 'An' will be used before 'Important', because 'source' is a Singular Countable Noun, and A or An is usually used before Singular Countable Noun.'  " },
+{
+    question: "15. The robbers were (a)/caught just as they (b)/were about to (c)/escape from the jail. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 15. (d) 'The' will not be used before 'Jail'. The use of 'escape from jail' is considered correct.'  " },
+{
+    question: "16. The teacher drew (a)/an attention of the (b)/boys to the importance (c)/of regular practice. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 16. (b) 'The attention' will be used instead of 'An attention' because 'attention' is definite here. Keep in mind that in the construction of Noun + of + Noun, 'the' is generally used before the noun used before 'of'; As- (i) The attention of the boys. (ii) The life of his man.'  " },
+{
+    question: "17. I am not (a)/wealthy, so I (b)/cannot afford (c)/to buy a expensive car. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 17. (d) 'an' will be used instead of 'A' because the first sound of the word 'expensive' 'E' is a vowel. Keep in mind that 'a/an' is used for a Singular Countable Noun, and their usage depends on the 'sound' of the word before which they are used. If the first sound of a word is a Vowel, then 'an' is used before it and if it is a Consonant, then 'a' is used; As- (i) He is a boy. (ii) He is an intelligent boy.'  " },
+{
+    question: "18. It being rainy day (a)/most of the people (b)/out on the street were (c)/carrying umbrellas. (d)/ No Error. (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 18. (a) Instead of 'Rainy day' 'a rainy day' will be used because 'day' is a Singular Countable Noun.'  " },
+{
+    question: "19. The need to set up (a)/a good library in the locality (b)/has been in the minds of people (c)/for some time. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 19. (c) 'The' will be used before 'People' because 'People' is definite here. These 'people' belong to a particular locality.'  " },
+{
+    question: "20. He had no (a)/illusions of being (b)/either a distinguished writer (c)/or a editor. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 20. (d) 'an' will be used instead of 'A' because the first sound of editor is 'A' which is a vowel.'  " },
+{
+    question: "21. He addressed people (a)/and tried his best (b)/to convince them that (c)/his decision were correct. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 21. (a) 'The' will be used before 'people' because 'people' is used in the given sentence in the sense of definite. 'He' addressed certain/specific people.'  " },
+{
+    question: "22. The report has been (a)/prepared on the basis (b)/of information we had (c)/and on our judgement. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 22. (c) 'The' will be used before 'Information' because after 'information' 'we had' (= which/that we had) is used which works as an Adjective Clause and makes it definite; And 'information' E.g.: The books I have are not new.'  " },
+{
+    question: "23. I have been visiting your office (a)/since last several years (b)/but have never met (c)/such a hopeless clerk as this. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 23. (b) 'For the last several years' will be used instead of 'Since last several years' because 'last' is Ordinal Adjective before which 'the' is used and 'the last several years' is Period of Time. Before which 'for' is used. pr E.g.: I have been working here for the last several years.'  " },
+{
+    question: "24. Arun along with his (a)/family goes for (b)/morning walk every day (c)/in the nearby park. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 24. (c) Article 'a' will be used before 'Morning walk'. That is, instead of 'morning walk', 'a morning walk' will be used because the use of go for a walk, go for a swim, go for a bath, etc. is idiomatic. Similarly, the use of in a hurry, in a mood, in a temper, in a rage, in a dilemma is idiomatic.'  " },
+{
+    question: "25. Jagan showed (a)/remarkable achivement (b)/not only in archery (c)/but also is swimming. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 25. (b) 'A' will be used before 'Remarkable achievement' because it is used as a countable noun in the meaning of 'achievement' (achievement achieved through effort, quality); E.g.: Yours is a great achievement.'  " },
+
+{
+    question: "1. Perhaps you do not (a) / know that Ravi prefers (b) / self employment to (c) / job in any circumstances. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnsweKey 1. (d) Use 'a' before 'Job', because it is a 'countable noun'.'  " },
+{
+    question: "2. It being rainy day (a) / most of the people (b) / out on the street were (c) / carrying umbrellas. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 2. (a) Use a before 'Rainy day'.'  " },
+{
+    question: "3. Summons (a) / was (b) / served (c) / on Ramu. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 3. (a) Use 'a' before 'summons', as it is a 'singular countable noun'.'  " },
+{
+    question: "4. Laser beams can (a) / carry long distance (b) / signals in way somewhat (c) / similar to radio waves. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 4. (c) 'In a way' is the correct expression.'  " },
+{
+    question: "5. Nathan’s habit of (a) / delaying his work (b) / put his colleagues (c) / to great deal of trouble. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 5. (d) 'A great deal of' is the correct phrase. Rule को जानें: There are some expressions indicating number and quantity. They always take the article 'a' before them. Some of them are as follows a large number of, a large quantity of, a large amount of, a lot of, a good deal of, a great deal of, a good many of, a great many of, a great many of, a great number of etc.'  " },
+{
+    question: "6. Even though our (a) / team took the field (b) / with great confidence, (c) / the opposition made them eat the humble pie. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 6. (d) 'Eat humble pie' is the correct idiom, hence do not use the article 'the'.'  " },
+{
+    question: "7. The robbers were caught (a) / just as they (b) / were about to (c) / escape from the jail. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 7. (d) Instead of 'Escape from the jail', 'escape from jail' will be used. Know the rule: If the following places are used for the same purpose for which they are made, then article should not be used before them- Hospital, school, church, college, mosque, temple, prison, jail, court, market, bed etc.'  " },
+{
+    question: "8. The moment Vignesh (a) / was admitted to (b) / the hospital (c) / the warden decided to inform his parents. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 8. (c) 'Hospital' will be used in place of 'The hospital'. When 'hospital' is being used for the same purpose for which it is made, then 'article' is not used before it.'  " },
+{
+    question: "9. The man is mortal (a) / and ultimately he (b) / has to leave everything here, yet how (c) / irrationally he remains attached to his worldly possessions. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 9. (a) Remove 'The'.'  " },
+{
+    question: "10. The teacher drew (a) / an attention of (b) / the boys to the (c) / importance of regular practice. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 10. (b) Use 'the attention of' in place of 'An attention of'.'  " },
+{
+    question: "11. We all should (a) / know that the (b) / greater the demand, (c) / higher the price. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 11. (d) Use 'the' before 'Higher'. Know the Rule: When any two 'Adjectives or Adverbs' are used to show proportional increase or decrease, then 'the' is used before their 'Comparative Degree'.'  " },
+{
+    question: "12. In a mountaineering (a) / expedition, higher (b) / you go from the base (c) / camp, the cooler you feel. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 12, (b) Use 'the' before 'Higher'.'  " },
+{
+    question: "13. The interviewer asked me (a) / if I knew that (b) / Kalidas was the greater (c) / than any other poet. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 13. (c) Remove 'The'. When there is no 'Noun' after an 'Adjective', then 'the' is generally not used before it.'  " },
+{
+    question: "14. Sunil is (a) / a best (b) / student in our (c) / class at present. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 14. (b) 'The' will be used before 'Best' and not 'a'. Know the Rule: 'the' is always used before the Superlative Form of Adjective.'  " },
+{
+    question: "15. He had no (a) / illusion of being (b) / either a distinguished (c) / writer or a editor. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 15. (d) Use 'an editor' instead of 'A editor'. Know the rule: An is used for that singular countable noun. The one whose pronunciation starts with a vowel sound and the one whose pronunciation starts with a consonant sound is preceded by 'a'. Note: For detailed information see Sol of Set 1. No. see 10'  " },
+{
+    question: "16. I am not (a) / wealthy so (b) / I cannot afford to (c) / buy a expensive car. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 16. (d) Use 'an expensive' in place of 'A expensive'.'  " },
+{
+    question: "17. Several ministers (a) / visited jail (b) / to see a number (c) / of prisoners. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 17. (b) Use 'the' before 'Jail'.'  " },
+{
+    question: "18. Could you please (a) / show me this kind of (b) / a pen but it (c) / should not be so expensive. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 18. (c) Remove 'A' because the noun coming after 'kind/type/sort + of' The experiment is done without any article.'  " },
+{
+    question: "19. I have been looking (a) / for this kind of a book (b) / for more than two (c) / years down the line. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 19. (b) Use 'this kind of book' in place of 'This kind of a book', because the noun used after type of, kind of, sort of, variety of'  " },
+{
+    question: "20. This sort of a place (a) / can prove wholesome for (b) / you and it will help (c) / you recover from this illness very soon. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 20. (a) Use 'this sort of place' in place of 'this sort of a place'.'  " },
+{
+    question: "21. Neither a book (a) / belongs to me, (b) / so I cannot allow you (c) / to take the book you are asking me for. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 21. (a) Use 'neither book' in place of 'neither a book'.'  " },
+{
+    question: "22. She never goes to the (a) / college to attend (b) / the lecture delivered (c) / by the head of the department of physics. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 22. (a) Remove 'The'. 'Article' is not used before 'College' when it is used for the same purpose for which it is made.'  " },
+{
+    question: "23. The workers have been on (a) / a strike for more than one (b) / month and have (c) / been asking for a pay-rise. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 23. (b) 'On strike' is used like an 'idiom', hence do not use 'a' before 'strike'.'  " },
+{
+    question: "24. Initially a child (a) / should write in a pencil (b) / because it will (c) / help him improve their handwriting. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 24. (b) Use 'In pencil'. If 'in' is used before 'pencil' then it is an uncountable noun, hence using 'a' before it is wrong.'  " },
+{
+    question: "25. Ram is in a doubt (a) / that his father will (b) / not allow him to (c) / go abroad for higher education. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 25. (a) Use 'in doubt' instead of 'In a doubt', because doubt is an uncountable noun.'  " },
+
+{
+    question: "1. Yet, firms and other concerns are spending large sums of money all time (a)/and somehow we take this for granted (b)/and never stop to wonder where it comes from. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 1. (a) 'All the time' will be used instead of 'All the time' because 'all the time' is an idiomatic expression.'  " },
+{
+    question: "2. While travelling by a train (a)/on a cold winter night (b)/an argument rose between two passengers in our compartment. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 2. (a) 'By train' will be used instead of 'By a train' because if by is used before the name of the means of transport then no article is used.'  " },
+{
+    question: "3. Ramesh has been both (a)/an intelligent (b)/and hardworking chap (c)/since his childhood. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 3. (c) 'a' will be used before 'Hardworking' because if both is used then the article is used differently before the two adjectives used to describe the specialty of the noun that comes after it.'  " },
+{
+    question: "4. He got a (a)/upper hand in the (b)/debate because of (c)/his fluency in English. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 4. (a) 'an' will be used instead of 'A' because the first sound of 'upper' (अ) is a vowel and the article 'an' is used before words starting with a vowel sound, not ' of 'a'.'  " },
+{
+    question: "5. On my request (a)/ Jatin introduced me (b)/ to his friend (c)/ who is a singer and a scientist. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 5. (d) Here singer and scientist have been used for the same person, hence article will be used only before the first noun (singer), that is, remove the 'a' used before the second noun (scientist).'  " },
+{
+    question: "6. The photograph will give (a)/ the reader far better (b)/ notion of the structure. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 6. (b) Use a before far.'  " },
+{
+    question: "7. I live on a top floor (a)/ of an old house. (b)/ When the wind blows (c)/ all the windows rattle. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 7. (a) The will be in place of A.'  " },
+{
+    question: "8. It is difficult to assume that (a)/ a increase in the number of health institutions (b)/ would automatically enhance (c)/ utilisation of health services. (d)/ No error. (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 8. (b) An will be there in place of A.'  " },
+{
+    question: "9. It took me (a)/ almost a hour (b)/ to fill the (c)/ application form. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 9. (b) An will be there in place of A.'  " },
+{
+    question: "10. Asian culture will, (a)/ sooner or later, (b)/ become international norm (c)/ for entertainment industry. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 10. (c) An will be used before International, because norm is a countable noun.'  " },
+{
+    question: "11. The Audit Committee of the Board (a)/ has been constituted (b)/ by the Board of Directors (c)/ as per instructions of the Reserve Bank of India. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 11, (d) The will be used before Instructions, because some special instructions have been discussed which have been given by RBI.'  " },
+{
+    question: "12. A cell (a)/is the smallest (b)/identifiable unit of life and cannot be (c)/seen with a naked eye. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 12. (d) 'The' will be used instead of 'A', because 'with the naked eye' is the correct expression.'  " },
+{
+    question: "13. She always remembers (a)/ to switch off all the (b)/ lights and fans before (c)/ leaving a rooms. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 13. (d) The will be used in place of A.'  " },
+{
+    question: "14. This is the (a)/ only one of his (b)/ poems that is (c)/ worthreading. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 14. (a) There will be no .'  " },
+{
+    question: "15. If we examine the saturation aspect, (a)/the enterprise market (b)/ is a short term (c)/revenue buying programmes. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 15. (d) Use program in place of programmes, because a has been used for it. Here a cannot be removed because the sentence has the sense of singular.'  " },
+{
+    question: "16. We are an UK -based consultancy firm (a)/and have been retained (b)/to provide services to (c)/an Indian client. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 16. (a) A will be there in place of An.'  " },
+{
+    question: "17. Laser beams can carry (a)/ long distance signals in way (b)/ somewhat (c)/ similar to radio waves. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 17. (b) A will be used before way because in a way is the correct expression.'  " },
+{
+    question: "18. It is universally true (a)/ that an honest and hardworking (b)/ man is always (c)/ a happy man. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 18. (b) 'a' will be used just before Hardworking. When two adjectives are used for the same person but one has a vowel at the beginning and the other has a consonant at the beginning, then articles 'a' and 'an' are used before both the adjectives.'  " },
+{
+    question: "19. A first step in a (a)/ rational solution to any problem (b)/ is the recognition (c)/ that a problem exists. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 19. (a) The will be in place of A.'  " },
+{
+    question: "20. Children who have had (a)/ good pre-school education (b)/ are most likely to outdo (c)/ other children at school. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 20. (b) A will be used before Good - (a good pre-school education) I'  " },
+{
+    question: "21. The teacher drew (a)/ an attention of the (b)/ boys to the (c)/ importance (d)/ of regular practice. (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 21. (b) The will be used in place of An.'  " },
+{
+    question: "22. I am not (a)/ wealthy, so I (b)/ cannot afford (c)/ to buy a expensive car. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 22. (d) Use an in place of A.'  " },
+{
+    question: "23. He had no (a)/ illusions of being (b)/ either a distinguished (c)/ writer or a editor. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 23. (d) An will be used in place of A.'  " },
+{
+    question: "24. Mr Ghosh is a honour (a)/ to (b)/ the teaching profession. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 24. (a) Use an in place of a before Honour. Note- The word honor has been used in this sentence, whose pronunciation starts with a vowel sound. Therefore, it would be correct to use article 'an' with it.'  " },
+{
+    question: "25. He addressed people (a)/ and tried his best (b)/ to convince them that (c)/ his decisions were correct. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 25. (a) The will be used before People, because it is indicating some special people.'  " },
+{
+    question: "1. If you go to Pakistan by (a) / a road, it will (b) / take more than twenty (c) / four hours from Delhi. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 1. (b) Use 'by road' instead of 'by a road'.'  " },
+{
+    question: "2. She is in a confusion (a) / over this issue, so please (b) / help her get rid of this (c) / confusion of hers as soon as possible. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 2. (a) Use 'in confusion' instead of 'In a confusion'.'  " },
+{
+    question: "3. Mr. Gupta is on a leave (a) / these days, so you will have (b) / to step into his shoes (c) / for a few days. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 3. (a) Will use 'On leave'.'  " },
+{
+    question: "4. I will never want to (a) / waste little money my (b) / father has given me (c) / to start a business with. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 4. (b) In place of 'Waste little money' 'waste the little money' will be used. When Little means little or Relative Pronoun is used after it, then it must be used before it. 'The'.'  " },
+{
+    question: "5. With these gorgeous and vivacious looks, (a) / it is sure that you will (b) / be a centre of (c) / attraction in the party. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 5. (c) In place of 'A center of' we will use 'the center of'.'  " },
+{
+    question: "6. There is no doubt about the (a) / fact that little knowledge (b) / of anything can (c) / sometimes prove very fatal. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 6. (b) Use 'a' before 'Little' because 'A Little' means little and 'Little' means 'not equal to'.'  " },
+{
+    question: "7. Will you please make (a) / me understand all (b) / these things in detail once (c) / again, if you have time? (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 7. (c) 'In a detail' will be used instead of 'In a detail'.'  " },
+{
+    question: "8. Some day your way (a) / of talking can put (b) / you in trouble, (c) / if you do not mend your ways. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 8. (c) In place of 'in a trouble' we will use 'in trouble'.'  " },
+{
+    question: "9. It was by a mistake (a) / that I kissed her lips (b) / while dancing with (c) / her in the party. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 9. (a) Use 'by mistake' instead of 'by a mistake'.'  " },
+{
+    question: "10. It is true that (a) / you have lost all (b) / the money you earned (c) / but you had better not to lose heart. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 10, (d) Use 'not lose heart' instead of 'Not to lose a heart'. Do not use 'To' after 'had batter'. 'Lose Heart' is an 'Idiom'.'  " },
+{
+    question: "11. There is no doubt about (a) / the fact that he is (b) / the best teacher I have (c) / ever seen but at the same time he is least recognized. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 11. (d) Use 'the' before 'Least' because it is the superlative form of 'Little'.'  " },
+{
+    question: "12. I never appreciate this (a) / kind of a person (b) / because he has nothing (c) / to write home about. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 12, (b) In place of 'Kinds of a person' we will use 'kinds of Person'.'  " },
+{
+    question: "13. You must learn (a) / living values of life (b) / so that you may live (c) / life in totality. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 13, (b) Will use 'the' before 'Living'.'  " },
+{
+    question: "14. Ruby is going to the station (a) / to receive Nisha, who is coming (b) / from her maternal uncle’s (c) / home town by Brahmaputra mail. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 14. (d) 'The' is used before the name of 'Train'.'  " },
+{
+    question: "15. If you compare the Ganges (a) / with Koshi, you will (b) / find that both the rivers (c) / are important in their own way. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 15. (b) 'With the Koshi' will be used in place of 'With Koshi'. Because Koshi is the name of the river and 'The' is used before the name of the river.'  " },
+{
+    question: "16. Over the years, (a) / I have been able to (b) / develop excellent (c) / art of teaching English (d) / and inculcating knowledge in students. (e) / No error (f)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 16. (c) Articles like an/the will be used before 'Excellent'.'  " },
+{
+    question: "17. Tomorrow morning, (a) / we all are going to cinema (b) / to watch “Inception” (c) / at PVR Priya. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 17. (b) Instead of 'Go to cinema' we will use 'go to the cinema'. Will also use 'The PVR Priya'. Because 'The' is used before the name of 'Theatre'.'  " },
+{
+    question: "18. He is in dilemma (a) / whether he should go (b) / abroad for higher education (c) / or stay in India to support his father’s business. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 18. (a) Instead of 'In dilemma' we will use 'In a dilemma'. Know the Rule: a/an is always used in the following expressions In a hurry, In a temper, In a dilemma, In a rage, A love of, A dislike of, A horror of, A dread of, Go into a coma, Go into a trance, Make a guess at, Make a bid for, Take a risk, Have a cold, Catch a cold, Keep a promise, Give a warning, Give a Break, Have a headache/retentive memory, Have a rest/drink/talk/sleep, Have a knowledge of sth'  " },
+{
+    question: "19. Every one is of the opinion (a) / that she is a very intelligent (b) / and a beautiful lass (c) / endowed with all womanly virtue. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 19. (c) Remove 'a' after 'And'.'  " },
+{
+    question: "20. If you want to go out with (a) / your friends, you can (b) / go but you will have to (c) / come back home before the sunset. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 20. (d) In place of 'Before the sunset' we will use 'before sunset'.'  " },
+{
+    question: "21. This accident took place (a) / after the noon when (b) / all blue line buses (c) / were out of the road. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "No error"
+  , explanation: "AnswerKey 21. (b) No error'  " },
+{
+    question: "22. We used to meet near a (a) / temple just after the dawn (b) / when no one was there (c) / to watch and disturb us. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 22. (b) 'After the dawn' will be used instead of 'After the dawn'.'  " },
+{
+    question: "23. Deepak has come here (a) / in car but he will (b) / go to his home town with me (c) / in a plane next Monday. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 23. (b) Will use 'the' before 'Car'.'  " },
+{
+    question: "24. Can you speak (a) / the English (b) / as fluently as (c) / Hindi and Marathi? (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 24. (b) Remove 'The'.'  " },
+{
+    question: "25. His mother said to me, (a) / “ Sachin is (b) / older of (c) / the two sons of Mr. Gupta. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 25. (c) Use 'the' before 'Older'. When 'of the two' is used after the comparative form of the adjective, then 'The' is used before it.'  " },
+
+{
+    question: "1. In spite of four letters (a)/ we have sent (b)/ we have received (c)/ no answer from the authority. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 1. (a) The will come before four.'  " },
+{
+    question: "2. The road (a)/ to famous monument (b)/ passes through a forest. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 2. (b) The famous monument will come before the famous.'  " },
+{
+    question: "3. Now that she is living in her own flat, (a)/ she cleans the windows, (b)/ twice a week in the summer and once a week in the winter. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 3. (c) The will not happen before summer and winter.'  " },
+{
+    question: "4. These display (a)/ the (b)/ remarkable variety. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 4. (b) A will be there in place of The.'  " },
+{
+    question: "5. According to the Bible (a)/ it is meek that (b)/ will inherit the earth. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 5. (c) Meek (Meek) 5.0 The is placed before (c). If an adjective is to be used as a noun then it is necessary to put the before it.'  " },
+{
+    question: "6. Sunita opened a almirah (a)/ full of books (b)/ and took one of them (c)/ for reading. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 6. (a) An will be there in place of A.'  " },
+{
+    question: "7. My father is (a)/ in bad mood (b)/ today. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 7. (b) A will come before Bad. In a bad mood'  " },
+{
+    question: "8. The candidate's performance (a)/ was not upto mark (b)/ in the interview. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 8. (b) Before mark the will be up to the mark (correct or accurate).'  " },
+{
+    question: "9. The accelerating pace of life in our metropolitan city (a)/ has had the tremendous effect (b)/ on the culture and life-style of the people. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 9. (b) There will be a in place of The.'  " },
+{
+    question: "10. Literature remains the interest of a minority (a)/ and the majority has chosen to ignore those aspects of language (b)/ which, at school they were told to value highly. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 10. (a) The will come in place of A.'  " },
+{
+    question: "11. The famous Dr. Chandra (a)/ is only dentist (b)/ in our village. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 11. (b) The will be placed before Only.'  " },
+{
+    question: "12. A person I met (a)/ in the theatre (b)/ was the playwright himself. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 12. (a) There will be The in place of A.'  " },
+{
+    question: "13. Troy was taken by Greeks; (a)/ this formed the basis of a story (b)/ which has become famous. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 13. (a) The will be placed before Greeks.'  " },
+{
+    question: "14. The recent study has (a)/ indicated that there (b)/ is perceptible change in (c)/ the attitude of the people. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 14. (c) A will come before Perceptible. A perceptible change.'  " },
+{
+    question: "15. My friends insisted (a)/ that I should see the move (b)/ from beginning to the end. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 15. (c) The will not come before the end - From beginning to end'  " },
+{
+    question: "16. The front page story was about a school girl (a)/ that had hurt herself (b)/ while saving a child in a accident. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 16. (c) An will be there in place of A.'  " },
+{
+    question: "17. Man (a)/ you saw here yesterday (b)/ is uncle of mine. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 17. (a) It is necessary to use the before man because when the is used to show a noun as particular or definite.'  " },
+{
+    question: "18. I have lost a watch (a)/ that (b)/ my brother gave me. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 18. (a) The will be used in place of A because an attempt has been made to make watch special in the sentence.'  " },
+{
+    question: "19. The baby was left (a)/ in charge (b)/ of an (c)/ elderly lady. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 19. (b) Before 'Charge', 'In the charge of' (in someone's care)'  " },
+{
+    question: "20. Great technical (a)/ advances in aerial and satellite (b)/ photography have (c)/ been made since end of the Second World War. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 20. (d) 'The' will be placed before 'End'.'  " },
+{
+    question: "21. A dodo was (a)/ the large flightless bird (b)/ found in Mauritius. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 21. (b) There will be a in place of The.'  " },
+{
+    question: "22. In 1906, a earthquake (a)/ destroyed much (b)/ of San Francisco. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 22. (a) An will be there in place of A.'  " },
+{
+    question: "23. The loss of jobs (a)/ is regarded by some as a necessary evil (b)/ in the fight against inflation. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 23. (b) A will be there in place of An.'  " },
+{
+    question: "24. Headmaster (a)/ has instructed (b)/ the teachers to follow the rules of the school. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 24. (a) The will come before Headmaster.'  " },
+{
+    question: "25. A interesting book (a)/ 'A Tale of two cities' (b)/ was written by Alexander Dumas. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 25. (a) An will come in place of A.'  " },
+{
+    question: "1. He has been (a) / both an intelligent (b) / and hard working person (c) / since his childhood. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 1. (b) 'An' को हटा दें। He Has been Both Intelligent and Hard Working या फिर कहें 'He Has Been A Person both Inteeligent and Hard Working.'  " },
+{
+    question: "2. Unless the new resolution (a) / is completely revived, (b) / it will cause a great (c) / deal of trouble for new employees. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 2. (d) Will use 'the' before 'New Employee'.'  " },
+{
+    question: "3. We all have to go all (a) / out to improve the condition (b) / of the mankind before (c) / it is too late to improve. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 3. (c) Remove 'The' because 'mankind' is used without any 'article'.'  " },
+{
+    question: "4. The celebrities that organized (a) / the marathon were aiming (b)/ at creating an awareness (c) / about the treatment of diabetes. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 4. (c) In place of 'An awareness' only 'Awareness' will be used.'  " },
+{
+    question: "5. The Delhi of today is completely (a) / different in terms (b) / of population, beautification, transportation, (c) / law and order and the like. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 5. (e) There is no error.'  " },
+{
+    question: "6. The Patna of today is completely different from (a) / other cities of Bihar (b) / in terms of population, transportation, (c) / law and order and the like, thanks to Nitish Kumar. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 6. (e) The sentence is correct.'  " },
+{
+    question: "7. After a delay of more (a) / than five months the (b) / project is likely (c) / to commence next week. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 7. (a) In place of 'A Delay' we will use 'the delay'.'  " },
+{
+    question: "8. On a number of occasions, (a) / we had noticed that (b) / those two employees (c) / were often in state of confusion. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 8. (d) Instead of 'In state of confusion' we will use 'In a state of confusion'.'  " },
+{
+    question: "9. Because of some ulterior reasons, (a) / you are not allowed (b) / to set the foot (c) / in this house from today onward. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 9. (c) Remove 'The'. set foot is the correct 'Idiom'.'  " },
+{
+    question: "10. To be a king (a) / and wear a crown (b) / are more glamorous (c) / to see than to bear. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 10. (b) In place of 'A crown' we will use 'the crown'.'  " },
+{
+    question: "11. She sent the word to her (a) / father that she would never (b) / marry a boy (c) / whom she has never met. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 11. (a) 'The word' will be used in place of 'the word'. [send word means to send a message, here the word is uncountable noun.'  " },
+{
+    question: "12. The criminal who are in (a) / the jail are not allowed (b) / to meet anyone before (c) / 4 o’clock in the evening. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 12. (b) In place of 'The criminals who are in the jail' Will use 'who are in jail'.'  " },
+{
+    question: "13. Those who do not (a) / work hard by day (b) / must not work (c) / hard by the night also. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 13. (d) 'By night' will be used in place of 'By the night'.'  " },
+{
+    question: "14. One should never try (a) / to catch one by one’s neck, (b) / even though the (c) / situation is very worse. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 14. (b) Instead of 'By one's neck' we will use 'by the neck'.'  " },
+{
+    question: "15. I remember love which (a) / you showered on me (b) / when I did not deserve (c) / it even in the least. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 15. (a) Use 'the' before 'Love'.'  " },
+{
+    question: "16. The whole of India protested (a) / against the unreasonable (b) / price hike in all (c) / kinds of essential commodities. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 16. (e) There is no error.'  " },
+{
+    question: "17. This is not a time to sing (a) / and dance, so you (b) / had better (c) / concentrate on your studies. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 17. (a) He will use 'the time' instead of 'A Time'.'  " },
+{
+    question: "18. On such a cold morning, (a) / I would not like to (b) / go out to play (c) / the cricket with you now. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 18. (d) Remove 'The' because 'The' is not used before the name of a game.'  " },
+{
+    question: "19. It is pity that people (a) / who should go all (b) / out to glorify the country (c) / are putting the country in a very shameful situation. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 19. (a) Use 'it is a pity' instead of 'It is a pity'.'  " },
+{
+    question: "20. Mahatma Ghandi was a great (a) / spiritual leader (b) / and a great politician (c) / of India. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 20. (c) Remove 'A' because 'leader' and politician are the same person.'  " },
+{
+    question: "21. I am in hurry right now, (a) / so please call me (b) / after some time so (c) / that I may talk to you in detail. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 21. (a) Use 'in a hurry' instead of 'In hurry'.'  " },
+{
+    question: "22. I am not in position (a) / to take this decision right now, (b) / so give me some more (c) / time to take a well informed decision. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 22. (a) Instead of 'In position' we will use 'in a position'.'  " },
+{
+    question: "23. She has a bad headache (a) / and her mother has a toothache, (b) / so they cannot (c) / come to see us today. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 23. (e) There is no error.'  " },
+{
+    question: "24. He has taught (a) / me how to play (b) / flute and violin (c) / without taking much time. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 24. (c) 'The' will be used before 'Flute and violin' because 'The' is used before 'Musical Instrument'.'  " },
+{
+    question: "25. The president is (a) / about to speak (b) / to the nation on (c) / the television tomorrow morning. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 25. (d) Remove 'the' before 'Television' because when 'on' is used before 'television' then no 'Article' is used.'  " },
+{
+    question: "1. The road to (a) / famous monument (b) / passes (c) / through a forest. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 1. (b) Use 'the' before famous monuments.' " },
+{
+    question: "2. Now that she is living in her own flat, (a) / she cleans the (b) / windows twice a (c) / week in the summer and once a week in the winter. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 2. (d) Do not use 'the' before the name of 'Season'. e.g. In summer, in winter etc. But we can say The summer season, the winter season. Know the rule: Articles are not used with the following names. 1. Disease:- Diabetes/Cancer/ 2. Language:- Hindi/English/Urdu' " },
+{
+    question: "3. With little sincerity (a) / and sense patriotism, (b) / the commonwealth games (c) / could have been transformed into a real mega event. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 3. (a) 'A' will be used before 'Little'. With Alittle Sincerity.' " },
+{
+    question: "4. I do not have faith in Almighty (a) / and believe that until and (b) / unless one has faith in oneself, (c) / one cannot believe anything. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Will use 'the' before 'Almighty'.' " },
+{
+    question: "5. According to the Bible (a) / it is meek and humble (b) / who shall inherit (c) / the earth. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 5. (e) There is no error.' " },
+{
+    question: "6. Sunita opened a almirah (a) / full of books (b) / and took one of (c) / them for reading. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 6. (a) Will use 'an' in place of 'A'.' " },
+{
+    question: "7. On my request, (a) / Navendra introduced me (b) / to his girl friend (c) / who is singer and a dancer. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 7. (d) Remove the 'a' coming before 'Dancer'. Because 'A Singer and dancer' gives the idea of ​​a single person.' " },
+{
+    question: "8. This town is not very (a) / well known and (b) / there is not (c) / much to see, so a few tourists come here. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 8. (d) We will use 'few' in place of 'A few' because 'Few' means 'not equal to'.' " },
+{
+    question: "9. The accelerating pace (a) / of life in our (b) / metropolises has had (c) / the tremendous effect on the culture and lifestyle of the people. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 9. (d) In place of 'The tremendous effect' we will use 'a tremendous effect'.' " },
+{
+    question: "10. The majority of the computer (a) / professionals recommends (b) / that effective measures should (c) / be taken against software piracy. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 10. (a) Remove 'the' before 'Computer'.' " },
+{
+    question: "11. The famous (a) / Dr. Chandra (b) / is only dentist (c) / in our home town. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 11. (c) When there will be an N after 'only'. If there is a noun then use 'The' before it.' " },
+{
+    question: "12. The Mahabharta is believed to (a) / be one of the (b) / world’s largest epic (c) / available on the earth. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 12. (d) 'On An earth' is the correct Idiomatic I expression so remove 'The'.' " },
+{
+    question: "13. A person I met (a) / in the theatre (b) / was the (c) / playwright himself. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 13. (a) In place of 'A person', 'the person' is talking about a particular person. Use because speaker.' " },
+{
+    question: "14. You are lacking in experience (a) / otherwise you (b) / are well qualified (c) / candidate. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 14. (c) Use A before 'Well qualified candidate'.' " },
+{
+    question: "15. The reason we have (a) / not been able to pay (b) / income tax is due to fact (c) / that we did not receive pay on time. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 15. (c) In place of 'Due to fact' we will use 'due to the fact'.' " },
+{
+    question: "16. As he had taken only a few sips (a) / there was still (b) / little water left (c) / in the glass on the table. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 16. (c) 'a little water' will be used in place of 'little water'. Because A Little means something.' " },
+{
+    question: "17. To perform (a) / this experiment, (b) / drop little sugar (c) / into a glass of water. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Instead of 'Drop little' we will use 'drop a little'.' " },
+{
+    question: "18. A nationwide survey has (a) / brought up an interesting (b) / finding regarding infant (c) / mortality rate in India. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 18. (c) Will use 'the' before 'Infant'.' " },
+{
+    question: "19. If a man diligently seeks (a) / to come into the contact (b) / with the best that has been thought and (c) / said in this world, he will become simple and selfish. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 19. (b) When In/Into is used before Contact, then 'The' is not used before it. (In/Into contact)' " },
+{
+    question: "20. I go (a) / to the bed (b) / at eight o’clock (c) / every night. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 20. (b) Remove 'the' from before 'Bed'.' " },
+{
+    question: "21. The recent study has indicated (a) / that there is perceptible (b) / change in (c) / the attitudes of the people. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 21. (c) 'A' will be used before 'Perceptible change'.' " },
+{
+    question: "22. He was fascinated by insects (a) / and the more he (b) / studied their habits (c) / greater was his fascination. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 22. (d) Use 'the' before 'Greater'.' " },
+{
+    question: "23. With little patience (a) / you will be (b) / able to cross (c) / this hurdle for sure. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 23. (a) Instead of 'With little patience' we will use 'with a little patience'.' " },
+{
+    question: "24. My friends said (a) / that I should see the movie (b) / from beginning to the end. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 24. (d) 'From the beginning' will be used instead of 'From the beginning'.' " },
+{
+    question: "25. By all standards (a) / he is a best soldier (b) / our military school (c) / has produced so far. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 25. (b) In place of 'A best soldier' we will use 'the best soldier'.' " },
+{
+    question: "1. Sudoku was first designed in the 1970s,(a)/ by a retired architect (b)/ and freelance puzzle constructor. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 1. (c) 'A' will be placed before 'Freelance'. " },
+{
+    question: "2. The single biggest gainer in this process (a)/ was ITC's Gold Flake Kings and sales are estimated (b)/ to have moved up from 50 million to 200 million sticks per month during 1987 and last year. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 2. (c) The will be placed before last.' " },
+{
+    question: "3. Remember that you are part of (a)/ the team and your success depends on the support (b)/ you are able to give and get from your other team members. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 3. (a) 'A' will be placed before 'Part', 'A part of'. " },
+{
+    question: "4. The few clothes (a)/they had (b)/were all (c)/tattered and useless. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 4. (e) No Error.' " },
+{
+    question: "5. The difference between a successful person (a)/ and others is not (b)/ lack of knowledge (c)/ but a lack of will. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 5. (c) A will be placed before lack.' " },
+{
+    question: "6. If all goes well (a)/ the examination scheduled for next month (b)/ is all set to be completely free (c)/ from annoying power cuts and disruptions. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 6. (b) The will be placed before Next.' " },
+{
+    question: "7. Conservationists believe that (a)/ better management of national parks (b)/ is the only way to save (c)/ India's tiger population from extinction. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 7. (b) A will be placed before Better.' " },
+{
+    question: "8. A milk (a)/ can provide protein (b)/ for a nutritionally balanced diet. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 8. (a) A will not come before Milk.' " },
+{
+    question: "9. This is the (a)/ only one of his (b)/ poems that is (c)/ worth reading. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 9. (a) There will be no The.' " },
+{
+    question: "10. Lord Nelson went (a)/ to the sea (b)/ at an early age. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 10. (b) Article 'the' will not be used before sea because the idiomatic expression 'go to sea' has been used in the sentence. Note: Go to sea: Set out on a voyage.' " },
+{
+    question: "11. Sugar (a)/ is sold (b)/ by a kilogram. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 11. (c) The will be used in place of article 'a' before kilogram because when the is used before the words of measurement or accounting. When they are used to express the calculation or rate of saving or buying. E.g. Eggs are sold by the dozen.' " },
+{
+    question: "12. It is very difficult to point out (a)/ the number of the creatures living on earth. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 12. (d) No error.' " },
+{
+    question: "13. I get up (a)/ at the dawn (b)/ and go out for a long walk. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 13. (b) Article 'the' will not come before dawn because the correct expression is 'At dawn'.' " },
+{
+    question: "14. U.S.A. (a)/ is the richest country (b)/ of the world. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 14. (a) The article the will be used before U.S.A. Note- Some countries and states before which the article 'the' is used are as follows- The Punjab, The Sudan, The United states, The U.K, The U.S.S.R, The Great Britain....etc.' " },
+{
+    question: "15. Ganga (a)/ is one of the longest rivers (b)/ of the world. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 15. (a) Because the is used before river, sea, canal etc. Therefore, it would be appropriate to use the before Ganga.' " },
+{
+    question: "16. Shakespeare (a)/ is Kalidas (b)/ of England (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 16. (b) The was used before Kalidas.' " },
+{
+    question: "17. Wheat (a)/ of the Punjab is sent (b)/ to other States of India. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 17. (a) The will be used before Wheat because when a noun has to be made special. So it is appropriate to use the. As in the given sentence, wheat of Punjab has been specially talked about.' " },
+{
+    question: "18. Gold (a)/ of South Africa (b)/ is exported to many countries. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 18. (a) The will be used before Gold because when a noun has to be made special. So it is appropriate to use the. As the given sentence has specifically talked about the gold of Africa.' " },
+{
+    question: "19. The honesty (a)/ is (b)/ one of the choicest gifts. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 19. (a) There is no need of the before Honesty.' " },
+{
+    question: "20. He recited (a)/ the poem in an (b)/ honour of the Prime Minister. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 20. (b) The will be used in place of An.' " },
+{
+    question: "21. There was little milk in the bottle (a)/ and she gave it to the baby (b)/ when it started weeping. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 21. (a) “a” will be used before little because a little means “a little” while little means “insignificant”.' " },
+{
+    question: "22. He found himself (a)/ in a trouble (b)/ when he saw no rickshaw outside the station. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 22. (b) A will not be used before Trouble.' " },
+{
+    question: "23. He is the best (a)/ artist of the time (b)/ but unfortunately least recognised. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 23. (c) The will be used before least because the is used before the adjective of superlative degree.' " },
+{
+    question: "24. He leads a very busy life (a)/ so he goes (b)/ everywhere by a car. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 24. (c) Using By a car is considered wrong. To correct this, by car will be used.' " },
+{
+    question: "25. What (a)/ ugly face (b)/ Leela had got. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 25. (b) Since Face is a countable noun, in such a situation the choice between a and an is based on the pronunciation of the word before which it is to be used. The word ugly is used in this sentence. Whose pronunciation starts with a vowel sound. So with which article 'an' will be used tory Note: But article 'a' is used before words starting with a consonant sound.' " },
+
+{
+    question: "1. The good thing (a)/ about her is that (b)/ she always goes for best. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 1. (c) Use 'the' before 'best'. " },
+{
+    question: "2. He is in right (a)/ but she is not (b)/ ready to believe him. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 2. (a) Use 'the' before 'right'. " },
+{
+    question: "3. Who (a)/ ordered the (b)/ soldiers to turn to left. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 3. (c) Use 'the' before 'left'. " },
+{
+    question: "4. Most of members (a)/ are absent today (b)/ therefore the meeting has been postponed. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Use 'the' before 'members'. " },
+{
+    question: "5. The main concern (a)/ is that all the workers have (b)/ decided to go on the strike. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 5. (c) Use 'on strike'. Remove 'the'. " },
+{
+    question: "6. Both of questions (a)/ are important (b)/ so you cannot ignore either. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 6. (a) Use 'the' before 'questions'. " },
+{
+    question: "7. The sweets are (a)/ distributed among children on the (b)/ Independence Day. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 7. (a) Remove 'the' before 'sweets'. " },
+{
+    question: "8. It is needless to (a)/ say that honest man is (b)/ always admired. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 8. (b) Use 'an' before 'honest'. " },
+{
+    question: "9. I am (a)/ learning how to (b)/ play on harmonium. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 9. (c) Use 'the' before 'harmonium'. " },
+{
+    question: "10. If a boy you are referring is intelligent (a)/ he will definitely (b)/ answer this question. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 10. (a) Use 'the' before 'boy'. " },
+{
+    question: "11. This NGO (a)/ works mainly for those (b)/ who are in need of the money. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 11. (c) Remove 'the' before 'money'. " },
+{
+    question: "12. A furniture (a)/ has been bought (b)/ for the office. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 12. (a) Use 'A piece of furniture'. " },
+{
+    question: "13. It is patriot in (a)/ him which inspired to do (b)/ something for the sake of the nation. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 13. (a) Use 'the' before 'patriot'. " },
+{
+    question: "14. Meeting was held (a)/ yesterday to discuss the (b)/ pollution control measures. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 14. (a) Use 'A' before 'meeting'. " },
+{
+    question: "15. Most of the (a)/ Hindus like (b)/ reading Ramayana. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 15. (c) Use 'the' before 'Ramayana'. " },
+{
+    question: "16. The article was (a)/ published in (b)/ Hindustan Times. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 16. (c) Use 'the' before 'Hindustan Times'. " },
+{
+    question: "17. We all (a)/ know that eggs are (b)/ sold by dozen. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Use 'the' before 'dozen'. " },
+{
+    question: "18. People (a)/ consider the gold a (b)/ sacred metal. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 18. (b) Remove 'the' before 'gold'. " },
+{
+    question: "19. The Prime Minister wants that (a)/ young should be (b)/ encouraged to join the army. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 19. (b) Use 'the' before 'young'. " },
+{
+    question: "20. His parents (a)/ did not allow him to (b)/ adopt the Christianity. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 20. (c) Remove 'the' before 'Christianity'. " },
+{
+    question: "21. Whatever (a)/ we do must be for the (b)/ sake of the humanity. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 21. (c) Remove 'the' before 'humanity'. " },
+{
+    question: "22. It is not easy to (a)/ learn language of the (b)/ people of any other country. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 22. (b) Use 'the' before 'language'. " },
+{
+    question: "23. The teacher (a)/ asked me which is (b)/ highest peak in the world. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 23. (c) Use 'the' before 'highest'. " },
+{
+    question: "24. If you go out (a)/ without umbrella (b)/ you will get drenched. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 24. (b) Use 'an' before 'umbrella'. " },
+{
+    question: "25. The ball hit (a)/ him on head and he fell (b)/ down unconscious. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 25. (b) Use 'the' before 'head'. " },
+
+{
+    question: "1. For many students (a)/ the Mathematics is (b)/ not an easy subject. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 1. (b) Remove 'the' before 'Mathematics'. " },
+{
+    question: "2. If you speak truth in court (a)/ you will save an (b)/ innocent person. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 2. (a) Use 'the' before 'truth'. " },
+{
+    question: "3. You can read in (a)/ History how the (b)/ French defeated Germans. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 3. (c) Use 'the' before 'Germans'. " },
+{
+    question: "4. Should you find (a)/ yourself in critical situation (b)/ you will call the police. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 4. (b) Use 'a' before 'critical'. " },
+{
+    question: "5. I started (a)/ working with them in (b)/ March the last year. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 5. (c) Remove 'the' before 'last year'. " },
+{
+    question: "6. He must have (a)/ seen you walking (b)/ along a bank of the river. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 6. (c) Use 'along the bank of the river'. " },
+{
+    question: "7. He got an (a)/ injury when he was hit (b)/ with an iron rod on head. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 7. (c) Use 'the' before 'head'. " },
+{
+    question: "8. How true is the (a)/ fact that a woman (b)/ is man’s mate. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 8. (b) Remove 'a' before 'woman'. " },
+{
+    question: "9. It is quite (a)/ difficult to trust the kind of a man (b)/ you are talking about. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 9. (b) Remove 'a' before 'man'. " },
+{
+    question: "10. He asked (a)/ me what time (b)/ I usually took the breakfast. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 10. (c) Remove 'the' before 'breakfast'. " },
+{
+    question: "11. I have little (a)/ information about him (b)/ but it may help you a lot. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 11. (a) Use 'a' before 'little'. " },
+{
+    question: "12. The western (a)/ development has never been (b)/ in the favour of mankind. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 12. (c) Remove 'the' before 'favour'. " },
+{
+    question: "13. Let me (a)/ smile with the wise (b)/ and feed with rich. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 13. (c) Use 'the' before 'rich'. " },
+{
+    question: "14. Many are in favour (a)/ of the fact that a single (b)/ man in possession of good (c)/ fortune must be in want of a wife. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 14. (c) Use 'a' before 'good fortune'. " },
+{
+    question: "15. First thing (a)/ I want do is to make amends (b)/ for the sin I have committed. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 15. (a) Use 'the' before 'first thing'. " },
+{
+    question: "16. Travelling by the air is still (a)/ very expensive in (b)/ India and many cannot afford it. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 16. (a) Remove 'the' before 'air'. " },
+{
+    question: "17. Your father (a)/ was a better critic (b)/ than a director. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Remove 'a' before 'director'. " },
+{
+    question: "18. I will have to make (a)/ a mention of your failure to (b)/ secure additional business. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 18. (b) Remove 'a' before 'mention'. " },
+{
+    question: "19. Sumit was (a)/ clearly in hurry to finish the (b)/ meeting and get to the canteen. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 19. (b) Use 'in a hurry'. " },
+{
+    question: "20. As he has bad headache (a)/ he will not be able to (b)/ attend the meeting. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 20. (a) Use 'a' before 'bad headache'. " },
+{
+    question: "21. It is pity that (a)/ children spend so little time (b)/ outside nowadays. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 21. (a) Use 'a' before 'pity'. " },
+{
+    question: "22. Mohit is ill (a)/ so he is not at (b)/ the work today. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 22. (c) Remove 'the' before 'work'. " },
+{
+    question: "23. She is still in the bed (a)/ because (b)/ she is not feeling well. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 23. (a) Remove 'the' before 'bed'. " },
+{
+    question: "24. It is true (a)/ that no other animal (b)/ is as gentle as cow is. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 24. (c) Use 'a/the' before 'cow'. " },
+{
+    question: "25. I really (a)/ enjoyed being among (b)/ Guptas at the party last night. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 25. (c) Use 'the' before 'Guptas'. " },
+{
+    question: "1. Someone (a)/ has rightly said that (b)/ a beauty is skin deep. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 1. (c) Remove 'a' before 'beauty'. " },
+{
+    question: "2. More you have (a)/ the (b)/ more you want. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 2. (a) Use 'The' before 'more'. " },
+{
+    question: "3. Ideas given (a)/ by you are really (b)/ worth millions. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 3. (a) Use 'The' before 'ideas'. " },
+{
+    question: "4. He fought (a)/ with his enemies in a so (b)/ manly manner that they had to (c)/ succumb to his valour. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 4. (b) Use 'so manly a manner'. " },
+{
+    question: "5. You are a quite interesting person (a)/ so I would like to talk (b)/ to you again. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 5. (a) Use 'quite an interesting person'. " },
+{
+    question: "6. If you want us to trust you (a)/ you will have to (b)/ be true to a word. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 6. (c) Remove 'a' before 'word'. " },
+{
+    question: "7. A town after town (a)/ is being developed and (b)/ greenery is getting lost. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 7. (a) Remove 'a' before 'town'. " },
+{
+    question: "8. A good piece of news (a)/ is that her father has been elected (b)/ the president once again. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 8. (c) Remove 'the' before 'president'. " },
+{
+    question: "9. I used to (a)/ be very mischievous when (b)/ I was at the school. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 9. (c) Remove 'the' before 'school'. " },
+{
+    question: "10. Now that she is living in her own flat (a)/ she cleans the windows (b)/ twice a week in summer and once a week in the winter. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 10. (c) Remove 'the' before 'winter'. " },
+{
+    question: "11. According to the Bible (a)/ it meek and humble (b)/ who shall inherit the earth. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use 'the' before 'meek'. " },
+{
+    question: "12. The reason we have not been able to (a)/ pay income tax is due to fact (b)/ that we did not receive pay on time. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 12. (b) Use 'the' before 'fact'. " },
+{
+    question: "13. A nationwide survey (a)/ has brought up an interesting finding regarding (b)/ infant mortality rate in India. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 13. (c) Use 'the' before 'infant mortality'. " },
+{
+    question: "14. With little effort (a)/ you can make (b)/ it a success. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 14. (a) Use 'a' before 'little'. " },
+{
+    question: "15. A few (a)/ passengers who got (b)/ injured were rushed to the nearest hospital. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 15. (a) Use 'The' before 'few'. " },
+{
+    question: "16. If you find it better of the two (a)/ you should buy it (b)/ without any hesitation. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 16. (a) Use 'the' before 'better'. " },
+{
+    question: "17. Conspicuous change(a)/ in the attitudes of people towards the (b)/ Government can be noticed. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 17. (a) Use 'The' before 'conspicuous'. " },
+{
+    question: "18. The temple (a)/ you are talking about is (b)/ only hundred miles away from here.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 18. (c) Use 'a' before 'hundred'. " },
+{
+    question: "19. He has been (a)/ living in this house (b)/ for last ten years. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 19. (c) Use 'the' before 'last'. " },
+{
+    question: "20. I want to (a)/ see other side of (b)/ the face. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 20. (b) Use 'the' before 'other'. " },
+
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

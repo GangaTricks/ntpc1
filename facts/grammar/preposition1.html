@@ -1,0 +1,2936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Preposition QUIZ APP</title>
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Preposition Part 1 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'preposition1';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+     // Display explanation
+    const explanation = document.createElement('explanation');
+explanation.innerHTML = `${currentQuestion.explanation || ''}`;
+optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+    case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+
+<script>
+const questions = [
+ {
+        "question": "1. Fill in the blank: The party is happening __________ the park.",
+        "options": ["a) At", "b) In", "c) On", "d) But"],
+        "correctOption": "a) At"
+		,explanation: "you are fool"
+    },
+    {
+        "question": "2. Fill in the blank: The meeting is scheduled for 3:00 PM, please be there __________ that time.",
+        "options": ["a) At", "b) In", "c) On", "d) But"],
+        "correctOption": "c) On"
+    },
+    {
+        "question": "3. Fill in the blank: The cat walked __________ the road.",
+        "options": ["a) At", "b) In", "c) On", "d) But"],
+        "correctOption": "c) On"
+    },
+    {
+        "question": "4. Fill in the blank: All the students passed the exam, __________ John.",
+        "options": ["a) At", "b) In", "c) On", "d) But"],
+        "correctOption": "d) But"
+    },
+    {
+        "question": "5. Fill in the blank: After completing the project, she took a day __________ from work.",
+        "options": ["a) At", "b) In", "c) Off", "d) But"],
+        "correctOption": "c) Off"
+    },
+    {
+        "question": "6. Fill in the blank: The discussion centered __________ the new proposal.",
+        "options": ["a) At", "b) In", "c) Around", "d) But"],
+        "correctOption": "c) Around"
+    },
+    {
+        "question": "7. Fill in the blank: He presented his ideas __________ the audience.",
+        "options": ["a) At", "b) In", "c) Before", "d) But"],
+        "correctOption": "c) Before"
+    },
+    {
+        "question": "8. Fill in the blank: The success of the project lies __________ the entire team.",
+        "options": ["a) At", "b) In", "c) Behind", "d) But"],
+        "correctOption": "c) Behind"
+    },
+    {
+        "question": "9. Fill in the blank: The answer is __________ the explanation.",
+        "options": ["a) At", "b) In", "c) Below", "d) But"],
+        "correctOption": "c) Below"
+    },
+    {
+        "question": "10. Fill in the blank: She stood __________ her sister, tall and confident.",
+        "options": ["a) At", "b) In", "c) Beside", "d) But"],
+        "correctOption": "c) Beside"
+    },
+    {
+        "question": "11. Fill in the blank: __________ studying, he also works part-time.",
+        "options": ["a) At", "b) In", "c) Besides", "d) But"],
+        "correctOption": "c) Besides"
+    },
+    {
+        "question": "12. Fill in the blank: The task seems __________ our abilities.",
+        "options": ["a) At", "b) In", "c) Beyond", "d) But"],
+        "correctOption": "c) Beyond"
+    },
+    {
+        "question": "13. Fill in the blank: The event is scheduled to start at 7:00 PM, __________.",
+        "options": ["a) Circa", "b) In", "c) On", "d) But"],
+        "correctOption": "a) Circa"
+    },
+    {
+        "question": "14. Fill in the blank: We need to have a discussion __________ the budget.",
+        "options": ["a) At", "b) In", "c) Concerning", "d) But"],
+        "correctOption": "c) Concerning"
+    },
+    {
+        "question": "15. Fill in the blank: He worked hard __________ the entire project.",
+        "options": ["a) At", "b) In", "c) Down", "d) But"],
+        "correctOption": "c) Down"
+    },
+    {
+        "question": "16. The toddler held the toy __________ the edge.",
+        "options": ["a) By", "b) Into", "c) Save", "d) Amid"],
+        "correctOption": "a) By"
+    },
+    {
+        "question": "17. The farmer measured the field's size __________ acres.",
+        "options": ["a) By", "b) Into", "c) Save", "d) Amid"],
+        "correctOption": "a) By"
+    },
+    {
+        "question": "18. The baseball player hit the ball directly __________ the outfield fence.",
+        "options": ["a) By", "b) Into", "c) Despite", "d) Past"],
+        "correctOption": "b) Into"
+    },
+    {
+        "question": "19. The concert will take place __________ the weekend.",
+        "options": ["a) Into", "b) Save", "c) Plus", "d) Amid"],
+        "correctOption": "a) Into"
+    },
+    {
+        "question": "20. Everyone was invited to the party __________ John, who was traveling.",
+        "options": ["a) Save", "b) Despite", "c) Since", "d) Without"],
+        "correctOption": "a) Save"
+    },
+    {
+        "question": "21. __________ the heavy rain, the event continued as planned.",
+        "options": ["a) Despite", "b) PAST", "c) Plus", "d) Amid"],
+        "correctOption": "a) Despite"
+    },
+    {
+        "question": "22. The ship sailed __________ the island, revealing a beautiful sunset.",
+        "options": ["a) PAST", "b) Plus", "c) Into", "d) Amid"],
+        "correctOption": "c) Into"
+    },
+    {
+        "question": "23. She ordered a pizza __________ a side salad.",
+        "options": ["a) Plus", "b) Since", "c) Among", "d) Opposite"],
+        "correctOption": "a) Plus"
+    },
+    {
+        "question": "24. Maria has been working here __________ graduation.",
+        "options": ["a) Since", "b) Than", "c) Around", "d) Into"],
+        "correctOption": "a) Since"
+    },
+    {
+        "question": "25. The magician pulled a rabbit out of the hat __________ any assistance.",
+        "options": ["a) Without", "b) Opposite", "c) Amid", "d) Plus"],
+        "correctOption": "a) Without"
+    },
+    {
+        "question": "26. The hikers set up camp __________ the towering mountains.",
+        "options": ["a) Amid", "b) Into", "c) Save", "d) PAST"],
+        "correctOption": "a) Amid"
+    },
+    {
+        "question": "27. The treasure was hidden __________ the ancient ruins.",
+        "options": ["a) Amid", "b) Among", "c) Plus", "d) Opposite"],
+        "correctOption": "b) Among"
+    },
+    {
+        "question": "28. The store is located __________ the bank and the post office.",
+        "options": ["a) Opposite", "b) Save", "c) Since", "d) Around"],
+        "correctOption": "a) Opposite"
+    },
+    {
+        "question": "29. She is more athletic __________ her sister.",
+        "options": ["a) Than", "b) Despite", "c) Without", "d) Amid"],
+        "correctOption": "a) Than"
+    },
+    {
+        "question": "30. The discussion revolved __________ various economic issues.",
+        "options": ["a) Around", "b) Into", "c) Save", "d) Despite"],
+        "correctOption": "a) Around"
+    },
+{
+        "question": "1. \"The music played _______ the noise of the traffic.\"",
+        "options": ["a) Above", "b) Across", "c) Up", "d) Over"],
+        "correctOption": "a) Above"
+    },
+    {
+        "question": "2. \"________ the circumstances, he handled the situation well.\"",
+        "options": ["a) For", "b) Over", "c) Along", "d) Within"],
+        "correctOption": "a) For"
+    },
+    {
+        "question": "3. \"He apologized sincerely, explaining the reasons _______ his actions.\"",
+        "options": ["a) Across", "b) Up", "c) For", "d) Upon"],
+        "correctOption": "c) For"
+    },
+    {
+        "question": "4. \"The news spread quickly _______ the city, reaching every neighborhood.\"",
+        "options": ["a) Up", "b) Along", "c) About", "d) Across"],
+        "correctOption": "d) Across"
+    },
+    {
+        "question": "5. \"They walked side by side, chatting as they strolled _______ the beach.\"",
+        "options": ["a) Over", "b) Along", "c) Through", "d) Towards"],
+        "correctOption": "b) Along"
+    },
+    {
+        "question": "6. \"The boat sailed _______ the river, exploring its source.\"",
+        "options": ["a) About", "b) Over", "c) Up", "d) For"],
+        "correctOption": "c) Up"
+    },
+    {
+        "question": "7. \"The report highlighted the issues, shedding light _______ the challenges.\"",
+        "options": ["a) Across", "b) Upon", "c) Within", "d) Over"],
+        "correctOption": "b) Upon"
+    },
+    {
+        "question": "8. \"The treasure was hidden deep _______ the cave.\"",
+        "options": ["a) Up", "b) Within", "c) Through", "d) About"],
+        "correctOption": "b) Within"
+    },
+    {
+        "question": "9. \"He searched _______ the room, looking for his lost keys.\"",
+        "options": ["a) Along", "b) Over", "c) About", "d) For"],
+        "correctOption": "c) About"
+    },
+    {
+        "question": "10. \"Leaves fell gently _______ the tree, covering the ground below.\"",
+        "options": ["a) Over", "b) Up", "c) About", "d) Through"],
+        "correctOption": "a) Over"
+    },
+    {
+        "question": "11. \"She struggled but eventually got _______ the difficult situation.\"",
+        "options": ["a) Across", "b) Over", "c) Through", "d) Towards"],
+        "correctOption": "b) Over"
+    },
+    {
+        "question": "12. \"The detective could see _______ the fog to identify the suspect.\"",
+        "options": ["a) Across", "b) Through", "c) Over", "d) Along"],
+        "correctOption": "b) Through"
+    },
+    {
+        "question": "13. \"Passengers were comfortably seated _______ the luxurious cruise ship.\"",
+        "options": ["a) About", "b) For", "c) Aboard", "d) Along"],
+        "correctOption": "c) Aboard"
+    },
+    {
+        "question": "14. \"The ticket was purchased _______ the express train to the city.\"",
+        "options": ["a) For", "b) Towards", "c) About", "d) Up"],
+        "correctOption": "a) For"
+    },
+    {
+        "question": "15. \"They worked together _______ the common goal of success.\"",
+        "options": ["a) Along", "b) Over", "c) Towards", "d) Up"],
+        "correctOption": "c) Towards"
+    },
+{
+        "question": "1. The project was completed _________ the team's hard work and dedication.",
+        "options": ["a) under", "b) for", "c) around", "d) as"],
+        "correctOption": "b) for"
+    },
+    {
+        "question": "2. The decision was made __________ the president's guidance.",
+        "options": ["a) under", "b) beside", "c) around", "d) across"],
+        "correctOption": "a) under"
+    },
+    {
+        "question": "3. We are planning to go _________ our friends' house this weekend.",
+        "options": ["a) around", "b) beside", "c) for", "d) up"],
+        "correctOption": "a) around"
+    },
+    {
+        "question": "4. The relevant information can be found ___________ the chapter heading.",
+        "options": ["a) around", "b) under", "c) up", "d) along"],
+        "correctOption": "b) under"
+    },
+    {
+        "question": "5. All the students were present in class ____________ one.",
+        "options": ["a) around", "b) under", "c) beside", "d) except"],
+        "correctOption": "d) except"
+    },
+    {
+        "question": "6. The library is located __________ the science section.",
+        "options": ["a) for", "b) around", "c) under", "d) along"],
+        "correctOption": "c) under"
+    },
+    {
+        "question": "7. She stood __________ me during the entire presentation.",
+        "options": ["a) for", "b) beside", "c) around", "d) up"],
+        "correctOption": "b) beside"
+    },
+    {
+        "question": "8. The meeting is scheduled _________ 3:00 PM tomorrow.",
+        "options": ["a) for", "b) up", "c) along", "d) as"],
+        "correctOption": "a) for"
+    },
+    {
+        "question": "9. The dimensions _________ the box are clearly specified.",
+        "options": ["a) as", "b) under", "c) of", "d) around"],
+        "correctOption": "c) of"
+    },
+    {
+        "question": "10. John works __________ a doctor in the local hospital.",
+        "options": ["a) as", "b) under", "c) along", "d) for"],
+        "correctOption": "a) as"
+    },
+    {
+        "question": "11. She behaves __________ her mother did at her age.",
+        "options": ["a) under", "b) around", "c) as", "d) beside"],
+        "correctOption": "c) as"
+    },
+    {
+        "question": "12. The traditions and customs ____________ this region are unique.",
+        "options": ["a) under", "b) along", "c) of", "d) for"],
+        "correctOption": "c) of"
+    },
+    {
+        "question": "13. Let's walk __________ the street and find the restaurant.",
+        "options": ["a) up", "b) for", "c) along", "d) under"],
+        "correctOption": "c) along"
+    },
+    {
+        "question": "14. The house is located __________ the intersection of two main roads.",
+        "options": ["a) under", "b) beside", "c) across", "d) around"],
+        "correctOption": "b) beside"
+    },
+    {
+        "question": "15. The manager has complete control __________ the project.",
+        "options": ["a) around", "b) under", "c) across", "d) as"],
+        "correctOption": "c) across"
+    },
+ {
+        "question": "Writers often publish their work ______ some pseudonyms or pen names.",
+        "options": ["a) Under", "b) Around", "c) Outside", "d) Inside"],
+        "correctOption": "a) Under"
+    },
+    {
+        "question": "The detective searched ______ the city for clues to solve the mysterious case.",
+        "options": ["a) Under", "b) Around", "c) Outside", "d) Inside"],
+        "correctOption": "b) Around"
+    },
+    {
+        "question": "The cat is waiting patiently ______ the door, hoping to be let in.",
+        "options": ["a) Under", "b) Around", "c) Outside", "d) Inside"],
+        "correctOption": "c) Outside"
+    },
+    {
+        "question": "Please place the fragile items ______ the box to protect them during transportation.",
+        "options": ["a) Under", "b) Around", "c) Outside", "d) Inside"],
+        "correctOption": "d) Inside"
+    },
+    {
+        "question": "The coffee shop is located ______ the bookstore on Main Street.",
+        "options": ["a) Under", "b) Around", "c) Opposite", "d) Inside"],
+        "correctOption": "c) Opposite"
+    },
+    {
+        "question": "The children played tag, running ______ in the park.",
+        "options": ["a) Around", "b) Round", "c) Inside", "d) Opposite"],
+        "correctOption": "a) Around"
+    },
+    {
+        "question": "The farm is situated ______ the hill, offering a picturesque view of the valley.",
+        "options": ["a) Round", "b) Around", "c) Inside", "d) Opposite"],
+        "correctOption": "b) Around"
+    },
+    {
+        "question": "The discussion revolved ______ various topics, including science and philosophy.",
+        "options": ["a) Round", "b) Around", "c) Inside", "d) Opposite"],
+        "correctOption": "a) Round"
+    },
+    {
+        "question": "Her approach to problem-solving is unique, ______ the traditional methods used by others.",
+        "options": ["a) Round", "b) Around", "c) Unlike", "d) Plus"],
+        "correctOption": "c) Unlike"
+    },
+    {
+        "question": "The concert featured a renowned singer, ______ a talented guitarist and a skilled drummer.",
+        "options": ["a) Under", "b) Plus", "c) Opposite", "d) Inside"],
+        "correctOption": "b) Plus"
+    },
+    {
+        "question": "The hidden treasure was buried deep ______ the ancient ruins.",
+        "options": ["a) Under", "b) Opposite", "c) Round", "d) Unlike"],
+        "correctOption": "a) Underneath"
+    },
+    {
+        "question": "The report provides valuable information ______ the current market trends.",
+        "options": ["a) Round", "b) Inside", "c) Regarding", "d) Unlike"],
+        "correctOption": "c) Regarding"
+    },
+    {
+        "question": "The submarine explored the mysterious depths ______ the ocean.",
+        "options": ["a) Round", "b) Inside", "c) Beneath", "d) Besides"],
+        "correctOption": "c) Beneath"
+    },
+    {
+        "question": "The new employee, ______ her lack of experience, quickly adapted to the challenging work environment.",
+        "options": ["a) Besides", "b) Opposite", "c) Around", "d) Inside"],
+        "correctOption": "a) Besides"
+    },
+    {
+        "question": "The organization is known for its campaigns ______ discrimination and injustice.",
+        "options": ["a) Anti", "b) Around", "c) Under", "d) Inside"],
+        "correctOption": "a) Anti"
+    },
+{
+        "question": "The new policy was implemented ___ the feedback received from the employees.",
+        "options": ["a) For", "b) Towards", "c) Around", "d) Beside"],
+        "correctOption": "b) Towards"
+    },
+    {
+        "question": "The ambassador spoke ___ the nation's behalf at the international conference.",
+        "options": ["a) For", "b) Above", "c) Across", "d) Over"],
+        "correctOption": "a) For"
+    },
+    {
+        "question": "The manager is responsible ___ the entire team's performance.",
+        "options": ["a) Towards", "b) After", "c) Between", "d) Against"],
+        "correctOption": "a) Towards"
+    },
+    {
+        "question": "The estimated cost of the project is ___ $1 million.",
+        "options": ["a) Around", "b) Beside", "c) For", "d) Above"],
+        "correctOption": "a) Around"
+    },
+    {
+        "question": "The cat sat ___ the fireplace.",
+        "options": ["a) Over", "b) Through", "c) Above", "d) Beside"],
+        "correctOption": "d) Beside"
+    },
+    {
+        "question": "The scientist conducted experiments ___ the new formula.",
+        "options": ["a) After", "b) Between", "c) Against", "d) In the style of"],
+        "correctOption": "d) In the style of"
+    },
+    {
+        "question": "He has been working diligently ___ this company for ten years.",
+        "options": ["a) Above", "b) For", "c) Over", "d) Through"],
+        "correctOption": "b) For"
+    },
+    {
+        "question": "The bridge was built ___ the river to connect the two towns.",
+        "options": ["a) After", "b) Beside", "c) Between", "d) Across"],
+        "correctOption": "d) Across"
+    },
+    {
+        "question": "The author wrote novels ___ the 19th-century Victorian era.",
+        "options": ["a) After", "b) Over", "c) Above", "d) Against"],
+        "correctOption": "b) Over"
+    },
+    {
+        "question": "The team worked together to find a solution ___ the challenging problem.",
+        "options": ["a) Towards", "b) Between", "c) Against", "d) For"],
+        "correctOption": "c) Against"
+    },
+    {
+        "question": "The cat jumped ___ the table and the chair.",
+        "options": ["a) Over", "b) Above", "c) Beside", "d) After"],
+        "correctOption": "a) Over"
+    },
+    {
+        "question": "The treaty was signed ___ the two nations to promote peace.",
+        "options": ["a) Between", "b) Over", "c) Across", "d) For"],
+        "correctOption": "a) Between"
+    },
+    {
+        "question": "The team persevered ___ difficult circumstances and emerged victorious.",
+        "options": ["a) Through", "b) Above", "c) Against", "d) Beside"],
+        "correctOption": "a) Through"
+    },
+    {
+        "question": "The painting was created ___ the artist's unique perspective.",
+        "options": ["a) For", "b) After", "c) Around", "d) Towards"],
+        "correctOption": "a) For"
+    },
+    {
+        "question": "The plane flew ___ the storm to reach its destination safely.",
+        "options": ["a) Over", "b) Through", "c) Around", "d) Against"],
+        "correctOption": "b) Through"
+    },
+{
+        "question": "1. \"He was punished _____ his involvement in the scandal.\"",
+        "options": ["a) For (nexus; in connection with)", "b) For (as a representative of)", "c) Towards (in relation to)", "d) Around (approximate)"],
+        "correctOption": "a) For (nexus; in connection with)"
+    },
+    {
+        "question": "2. \"The ambassador spoke eloquently _____ his country's position.\"",
+        "options": ["a) Beside (next to)", "b) For (shows work or for which company working)", "c) Above (greater/more/higher)", "d) After (in the style of)"],
+        "correctOption": "b) For (shows work or for which company working)"
+    },
+    {
+        "question": "3. \"Her kindness _____ animals is well-known in the community.\"",
+        "options": ["a) Around (approximate)", "b) Towards (in relation to)", "c) Across (on the other side of)", "d) Over (more than a particular time, quantity, etc)"],
+        "correctOption": "b) Towards (in relation to)"
+    },
+    {
+        "question": "4. \"They stood _____ the monument, admiring its beauty.\"",
+        "options": ["a) Beside (next to)", "b) Above (greater/more/higher)", "c) Between (separates two things)", "d) After (in the style of)"],
+        "correctOption": "a) Beside (next to)"
+    },
+    {
+        "question": "5. \"She argued passionately _____ her team during the debate.\"",
+        "options": ["a) Over (more than a particular time, quantity, etc)", "b) Against (in order to prevent something)", "c) Through (past difficulty, situation, and test)", "d) After (in the style of)"],
+        "correctOption": "b) Against (in order to prevent something)"
+    },
+    {
+        "question": "6. \"The company worked tirelessly _____ improving its products.\"",
+        "options": ["a) For (nexus; in connection with)", "b) Towards (in relation to)", "c) Around (approximate)", "d) Beside (next to)"],
+        "correctOption": "b) Towards (in relation to)"
+    },
+    {
+        "question": "7. \"The cat sat _____ the fireplace, enjoying the warmth.\"",
+        "options": ["a) Above (greater/more/higher)", "b) Beside (next to)", "c) Between (separates two things)", "d) Through (past difficulty, situation, and test)"],
+        "correctOption": "b) Beside (next to)"
+    },
+    {
+        "question": "8. \"They sailed _____ the ocean, facing many challenges.\"",
+        "options": ["a) After (in the style of)", "b) Across (on the other side of)", "c) Over (more than a particular time, quantity, etc)", "d) Against (in order to prevent something)"],
+        "correctOption": "b) Across (on the other side of)"
+    },
+    {
+        "question": "9. \"He walked _____ the bridge, enjoying the scenic view.\"",
+        "options": ["a) Between (separates two things)", "b) Over (more than a particular time, quantity, etc)", "c) Beside (next to)", "d) Through (past difficulty, situation, and test)"],
+        "correctOption": "c) Beside (next to)"
+    },
+    {
+        "question": "10. \"She worked hard _____ her success over the years.\"",
+        "options": ["a) After (in the style of)", "b) For (shows length of time - perfect tense)", "c) Against (in order to prevent something)", "d) Towards (in relation to)"],
+        "correctOption": "b) For (shows length of time - perfect tense)"
+    },
+    {
+        "question": "11. \"The bridge spans _____ the river, connecting the two cities.\"",
+        "options": ["a) Around (approximate)", "b) Beside (next to)", "c) Between (separates two things)", "d) After (in the style of)"],
+        "correctOption": "c) Between (separates two things)"
+    },
+    {
+        "question": "12. \"She painted a picture _____ Van Gogh.\"",
+        "options": ["a) Over (more than a particular time, quantity, etc)", "b) Against (in order to prevent something)", "c) After (in the style of)", "d) Towards (in relation to)"],
+        "correctOption": "c) After (in the style of)"
+    },
+    {
+        "question": "13. \"They hiked _____ the mountain, facing extreme weather conditions.\"",
+        "options": ["a) Above (greater/more/higher)", "b) Through (past difficulty, situation, and test)", "c) Across (on the other side of)", "d) For (shows work or for which company working)"],
+        "correctOption": "b) Through (past difficulty, situation, and test)"
+    },
+    {
+        "question": "14. \"The concert lasted _____ three hours.\"",
+        "options": ["a) Over (more than a particular time, quantity, etc)", "b) Around (approximate)", "c) After (in the style of)", "d) For (shows length of time - perfect tense)"],
+        "correctOption": "a) Over (more than a particular time, quantity, etc)"
+    },
+    {
+        "question": "15. \"He defended his stance strongly _____ criticism from his peers.\"",
+        "options": ["a) Towards (in relation to)", "b) Against (in order to prevent something)", "c) Beside (next to)", "d) Over (more than a particular time, quantity, etc)"],
+        "correctOption": "b) Against (in order to prevent something)"
+    },
+ {
+        "question": "1. Choose the correct preposition to fill in the blank: The new policy was implemented ___ the feedback received from the employees.",
+        "options": ["a) For", "b) Towards", "c) Around", "d) Beside"],
+        "correctOption": "b) Towards"
+    },
+    {
+        "question": "2. Select the appropriate preposition: The ambassador spoke ___ the nation's behalf at the international conference.",
+        "options": ["a) For", "b) Above", "c) Across", "d) Over"],
+        "correctOption": "a) For"
+    },
+    {
+        "question": "3. Fill in the blank with the correct preposition: The manager is responsible ___ the entire team's performance.",
+        "options": ["a) Towards", "b) After", "c) Between", "d) Against"],
+        "correctOption": "a) Towards"
+    },
+    {
+        "question": "4. Choose the right preposition: The estimated cost of the project is ___ $1 million.",
+        "options": ["a) Around", "b) Beside", "c) For", "d) Above"],
+        "correctOption": "a) Around"
+    },
+    {
+        "question": "5. Complete the sentence with the appropriate preposition: The cat sat ___ the fireplace.",
+        "options": ["a) Over", "b) Through", "c) Above", "d) Beside"],
+        "correctOption": "d) Beside"
+    },
+    {
+        "question": "6. Pick the correct preposition: The scientist conducted experiments ___ the new formula.",
+        "options": ["a) After", "b) Between", "c) Against", "d) In the style of"],
+        "correctOption": "d) In the style of"
+    },
+    {
+        "question": "7. Choose the right preposition to complete the sentence: He has been working diligently ___ this company for ten years.",
+        "options": ["a) Above", "b) For", "c) Over", "d) Through"],
+        "correctOption": "b) For"
+    },
+    {
+        "question": "8. Select the appropriate preposition: The bridge was built ___ the river to connect the two towns.",
+        "options": ["a) After", "b) Beside", "c) Between", "d) Across"],
+        "correctOption": "d) Across"
+    },
+    {
+        "question": "9. Fill in the blank with the correct preposition: The author wrote novels ___ the 19th-century Victorian era.",
+        "options": ["a) After", "b) Over", "c) Above", "d) Against"],
+        "correctOption": "b) Over"
+    },
+    {
+        "question": "10. Choose the right preposition: The team worked together to find a solution ___ the challenging problem.",
+        "options": ["a) Towards", "b) Between", "c) Against", "d) For"],
+        "correctOption": "c) Against"
+    },
+    {
+        "question": "11. Complete the sentence with the appropriate preposition: The cat jumped ___ the table and the chair.",
+        "options": ["a) Over", "b) Above", "c) Beside", "d) After"],
+        "correctOption": "a) Over"
+    },
+    {
+        "question": "12. Select the correct preposition: The treaty was signed ___ the two nations to promote peace.",
+        "options": ["a) Between", "b) Over", "c) Across", "d) For"],
+        "correctOption": "a) Between"
+    },
+    {
+        "question": "13. Fill in the blank with the appropriate preposition: The team persevered ___ difficult circumstances and emerged victorious.",
+        "options": ["a) Through", "b) Above", "c) Against", "d) Beside"],
+        "correctOption": "a) Through"
+    },
+    {
+        "question": "14. Choose the right preposition: The painting was created ___ the artist's unique perspective.",
+        "options": ["a) For", "b) After", "c) Around", "d) Towards"],
+        "correctOption": "a) For"
+    },
+    {
+        "question": "15. Complete the sentence with the correct preposition: The plane flew ___ the storm to reach its destination safely.",
+        "options": ["a) Over", "b) Through", "c) Around", "d) Against"],
+        "correctOption": "b) Through"
+    },
+	{
+        "question": "1. The manager has complete __________ the project.",
+        "options": ["a) Over", "b) Onto", "c) Into", "d) Around"],
+        "correctOption": "a) Over"
+    },
+    {
+        "question": "2. She looked __________ the beautiful sunset.",
+        "options": ["a) Over", "b) Onto", "c) By", "d) Off"],
+        "correctOption": "b) Onto"
+    },
+    {
+        "question": "3. The article provides information __________ the new technology.",
+        "options": ["a) Onto", "b) By", "c) Into", "d) Around"],
+        "correctOption": "c) Into"
+    },
+    {
+        "question": "4. He walked __________ the room with confidence.",
+        "options": ["a) Onto", "b) Beside", "c) Down", "d) In"],
+        "correctOption": "a) Onto"
+    },
+    {
+        "question": "5. The witness swore __________ the Bible.",
+        "options": ["a) By", "b) Off", "c) Into", "d) At"],
+        "correctOption": "a) By"
+    },
+    {
+        "question": "6. The ball rolled __________ the hill.",
+        "options": ["a) Down", "b) Around", "c) Off", "d) On"],
+        "correctOption": "a) Down"
+    },
+    {
+        "question": "7. Please sit __________ me during the meeting.",
+        "options": ["a) Beside", "b) By", "c) Into", "d) Off"],
+        "correctOption": "a) Beside"
+    },
+    {
+        "question": "8. The success of the project was __________ careful planning.",
+        "options": ["a) Into", "b) Off", "c) On", "d) Into"],
+        "correctOption": "c) On"
+    },
+    {
+        "question": "9. The broken vase was __________ the result of his carelessness.",
+        "options": ["a) By", "b) Beside", "c) Into", "d) Off"],
+        "correctOption": "c) Into"
+    },
+    {
+        "question": "10. The temperature dropped __________ 5 degrees Celsius.",
+        "options": ["a) By", "b) Off", "c) Around", "d) Into"],
+        "correctOption": "a) By"
+    },
+    {
+        "question": "11. The fence was built __________ the garden.",
+        "options": ["a) Off", "b) Around", "c) On", "d) Beside"],
+        "correctOption": "b) Around"
+    },
+    {
+        "question": "12. She decided to cut __________ sweets for a healthier lifestyle.",
+        "options": ["a) Into", "b) By", "c) Off", "d) Onto"],
+        "correctOption": "c) Off"
+    },
+    {
+        "question": "13. He fixed the broken computer __________ replacing the motherboard.",
+        "options": ["a) By", "b) At", "c) Onto", "d) In"],
+        "correctOption": "a) By"
+    },
+    {
+        "question": "14. She excelled __________ mathematics due to her logical thinking.",
+        "options": ["a) At", "b) On", "c) Beside", "d) Over"],
+        "correctOption": "a) At"
+    },
+    {
+        "question": "15. The book is dedicated __________ Shakespeare for his contributions to literature.",
+        "options": ["a) In", "b) Beside", "c) By", "d) Into"],
+        "correctOption": "a) In"
+    },
+	{
+        "question": "1. \"I received a gift __________ my friend last night.\"",
+        "options": ["a) To", "b) From", "c) In", "d) At"],
+        "correctOption": "b) From"
+    },
+    {
+        "question": "2. \"The book is written __________ English.\"",
+        "options": ["a) To", "b) From", "c) In", "d) At"],
+        "correctOption": "c) In"
+    },
+    {
+        "question": "3. \"She is skilled __________ playing the piano.\"",
+        "options": ["a) To", "b) From", "c) In", "d) At"],
+        "correctOption": "d) At"
+    },
+    {
+        "question": "4. \"We are traveling __________ Paris next week.\"",
+        "options": ["a) To", "b) From", "c) In", "d) At"],
+        "correctOption": "a) To"
+    },
+    {
+        "question": "5. \"The team is participating __________ the championship.\"",
+        "options": ["a) To", "b) From", "c) In", "d) At"],
+        "correctOption": "c) In"
+    },
+    {
+        "question": "6. \"He walked __________ the building.\"",
+        "options": ["a) To", "b) From", "c) In", "d) Towards"],
+        "correctOption": "d) Towards"
+    },
+    {
+        "question": "7. \"The letter is __________ the CEO.\"",
+        "options": ["a) To", "b) From", "c) In", "d) At"],
+        "correctOption": "b) From"
+    },
+    {
+        "question": "8. \"I will go __________ the market as far as the grocery store.\"",
+        "options": ["a) To", "b) From", "c) In", "d) At"],
+        "correctOption": "a) To"
+    },
+    {
+        "question": "9. \"The sculpture is made __________ marble.\"",
+        "options": ["a) To", "b) From", "c) In", "d) At"],
+        "correctOption": "b) From"
+    },
+    {
+        "question": "10. \"He actively participates __________ community events.\"",
+        "options": ["a) To", "b) From", "c) In", "d) At"],
+        "correctOption": "c) In"
+    },
+    {
+        "question": "11. \"The product varies __________ a wide range of colors.\"",
+        "options": ["a) To", "b) From", "c) In", "d) At"],
+        "correctOption": "b) From"
+    },
+    {
+        "question": "12. \"She is focused __________ her studies.\"",
+        "options": ["a) To", "b) From", "c) In", "d) At"],
+        "correctOption": "c) In"
+    },
+    {
+        "question": "13. \"She insisted __________ having dinner __________ the restaurant.\"",
+        "options": ["a) On, on", "b) In, on", "c) On, in", "d) In, in"],
+        "correctOption": "c) On, in"
+    },
+    {
+        "question": "14. \"The medicine is effective __________ treating the symptoms.\"",
+        "options": ["a) To", "b) From", "c) In", "d) At"],
+        "correctOption": "c) In"
+    },
+    {
+        "question": "15. \"The gift was sent __________ me.\"",
+        "options": ["a) To", "b) From", "c) In", "d) Towards"],
+        "correctOption": "a) To"
+    },
+	{
+        "question": "1. \"She gave a present ___ her sister's birthday.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "a) To"
+    },
+    {
+        "question": "2. \"The delicate vase fell and shattered ___ the impact.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "b) On"
+    },
+    {
+        "question": "3. \"She separated the documents ___ the pile.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "c) From"
+    },
+    {
+        "question": "4. \"Please take your shoes ___ the carpet.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "d) Off"
+    },
+    {
+        "question": "5. \"We need to finalize the plans ___ the meeting.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "a) To"
+    },
+    {
+        "question": "6. \"He arrived just ___ the movie started.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "a) To"
+    },
+    {
+        "question": "7. \"The children played tag ___ the tree.\"",
+        "options": ["a) To", "b) On", "c) Around", "d) Off"],
+        "correctOption": "c) Around"
+    },
+    {
+        "question": "8. \"She trembled with fear ___ the approaching storm.\"",
+        "options": ["a) To", "b) On", "c) Before", "d) Off"],
+        "correctOption": "c) Before"
+    },
+    {
+        "question": "9. \"I saved him ___ drowning.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "c) From"
+    },
+    {
+        "question": "10. \"They found themselves ___ a difficult situation.\"",
+        "options": ["a) At", "b) On", "c) From", "d) Off"],
+        "correctOption": "a) At"
+    },
+    {
+        "question": "11. \"She aspires ___ a successful entrepreneur.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "a) To"
+    },
+    {
+        "question": "12. \"The cat sat ___ the windowsill.\"",
+        "options": ["a) To", "b) On", "c) In", "d) Off"],
+        "correctOption": "c) In"
+    },
+    {
+        "question": "13. \"I deduced the meaning ___ the context.\"",
+        "options": ["a) To", "b) On", "c) In", "d) Off"],
+        "correctOption": "c) In"
+    },
+    {
+        "question": "14. \"They were saved ___ the timely intervention of the lifeguard.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "c) From"
+    },
+    {
+        "question": "15. \"The book provides insights ___ the author's perspective.\"",
+        "options": ["a) To", "b) On", "c) In", "d) Off"],
+        "correctOption": "c) In"
+    },
+ {
+        "question": "1. \"She gave a present ___ her sister's birthday.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "a) To"
+    },
+    {
+        "question": "2. \"The delicate vase fell and shattered ___ the impact.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "b) On"
+    },
+    {
+        "question": "3. \"She separated the documents ___ the pile.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "c) From"
+    },
+    {
+        "question": "4. \"Please take your shoes ___ the carpet.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "d) Off"
+    },
+    {
+        "question": "5. \"We need to finalize the plans ___ the meeting.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "a) To"
+    },
+    {
+        "question": "6. \"He arrived just ___ the movie started.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "a) To"
+    },
+    {
+        "question": "7. \"The children played tag ___ the tree.\"",
+        "options": ["a) To", "b) On", "c) Around", "d) Off"],
+        "correctOption": "c) Around"
+    },
+    {
+        "question": "8. \"She trembled with fear ___ the approaching storm.\"",
+        "options": ["a) To", "b) On", "c) Before", "d) Off"],
+        "correctOption": "c) Before"
+    },
+    {
+        "question": "9. \"I saved him ___ drowning.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "c) From"
+    },
+    {
+        "question": "10. \"They found themselves ___ a difficult situation.\"",
+        "options": ["a) At", "b) On", "c) From", "d) Off"],
+        "correctOption": "a) At"
+    },
+    {
+        "question": "11. \"She aspires ___ a successful entrepreneur.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "a) To"
+    },
+    {
+        "question": "12. \"The cat sat ___ the windowsill.\"",
+        "options": ["a) To", "b) On", "c) In", "d) Off"],
+        "correctOption": "c) In"
+    },
+    {
+        "question": "13. \"I deduced the meaning ___ the context.\"",
+        "options": ["a) To", "b) On", "c) In", "d) Off"],
+        "correctOption": "c) In"
+    },
+    {
+        "question": "14. \"They were saved ___ the timely intervention of the lifeguard.\"",
+        "options": ["a) To", "b) On", "c) From", "d) Off"],
+        "correctOption": "c) From"
+    },
+    {
+        "question": "15. \"The book provides insights ___ the author's perspective.\"",
+        "options": ["a) To", "b) On", "c) In", "d) Off"],
+        "correctOption": "c) In"
+    },
+    {
+        "question": "1. Choose the correct preposition to fill in the blank: \"She is __________ the best student in the class.\"",
+        "options": ["a) At", "b) To", "c) In", "d) On"],
+        "correctOption": "a) At"
+    },
+    {
+        "question": "2. \"I'm heading ___________ the store to buy some groceries.\"",
+        "options": ["a) at", "b) to", "c) in", "d) on"],
+        "correctOption": "b) to"
+    },
+    {
+        "question": "3. \"She looked stunning ___________ the red dress.\"",
+        "options": ["a) at", "b) to", "c) in", "d) on"],
+        "correctOption": "c) in"
+    },
+    {
+        "question": "4. \"The picture is hanging ___________ the wall.\"",
+        "options": ["a) at", "b) to", "c) in", "d) on"],
+        "correctOption": "d) on"
+    },
+    {
+        "question": "5. \"He arrived ___________ the party before anyone else.\"",
+        "options": ["a) at", "b) to", "c) in", "d) on"],
+        "correctOption": "a) at"
+    },
+    {
+        "question": "6. \"Please complete the task ___________ the deadline.\"",
+        "options": ["a) at", "b) to", "c) in", "d) before"],
+        "correctOption": "d) before"
+    },
+    {
+        "question": "7. \"I always look forward ___________ meeting new people.\"",
+        "options": ["a) at", "b) to", "c) in", "d) on"],
+        "correctOption": "b) to"
+    },
+    {
+        "question": "8. \"The support ___________ the team was incredible.\"",
+        "options": ["a) at", "b) to", "c) in", "d) behind"],
+        "correctOption": "d) behind"
+    },
+    {
+        "question": "9. \"This conclusion is supported ___________ the data provided.\"",
+        "options": ["a) at", "b) to", "c) in", "d) by"],
+        "correctOption": "d) by"
+    },
+    {
+        "question": "10. \"There are 1000 meters ___________ a kilometer.\"",
+        "options": ["a) at", "b) to", "c) in", "d) on"],
+        "correctOption": "b) to"
+    },
+    {
+        "question": "11. \"Look ___________ and you'll find the answer.\"",
+        "options": ["a) at", "b) to", "c) in", "d) down"],
+        "correctOption": "d) down"
+    },
+    {
+        "question": "12. \"She transformed the company completely, turning it ___________ a profitable venture.\"",
+        "options": ["a) at", "b) to", "c) in", "d) into"],
+        "correctOption": "d) into"
+    },
+    {
+        "question": "13. \"The music is ___________ than I expected.\"",
+        "options": ["a) at", "b) to", "c) in", "d) over"],
+        "correctOption": "d) over"
+    },
+    {
+        "question": "14. \"His reaction ___________ the news was surprising.\"",
+        "options": ["a) at", "b) to", "c) in", "d) on"],
+        "correctOption": "b) to"
+    },
+    {
+        "question": "15. \"She has a positive attitude ___________ challenges.\"",
+        "options": ["a) at", "b) to", "c) in", "d) on"],
+        "correctOption": "b) to"
+    },
+	{
+        "question": "1. \"The boxer eventually succumbed _____ injuries, showing the impact on people.\"",
+        "options": ["a) to", "b) in", "c) at", "d) on"],
+        "correctOption": "a) to"
+    },
+    {
+        "question": "2. \"The treasure is hidden deep _____ the cave.\"",
+        "options": ["a) in", "b) on", "c) at", "d) by"],
+        "correctOption": "a) in"
+    },
+    {
+        "question": "3. \"She is quite active _____ the age of 70.\"",
+        "options": ["a) to", "b) in", "c) at", "d) on"],
+        "correctOption": "c) at"
+    },
+    {
+        "question": "4. \"The cat is sitting _____ the roof.\"",
+        "options": ["a) in", "b) on", "c) at", "d) by"],
+        "correctOption": "b) on"
+    },
+    {
+        "question": "5. \"Please turn _____ the lights when you leave.\"",
+        "options": ["a) in", "b) on", "c) at", "d) by"],
+        "correctOption": "b) on"
+    },
+    {
+        "question": "6. \"He received a gift _____ his friend.\"",
+        "options": ["a) in", "b) off", "c) at", "d) on"],
+        "correctOption": "b) off"
+    },
+    {
+        "question": "7. \"The meeting should be finished _____ 5 o'clock.\"",
+        "options": ["a) by", "b) in", "c) at", "d) on"],
+        "correctOption": "a) by"
+    },
+    {
+        "question": "8. \"The snow covered the town _____ a thick blanket.\"",
+        "options": ["a) in", "b) on", "c) at", "d) over"],
+        "correctOption": "d) over"
+    },
+    {
+        "question": "9. \"The car skidded and crashed, _____ which the driver was shaken.\"",
+        "options": ["a) in", "b) on", "c) at", "d) after"],
+        "correctOption": "d) after"
+    },
+    {
+        "question": "10. \"She smiled _____ his compliment.\"",
+        "options": ["a) to", "b) in", "c) at", "d) on"],
+        "correctOption": "a) to"
+    },
+    {
+        "question": "11. \"The team voted unanimously _____ the proposed changes.\"",
+        "options": ["a) to", "b) for", "c) at", "d) on"],
+        "correctOption": "b) for"
+    },
+    {
+        "question": "12. \"The grocery store is located _____ the bank.\"",
+        "options": ["a) in", "b) near", "c) at", "d) by"],
+        "correctOption": "b) near"
+    },
+    {
+        "question": "13. \"The company earned $10 million _____ quarter.\"",
+        "options": ["a) in", "b) per", "c) at", "d) on"],
+        "correctOption": "b) per"
+    },
+    {
+        "question": "14. \"Everyone attended the meeting, _____ John who was on vacation.\"",
+        "options": ["a) in", "b) except", "c) at", "d) by"],
+        "correctOption": "b) except"
+    },
+    {
+        "question": "15. \"He bowed graciously _____ prolonged applause.\"",
+        "options": ["a) to", "b) in", "c) at", "d) on"],
+        "correctOption": "a) to"
+    },
+    {
+        "question": "1. \"She hid the treasure _______ the old oak tree.\"",
+        "options": ["a) Under", "b) For", "c) Around", "d) Across"],
+        "correctOption": "a) Under"
+    },
+    {
+        "question": "2. \"I work diligently _______ a reputable software company.\"",
+        "options": ["a) Under", "b) For", "c) Around", "d) Across"],
+        "correctOption": "b) For"
+    },
+    {
+        "question": "3. \"The kids played _______ the park until sunset.\"",
+        "options": ["a) Under", "b) For", "c) Around", "d) Across"],
+        "correctOption": "c) Around"
+    },
+    {
+        "question": "4. \"She placed the book gently _______ her head.\"",
+        "options": ["a) Under", "b) For", "c) Around", "d) Across"],
+        "correctOption": "d) Across"
+    },
+    {
+        "question": "5. \"His generosity is _______ praise.\"",
+        "options": ["a) Under", "b) For", "c) Around", "d) Across"],
+        "correctOption": "a) Under"
+    },
+    {
+        "question": "6. \"The helicopter flew _______ the mountains.\"",
+        "options": ["a) Above", "b) Along", "c) Up", "d) Across"],
+        "correctOption": "a) Above"
+    },
+    {
+        "question": "7. \"We walked _______ the beach, enjoying the sunset.\"",
+        "options": ["a) Above", "b) Along", "c) Up", "d) Across"],
+        "correctOption": "b) Along"
+    },
+    {
+        "question": "8. \"The balloon floated _______ the clouds.\"",
+        "options": ["a) Above", "b) Along", "c) Up", "d) Across"],
+        "correctOption": "c) Up"
+    },
+    {
+        "question": "9. \"The bridge extends _______ the river.\"",
+        "options": ["a) Above", "b) Along", "c) Up", "d) Across"],
+        "correctOption": "d) Across"
+    },
+    {
+        "question": "10. \"I've been waiting _______ two hours.\"",
+        "options": ["a) For", "b) Within", "c) About", "d) Of"],
+        "correctOption": "a) For"
+    },
+    {
+        "question": "11. \"The event will take place _______ the next week.\"",
+        "options": ["a) For", "b) Within", "c) About", "d) Of"],
+        "correctOption": "b) Within"
+    },
+    {
+        "question": "12. \"The fence is _______ the garden.\"",
+        "options": ["a) For", "b) Within", "c) About", "d) Of"],
+        "correctOption": "c) About"
+    },
+    {
+        "question": "13. \"The location is just south _______ the city center.\"",
+        "options": ["a) For", "b) Within", "c) About", "d) Of"],
+        "correctOption": "d) Of"
+    },
+    {
+        "question": "14. \"He went _______ the lost keys.\"",
+        "options": ["a) For", "b) After", "c) About", "d) Of"],
+        "correctOption": "b) After"
+    },
+    {
+        "question": "15. \"The store is _______ the street.\"",
+        "options": ["a) For", "b) Over", "c) About", "d) Of"],
+        "correctOption": "b) Over"
+    },
+	{
+        "question": "1. \"She found the treasure hidden ________ the big rock.\"",
+        "options": ["a) For", "b) Under", "c) Across", "d) About"],
+        "correctOption": "b) Under"
+    },
+    {
+        "question": "2. \"I work diligently ________ this prestigious organization.\"",
+        "options": ["a) Along", "b) Above", "c) For", "d) Up"],
+        "correctOption": "c) For"
+    },
+    {
+        "question": "3. \"He scattered the papers ________ the room.\"",
+        "options": ["a) Around", "b) Up", "c) Within", "d) Over"],
+        "correctOption": "a) Around"
+    },
+    {
+        "question": "4. \"The necklace hung gracefully ________ her neck.\"",
+        "options": ["a) Across", "b) Up", "c) Over", "d) About"],
+        "correctOption": "c) Over"
+    },
+    {
+        "question": "5. \"She is known for her integrity; she is ________ reproach.\"",
+        "options": ["a) Up", "b) After", "c) Over", "d) Above"],
+        "correctOption": "d) Above"
+    },
+    {
+        "question": "6. \"We walked ________ the entire length of the beach.\"",
+        "options": ["a) For", "b) Along", "c) Under", "d) About"],
+        "correctOption": "b) Along"
+    },
+    {
+        "question": "7. \"The plane flew ________ the mountain range.\"",
+        "options": ["a) Across", "b) Over", "c) Within", "d) For"],
+        "correctOption": "a) Across"
+    },
+    {
+        "question": "8. \"The book is placed ________ the shelf.\"",
+        "options": ["a) Up", "b) Under", "c) About", "d) For"],
+        "correctOption": "a) Up"
+    },
+    {
+        "question": "9. \"They swam ________ the river to reach the other side.\"",
+        "options": ["a) Across", "b) Under", "c) About", "d) For"],
+        "correctOption": "a) Across"
+    },
+    {
+        "question": "10. \"The distance ________ New York and Los Angeles is quite significant.\"",
+        "options": ["a) Above", "b) Up", "c) For", "d) Across"],
+        "correctOption": "c) For"
+    },
+    {
+        "question": "11. \"The meeting will conclude ________ an hour.\"",
+        "options": ["a) Over", "b) Within", "c) Up", "d) After"],
+        "correctOption": "b) Within"
+    },
+    {
+        "question": "12. \"There is a fence all ________ the property.\"",
+        "options": ["a) Along", "b) Over", "c) About", "d) For"],
+        "correctOption": "c) About"
+    },
+    {
+        "question": "13. \"The picture ________ the wall caught my attention.\"",
+        "options": ["a) Of", "b) Up", "c) Across", "d) Within"],
+        "correctOption": "a) Of"
+    },
+    {
+        "question": "14. \"He came ________ me right when I needed help.\"",
+        "options": ["a) After", "b) Over", "c) Under", "d) For"],
+        "correctOption": "a) After"
+    },
+    {
+        "question": "15. \"The park is ________ the street from the school.\"",
+        "options": ["a) Over", "b) About", "c) Across", "d) Under"],
+        "correctOption": "c) Across"
+    },
+    {
+        "question": "1. \"I bought this gift _ you.\"",
+        "options": ["a) For", "b) Under", "c) Towards", "d) Around"],
+        "correctOption": "a) For"
+    },
+    {
+        "question": "2. \"The treasure is hidden just _ the surface.\"",
+        "options": ["a) For", "b) Under", "c) Towards", "d) Around"],
+        "correctOption": "b) Under"
+    },
+    {
+        "question": "3. \"She walked slowly _ the door, eager to see who was inside.\"",
+        "options": ["a) For", "b) Under", "c) Towards", "d) Around"],
+        "correctOption": "c) Towards"
+    },
+    {
+        "question": "4. \"This message is _ you.\"",
+        "options": ["a) For", "b) Under", "c) Towards", "d) Around"],
+        "correctOption": "a) For"
+    },
+    {
+        "question": "5. \"He traveled from one city to another, exploring different cultures _ the way.\"",
+        "options": ["a) For", "b) Under", "c) Towards", "d) Around"],
+        "correctOption": "d) Around"
+    },
+    {
+        "question": "6. \"We're planning a get-together this weekend. Will you come _?\"",
+        "options": ["a) For", "b) ROUND", "c) Towards", "d) Around"],
+        "correctOption": "b) ROUND"
+    },
+    {
+        "question": "7. \"The path leads directly _ the mountains.\"",
+        "options": ["a) For", "b) Under", "c) Towards", "d) Around"],
+        "correctOption": "c) Towards"
+    },
+    {
+        "question": "8. \"The event is scheduled for a time _ the deadline.\"",
+        "options": ["a) PAST", "b) Under", "c) Towards", "d) Around"],
+        "correctOption": "a) PAST"
+    },
+    {
+        "question": "9. \"I'll accept all proposals _ yours.\"",
+        "options": ["a) For", "b) Under", "c) Excepting", "d) Around"],
+        "correctOption": "c) Excepting"
+    },
+    {
+        "question": "10. \"Calculate the result by subtracting, _ the given number.\"",
+        "options": ["a) For", "b) Minus", "c) Towards", "d) Around"],
+        "correctOption": "b) Minus"
+    },
+    {
+        "question": "11. \"Let's sit in a _ table at the restaurant.\"",
+        "options": ["a) For", "b) ROUND", "c) Towards", "d) Around"],
+        "correctOption": "b) ROUND"
+    },
+    {
+        "question": "12. \"We met several times _ the conference.\"",
+        "options": ["a) For", "b) Under", "c) Towards", "d) During"],
+        "correctOption": "d) During"
+    },
+    {
+        "question": "13. \"The match is set, Team A _ Team B.\"",
+        "options": ["a) For", "b) Under", "c) Towards", "d) versus"],
+        "correctOption": "d) versus"
+    },
+    {
+        "question": "14. \"Send the document _ email.\"",
+        "options": ["a) For", "b) Under", "c) Towards", "d) via"],
+        "correctOption": "d) via"
+    },
+    {
+        "question": "15. \"The story unfolds _ a series of events.\"",
+        "options": ["a) For", "b) ROUND", "c) Towards", "d) Around"],
+        "correctOption": "d) Around"
+    },
+	{
+        "question": "1. The store will be open ________ 6:00 PM.",
+        "options": ["a) until", "b) like", "c) following", "d) excluding"],
+        "correctOption": "a) until"
+    },
+    {
+        "question": "2. She acts ________ her sister, always imitating her gestures and mannerisms.",
+        "options": ["a) until", "b) like", "c) following", "d) excluding"],
+        "correctOption": "b) like"
+    },
+    {
+        "question": "3. The storm caused severe damage; ________, many homes were left without electricity.",
+        "options": ["a) until", "b) like", "c) following", "d) excluding"],
+        "correctOption": "c) following"
+    },
+    {
+        "question": "4. Please submit your report by Friday, ________ appendices and unnecessary details.",
+        "options": ["a) until", "b) like", "c) following", "d) excluding"],
+        "correctOption": "d) excluding"
+    },
+    {
+        "question": "5. ________ the current economic conditions, we need to be cautious in our spending.",
+        "options": ["a) until", "b) like", "c) following", "d) considering"],
+        "correctOption": "d) considering"
+    },
+    {
+        "question": "6. The meeting will address issues ________ the recent policy changes.",
+        "options": ["a) until", "b) concerning", "c) following", "d) excluding"],
+        "correctOption": "b) concerning"
+    },
+    {
+        "question": "7. The temperature is ________ 20 degrees Celsius.",
+        "options": ["a) under", "b) like", "c) following", "d) excluding"],
+        "correctOption": "a) under"
+    },
+    {
+        "question": "8. Use this tool ________ measuring distances accurately.",
+        "options": ["a) for", "b) like", "c) following", "d) excluding"],
+        "correctOption": "a) for"
+    },
+    {
+        "question": "9. The cat walked ________ the room, exploring every corner.",
+        "options": ["a) until", "b) around", "c) following", "d) excluding"],
+        "correctOption": "b) around"
+    },
+    {
+        "question": "10. The company operates ________ strict quality control measures.",
+        "options": ["a) under", "b) like", "c) following", "d) excluding"],
+        "correctOption": "a) under"
+    },
+    {
+        "question": "11. She walked briskly ________ three miles without stopping.",
+        "options": ["a) for", "b) around", "c) following", "d) excluding"],
+        "correctOption": "a) for"
+    },
+    {
+        "question": "12. The marker is placed ________ the midpoint of the ruler.",
+        "options": ["a) until", "b) like", "c) around", "d) excluding"],
+        "correctOption": "c) around"
+    },
+    {
+        "question": "13. The book provides information ________ the history of ancient civilizations.",
+        "options": ["a) about", "b) like", "c) following", "d) excluding"],
+        "correctOption": "a) about"
+    },
+    {
+        "question": "14. The decision was made ________ careful consideration of all options.",
+        "options": ["a) until", "b) upon", "c) following", "d) excluding"],
+        "correctOption": "b) upon"
+    },
+    {
+        "question": "15. The project must be completed ________ the specified time frame.",
+        "options": ["a) within", "b) like", "c) following", "d) excluding"],
+        "correctOption": "a) within"
+    },
+    {
+        "question": "1. The team won the championship trophy, __________ their exceptional performance.",
+        "options": ["a) For", "b) About", "c) Of", "d) Forth"],
+        "correctOption": "a) For"
+    },
+    {
+        "question": "2. We sat __________ the fireplace, enjoying the warmth on a cold winter evening.",
+        "options": ["a) About", "b) In", "c) Over", "d) Around"],
+        "correctOption": "b) In"
+    },
+    {
+        "question": "3. The author wrote a novel __________ the challenges faced by the protagonist.",
+        "options": ["a) Of", "b) For", "c) About", "d) After"],
+        "correctOption": "c) About"
+    },
+    {
+        "question": "4. The taste and aroma are characteristic __________ the unique blend of spices used in the recipe.",
+        "options": ["a) Of", "b) For", "c) Over", "d) Before"],
+        "correctOption": "a) Of"
+    },
+    {
+        "question": "5. The community rallied together __________ the construction of a new community center.",
+        "options": ["a) For", "b) Over", "c) Before", "d) Behind"],
+        "correctOption": "a) For"
+    },
+    {
+        "question": "6. The mystery was solved __________ careful analysis and deduction.",
+        "options": ["a) Through", "b) Over", "c) Behind", "d) Into"],
+        "correctOption": "a) Through"
+    },
+    {
+        "question": "7. The clock struck midnight, and the celebration continued __________ the night.",
+        "options": ["a) After", "b) About", "c) Behind", "d) Before"],
+        "correctOption": "a) After"
+    },
+    {
+        "question": "8. The mountain peak towered __________ the surrounding landscape.",
+        "options": ["a) For", "b) Over", "c) Into", "d) By"],
+        "correctOption": "b) Over"
+    },
+    {
+        "question": "9. The key fits perfectly __________ the lock, allowing smooth access.",
+        "options": ["a) Into", "b) For", "c) After", "d) Around"],
+        "correctOption": "a) Into"
+    },
+    {
+        "question": "10. Shakespeare's sonnets are known __________ their profound and poetic expressions.",
+        "options": ["a) For", "b) About", "c) Of", "d) Before"],
+        "correctOption": "a) For"
+    },
+    {
+        "question": "11. The success of the project was achieved __________ collaboration and teamwork.",
+        "options": ["a) By", "b) About", "c) Behind", "d) Before"],
+        "correctOption": "a) By"
+    },
+    {
+        "question": "12. The photograph captured a moment __________ the scenes of their childhood.",
+        "options": ["a) Before", "b) Behind", "c) For", "d) Over"],
+        "correctOption": "b) Behind"
+    },
+    {
+        "question": "13. The garden was arranged __________ the beautiful fountain.",
+        "options": ["a) Before", "b) About", "c) Over", "d) Into"],
+        "correctOption": "a) Before"
+    },
+    {
+        "question": "14. The detective carefully searched __________ the crime scene for any clues.",
+        "options": ["a) Around", "b) Into", "c) For", "d) By"],
+        "correctOption": "a) Around"
+    },
+    {
+        "question": "15. She traded her antique necklace with her friend __________ a rare book.",
+        "options": ["a) For", "b) Over", "c) About", "d) Behind"],
+        "correctOption": "a) For"
+    },
+ {
+        "question": "1. The book is __________ the shelf.",
+        "options": ["a) Behind", "b) Of", "c) About", "d) For"],
+        "correctOption": "a) Behind"
+    },
+    {
+        "question": "2. I have read only some __________ chapters of the novel.",
+        "options": ["a) Behind", "b) Of", "c) About", "d) For"],
+        "correctOption": "b) Of"
+    },
+    {
+        "question": "3. The estimate is __________ $100.",
+        "options": ["a) Behind", "b) Of", "c) About", "d) For"],
+        "correctOption": "c) About"
+    },
+    {
+        "question": "4. She traded her old bicycle __________ a new one.",
+        "options": ["a) Behind", "b) Of", "c) About", "d) For"],
+        "correctOption": "d) For"
+    },
+    {
+        "question": "5. The success __________ hard work and dedication.",
+        "options": ["a) Behind", "b) Of", "c) About", "d) For"],
+        "correctOption": "b) Of"
+    },
+    {
+        "question": "6. The debate was intense, with one speaker arguing __________ another.",
+        "options": ["a) Behind", "b) Of", "c) Against", "d) For"],
+        "correctOption": "c) Against"
+    },
+    {
+        "question": "7. The store is open from 9:00 AM __________ 5:00 PM.",
+        "options": ["a) Behind", "b) Of", "c) Through", "d) For"],
+        "correctOption": "c) Through"
+    },
+    {
+        "question": "8. She spoke __________ her boss during the meeting.",
+        "options": ["a) Behind", "b) Of", "c) For", "d) Over"],
+        "correctOption": "c) For"
+    },
+    {
+        "question": "9. The bridge extends __________ the river.",
+        "options": ["a) Over", "b) Into", "c) About", "d) Against"],
+        "correctOption": "a) Over"
+    },
+    {
+        "question": "10. The cat jumped __________ the window.",
+        "options": ["a) Over", "b) Into", "c) About", "d) Against"],
+        "correctOption": "b) Into"
+    },
+    {
+        "question": "11. Progress is measured __________ the rate of improvement.",
+        "options": ["a) Behind", "b) By", "c) For", "d) Over"],
+        "correctOption": "b) By"
+    },
+    {
+        "question": "12. Let's meet __________ the park at noon.",
+        "options": ["a) Behind", "b) Around", "c) On", "d) Against"],
+        "correctOption": "b) Around"
+    },
+    {
+        "question": "13. The commuters travel to work __________ the train.",
+        "options": ["a) Behind", "b) On", "c) About", "d) Into"],
+        "correctOption": "b) On"
+    },
+    {
+        "question": "14. Wisdom lies __________ learning from your experiences.",
+        "options": ["a) IN", "b) Of", "c) For", "d) Over"],
+        "correctOption": "a) IN"
+    },
+    {
+        "question": "15. The car was moving __________ a high speed.",
+        "options": ["a) AT", "b) Of", "c) For", "d) Over"],
+        "correctOption": "a) AT"
+    },
+    {
+        "question": "1. What preposition should be used to indicate 'to unsuccessful attempts'?",
+        "options": ["a) In", "b) At", "c) On", "d) Off"],
+        "correctOption": "b) At"
+    },
+    {
+        "question": "2. Choose the correct preposition that signifies 'jobs or professions.'",
+        "options": ["a) At", "b) In", "c) On", "d) Off"],
+        "correctOption": "b) In"
+    },
+    {
+        "question": "3. Identify the preposition that means 'immediately after something.'",
+        "options": ["a) In", "b) At", "c) On", "d) Off"],
+        "correctOption": "c) On"
+    },
+    {
+        "question": "4. Which preposition is used to indicate 'from (alternative)'?",
+        "options": ["a) In", "b) At", "c) On", "d) Off"],
+        "correctOption": "d) Off"
+    },
+    {
+        "question": "5. What preposition signifies 'the distance away from something' (location and more)?",
+        "options": ["a) At", "b) In", "c) On", "d) Off"],
+        "correctOption": "a) At"
+    },
+    {
+        "question": "6. Identify the preposition that signifies 'during a period of time (time).'",
+        "options": ["a) In", "b) At", "c) On", "d) Off"],
+        "correctOption": "a) In"
+    },
+    {
+        "question": "7. Which preposition means 'about subject'?",
+        "options": ["a) At", "b) In", "c) On", "d) Off"],
+        "correctOption": "c) On"
+    },
+    {
+        "question": "8. What preposition is used to indicate 'away from something'?",
+        "options": ["a) In", "b) At", "c) On", "d) Off"],
+        "correctOption": "d) Off"
+    },
+    {
+        "question": "9. Choose the correct preposition that signifies 'state or condition.'",
+        "options": ["a) At", "b) In", "c) On", "d) Off"],
+        "correctOption": "b) In"
+    },
+    {
+        "question": "10. Identify the preposition that means 'to show group or organization / which side.'",
+        "options": ["a) At", "b) In", "c) On", "d) Off"],
+        "correctOption": "c) On"
+    },
+    {
+        "question": "11. Which preposition means 'down or away from a place'?",
+        "options": ["a) In", "b) At", "c) On", "d) Off"],
+        "correctOption": "d) Off"
+    },
+    {
+        "question": "12. What preposition is used to indicate 'works or studies'?",
+        "options": ["a) At", "b) In", "c) On", "d) Off"],
+        "correctOption": "a) At"
+    },
+    {
+        "question": "13. Choose the correct preposition that signifies 'for a particular period of time.'",
+        "options": ["a) In", "b) At", "c) On", "d) Off"],
+        "correctOption": "a) In"
+    },
+    {
+        "question": "14. What preposition is used before a phone number?",
+        "options": ["a) At", "b) In", "c) On", "d) Off"],
+        "correctOption": "a) At"
+    },
+    {
+        "question": "15. Identify the preposition that means 'a rate or relative.'",
+        "options": ["a) In", "b) At", "c) On", "d) Off"],
+        "correctOption": "c) On"
+    },
+	{
+        "question": "1. 'He made several attempts, but he couldn't succeed ___ them.'",
+        "options": ["A) At", "B) In", "C) On", "D) Off"],
+        "correctOption": "A) At"
+    },
+    {
+        "question": "2. 'She is experienced and skilled ___ various jobs and professions.'",
+        "options": ["A) At", "B) In", "C) On", "D) Off"],
+        "correctOption": "B) In"
+    },
+    {
+        "question": "3. 'The announcement came right ___ the meeting.'",
+        "options": ["A) At", "B) In", "C) On", "D) Off"],
+        "correctOption": "C) On"
+    },
+    {
+        "question": "4. 'She took some time ___ from work to travel.'",
+        "options": ["A) At", "B) In", "C) On", "D) Off"],
+        "correctOption": "D) Off"
+    },
+    {
+        "question": "5. 'The store is located ___ a considerable distance ___ the city center.'",
+        "options": ["A) At, from", "B) In, from", "C) On, from", "D) Off, from"],
+        "correctOption": "A) At, from"
+    },
+    {
+        "question": "6. 'He made significant progress ___ the project ___ the last few months.'",
+        "options": ["A) At, during", "B) In, during", "C) On, during", "D) Off, during"],
+        "correctOption": "B) In, during"
+    },
+    {
+        "question": "7. 'I read a book ___ the facts ___ the subject.'",
+        "options": ["A) At, about", "B) In, about", "C) On, about", "D) Off, about"],
+        "correctOption": "C) On, about"
+    },
+    {
+        "question": "8. 'Please step ___ the platform when the train arrives.'",
+        "options": ["A) At", "B) In", "C) On", "D) Off"],
+        "correctOption": "D) Off"
+    },
+    {
+        "question": "9. 'She is ___ a good state ___ health.'",
+        "options": ["A) At, of", "B) In, of", "C) On, of", "D) Off, of"],
+        "correctOption": "B) In, of"
+    },
+    {
+        "question": "10. 'The decision rests ___ the group's consensus ___ which side to support.'",
+        "options": ["A) At, on", "B) In, on", "C) On, on", "D) Off, on"],
+        "correctOption": "C) On, on"
+    },
+    {
+        "question": "11. 'He climbed ___ the ladder and jumped ___ the roof.'",
+        "options": ["A) At, down", "B) In, down", "C) On, down", "D) Off, down"],
+        "correctOption": "C) On, down"
+    },
+    {
+        "question": "12. 'She excels ___ her works and studies.'",
+        "options": ["A) At", "B) In", "C) On", "D) Off"],
+        "correctOption": "A) At"
+    },
+    {
+        "question": "13. 'He will be traveling abroad ___ business ___ a particular period of time.'",
+        "options": ["A) At, for", "B) In, for", "C) On, for", "D) Off, for"],
+        "correctOption": "B) In, for"
+    },
+    {
+        "question": "14. 'Please contact me ___ this number: 555-1234.'",
+        "options": ["A) At", "B) In", "C) On", "D) Off"],
+        "correctOption": "A) At"
+    },
+    {
+        "question": "15. 'The company is growing ___ a rate ___ relative to the industry.'",
+        "options": ["A) At, relative", "B) In, relative", "C) On, relative", "D) Off, relative"],
+        "correctOption": "A) At, relative"
+    },
+    {
+        "question": "1. 'Fill in the blank: She walked ___ the street, heading towards the park.'",
+        "options": ["a) At", "b) In", "c) On", "d) By"],
+        "correctOption": "a) At"
+    },
+    {
+        "question": "2. 'Choose the correct preposition: His actions were justified, especially ___ response to the challenging circumstances.'",
+        "options": ["a) At", "b) In", "c) On", "d) By"],
+        "correctOption": "b) In"
+    },
+    {
+        "question": "3. 'Complete the sentence: The meeting is scheduled for Monday; we will reconvene ___ that day.'",
+        "options": ["a) At", "b) In", "c) On", "d) By"],
+        "correctOption": "c) On"
+    },
+    {
+        "question": "4. 'Select the appropriate preposition: Divide the cake ___ the two of you.'",
+        "options": ["a) At", "b) In", "c) On", "d) By"],
+        "correctOption": "d) By"
+    },
+    {
+        "question": "5. 'Fill in the blank: The treasure is buried deep ___ the island.'",
+        "options": ["a) At", "b) In", "c) On", "d) Into"],
+        "correctOption": "d) Into"
+    },
+    {
+        "question": "6. 'Choose the correct preposition: The box is full ___ various items.'",
+        "options": ["a) At", "b) In", "c) Of", "d) By"],
+        "correctOption": "c) Of"
+    },
+    {
+        "question": "7. 'Complete the sentence: The decision was made ___ the two competing parties.'",
+        "options": ["a) Between", "b) In", "c) On", "d) By"],
+        "correctOption": "a) Between"
+    },
+    {
+        "question": "8. 'Fill in the blank: The new policy stands ___ the previous one as a stark contrast.'",
+        "options": ["a) At", "b) In", "c) Against", "d) By"],
+        "correctOption": "c) Against"
+    },
+    {
+        "question": "9. 'Choose the correct preposition: We journeyed ___ the dense forest to reach our destination.'",
+        "options": ["a) At", "b) In", "c) Through", "d) By"],
+        "correctOption": "c) Through"
+    },
+    {
+        "question": "10. 'Select the appropriate preposition: Be aware of your surroundings; danger may lurk ___.'",
+        "options": ["a) At", "b) In", "c) On", "d) Around"],
+        "correctOption": "d) Around"
+    },
+    {
+        "question": "11. 'Fill in the blank: Place the book ___ the table; don't leave it on the floor.'",
+        "options": ["a) At", "b) In", "c) On", "d) By"],
+        "correctOption": "c) On"
+    },
+    {
+        "question": "12. 'Complete the sentence: The bridge extends ___ the river, connecting the two banks.'",
+        "options": ["a) Over", "b) In", "c) On", "d) By"],
+        "correctOption": "a) Over"
+    },
+    {
+        "question": "13. 'Choose the correct preposition: Tell me more ___ your plans for the weekend.'",
+        "options": ["a) After", "b) In", "c) On", "d) By"],
+        "correctOption": "a) After"
+    },
+    {
+        "question": "14. 'Fill in the blank: She excels in multitasking, especially ___ working on complex projects.'",
+        "options": ["a) At", "b) In", "c) On", "d) By"],
+        "correctOption": "b) In"
+    },
+    {
+        "question": "15. 'Select the appropriate preposition: The old building is surrounded ___ a beautiful garden.'",
+        "options": ["a) At", "b) In", "c) By", "d) On"],
+        "correctOption": "c) By"
+    },
+{
+        "question": "1. The book is __________ the shelf.",
+        "options": ["a) In", "b) On", "c) Over", "d) Of"],
+        "correctOption": "a) In"
+    },
+    {
+        "question": "2. The decision was made __________ a careful analysis.",
+        "options": ["a) In", "b) On", "c) Over", "d) Of"],
+        "correctOption": "b) On"
+    },
+    {
+        "question": "3. The news spread __________ the town quickly.",
+        "options": ["a) In", "b) On", "c) Over", "d) Of"],
+        "correctOption": "c) Over"
+    },
+    {
+        "question": "4. The success is a result __________ hard work.",
+        "options": ["a) In", "b) On", "c) Over", "d) Of"],
+        "correctOption": "d) Of"
+    },
+    {
+        "question": "5. He walked __________ the room confidently.",
+        "options": ["a) In", "b) On", "c) Over", "d) Of"],
+        "correctOption": "a) In"
+    },
+    {
+        "question": "6. The bill is __________ us now.",
+        "options": ["a) In", "b) On", "c) Over", "d) Of"],
+        "correctOption": "b) On"
+    },
+    {
+        "question": "7. She stood __________ the two trees.",
+        "options": ["a) In", "b) On", "c) Between", "d) Of"],
+        "correctOption": "c) Between"
+    },
+    {
+        "question": "8. The concert will take place __________ the weekend.",
+        "options": ["a) In", "b) On", "c) Over", "d) Of"],
+        "correctOption": "c) Over"
+    },
+    {
+        "question": "9. The painting captures the beauty __________ nature.",
+        "options": ["a) In", "b) On", "c) Over", "d) Of"],
+        "correctOption": "d) Of"
+    },
+    {
+        "question": "10. Please write your name __________ the line.",
+        "options": ["a) In", "b) On", "c) Over", "d) Of"],
+        "correctOption": "b) On"
+    },
+    {
+        "question": "11. __________ the challenges, they succeeded.",
+        "options": ["a) In", "b) On", "c) After", "d) Of"],
+        "correctOption": "c) After"
+    },
+    {
+        "question": "12. The responsibility is __________ your shoulders.",
+        "options": ["a) In", "b) On", "c) Over", "d) Of"],
+        "correctOption": "b) On"
+    },
+    {
+        "question": "13. The discussion is __________ the upcoming project.",
+        "options": ["a) In", "b) On", "c) Over", "d) Of"],
+        "correctOption": "c) Over"
+    },
+    {
+        "question": "14. She is taller __________ her sister.",
+        "options": ["a) In", "b) On", "c) Over", "d) Of"],
+        "correctOption": "b) On"
+    },
+    {
+        "question": "15. The movie is a critique __________ society.",
+        "options": ["a) In", "b) On", "c) Over", "d) Of"],
+        "correctOption": "d) Of"
+    },
+    {
+        "question": "1. The project was completed ___ the team's meticulous planning and execution.",
+        "options": ["a) By", "b) Against", "c) By:", "d) Against:"],
+        "correctOption": "a) By"
+    },
+    {
+        "question": "2. His actions were completely ___ my principles and beliefs.",
+        "options": ["a) By", "b) Against", "c) By:", "d) Against:"],
+        "correctOption": "b) Against"
+    },
+    {
+        "question": "3. The length of the room is measured ___ the wall to the opposite end.",
+        "options": ["a) By", "b) Against", "c) By:", "d) Against:"],
+        "correctOption": "c) By:"
+    },
+    {
+        "question": "4. The ball rolled ___ the wall, making a loud thud.",
+        "options": ["a) By", "b) Against", "c) By:", "d) Against:"],
+        "correctOption": "d) Against:"
+    },
+    {
+        "question": "5. We'll discuss the details of the plan ___ the meeting.",
+        "options": ["a) By", "b) Against", "c) By:", "d) Against:"],
+        "correctOption": "a) By"
+    },
+    {
+        "question": "6. The restaurant is located ___ the river, offering a scenic view.",
+        "options": ["a) By", "b) Against", "c) By:", "d) Against:"],
+        "correctOption": "c) By"
+    },
+    {
+        "question": "7. She is strongly ___ the proposal to increase taxes.",
+        "options": ["a) By", "b) Against", "c) By:", "d) Against:"],
+        "correctOption": "d) Against:"
+    },
+    {
+        "question": "8. The result is obtained ___ multiplying the values of the two variables.",
+        "options": ["a) By", "b) Against", "c) By:", "d) Against:"],
+        "correctOption": "a) By"
+    },
+    {
+        "question": "75. In the phrase 'be relevant to the discussion,' what does 'be relevant to' signify?",
+        "options": ["a) Be relevant to", "b) Be satisfied with", "c) Be interested in", "d) Be prepared for"],
+        "correctOption": "a) Be relevant to"
+    },
+
+
+
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

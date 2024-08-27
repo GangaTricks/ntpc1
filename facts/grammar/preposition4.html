@@ -1,0 +1,3243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Preposition QUIZ APP</title>
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Fixed Preposition Quiz | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        }); 
+		
+		
+		// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'preposition4';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+     // Display explanation
+    const explanation = document.createElement('explanation');
+explanation.innerHTML = `${currentQuestion.explanation || ''}`;
+optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+		{
+  question: "1. You must be aware (a) / of the fact that men (b) / under 25 years of age (c) / cannot take examination. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 1. (c) 'Below' will be used instead of 'Under'. Know the rule: Below is generally used to indicate level, rank, standard etc. while under is used to indicate vertical relationship or proximity. As- She is below average in intelligence. (Don't use 'under') What did you keep under the table? (Don't use 'below')' " },
+{
+  question: "2. This is only for officers; (a) / the reason being this, (b) / no one under an (c) / officer’s rank needs to apply. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 2. (c) 'Below' has to be used instead of 'Under'. ' " },
+{
+  question: "3. My income is under (a) / Rs. 55000/- per month, (b) / so I cannot afford a house (c) / worth more than 35 lac rupees. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 3. (a) Use 'below' instead of 'under'. ' " },
+{
+  question: "4. He is exceptionally good (a) / in teaching (b) / mathematics and English (c) / as well. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 4. (b) Use 'at' instead of 'in'. Know the rule: When talking about the performance of the subject in the sentence' " },
+{
+  question: "5. Please drive slowly (a) / and carefully, because (b) / a few kilometres away (c) / from here men are in work. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 5. (d) Use 'at' instead of 'in'. ' " },
+{
+  question: "6. Believe me or not, (a) / I did not expect such (b) / treatment from your hand (c) / even in my wildest dream. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 6. (c) 'At' will be used in place of 'From'. ' " },
+{
+  question: "7. If we study with all care and caution, (a) / we will definitely get good (b) / marks from the hands (c) / of our Headmaster. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 7. (c) Use 'at' in place of 'from'. ' " },
+{
+  question: "8. A few days ago a plane (a) / crashed and each and (b) / every person over there (c) / was alarmed by the crash. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 8. (d) Instead of ' Alarmed by' we will use ' Alarmed at'. Explanation.: When there is a feeling of fear or anxiety in the sentence, then it is appropriate to use the preposition 'At' with the word Alarmed. ' " },
+{
+  question: "9. Why should (a) / you be displeased (b) / with the fun (c) / of the children? (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 9. (c) Use 'displeased at' instead of 'displeased with'. Explanation: When there is a feeling of being upset, annoyed or not satisfied in the sentence, then it is appropriate to use the preposition 'At' along with Displeased. E.g.: She was not displeased at the effect she was having on the young man. ' " },
+{
+  question: "10. You must know (a) / that she was very (b) / much glad with (c) / your performance. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 10. (c) Instead of 'Glad with' we will use 'glad at'. ' " },
+{
+  question: "11. His mother and father (a) / are vexed with his (b) / brother’s (c) / rude behaviour. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use 'vexed at' in place of 'vexed' with. Explanation: When there is a feeling of upset or annoyed in the sentence, then it would be appropriate to use the preposition 'At' along with Vexed. Vexed (upset) at a thing Vexed (परेशान) with a person for doing something. ' " },
+{
+  question: "12. I don’t understand (a) / why you should be (b) / surprised with (c) / this action of hers? (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 12. (c) Instead of 'Surprised with' we will use 'Surprised at/by'. E.g.: I was surprised at/by how quickly she agreed. ' " },
+{
+  question: "13. I shall come (a) / after a week and (b) / till then you must take care of (c) / things I have said to you. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 13. (b) Instead of 'After a week' we will use 'in a week'. In case of future time activity, 'in' is used instead of 'after' before any 'period of time'. ' " },
+{
+  question: "14. For the last ten years, (a) / he had been suffering from cancer (b) / and finally he died from (c) / cancer two days ago. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 14. (c) Will use 'die of' instead of 'die from'. Explanation: When a person dies due to disease, in that case the preposition 'of' is used with die. To die of disease. (He dided of hunger) To die from reason. (He died from overdrinking) To die in accident. (He died in the accident) ' " },
+{
+  question: "15. It was very dense fog (a) / yesterday morning, therefore, (b) / the whole city was (c) / enveloped by mist. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 15. (d) Use of 'Enveloped in' instead of 'Enveloped by' ' " },
+{
+  question: "16. You ought to hold (a) / your elders with high esteem, (b) / because you are (c) / nowhere without them. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 16. (b) 'Hold your elders in high esteem' will be used and not 'hold your elders with high esteem'. do. ' " },
+{
+  question: "17. All day long they (a) / were occupied with writing (b) / letters to (c) / their near and dear ones. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 17. (b) Instead of 'occupied with' we will use 'occupied in'. ' " },
+{
+  question: "18. Why do you not (a) / look in the book (b) / to get an appropriate (c) / answer to this taxing question? (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 18. (b) 'Look into' will be used in place of 'look in'. ' " },
+{
+  question: "19. Since Monday he has been (a) / working and reason being this (b) / he is very much (c) / tired with work. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 19. (d) 'Tired of' will be used instead of 'Tired with'. ' " },
+{
+  question: "20. Until and unless (a) / you get a well-paid job, (b) / you can never be independent (c) / from my parents. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 20. (d) In place of 'Independent from' we will use 'independent of'. ' " },
+{
+  question: "21. I know I have (a) / committed a blunder (b) / and I beg pardon from you (c) / for what I have done. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 21. (c) In place of 'Beg pardon from', 'beg pardon of' will be used. ' " },
+{
+  question: "22. Poverty comes (a) / from idleness and (b) / care stems from (c) / true love. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 22. (b) Instead of 'comes from' we will use 'comes of'. ' " },
+{
+  question: "23. He is a man (a) / suitable for this post, (b) / because he is very quick (c) / in understanding. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 23. (d) 'Quick at' will be used instead of 'quick in'. E.g.: This man is quick at solving puzzles. ' " },
+{
+  question: "24. Whether you accept it (a) / or not, you must (b) / be ashamed at (c) / this folly of yours. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 24. (c) Use 'ashamed of' instead of 'ashamed at'. Explanation: When in the sentence there is a sense of the subject feeling ashamed or embarrassed, then the preposition 'of' is used with ashamed. E.g.: She was deeply ashamed of her behaviour at the party. ' " },
+{
+  question: "25. You must marry him, (a) / because he is a man (b) / possessed with a great (c) / amount of wealth. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 25. (c) Instead of 'Possessed with' we will use 'possessed of'. ' " },
+
+{
+  question: "1. Ramu closely (a)/ resembles to his father (b)/ not only in physical features (c)/ but also in habits. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 1. (b) 'To' will not be used after 'Resembles'. Keep in mind that 'resemble' is a 'Transitive Verb'. Therefore, after this the object is used directly. After this 'to', 'with' etc. are not used;' " },
+{
+  question: "2. A quarrel arose between the five members (a)/ and for a time (b)/ it appeared as if the party (c)/ had been heading for a split. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 2. (a) Instead of 'between', 'among' or 'amongst' will be used because 'between' is used for 'two' whereas among or amongstst is for 'more than two'.' " },
+{
+  question: "3. Lata parted (a)/ with her mother (b)/ with tears but the journey (c)/ to Delhi amused her. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 3. (c) 'In' will be used instead of 'With' because 'in tears' means 'in tears'.' " },
+{
+  question: "4. Found guilty (a)/ on murder (b)/ the accused was (c)/ sentenced to death. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 4. (b) 'Of' will be used instead of 'On' because Preposition 'of' is used after 'guilty'; As (i) Guilty of murder. (ii) Guilty of theft.' " },
+{
+  question: "5. The smuggler yielded (a)/ for the temptation (b)/ and fell into (c)/ the police trap. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 5. (b) 'To' will be used instead of 'For' because preposition 'to' is used after 'yield'. E.g.: She yielded to bribery.' " },
+{
+  question: "6. The girl said (a)/ that she preferred (b)/ the blue gown (c)/ than the black one. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 6. (d) 'To' will be used instead of 'Than' because if two Nouns Equivalents are compared with 'prefer', then Preposition 'to' always comes after prefer, not Conjunction 'than'; E.g.: Katappa prefers milk to tea.' " },
+{
+  question: "7. Instead of (a)/ his busy and hard life (b)/ he still retains (c)/ freshness and robustness. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 7. (a) 'In spite of' will be used instead of 'Inspite of' because 'Instead of' means 'in lieu of' but 'In spite of' means 'in spite of'.' " },
+{
+  question: "8. He had looked upon me (a)/ level-eyed for (b)/ a few moments (c)/ before he spoke. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 8. 'At' will be used instead of 'because look (a) 'Upon' to look at. tory pp at means 'to' " },
+{
+  question: "9. Sitting under the shade (a)/ of a tree for a while (b)/ made us fresh (c)/ for the further journey. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 9. (a) 'In' will be used instead of 'Under' because 'to sit under a tree' [sit under a tree] but 'to sit in the shade of a tree' [sit: in the shade of a tree].' " },
+{
+  question: "10. I warned him (a)/ for the danger (b)/ he was going (c)/ to face during the hiking. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 10. (b) 'Of' will be used instead of 'For' because preposition 'of' is used after warn and not 'for'.' " },
+{
+  question: "11. Would you please (a)/ stop from smoking (b)/ while the ceremony is in progress. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use of 'From' is superfluous. Stop + to + V1 is used, or Stop + V (ing). But there is a difference in the meaning of the sentences due to both the uses. As (i) Ram stopped to smoke. (ii) Ram stopped smoking.' " },
+{
+  question: "12. In spite of the fact (a)/ that the meeting was about to end (b)/ she insisted to ask several questions. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 12. (c) 'On asking' will be used instead of 'To ask' because insist + on + Object or insist + on + V (ing) is used; E.g.: He insisted on his innocence.' " },
+{
+  question: "13. He sold (a)/ the property (b)/ on a (c)/ good price. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 13. (c) 'For' will be used instead of 'On'.' " },
+{
+  question: "14. I retained (a)/ this boy at (b)/ the strength of (c)/ his honesty. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 14. (b) 'For' will be used instead of 'At'.' " },
+{
+  question: "15. The doctor advised him (a)/ to give off smoking (b)/ but he did not (c)/ pay any heed. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 15. (b) 'Up' will be used instead of 'Off'. 'Give up' is a phrasal verb meaning 'to give up', 'to give up'; E.g.: He gave up drinking.' " },
+{
+  question: "16. Their father has left (a)/ behind a huge sum (b)/ to be distributed (c)/ among the two brothers. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 16. (d) 'Between' will be used instead of 'Among' because 'among' is used for more than two persons/objects whereas 'between' is used for two; E.g.: Distribute these sweets between Katappa and Bahubali.' " },
+{
+  question: "17. No effort has been made at all (a)/ to cash on (b)/ the refurnished image of Indian tennis. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 17. (b) 'In' will be used between 'Cash' and 'on' because the use of 'cash in on' is 'idiomatic' and it means 'to take advantage of', 'to take advantage of'.' " },
+{
+  question: "18. The elegantly designed collection (a)/ for ladies has an emphasis (b)/ with style, variety and colour. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 18. (c) 'On' will be used instead of 'With' because Preposition 'on' is used with 'emphasis'; E.g.: Ram laid emphasis on his plans.' " },
+{
+  question: "19. As soon as he reached the venue, (a)/ he enquired from the supervisor (b)/ about the closing time (c)/ of the examination. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 19. (b) 'Of' will be used instead of 'From' because inquire of somebody but inquire into a case, inquire about something is used; As (i) They enquired of me. (ii) The police enquired into the case.' " },
+{
+  question: "20. The leaders of (a)/ the striking workers (b)/ called for the (c)/ Directors for negotiation. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 20. (c) 'On' or 'upon' will be used instead of 'For' because 'call for' means 'demand, require' whereas call on/upon means make a short visit to / Appeal to.' " },
+{
+  question: "21. The police accused him (a)/ for setting fire to the building (b)/ but he denied having been (c)/ in the area on the night of the fire. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 21. (b) 'Of' will be used instead of 'For' because Preposition 'of' is used after 'accuse'; E.g.: The teacher accused him of stealing.' " },
+{
+  question: "22. He deserted the path of honour (a)/ in order to satisfy his ambition (b)/ and then went down for (c)/ his doom very quickly. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 22. (c) 'For' will not be used after 'Down' but 'to' will be used because 'go down to' is idiomatic which means 'to continue or spread so much'; E.g.: The history of this family goes down to 1950.' " },
+{
+  question: "23. Now-a-days several (a)/ plastic products are superior (b)/ than similar products (c)/ made from rubber. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 23. (c) 'To' will be used instead of 'Than' because after superior, inferior, senior, junior, prior, posterior, anterior, Conjunction 'than' is not used, but Preposition 'to' is used. Is; As (i) This is superior to that. [न कि than that] (ii) Katappa is senior to Bahubali. [Not than Bahubali]' " },
+{
+  question: "24. Left to himself (a)/ Inder prefers (b)/ travelling by bus (c)/ than travelling by train. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 24. (d) 'To' will be used instead of 'Than' because when the word 'prefer' is used for two Nouns or Noun Equivalents, then Preposition 'to' is used after it; best E.g.: She prefers wine to beer.' " },
+{
+  question: "25. I cannot (a)/ afford for buying books (b)/ for this course because (c)/ they are very expensive. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 25. (b) 'To buy' will be used instead of 'For buying' because afford + is used to + V1 or afford + Object; As (i) Lolita cannot afford to buy a car. (ii) She cannot afford such a heavy amount.' " },
+{
+  question: "1. Now we have to (a) / adopt this strategy, (b) /because there (c) / is no alternative of it. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 1. (d) Preposition 'to' is often used with Alternative. Alternative (option) to a method/something.' " },
+{
+  question: "2. He is a fanatic (a) / kind of guy (b) / and there is no limit (c) / of his zeal and zest. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 2. (d) Instead of 'limit of' we will use 'limit to'.' " },
+{
+  question: "3. I have not gone through (a) / the whole book, (b) / but the introduction of this (c) / book is very good. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 3. (c) 'Introduction to' will be used instead of 'Introduction of'.' " },
+{
+  question: "4. The introduction to this (a) / book is very good, (b) / but the preface (c) / of this book is very short. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 4. (d) 'Preface to' will be used in place of 'Preface of' because the preposition 'to' is often used with preface. Therefore, instead of 'preface of', 'preface to' is used in the sentence. E.g.: In read it in the preface to her new book.' " },
+{
+  question: "5. Within how many (a) / days will (b) / you send a reply (c) / of my letter? (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 5. (d) 'Reply to' will be used instead of 'Reply of'.' " },
+{
+  question: "6. Never try to smoke (a) / otherwise (b) / you will become (c) / a slave of smoking. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 6. (d) Instead of 'Slave of' we will use 'slave to'.' " },
+{
+  question: "7. You must understand (a) / that one angle (b) / is the supplement (c) / of another. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 7. (d) 'Supplement to' will be used in place of 'Supplement of'.' " },
+{
+  question: "8. There were three (a) / persons and all of (b) / them were the witnesses (c) / of that murder. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 8. (d) In place of 'Witness of' we will use 'witness to'. E.g.: Police has appealed for witness to the accident. She is a witness to the killing.' " },
+{
+  question: "9. I asked him (a) / so many questions, (b) / but the answer of the second last (c) / question is not satisfactory. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 9. (c) 'Answer to' will be used instead of 'Answer of'. Understand the difference: 1. Answer to a person. 2. Answer for misconduct/something. 3. Answerable to a person for something. E.g.: All sales clerks answer to the store manager.' " },
+{
+  question: "10. I will be away more (a) / than a weak, (b) / so it is your duty now (c) / to look at the comforts of all. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 10. (d) Instead of 'Look at the comforts' we will use 'look to the comforts'.' " },
+{
+  question: "11. Whenever you are in trouble, (a) / you should always look at me (b) / without having (c) / a second thought. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Instead of 'Look at' we will use 'look to'.' " },
+{
+  question: "12. No matter how badly you (a) / need money in your life, (b) / but you should never take up bad (c) / means to earn money. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 12. (c) Instead of 'Take up' we will use 'take to'.' " },
+{
+  question: "13. Whether you agree to me or not, (a) / but I must say (b) / that the Indian politics (c) / are now at their last leg. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 13. (a) Instead of 'agree to' we will use 'agree with'. I. Agree with a person II. Agree to a proposal/request III. Agree on a point E.g.: He agreed with them about the need for something.' " },
+{
+  question: "14. He was apprised (a) / of so many proposals, (b) / but he did not agree (c) / with any proposal of mine. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 14. (d) Use 'agree to' instead of 'agree with'.' " },
+{
+  question: "15. Do you think that (a) / she will agree at this point (b) / by compromising with her (c) / honesty and integrity? (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 15. (b) Instead of 'agree at this point' we will use 'agree on this point'.' " },
+{
+  question: "16. Woman’s beauty may be compared (a) / with that of a flower (c) / because both types of (b) / beauty is ethereal. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 16. (b) Instead of 'Compare with' we will use 'compare to'. Know the Rule: (When the comparison is between two similar objects, 'compare with' will be used and for comparing different objects, 'comapre to' will be used. Instead of 'compare to' we will use 'compare with'.' " },
+{
+  question: "17. Generally, people happen to (a) / compare Kalidas to Shakespeare, (b) / but in my opinion, there is a (c) / world of difference between both of them. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 17. (b) 'Compare to'.' " },
+{
+  question: "18. You must know one (a) / thing that we will on no account (b) / comply to your (c) / request or demand. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 18. (c) 'Comply with' will be used instead of 'Comply to'.' " },
+{
+  question: "19. It is next to impossible (a) / for us to come to (b) / any conclusion, because (c) / I differ from you in this point. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 19. (d) 'Differ with' will be used instead of 'Differ from'. With is used in case of difference of opinion.' " },
+{
+  question: "20. Your dog differs with (a) / that of hers not only (b) / in colour but also (c) / in height and length. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 20. (a) 'Differ from' will be used instead of 'Differ with'. Know the rules: Quality, manner, attitude, share, size, color etc. 'Differ from' is used to express difference.' " },
+{
+  question: "21. For many years, (a) / they have been at loggerheads (b) / and yesterday she finally parted (c) / from her old husband. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "E"
+ , explanation: "AnswerKey 21. (e) There is no error.' " },
+{
+  question: "22. It seems that my watch is (a) / not working properly so will (b) / you please tell me (c) / what’s the time in my watch. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 22. (d) Instead of 'Time in my watch' we will use 'time by my watch'.' " },
+{
+  question: "23. It would be very difficult (a) / for me to tell (b) / why she is confined (c) / to bed these days. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "E"
+ , explanation: "AnswerKey 23. (e) There is no error.' " },
+{
+  question: "24. As far as this problem of (a) / yours is concerned, (b) / there is no remedy of (c) / this as a matter of fact. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 24. (c) 'Remedy for' will be used instead of 'Remedy of'. Like- This is an excellent home remedy for sore throats.' " },
+{
+  question: "25. Who all are not desirous (a) / to get a well-paid job (b) / and a beautiful lady (c) / to live life with? (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 25. (b) 'Desirous of getting' will be used in place of 'Desirous to get'.' " },
+{
+  question: "1. You have cultivated a very bad (a) / habit of not listening what (b) / someone says to you (c) / and someday this will land you in trouble. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 1. (b) Use to after 'Listening'. " },
+{
+  question: "2. I have made the payment (a) / and you need to sign over it (b) / as per the rules and (c) / regulations of the company? (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 2. (b) Remove 'over' after 'Sign'. " },
+{
+  question: "3. Now a new but extremely (a) / experienced and ever so intelligent (b) / officer has been appointed to (c) / investigate in the case. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 3. (d) Do not use in/into after 'Investigate'. " },
+{
+  question: "4. When I was awaiting for (a) / her arrival in the park, (b) / I saw her mother with my (c) / father enjoying life in my father’s lap. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Do not use 'for' after 'Await'. Explanation: Preposition 'for' is not used after Await, wait for can also be used in its place.' " },
+{
+  question: "5. One of his employees was not (a) / doing his job well and truly, (b) / so the boss finally (c) / ordered for his dismissal. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 5. (d) When 'Order' is used as a verb, 'for' is not used after it.' " },
+{
+  question: "6. Everyone ought to obey to his parents, (a) / because it is our parents (b) / who help us to grow (c) / and enjoy the beauty and opulence of life. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 6. (a) Do not use 'to' after 'obey'. " },
+{
+  question: "7. Your face resembles with that of my (a) / mother and this (b) / is one of the reasons (c) / I like you so much. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 7. (a) 'With' is not used after 'Resemble'. " },
+{
+  question: "8. If anybody is found (a) / to violate against the laws (b) / of this country, he will (c) / be given severe punishment. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 8. (b) 'Against' is not used after 'Violate'. " },
+{
+  question: "9. As I have always been in the (a) / good books of my class (b) / teacher, he recommended for me (c) / to the Principal. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 9. (c) Do not use 'for' after 'Recommend'. " },
+{
+  question: "10. I am limping because of (a) / severe pain in my injured knee, (b) / so right now I desperately (c) / need a stick to walk. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 10. (d) Instead of 'A stick to walk' we will use 'a stick to walk with'. " },
+{
+  question: "11. There is (a) / no vacant chair (b) / in the hall, so (c) / can I have a chair to sit? (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 11. (d) Instead of 'A chair to sit' we will use 'a chair to sit on'. " },
+{
+  question: "12. We all have spoken (a) / on various subjects, (b) / but the subject that he is speaking (c) / is very important considering the present scenario. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 12. (c) Use 'on' after 'Speaking'. " },
+{
+  question: "13. While he was working in Mumbai, (a) / he met with a severe accident (b) / and as a result of (c) / that he is lame by the left leg. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 13. (d) Instead of 'lame by' we will use 'lame in'. " },
+{
+  question: "14. He is a pathological liar (a) / and overall incorrigible guy, (b) / so I will never approve his (c) / conduct even in the least. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 14. (c) Will use 'of' after 'Approve'. " },
+{
+  question: "15. He has been (a) / sent to jail because (b) / of his involvement in a scam, (c) / so now who will preside the meeting tomorrow. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 15. (d) 'Over' is used after 'Preside'. " },
+{
+  question: "16. I took her book (a) / mistaking mine, and for this (b) / I had been taken to task (c) / which was not fair at all. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 16. (b) 'For' is used after 'Mistaking'. " },
+{
+  question: "17. The guy (a) / who has informed (b) / me about the theft must come (c) / to me and give his statement. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 17. (c) IST will use 'informed me of' instead of 'informed me about'. (According to modern grammarians, we can also use 'about' but it is better to use 'of'.)' " },
+{
+  question: "18. I have told him (a) / not to say anything of this sort (b) / to anyone, but he persisted to say (c) / this to everyone he meets at home. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 18. (c) In place of 'persisted to say' we will use 'persisted in saying'. [Persist (in doing something)] E.g.: Why do you persist in blaming yourself for what happened?' " },
+{
+  question: "19. Whenever she goes shopping (a) / with me, she always insists to (b) / have all her desire and (c) / whims fulfilled and satisfied. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 19. (b) Use 'insist on having' instead of 'insist to have'. E.g.: They insist on/upon playing their music late at night.' " },
+{
+  question: "20. Now the point in question (a) / is who is going (b) / to compete with him (c) / over a scholarship. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 20. (d) Will use 'for' instead of 'over'. " },
+{
+  question: "21. The decline of the price of petrol(a) / is now ever so indispensable(b) / and it must come down (c) / within a weak. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 21. (a) Use 'decline in' instead of 'decline of'. " },
+{
+  question: "22. A student at YMCA (a) / complained to the teacher against (b) / the poor and pathetic (c) / management of the institute. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 22. (b) Will use 'about' instead of 'Against'. " },
+{
+  question: "23. You can find animals (a) / that can live both in water (b) / and land and such animals (c) / are called amphibian. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 23. (c) Use 'on' before 'Land'. " },
+{
+  question: "24. He is out of danger now (a) / and will be completely alright (b) / within ten days, (c) / so there is no cause of anxiety. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 24. (d) In place of 'Cause of anxiety' we will use 'cause for anxiety'. " },
+{
+  question: "25. Can anyone over here (a) / let me know (b) / what the cause (c) / for her anxiety is? (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 25. (d) Use 'of her anxiety' instead of 'For her anxiety'. " },
+{
+  question: "1. Ordinarily, when in difficulty (a)/ Renuka prefers keeping her counsel (b)/ than running about (c)/ taking advice. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 1. (c) 'To' will be used instead of 'Than' because if 'prefer' is used to compare two Nouns or Noun Equivalents, then Preposition 'to' is used after 'prefer'; " },
+{
+  question: "2. The captain and his (a)/ wife were invited (b)/ for the cultural (c)/ function at my house. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 2. (c) 'to' will be used instead of 'for' because (a) Subject + invite (somebody) to dinner/a function etc. " },
+{
+  question: "3. These vegetables which are grown (a)/ here are (b)/ cheap in (c)/ cost and rich of vitamins. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 3. (d) 'in' will be used instead of 'of' because 'rich in' means 'having much'; " },
+{
+  question: "4. Riots, however, did not cease (a)/ to depress him (b)/ and make him to turn to non-violence. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 4. (c) 'To' will not be used before 'Turn' because S + make + Object + V1 is used and not to + V1; " },
+{
+  question: "5. He tried (a)/ to open the can (b)/ by a can opener. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 5. (c) 'With' will be used before 'By' because 'by' is used before Agent whereas with is used before 'instrument/tool'; " },
+{
+  question: "6. Let no one (a)/ remain with doubt (b)/ that India is getting stronger and stronger. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 6. (b) 'In' will be used instead of 'With' because the use of 'in doubt, in confusion' etc. is idiomatic.; " },
+{
+  question: "7. When the students reached late (a)/ the teacher objected their entering the class (b)/ without his permission. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 7. (b) Preposition 'to' will be used after 'Objected' because when 'object' is used as a verb in the sense of 'to object' then definitely Preposition 'to' is used after it; " },
+{
+  question: "8. It was, in fact, (a)/ her father who prevented (b)/ her at joining (c)/ the police academy. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 8. (c) 'from' will be used instead of 'at' because after 'prevent' the preposition 'from' is used and after this V4 [V (ing)] is used; " },
+{
+  question: "9. He succeeded (a)/ to get a decent job (b)/ soon after his graduation. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 9. (b) 'In getting' will be used instead of 'To get' because 'succeed in' doing something' is used.; " },
+{
+  question: "10. The last of the Mughal (a)/ emperors of India was imprisoned (b)/ and was later sent into (c)/ exile by the British. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 10. (c) 'On' has to be used after 'Later' because 'later' means 'after' whereas 'later on' means 'later' i.e. 'later'.; " },
+{
+  question: "11. In the meeting, Mr. Mehta’s (a)/ suggestions with regard for (b)/ certain administrative reforms were (c)/ bailed by all the members. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 11. (b) 'To' will be used instead of 'For' because 'with regard to' is idiomatic. Which means 'in relation to'.; " },
+{
+  question: "12. Because of his (a)/ innocence, he cannot (b)/ distinguish a cheat (c)/ for an honest person. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 12. (d) 'From' will be used instead of 'For' because- (i) Distinguish sb/sth from sb/sth. (ii) Distinguish between two things or persons.; " },
+{
+  question: "13. He has a scheme (a)/ of his own which (b)/ he thinks preferable (c)/ than that of any other person. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 13. (d) 'To' will be used instead of 'Than' because preposition 'to' is used after 'preferable'.; " },
+{
+  question: "14. All the players (a)/ except Sam (b)/ were present (c)/ on the field. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 14. (d) 'In' will be used instead of 'On' because 'in' is used for 'field, hall' and not 'on'; " },
+{
+  question: "15. The policemen started (a)/ firing the crowd (b)/ when the striking (c)/ students turned violent. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 15. (b) After 'Fire' 'at' or 'on' will be used because 'fire' is used at/on somebody/something.; " },
+{
+  question: "16. It easy to see that (a)/ a lawyer’s demeanor in court (b)/ may be prejudicial against the interests of his client. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 16. (c) 'To' will be used instead of 'Against' because preposition 'to' is used after prejudicial.; " },
+{
+  question: "17. He persisted (a)/ to do it (b)/ in spite of my advice. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 17. (b) In doing will be used instead of 'To do' because persist + in + V4 is used; " },
+{
+  question: "18. Bashu was trying to pass (a)/ through the gap on (b)/ the fence when he (c)/ tore his shirt. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 18. (b) 'In' will be used instead of 'On' because Preposition 'in' is used after 'gap'.; " },
+{
+  question: "19. I have been teaching in this school (a)/ since several years (b)/ but have never met (c)/ such a hopeless class as this. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 19. (b) 'For' will be used instead of 'Since' because when 'since' is used as a preposition, 'since + point of time' is used, whereas when 'for' is used, 'for + period' is used. of time'; " },
+{
+  question: "20. As I kept a strict watch (a)/ with my way of living (b)/ I could see that it was necessary to economize. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 20. (b) 'on' or 'over' will be used instead of 'with' because 'keep watch' + on/over' is used.; " },
+{
+  question: "21. I am pleased to sanction (a)/ one special increment (b)/ to all the employees (c)/ with this month. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 21. (d) 'From' will be used instead of 'With' because 'from' is used in the meaning of 'from' for present time or future time; " },
+{
+  question: "22. I will put on (a)/ a note in this regard (b)/ for your consideration (c)/ and necessary decision. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 22. (a) 'Put up' will be used instead of 'Put on' because 'put on' means 'wear' while 'put up' means 'propose'.; " },
+{
+  question: "23. The great actor was (a)/ angry with the treatment (b)/during the party (c)/ in Ashoka Hall. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 23. (b) 'At' will be used instead of 'With' because 'angry with a person' but 'angry at something' is used.; " },
+{
+  question: "24. Don’t go by his appearance (a)/ he is capable at (b)/ doing any work (c)/without any hesitation. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 24. (b) 'Of' will be used instead of 'At' because Preposition 'of' is used after 'capable, conscious, ambitious, desirable'; " },
+{
+  question: "25. Ramesh along with (a)/ his children was (b)/ invited for the (c)/ party in Ashoka Hall. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 25. (c) 'To' will be used instead of 'For' because Preposition after 'invite' 'to' is used.; " },
+{
+  question: "1. When he was (a) / engrossed in his studies, (b) / a thief entered into his room and (c) / took away all his precious belongings. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 1. (c) 'into' is not used after 'Enter', hence remove it.; " },
+{
+  question: "2. My boss entrusts (a) / me in all the important work, (b) / whenever he goes out (c) / on vacation with the family for more than a week. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 2. (b) Will use 'with' instead of 'in'.; " },
+{
+  question: "3. One of my friends proposed (a) / me that we should (b) / lend that widow two million (c) / rupees so that she may live her life happily with her children. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 3. (b) We will use 'to' before 'Me' because to + person comes after propose.; " },
+{
+  question: "4. There is a world of difference (a) / among me and (b) / you because we both have (c) / different approach to life. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 4. (b) 'Between' will be used instead of 'Among'. Understand the difference: When there is talk between two, then 'between' is used, and when there is talk between more than two, 'among' is used.; " },
+{
+  question: "5. The man who was blind (a) / with the left eye used to be my fast friend (b) / in my school days, and today we (c) / are before each other after a long spell of silence. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Instead of 'With the left eye' we will use 'in the left eye'.; " },
+{
+  question: "6. Although you have got (a) / a well-paid job, (b) / yet in my opinion you are not (c) / worthy for it from any angle. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 6. (d) 'Worthy of' will be used instead of 'Worthy for'.; " },
+{
+  question: "7. It is next to impossible for me (a) / to describe about (b) / the beauty of a widow (c) / because her beauty beggars description. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 7. (b) Do not use any 'Preposition' after 'Describe', hence remove 'About'.; " },
+{
+  question: "8. I have much experience for teaching (a) / English but I would like to (b) / teach them philosophy (c) / this time, you agree. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 8. (a) In place of 'Experience for' we will use 'Experience in'.; " },
+{
+  question: "9. I sent her so many (a) / letters but she never took pains (b) / to glance at even one (c) / of those letters of mine. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 9. (c) 'Glance over' will be used instead of 'Glance at'.; " },
+{
+  question: "10. Now it is of no use (a) / feeling much grief for (b) / that loss, because it will (c) / make the condition worse. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 10. (b) Instead of 'Grief for' we will use 'Grief At'.; " },
+{
+  question: "11. Whenever I am in America, (a) / I would like to visit to (b) / one of the famous brothels (c) / with you for sure. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Do not use 'To' after 'Visit'.; " },
+{
+  question: "12. From now onwards (a) / I will never give you a book (b) / because you do not take care of (c) / the books I give. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "E"
+ , explanation: "AnswerKey 12. (e) There is no error.; " },
+{
+  question: "13. Mahendra Singh Dhoni has the reputation for being (a) / a very aggressive kind (b) / of player and dealing (c) / in only boundaries. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 13. (d) We will not use 'In' after 'Dealing' because here 'Dealing' means 'Hitting'.; " },
+{
+  question: "14. Despite of my all efforts, (a) / I could not help her (b) / in saving the life of her father (c) / was suffering from cancer. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 14. (a) Do not use 'of' after 'Despite'. E.g.: He had to laugh despite himself.; " },
+{
+  question: "15. S.S. Bharti sir distributed the sweets (a) / among their students (b) / who have done well (c) / in the examination. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "E"
+ , explanation: "AnswerKey 15. (e) The sentence is correct.; " },
+{
+  question: "16. He is a very eccentric (a) / sort of person and I have (b) / no control over him, so (c) / now the ball is in your court. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "E"
+ , explanation: "AnswerKey 16. (e) There is no error.; " },
+{
+  question: "17. Although in English grammar (a) / there are a number of exceptions, (b) / but there is no exception to (c) / this rule. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "E"
+ , explanation: "AnswerKey 17. (e) The sentence is correct.; " },
+{
+  question: "18. This time your fault does (a) / not admit any excuse and (b) / your class teacher is going (c) / to give you a very severe punishment. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 18. (b) Instead of 'Admit any Excuse', 'Admit of any Excuse' is used.; " },
+{
+  question: "19. I have always (a) / reposed my faith in him, (b) /but yesterday he cheated me twenty billion rupees (c) / However, I have no grudge against him. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 19. (c) Will use 'of' after 'Me' (... Cheat a person of something); " },
+{
+  question: "20. While he was (a) / walking along (b) / the street in the night, (c) / a thug robbed him his money. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 20. (d) Use 'of' after 'Him'. (...Rob a Person of Something); " },
+{
+  question: "21. He was the only (a) / son of his father and after the death (b) / of his father he became (c) / the heir of a large estate. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 21. (d) Use 'Heir To' instead of 'Heir of'. Understand the difference: Heir (heir) 'of' somebody. Heir (heir) 'to' some property.; " },
+{
+  question: "22. There should be no leniency with all (a) / the terrorists and all must be (b) / given capital punishment (c) / as soon as possible. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 22. (a) Use 'Leniency To' instead of 'Leniency with'.; " },
+{
+  question: "23. I am a true professional and (a) / I have no lust of money (b) / even in the least, though I work for money (c) &. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 23. (b) Instead of 'Lust of' we will use 'Lust For'.; " },
+{
+  question: "24. There is no (a) / preparation of action (b) / that you are going (c) / to take against them. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 24. (b) In place of 'Preparation of' we will use 'Preparation For'. Preparation 'for' examination or something.; " },
+{
+  question: "25. We are disappointed at a person (a) / from whom we expect (b) / something better whenever (c) / he is out in the field to play. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 25. (a) 'Disappointed in/with a person' will be used in place of 'Disappointed at a person'.; " },
+{
+  question: "1. Whether it is (a)/ English or Hindi I (b)/ am with home (c)/ with both the languages. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 1. (c) 'At' will be used instead of 'With' because 'be/feel at home/ with/in' means 'familiar with', or 'feel happy or confident about doing or using something' ( feeling happy or confident in using something or doing something).; " },
+{
+  question: "2. Jamuna takes delight (a)/ with music and (b)/ hopes to become (c)/ a successful musician. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 2. (b) Will use 'with' instead of 'in'.; " },
+{
+  question: "3. That boy has (a)/ three precious objects, (b)/ and he would not (c)/ part for any one of them. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 3. (b) We will use 'to' before 'Me' because to + person comes after propose.; " },
+{
+  question: "4. They have been (a)/ prohibiting me for (b)/ borrowing money. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 4. (b) 'Between' will be used instead of 'Among'. Understand the difference: When there is talk between two, then 'between' is used, and when there is talk between more than two, 'among' is used.; " },
+{
+  question: "5. I have searched (a)/ all relevant books (b)/ into the library (c)/ before writing this note. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 5. (b) Instead of 'With the left eye' we will use 'in the left eye'.; " },
+{
+  question: "6. Coming events in the village (a)/ include a flower show (b)/ and a treat (c)/ to the school children. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 6. (d) 'Worthy of' will be used instead of 'Worthy for'.; " },
+{
+  question: "7. The examinations of the undergraduate students (a)/ are likely to (b)/ commence from Friday. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 7. (b) Do not use any 'Preposition' after 'Describe', hence remove 'About'.; " },
+{
+  question: "8. You can (a)/ always (b)/ dependant of them. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 8. (a) In place of 'Experience for' we will use 'Experience in'.; " },
+{
+  question: "9. One should be able for (a)/ differentiate (b)/ between what is (c)/ desirable and what is not. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 9. (c) 'Glance over' will be used instead of 'Glance at'.; " },
+{
+  question: "10. He won't tell you (a)/ his problem unless (b)/ you agree of helping him. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 10. (b) Instead of 'Grief for' we will use 'Grief At'.; " },
+{
+  question: "11. Ram is a very good painter (a)/ but his paintings (b)/ are not easily (c)/ accessible with the public. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 11. (b) Do not use 'To' after 'Visit'.; " },
+{
+  question: "12. These days Ashok along with (a)/ his friends does not go (b)/ to a walk (c)/ in the morning. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 12. (e) There is no error.; " },
+{
+  question: "13. As there was no time (a)/ the remaining items (b)/ were deferred into (c)/ the next meeting. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 13. (d) We will not use 'In' after 'Dealing' because here 'Dealing' means 'Hitting'.; " },
+{
+  question: "14. Ambedkar’s life (a)/ was a saga of dedication (b)/ in the cause of (c)/ social reforms in India. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 14. (a) Do not use 'of' after 'Despite'. E.g.: He had to laugh despite himself.; " },
+{
+  question: "15. Had I been (a)/ at your place (b)/ I would not have (c)/ approved of the proposal. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 15. (e) The sentence is correct.; " },
+{
+  question: "16. Broadly speaking in a laymen’s language (a)/ disability can be (b)/ classified by two groups (c)/ namely and physical. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 16. (e) There is no error.; " },
+{
+  question: "17. The issues were (a)/ so critical that they (b)/ could hardly be resolved (c)/ upon such a limited time. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 17. (e) The sentence is correct.; " },
+{
+  question: "18. A committee comprising (a)/ of eminent members (b)/ from various technical institutions (c)/ was set up. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 18. (b) Instead of 'Admit any Excuse', 'Admit of any Excuse' is used.; " },
+{
+  question: "19. Mahesh who was (a)/ junior in most (b)/ other employees in his office (c)/ has been promoted. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 19. (c) Will use 'of' after 'Me' (... Cheat a person of something); " },
+{
+  question: "20. From the last one month (a)/ each of us (b)/ has been working (c)/ on the same project. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 20. (d) Use 'of' after 'Him'. (...Rob a Person of Something); " },
+{
+  question: "21. When we reached there (a)/ we saw a crowd (b)/ of about ten people (c)/ fighting between themselves. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 21. (d) Use 'Heir To' instead of 'Heir of'. Understand the difference: Heir (heir) 'of' somebody. Heir (heir) 'to' some property.; " },
+{
+  question: "22. From over last five years (a)/ I have been trying (b)/ my best to convince him (c)/ but without success. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 22. (a) Use 'Leniency To' instead of 'Leniency with'.; " },
+{
+  question: "23. We have observed that (a)/ many good programmes (b)/ suffer of shortage (c)/ of funds and other resources. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 23. (b) Instead of 'Lust of' we will use 'Lust For'.; " },
+{
+  question: "24. You deserve to be (a)/ rewarded by your successful (b)/ completion of the entire work (c)/ in such a short time. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 24. (b) In place of 'Preparation of' we will use 'Preparation For'. Preparation 'for' examination or something.; " },
+{
+  question: "25. Unless you take (a)/ interest into the studies (b)/ you will not succeed (c)/ in the examination. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 25. (a) 'Disappointed in/with a person' will be used in place of 'Disappointed at a person'.; " },
+{
+  question: "1. In my book, truth and purity (a) / are essential for moral character (b) / and these are the two of the (c) / cherished living values. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 1. (b) 'Essential To' will be used instead of 'Essential For'.; " },
+{
+  question: "2. I am sorry to say that (a) / I am not familiar with (b) / you and with (c) / such types of things. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 2. (b) 'Familiar To' will be used in place of 'Familiar with'.; " },
+{
+  question: "3. Why do not you make (a) / haste or (b) / you will be (c) / late in school. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 3. (d) Instead of 'Late in School' we will use 'Late for School'.; " },
+{
+  question: "4. At last a change has (a) / come in him and (b) / surely this change will change (c) / not only his life but also his brother’s life. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 4. (b) Instead of 'Come in Him', 'Come over him' will be used.; " },
+{
+  question: "5. Sohan was negligent in duty, (a) / so he was terminated from (b) / the job two months (c) / ago on Monday. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 5. (a) Will use 'Negligent of Duty'. There is another error in this sentence.; " },
+{
+  question: "6. He was occupied with reading (a) / a love story, (b) / so he could not hear (c) / what his mother said. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 6. (a) Instead of 'Occupied with' we will use 'Occupied in'.; " },
+{
+  question: "7. I think it is the right (a) / time to provide (b) / our children (c) / for the rainy days. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 7. (d) In place of 'For the Rainy Days' we will use 'Against the Rainy Days'.; " },
+{
+  question: "8. I was going on a road (a) / which is very smooth and slippery (b) / and it gets worse (c) / particularly on a wet day. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 8. (a) Instead of 'On a Road' we will use 'Along a Road'.; " },
+{
+  question: "9. She is only nine and in this (a) / age she can’t know make (b) / out what they (c) / mean to say this. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 9. (a) In place of 'In This Age She Can't Make out' we will use 'At this age she can't make out'.; " },
+{
+  question: "10. I was surprised (a) / when they asked (b) / me if I had an account (c) / on this bank. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 10. (d) In place of 'An Account on this bank' we will use 'An Account at/with this bank'.; " },
+{
+  question: "11. They were not on breakfast, (a) / so they must be with (b) / their friends enjoying (c) / themselves in the common room. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 11. (a) 'At Breakfast' will be used instead of 'On Breakfast'.; " },
+{
+  question: "12. We should take our holidays (a) / in the right time or we (b) / won’t be able to make (c) / the most of it. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 12. (b) 'At the Right Time' will be used instead of 'In the Right Time'.; " },
+{
+  question: "13. Everybody knows that my (a) / work of that time (b) / was teaching, (c) / and still it fascinates me a lot. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 13. (b) In place of 'Work of That Time' we will use 'Work At that Time'.; " },
+{
+  question: "14. He knocked the door for a few (a) / minutes and when he got (b) / no response, he (c) / got back immediately. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 14. (a) Will use 'Knock At the Door'.; " },
+{
+  question: "15. People generally knock the (a) / door or the window to attract (c) / somebody’s attention, (c) / but I don’t like it at all. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 15. (a) 'At' will be used after 'Knock'.; " },
+{
+  question: "16. I have never been (a) / good in talking to people, (b) / so I don’t want to participate (c) / in the discussion. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 16. (b) 'Good at Talking' will be used instead of 'Good in Talking'.; " },
+{
+  question: "17. His performance is so dazzling (a) / and moving that (b) / I was impressed (c) / of it well and truly. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 17. (d) 'Impressed by' will be used in place of 'Impressed of'.; " },
+{
+  question: "18. You will never reach on time, (a) / if you travel with (b) / train because a train (c) / never reaches on time in India. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 18. (b) 'Travel by Train' will be used instead of 'Travel with Train'.; " },
+{
+  question: "19. My father has bought (a) / me a bicycle and now (b) / I will go to school (c) / with it everyday. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 19. (d) Use 'By It' instead of 'With It'. (by + means of transport).; " },
+{
+  question: "20. You had better (a) / speak aloud, because (b) / he has been slow in hearing (c) / for several years. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 20. (c) 'Slow of' will be used in place of 'Slow in'.; " },
+{
+  question: "21. Your behaviour and (a) / way of talking are strange to all (b) / the guests present over here, (c) / so you must learn the art of interaction. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 21. (e) solution is not given for this question, I am regret.; " },
+{
+  question: "22. Do you really (a) / think that he is suited to this (b) / post and she is not (c) / suited for that post? (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "E"
+ , explanation: "AnswerKey 22. (e) solution is not given for this question, I am regret.; " },
+{
+  question: "23. The universal dictate (a) / which everyone must follow (b) / is that one should never be (c) / negligent of work because work is worship. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 23. (d) In place of 'Negligent of Work' we will use 'Negligent in work'.; " },
+{
+  question: "24. It is Shyam who has (a) / now been appointed on the post (b) / and will take care (c) / of all these things. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 24. (b) Instead of 'Appointed on the post' we will use 'Appointed to the Post'.; " },
+{
+  question: "25. After five years (a) / unrelenting skirmish, (b) / she has broken (c) / with him once for all. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "E"
+ , explanation: "AnswerKey 25. (e) There is no error.; " },
+{
+  question: "1. I am only ten (a) / and in this age I cannot (b) / do what you always (c) / expect me to do. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 1. (b) 'At This Age' will be used instead of 'In This Age'.; " },
+{
+  question: "2. Every father and mother (a) / must provide to their (b) / children against (c) / the rainy days. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 2. (b) Remove To and use For. (Provide + For + Object + Against); " },
+{
+  question: "3. Do you have an (a) / account on any bank in India, (b) / as I have to send (c) / money for my daughter. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 3. (b) In place of 'Account on Any Bank' we will use 'Account At/With Any Bank'.; " },
+{
+  question: "4. You must do everything (a) / in the right time, (b) / if you expect results (c) / according to your will. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 4. (b) 'At the Time' will be used instead of 'In The Time'.; " },
+{
+  question: "5. You never return the money (a) / you take from me, so don’t ask (b) / me for any money, because I cannot (c) / give you any monetary help any more. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "E"
+ , explanation: "AnswerKey 5. (e) The sentence is correct.; " },
+{
+  question: "6. Will you please let me (a) / know in how many (b) / rupees you have (c) / bought this book? (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 6. (b) In place of 'In how many rupees' we will use 'For how many rupees'.; " },
+{
+  question: "7. I have not made any (a) / kind of purchasing, (b) / still the bank has sent me (c) / a bill of ten thousand rupees. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 7. (b) 'From' will be used in place of 'Since'.; " },
+{
+  question: "8. We all kept waiting for you (a) / since 4:30 till 8 o’clock, (b) / but you did not come (c) / even after that. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 8 (d) In place of 'A Bill of' we will use 'A Bill For'.; " },
+{
+  question: "9. It is only Shyam who knew (a) / that it happened only at (b) / the afternoon, so you (c) / could talk to him regarding it. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 9. (b) Will use 'In' instead of 'At'.; " },
+{
+  question: "10. Drive fast or we will never (a) / be able to arrive (b) / at time and will (c) / definitely miss the train. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 10. (c) 'In time' will be used instead of 'At time'.; " },
+{
+  question: "11. It is very difficult for (a) / me to remember; however (b) / I think I began to teach (c) / English since 2005. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 11. (d) Use in 2005 instead of since 2005.; " },
+{
+  question: "12. All the criminals and thugs (a) / have been sent to prison (b) / during the Commonwealth Games (c) / in India. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 12. (b) 'To Prison' will be used instead of 'In prison'.; " },
+{
+  question: "13. The month of January is essentially (a) / very cold in Delhi, (b) / so I think it would be wise (c) / to avoid visiting this city in January. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 13. (a) 'The Month of January' will be used.; " },
+{
+  question: "14. In these sports, I like cricket the most (a) / because it is a gentleman's game (b) / and I have had a great (c) / penchant for it since my childhood. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 14. (a) Will use 'Of These Sports'.; " },
+{
+  question: "15. You should not have (a) / come here on that cold evening; (b) / this is why you caught (c) / a cold and had to suffer so seriously. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 15. (b) 'On That Cold Evening' will be used.; " },
+{
+  question: "16. Having seen a snake, (a) / she started trembling with fear, (b) / until her mother (c) / came to comfort her. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 16. (b) Use 'Trembling With' in place of 'Trembling of'.; " },
+{
+  question: "17. When she was ten years old, (a) / she started preaching to people (b) / about the truth (c) / of life, and this made her famous. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 17. (b) 'Preaching of People' will be used in place of 'Preaching People'.; " },
+{
+  question: "18. Do call me whenever you (a) / return to your hometown (b) / for collecting your (c) / college fee, because I have to meet you. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 18. (b) Instead of 'Return in your Home' we will use 'Return To Your Home'.; " },
+{
+  question: "19. He has prevented me from going (a) / there alone in the night, (b) / however tonight I will go out (c) / without caring for any eventuality. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 19. (b) 'At Night' will be used instead of 'In The Night'.; " },
+{
+  question: "20. I am calling (a) / a spade a spade; (b) / I do not know how to (c) / begin at the first time. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 20. (d) Remove 'At'.; " },
+{
+  question: "21. Have you ever played (a) / with cards? It is a (b) / highly engaging game (c) / and everybody enjoys it. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 21. (b) Remove 'With'. (Play+Game); " },
+{
+  question: "22. All day long I (a) / was busy writing notes (b) / for students, so (c) / I could not call you. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 22. (b) 'Busy Writing' will be used in place of 'Busy in writing'.; " },
+{
+  question: "23. It is a holiday today, (a) / so let’s go for shopping (b) / and get some clothes (c) / and books for our children. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 23. (b) 'Go Shopping' will be used instead of 'Go For Shopping'.; " },
+{
+  question: "24. I have asked you so many (a) / times not to bring your friend (b) / to home, but you are adamant (c) / on doing only what you like. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 24. (c) To is not used before 'Home', hence remove it. If 'Home' comes without determiner with the verb of motion (go, come, return, walk etc.) then do not use the preposition. Like- Let's go home now. I am going to her home. (It is det. so to will come).; " },
+{
+  question: "25. If you don’t mind, (a) / I want to tell you that if you are (b) / busy in your work today, (c) / I can come tomorrow to collect my books. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 25. (c) Instead of 'Busy In Your Work' we will use 'Busy With your work'.; " },
+{
+  question: "1. You must go to abroad for (a) / higher education as soon (b) / as possible, if you want to (c) / prosper in your life. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 1. (a) Use 'Go Abroad' instead of 'Go To Abroad'.; " },
+{
+  question: "2. My father is not home now, (a) / so come some (b) / other time to take your (c) / money back from him. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "E"
+ , explanation: "AnswerKey 2. (e) There is no error.; " },
+{
+  question: "3. He asked me in a requesting (a) / manner to let him know when (b) / she left from home (c) / to catch the 5:30 train? (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 3. (c) 'Left Home' will be used instead of 'Left From Home'.; " },
+{
+  question: "4. He has a (a) / need and (b) / great interest (c) / in Mathematics. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 4. (b) Will use 'Of' after 'Need'.; " },
+{
+  question: "5. You are in the bad habit (a) / of reaching at home (b) / late every day and this (c) / habit of yours is no good at all. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Preposition' is not used after 'Reach', hence remove 'At'.; " },
+{
+  question: "6. The committee appointed (a) / by them will investigate (b) / into the matter and (c) / we will soon arrive at a decision. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 6. (c) There is no 'Preposition' between the 'Investigate' verb and its 'Object', hence remove 'At'.; " },
+{
+  question: "7. Despite of his hard (a) / work and support of (b) / his family, he could (c) / not do anything in his life. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 7. (a) 'Of' is not used after 'Despite'.; " },
+{
+  question: "8. I have advised to him (a) / so many times to give (b) / up smoking and drinking (c) / and live a simple life. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 8. (a) No 'Preposition' is used between the verb 'Adivse' and its 'Object', hence remove 'To'.; " },
+{
+  question: "9. A girl of fourteen (a) / is approaching womanhood (b) / and her womanhood is (c) / welcomed and celebrated. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "E (No error)"
+ , explanation: "AnswerKey 9. (e) No error; " },
+{
+  question: "10. There is no doubt (a) / that you are the son (b) / of Mr. Kumar (c) / as you resemble him. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 10. (d) Remove 'To' after 'Resemble'.; " },
+{
+  question: "11. Will you please tell (a) / me how long you (b) / will take to (c) / reach to my farmhouse? (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 11. (d) Do not use any preposition after 'Reach', hence remove 'To'.; " },
+{
+  question: "12. Whenever I go to any (a) / restaurant, first and foremost, (b) / I order some (c) / water and then some liquid refreshment. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 12. (c) Do not use any 'Preposition' between 'Order' and its 'Object', hence remove For.; " },
+{
+  question: "13. I am not, even in the least, (a) / interested in marrying (b) / to an actress as I like (c) / a woman of letters. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 13. (c) Do not use any 'Preposition' after 'Marry Verb' (Active Sentence), hence remove To.; " },
+{
+  question: "14. Initially, I could not understand (a) / anything, but when he (b) / explained it to me the second time, (c) / it dawned upon me. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "E (No error)"
+ , explanation: "AnswerKey 14. (e) There is no error.; " },
+{
+  question: "15. Right now I am busy (a) / doing my job so (b) / you had better (c) / discuss it with me after some time. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 15. (c) Do not use any 'Preposition' after 'Discuss', hence 'About' will be removed.; " },
+{
+  question: "16. It is next to impossible (a) / for me to describe (b) / her beauty, (c) / because it beggars description. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 16. (c) Do not use any 'Preposition' after the verb 'Describe', hence remove 'About'.; " },
+{
+  question: "17. While I was going along the (a) / road in the night, someone (b) / attacked me and (c) / took away all the money I had. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Do not use any 'Preposition' after the verb 'Attack', hence remove 'At'.; " },
+{
+  question: "18. One should always be (a) / conscious and engaged in one’s (b) / work, if one wants to (c) / get success in life. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 18. (b) Will use 'of' after 'Conscious'.; " },
+{
+  question: "19. In India, eggs are sold by the dozen, (a) / while in some other (b) / countries, eggs are (c) / sold by the kilo. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 19. (d) Use 'By The Kilo' instead of 'From The Kilo'.; " },
+{
+  question: "20. She moved around that (a) / temple and prayed to (b) / God for her son’s success (c) / in the interview. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "E (No error)"
+ , explanation: "AnswerKey 20. (e) There is no error.; " },
+{
+  question: "21. You would be surprised (a) / to know that a few (b) / years ago I had nothing (c) / beside a bicycle. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 21. (d) Instead of 'Besides' we will use 'Besides'.; " },
+{
+  question: "22. There is nothing to be (a) / worried about at all, (b) / as I will be back (c) / only after a week from Washington DC. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 22. (d) 'In a week' will be used instead of 'After a Week'. In the case of future time activity, before any 'period of time', 'in' is used instead of 'after'.; " },
+{
+  question: "23. One of his friends was killed (a) / during the war and (b) / this caused (c) / him the deepest pain. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 23. (b) In place of 'During' we will use 'In a Week'.; " },
+{
+  question: "24. The dacoits killed his (a) / father in front of him (b) / and he could not do (c) / anything to save him. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 24. (b) 'Before' will be used instead of 'In Front of'.; " },
+{
+  question: "25. A gold coin was found (a) / among the wreckage of (b) / the recently tumbled (c) / house near my house. (d) / No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 25. (b) 'Amid' will be used in place of 'Among'.; " },
+{
+  question: "1. Employers have to realize (a)/ that mere paper qualification (b)/ is no guarantee for (c)/ successful job performance. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 1. (c) 'Of' will be used instead of 'For' because after guarantee the preposition 'for' is not used but 'of' is used. E.g.: 'Is there a guarantee of work after training.'; " },
+{
+  question: "2. Management of public sector (a)/ has come to be recognised (b)/ over the years (c)/ as a separate class with itself. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 2. (d) 'In' will be used instead of 'With' because 'in itself' means 'in itself'.; " },
+{
+  question: "3. Prabhakar is (a)/ famous (b)/ in his victory (c)/ at Madras. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 3. (c) 'For' will be used instead of 'In' because 'famous for something' is used; E.g.: She is famous for her service to the poor.; " },
+{
+  question: "4. He climbed (a)/ from the ladder (b)/ to reach (c)/ the ceiling. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 4. (b) 'up' will be used instead of 'from' because 'up/down' is used as a preposition after 'climb'; As- (i) He climbed up a tree. (ii) She climbed down the tree.; " },
+{
+  question: "5. Mr. Sen was (a)/ educated (b)/ with the presidency college (c)/ in Calcutta. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 5. (c) 'At' will be used instead of 'With' because educated/studied at some school/college is used. As- (i) He was educated at Patna college. (ii) She studied at Patna College.; " },
+{
+  question: "6. I was pretty sure that (a)/ he would support my views (b)/ for changing the old (c)/ and static structure of our organisation. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 6. (c) 'Of changing' will be used instead of 'For changing' because Preposition 'of' is used after view(s).; " },
+{
+  question: "7. You would have certainly (a)/ completed the work in (b)/ the allotted time (c)/ had you planned it properly. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 7. (b) 'Within' will be used instead of 'In' because 'within the allotted time' means 'within the stipulated time'.; " },
+{
+  question: "8. Ramesh is unfortunately (a)/ accused with stealing (b)/ a handful of oranges (c)/ form Mohan’s garden. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 8. (a) 'Of' is not used after 'Despite'.; " },
+{
+  question: "9. My uncle disposed off (a)/ his old house (b)/ in the country. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 9. (e) No error; " },
+{
+  question: "10. He has no affection (a)/ with anybody (b)/ including the members (c)/ of his own family. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 10. (b) 'For' will be used instead of 'With' because 'affection for' and 'affectionate to' are used; E.g.: I have no affection for her.; " },
+{
+  question: "11. They talked over (a)/ the matter for (b)/ many hours without (c)/ arriving at any decision. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 11. (d) 'arriving at' will be used instead of 'arriving to' because arrive at a conclusion/decision is used; E.g.: Katappa did not arrive at any conclusion.; " },
+{
+  question: "12. Unemployment is not the result (a)/ of an individual’s laziness (b)/ but of (c)/ joint forces over the individual’s control. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 12. (d) 'Of' will be used instead of 'Over' because Preposition 'of' is generally used with 'force'; As- (i) The force of emotion. (ii) The force of Nature.; " },
+{
+  question: "13. He had readily (a)/ accepted (b)/ that life would be impossible with (c)/ him unless he works hard. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 13. (c) 'For' will be used instead of 'With' because possible or impossible for somebody is used; E.g.:It is possible for you but impossible for your wife to do this work.; " },
+{
+  question: "14. People have the right (a)/ to demand (b)/ protection for (c)/ their business against a bandit group trying to grab it. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 14. (c) 'Of' will be used instead of 'For' because Preposition of somebody/something is used against somebody/something; of body/something E.g.: The protection of tender plants against the weather is needed.; " },
+{
+  question: "15. The first year of the child’s life is (a)/ characterised (b)/ in (c)/ rapid physical growth. (d) No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 15. (c) 'By' will be used instead of 'In' because Agent is used in Passive Voice; Like- by +; " },
+{
+  question: "16. The earth can be divided (a)/ into parts, (b)/ or hemispheres according to (c)/ the meridians of east and west longitude. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 16. (b) 'Into' will be used instead of 'To' because after 'divide' the preposition 'into' is used, especially in the meaning of (divide into sections); E.g.: He divided the mango into four parts.; " },
+{
+  question: "17. The teacher was happy (a)/ when he entered the class (b)/ which comprised of a hundred students. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 17. (c) There will not be 'of' after 'Comprised' because 'comprise = consist of'; As- (i) This book comprises five chapters. (ii) This book consists of five chapters.; " },
+{
+  question: "18. The officer (a)/ is angry with the clerk (b)/ for not attending to the work. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 18. (b) 'Angry with the clerk' will be used instead of 'Angry on the clerk' because 'angry with a person' is used but 'angry at a thing' is used.; " },
+{
+  question: "19. The aircraft was overloaded; (a)/ there was something wrong (b)/ with the battery (c)/ and the ending was making a queer noise. (d)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 19. (b) 'With' will be used instead of 'Of' because when 'wrong' means 'out of order' or 'in a bad condition' then it is followed by Preposition 'with' is used; E.g.: There is nothing wrong with the engine.; " },
+{
+  question: "20. A thorough inquiry into the misappropriation of funds (a)/ is now imperative (b)/ to bring the guilty to book. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 20. (a) 'Into' will be used instead of 'Of' because 'inquire into' or 'inquiry into a case' is used, E.g.:The government has ordered an enquiry into this case.; " },
+{
+  question: "21. Please send me information (a)/ with regard to (b)/ infrastructure policies available from (c)/ your company. (d) No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 21. (b) 'With regard to' will be used instead of 'With regard to' because 'with regard to' is an Idiom. Is. Of; " },
+{
+  question: "22. It is a pity that a son (a)/ born of very good parents (b)/ should live a life of (c)/ misery and deprivation of the worst order. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 22. (b) 'Of' will be used instead of 'From' because born of somebody/ good parents/bad parents etc. are used.; " },
+{
+  question: "23. I complimented (a)/ him for (b)/ his success in the examination. (c) No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 23. (b) 'On' will be used instead of 'For' because Preposition 'on' is used with 'compliment'; E.g.: I complimented him on his skill.; " },
+{
+  question: "24. The extraordinary ability of the satellites to (a)/ see, listen, and communicate has made them integral to (b)/ modern warfare. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 24. (b) 'To' will be used instead of 'With' because Preposition 'to' is used with 'integral'.; " },
+{
+  question: "25. I am grateful to you (a)/ and all your friends (b)/ for extending the required help (c)/ in my hour of need. (d)/ No error (e)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 25.(c) 'For' will be used instead of 'By' because 'grateful obliged, indebted, beholden' (= indebted) to somebody for something is used; ; " },
+{
+  question: "1. You need not (a)/ ordered for any tea (b)/ or coffee, because I don’t take it. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 1. (b) Remove 'for' after 'order'; " },
+{
+  question: "2. He will soon recognize (a)/ you because your looks (b)/ resemble with your mother’s (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 2. (c) Remove 'with' after 'resemble'; " },
+{
+  question: "3. We want to serve (a)/ the nation, therefore we have (b)/ joined in the army. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 3. (c) Remove 'in' after 'join'; " },
+{
+  question: "4. If you reach at the station (a)/ late, you will not (b)/ be able meet him. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Remove 'at' after 'reach'; " },
+{
+  question: "5. What our country (a)/ lacks in is not patriots (b)/ but politicians’ honest commitment to the nation. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Remove 'in' after 'lacks'; " },
+{
+  question: "6. Some unknown person came and (a)/ attacked on her (b)/ with an iron rod. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 6. (b) Remove 'on' after 'attacked'; " },
+{
+  question: "7. Can you request her to (a)/ accompany with me (b)/ to the office. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 7. (b) Remove 'with' after 'accompany'; " },
+{
+  question: "8. A politician has (a)/ recommended for him (b)/ so he will definitely get the job. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 8. (b) Remove 'for' after 'recommended'; " },
+{
+  question: "9. One who (a)/ violates against the rules (b)/ shall be punished. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 9. (b) Remove 'against' after 'violates'; " },
+{
+  question: "10. Women (a)/ comprise of high proportion (b)/ of part-time workers. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 10. (b) Remove 'of' after 'comprise'; " },
+{
+  question: "11. You will receive (a)/ the parcel at (b)/ the evening. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use 'in the evening'; " },
+{
+  question: "12. He has just seen (a)/ her into the study, (b)/ so you can go there and meet her. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 12. (b) Use 'in the study'; " },
+{
+  question: "13. Have you seen anybody (a)/ going in (b)/ his bedroom? (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 13. (b) Use 'going into'; " },
+{
+  question: "14. You have to distribute (a)/ these books between (b)/ all those girls. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 14. (b) Use 'among' in place of 'between'; " },
+{
+  question: "15. The division of the land (a)/ among the persons has (b)/ not been done in a fair manner. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 15. (d) No error; " },
+{
+  question: "16. Beside the politicians (a)/ many journalists and social workers (b)/ also attended the meeting. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 16. (a) Use 'Besides'; " },
+{
+  question: "17. There were a number (a)/ of people sitting (b)/ besides his father. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Use 'beside'; " },
+{
+  question: "18. Very few are (a)/ ashamed at (b)/ what they do. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 18. (b) Use 'ashamed of'; " },
+{
+  question: "19. He has been suffering (a)/ with fever for (b)/ the last two weeks. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 19. (b) Use 'from' in place of 'with'; " },
+{
+  question: "20. Finally he has been (a)/ convicted with the (b)/ charge of rape and murder. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 20. (b) Use 'convicted of'; " },
+{
+  question: "21. Good manners say (a)/ that one should not be (b)/ jealous with anybody. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 21. (c) Use 'jealous of'; " },
+{
+  question: "22. Just accusing for (a)/ a crime does not call (b)/ for any legal punishment. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 22. (a) Use 'accusing of'; " },
+{
+  question: "23. The hotel boasts (a)/ about the world-class facilities (b)/ and many tourists get lured by them. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 23. (b) Use 'of' in place of 'about'; " },
+{
+  question: "24. Wait for a moment (a)/ I have just (b)/ had an idea. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 24. (a) Use 'Wait a moment'; " },
+{
+  question: "25. We are not in a position (a)/ to wait for orders (b)/ from our clients. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 25. (b) Use 'wait for orders'; " },
+{
+  question: "1. May I have the pleasure of (a)/ inviting you for (b)/ dinner tonight. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 1. (b) Use 'to' in place of 'for'; " },
+{
+  question: "2. The secret of his good (a)/ health is that he walks five (b)/ miles by foot every day. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 2. (c) Use 'on foot'; " },
+{
+  question: "3. It has been seen that most (a)/ of the school children have (b)/ interest in painting. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 3. (c) Use 'interest in painting'; " },
+{
+  question: "4. I keep listening to old (a)/ numbers, because (b)/ I am very fond of music. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Use 'listening to'; " },
+{
+  question: "5. The guard prevented (a)/ him from entering (b)/ the hall. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Use 'from entering'; " },
+{
+  question: "6. The police do not want anybody (a)/ to interfere with the evidence (b)/ therefore the area has been cordoned off. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 6. (b) Use 'interfere with'; " },
+{
+  question: "7. I always find (a)/ her quarreling (b)/ over trifles. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 7. (c) Use 'over trifles'; " },
+{
+  question: "8. His behavior is quite irritating (a)/ therefore she wants to (b)/ get rid of him. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 8. (c) Use 'rid of' in place of 'rid from'; " },
+{
+  question: "9. She knocked on the (a)/ door several times (b)/ nobody came out. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 9. (a) Use 'at' after 'knock'; " },
+{
+  question: "10. The whole country (a)/ sympathizes with those (b)/ who have lost their loved ones. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 10. (b) Use 'with' after 'sympathize'; " },
+{
+  question: "11. Anybody will (a)/ object to such (b)/ a filthy remark. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use 'to' after 'object'; " },
+{
+  question: "12. The importance of the Gita is (a)/ evident from the fact that it has been (b)/ translated into many languages. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 12. (c) Use 'into' after 'translated'; " },
+{
+  question: "13. The teacher is (a)/ angry with your behavior (b)/ so you must apologize to him. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 13. (b) Use 'at' after 'angry'; " },
+{
+  question: "14. As we are tired from (a)/ the long journey, we would (b)/ like to take a rest for some time. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 14. (a) Use 'tired of' in place of 'tired from'; " },
+{
+  question: "15. All of them (a)/ rejoiced at her (b)/ brilliant success. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 15. (b) Use 'rejoiced at'; " },
+{
+  question: "16. You need not be (a)/ afraid of these people, because (b)/ they are not going to harm you in any way. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 16. (b) Use 'afraid of'; " },
+{
+  question: "17. She burst into tears (a)/ to her son after (b)/ a long spell of time. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 17. (a) Use 'burst into'; " },
+{
+  question: "18. Most of them are (a)/ not capable of (b)/ doing this job. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 18. (b) Use 'capable of'; " },
+{
+  question: "19. Many of the (a)/ interviewers were not (b)/ satisfied with his answer. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 19. (c) Use 'satisfied with'; " },
+{
+  question: "20. I was asked to (a)/ describe the incident (b)/ in detail. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 20. (b) Remove 'about' after 'describe'; " },
+{
+  question: "21. She is accusing (a)/ him of adding to her (b)/ tension. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 21. (b) Use 'to' after 'adding'; " },
+{
+  question: "22. Those who have (a)/ faith in democracy (b)/ will never say such things. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 22. (b) Use 'faith in'; " },
+{
+  question: "23. The officer was (a)/ court-martialed for (b)/ neglect of duty. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 23. (c) Use 'neglect of duty'; " },
+{
+  question: "24. Some of the residents (a)/ have decided to lodge a (b)/ complaint against the careless security guard. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 24. (c) Use 'complaint against'; " },
+{
+  question: "25. He wanted to know (a)/ to whom the (b)/ complaint was lodged. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 25. (b) Use 'with whom' in place of 'to whom'; " },
+{
+  question: "1. We can raise the (a)/ fund only if we all (b)/ contribute for it. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 1. (c) Replace 'for' with 'to'; " },
+{
+  question: "2. He held me (a)/ at the neck and (b)/ threatened to kill me. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 2. (b) Use 'by the neck'; " },
+{
+  question: "3. The children will be taught (a)/ how to guard themselves (b)/ from bad habits. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 3. (c) Replace 'from' with 'against'; " },
+{
+  question: "4. He acceded to (a)/ my request after he had understood (b)/ the pros and cons of this deal. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 4. (b) Use 'acceded to'; " },
+{
+  question: "5. You cannot (a)/ insist that I take (b)/ this policy. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Use 'insist on my taking...'; " },
+{
+  question: "6. To discuss how to control the rising (a)/ prices, the Prime Minister has (b)/ called for a meeting of the cabinet. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 6. (c) Remove 'for' after 'called'; " },
+{
+  question: "7. Every father is (a)/ proud of his son, (b)/ when he does something great. (c)/No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 7. (b) Use 'proud of'; " },
+{
+  question: "8. She takes great (a)/ pride in her children’s (b)/ achievements. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 8. (d) No error'; " },
+{
+  question: "9. While I was coming (a)/ back from the market, (b)/ I met her on the way. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 9. (c) Use 'on the way'; " },
+{
+  question: "10. My teachers (a)/ congratulated me (b)/ for my success. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 10. (c) Use 'on my success'; " },
+{
+  question: "11. There are very few who (a)/ want to attend to what (b)/ they are told. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use 'attend to what'; " },
+{
+  question: "12. The dumb woman could (a)/ not express her views, because (b)/ she had no pencil to write. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 12. (c) Use' to write in'; " },
+{
+  question: "13. She wants to know (a)/ if they are going to (b)/ operate on her husband. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 13. (c) Use 'operate on her husband'; " },
+{
+  question: "14. Those who do not (a)/ regret what they have (b)/ done suffer in the long run. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 14. (b) Use 'regret to' in replace of 'regret on'; " },
+{
+  question: "15. My parents don’t (a)/ want me to (b)/ marry her. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 15. (c) Use 'marry her' in place of 'marry with her'; " },
+{
+  question: "16. Many of them are (a)/ not accustomed to (b)/ this type of work. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 16. (b) Use 'accustomed to' in place of 'accustomed with'; " },
+{
+  question: "17. Can you see that (a)/ this glass is (b)/ full of water? (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Use 'full of' in place of 'full with'; " },
+{
+  question: "18. I want to tell you that (a)/ his father died of (b)/ cholera last year. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 18. (b) Use 'died of'; " },
+{
+  question: "19. He has a doubt if (a)/ they will agree with (b)/ his proposal. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 19. (b) Use 'agree to'; " },
+{
+  question: "20. How is she (a)/ related to (b)/ you? (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 20. (b) Use 'related to'; " },
+{
+  question: "21. According to the (a)/ notification, the examinations (b)/ are commencing from 26th March. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 21. (c) Use 'commencing 26th march'; " },
+{
+  question: "22. My success was beyond (a)/ his expectation, so he (b)/ was surprised by it. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 22. (c) Use 'surprised at'; " },
+{
+  question: "23. Why he has (a)/ resigned from his post (b)/ is not known to me. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 23. (b) Use 'resigned his post'; " },
+{
+  question: "24. She is good in (a)/ English but weak (b)/ in Mathematics. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 24. (a) Use 'good at'; " },
+{
+  question: "25. He has been suffering (a)/ with fever (b)/ for the last six weeks. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 25. (b) Use 'suffering from in place of 'suffering with'; " },
+{
+  question: "1. As soon as you (a)/ arrive at the conclusion (b)/ it will be good for us. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 1. (b) Replace 'arrive' with 'arrive at'; " },
+{
+  question: "2. I was filled (a)/ with admiration (b)/ by watching him. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 2. (c) Replace 'by' with 'on'; " },
+{
+  question: "3. A survey says that (a)/ quite a few people in (b)/ India die of overwork. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 3. (c) Replace 'die of' with 'die from'; " },
+{
+  question: "4. There are many (a)/ who are late for (b)/ the meeting. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 4. (b) Replace 'lateen' with 'late for'; " },
+{
+  question: "5. As fear is (a)/ natural for man (b)/ I also got frightened. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Replace 'natural for' with 'natural to'; " },
+{
+  question: "6. These vans are (a)/ used to carry goods (b)/ from place to place. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 6. (b) Use 'carry'; " },
+{
+  question: "7. Your friends (a)/ are coming to (b)/ inquire about your health. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 7. (c) Use 'enquire'; " },
+{
+  question: "8. According to me (a)/ you are one (b)/ of the best teachers. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 8. (a) Replace 'Accoding to me' with 'in my opinion/in my book/to my mind/from my point of view'; " },
+{
+  question: "9. There are a large (a)/ number of sayings (b)/ in Hinduism. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 9. (c) Replace 'sayings in' with 'sayings about'; " },
+{
+  question: "10. If you (a)/ desire any change (b)/ you must talk to him. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 10. (d) No error'; " },
+{
+  question: "11. She prevailed upon her (a)/ father (b) to say nothing. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 11. (a) Use 'prevailed (against/over)'; " },
+{
+  question: "12. The tragedy is (a)/ that he has no (b)/ influence on his volunteers. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 12. (c) Use 'influence over'; " },
+{
+  question: "13. There is no (a)/ prejudice against workers (b)/ from other states. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 13. (b) Use 'prejudice against'; " },
+{
+  question: "14. Would you care (a)/ to partake (b)/ of some refreshment? (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 14. (b) Replace 'care to' with 'care of'; " },
+{
+  question: "15. You must know (a)/ that your name (b)/ precedes mine. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 15. (c) Use 'precedes' mine'; " },
+{
+  question: "16. Please send (a)/ this letter (b)/ to this address. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 16. (c) Replace 'on this address' with 'to this address'; " },
+{
+  question: "17. The application has not been (a)/ accepted, because you (b)/ have forgotten to sign it. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Replace 'sign on' with 'sign'; " },
+{
+  question: "18. This old man is (a)/ almost blind in (b)/ the right eye. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 18. (b) Replace 'blind of' with 'blind in'; " },
+{
+  question: "19. He was totally (a)/ blind to the faults (b)/ of his children. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 19. (b) Replace 'blind for' with 'blind to'; " },
+{
+  question: "20. This book is (a)/ different from that (b)/ in many ways. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 20. (b) Replace 'different to' with 'different from'; " },
+{
+  question: "21. As soon as you agree with me, (a)/ I will sign (b)/ the contract. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 21. (a) Use 'agree with'; " },
+{
+  question: "22. The entire city was (a)/ covered by thick fog (b)/ and the visibility was quite low. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 22. (b) Use Covered in/with'; " },
+{
+  question: "23. Much of the (a)/ country is (b)/ covered with snow. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 23. (c) Use 'covered in'; " },
+{
+  question: "24. He lost his gold (a)/ ring yesterday and he (b)/ is searching for it now. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 24. (c) Use 'searching for'; " },
+{
+  question: "25. I am sorry to say (a)/ that he has (b)/ met with an accident. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 25. (c) Use met with an accident'; " },
+{
+  question: "26. If somebody inquires about (a)/ this matter, you will not (b)/ say anything to him. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 26. (a) Use enquires'; " },
+{
+  question: "1. The teacher (a)/ wanted the students to (b)/ translate their feelings through a painting. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 1. (c) Replace 'feeling through' with 'feeling into'; " },
+{
+  question: "2. He said that a stranger (a)/ broke into the office and started (b)/ damaging the valuables put there. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 2. (b) Use 'broke into'; " },
+{
+  question: "3. It was very difficult to move (a)/ into the crowd to reach (b)/ the place where the dead body was lying. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 3. (d) No error'; " },
+{
+  question: "4. I pushed the needle (a)/ into the coarse and rough jute (b)/ fabric and made a hole. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Use 'needle into'; " },
+{
+  question: "5. I saw some (a)/ children shouting (b)/ in the hall. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 5. (c) Replace 'shouting at' with 'shouting in'; " },
+{
+  question: "6. What you are looking (a)/ for is in the drawer (b)/ of the table. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 6. (b) Replace 'at' with 'in'; " },
+{
+  question: "7. The moment she (a)/ saw her son wounded (b)/ she burst into tears. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 7. (c) Use 'burst into'; " },
+{
+  question: "8. It was not easy to see (a)/ through the suspended particles (b)/ hanging in the watery liquid. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 8. (d) No error'; " },
+{
+  question: "9. He always wakes up with (a)/ the first ray of the sun (b)/ peeping into the window. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 9. (c) Use 'people through the window'; " },
+{
+  question: "10. I did not find the fact (a)/ mentioned in the book, so (b)/ I decided not to buy it. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 10. (b) Use 'mentioned in' the book'; " },
+{
+  question: "11. He said that one (a)/ could find the verse on (b)/ page 234. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use 'verse at'; " },
+{
+  question: "12. Various thoughts keep (a)/ coming through our mind and (b)/ some of them linger there for a long time. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 12. (a) Use 'coming into' our mind'; " },
+{
+  question: "13. I have gone through the (a)/ paper more than once, but (b)/ I have not found it written in it. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 13. (a) Use 'gone through'; " },
+{
+  question: "14. He came through a woman (a)/ who promised to help (b)/ him in all possible ways. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 14. (a) Use 'came across' a woman'; " },
+{
+  question: "15. There is a village (a)/ across the hill, but (b)/ I have never been to it. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 15. (d) No error'; " },
+{
+  question: "16. He swam through (a)/ the river to get (b)/ to the temple. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 16. (a) Use 'swam across'; " },
+{
+  question: "17. I am not in the habit (a)/ of eating off a spoon (b)/ but my friends are. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 17. (b) Use 'eating with'; " },
+{
+  question: "18. Most people in (a)/ South India love eating (b)/ on a banana leaf and as they say it is healthy too. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 18. (b) Use 'eating a banana leaf'; " },
+{
+  question: "19. If you get up early (a)/ in the morning, you will (b)/ find birds chirping on trees. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 19. (c) Replace 'on trees' with 'in trees'; " },
+{
+  question: "20. Can you see the boy (a)/ standing with the wall (b)/ and talking on the phone? (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 20. (b) Use 'standing against'; " },
+{
+  question: "21. The terrorist was arrested at (a)/ a restaurant situated (b)/ in Windsor Street. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 21. (a) Use 'arrested near/in'; " },
+{
+  question: "22. I was supposed to be (a)/ there between 6 to 8, but (b)/ I got late in the office only. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 22. (b) Replace 'to' with and'; " },
+{
+  question: "23. Switzerland lies (a)/ between France, Germany (b)/ Italy, and Austria. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 23. (d) No error'; " },
+{
+  question: "24. I saw him sitting (a)/ among the luggage (b)/ on the platform. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 24. (b) Replace among with 'amidst/amid'; " },
+{
+  question: "25. You are the only (a)/ one among us (b)/ we can rely on. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 25. (b) Replace 'among' with 'amongst'; " },
+{
+  question: "1. He put some books (a)/ between the space (b)/ available on the shelf. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 1. (b) Replace 'between' with 'into'; " },
+{
+  question: "2. An agreement has been signed between (a)/ India, China (b)/ and Pakistan. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 2. (d) No error'; " },
+{
+  question: "3. Seeing controversy between (a)/ the four countries, America (b)/ is looking forward to intervening into the matter. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 3. (a) Replace 'between' with 'among'; " },
+{
+  question: "4. You need not worry, (a)/ because he will come back (b)/ only after three days. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 4. (c) Replace 'after' with 'in'; " },
+{
+  question: "5. The patient died (a)/ in a week as reported by (b)/ the doctor attending to him. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Replace 'after' with 'in'; " },
+{
+  question: "6. It won’t be that easy to (a)/ complete the entire (b)/ project within January. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 6. (c) Replace 'within' with 'in'; " },
+{
+  question: "7. He kept struggling (a)/ for financial stability (b)/ all throughout his life. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 7. (c) Use 'throughout his life'; " },
+{
+  question: "8. Being besides and (a)/ having no communication at (b)/ all created doubt in her mind. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 8. (a) Replace 'besides' with 'beside'; " },
+{
+  question: "9. I cannot give you (a)/ anything besides all that (b)/ I have promised you. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 9. (b) Replace 'besides' with 'except'; " },
+{
+  question: "10. Except what you (a)/ have said, I would like (b)/ add one more thing. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 10. (a) Replace 'except' with 'Besides'; " },
+{
+  question: "11. The water is flowing just (a)/ under the danger line (b)/ therefore it is alarming. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Replace 'under' with 'below'; " },
+{
+  question: "12. I cannot marry (a)/ one beneath (b)/ me in status. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 12. (d) No error'; " },
+{
+  question: "13. I am glad to know (a)/ that he has been doing (b)/ well since the last year. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 13. (c) Replace 'since' with 'for'; " },
+{
+  question: "14. She will be absent (a)/ since Wednesday, because (b)/ she is going to be married. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 14. (b) Replace 'since' with 'from'; " },
+{
+  question: "15. It is true that (a)/ cloth is sold (b)/ in the metre. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 15. (c) Replace 'in' with 'by'; " },
+{
+  question: "16. You can get it only (a)/ in one hundred rupees (b)/ if you try some other shop. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 16. (b) Replace 'in' with 'for'; " },
+{
+  question: "17. I came to know (a)/ about it only (b)/ at night. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Replace 'at night' with 'in the night'; " },
+{
+  question: "18. Whenever I go (a)/ to the restaurant, (b)/ I order for a cup of cold coffee. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 18. (c) Use 'order'; " },
+{
+  question: "19. Your daughter (a)/ resembles with her mother (b)/ in all the ways. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 19. (b) Use 'resembles'; " },
+{
+  question: "20. If you recommend for me (a)/ I will get (b)/ this job easily. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 20. (a) Use 'recommend'; " },
+{
+  question: "21. You will find few (a)/ who do not (b)/ crave for success in life. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 21. (d) No error'; " },
+{
+  question: "22. The students are (a)/ awaiting results, so (b)/ they are on tenterhooks. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 22. (b) Use 'await'; " },
+{
+  question: "23. Let the police (a)/ investigate into the matter (b)/ at their own ease. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 23. (b) Use 'investigate'; " },
+{
+  question: "24. Those who obey the orders (a)/ of their parents are (b)/ considered well-mannered. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 24. (a) Use 'obey'; " },
+{
+  question: "25. The opposition is in the habit (a)/ of protesting against (b)/ anything the ruling government puts up in the house. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "D"
+ , explanation: "AnswerKey 25. (d) No error'; " },
+{
+  question: "26. By violating the rules (a)/ you are condemning (b)/ the laws. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 26. (a) Use 'by violating the rules'; " },
+{
+  question: "27. Many of us hardly (a)/ regret what they (b)/ have committed. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 27. (b) Use regret'; " },
+{
+  question: "28. She agreed to marry him (a)/ and it was a relief (b)/ to her family. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "A"
+ , explanation: "AnswerKey 28. (a) Use marry'; " },
+{
+  question: "29. This book will help you (a)/ reach a solution to (b)/ the problem very soon. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "B"
+ , explanation: "AnswerKey 29. Replace 'reach on the solution' with 'reach the solution'; " },
+{
+  question: "30. I saw them (a)/ enjoying themselves (b)/ in the fair. (c)/ No error (d)",
+  options: ["A", "B", "C", "D", "E"],
+  correctOption: "C"
+ , explanation: "AnswerKey 30. Replace 'in the fair' with 'at the fair'; " },
+   
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

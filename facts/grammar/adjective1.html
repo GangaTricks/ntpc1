@@ -1,0 +1,3228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Preposition QUIZ APP</title>
+	<link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Adjective Part 1 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+
+		// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'adjective1';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+     // Display explanation
+    const explanation = document.createElement('explanation');
+explanation.innerHTML = `${currentQuestion.explanation || ''}`;
+optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+		
+{
+    question: "1. Your flat is superior (a)/ than (b)/ mine (c)/ in all respects. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+	
+  , explanation: "AnsweKey 1. (b) To' will be used instead of 'Than' because after superior, inferior, anterior, posterior, prior, junior, senior, 'to' is used and not 'that'." },
+{
+    question: "2. His car is (a)/ more bigger than (b)/ that of any of us. (c)/ No error. (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 2. (b) More' will not be used because 'more bigger' is Double Comparative and double comparative is not used in the sentence;" },
+{
+    question: "3. The Indian way (a)/ of thinking is superior (b)/ to most of the (c)/ countries of the world. (d)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 3. (c) That of' will be used after 'To' because the comparison is between 'The Indian way' and 'the way of most of the countries'." },
+{
+    question: "4. Of the two principles (a)/ he put forward the last one (b)/ was the more (c)/ difficult to understand. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 4. (b) Letter' will be used instead of 'Last' because 'letter' is used to tell the order of two persons or things, but 'last' is used to tell the order of more than two persons or things. Of" },
+{
+    question: "5. Madhuri is (a)/ more prettier (a)/ than her (c)/ sister. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 5. (b) More' will not be used because 'more prettier' is double comparative, and double comparative or double superlative is not used in the sentence;" },
+{
+    question: "6. Death (a)/ is (b)/ preferable (c)/ than life. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 6. (d) To' will be used instead of 'Than' because 'to' is used after preferential, senior, junior, superior, inferior, prior, anterior, posterior and not 'than';" },
+{
+    question: "7. After he had read the two first chapters (a)/ of the novel (b)/ he felt like reading (c)/ the book at one sitting. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 7. (a) Instead of 'The two first', 'the first two' will have to be used, because when Ordinal Adjective (like first, second, third, last etc.) and Cardinal Adjective (like one, two, three, four etc.) If they are to be used together, then ordinal comes first and then cardinal;" },
+{
+    question: "8. No man (a)/ in our country (b)/ is as rich (c)/ as he is. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 8. (a) 'Other' will have to be used after 'No'. If a person or thing from a group is compared with the people or things of the same group in positive degree, then No other.... so/ as is used;" },
+{
+    question: "9. She asked him (a)/ what it was that made him (b)/ so much stronger and braver (c)/ than any man. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 9. (d) Other will be used after 'Any'." },
+{
+    question: "10. Raju cannot (a)/ walk much than (b)/ two miles (c)/ at a stretch. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 10. (b) 'More' will be used instead of 'Much' because before 'that' Adjective of Comparative Degree comes, whereas for 'many/much' positive degree, Comparative Degree is 'more' and Superlative Degree is 'most'." },
+{
+    question: "11. It is always easy (a)/ to talk about a thing (b)/ than to do (c)/ it ourselves. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 11. (a) 'Easier' will be used instead of 'Easy' because 'than' has been used in Part (c) which shows that the sentence is of Comparative Degree." },
+{
+    question: "12. He is sure (a)/ to succeed because (b)/ he is used (c)/ to work very hardly. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 12. (d) 'Work' will be used instead of 'working' and 'hard' will be used instead of 'hardly'. Structure: To get/ to become/ to be used to + noun + v1 + ing To be is/am/are/was/were" },
+{
+    question: "13. What is worst (a)/ this distortion cannot be corrected (b)/ by either contact lenses or glasses. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 13. (a) 'Bad' will be used instead of 'Worst' because an adjective of positive degree is used for the same thing or person." },
+{
+    question: "14. No source of energy (a)/ is so cheap (b)/ as the solar energy (c)/ in the present age of energy crises. (d) No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 14. (a) 'Other' has to be used after 'No'." },
+{
+    question: "15. No river in the world evokes (a)/ such awe and reverence (b)/ as the Ganga (c)/ which is like a mother to 600 million Hindus of India. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 15. (a) 'Other' will be used after 'No' because 'River Ganga' has been compared with 'other rivers of the world'. That is, Ganga is also one of the rivers of the world. When any one person or thing If a person is compared with other persons or things of the same group in positive degree then the following construction is used- Structure: No other + Noun (Singular)..... so/as + Adjective (Positive) + as E.g.: (i) No other leader of India is so/as popular as Mrs. Sonia Gandhi." },
+{
+    question: "16. No girl (a)/ in her troupe (b)/ is so sprightly (c)/ as your daughter. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 16. (a) 'No other girl' will be used instead of 'No girl'." },
+{
+    question: "17. The link road has (a)/ now become (b)/ the roughest road than (c)/ any other road in the city. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 17. (c) 'Rougher' will be used instead of 'Roughest' because 'than' used in Part (c) and 'any other road in the city' used in Part (d) show that the sentence is in comparative degree. Is. Like- He is better than any other player of this team." },
+{
+    question: "18. Ordinarily, when in difficulty (a)/ Renuka prefers keeping her counsel (b)/ than running about (c)/ taking advice. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 18. (c) 'To' will be used instead of 'Than' because if 'prefer' is used to compare two Nouns or Noun Equivalents, then Preposition 'to' is used after 'Prefer'. Example: He prefers milk to tea." },
+{
+    question: "19. No boy (a)/ in the class is (b)/ as bright (c)/ as his son. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 19. (a) 'Other' will be used after 'No' because when a person or thing of a group is compared in positive degree with other people or things of the same group, then the following structure is used. goes- Structure: No other + Noun (Singular) +.... so/as + Adjective (Positive) + as.... Like- No other boy in this class is so/as good as Ram. But, when one person or thing of one group is compared with all the people or things of another group, then the following structure is used. Structure: No + Noun (Singular) (Positive) + as..... so/as + Adjective E.g.:No city in Bihar is so/as beautiful as Jaipur." },
+{
+    question: "20. He was looking impatient (a)/ at the unwanted visitor (b)/ who showed (c)/ no signs of leaving the room. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 20. (a) 'Impatiently' will be used instead of 'Impatient' because when 'look' means 'to be seen' then Adjective is used after it; As- (i) He looks impatient. (He looks impatient or seems impatient.) But, when 'look at' is used, it means 'to see', not 'to see' and in such a sense Adverb is used with it. ; E.g.:He looks suspiciously at those who meet him." },
+{
+    question: "21. Some people get (a)/ used to change (b)/ very easily than (c)/ others do. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 21. (c) 'More' will be used instead of 'Very' because the use of 'than' shows that the sentence is in Comparative Degree." },
+{
+    question: "22. The captain declared that his ship had carried (a)/ no less than three hundred passengers (b)/ on the last voyage. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 22. (b) 'No fewer' will be used instead of 'No less' because 'no less' is used as a quantitative adjective whereas 'no fewer' is used as a numerical adjective. It is in the form. E.g.: You need no less than 2 kilos of sugar." },
+{
+    question: "23. The two last (a)/ columns of the newspaper (b)/ are shabbily printed. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 23. (a) 'The last two' will be used instead of 'The two last' because when Ordinal Adjective (eg (cardinal Adjective (eg first, second, last etc.) and one, two, three, four etc.) If is used then Ordinal then Cardinal is used;" },
+{
+    question: "24. In spite of a thoroughly search (a)/ of the business premises, the (b)/ tax authorities could not find (c)/ any incriminating documents. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 24. (a) 'Thorough' will be used instead of 'Thoroughly' because 'thorough' is an Adverb while 'thorough' is an Adjective and 'search', which is a Noun, and the job of describing its characteristics is done by an Adjective only. Could is not an adverb, so thorogh would be correct." },
+{
+    question: "25. Today, the cost of living (a)/ is such higher that many (b)/ people find it difficult to (c)/ keep their hearts beating. (d)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 25. (b) 'So high' will be used instead of 'Such higher'. Structure: So + Adj. (positive degree) + that E.g.: Sita is so sad that she can talk to anybody." },
+
+{
+    question: "1. It is unfortunate (a) / for her that she had (b) / to sell almost each (c) / flat during the treatment of her husband. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnsweKey 1. (c) Almost Every will be used in place of Almost Each. Know the rule: Adverbs like almost/nearly/practically/without exception etc. are not used before each. With all these adverbs, Every should be used instead of Each." },
+{
+    question: "2. A day before yesterday (a) / she met with an (b) / accident and her every hand (c) / was bruised badly. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 2. (c) Each Hand will be used in place of Every Hand. Because Each is used for two or more, whereas every is used for more than two." },
+{
+    question: "3. I am very thankful (a) / to her as she used (b) / to see me at the (c) / hospital every five hour. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 3. (d) Due to presence of five before Hour in the sentence, plural is being understood, hence Hour will have to be changed to Hours (every + number + noun)." },
+{
+    question: "4. It seems to me (a) / that neither girls are (b) / going to participate (c) / in this beauty contest. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 4. (b) Neither Girls is will be used in place of Neither Girls are. Know the rule: After A certain / Another / Each / Every / Either / Neither / Each and every / Many a (an) / Such a (an) etc., Noun (countable) is singular. But after These / those / certain /many / a great many / a good many / several / various / A number of etc., the noun is always in plural number. After adjectives like Any / No / The same etc., Noun can be in Singular or Plural Number." },
+{
+    question: "5. Any vivacious woman (a) / is standing at the door (b) / and she is very much (c) / desirous of talking to you. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 5. (a) Use A in place of Any. Know the Rule: Any is used in Negative or Interrogative Sentence." },
+{
+    question: "6. Yesterday I gave you (a) / two books, so (b) / where is another book, (c) / please tell me. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 6. (c) Here other book will be used in place of another book. Things to note: Another is used in Affirmative sentence but it is used in Negative sentence. To correct the sentence, any other should be used in place of another." },
+{
+    question: "7. I was driving (a) / the car with one hand (b) / and relishing ice cream (c) / with another hand. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 7. (d) Whenever two objects/persons/places are being talked about in a sentence, the other is used for the second object/person/place. Therefore, the other hand will be used instead of another hand." },
+{
+    question: "8. Believe me, (a) / he was holding her (b) / with one hand and (c) / caressing her with another hand. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 8. (d) Use other in place of another." },
+{
+    question: "9. I have judged myself (a) / so now I cannot (b) / have another (c) / cup of tea now. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 9. (c) Use any other in place of another." },
+{
+    question: "10. I must not hesitate (a) / to affirm that no book (b) / is as useful and (c) / fruitful as this one. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 10. (b) No other book will be used in place of No book." },
+{
+    question: "11. Beyond any shade of doubt, (a) / you are better than (b) / all the boys in the (c) / class and reasons are countless. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 11. (c) Do it. Use All the other boys instead of All the boys." },
+{
+    question: "12. He keeps buying flats at (a) / various places and recently (b) / he has bought another (c) / flats in Mumbai. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 12. (d) Singular Noun after Another. Is used. Hence Another Flat It would be correct to use." },
+{
+    question: "13. Where will you (a) / be in another (b) / ten year is (c) / quite difficult to guess. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 13. (c) Use Another ten years here." },
+{
+    question: "14. I firmly believe (a) / that no philosopher is (b) / as great as Osho and you (c) / will also have to accept it. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 14. (b) Use No other Philosopher." },
+{
+    question: "15. He says to his father, (a) / “I can have better (b) / studies only (c) / in own room,” (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 15. (d) My own room will be used. Because the correct structure 'Possessive Pron + Own + Noun' is used." },
+{
+    question: "16. It is said that (a) / Prashant is (b) / better than the three (c) / students in the class. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 16. (c) Use the best of the three students." },
+{
+    question: "17. This is one of (a) / the most minor mistakes (b) / she has made and you (c) / are scolding her for that. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 17. (b) Most is not used with Minor, hence Most will be removed." },
+{
+    question: "18. He is an intelligent student (a) / and superior than you, so (b) / spend as much time (c) / as possible with him. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 18. (b) Use to after Superior. Because - ior is associated with some adjectives, like -junior, senior, superior, inferior, prior, anterior, posterior etc. Use of more/most before such adjectives is wrong and use of than after them is wrong. After these, to is also always used." },
+{
+    question: "19. He attacked cowardly (a) / on a defenceless (b) / man and was (c) / sent to jail for this. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 19. (a) In a cowardly manner will be used instead of Cowardly. Because adverb is needed here." },
+{
+    question: "20. He is a gregarious (a) / man and he (b) / behaves brotherly (c) / to all he meets. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 20. (c) Adverb is required here: use in a brotherly manner." },
+{
+    question: "21. He is an effeminate person (a) / so you will find (b) / that he will always (c) / act womanly. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 21. (d) Use in a womanly manner instead of womanly." },
+{
+    question: "22. I know you (a) / very well (b) / as a matter of fact (c) / you are as cleverer as she is. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 22. (d) Clever will be used in place of cleverer." },
+{
+    question: "23. This book is so useful (a) / as hers, so (b) / you can also (c) / borrow her book. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 23. (a) Use as useful as instead of useful." },
+{
+    question: "24. She is too weak (a) / that she cannot walk, (b) / so let’s stop here (c) / for some more time. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 24. (a) Use So instead of Too. Know the rule: Too is used with 'To + V1' while 'So' is used with that clause." },
+{
+    question: "25. She is (a) / too much (b) / young to brave (c) / this world. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 25. (b) Much too will be used instead of too much. Know the rule: Adjective is used with 'Much too' and Noun is used with 'too much'." },
+{
+    question: "1. India is such developing nation (a) / that it will definitely (b) / be on the top of the (c) / world very soon. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 1. (a) A will be used after Such. Rule को जानें: Such+ a/an+ Adj. + Noun......So/How/Too + Adjective + a/an+Noun....... You are such a nice lass. She is so intelligent a girl that she can do it." },
+{
+    question: "2. Is your brother (a) / enough intelligent (b) / to solve this difficult (c) / and abstruse problem. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 2. (b) Intelligent enough will be used in place of intelligent enough. Know the Rule: Enough can be used as both Adjective and Adverb. When enough is used as an adverb, it is placed after the adjective. But when it is used as an Adjective, its place is before the Noun. As- (1) She is intelligent enough to solve this issue. (2) Mallika has enough money to buy this flat." },
+{
+    question: "3. She is wisest enough (a) / to answer any question, (b) / so you can count (c) / on her on that score. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 3. (a) Wise enough will be used instead of wisest enough. Because positive degree is enough correct structure." },
+{
+    question: "4. Her mother has been ill (a) / for more than two (b) / months, but now she (c) / is relatively better. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 4. (d) Use good instead of better. Know the rule: Positive degree of adjective is used after Comparatively/Preferably/Relatively." },
+{
+    question: "5. The unit is (a) / comparatively easier to install and (b) / cheaper to operate, so (c) / buy this one without having a second thought. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 5. (b) Easy will be used instead of Easier." },
+{
+    question: "6. I mean to say (a) / that anything (b) / is preferable than (c) / a tense atmosphere at home. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 6. (c) Use to instead of than. Know the rule: Only To is used with Preferable. Errors are given by using Than in exams. But if the comparison is between two infinitives then Rather than is used. As- I prefer tea to coffee. I prefer to walk rather than stay at home in the morning." },
+{
+    question: "7. Taking lemon tea (a) / is more preferable (b) / to any other (c) / sort of drink. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 7. (b) The use of More in the sentence is wrong. Because Preferable cannot be made Comparative. Because it becomes superfluous." },
+{
+    question: "8. She is the (a) / most vibrant and wisest (b) / woman I have ever (c) / seen in my life. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 8. (b) The wisest will be used in place of wisest." },
+{
+    question: "9. A few days ago (a) / I came to know (b) / that she was most (c) / intelligent girl amongst us. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 9. (c) Use the before most. Because article 'the' is used before perlative degree. As- She had the most money of all of them." },
+{
+    question: "10. This table is (a) / twice heavier than (b) / that of yours and (c) / thrice as cheap as that one. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 10. (b) Use twice as heavy as instead of twice heavier than. Know the rule: Comparison is done using positive degree of adjective with twice/half/thrice/times. As- Your duck diamond is twice as beautiful as his. It is four times as expensive as yours. Comparative degree of adjective can also be used with Times. As- I am three times wiser than you. I am three times as wise as you." },
+{
+    question: "11. You are an afraid guy (a) / and I know you (b) / can never do anything (c) / in your life. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 11. (a) Use a timid/frightened guy instead of Afraid. Because Afraid is not used before noun." },
+{
+    question: "12. He says to his (a) / friend that (b) / great was the (c) / thoughts of Marx. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 12. (c) Use Were instead of Was for thoughts. Which is in plural number. Use of the b because verb" },
+{
+    question: "13. You will not be (a) / given farther (b) / punishment, (c) / so be happy now. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 13. (b) Use Further instead of Further. Understand the difference: Further means additional and further means at a greater distance." },
+{
+    question: "14. Her sister (a) / is as good, (b) / if not better (c) / than you. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 14. (b) Use As good as here. Know the rule: If two adjectives are used with different degrees of comparison, then both should be complete in themselves. Structure: (a) Sub+Verb+Comp. Adj./adv.+ than + or + as +adj./ adv.+as....... (b) Sub+Verb+as+adj./Adv.+ as,+ if not+comp. Adj./Adv. + than +......... (c) Sub+Verb+As+Adj/Adv + as + and +comp.Adj/Adv + than + ......)" },
+{
+    question: "15. Your husband (a) / is as tall, (b) / and more (c) / handsome than hers. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 15. (b) Use As tall as." },
+{
+    question: "16. It is a well known (a) / fact that he (b) / is very wiser than (c) / Shyam in so many ways. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 16. (c) Use much/far instead of very. Know the rule: Very is not used before comparative degree." },
+{
+    question: "17. Prachi is the better (a) / of the two girls who (b) / think themselves (c) / intelligent and wise. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 17. (e) No Error" },
+{
+    question: "18. He is now ten years (a) / old and elder than (b) / his son who (c) / is now nine years old. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 18. (b) Use Ten Years Older than." },
+{
+    question: "19. I need many money (a) / to buy a new flat, (b) / so I have started saving (c) / a few bucks every day. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 19. (a) Use a lot of/lots of in place of many. Because Many is used before Plural Countable Noun." },
+{
+    question: "20. Ram is (a) / wiser than intelligent (b) / but he is not ready (c) / to accept this fact. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 20. (b) Use more wise than intelligent instead of wiser than intelligent. Know the Rule: When two qualities of the same person and thing are compared, both the adjectives are kept in positive degree and comparison is made with the help of more and less." },
+{
+    question: "21. This is one (a) / of better books (b) / I have read (c) / so far. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 21. (b) Use the best books instead of better books." },
+{
+    question: "22. In my book, Sachin Tendulkar is (a)/the most intelligent and humblest (b)/ player amongst us. (c) / No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 22. (b) Use the humblest and most intelligent." },
+{
+    question: "23. No less than twenty (a) / students were plucked (b) / in the examination (c) / held last year. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 23. (a) 'No fewer' will be used instead of 'No less' because 'no less' is used as a quantitative adjective whereas 'no fewer' is used as a numerical adjective." },
+{
+    question: "24. Without any shade of doubt (a)/ this is really (b) / and truly (c) / a worth noting matter. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 24. (d) Use A matter worth noting" },
+{
+    question: "25. The Red fort (a) / is a worth seeing monument, (b) / so you must go (c) / and admire it. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 25. (b) There will be a monument worth seeing here. Because Noun is used before Worth + Ving." },
+{
+    question: "1. Do you know (a) / that Indira Gandhi (b) / was the first politician (c) / of her time. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnsweKey 1. (c) Considering the meaning of the sentence, Foremost will be used in place of First." },
+{
+    question: "2. No less books are required (a) / to master the (b) / important rules (c)/ of English Grammar. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 2. (a) 'No fewer' will be used instead of 'No less' because 'no less' is used as a quantitative adjective whereas 'no fewer' is used as a numerical adjective. It happens. Like- You need no less than 2 kilos of sugar." },
+{
+    question: "3. The whole India (a)/mourned (b) / the death of (c) / Bhagwan Rajneesh. (d) / No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 3. (a) Use The after Whole." },
+{
+    question: "4. Do you know that (a) / Delhi is further (b) / from Mumbai than (c) / from Kanya Kumari. (d) (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 4. (b) According to the sense of the sentence, Farther will be used instead of Further. Know the difference: Further - More, extra, or additional; Farther- A greater distance;" },
+{
+    question: "5. If you join as a bank P.O., (a) / you will get (b) / a handsome salary (c) / not a less salary. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 5. (d) Use a small salary instead of A less salary." },
+{
+    question: "6. If you follow THE WINNING EDGE (a) / well and truly, (b) / you will have cent percent marks (c) / in English. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 6. (c) Use Hundred Percent instead of Cent percent because cent percent is the English translation of the Hindi word शत-पर्शत which is not used in English." },
+{
+    question: "7. I gave her a little money (a) / because I had to buy (b) / a few items of furniture and some articles (c) / of dress and it was to fall short with me. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 7. (a) Use little instead of A little." },
+{
+    question: "8. In this age (a) / and time, (b) / Gold is the most (c) / precious of all other metals. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 8. (d) The will be used instead of other. Because other is not used in superlative degree." },
+{
+    question: "9. Of Kolkata, Mumbai and Delhi, (a) / the latest has the (b) / largest number of (c) / motor vehicles. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 9. (b) Use last instead of latest." },
+{
+    question: "10. Both the books (a) / of mine have not been (b) / published yet due to (c) / the shortage of funds. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 10. (e) No Error" },
+{
+    question: "11. If you work hard, (a) / you will have the most excellent (b) / command of the English language (c) / very soon. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 11. (b) Eliminate Most. Because Excellent itself is a Superlative Degree." },
+{
+    question: "12. Little knowledge of English (a) / proved very useful (b) / to (c) / Sunil in qualifying Bank PO Exams. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 12. (a) A Little Knowledge will be used." },
+{
+    question: "13. There would be (a) / no fewer than five litres of milk (b) / in the pot, (c) / so you could take some. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 13. (b) Use No Less than instead of No Fewer than." },
+{
+    question: "14. Could you (a) / please open (b) / your book at thirty page (c) / and read the first paragraph aloud. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 14. (c) Use Open Your book at the Page 30." },
+{
+    question: "15. Can you believe (a) / that Prachi is (b) / the older of (c) / the two sisters. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 15. (e) No Error" },
+{
+    question: "16. This article on (a) / embezzlement was (b) / published in the last (c) / issue of The Hindu. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 16. (c) Considering the sense of the sentence, use latest issue instead of last issue. Understand the difference: Last - last / last Latest - recent / latest" },
+{
+    question: "17. Any farther demand of money (a) / for buying a new bike (b) / again may land (c) / you into difficulty. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 17. (a) Use further instead of further." },
+{
+    question: "18. He will (a) / not give you (b) / anything, because (c) / he is a miser man. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 18. (d) Miserly will be used instead of Miser. Because Miser is a Noun and Miserly is an Adjective." },
+{
+    question: "19. Some persons (a) / are very brave, (b) / whereas some (c) / are very cowardly. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 19. (e) No Error" },
+{
+    question: "20. It has been (a) / observed that (b) / the patient is gradually (c) / becoming strong. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 20. (d) Use Stronger instead of Strong." },
+{
+    question: "21. I need certain book (a) / to solve this problem, (b) / because I am (c) / missing a formula. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 21. (a) A will be used before Certain." },
+{
+    question: "22. There were only (a) / two hooligans, (b) / but each and every hooligan (c) / was equal to ten police men. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 22. (c) Use each hooligan." },
+{
+    question: "23. These sort of books (a) / are very rare, (b) / so we should buy them (c) / without having a second thought. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 23. (a) Use Sorts instead of Sort. Plural noun is used with these/those. RIST" },
+{
+    question: "24. You will have much (a) / problems in your life, (b) / but none of them will harm (c) / you even in the least. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 24. (a) Use Many instead of Much. Know the Rule: The best of countable noun (plural) with many And uncountable noun is used with much. E.g.: I Need much money and many books." },
+{
+    question: "25. His blonde long hair (a) / adds glamour to his looks (b) / and long beard makes (c) / him look like a saint. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 25. (a) Use his long blonde hair. Adjective of size comes first for a noun and then" },
+{
+    question: "1. Harish is (a)/ very much (b)/ willing to (c)/ come with you. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnsweKey 1. (b) 'Much' will not be used because 'much' is used before the Adjective of Past Participle whereas 'very' is used before the Adjective of Present Participle. E.g.:He is much interested in this work." },
+{
+    question: "2. A journey by car is (a)/ as quick or perhaps quicker (b)/ than that by train (c)/ in this particular case. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 2. (b) 'As' will be used after 'Quick' because the sentence is a synthesis of Positive Degree and Comparative Degree; As- (i) He is as quick as you. (ii) He is not quicker than you. By joining these sentences He is [as quick as + not quicker than] you. Both 'He is' and 'you' are common in both the sentences. As quick as + not quicker than is saved in curly brackets. Hence by replacing (+) with if not- k as if not He is as quick as i as if not quicker than you." },
+{
+    question: "3. The man who is (a)/ perpetually hesitating (b)/ which of two things (c)/ he will do first will ultimately do either. (d) No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 3. (d) 'Neither' will be used instead of 'Either' because in the sentence 'Operpetually hesitating which of the two things he will do first' shows that due to hesitation, ultimately the person will not do either of the two things." },
+{
+    question: "4. No hill station (a)/ is as beautiful (b)/ as Darjeeling (c)/ with its scenic beauty. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 4. (a) 'Other' will be used after 'No' because when a member of a group is compared with other members of the same group in positive degree then No other + noun (Singular) so/as + Adjective (Positive degree ) + as is used. In the presented sentence, Darjeeling has been indirectly compared with other hill stations of India." },
+{
+    question: "5. The faster he completes (a)/ the work given to (b)/ him, the largest (c)/ will be his profit. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 5. (c) 'Larger' will be used instead of 'Largest' because in parallel construction comparative degree is used on both sides; E.g.: The more he gets, the more he wants. [न कि the most he wants]" },
+{
+    question: "6. Kunal's father advised (a)/ him not to (b)/ ride the motorcycle (c)/ lately at night. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 6. (d) 'Late' will be used instead of 'Lately' because 'lately' means 'recently', whereas 'late' means 'after the fixed time or schedule. (after the appointed time)" },
+{
+    question: "7. The teacher said (a)/ that Ajay was (b)/ capable of doing (c)/ more better work. (d)/ No error. (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 7. (d) 'More' will not be used because 'more better' is Double Comparative, and Double Comparative is not used in the sentence. Yes, much, very much, far is used before Comparative Degree. Therefore, using 'much' or 'very much', 'far' instead of 'more' also makes the sentence pure; E.g.: He is much better these days." },
+{
+    question: "8. When Charles was (a)/ in hospital (b)/ his sister sent (c)/ much fruit than his uncle. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 8. (b) The will be used instead of other. Because other is not used in superlative degree." },
+{
+    question: "9. Mr. Gupta has (a)/ driven almost twice (b)/ so fast as (c)/ Mr Khanna has. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 9. (b) Use last instead of latest." },
+{
+    question: "10. Although the patient (a)/ was rudely with the (b)/ nurses, he behaved (c)/ nicely with the doctor. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 10. (e) No Error" },
+{
+    question: "11. Dileep's performance in the (a)/ film was worst than (b)/ Amit's, but was not (c)/ as bad as Vinod's. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 11. (b) 'Worse' will be used instead of 'Worst' because the comparison is between Dilip's performance and Amit's performance for which Comparative Degree is used. Keep in mind that the comparative of 'bad/ill/evil' is 'worse' and the superlative is 'worst'." },
+{
+    question: "12. Anjali's performance in the (a)/ drama was best than (b)/ Deepali's but not (c)/ as good as Vaishali's. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 12. (b) 'Better' will be used instead of 'Best' because when two persons or things are compared, Comparative Degree is used, not Superlative Degree; E.g.: Dipu's shirt is better than Shyam's. Then, 'than' has also been used in this part, this also shows that the adjective used before it should be in comparative degree." },
+{
+    question: "13. Meenakshi's performance in the (a)/ film was better than (b)/ Sangeeta's but not (c)/ so better as Madhuri's. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 13. (d) 'Good' will be used instead of 'Better' because when two persons/things have to be compared in positive degree then- 'So/as + positive degree + as' is used. (i) Rakhi is not so/as good as Venna." },
+{
+    question: "14. I advised my son (a)/ to engage two coolies instead of one (b)/ because the luggage was too much heavy for a single coolie. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 14. (c) 'Much too' will be used instead of 'Too much' because too much + Noun is used while much too + or Adverb; Adjective be E.g.: Too much difficulty." },
+{
+    question: "15. Simplest solution (a)/ than this expensive (b)/ method which you are suggesting (c)/ should be found out. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 15. (a) 'A simpler solution' instead of 'Simplest solution'. Will be used because 'than' has been used in Part (B) which shows that the sentence is in Comparative Degree. The E.g.: A better singer than Ramu is not known to us." },
+{
+    question: "16. All the children have (a)/ assembled on the ground (b)/ and are waiting for (c)/ the Principal to come. (d)/ No error. (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 16. (d) 'The Principal's coming' instead of 'The Principal to come' will be used because the children are waiting for the Principal to arrive, and Use of the Principal's coming have to do it." },
+{
+    question: "17. All individuals are (a)/ different, so their (b)/ tastes vary from (c)/ one another. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 17. (d) 's [Apostrophe s] will be used on 'Another'. That is, 'one another's' would be used instead of 'one another' because the implicit comparison is between 'their tastes' and 'one another's tastes'; E.g.: Their tastes differ from one another's." },
+{
+    question: "18. Meena is (a)/ good and more (b)/ beautiful than (c)/ Reena. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 18. (b) 'Better' will be used instead of 'Good' because if two adjectives are to be used by joining them with a conjunction, then the degree of both should be equal; As- Ram is good and wise." },
+{
+    question: "19. Avinash is not so (a)/ good a batsman to (b)/ be selected for the (c)/ national cricket team. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 19. (b) 'As' will be used before 'To' because the structure is based on [so....as]; E.g.: He is not so good as to be respected." },
+{
+    question: "20. Anjali's performance in the (a)/ drama was best than (b)/ Deepali's but not (c)/ as good as Vaishali's. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 20. (b) 'Better' will be used in place of 'Best'. Because Anjali's performance has been compared with Deepali's performance." },
+{
+    question: "21. He has in (a)/ his possession a (b)/ price collection of very old coins (c)/ and some ancient paintings. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 21. (c) 'Precious collection' will be used instead of 'Price collection' because 'price' means 'value', whereas 'precious' means 'precious, priceless, valuable'." },
+{
+    question: "22. All renew licences may (a)/ be collected from (b)/ the cashier's counter after (c)/ paying the fees. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 22. (a) 'Renewed licenses' will have to be used instead of 'Renew licenses', because 'renew' is a Verb whose Past Participle form 'renewed' can be used as an Adjective to describe the specialty of the Noun 'licences'; E.g.: 'With renewed enthusiasm'" },
+{
+    question: "23. The book is written (a)/ in a simple and (b)/ lucid manner with a (c)/ number of well-drawn illustrations. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 23. (d) 'Well-drawn' will be used instead of 'Well-drawn', because the Past Participle form of 'draw' is 'drawn'. So there is no need to add 'ed' to 'drawn'." },
+{
+    question: "24. The exercises at (a)/ the gymnasium (b)/ were so fatiguing that (c)/ I went to sleep effortlessly. (d)/ All correct (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 24. (c) The correct spelling is 'fatiguing'." },
+{
+    question: "25. A leading commentator (a)/ published his inaugural speech in three (b)/ successive issues of (c)/ a renowned daily. (d)/ All correct (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 25. (d) 'renowned' will be used instead of 'renounced' because 'renounced' means 'gave up, left', whereas 'renowned' means 'reputed, famous' )." },
+{
+    question: "1. You must know that (a) / Sachin is the most unique (b) / player among (c) / all his contemporaries. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 1. (b) Remove Most from here. Know the Rule: Some Adjectives are called Absolute Adjectives. These Adjectives are neither used in Comparative Degree nor in Superlative Degree. 19 Such adjectives are as follows - Unique, absolute, ideal, whole, perfect, chief, universal, complete, square, extreme, full, excellent, interior, Preferable....etc." },
+{
+    question: "2. This book (a) / is comparatively far better than (b) / the book which you (c) / bought a few days ago. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 2. (b) Comparatively and Relatively are not used with comparative degree. Therefore, Comparatively will not be used before Far better." },
+{
+    question: "3. It is hard to believe (a) / that Sunil was more intelligent (b) / than wiser when (c) / he was sixteen. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 3. (c) Wise will be used in place of Wiser. Because Wise is being compared to intelligent." },
+{
+    question: "4. Ponting has great power (a) / of scoring runs whenever (b) / needed but Sachin has (c) / even the greatest ability to outshine Ponting. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 4. (d) When comparison is between two persons then comparative degree is used. Therefore, use greater instead of greatest." },
+{
+    question: "5. Pankaj is as good, (a) / if not better than all his (b) / friends who are well known (c) / for their brilliant business acumen. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 5. (a) Use Pankaj is as good as." },
+{
+    question: "6. You have made several attempts (a) / to rescue the people in danger and (b) / all of them have been very daring (c) / but this attempt of yours is more daring. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 6. (d) Use The Most daring." },
+{
+    question: "7. Before you leave (a) / for market will you please (b) / let me know how many eggs and milk (c) / you have to bring. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 7. (c) How much will be used before Milk. Because Much is used with uncountable nouns and Many is used with countable nouns. Whereas in this sentence milk is an uncountable noun." },
+{
+    question: "8. Can you please give (a) / me a certain book on common errors, (b) / I will return (c) / them tomorrow. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 8. (b) Remove 'a' before 'Certain'. Because the presence of Books in the sentence gives the sense of Plural noun. Things to note: A certain + Singular noun Certain + Plural noun +" },
+{
+    question: "9. There are dozens of books (a) / on the English language (b) / available in the market (c) / but this one is the better. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 9. (d) Use the best instead of the better. Because comparison of many books is taking place. Therefore, it would be correct to use superlative degree." },
+{
+    question: "10. No less than lacs of spectators are (a) / waiting for Sachin to come out (b) / in the field and play his (c) / masterful stroke. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 10. (a) Use No lesser than instead of No less than. Know the rule: Fewer than is used with countable nouns while less than is used with uncountable nouns." },
+{
+    question: "11. When a hooligan (a) / was snatching (b) / her wallet, (c) / she acted bravely and manly. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 11. (d) In place of manly, in a manly manner or manfully will be used." },
+{
+    question: "12. When I was walking (a) / along the bank of the river, (b) / I saw an asleep man (c) / in rags and tatters. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 12. (c) A sleeping will be used in place of An Asleep." },
+{
+    question: "13. I am five feet tall, (a) / whereas one of my brothers (b) / who lives in America (c) / is six feet high. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 13. (d) Tall will be used instead of high." },
+{
+    question: "14. It is beyond (a) / any controversy that (b) / no boy in this class (c) / is as good as Mukesh. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 14. (c) No other boy will be used." },
+{
+    question: "15. These days gold is much more (a) / expensive than (b) / any metal available (c) / on the earth. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 15. (c) 'Other' will be used after 'Any' because when a person or thing of a group is compared with other people or things of the same group in positive degree, then the following structure is used. goes-" },
+{
+    question: "16. You have bought (a) / a number of books on philosophy, (b) / but believe me this is (c) / better than any one. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 16. (d) Any one else will be used instead of Any one." },
+{
+    question: "17. The population of India (a) / is going to be more than China (b) / in the next (c) / two or three years. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 17. (b) More than that of China will be used. It is necessary to use that of because the comparison is taking place between the population of two countries." },
+{
+    question: "18. Swami Vivekananda was (a) / one of the (b) / wisest and learned (c) / men of India. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 18. (c) Use most before learned." },
+{
+    question: "19. Now we all (a) / are dog tired, (b) / so it would be very difficult (c) / to walk a five miles long road. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 19. (d) Mile will be used instead of Miles." },
+{
+    question: "20. You must know (a) / that he is in the habit (b) / of consorting with high and low men (c) / for several years. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 20. (c) Men will be placed before High and Low." },
+{
+    question: "21. You can start a business (a) / with Poornendu, (b) / because he is (c) / an honest man in his dealings. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 21. (d) A man honest in his dealings will be used." },
+{
+    question: "22. There were no less than (a) / hundred men (b) / injured in (c) / a plane crash. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 22. (a) No lesser than will be used instead of no less than." },
+{
+    question: "23. He was really and truly (a) / extremely sorry (b) / to find that he had (c) / a little leisure left. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 23. (d) Remove a before Little. Know the rule: (A) Few/a few/very few + Plural Countable Noun +....... (i) Few: This is a negative word which means 'nil'. (ii) A few: It means 'a few'. (iii) The few: It means 'whatever'. See also here: The best (B) Little/a little/ the little + Uncountable Noun (i) Little: This is a negative word which means 'not equal'. (ii) A little: It means 'a little'. (iii) The little: It means 'which is little'." },
+{
+    question: "24. Will you please (a) / bring any water to drink? (b) / You know I have been very (c) / thirsty for the last ten hours. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 24. (b) Some will be used instead of Any. Because the sentence is in Interrogative form." },
+{
+    question: "25. Do not give us (a) / any kind of written instructions, (b) / only verbal instruction (c) / will be enough. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 25. (c) Oral will be used instead of Verbal. Understand the difference- Oral Verbal - Relating to mouth Relating to words." },
+{
+    question: "1. The photograph will give (a) / the reader a far better notion (b) / of the structure (c) / than any verbal description. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 1. (e) No Error" },
+{
+    question: "2. The written statements of Shyam (a) / differ in several important (b) / respects from (c) / his verbal statement. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 2. (d) Oral statement will be used." },
+{
+    question: "3. That is a more safer place (a) / than this, (b) / so let’s go there (c) / as soon as possible. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 3. (a) Remove More." },
+{
+    question: "4. Now I am blessed with (a) / two daughters and she is (b) / the eldest of the two sisters, (c) / but the other looks elder. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 4. (c) The elder will be used in place of The eldest." },
+{
+    question: "5. In the dining hall there (a) / were no less than two hundred (b) / people who came (c) / not only to enjoy the party but also to wish him a successful career. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 5. (b) No less than two hundred people will be used." },
+{
+    question: "6. Few filthy comments (a) / you made on her (b) / have cut her to the quick, (c) / so you must apologize to her for this. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 6. (a) The few filthy comments will be used." },
+{
+    question: "7. While you are in Agra, (a) / you must not miss (b) / seeing the Taj Mahal, (c) / because it is a worth-seeing monument. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 7. (d) A monument worth seeing will be used." },
+{
+    question: "8. Of all the students, (a) / Anand was less worried (b) / and anxious when the (c) / result of SBI was declared. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 8. (d) Use the least instead of less." },
+{
+    question: "9. Even the most perfect spiritual (a) / teacher in the world can (b) / never solve several (c) / problems of his life. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 9. (a) Most will not be used before Perfect. Because Perfect is a non gradable Adjective." },
+{
+    question: "10. To my mind, (a) / she and her (b) / sister are more (c) / beautiful than wiser. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 10. (d) Wise will be used in place of Wiser." },
+{
+    question: "11. He had to cut (a) / a sorry figure when (b) / he came to know (c) / that he had little money in his purse. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 11. (d) Use He had little money." },
+{
+    question: "12. The two last songs by (a) / Sonu Nigam, who has already (b) / given many hit songs (c) / have not proved a success. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 12. (a) Last two will be used instead of two last. Because Ordinal Adjectives are used before Cardinal Adjectives. Cardinal Adjectives: One, two, three, four...... Ordinal Adjectives: First, Second, Third......" },
+{
+    question: "13. Your daughter is elder than (a) / my daughter, but (b) / she does like that (c) / even in the least. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 13. (a) Older will be used in place of elder." },
+{
+    question: "14. The reason why nobody (a) / is interested in learning (b) / from him is that (c) / he is a worst teacher. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 14. (d) The worst teacher will be used." },
+{
+    question: "15. I would be very grateful to you, (a) / if you lend me any (b) / money to buy some books on (c) / competitive English. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 15. (b) Some Money will be used in place of Any money." },
+{
+    question: "16. Little support from (a) / your parents would have (b) / placed you on the top (c) / of the world for sure. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 16. (a) Use a little support." },
+{
+    question: "17. The food tasted deliciously (a) / and all present (b) / in the party (c) / enjoyed it to their fill. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 17. (a) Use delicious instead of deliciously because after the linking verb Adj. Is used for. Like- Feel, sound, smell, taste, look, Appear, seem.... After these, Adjective is used." },
+{
+    question: "18. It would be all the more better, (a) / if you work in our (b) / company, which is said to be the (c) / number one company in this league. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 18. (a) Do not use the more before better." },
+{
+    question: "19. In spite of the fact (a) / that your book (b) / is more expensive than (c) / mine, mine is superior to yours. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 19. (d) Use to instead of than." },
+{
+    question: "20. Two years ago (a) / she gave birth to twins in (b) / AIIMS and both look (c) / like one another. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 20. (d) Use both look alike." },
+{
+    question: "21. I am sorry to say, (a) / my dear children, (b) / that only a few (c) / toffees are left in the bag. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 21. (c) Only a few toffees are left होगा।" },
+{
+    question: "22. Two years ago, (a) / he used to be a miser man, (b) / but now he has become (c) / a generous guy. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 22. (b) Miserly will be used in place of Miser. Understand the difference: Mise Noun Miserly Adjective" },
+{
+    question: "23. She is going to Mumbai (a) / to see her ill (b) / mother tomorrow and will be (c) / back within a few days. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 23. (b) Use sick instead of ill." },
+{
+    question: "24. Have you ever seen (a) / an asleep man (b) / like him who (c) / has been sleeping (d) / for more than twelve hours now. (e) No error (f)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 24. (b) Use a sleeping instead of an asleep." },
+{
+    question: "25. I need more unique furniture (a) / for my new flats (b) / as I am going to present it to my (c) / better half on our first marriage anniversary. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 25. (a) Use unique instead of more unique." },
+{
+    question: "1. All the spectators were (a)/ appreciative of his (b)/ excellence (c)/ performance. (d)/ All correct (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 1. (c) 'excellent' will be used instead of 'excellence' because 'excellence' is a Noun whereas 'excellent' is an Adjective and 'performance' will be characterized by an Adjective and not a Noun." },
+{
+    question: "2. Export profile of (a)/ our country has undergone (b)/ a welcome change (c)/ during the resent year. (d)/ All correct (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 2. (d) 'Recent' will be used instead of 'Resent' because 'resent' means 'take ill, be angry at' whereas 'recent' means 'having happened not long ago' ( Recent, a few days ago)." },
+{
+    question: "3. The faster (a)/ he adjusts to a novel situation (b)/ the soon (c)/ he will he be rewarded. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 3. (c) 'Sooner' will be used instead of 'Soon' because the structure is based on [the + comparative the + Comparative]; E.g.: The more he gets, the more he wants." },
+{
+    question: "4. If you inform me (a)/ of your's arrival time (c)/ I shall come to (c)/ meet you at the airport. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 4. (b) 'Your' will be used instead of 'Your's' because 'your' is a possessive adjective with which using 's' is superfluous. Keep in mind that apostrophe ['s] or ['] should not be used with your, my, our, his, her, their (which are Possessive Adjectives) and yours, mine, ours, hers, theirs (which are Possessive Pronouns)." },
+{
+    question: "5. To arrive at a decision (a)/ all the interesting parties (b)/ should be invited and (c)/ involved in discussion. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 5. (b) 'Interested' will be used instead of 'Interesting' because 'interesting' means 'fun, interesting' while 'interested' means 'interested';" },
+{
+    question: "6. After he had read the two first chapters (a)/ of the novel (b)/ he felt like reading (c)/ the book at one sitting. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 6. (a) Instead of 'The two first chapters', 'The first two chapters' will be used because first Ordinal Adjective (like first, second next, last etc.) is used and later Cardinal Adjective (like one, two , three, four etc.);" },
+{
+    question: "7. Although he is my bosom friend (a)/ I cannot ask him for (b)/ money without any (c)/ vividly reason, (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 7. (d) 'Vivid reason' will be used instead of 'Vividly reason' because 'vividly' is an Adverb whereas 'vivid' is an Adjective; And reason is a Noun whose specialty is described by Adjective, not Adverb;" },
+{
+    question: "8. We were very much (a)/ carefully in our approach (b)/ and hence we would (c)/ complete the complicated task. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 8. (b) 'Careful' will be used instead of 'Carefully' because Adjective is used after Be (is/are/ am/ was/were) and not Adverb." },
+{
+    question: "9. We are confident (a)/ enough to earn (b)/ our livelihood by (c)/ toiling hardly. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 9. (d) 'Hardly' will be used instead of 'Hardly' because 'hardly' means 'not equal', whereas hard means 'difficult'." },
+{
+    question: "10. In our area (a)/ the journey by bus (b)/ is quick and safe (c)/ than by train. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 10. (c) Instead of 'Quick and safe than', 'quicker and safer than that' will be used because the comparison in Comparative Degree is between the journey by bus and the journey by train;" },
+{
+    question: "11. Neeraj and Chandra are (a)/ both excellent workers (b)/ but the latter is best (c)/ than the former. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 11. (c) 'Better' will be used instead of 'Best' because Comparative Degree is used for comparison between two persons or things, not Superlative Degree; E.g.: Ram is taller than Shyam." },
+{
+    question: "12. During holidays (a)/ I like (b)/ visiting friends (c)/ than staying indoors. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 12. (c) 'More' will be used after 'Friends' because 'than' has been used in Part (D) which indicates the use of Comparative Degree in the sentence. The structure and meaning inherent in the sentence is- (i) I like visiting friends more than (I like) staying indoors." },
+{
+    question: "13. When we heard the name of (a)/ our leader uttered (b)/ respectfully by the foreigners (c)/ we felt pride of him. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 13. (d) Instead of 'Pride' there will be 'proud'." },
+{
+    question: "14. When Satish heard (a)/ those humiliation (b)/ words he became (c)/ furious. (d)/ All correct (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 14. (b) 'Humiliating' will be used instead of 'Humiliation' because 'humiliation' is a Noun whereas 'humiliating' is an Adjective and Noun used in Part (C). Adjective will tell the characteristics of 'words', not Noun." },
+{
+    question: "15. When she came to know (a)/ of this danger (b)/ situation she reported (c)/ the matter to the police. (d)/ All correct (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 15. (b) 'Dangerous' will be used instead of 'Danger' because 'danger' is a noun whereas 'dangerous' is an adjective and the adjective describes the situation (noun) and not the noun." },
+{
+    question: "16. Enough is enough (a)/ I cannot (b)/ tolerate this mischief (c)/ any much. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 16. (d) 'More' will be used instead of 'Much' because 'much' is in Positive Degree and its Comparative Degree is 'more'. Any is used with Comparative Degree, not with Positive Degree." },
+{
+    question: "17. Our new playground (a)/ is big (b)/ and cleaner (c)/ than (c)/ than theirs. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 17. (b) Instead of 'Big', you will have to use 'as big as' or 'bigger' because if there is a combination of a positive degree in the given sentence, then the structure of the sentence is- ...As + Positive Degree + as + and + Comparative Degree + than." },
+{
+    question: "18. No method of making (a)/ other people agree to (b)/ your viewpoint is (c)/ as effective as this method. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 18. (a) 'No other method' will be used instead of 'No method'." },
+{
+    question: "19. No book gives (a)/ the description of human anatomy (b)/ in so much detail (c)/ as this book. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 19. (a) 'No other book' will be used instead of 'No book' because when a person or thing of the same group (class) is compared in positive degree with all the other people or things of the same group, then the structure 'Other' is used after 'No';" },
+{
+    question: "20. He has been at the job (a)/ ever since he began it this morning (b)/ but whether he will finish it today is (c)/ anybody's guess. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 20. (c) 'Nobody's guess' will be used instead of 'Anybody's guess'." },
+{
+    question: "21. I have always noticed (a)/ that given an option (b)/ he prefers tea (c)/ than coffee. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 21. (d) 'To' will be used instead of 'Than' because after 'Prefer, desirable', Preposition 'to' is used and not Conjunction 'than';" },
+{
+    question: "22. Both the girls (a)/ helped one another (b)/ when both of them (c)/ were in difficulty. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 22. (b) 'Each other' will be used instead of 'One another' because 'one another' is generally used 'for more than two', whereas 'each other' is used 'for two' ." },
+{
+    question: "23. These problems are too smallest (a)/ or localized for the government (b)/ to handle (c)/ efficiently. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 23. (a) 'Small' will be used instead of 'Smallest' because Positive Degree is used after too/so/as." },
+{
+    question: "24. I do not know (a)/ why most people feel (b)/ depress and dejected (c)/ even with the slightest provocation. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 24. (c) 'Depressed' and 'dejected' stp should be used instead of 'Depressed' and 'dejected' because Adjective is used after the verbs 'feel, seem, be, look, appear, seem, remain' , not a Verb or an Adverb, and depressed is a Verb whose Past Participle form is depressed and it can function as an Adjective and a Verb;" },
+{
+    question: "25. We were happy that (a)/ the audience responded well (b)/ and gave all the speakers (c)/ a patient listening. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 25. (d) 'Patient' will be used instead of 'Patience' because an Adjective will do the job of describing the characteristics of the Noun 'listening' and 'patience' is a Noun whereas 'patient' is an Adjective like-" },
+{
+    question: "1. We need some artisans (a) / for the repairing work, (b) / because the utmost walls (c) / of this house are badly damaged because of the earthquake. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 1. (c) Outermost will be used instead of Utmost because Utmost means greatest while Outermost means “outer”." },
+{
+    question: "2. He is an afraid man, (a) / so you cannot expect (b) / him to go out at the night (c) / and bring some sugar. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 2. (a) Use timid instead of Afraid and you can also use Frightened." },
+{
+    question: "3. Within three months, (a) / he has been able to (b) / sell no fewer than five (c) / thousand litres of the milk. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 3. (c) The sentence contains Litters of milk which is an uncountable noun. Therefore, less than will be used instead of lesser than." },
+{
+    question: "4. No less than fifty questions (a) / have been answered making (b) / the use of guess (c) / work and intuition. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Countable noun is being understood due to presence of persons in the sentence. Therefore, lesser than will be used instead of less than." },
+{
+    question: "5. No less than twenty persons are (a) / needed to complete (b) / this project within (c) / ten days or before the given deadline. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 5. (a) Use lesser than instead of less than." },
+{
+    question: "6. Mr. Sharma has two sons (a) / only and his oldest (b) / son is living in America (c) / and the younger one in Delhi. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 6. (b) Use elder instead of oldest. Understand the difference: Elder/eldest- elder by blood relation elder in age Oldest/older" },
+{
+    question: "7. She is so vivacious (a) / and expressive (b) / that she is a dear girl (c) / to all of us. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 7. (c) Put Dear after girl." },
+{
+    question: "8. She is a very close girl (a) / to my heart and (b) / it would be very difficult for me to (c) / live the rest of my life without her. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 8. (a) Place Very close after Girl." },
+{
+    question: "9. Sachin Tendulkar is the most (a) / prolific and the humblest (b) / cricket player (c) / in the history of cricket. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 9. (e) No Error" },
+{
+    question: "10. Some young lady with (a) / a bag in her hand (b) / is standing at the door (c) / and looking for you. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 10. (e) No Error" },
+{
+    question: "11. If she were not given (a) / another chance to sit for (b) / the examination, she (c) / would not have been a doctor. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Any other will be used in place of Another." },
+{
+    question: "12. You will never get another (a) / opportunity to see (b) / her again, as she (c) / is going to be married the day after tomorrow. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 12. (a) Any other will be used in place of Another." },
+{
+    question: "13. I saw the world (a) / trade center and the twin tower (b) / tumbling and collapsing (c) / before my very eyes. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 13. (e) No Error" },
+{
+    question: "14. What you have said (a) / seems more true than (b) / what she has said to (c) / me before one of my friends. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 14. (b) Remove more and use truer." },
+{
+    question: "15. The condition of his health (a) / is getting more and more worse (b) / and now (c) / we cannot do anything. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 15. (b) Whenever there is talk of gradual decrease/increase, the following structure is used. .....get/become/C.D + and + C.D +/more+and+more+P.D जैसे- Your english is getting better and better. She is becoming more and more beautiful." },
+{
+    question: "16. You must have (a) / respect and regard (b) / for him because he is two (c) / years senior from you. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 16. (d) Use Senior to. Know the rule: After comparative degree of adjective Generally than is used but after some adjectives like (senior, junior, superior, inferior, posterior, anterior, prior) the preposition 'To' is used. And more/most is not used before all these adjectives." },
+{
+    question: "17. This is one (a) / of the most unique (b) / phenomena I have (c) / ever seen in my life so far. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 17. (b) Most is not used before Unique." },
+{
+    question: "18. At the prima facie, (a) / his ideas sound reasonably (b) / and I thought (c) / it may work wonders. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 18. (b) Use reasonable in place of reasonably." },
+{
+    question: "19. These days he is too (a) / busiest to do this work (b) / for you, so you (c) / had better go somewhere else. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 19. (b) Busy will be used in place of busiest." },
+{
+    question: "20. I am enough fortunate to (a) / get your support at (b) / this crucial and precarious (c) / phase of my life. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 20. (a) Enough Always Adj. Is placed after. Hence Fortunate enough will be used. the best" },
+{
+    question: "21. The price of this piece of (a) / furniture is not so much (b) / as the furniture (c) / with red color and a long price tag. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 21. (c) Use That of the furniture." },
+{
+    question: "22. Shyam is equally as (a) / intelligent as Arvind, (b) / said one of (c) / their common friends at the institute. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 22. (a) Remove Equally. Equally and as are not used together. As- He is equally as wise as Rama [Incorrect] He is as wise as Rama. [ Correct] He and Rama are equally wise." },
+{
+    question: "23. It would not be off the beam, (a) / if I assert (b) / that I am (c) / the happiest man in the world. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 23. (e) No Error" },
+{
+    question: "24. He is one of the most (a) / dashing and charming, (b) / if not the most (c) / dashing and charming boy. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 24. (b) Use Boys after Charming." },
+{
+    question: "25. “The God Almighty (a) / will definitely help you (b) / out of this problem, (c) / my son”, said the father of that church. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 25. (a) Remove God. Because it becomes superfluous. Pay attention: The Almighty - God." },
+{
+    question: "1. The interviewer (a) / asked the candidate (b) / what district (c) / he came from. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 1. (c) Considering the meaning of the sentence, it has been said from which district the candidate has come, which shows the sense of selection, hence: Which will be used in place of What." },
+{
+    question: "2. This watch is (a) / superior and more (b) / expensive than the one (c) / you have bought from Khan market. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 2. (b) If there are two Adj. in a sentence. Or if they are nouns and different prepositions are used with both, then use appropriate preposition for both. E.g.: Ram is senior to and older than I." },
+{
+    question: "3. The teacher said (a)/ that Ajay was (b)/ capable of doing (c)/ more better work. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 3. (D) 'More' will not be used because 'more better' is Double Comparative, and Double Comparative is used in the sentence. - Does not happen. Yes, much, very much, far is used before Comparative Degree. Therefore, using 'much' or 'very much', 'far' instead of 'more' also makes the sentence pure; E.g.: He is much better these days." },
+{
+    question: "4. Of all the men (a) / known to me none (b) / is inclined to admit the fact that (c) / he thinks bad of others. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 4. (d) Think bad of is a faulty expression, use think ill of instead, similarly augur well and augur ill are used. Think ill of somebody: Say (or think) something critical about (someone)." },
+{
+    question: "5. The director prefers (a) / your plan than that given (b) / by the other (c) / members of the committee. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Preposition 'to' is used with prefer. Therefore, to will be used in place of than." },
+{
+    question: "6. Whether you accept (a) / it or not, but you are (b) / the most luckiest (c) / man in the world. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 6. (c) Two superlative degrees are never used together. So remove Most before Luckiest." },
+{
+    question: "7. Do you really think (a) / that he is better than (b) / and as intelligent as (c) / one of his brothers. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 7. (e) No Error" },
+{
+    question: "8. You are (a) / as strong and (b) / more handsome (c) / than the brother of Shyam. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 8. (b) As + Adj + as or so + Adj + as is used in Positive Degree. In this construction only the basic form of the adjective is used. So use As Strong as." },
+{
+    question: "9. The weather is comparatively (a) / better in October (b) / so we all have decided to conduct (c) / the Common Wealth Game in this month only. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 9. (b) Due to presence of comparative in the sentence, good will be used in place of better." },
+{
+    question: "10. It is a problem too complex (a) / to be solved, (b) / so we had better leave it as it (c) / is and wait for the time to pass. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 10. (a) It is too complex a problem to be solved will be used." },
+{
+    question: "11. There was an expression concerned (a) / on his face (b) / when he heard that (c) / he has not passed the examination. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 11. (a) Use A concerned expression. Know the rule: There are some adjectives which can come before or after a noun but there is a difference in their meanings, some of them are as follows." },
+{
+    question: "12. I have to find out (a) / the responsible man for (b) / this mishap and give (c) / the most severe punishment to him. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 12. (b) Use The Man responsible for to correct the sentence." },
+{
+    question: "13. When I was totally (a) / depressed and dejected, (b) / she came and (c) / gave me a kindly smile. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 13. (e) No Error" },
+{
+    question: "14. You are more late than (a) / Shyam, so you will (b) / have to pay more than (c) / what Shyam has paid. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 14. (a) Because Late is used in Comparative 'later' and Superlative Degree is 'latest'. Therefore, use Later instead of More late." },
+{
+    question: "15. She is full of both motherly (a) / and wifely virtues, (b) / and I hope, she will (c) / prove a good match for you. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 15. (e) No Error" },
+{
+    question: "16. He behaved gentlemanly (a) / when he was asked (b) / to take the prize from the (c) / hands of the honorable Prime Minister. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 16. (a) An adverb is needed in the sentence, hence use In a gentlemanly Manner." },
+{
+    question: "17. Your comment (a) / on this issue (b) / is more right (c) / and I am with you all along the way. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Since Right is a non-gradable Adjective, it is neither used in Comparative nor Superlative Degree. Hence there is no need for more." },
+{
+    question: "18. Nearly each book (a) / got burnt (b) / when the Nalanda University was (c) / set on fire by the English. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 18. (a) Every will come in place of Each." },
+{
+    question: "19. There were only two students (a) / in the classroom, (b) / and every student (c) / was to take maths class. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 19. (c) Every will be replaced by Each. Know the Rule: Each is used for two or more but every or Each and every is always used for more than two." },
+{
+    question: "20. This is a worth seeing sight (a)/ so let’s (b)/ go to enjoy it (c) before the night falls. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 20. (a) A sight worth seeing will be used." },
+{
+    question: "21. It is a worth reading book (a) / and I will buy it (b) / even if my pocket does (c) / not allow me to buy it. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 21. (a) Whenever Worth is used in a sentence, the following structure is usually used. Noun + worth + gerund (V + ing) Hence it would be correct to use A book worth reading." },
+{
+    question: "22. In this world, (a) / there are only a few (b) / people worth loving (c) / and Osho is one of them. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 22. (e) No Error" },
+{
+    question: "23. Shakespeare and Keats (a) / are two great literary (b) / wizards (c) / but I love the first more. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 23. (d) Write The Former in place of The First." },
+{
+    question: "24. Connaught place is (a) / not further (b) / from Laxmi Nagar, so let’s (c) / go to buy some new winter garments. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 24. (b) Far will come in place of Further." },
+{
+    question: "25. She gets into (a) / the string of the things (b) / very easily than one (c) / of her younger sisters. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 25. (c) The presence of 'than' in the sentence gives the sense of comparison. Therefore, More easily will be used instead of Very easily." },
+{
+    question: "1. The spectacular (a)/ acrobatic (b)/ exercises (c)/ had been a memorable event. (d)/ All correct (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 1. (d) The correct spelling of 'Memorable' is 'memorable' (= worth remembering, worth remembering)." },
+{
+    question: "2. Who do you think (a)/ will be able to (b)/ do this job in (c)/ a very decently manner. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 2. (d) 'Decent manner' will be used instead of 'Decent manner' because decent is an Adjective while decently is an Adverb, and manner is a Noun whose characteristic can be described by an Adjective. , not an adverb; E.g.:She behaved decently at the party." },
+{
+    question: "3. We must prevent (a)/ engendered (b)/ wild animal species (c)/ from being extinct. (d)/ All correct (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 3. (b) 'Endangered' will be used instead of 'Engendered' because 'engendered' means 'caused to' while 'endangered' means 'endangered'; E.g.: Crime is often engenered by poverty." },
+{
+    question: "4. It is all the more better (a)/ for you to take the examination (b)/ than to withdraw your form. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 4. (a) 'More' will have to be removed because 'better' itself is in Comparative Degree, and its Double Comparative is not made by using more before any Comparative Degree." },
+{
+    question: "5. It is difficult (a)/ to judge which is (b)/ the elder of the (c)/ four sisters. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 5. (c) 'The eldest' will be used instead of 'The elder'." },
+{
+    question: "6. The owner expressed (a)/ his gratitude (b)/ to me for having taken charge (c)/ of the vacant house. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 6. (d) The correct spelling is 'Vacant' (= empty)." },
+{
+    question: "7. Some of the more best (a)/ preserved pre-Columbian cliff (b)/ dwelling in the United States (c)/ are located in Mesa Verde National Park in Colorado. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 7. (a) 'More' will have to be removed because 'more' or 'most' is not used before comparative degree or superlative degree." },
+{
+    question: "8. The mandolin, a musical instrument (a)/ that has strings, (b)/ was probably copied from the (c)/ lute, a much older instrument. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 8. (d) 'Much' will be used instead of 'Many' because 'much' or 'very much' is used before Comparative Degree, whereas 'many' is used before any Plural Countable Noun; E.g.: Has she bought many books?" },
+{
+    question: "9. Louis Armstrong was (a)/ one of the most influential (b)/ and respected (c)/ of all Jazz artists. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 9. (b) 'Influencial' will be used instead of 'Influence' because 'influence' is a Noun which means 'influence', whereas 'influencial' is an Adjective which means 'influential', and the sentence is one of + Superlative Degree ( Adjective) + of + Plural Noun;" },
+{
+    question: "10. We have (a)/ just lost (b)/ an (c)/ irreparable colleague. (d)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 10. (d) 'Irreparable' is an inappropriate word. Instead of this, any word like intimate, affable, loving etc. will be used." },
+{
+    question: "11. Mala's two brothers Rupesh and Bhupesh (a)/ are very intelligent and hardworking (b)/ but I am sure (c)/ I like the latter most. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 11. (d) 'More' will be used instead of 'Most' because the comparison is between two persons Rupesh and Bhupat and Comparative Degree is used for comparison between two persons or things." },
+{
+    question: "12. The more (a)/ clearly people write, (b)/ it is easy for other people to read. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 12. (c) 'The easier' will be used instead of 'It is easy' because The + Comparative is used in both the clauses to show continuous increase or decrease in two things;" },
+{
+    question: "13. We can decide it (a)/ only after (b)/ further investigation. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 13. (c) 'Further' will be used instead of 'Further'." },
+{
+    question: "14. Due to uncertainty (a)/ capital market conditions (b)/ there has been tremendous (c)/ growth in bank deposits. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 14. (a) 'Uncertain' will be used instead of 'Uncertainly' because 'uncertainly' is an Adjective and Adjective works to describe the specialty of a Noun, not an Adverb; E.g.: Uncertain demands" },
+{
+    question: "15. Little water (a)/ that was (b)/ in the pot (c)/ evaporated. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 15. (a) 'The little water' will be used instead of 'Little water'." },
+{
+    question: "16. People are worried (a)/ more because of the frequency (b)/ of occurrence of the crime rather (c)/ than the magnitude of the crime. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 16. (c) Use of 'Rather' is unnecessary. Hence, it will have to be removed. Keep in mind that than is used after the comparative degree. Like He speaks more clearly than you." },
+{
+    question: "17. He is (a)/ our mutual (b)/ friend. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 17. (b) Use common instead of mutual." },
+{
+    question: "18. The principal claimed that (a)/ there were less than fifty (b)/ students present in the building (c)/ when it caught fire. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 18. (b) 'Fewer' will be used instead of 'less' because 'less' tells 'quantity' and it is generally used before Uncountable Noun whereas 'fewer' tells 'number' and it is used before Plural Countable Noun. Happens first." },
+{
+    question: "19. Very few people know (a)/ that the climate of Shimla (b)/ is better than Srinagar. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 19. (c) 'Better than that of Srinagar' will be used instead of 'Better than srinagar' because the comparison is between 'the climate of Shimla' and 'the climate of Srinagar'. To reduce the repetition of nouns in comparative sentences, 'that' is used instead of singular noun and 'those' is used instead of plural noun." },
+{
+    question: "20. For millions of people (a)/ his retirement from (b)/ cricket has been (c)/ a greatest shock. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 20. (d) 'Great' will be used instead of 'Greatest' because 'greatest' is a Superlative Degree Adjective which is used for comparison between 'more than two persons or things' whereas 'great' is a Positive Degree Adjective. Which is used to describe the qualities of 'a person or thing'." },
+{
+    question: "21. Games and sports are (a)/ very essential for (b)/ the proper developments of (c)/ our body and soul. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 21. (b) The use of 'Very' is unnecessary and will have to be removed because 'Essential' means 'Extremely important'." },
+{
+    question: "22. When Darun heard the news that his father had been hospitalised, (a)/ he cancelled his trip (b)/ and returned back to his village. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 22. (c) Use of 'Back' is unnecessary because Return means 'go back, come back, give back'. It happens." },
+{
+    question: "23. Mostly of the (a)/ newly recruited officers (b)/ have no experience (c)/ in the banking sector. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 23. (a) 'Most' will be used instead of 'Mostly' because 'mostly' is an Adverb which means 'mostly' and 'most' is an Adjective or Pronoun, and 'most' is used for 'many' or It is in the form of Superlative Degree of 'much'. 'Mostly' is used to describe the characteristics of a Verb or Adjective whereas 'most of' is used with a Noun or Pronoun. E.g.: Most of the students are sincere." },
+{
+    question: "24. How (a)/ did she (b)/ played today. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 24. (c) 'Play' will be used instead of 'Played' because V1 is used after 'Do/ Does/ Did'; E.g.: Did she write a letter?" },
+{
+    question: "25. You are really (a)/ senior than (b)/ me (c)/ in age. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 25. (b) 'To' will be used instead of 'Than'." },
+{
+    question: "1. In the business world (a)/ English is (b)/ more preferable than Hindi. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 1. (c) Use 'to' in place of 'than" },
+{
+    question: "2. You should respect (a)/ those who are (b) senior than you. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 2. (c) Use 'to' in place of 'than" },
+{
+    question: "3. What I am looking (a)/ for is nothing but (b)/ more superior quality. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 3. (c) Remove 'more" },
+{
+    question: "4. She reached the station (a)/ just prior of the (b)/ departure of the train. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 4. (b) Use prior to" },
+{
+    question: "5. This is the most (a)/ superior quality (b)/ available in the market. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 5. (a) Use 'the superior most" },
+{
+    question: "6. These are the most (a)/ major issues the (b)/ government has to deal with. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 6. (a) Remove the bridge" },
+{
+    question: "7. This is the most (a)/ unique sight I have (b)/ ever seen in my life. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 7. (a) Remove 'most" },
+{
+    question: "8. He has decided (a)/ to buy the toppest (b)/ model of the car. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 8. (b) Use 'topmost" },
+{
+    question: "9. The rain is likely to (a)/ occur at a few places (b)/ in the most southern region of the country. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 9. (c) Use 'southernmost" },
+{
+    question: "10. Many know the (a)/ fact that you are (b)/ more wise than I am. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 10. (c) Remove 'more' and use 'wiser" },
+{
+    question: "11. You are looking (a)/ much concerned (b)/ than your brother. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use 'more concerned" },
+{
+    question: "12. You will have to move (a)/ a little far to capture the (b)/ entire view of the temple. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 12. (b) Use 'farther' in place of 'far" },
+{
+    question: "13. A more stronger (a)/ person is required (b)/ to defeat him. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 13. (a) Remove 'more" },
+{
+    question: "14. I want to know which is (a)/ more intelligent of all (b)/ the boys sitting here. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 14. (b) Use 'the most in place of 'more'" },
+{
+    question: "15. Your sister is (a)/ more braver (b)/ than her friend. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 15. (b) Remove 'more" },
+{
+    question: "16. You are the most (a)/ cleverest person (b)/ I have ever met. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 16. (a) Remove 'most" },
+{
+    question: "17. This is the most (a)/ costly car available (b)/ in this country. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 17. (a) Use 'costliest' in place of 'most costly" },
+{
+    question: "18. Raman is more (a)/ intelligent than (b)/ any boy in his class. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 18. (c) Use any other boy" },
+{
+    question: "19. The verses of the Gita (a)/ are more popular than those (b)/ of any Hindu scripture. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 19. (c) Use any other..." },
+{
+    question: "20. No book can satisfy (a)/ you as much (b)/ as this one. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 20. (a) Use 'No other book" },
+{
+    question: "21. The population of (a)/ Mumbai is more (b)/ than that of any other city in Pakistan. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 21. (c) Use 'that of any city in Pakistan" },
+{
+    question: "22. Ritika is the (a)/ most charming of (b)/ all other girls. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 22. (c) Remove 'other" },
+{
+    question: "23. This was the (a)/ shortest of all other (b)/ guns purchased by him. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 23. (b) Remove 'other" },
+{
+    question: "24. Your views (a)/ are comparatively more (b)/ convincing than ours. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 24. (b) Remove 'comparatively" },
+{
+    question: "25. He is going (a)/ to work with a (b)/ relatively newer company. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 25. (c) Use 'new' in place of 'newer" },
+{
+    question: "1. Many are wiser (a)/ than industrious and get their (b)/ work done by somebody else. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 1. (a) Use 'more wise" },
+{
+    question: "2. You are more (a)/ confident than anybody (b)/ in your family. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 2. (b) Use 'else' after 'anybody" },
+{
+    question: "3. She is happier than (a)/ satisfied, because (b)/ her son at least tried to do it. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 3. (a) Use 'more happy" },
+{
+    question: "4. He is the most (a)/ ideal teacher for us; therefore (b)/ we respect him so much. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Remove the bridge" },
+{
+    question: "5. It is most impossible (a)/ to complete the work (b)/ within the given period of time. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 5. (a) Remove 'most" },
+{
+    question: "6. The most perfect (a)/ couple will be (b)/ awarded tonight. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 6. (a) Remove 'most" },
+{
+    question: "7. Her performance is (a)/ the most excellent, so she (b)/ deserves the trophy. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 7. (b) Remove 'the most" },
+{
+    question: "8. He wants (a)/ to marry my (b)/ oldest daughter. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 8. (c) Use eldest' in place of 'oldesť" },
+{
+    question: "9. My brother is (a)/ two years (b)/ elder than I am. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 9. (c) Use 'older' in place of 'elder" },
+{
+    question: "10. As you are the eldest (a)/ member in the committee, (b)/ we cannot disrespect you. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 10. (a) Use 'oldesť in place of 'eldest" },
+{
+    question: "11. Many of them (a)/ are older to me, however (b)/ I am more experienced. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use 'senior' in place of 'older" },
+{
+    question: "12. Which is (a)/ elder of (b)/ the two? (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 12. (b) Use 'the' before 'elder" },
+{
+    question: "13. I like neither of them (a)/ however I would go for (b)/ the less of the two evils. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 13. (c) Use 'the lesser" },
+{
+    question: "14. He has a few friends (a)/ in this city, therefore (b)/ he feels himself alone here. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 14. (a) Remove 'a' before 'few" },
+{
+    question: "15. Little (a)/ knowledge is (b)/ a dangerous thing. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 15. (a) Use 'A' before 'little" },
+{
+    question: "16. He came (a)/ here few (b)/ minutes ago. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 16. (b) Use 'a' before 'few" },
+{
+    question: "17. I have only few books (a)/ on this subject, but (b)/ they are very useful. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 17. (a) Use 'a few" },
+{
+    question: "18. A few houses (a)/ you can see are to (b)/ be demolished. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 18. (a) Use 'The few" },
+{
+    question: "19. He spent up (a)/ a little money (b)/ he had. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 19. (b) Use 'the little" },
+{
+    question: "20. There is little hope (a)/ of success, for the team is in (b)/ its prime condition. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 20. (a) Use a little" },
+{
+    question: "21. No less than five persons (a)/ would have been killed (b)/ in the accident. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 21. (a) Use 'fewer' in place of 'less" },
+{
+    question: "22. The customs officer (a)/ would have seized no (b)/ fewer than twenty kilograms of gold. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 22. (c) Use 'less' in place of 'fewer" },
+{
+    question: "23. Too much (a)/ cooks spoil (b)/ the broth. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 23. (a) Use 'many' in place of 'much" },
+{
+    question: "24. We have (a)/ many works to do today, (b)/ so be prepared. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 24. (b) Use 'many pieces of work" },
+{
+    question: "25. As much as twenty (a)/ percent of the people (b)/ are eligible for this post. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 25. (a) Use 'many' in place of 'much" },
+{
+    question: "1. The library is about (a)/ to cut as many as 25% of the periodical (b)/ collection. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 1. (b) Use 'much' in place of 'many" },
+{
+    question: "2. One who comes (a)/ latter than Manjeet (b)/ will wait outside (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 2. (b) Use later' in place of 'latter" },
+{
+    question: "3. Do you have (a)/ any last (b)/ news to break? (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 3. (b) Use 'latesť in place of 'last" },
+{
+    question: "4. There came two boys (a)/ to meet him and the later (b)/ one was one of his acquaintances. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 4. (b) Use 'latter' in place of 'later" },
+{
+    question: "5. None of the previous (a)/ Prime Ministers gave (b)/ a slogan like this. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 5. (a) Use 'former' in place of 'previous" },
+{
+    question: "6. The two last chapters are (a)/ very important, because (b)/ most of the questions (c)/ are from them. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 6. (a) Use 'The last two" },
+{
+    question: "7. I talked to (a)/ the most villagers and (b)/ tried to convince them. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 7. (b) Remove 'the" },
+{
+    question: "8. Rajan was selected, because (a)/ he was the ablest and (b)/ intelligent of all the (c)/ candidates. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 8. (c) Use 'most intelligent" },
+{
+    question: "9. You are more talented and (a)/ trustworthy fellow than any (b)/ other persons here. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 9. (b) Use 'more trustworthy" },
+{
+    question: "10. You will not (a)/ read some (b)/ books on fascism. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 10. (b) Use 'any' in place of 'some" },
+{
+    question: "11. I want you to help (a)/ her with any money (b)/ if possible for you. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use 'some' in place of 'any" },
+{
+    question: "12. Have you (a)/ bought some sweets (b)/ for your children? (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 12. (b) Use 'any' in place of 'some" },
+{
+    question: "13. He raised (a)/ both hands (b)/ to protect himself. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 13. (b) Use 'both of his hands/ both the hands" },
+{
+    question: "14. They both were (a)/ very nice, kind (b)/ and beautiful. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 14. (a) Use 'They were both.." },
+{
+    question: "15. There was not a considerable (a)/ difference in percentage (b)/ for both sexes (c)/ in terms of having a Bachelor’s degree. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 15. (c) Use 'either' in place of 'both" },
+{
+    question: "16. The church is (a)/ further from my (b)/ house than yours. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 16. (b) Use 'farther' in place of 'further" },
+{
+    question: "17. The proposal (a)/ is being forwarded for (b)/ farther consideration. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 17. (c) Use 'further' in place of 'farther" },
+{
+    question: "18. You had better (a)/ make no (b)/ farther remark. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 18. (c) Use 'further' in place of 'farther" },
+{
+    question: "19. You should (a)/ not go any (b)/ further in the cave. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 19. (c) Use 'farther' in place of 'further" },
+{
+    question: "20. Her brother is (a)/ rather stronger than (b)/ his opponent. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 20. (d) No error" },
+{
+    question: "21. She had a more (a)/ ulterior motive in (b)/ marrying the rich man. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 21. (a) Remove 'more" },
+{
+    question: "22. This is by far the (a)/ interesting story (b)/ I have ever heard. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 22. (b) Use 'the most interesting" },
+{
+    question: "23. Mahatma (a)/ Gandhi was quite the (b)/ popular leader of his time. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 23. (c) Use 'quite the most popular" },
+{
+    question: "24. I don’t find it any (a)/ good, so there is (b)/ no point in buying it. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 24. (b) Use any better" },
+{
+    question: "25. The patient has (a)/ responded to the treatment (b)/ rather well than expected. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 25. (c) Use 'better' in place of 'well" },
+{
+    question: "1. The whole India (a)/ pays respect to Mahatma Gandhi (b)/ because it is he who got (c)/freedom for us. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 1. (a) Use 'The whole of India" },
+{
+    question: "2. I spent the(a)/whole day(b)/writing poems so I had no time to think about such things(c)/No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 2. (b) Use 'entire' in place of 'whole" },
+{
+    question: "3. Her all friends (a)/ are intelligent (b)/ and hardworking. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 3. (a) Use 'All her' in place of 'Her all" },
+{
+    question: "4. My this sister (a)/ is a great fan of (b)/ Amitabh Bachchan. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Use 'This sister of mine" },
+{
+    question: "5. He used to (a)/ work all day to (b)/ earn his livelihood. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Use 'all the day/ all day long" },
+{
+    question: "6. This brother of (a)/ mine is only two years (b)/ junior to me. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 6. (c) Use 'younger' in place of 'junior" },
+{
+    question: "7. There are various (a)/ things which (b)/ taste sweetly. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 7. (c) Use 'sweet' in place of 'sweetly" },
+{
+    question: "8. The pillow (a)/ feels (b)/ softly. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 8. (c) Use 'soft' in place of 'softly" },
+{
+    question: "9. It really (a)/ smells badly (b)/ so don’t eat it. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 9. (b) Use 'bad' in place of 'badly" },
+{
+    question: "10. He looks coward (a)/ so he cannot (b)/ accept the challenge. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 10. (c) Use 'cowardly' in place of 'coward" },
+{
+    question: "11. I cannot (a)/ work with these (b)/ kind of people. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 11. (c) Use 'kinds" },
+{
+    question: "12. Those money (a)/ could not be (b)/ used properly. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 12. (a) Use 'Thať in place of 'Those" },
+{
+    question: "13. Only (a)/ brave (b)/ deserve the fair. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 13. (b) Use 'the brave" },
+{
+    question: "14. Let me smile (a)/ with the wise and (b)/ feed with rich. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 14. (c) Use 'the rich" },
+{
+    question: "15. It is much hot today (a)/ so drink water as (b)/ much as you can. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 15. (a) Use 'very' in place of 'much" },
+{
+    question: "16. I want to know (a)/ who was sitting (b)/ nearest to her. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 16. (c) Use 'next to' in place of 'nearest" },
+{
+    question: "17. We all know (a)/ that science has proved (b)/ much useful than harmful. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Use 'more' in place of 'much" },
+{
+    question: "18. This piece of literature (a)/ is superior and (b)/ deserves more (c)/ comme- ndation than mine. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 18. (b) Use 'superior to" },
+{
+    question: "19. The matter (a)/ of surprise is that she (b)/ is wise for her age. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 19. (c) Use 'wiser/ too wise" },
+{
+    question: "20. He is (a)/ going to see (b)/ his ill mother. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 20. (c) Use 'sick' in place of 'ill" },
+{
+    question: "21. The teacher told (a)/ us to open the (b)/ book at nine page. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 21. (c) Use 'at page nine" },
+{
+    question: "22. You can’t expect (a)/ anything from (b)/ that miser man. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 22. (c) Use 'miserly" },
+{
+    question: "23. His condition (a)/ is getting (b)/ bad day by day. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 23. (c) Use 'worse' in place of 'bad" },
+{
+    question: "24. You deserve our praise (a)/ because you have obtained (b)/ nearly cent percent (c)/ marks in English. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 24. (c) Use 'full' in place of 'cent percent" },
+{
+    question: "25. Everybody (a)/ wished me (b)/ a great luck. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 25. (c) Use 'good' in place of 'great" },
+{
+    question: "1. The less salary you (a)/ get is not enough to (b)/ feed such a large family.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 1. (a) Use 'little' in place of 'less" },
+{
+    question: "2. Have you ever (a)/ been to a so (b)/ beautiful city?(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 2. (b) Use 'so beautiful a city" },
+{
+    question: "3. These all (a)/ questions are important (b)/ for the examination.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 3. (a) Use 'All these" },
+{
+    question: "4. I had no choice (a)/ than to accept (b)/ the proposal.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Use no other choice" },
+{
+    question: "5. This test (a)/ will cost you (b)/ rupees three hundred.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 5. (c) Use 'three hundred rupees" },
+{
+    question: "6. A great many number of (a)/ students have failed (b)/ in the examination.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 6. (a) Remove 'many' or 'number of" },
+{
+    question: "7. Only a few (a)/ number of critics would (b)/ agree at such a point.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 7. (b) Remove 'number of" },
+{
+    question: "8. We should help him (a)/ together because he is (b)/ our mutual friend.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 8. (c) Use 'common' in place of 'mutual" },
+{
+    question: "9. I am highly (a)/ grateful to you for your (b)/ fullest cooperation.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 9. (c) Use 'full' in place of 'fullest" },
+{
+    question: "10. These steps are necessary to (a)/ improve the economical condition (b)/ of this country.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 10. (b) Use 'economic' in place of 'economical" },
+{
+    question: "11. Both boys are (a)/ not willing (b)/ to help us.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 11. (a) Use 'Neither boy is...." },
+{
+    question: "12. He was criticised (a)/ for his nonsense (b)/ talk in public.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 12. (b) Use 'nonsensical talk" },
+{
+    question: "13. The Times of (a)/ India has the (b)/ largest circulation than (c)/ any other newspaper in this country.(d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 13. (c) Use 'larger'. Remove 'the largest" },
+{
+    question: "14. Most of the (a)/ viewers have appreciated (b)/ the last half of the movie.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 14. (c) Use 'second' in place of 'lasť" },
+{
+    question: "15. The produce of (a)/ food-crops is expected to (b)/ be plenty this year.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 15. (c) Use 'plentiful' in place of 'plenty" },
+{
+    question: "16. The noted (a)/ criminal is (b)/ still at large.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 16. (a) Use 'notorious' in place of 'noted" },
+{
+    question: "17. Of the two shirts (a)/ she bought the (b)/ least expensive.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Use 'less' in place of 'least" },
+{
+    question: "18. The tragedy is (a)/ that the best team (b)/ could not win the final.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 18. (b) Use 'better' in place of 'best" },
+{
+    question: "19. My father (a)/ has a strong (b)/ headache. (c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 19. (b) Use 'bad/severe' in place of 'strong" },
+{
+    question: "20. My mother has (a)/ got a severe cold (b)/ therefore she is sneezing.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 20. (b) Use 'bad' in place of 'severe" },
+{
+    question: "21. There were not (a)/ plates enough to (b)/ serve the people.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 21. (b) Use enough plates" },
+{
+    question: "22. This book is (a)/ as useful if not (b)/ better than that.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 22. (b) Use 'as useful as" },
+{
+    question: "23. The man is as (a)/ educated and (b)/ wiser than my brother.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 23. (b) Use 'as educated as" },
+{
+    question: "24. He is one of (a)/ the best, if not (b)/ the best boys.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 24. (b) Use'...one of the best boys, if not the best (boy)" },
+{
+    question: "25. Your proposal is quite (a)/ similarly to the one put (b)/ up yesterday.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 25. (b) Use 'similar' in place of 'similarly" },
+{
+    question: "1. Breaking the traffic (a)/ rules is a (b)/ punished offence.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 1. (c) Use punishable offence" },
+{
+    question: "2. The number of breast (a)/ cancer cases is (b)/ expected increase by as (c)/ many as 40% by 2030. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 2. (d) Use 'much' in place of 'many" },
+{
+    question: "3. He wants to know how (a)/ many books and (b)/ stationary should be purchased.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 3. (c) Use 'pieces of stationary" },
+{
+    question: "4. The old beautiful woman (a)/ has been selected for the (b)/ post of receptionist.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Use 'The beautiful old woman" },
+{
+    question: "5. Your house is more (a)/ spacious but not (b)/ so strong as mine.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Use 'than' after 'spacious" },
+{
+    question: "6. He was going (a)/ deep and deeper (b)/ into the mud.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 6. (b) Use 'deeper' in place of 'deep" },
+{
+    question: "7. I was (a)/ delighted to eat the (b)/ smoking salmon.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 7. (c) Use 'smoked' in place of 'smoking" },
+{
+    question: "8. Your son is (a)/ stronger enough (b)/ to lift the box.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 8. (b) Use 'strong' in place of 'stronger" },
+{
+    question: "9. You are looking more (a)/ prepared than (b)/ all the contestants here.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 9. (c) Use 'all the other contestants" },
+{
+    question: "10. This is one of (a)/ the better books (b)/ I have ever read so far.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 10. (b) Use 'best' in place of 'better" },
+{
+    question: "11. My sister tried to avert (a)/ the accident by bringing the car to a (b)/ suddenly stop.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 11. (c) Use 'sudden' in place of 'suddenly" },
+{
+    question: "12. Most of the hotels in this city (a)/ boast of offering leisure (b)/ stay with all elite facilities.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 12. (b) Use 'leisurely' in place of 'leisure" },
+{
+    question: "13. You are reminded to have a (a)/ thoroughly scrutiny of the (b)/ irregularities in accounts.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 13. (b) Use 'thorough' in place of 'thoroughly" },
+{
+    question: "14. My independently (a)/ thinking is not (b)/ liked by my parents.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 14. (a) Use 'independent" },
+{
+    question: "15. Of all my colleagues (a)/ she is the most loving and (b)/ supportive towards me.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "C"
+ , explanation: "AnswerKey 15. (c) Use 'most supportive" },
+{
+    question: "16. He came to me and asked for (a)/ my passport with a decided (b)/ foreign accent.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 16. (b) Use 'decidedly' in place of 'decided" },
+{
+    question: "17. It is rather ironically that (a)/ I was seated next to (b)/ my ex-husband at the dinner.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 17. (a) Use 'ironical' in place of 'ironically" },
+{
+    question: "18. The training is intended to (a)/ bring the better out (b)/ of the contestants.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 18. (b) Use 'best' in place of 'better" },
+{
+    question: "19. I tried on both (a)/ the gowns and finally (b)/ decided to buy the expensive one.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 19. (c) Use 'the more expensive one" },
+{
+    question: "20. I must tell you (a)/ that no any excuse (b)/ can save you.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 20. (b) Remove 'any" },
+{
+    question: "21. The expenditure (a)/ should not exceed (b)/ more than the estimated figure.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 21. (c) Remove 'more than" },
+{
+    question: "22. The price is (a)/ some higher than (b)/ I expected.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 22. (b) Use 'a little' in place of 'some" },
+{
+    question: "23. It is all the good (a)/ if you lend (b)/ me some money.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 23. (a) Use 'better' in place of 'good" },
+{
+    question: "24. If you want to buy cheap clothes (a)/ you should go to the (b)/ wholesale market.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 24. (a) Use 'cheap' after 'clothes" },
+{
+    question: "25. There are two (a)/ eggs fewer in (b)/ the basket.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 25. (b) Use 'less' in place of 'fewer" },
+{
+    question: "26. The only rest (a)/ question is whether (b)/ we can raise the money.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "A"
+ , explanation: "AnswerKey 26. (a) Use 'remaining in place of 'resť" },
+{
+    question: "27. He wants to spend (a)/ his remaining life (b)/ with his children.(c)/ No error (d)",
+    options: ["A", "B", "C", "D"],
+    correctOption: "B"
+ , explanation: "AnswerKey 27. (b) Remove 'remaining' and use 'the rest of life" },
+
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

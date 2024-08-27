@@ -1,0 +1,3681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Preposition QUIZ APP</title>
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+    .btn-primary {
+      background-color: ;
+    }
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Fixed Preposition | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'preposition3';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+     // Display explanation
+    const explanation = document.createElement('explanation');
+explanation.innerHTML = `${currentQuestion.explanation || ''}`;
+optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+
+    {
+      "question": "Nadheeka was musing ____ memories of the past.",
+      "options": ["(a) over", "(b) about", "(c) on", "(d) from"],
+      "correctOption": "(c) on"
+	  ,explanation: "you are fool"
+    },
+    {
+      "question": "He is indifferent ______ praise and blame.",
+      "options": ["(a) in", "(b) to", "(c) for", "(d) about"],
+      "correctOption": "(b) to"
+    },
+    {
+      "question": "We are all very indignant _____ the injustice done to him.",
+      "options": ["(a) for", "(b) of", "(c) to", "(d) at"],
+      "correctOption": "(d) at"
+    },
+    {
+      "question": "Today students should be reconciled _____ the way things are changing.",
+      "options": ["(a) with", "(b) to", "(c) for", "(d) at"],
+      "correctOption": "(b) to"
+    },
+    {
+      "question": "It took the child a long time to recover ____ the shock.",
+      "options": ["(a) under", "(b) from", "(c) over", "(d) about"],
+      "correctOption": "(b) from"
+    },
+    {
+      "question": "I complimented him ____ his success in the examination.",
+      "options": ["(a) at", "(b) on", "(c) about", "(d) for"],
+      "correctOption": "(b) on"
+    },
+    {
+      "question": "The dramatist must cater _____ the taste of the audience.",
+      "options": ["(a) to", "(b) over", "(c) into", "(d) for"],
+      "correctOption": "(a) to"
+    },
+    {
+      "question": "Suitable steps are taken to bring _____ the cost of living.",
+      "options": ["(a) up", "(b) over", "(c) on", "(d) down"],
+      "correctOption": "(d) down"
+    },
+    {
+      "question": "I am satisfied ____ his innocence.",
+      "options": ["(a) at", "(b) with", "(c) for", "(d) of"],
+      "correctOption": "(b) with"
+    },
+    {
+      "question": "I absolutely refuse to put ____ with that sort of conduct.",
+      "options": ["(a) up", "(b) on", "(c) off", "(d) out"],
+      "correctOption": "(a) up"
+    },
+    {
+      "question": "We will have to atone _____ our misdeeds.",
+      "options": ["(a) at", "(b) on", "(c) for", "(d) with"],
+      "correctOption": "(c) for"
+    },
+    {
+      "question": "The climate is not conducive _____ good health.",
+      "options": ["(a) with", "(b) from", "(c) in", "(d) to"],
+      "correctOption": "(d) to"
+    },
+    {
+      "question": "The manager needs to hold ____ his anger.",
+      "options": ["(a) on", "(b) with", "(c) down", "(d) back"],
+      "correctOption": "(c) down"
+    },
+    {
+      "question": "Desire _____ self-expression is one of the basic qualities of man.",
+      "options": ["(a) for", "(b) on", "(c) by", "(d) over"],
+      "correctOption": "(a) for"
+    },
+    {
+      "question": "The bride settled ____ very well in the new environment.",
+      "options": ["(a) on", "(b) down", "(c) up", "(d) off"],
+      "correctOption": "(b) down"
+    },
+    {
+      "question": "Are you really desirous ____ visiting Japan?",
+      "options": ["(a) of", "(b) in", "(c) to", "(d) about"],
+      "correctOption": "(a) of"
+    },
+    {
+      "question": "Pour the juice ____ the glass.",
+      "options": ["(a) in", "(b) into", "(c) onto", "(d) on"],
+      "correctOption": "(b) into"
+    },
+    {
+      "question": "The tribes lived ____ customs different from anything the English had ever seen.",
+      "options": ["(a) on", "(b) by", "(c) off", "(d) with"],
+      "correctOption": "(b) by"
+    },
+    {
+      "question": "The child did not approve _____ the father’s plan.",
+      "options": ["(a) to", "(b) by", "(c) of", "(d) with"],
+      "correctOption": "(c) of"
+    },
+    {
+      "question": "We warned her ____ the danger.",
+      "options": ["(a) from", "(b) about", "(c) against", "(d) of"],
+      "correctOption": "(d) of"
+    },
+    {
+      "question": "We all laughed ____ the affair.",
+      "options": ["(a) over", "(b) about", "(c) for", "(d) on"],
+      "correctOption": "(a) over"
+    },
+    {
+      "question": "He went ____ the sea alone.",
+      "options": ["(a) in", "(b) to", "(c) into", "(d) on"],
+      "correctOption": "(b) to"
+    },
+    {
+      "question": "A wise man profits ____ the mistakes of others.",
+      "options": ["(a) through", "(b) from", "(c) with", "(d) by"],
+      "correctOption": "(b) from"
+    },
+    {
+      "question": "Speed is ____ essence.",
+      "options": ["(a) in", "(b) for", "(c) about", "(d) of"],
+      "correctOption": "(d) of"
+    },
+    {
+      "question": "He did not qualify _____ the job.",
+      "options": ["(a) for", "(b) to", "(c) against", "(d) with"],
+      "correctOption": "(a) for"
+    },
+    {
+      "question": "The strike has been called ______ .",
+      "options": ["(a) of", "(b) at", "(c) off", "(d) up"],
+      "correctOption": "(c) off"
+    },
+    {
+      "question": "He is always angry ____ his children.",
+      "options": ["(a) with", "(b) on", "(c) over", "(d) at"],
+      "correctOption": "(a) with"
+    },
+    {
+      "question": "The chairperson brushed ____ my suggestion.",
+      "options": ["(a) out", "(b) over", "(c) aside", "(d) about"],
+      "correctOption": "(c) aside"
+    },
+    {
+      "question": "One should always set _____ some money for emergency.",
+      "options": ["(a) aside", "(b) on", "(c) by", "(d) out"],
+      "correctOption": "(a) aside"
+    },
+    {
+      "question": "He travelled all _____ the world when was eighty years old.",
+      "options": ["(a) in", "(b) over", "(c) with", "(d) of"],
+      "correctOption": "(b) over"
+    },
+    {
+      "question": "Dr. Sharma concluded his speech ______ stressing the Buddha’s teachings of the importance of charity.",
+      "options": ["(a) by", "(b) with", "(c) at", "(d) in"],
+      "correctOption": "(b) with"
+    },
+    {
+      "question": "Shivaji Maharaj fought _____ every kind of aggression.",
+      "options": ["(a) against", "(b) to", "(c) with", "(d) at"],
+      "correctOption": "(a) against"
+    },
+    {
+      "question": "Don’t depend _____ others, you must stand on your own feet.",
+      "options": ["(a) upon", "(b) on", "(c) to", "(d) for"],
+      "correctOption": "(b) on"
+    },
+    {
+      "question": "Our life promises a lot _____ pleasure and we must learn to enjoy it.",
+      "options": ["(a) with", "(b) for", "(c) of", "(d) at"],
+      "correctOption": "(c) of"
+    },
+    {
+      "question": "The train is expected to arrive in a few minutes _____ platform six.",
+      "options": ["(a) in", "(b) above", "(c) near", "(d) on"],
+      "correctOption": "(d) on"
+    },
+    {
+      "question": "Nothing is impossible ______ him.",
+      "options": ["(a) in", "(b) about", "(c) for", "(d) on"],
+      "correctOption": "(c) for"
+    },
+    {
+      "question": "How did these things come _______ ?",
+      "options": ["(a) about", "(b) into", "(c) at", "(d) down"],
+      "correctOption": "(a) about"
+    },
+    {
+      "question": "He drove from Maharashtra ______ Karnataka without stopping to rest.",
+      "options": ["(a) is", "(b) to", "(c) into", "(d) towards"],
+      "correctOption": "(b) to"
+    },
+    {
+      "question": "Did the boys turn ______ for football practice?",
+      "options": ["(a) up", "(b) on", "(c) back", "(d) in"],
+      "correctOption": "(a) up"
+    },
+    {
+      "question": "The fireman managed to put _____ the fire.",
+      "options": ["(a) away", "(b) down", "(c) out", "(d) off"],
+      "correctOption": "(c) out"
+    },
+    {
+      "question": "He shows great ability _____ Mathematics.",
+      "options": ["(a) at", "(b) for", "(c) about", "(d) in"],
+      "correctOption": "(d) in"
+    },
+    {
+      "question": "The telephone kept _____ ringing, but no one attended.",
+      "options": ["(a) off", "(b) on", "(c) up", "(d) up with"],
+      "correctOption": "(b) on"
+    },
+    {
+      "question": "She is sad, because her father turned ___ her request.",
+      "options": ["(a) up", "(b) off", "(c)out", "(d) down"],
+      "correctOption": "(d) down"
+    },
+    {
+      "question": "You should not confide _______ a stranger.",
+      "options": ["(a) in", "(b) to", "(c) with", "(d) by"],
+      "correctOption": "(b) to"
+    },
+    {
+      "question": "Poets have compared this world _____ a stage.",
+      "options": ["(a) with", "(b) to", "(c) by", "(d) on"],
+      "correctOption": "(b) to"
+    },
+    {
+      "question": "I prevailed ______ him to contest the election.",
+      "options": ["(a) on", "(b) off", "(c) over", "(d) of"],
+      "correctOption": "(c) over"
+    },
+    {
+      "question": "The headmaster congratulated Rajan _____ getting the merit scholarship.",
+      "options": ["(a) for", "(b) about", "(c) with", "(d) on"],
+      "correctOption": "(d) on"
+    },
+    {
+      "question": "Smallpox has been eradicated _____ India.",
+      "options": ["(a) in", "(b) from", "(c) within", "(d) out of"],
+      "correctOption": "(b) from"
+    },
+    {
+      "question": "For a child, a blow _____ self-esteem is a terrible thing.",
+      "options": ["(a) of", "(b) with", "(c) to", "(d) on"],
+      "correctOption": "(c) to"
+    },
+    {
+      "question": "Discrimination _____ any form should be avoided.",
+      "options": ["(a) of", "(b) by", "(c) from", "(d) in"],
+      "correctOption": "(d) in"
+    },
+ {
+      "question": "My friend’s father died _____ cancer.",
+      "options": ["(a) by", "(b) of", "(c) from", "(d) with"],
+      "correctOption": "(b) of"
+    },
+    {
+      "question": "He drained what was left _____ his drink.",
+      "options": ["(a) from", "(b) in", "(c) of", "(d) off"],
+      "correctOption": "(c) of"
+    },
+    {
+      "question": "He is very good _____ making stories.",
+      "options": ["(a) in", "(b) about", "(c) at", "(d) for"],
+      "correctOption": "(c) at"
+    },
+    {
+      "question": "The monitor takes care ____ the class ____ the absence of the teacher.",
+      "options": ["(a) in ; at", "(b) of ; in", "(c) during ; in", "(d) of ; for"],
+      "correctOption": "(b) of ; in"
+    },
+    {
+      "question": "When he saw the fish swimming ____ the river, he was extremely happy.",
+      "options": ["(a) on", "(b) besides", "(c) in", "(d) at"],
+      "correctOption": "(c) in"
+    },
+    {
+      "question": "He spoke _____ his travels.",
+      "options": ["(a) of", "(b) on", "(c) about", "(d) along"],
+      "correctOption": "(c) about"
+    },
+    {
+      "question": "Why do we always have to submit _____ his authority.",
+      "options": ["(a) under", "(b) with", "(c) for", "(d) to"],
+      "correctOption": "(d) to"
+    },
+    {
+      "question": "The reward was not commensurate _____ the work done by us.",
+      "options": ["(a) for", "(b) on", "(c) with", "(d) upon"],
+      "correctOption": "(c) with"
+    },
+    {
+      "question": "I don’t care ____ the expense, I want the party to be a real success.",
+      "options": ["(a) of", "(b) with", "(c) about", "(d) at"],
+      "correctOption": "(c) about"
+    },
+    {
+      "question": "They live ____ the fifth floor.",
+      "options": ["(a) in", "(b) to", "(c) on", "(d) at"],
+      "correctOption": "(c) on"
+    },
+    {
+      "question": "My cousin will arrive ____ Sunday.",
+      "options": ["(a) in", "(b) at", "(c) the", "(d) on"],
+      "correctOption": "(d) on"
+    },
+    {
+      "question": "Bread is usually made _____ wheat.",
+      "options": ["(a) of", "(b) from", "(c) with", "(d) by"],
+      "correctOption": "(b) from"
+    },
+    {
+      "question": "Our ancestors had immense difficulty ____ procuring books.",
+      "options": ["(a) for", "(b) of", "(c) in", "(d) on"],
+      "correctOption": "(c) in"
+    },
+    {
+      "question": "Thank you very much _____ your suggestions.",
+      "options": ["(a) on", "(b) with", "(c) about", "(d) for"],
+      "correctOption": "(d) for"
+    },
+    {
+      "question": "Regular exercise is conducive _____ health.",
+      "options": ["(a) in", "(b) to", "(c) for", "(d) of"],
+      "correctOption": "(b) to"
+    },
+    {
+      "question": "Jane is annoyed ________ .",
+      "options": ["(a) on me", "(b) with me", "(c) against me", "(d) over me"],
+      "correctOption": "(b) with me"
+    },
+    {
+      "question": "The youth should believe _____ God.",
+      "options": ["(a) upon", "(b) in", "(c) on", "(d) of"],
+      "correctOption": "(b) in"
+    },
+    {
+      "question": "He was born _____ India.",
+      "options": ["(a) off", "(b) in", "(c) of", "(d) through"],
+      "correctOption": "(b) in"
+    },
+    {
+      "question": "The convict tried his level best to justify himself but the judge looked _____ him and found him guilty.",
+      "options": ["(a) around", "(b) at", "(c) through", "(d) to"],
+      "correctOption": "(b) at"
+    },
+    {
+      "question": "Can you tell the difference _____ butter and Margarine.",
+      "options": ["(a) over", "(b) with", "(c) between", "(d) among"],
+      "correctOption": "(c) between"
+    },
+    {
+      "question": "When she retired, she handed ____ the charge to the Vice President.",
+      "options": ["(a) out", "(b) across", "(c) off", "(d) over"],
+      "correctOption": "(d) over"
+    },
+    {
+      "question": "Take this medicine regularly and you will get rid ____ this disease.",
+      "options": ["(a) from", "(b) of", "(c) over", "(d) at"],
+      "correctOption": "(b) of"
+    },
+    {
+      "question": "She tries to adjust ____ her relations.",
+      "options": ["(a) at", "(b) so", "(c) with", "(d) for"],
+      "correctOption": "(c) with"
+    },
+    {
+      "question": "The mother parted _____ her married daughter in sorrow.",
+      "options": ["(a) for", "(b) off", "(c) away", "(d) from"],
+      "correctOption": "(d) from"
+    },
+    {
+      "question": "Tables are usually made ____ wood.",
+      "options": ["(a) from", "(b) of", "(c) with", "(d) by"],
+      "correctOption": "(b) of"
+    },
+    {
+      "question": "All of them are surprised ______ her rudeness.",
+      "options": ["(a) with", "(b) upon", "(c) at", "(d) on"],
+      "correctOption": "(c) at"
+    },
+    {
+      "question": "I stayed in Mumbai ____ eight years.",
+      "options": ["(a) for", "(b) since", "(c) through", "(d) around"],
+      "correctOption": "(a) for"
+    },
+    {
+      "question": "The President will finally have a national memorial ____ his honour.",
+      "options": ["(a) at", "(b) upon", "(c) in", "(d) on"],
+      "correctOption": "(c) in"
+    },
+    {
+      "question": "The boys ____ whom I was playing are all my good friends.",
+      "options": ["(a) with", "(b) to", "(c) of", "(d) by"],
+      "correctOption": "(a) with"
+    },
+    {
+      "question": "The father seems relieved as he has married ___ both of his daughters.",
+      "options": ["(a) of", "(b) off", "(c) to", "(d) away"],
+      "correctOption": "(b) off"
+    },
+{
+      "question": "Your tie does not go well ___ your shirt.",
+      "options": ["(a) above", "(b) with", "(c) for", "(d) over"],
+      "correctOption": "(b) with"
+    },
+    {
+      "question": "I am grateful _____ him.",
+      "options": ["(a) with", "(b) in", "(c) for", "(d) to"],
+      "correctOption": "(d) to"
+    },
+    {
+      "question": "Let us set down ____ the shade of a tree for sometime.",
+      "options": ["(a) inside", "(b) below", "(c) in", "(d) beneath"],
+      "correctOption": "(c) in"
+    },
+    {
+      "question": "You are fortunate ____ having an intelligent and obedient son.",
+      "options": ["(a) to", "(b) for", "(c) of", "(d) in"],
+      "correctOption": "(d) in"
+    },
+    {
+      "question": "We are highly disappointed _____ the exam results.",
+      "options": ["(a) about", "(b) from", "(c) in", "(d) with"],
+      "correctOption": "(d) with"
+    },
+    {
+      "question": "Please write to me ____ this address.",
+      "options": ["(a) upon", "(b) at", "(c) to", "(d) on"],
+      "correctOption": "(b) at"
+    },
+    {
+      "question": "He was assured by his friends _____ every type of help, in an emergency.",
+      "options": ["(a) by", "(b) of", "(c) with", "(d) about"],
+      "correctOption": "(b) of"
+    },
+    {
+      "question": "I convey my thanks _____ the members of the club.",
+      "options": ["(a) for", "(b) of", "(c) to", "(d) about"],
+      "correctOption": "(c) to"
+    },
+    {
+      "question": "_____ the new Safari Storme, Mahindra has more leverage in increasing the sales.",
+      "options": ["(a) With", "(b) At", "(c) On", "(d) In"],
+      "correctOption": "(a) With"
+    },
+    {
+      "question": "All is not well ____ the automobile sector.",
+      "options": ["(a) down", "(b) in", "(c) to", "(d) of"],
+      "correctOption": "(b) in"
+    },
+    {
+      "question": "He slipped ____ his old ways and started drinking again.",
+      "options": ["(a) off", "(b) by", "(c) in", "(d) into"],
+      "correctOption": "(d) into"
+    },
+    {
+      "question": "The deceased left _____ him two young children.",
+      "options": ["(a) for", "(b) with", "(c) by", "(d) behind"],
+      "correctOption": "(b) with"
+    },
+    {
+      "question": "Guard _____ spelling mistakes.",
+      "options": ["(a) against", "(b) after", "(c) above", "(d) at"],
+      "correctOption": "(a) against"
+    },
+    {
+      "question": "The more he remonstrated _____ the referee the worse the situation became.",
+      "options": ["(a) with", "(b) for", "(c) at", "(d) to"],
+      "correctOption": "(a) with"
+    },
+    {
+      "question": "He would not have been successful in the project but ____ my help.",
+      "options": ["(a) for", "(b) off", "(c) of", "(d) with"],
+      "correctOption": "(a) for"
+    },
+    {
+      "question": "Trust _____ God and do the right.",
+      "options": ["(a) in", "(b) with", "(c) at", "(d) by"],
+      "correctOption": "(a) in"
+    },
+    {
+      "question": "Hard working people always succeed _____ whatever they do.",
+      "options": ["(a) over", "(b) on", "(c) with", "(d) in"],
+      "correctOption": "(d) in"
+    },
+    {
+      "question": "The flight will land _____ six this evening.",
+      "options": ["(a) in", "(b) on", "(c) at", "(d) upon"],
+      "correctOption": "(c) at"
+    },
+    {
+      "question": "Do not laugh _____ other’s mistakes.",
+      "options": ["(a) at", "(b) for", "(c) against", "(d) about"],
+      "correctOption": "(a) at"
+    },
+    {
+      "question": "The garbage has been disposed _______ .",
+      "options": ["(a) off", "(b) of", "(c) with", "(d) out"],
+      "correctOption": "(b) of"
+    },
+    {
+      "question": "Lemons are sold ____ the dozen in the market.",
+      "options": ["(a) in", "(b) at", "(c) for", "(d) by"],
+      "correctOption": "(d) by"
+    },
+    {
+      "question": "His conduct is bad, and his honesty is not ____ suspicion.",
+      "options": ["(a) before", "(b) beyond", "(c) under", "(d) in"],
+      "correctOption": "(b) beyond"
+    },
+    {
+      "question": "This man was an accomplice ____ the thief.",
+      "options": ["(a) of", "(b) in", "(c) with", "(d) from"],
+      "correctOption": "(a) of"
+    },
+    {
+      "question": "The sick units are detached ____ the main group of companies.",
+      "options": ["(a) off", "(b) from", "(c) with", "(d) by"],
+      "correctOption": "(b) from"
+    },
+    {
+      "question": "His path was beset ____ difficulties.",
+      "options": ["(a) by", "(b) with", "(c) of", "(d) from"],
+      "correctOption": "(b) with"
+    },
+    {
+      "question": "The plan is worth considering, think it _____ carefully.",
+      "options": ["(a) of", "(b) on", "(c) off", "(d) over"],
+      "correctOption": "(d) over"
+    },
+    {
+      "question": "Throw a stone ____ the fierce dog.",
+      "options": ["(a) at", "(b) upon", "(c) on", "(d) above"],
+      "correctOption": "(a) at"
+    },
+    {
+      "question": "Is not learning superior ____ wealth ?",
+      "options": ["(a) than", "(b) from", "(c) by", "(d) to"],
+      "correctOption": "(d) to"
+    },
+    {
+      "question": "Students are not prepared _____ that kind of question.",
+      "options": ["(a) to", "(b) with", "(c) for", "(d) on"],
+      "correctOption": "(c) for"
+    },
+    {
+      "question": "We should go _____ doing more good than harm.",
+      "options": ["(a) on", "(b) above", "(c) about", "(d) to"],
+      "correctOption": "(c) about"
+    },
+{
+      "question": "She dwells too much ____ her past.",
+      "options": ["(a) from", "(b) on", "(c) in", "(d) of"],
+      "correctOption": "(b) on"
+    },
+    {
+      "question": "The deserted garden was infested _____ weeds.",
+      "options": ["(a) with", "(b) for", "(c) into", "(d) on"],
+      "correctOption": "(c) into"
+    },
+    {
+      "question": "She pipped her rival ___ the gold medal.",
+      "options": ["(a) with", "(b) for", "(c) to", "(d) near"],
+      "correctOption": "(c) to"
+    },
+    {
+      "question": "He will impart on information ____ anyone.",
+      "options": ["(a) from", "(b) for", "(c) with", "(d) to"],
+      "correctOption": "(d) to"
+    },
+    {
+      "question": "The authorities would not ____ to the strikers’ demands.",
+      "options": ["(a) accept", "(b) accede", "(c) accession", "(d) access"],
+      "correctOption": "(b) accede"
+    },
+    {
+      "question": "All of us are devoted _____ one another.",
+      "options": ["(a) for", "(b) of", "(c) at", "(d) to"],
+      "correctOption": "(d) to"
+    },
+    {
+      "question": "All orders must _____ the rules.",
+      "options": ["(a) conforms with", "(b) conform to", "(c) conforms to", "(d) conforming with"],
+      "correctOption": "(b) conform to"
+    },
+    {
+      "question": "We all have ___ the widowed girl.",
+      "options": ["(a) sympathy at", "(b) sympathy for", "(c) sympathy with", "(d) sympathy of"],
+      "correctOption": "(b) sympathy for"
+    },
+    {
+      "question": "The river abounds ____ fish and crocodiles.",
+      "options": ["(a) with", "(b) of", "(c) at", "(d) on"],
+      "correctOption": "(a) with"
+    },
+    {
+      "question": "Every student had to abide ___ the rules and regulations of the hostel.",
+      "options": ["(a) in", "(b) by", "(c) against", "(d) with"],
+      "correctOption": "(b) by"
+    },
+    {
+      "question": "The farmers suffered because the monsoon did not arrive ____ time.",
+      "options": ["(a) at", "(b) by", "(c) on", "(d) after"],
+      "correctOption": "(c) on"
+    },
+    {
+      "question": "After retirement Surti lived ____ Australia.",
+      "options": ["(a) in", "(b) at", "(c) over in", "(d) over at"],
+      "correctOption": "(a) in"
+    },
+    {
+      "question": "I know ____ certain that he has gone to England.",
+      "options": ["(a) with", "(b) of", "(c) by", "(d) for"],
+      "correctOption": "(d) for"
+    },
+    {
+      "question": "The examine could guess ____ the answer correctly.",
+      "options": ["(a) at", "(b) about", "(c) through", "(d) to"],
+      "correctOption": "(a) at"
+    },
+    {
+      "question": "Most children remain _____ school between the ages of seven and ten.",
+      "options": ["(a) in", "(b) under", "(c) at", "(d) inside"],
+      "correctOption": "(a) in"
+    },
+    {
+      "question": "I haven’t seen you _____ a week.",
+      "options": ["(a) within", "(b) since", "(c) for", "(d) from"],
+      "correctOption": "(c) for"
+    },
+    {
+      "question": "I was conscious _____ a break in my voice.",
+      "options": ["(a) to", "(b) of", "(c) over", "(d) for"],
+      "correctOption": "(b) of"
+    },
+    {
+      "question": "I have decided _____ my course of action.",
+      "options": ["(a) upon", "(b) with", "(c) for", "(d) of"],
+      "correctOption": "(a) upon"
+    },
+    {
+      "question": "It is due to this lethargy that the plan fell _____ .",
+      "options": ["(a) off", "(b) out", "(c) through", "(d) away"],
+      "correctOption": "(c) through"
+    },
+    {
+      "question": "A man is known _____ the company he keeps.",
+      "options": ["(a) by", "(b) for", "(c) in", "(d) of"],
+      "correctOption": "(a) by"
+    },
+{
+      "question": "Suraj is acquainted _____ Kapil.",
+      "options": ["(a) of", "(b) with", "(c) from", "(d) to"],
+      "correctOption": "(b) with"
+    },
+    {
+      "question": "We are all accountable ____ team leader for our work on this project.",
+      "options": ["(a) of", "(b) with", "(c) for", "(d) to"],
+      "correctOption": "(c) for"
+    },
+    {
+      "question": "Because of the bad weather we had to stay ____ the hotel.",
+      "options": ["(a) in", "(b) off", "(c) above", "(d) on"],
+      "correctOption": "(a) in"
+    },
+    {
+      "question": "You should comply _____ my request.",
+      "options": ["(a) in", "(b) off", "(c) with", "(d) on"],
+      "correctOption": "(c) with"
+    },
+    {
+      "question": "One should grapple _____ all the dangers.",
+      "options": ["(a) on", "(b) with", "(c) off", "(d) for"],
+      "correctOption": "(b) with"
+    },
+    {
+      "question": "My sister’s marriage passed ____ peacefully.",
+      "options": ["(a) away", "(b) by", "(c) off", "(d) out"],
+      "correctOption": "(c) off"
+    },
+    {
+      "question": "Corruption is a standing hindrance ____ the nation’s development.",
+      "options": ["(a) of", "(b) over", "(c) to", "(d) upon"],
+      "correctOption": "(c) to"
+    },
+    {
+      "question": "It is mainly due to Peter’s lethargy that the plan fell ____ .",
+      "options": ["(a) off", "(b) through", "(c) in", "(d) out"],
+      "correctOption": "(b) through"
+    },
+    {
+      "question": "The meeting was presided ____ by the Chairman.",
+      "options": ["(a) over", "(b) upon", "(c) of", "(d) in"],
+      "correctOption": "(a) over"
+    },
+    {
+      "question": "The elephant stampeded and tore ____ the streets.",
+      "options": ["(a) on", "(b) out", "(c) off", "(d) down"],
+      "correctOption": "(d) down"
+    },
+    {
+      "question": "What is the time ____ your watch?",
+      "options": ["(a) in", "(b) by", "(c) on", "(d) of"],
+      "correctOption": "(b) by"
+    },
+    {
+      "question": "It is a right way ____ the railway station.",
+      "options": ["(a) on", "(b) of", "(c) for", "(d) to"],
+      "correctOption": "(d) to"
+    },
+    {
+      "question": "It stayed ____ Jaipur for sometime.",
+      "options": ["(a) at", "(b) on", "(c) of", "(d) to"],
+      "correctOption": "(a) at"
+    },
+    {
+      "question": "Kalpana has on paper to write _____.",
+      "options": ["(a) upon", "(b) over", "(c) at", "(d) off"],
+      "correctOption": "(a) upon"
+    },
+    {
+      "question": "The examination will commence _____ next week.",
+      "options": ["(a) since", "(b) from", "(c) on", "(d) with"],
+      "correctOption": "(b) from"
+    },
+    {
+      "question": "Everything hinges _____ what happens next.",
+      "options": ["(a) of", "(b) with", "(c) in", "(d) on"],
+      "correctOption": "(d) on"
+    },
+    {
+      "question": "Hearing of her grandmother’s illness, she at once started _____ Mumbai.",
+      "options": ["(a) for", "(b) upto", "(c) to", "(d) towards"],
+      "correctOption": "(a) for"
+    },
+    {
+      "question": "The boats sail ____ the river.",
+      "options": ["(a) in", "(b) on", "(c) above", "(d) to"],
+      "correctOption": "(b) on"
+    },
+    {
+      "question": "I am tired _____ walking.",
+      "options": ["(a) by", "(b) of", "(c) for", "(d) in"],
+      "correctOption": "(b) of"
+    },
+    {
+      "question": "Aristotle held that some persons are fit to rule while others are fit to be ruled ______.",
+      "options": ["(a) over", "(b) of", "(c) on", "(d) at"],
+      "correctOption": "(a) over"
+    },
+    {
+      "question": "She has great affection……… me.",
+      "options": ["a. for", "b. in", "c. with", "d. to"],
+      "correctOption": "a. for"
+    },
+    {
+      "question": "Kanak is endowed……….many great qualities.",
+      "options": ["a. in", "b. with", "c. of", "d. by"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "Our country is committed……… a policy of peaceful coexistence.",
+      "options": ["a. with", "b. for", "c. to", "d. by"],
+      "correctOption": "c. to"
+    },
+    {
+      "question": "He stumbled at the stone and fell….. a ditch.",
+      "options": ["a. on", "b. into", "c. in", "d. within"],
+      "correctOption": "b. into"
+    },
+    {
+      "question": "The storehouse was infested……….. rats.",
+      "options": ["a. by", "b. of", "c. with", "d. in"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "You must adapt yourself…..... your new surroundings.",
+      "options": ["a. towards", "b. in", "c. with", "d. to"],
+      "correctOption": "d. to"
+    },
+    {
+      "question": "We should abide……… the rules of the institution.",
+      "options": ["a. with", "b. to", "c. on", "d. by"],
+      "correctOption": "d. by"
+    },
+    {
+      "question": "He has resigned himself…….. fate.",
+      "options": ["a. in", "b. into", "c. for", "d. to"],
+      "correctOption": "d. to"
+    },
+    {
+      "question": "We should always stick to our decisions otherwise the people will mock…… us.",
+      "options": ["a. over", "b. at", "c. on", "d. upon"],
+      "correctOption": "b. at"
+    },
+    {
+      "question": "I shall take revenge……… you.",
+      "options": ["a. at", "b. on", "c. with", "d. from"],
+      "correctOption": "d. from"
+    },
+ {
+      "question": "I cannot deprive him…….. his rights.",
+      "options": ["a. of", "b. off", "c. with", "d. form"],
+      "correctOption": "a. of"
+    },
+    {
+      "question": "She was compensated……… the loss of her belongings.",
+      "options": ["a. over", "b. for", "c. against", "d. at"],
+      "correctOption": "b. for"
+    },
+    {
+      "question": "Sometimes it is difficult to deal…….. a problem child.",
+      "options": ["a. with", "b. in", "c. at", "d. out"],
+      "correctOption": "a. with"
+    },
+    {
+      "question": "Ajeet was annoyed……. his wife.",
+      "options": ["a. upon", "b. on", "c. with", "d. at"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "Do not quarrel……. your neighbours.",
+      "options": ["a. from", "b. by", "c. with", "d. against"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "The people, who depend……. others, can never prosper in life.",
+      "options": ["a. on", "b. over", "c. at", "d. upon"],
+      "correctOption": "a. on"
+    },
+    {
+      "question": "Your statement is replete…… contradictions.",
+      "options": ["a. by", "b. of", "c. in", "d. with"],
+      "correctOption": "d. with"
+    },
+    {
+      "question": "She smiled…… my words.",
+      "options": ["a. at", "b. upon", "c. on", "d. over"],
+      "correctOption": "b. upon"
+    },
+    {
+      "question": "The president will be provided….. all the facilities he is entitled to.",
+      "options": ["a. of", "b. to", "c. by", "d. with"],
+      "correctOption": "d. with"
+    },
+    {
+      "question": "It is difficult for me to part……..my belongings.",
+      "options": ["a. From", "b. of", "c. with", "d. off"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "He was charged……… murder and brought to trial.",
+      "options": ["a. by", "b. for", "c. of", "d. with"],
+      "correctOption": "c. of"
+    },
+    {
+      "question": "Everything hinges _____ what happens next.",
+      "options": ["(a) of", "(b) with", "(c) in", "(d) on"],
+      "correctOption": "(d) on"
+    },
+    {
+      "question": "Corruption is a standing hindrance ____ the nation’s development.",
+      "options": ["(a) of", "(b) over", "(c) to", "(d) upon"],
+      "correctOption": "(c) to"
+    },
+    {
+      "question": "The farmers suffered because the monsoon did not arrive ____ time.",
+      "options": ["(a) at", "(b) by", "(c) on", "(d) after"],
+      "correctOption": "(c) on"
+    },
+    {
+      "question": "The garbage has been disposed _______ .",
+      "options": ["(a) off", "(b) of", "(c) with", "(d) out"],
+      "correctOption": "(a) off"
+    },
+    {
+      "question": "You are trying to drag me _____ a controversy.",
+      "options": ["(a) in", "(b) into", "(c) from", "(d) for"],
+      "correctOption": "(b) into"
+    },
+    {
+      "question": "I complimented him .... his brilliant success in the examination.",
+      "options": ["a. over", "b. for", "c. to", "d. on"],
+      "correctOption": "d. on"
+    },
+    {
+      "question": "He was heartbroken_____ Mary’s indifference to him.",
+      "options": ["a. at", "b. on", "c. to", "d. for"],
+      "correctOption": "a. at"
+    },
+    {
+      "question": "Translate this passage from English _____ Telugu.",
+      "options": ["a. in", "b. into", "c. to", "d. upto"],
+      "correctOption": "c. to"
+    },
+    {
+      "question": "This accommodation is not adequate_____ the needs of our family.",
+      "options": ["a. upto", "b. on", "c. to", "d. for"],
+      "correctOption": "d. for"
+    },
+ {
+      "question": "I challenged him____ a game of chess.",
+      "options": ["a. for", "b. to", "c. against", "d. on"],
+      "correctOption": "b. to"
+    },
+    {
+      "question": "I saw my friend leaning ____ a lamp-post with a cigarette between his lips.",
+      "options": ["a. over", "b. upon", "c. against", "d. on"],
+      "correctOption": "c. against"
+    },
+    {
+      "question": "He is in the habit of finding fault ____ other’s works.",
+      "options": ["a. in", "b. with", "c. of", "d. for"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "The college term will end _____ a month.",
+      "options": ["a. in", "b. with", "c. after", "d. about"],
+      "correctOption": "a. in"
+    },
+    {
+      "question": "They wanted advice _____ how they could procure funds for their new business.",
+      "options": ["a. about", "b. to", "c. for", "d. on"],
+      "correctOption": "d. on"
+    },
+    {
+      "question": "There is already opposition ____ the government’s industrial policy.",
+      "options": ["a. for", "b. from", "c. to", "d. towards"],
+      "correctOption": "c. to"
+    },
+    {
+      "question": "In an election, those in power should feel obliged to compete ____ their opponents on equal terms.",
+      "options": ["a. with", "b. towards", "c. against", "d. on"],
+      "correctOption": "a. with"
+    },
+    {
+      "question": "The work on this project has been seriously set _____.",
+      "options": ["a. on", "b. off", "c. of", "d. about"],
+      "correctOption": "d. about"
+    },
+    {
+      "question": "This house is too expensive to keep _____.",
+      "options": ["a. off", "b. up", "c. to", "d. at"],
+      "correctOption": "b. up"
+    },
+    {
+      "question": "Coal has become dearer_____ the end of the last year.",
+      "options": ["a. from", "b. for", "c. since", "d. to"],
+      "correctOption": "d. to"
+    },
+    {
+      "question": "A girl with blue eyes has just gone ____ to the door.",
+      "options": ["a. off", "b. in", "c. beside", "d. through"],
+      "correctOption": "d. through"
+    },
+    {
+      "question": "He genius borders ____ lunacy.",
+      "options": ["a. to", "b. upto", "c. on", "d. about"],
+      "correctOption": "c. on"
+    },
+    {
+      "question": "Ravi is married ____ a cousin of mine.",
+      "options": ["a. with", "b. to", "c. off", "d. alongwith"],
+      "correctOption": "b. to"
+    },
+    {
+      "question": "When I parted ____ my mother, there were tears in my eyes.",
+      "options": ["a. from", "b. with", "c. off", "d. of"],
+      "correctOption": "a. from"
+    },
+    {
+      "question": "Conversation was carried on ____ whispers.",
+      "options": ["a. with", "b. by", "c. away", "d. in"],
+      "correctOption": "d. in"
+    },
+    {
+      "question": "Order _____ his release has been issued.",
+      "options": ["a. of", "b. for", "c. about", "d. on"],
+      "correctOption": "b. for"
+    },
+    {
+      "question": "My mother is afflicted ___ pain in the joints.",
+      "options": ["a. with", "b. at", "c. of", "d. for"],
+      "correctOption": "a. with"
+    },
+    {
+      "question": "With your help, I could tide my ____ difficulties.",
+      "options": ["a. away", "b. off", "c. against", "d. over"],
+      "correctOption": "d. over"
+    },
+    {
+      "question": "The minister will be requested to give ____ the prizes to the winners.",
+      "options": ["a. away", "b. in", "c. off", "d. no preposition is needed"],
+      "correctOption": "a. away"
+    },
+    {
+      "question": "She said that she was feeling sick ____ heart.",
+      "options": ["a. of", "b. in", "c. at", "d. to"],
+      "correctOption": "c. at"
+    },
+    {
+      "question": "Those who count ______ other's help generally lose the game.",
+      "options": ["a. about", "b. above", "c. around", "d. on"],
+      "correctOption": "d. on"
+    },
+    {
+      "question": "The lion sprang ____ the cow.",
+      "options": ["a. upon", "b. on", "c. over", "d. off"],
+      "correctOption": "a. upon"
+    },
+    {
+      "question": "Nepal lies _____ India and China.",
+      "options": ["a. among", "b. beyond", "c. between", "d. below"],
+      "correctOption": "c. between"
+    },
+    {
+      "question": "I shall stand by you.... thick and thin.",
+      "options": ["a. in", "b. into", "c. about", "d. through"],
+      "correctOption": "d. through"
+    },
+    {
+      "question": "Mohini resembles _____ her mother.",
+      "options": ["a. with", "b. after", "c. to", "d. no preposition is needed"],
+      "correctOption": "d. no preposition is needed"
+    },
+    {
+      "question": "The minister has promised to look _____ the matter.",
+      "options": ["a. at", "b. into", "c. for", "d. about"],
+      "correctOption": "b. into"
+    },
+    {
+      "question": "Employees who have twenty-five years service become entitled_____ a pension.",
+      "options": ["a. of", "b. on", "c. to", "d. towards"],
+      "correctOption": "c. to"
+    },
+    {
+      "question": "Poor old Mr. Singh, he has suffered _____ rheumatism for twenty years.",
+      "options": ["a. with", "b. of", "c. from", "d. no preposition is needed"],
+      "correctOption": "c. from"
+    },
+    {
+      "question": "The frustrated lover jumped ______ the river.",
+      "options": ["a. in", "b. within", "c. at", "d. into"],
+      "correctOption": "d. into"
+    },
+    {
+      "question": "You are advised to learn this lesson word_______ word.",
+      "options": ["a. for", "b. by", "c. to", "d. in"],
+      "correctOption": "a. for"
+    },
+  {
+      "question": "Nearly sixty years have gone by ____ Gandhiji passed away.",
+      "options": ["a. till", "b. until", "c. off", "d. since"],
+      "correctOption": "d. since"
+    },
+    {
+      "question": "Let us discuss ___ The Female Education in India.",
+      "options": ["a. on", "b. about", "c. of", "d. no preposition is needed"],
+      "correctOption": "d. no preposition is needed"
+    },
+    {
+      "question": "I can write a book _____ grammar.",
+      "options": ["a. on", "b. of", "c. about", "d. in"],
+      "correctOption": "c. about"
+    },
+    {
+      "question": "Each boy and each girl was presented ____ sweets.",
+      "options": ["a. away", "b. with", "c. to", "d. no preposition is needed"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "There are certain rare qualities which raise a man ____ the common breed of men.",
+      "options": ["a. over", "b. on", "c. above", "d. upon"],
+      "correctOption": "c. above"
+    },
+    {
+      "question": "The amazing thing about Gandhiji was that he adhered _____ his ideals and to his conception of truth.",
+      "options": ["a. on", "b. against", "c. for", "d. to"],
+      "correctOption": "d. to"
+    },
+    {
+      "question": "Tagore was awarded the Nobel Prize ____ literature.",
+      "options": ["a. in", "b. of", "c. for", "d. about"],
+      "correctOption": "c. for"
+    },
+    {
+      "question": "A house-owner can throw you ___ the street any moment.",
+      "options": ["a. in", "b. on", "c. to", "d. towards"],
+      "correctOption": "b. on"
+    },
+    {
+      "question": "A miser cannot part ____ his gold.",
+      "options": ["a. from", "b. to", "c. of", "d. with"],
+      "correctOption": "d. with"
+    },
+    {
+      "question": "An educated man should know what is first rate in those activities which spring ____ the creative and intellectual faculties of human nature.",
+      "options": ["a. from", "b. out of", "c. to", "d. on"],
+      "correctOption": "a. from"
+    },
+    {
+      "question": "An epidemic of influenza broke out last winter, and did not die _____ for many months.",
+      "options": ["a. of", "b. down", "c. out", "d. no preposition is needed"],
+      "correctOption": "c. out"
+    },
+    {
+      "question": "Cigarette smoking is injurious _____ health.",
+      "options": ["a. to", "b. for", "c. on", "d. at"],
+      "correctOption": "a. to"
+    },
+    {
+      "question": "Five hundred rupees was allotted for the purchase of books ____ physics.",
+      "options": ["a. of", "b. about", "c. in", "d. on"],
+      "correctOption": "d. on"
+    },
+    {
+      "question": "Does the-old lady object ___ my smoking cigarettes?",
+      "options": ["a. on", "b. of", "c. to", "d. for"],
+      "correctOption": "c. to"
+    },
+    {
+      "question": "I went on holiday _____ a friend.",
+      "options": ["a. by", "b. with", "c. for", "d. no preposition is needed"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "Mohan may be slow______ his work.",
+      "options": ["a. at", "b. for", "c. about", "d. to"],
+      "correctOption": "a. at"
+    },
+    {
+      "question": "Socrates was the greatest of the ancient Greek philosophers and was a seeker ........truth.",
+      "options": ["a. of", "b. after", "c. for", "d. on"],
+      "correctOption": "a. of"
+    },
+    {
+      "question": "The world is disgusted _____ frequent display of violent behavior.",
+      "options": ["a. of", "b. from", "c. in", "d. with"],
+      "correctOption": "d. with"
+    },
+    {
+      "question": "I would willingly part ____ my goat.",
+      "options": ["a. from", "b. with", "c. of", "d. no preposition is needed"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "The young boy was enchanted _____ the beauty of the girl.",
+      "options": ["a. at", "b. by", "c. with", "d. in"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "Be content.. .......... what you have",
+      "options": ["a. by", "b. with", "c. of", "d. in"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "Sindhu was greatly amused ........... the performance of the dancing goats.",
+      "options": ["a. from", "b. on", "c. at", "d. in"],
+      "correctOption": "c. at"
+    },
+    {
+      "question": "Sudha got divorce _____ her husband.",
+      "options": ["a. from", "b. of", "c. to", "d. at"],
+      "correctOption": "a. from"
+    },
+    {
+      "question": "When this young person called ______ me, she was all dressed up.",
+      "options": ["a. at", "b. off", "c. on", "d. up"],
+      "correctOption": "a. at"
+    },
+    {
+      "question": "It has been hardly ten years_______ the reform was introduced.",
+      "options": ["a. on", "b. over", "c. since", "d. no preposition needed"],
+      "correctOption": "c. since"
+    },
+    {
+      "question": "We searched _____ happiness in vain.",
+      "options": ["a. into", "b. in", "c. for", "d. after"],
+      "correctOption": "c. for"
+    },
+    {
+      "question": "He emphasized _____ his point.",
+      "options": ["a. on", "b. at", "c. over", "d. no preposition is needed"],
+      "correctOption": "d. no preposition is needed"
+    },
+    {
+      "question": "We entered _____ the class room.",
+      "options": ["a. into", "b. in", "c. for", "d. no preposition is needed"],
+      "correctOption": "d. no preposition is needed"
+    },
+    {
+      "question": "The Hindustan Times aspires to have a million readers _____ the next year.",
+      "options": ["a. by", "b. till", "c. until", "d. through"],
+      "correctOption": "a. by"
+    },
+    {
+      "question": "As I approached _____ him, he turned and walked away.",
+      "options": ["a. to", "b. beside", "c. by", "d. no preposition is needed"],
+      "correctOption": "d. no preposition is needed"
+    },
+  {
+      "question": "____ uranium, we can use another metal thorium to produce nuclear power.",
+      "options": ["a. besides", "b. beside", "c. against", "d. of"],
+      "correctOption": "a. besides"
+    },
+    {
+      "question": "The prisoner was bound _____ a chain.",
+      "options": ["a. with", "b. by", "c. from", "d. on"],
+      "correctOption": "a. with"
+    },
+    {
+      "question": "He was honorably acquitted ____ the charge.",
+      "options": ["a. from", "b. of", "c. off", "d. for"],
+      "correctOption": "b. of"
+    },
+    {
+      "question": "Monkeys live ______ trees.",
+      "options": ["a. on", "b. upon", "c. into", "d. in"],
+      "correctOption": "d. in"
+    },
+    {
+      "question": "The train is running ______ time.",
+      "options": ["a. on", "b. in", "c. at", "d. to"],
+      "correctOption": "a. on"
+    },
+    {
+      "question": "Students should be ordered to write only ____ ink.",
+      "options": ["a. with", "b. of", "c. from", "d. in"],
+      "correctOption": "d. in"
+    },
+    {
+      "question": "He abandoned his comrade _____ the wolves.",
+      "options": ["a. to", "b. with", "c. for", "d. towards"],
+      "correctOption": "a. to"
+    },
+    {
+      "question": "The godown is infested ______ rats.",
+      "options": ["a. of", "b. about", "c. with", "d. in"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "Bangs alternated ____ crashes.",
+      "options": ["a. in", "b. with", "c. from", "d. no preposition needed"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "The writer accuses the national government ____ resorting to violence.",
+      "options": ["a. of", "b. for", "c. with", "d. on"],
+      "correctOption": "a. of"
+    },
+    {
+      "question": "Mountain tops are covered ______ snow in winter.",
+      "options": ["a. by", "b. from", "c. in", "d. with"],
+      "correctOption": "d. with"
+    },
+    {
+      "question": "Why should the rich look down ____ the poor?",
+      "options": ["a. at", "b. on", "c. over", "d. upon"],
+      "correctOption": "d. upon"
+    },
+    {
+      "question": "The roof collapsed and the people sitting ___ it were killed.",
+      "options": ["a. under", "b. below", "c. beneath", "d. behind"],
+      "correctOption": "a. under"
+    },
+    {
+      "question": "The Students are filling a preposition.............the blank.",
+      "options": ["a. into", "b. of", "c. for", "d. in"],
+      "correctOption": "d. in"
+    },
+    {
+      "question": "Such an action is not consistent ___ his character.",
+      "options": ["a. to", "b. for", "c. with", "d. upto"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "Our examination commences ____ Monday next.",
+      "options": ["a) from", "b) on", "c. at", "d. no preposition is needed"],
+      "correctOption": "a) from"
+    },
+    {
+      "question": "Bacon, the father of English Essay, had a thirst ____ knowledge.",
+      "options": ["a) of", "b) in", "c. with", "d. for"],
+      "correctOption": "d. for"
+    },
+    {
+      "question": "I beg to differ ___ you on the subject.",
+      "options": ["a) at", "b) to", "c. with", "d. for"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "The minister dwelt ______ the subject of political development at length.",
+      "options": ["a) over", "b) at", "c. with", "d. on"],
+      "correctOption": "d. on"
+    },
+    {
+      "question": "He ordered ______ the dinner when he had finished his work.",
+      "options": ["1)about", "b) for", "c) of", "d. no preposition is needed"],
+      "correctOption": "d. no preposition is needed"
+    },
+    {
+      "question": "I wonder if I shall get ______ my history examination.",
+      "options": ["a) at", "b) in", "c) through", "d. no preposition is needed"],
+      "correctOption": "c) through"
+    },
+    {
+      "question": "The money must be dealt ___fairly and justly.",
+      "options": ["a. in", "b. with", "c. off", "d. out"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "His comments were almost irrelevant _____ the topic of the evening.",
+      "options": ["a) for", "b) to", "c) on", "d. about"],
+      "correctOption": "b) to"
+    },
+    {
+      "question": "The boy resembles ____ his father.",
+      "options": ["a) to", "b) with", "c. in", "d. no preposition is needed"],
+      "correctOption": "d. no preposition is needed"
+    },
+    {
+      "question": "I am grateful _____ my grandfather for teaching me mathematic.",
+      "options": ["a) to", "b) of", "c. on", "d. about"],
+      "correctOption": "a) to"
+    },
+    {
+      "question": "The poor beggar was blind _____ one eye.",
+      "options": ["a)in", "b) of", "c. to", "d. by"],
+      "correctOption": "a)in"
+    },
+    {
+      "question": "The cat is hiding from us _____ the table.",
+      "options": ["a. below", "b. beneath", "c. at", "d. under"],
+      "correctOption": "d. under"
+    },
+    {
+      "question": "Please have a talk ______ your father about my work.",
+      "options": ["a. to", "b. with", "c. on", "d. at"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "You are advised to write ___ pencil.",
+      "options": ["a. in", "b. by", "c. with", "d. into"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "Hypocrisy is cloak ____ mischief.",
+      "options": ["a. of", "b. for", "c. over", "d. around"],
+      "correctOption": "b. for"
+    },
+ {
+      "question": "With this percentage of marks, you are not eligible ___ admission.",
+      "options": ["a. to", "b. of", "c. for", "d. on"],
+      "correctOption": "c. for"
+    },
+    {
+      "question": "It is good to be temperate _____ one's habit.",
+      "options": ["(a) about", "(b) in", "(c) by", "(d) of"],
+      "correctOption": "(b) in"
+    },
+    {
+      "question": "He imputed bad motives _____ me.",
+      "options": ["(a) for", "(b) about", "(c) in", "(d) to"],
+      "correctOption": "(c) in"
+    },
+    {
+      "question": "Bacon was endowed ______ rare talents.",
+      "options": ["(a) of", "(b) off", "(c) with", "(d) in"],
+      "correctOption": "(c) with"
+    },
+    {
+      "question": "Never do anything that is not compatible _______ public safety.",
+      "options": ["a) to", "b) with", "c) of", "d) upon"],
+      "correctOption": "b) with"
+    },
+    {
+      "question": "I instilled my ideas ____ his mind.",
+      "options": ["(a) Onto", "(b) in", "(c) upto", "(d) over"],
+      "correctOption": "(b) in"
+    },
+    {
+      "question": "His speech is wanting ______ commonsense.",
+      "options": ["(a) in", "(b) into", "(c) of", "(d)at"],
+      "correctOption": "(a) in"
+    },
+    {
+      "question": "He is an aspirant _____ an honour from the president.",
+      "options": ["(a) of", "(b) for", "(c) under", "(d) to"],
+      "correctOption": "(a) of"
+    },
+    {
+      "question": "You are not amenable ___ reason.",
+      "options": ["(a) of", "(b) for", "(c) to", "(d) on"],
+      "correctOption": "(c) to"
+    },
+    {
+      "question": "He craved ______ my forgiveness.",
+      "options": ["(a) of", "(b) for", "(c) to", "(d) on"],
+      "correctOption": "(b) for"
+    },
+    {
+      "question": "I could infer _____ his talk that he wanted to s something against his father.",
+      "options": ["(a) after", "(b) at", "(c) in", "(d) from"],
+      "correctOption": "(d) from"
+    },
+    {
+      "question": "The plot ____ the king was foiled by his loyal soldiers.",
+      "options": ["(a) at", "(b) of", "(c) against", "(d) upon"],
+      "correctOption": "(c) against"
+    },
+    {
+      "question": "He was advised by his father to withdraw ___ contest",
+      "options": ["(a) against", "(b) from", "(c) to", "(d) no preposition needed"],
+      "correctOption": "(b) from"
+    },
+    {
+      "question": "It occurred _______ me that I had already paid the tax.",
+      "options": ["(a) on", "(b) upon", "(c) at", "(d) to"],
+      "correctOption": "(d) to"
+    },
+    {
+      "question": "His crime preyed ____ his mind.",
+      "options": ["(a) upon", "(b) with", "(c) over", "(d) at"],
+      "correctOption": "(a) upon"
+    },
+    {
+      "question": "I deal ___ the merchant who deals ____ books.",
+      "options": ["(a) in, with", "(b) with, in", "(c) to, in", "(d) in, to"],
+      "correctOption": "(b) with, in"
+    },
+    {
+      "question": "If you spend ____ your means, you will run ____ debt.",
+      "options": ["(a) above in", "(b) beyond into", "(c) above, into", "(d) beyond, in"],
+      "correctOption": "(b) beyond into"
+    },
+    {
+      "question": "He kept ____ telling me to give ____ smoking.",
+      "options": ["a. on, up", "b. at, to", "c. on, to", "d. at, up"],
+      "correctOption": "a. on, up"
+    },
+    {
+      "question": "It was because ____ you that he was able to see his plan ______.",
+      "options": ["a. of, on", "b. to, with", "c. of, through", "d. to, through"],
+      "correctOption": "c. of, through"
+    },
+    {
+      "question": "He shook me ____ the hand and helped me ____ with my coat.",
+      "options": ["a. by, on", "b. with, on", "c. at, on", "d. off, on"],
+      "correctOption": "b. with, on"
+    },
+    {
+      "question": "He is terribly absorbed ____ his work ____ bacteria.",
+      "options": ["a. with, of", "b. with, on", "c. in, on", "d. of, on"],
+      "correctOption": "c. in, on"
+    },
+    {
+      "question": "He will accept no compromise ____ the enemy ____ any terms.",
+      "options": ["a. with, at", "b. from, at", "c. with, on", "d. of, on"],
+      "correctOption": "c. with, on"
+    },
+    {
+      "question": "He is brute form ___ man ____ all that you may say in his praise.",
+      "options": ["a. on, by", "b. of, for", "c. in, for", "d. in, by"],
+      "correctOption": "d. in, by"
+    },
+    {
+      "question": "They qualified themselves ____ the post.",
+      "options": ["a. for", "b. to", "c. of", "d. no preposition"],
+      "correctOption": "a. for"
+    },
+    {
+      "question": "He sympathized ____ the poor.",
+      "options": ["a. by", "b. for", "c. with", "d. from"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "The house consists ___ five rooms, all of them leading ____ the hall.",
+      "options": ["a. of towards", "b. of, in", "c. of, into", "d. no preposition"],
+      "correctOption": "c. of, into"
+    },
+    {
+      "question": "The boy is apprenticed ____ Mr. Smith a carpenter ____ trade.",
+      "options": ["a. of, to", "b. to, by", "c. on, in", "d. to, in"],
+      "correctOption": "b. to, by"
+    },
+    {
+      "question": "I refuse to be classed ___ the man ____ the street.",
+      "options": ["a. with, of", "b. with, into", "c. to, of", "d. with, in"],
+      "correctOption": "d. with, in"
+    },
+    {
+      "question": "Entry ____ this auditorium is ____ ticket.",
+      "options": ["a. in, through", "b. to, by", "c. into, by", "d. into, through"],
+      "correctOption": "d. into, through"
+    },
+    {
+      "question": "Mohan never agrees ____ me ____ anything.",
+      "options": ["a. to, for", "b. with, for", "c. with, on", "d. to, in"],
+      "correctOption": "c. with, on"
+    },
+ {
+      "question": "These trousers will last ___ donkey’s years without wearing _____.",
+      "options": ["a. upto, in", "b. for, in", "c. upto, out", "d. for, out"],
+      "correctOption": "d. for, out"
+    },
+    {
+      "question": "I sent two hundred rupees ____ my younger brother ____ money order.",
+      "options": ["a. to, by", "b. to, through", "c. for, through", "d. for, by"],
+      "correctOption": "b. to, by"
+    },
+    {
+      "question": "____ all your patent medicines, you haven’t cured me ______ this cold.",
+      "options": ["a. of, of", "b. of, from", "c. with, of", "d. with, from"],
+      "correctOption": "c. with, of"
+    },
+    {
+      "question": "This almirah is made ____ iron but burfi is made ____ khoya.",
+      "options": ["a. of, on", "b. of, from", "c. from, of", "d. in, of"],
+      "correctOption": "b. of, from"
+    },
+    {
+      "question": "None ____ the brave deserve the fair.",
+      "options": ["a. of", "b. but", "c. from", "d. no preposition"],
+      "correctOption": "b. but"
+    },
+    {
+      "question": "The transistor fell ____ the shelf.",
+      "options": ["a. off", "b. on", "c. at", "d. from"],
+      "correctOption": "a. off"
+    },
+    {
+      "question": "He placed the thing ___ the curtain.",
+      "options": ["a. beneath", "b. under", "c. below", "d. behind"],
+      "correctOption": "d. behind"
+    },
+    {
+      "question": "His appeal ____ mercy has been turned down.",
+      "options": ["a. of", "b. about", "c. on", "d. for"],
+      "correctOption": "d. for"
+    },
+    {
+      "question": "We should stick to our words, otherwise people will mock ___ us.",
+      "options": ["a. on", "b. at", "c. upon", "d. over"],
+      "correctOption": "b. at"
+    },
+    {
+      "question": "Saira tied the cow with a rope ____ a tree.",
+      "options": ["a. to", "b. with", "c. against", "d. on"],
+      "correctOption": "a. to"
+    },
+    {
+      "question": "Do you know how to look ____ a word in the dictionary ?",
+      "options": ["a. about", "b. for", "c. into", "d. up"],
+      "correctOption": "b. for"
+    },
+    {
+      "question": "The Rajputs always fought ____ the last man.",
+      "options": ["a. upto", "b. off", "c. of", "d. for"],
+      "correctOption": "a. upto"
+    },
+    {
+      "question": "Why Rajputs always fought ____ your wealth?",
+      "options": ["a. in", "b. about", "c. of", "d. for"],
+      "correctOption": "d. for"
+    },
+    {
+      "question": "I told him _____ his face that he was a liar.",
+      "options": ["a. in", "b. on", "c. to", "d. at"],
+      "correctOption": "c. to"
+    },
+    {
+      "question": "Please pay ____ your will.",
+      "options": ["a. for", "b. in", "c. off", "d. no preposition"],
+      "correctOption": "d. no preposition"
+    },
+    {
+      "question": "Beware _____ back-bitters.",
+      "options": ["a. from", "b. to", "c. of", "d. with"],
+      "correctOption": "c. of"
+    },
+    {
+      "question": "The principal will preside _____ the function.",
+      "options": ["a. on", "b. upon", "c. over", "d. no preposition"],
+      "correctOption": "c. over"
+    },
+    {
+      "question": "You gained an advantage ___ me.",
+      "options": ["a. over", "b. on", "c. upon", "d. from"],
+      "correctOption": "a. over"
+    },
+    {
+      "question": "The storehouse was infested _______ rats.",
+      "options": ["a. of", "b. with", "c. about", "d. from"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "He invited me ____ tea.",
+      "options": ["a. on", "b. for", "c. to", "d. at"],
+      "correctOption": "c. to"
+    },
+    {
+      "question": "In the dark, he knocked ____ the wall.",
+      "options": ["a. at", "b. on", "c. upon", "d. against"],
+      "correctOption": "a. at"
+    },
+    {
+      "question": "He is not familiar _____ this locality.",
+      "options": ["a. to", "b. from", "c. about", "d. with"],
+      "correctOption": "d. with"
+    },
+    {
+      "question": "His face is not familiar ___ anyone.",
+      "options": ["a. to", "b. of", "c. for", "d. with"],
+      "correctOption": "a. to"
+    },
+    {
+      "question": "She takes pride ____ her beauty.",
+      "options": ["a. of", "b. in", "c. about", "d. for"],
+      "correctOption": "b. in"
+    },
+    {
+      "question": "No one has yet discovered a cure ___ the common cold.",
+      "options": ["a. of", "b. for", "c. from", "d. about"],
+      "correctOption": "b. for"
+    },
+    {
+      "question": "My brother went ____ abroad last year.",
+      "options": ["a. to", "b. from", "c. towards", "d. no preposition is needed"],
+      "correctOption": "d. no preposition is needed"
+    },
+    {
+      "question": "Many people have died.... ....... malaria.",
+      "options": ["(a) of", "(b) from", "(c) with", "(d) for"],
+      "correctOption": "(a) of"
+    },
+    {
+      "question": "That young Man is very keen _____ cycling.",
+      "options": ["(a) on", "(b) about", "(c) for", "(d) of"],
+      "correctOption": "(a) on"
+    },
+    {
+      "question": "I am delighted ____ his unexpected arrival.",
+      "options": ["a. on", "b. with", "c. over", "d. at"],
+      "correctOption": "d. at"
+    },
+    {
+      "question": "I am fed up ____ staying at this place.",
+      "options": ["(a) with", "(b) from", "(c) at", "(d) for"],
+      "correctOption": "(a) with"
+    },
+ {
+      "question": "Please continue this exercise where you had left ______.",
+      "options": ["(a) off", "(b) over", "(c) on", "(d) no preposition is needed"],
+      "correctOption": "(d) no preposition is needed"
+    },
+    {
+      "question": "She was forced to retire _____ her job.",
+      "options": ["(a) of", "(b) from", "(c) off", "(d) with"],
+      "correctOption": "(b) from"
+    },
+    {
+      "question": "I am tired ___ leading such an idle life.",
+      "options": ["(a) of", "(b) off", "(c) with", "(d) from"],
+      "correctOption": "(a) of"
+    },
+    {
+      "question": "He is _____ his study table.",
+      "options": ["(a) on", "(b) in", "(c) over", "(d) at"],
+      "correctOption": "(c) over"
+    },
+    {
+      "question": "We should never laugh ____ the poor.",
+      "options": ["(a) at", "(b) on", "(c) upon", "(d) over"],
+      "correctOption": "(a) at"
+    },
+    {
+      "question": "Students do have a claim ____ their teachers.",
+      "options": ["(a) at", "(b) on", "(c) to", "(d) over"],
+      "correctOption": "(b) on"
+    },
+    {
+      "question": "You must get rid _____ unnecessary things.",
+      "options": ["a) of", "(b) about", "(c) off", "(d) with"],
+      "correctOption": "(a) of"
+    },
+    {
+      "question": "He was destined _____ the bar.",
+      "options": ["(a) to", "(b) for", "(c) behind", "(d) beside"],
+      "correctOption": "(a) to"
+    },
+    {
+      "question": "He delights _____ teasing me.",
+      "options": ["(a) on", "(b) in", "(c) to", "(d) at"],
+      "correctOption": "(b) in"
+    },
+    {
+      "question": "I was delighted____ your success.",
+      "options": ["(a) at", "(b) to", "(c) in", "(d) on"],
+      "correctOption": "(a) at"
+    },
+    {
+      "question": "Artists like Kalidas belong ___ all ages and all countries,.",
+      "options": ["(a) with", "(b) for", "(c) to", "(d) about"],
+      "correctOption": "(c) to"
+    },
+    {
+      "question": "We should not jeer ___ a defeated enemy.",
+      "options": ["(a) on", "(b) at", "(c) for", "(d) upon"],
+      "correctOption": "(b) at"
+    },
+    {
+      "question": "Our clothes were soaked _____ water.",
+      "options": ["(a) with", "(b) on", "(c) under", "(d) in"],
+      "correctOption": "(a) with"
+    },
+    {
+      "question": "After marrying the rich heir, he began to live ____ comfort.",
+      "options": ["a. with", "(b) to", "(c) by", "(d) in"],
+      "correctOption": "(d) in"
+    },
+    {
+      "question": "All the players partook _____ the dinner after the match.",
+      "options": ["a. to", "(b) by", "(c) of", "(d) no preposition is needed"],
+      "correctOption": "(c) of"
+    },
+    {
+      "question": "The Renaissance ideas penetrated _____ the European countries.",
+      "options": ["(a) at", "(b) by", "(c) to", "(d) no preposition is needed"],
+      "correctOption": "(d) no preposition is needed"
+    },
+    {
+      "question": "The advocate remarked that the two cases are not___ par with each other.",
+      "options": ["(a) at", "(b) at a", "(c) on", "(d) on a"],
+      "correctOption": "(a) at"
+    },
+    {
+      "question": "Snow dissolves ____ water.",
+      "options": ["(a) to", "(b) into", "(c) with", "(d) in"],
+      "correctOption": "(d) in"
+    },
+    {
+      "question": "My friend insisted ___ my staying with her.",
+      "options": ["a. on", "(b) in", "(c) with", "(d) no preposition"],
+      "correctOption": "(a) on"
+    },
+    {
+      "question": "Don't waste your time in juggling ______ words.",
+      "options": ["(a) by", "(b) at", "(c) with", "(d) no preposition is needed"],
+      "correctOption": "(c) with"
+    },
+    {
+      "question": "Don't let him hinder you ___ writing the letter.",
+      "options": ["a. in", "(b) from", "(c) to", "(d) no preposition"],
+      "correctOption": "(b) from"
+    },
+    {
+      "question": "What is $ 1 equivalent _____ Indian currency.",
+      "options": ["(a) with", "(b) by", "(c) to", "(d) no preposition is needed"],
+      "correctOption": "(c) to"
+    },
+    {
+      "question": "While I stared ___ him, he was staring____ mirror.",
+      "options": ["a. on, on", "(b) at, in", "(c) at, into", "(d) on, in"],
+      "correctOption": "(c) at, into"
+    },
+    {
+      "question": "We should not interfere ____ other people’s affairs.",
+      "options": ["(a) in", "(b) for", "(c) at", "(d) no preposition is need"],
+      "correctOption": "(a) in"
+    },
+    {
+      "question": "No sooner did he enter _____ the room than he declared that he would not enter ___ the new contract.",
+      "options": ["(a) into, into", "(b) into, to", "(c) to, into", "(d) no preposition, into"],
+      "correctOption": "(d) no preposition, into"
+    },
+    {
+      "question": "An editor is a stickler ____ accuracy.",
+      "options": ["(a) to", "(b) for", "(c) of", "(d) at"],
+      "correctOption": "(b) for"
+    },
+    {
+      "question": "You will share ___ the prize money ____ me.",
+      "options": ["(a) in, in", "(b) with ,with", "(c) with, in", "(d) no preposition, with"],
+      "correctOption": "(d) no preposition, with"
+    },
+    {
+      "question": "Regular exercise is conducive ............. health.",
+      "options": ["(a) for", "(b) of", "(c) in", "(d) to"],
+      "correctOption": "(d) to"
+    },
+    {
+      "question": "I wish to heartily congratulate you ______ your astounding success.",
+      "options": ["a. for", "(b) on", "(c) of", "(d) with"],
+      "correctOption": "(b) on"
+    },
+    {
+      "question": "The old lady swooned but was soon restored ______ senses.",
+      "options": ["a. to", "(b) at", "(c) from", "(d) with"],
+      "correctOption": "(a) to"
+    },
+ {
+      "question": "He has promised to pay me the whole amount in cheque ____the stipulated time.",
+      "options": ["a. with", "b. since", "c. within", "d. at"],
+      "correctOption": "c. within"
+    },
+    {
+      "question": "The old man was overwhelmed _____ joy at the success of his only son.",
+      "options": ["a. for", "b. by", "c. with", "d. at"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "Those who are in power have to be sensitive ___ the sufferings of the poor.",
+      "options": ["a. of", "b. off", "c. with", "d. to"],
+      "correctOption": "d. to"
+    },
+    {
+      "question": "Adults suffering _____ chicken pox can develop all kinds of complications.",
+      "options": ["a. of", "b. with", "c. from", "d. at"],
+      "correctOption": "c. from"
+    },
+    {
+      "question": "The members of the Opposition party in the Parliament shout _____ the minister if he makes a wrong statement.",
+      "options": ["a. at", "b. upon", "c. on", "d. towards"],
+      "correctOption": "a. at"
+    },
+    {
+      "question": "They are a politically important family; one of his sisters is a minister and the other is married ____ a minister.",
+      "options": ["a. with", "b. to", "c. off", "d. of"],
+      "correctOption": "b. to"
+    },
+    {
+      "question": "The patient was accompanied ____ his friend.",
+      "options": ["a. by", "b. with", "c. from", "d. in"],
+      "correctOption": "a. by"
+    },
+    {
+      "question": "He walked _______ the end of the street.",
+      "options": ["a. to", "b. till", "c. from", "d. until"],
+      "correctOption": "a. to"
+    },
+    {
+      "question": "His father is disgusted ______ him for his addiction to drink.",
+      "options": ["a. against", "b. at", "c. with", "d. towards"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "It took her a long time to get _____ the death of her husband.",
+      "options": ["a. off", "b. of", "c. into", "d. over"],
+      "correctOption": "d. over"
+    },
+    {
+      "question": "Bacon, the father of the English essay had a thirst _____ knowledge.",
+      "options": ["a. for", "b. of", "c. in", "d. with"],
+      "correctOption": "a. for"
+    },
+    {
+      "question": "We saw sand sculptures ______ the beach.",
+      "options": ["a. in", "b. on", "c. at", "d. up"],
+      "correctOption": "b. on"
+    },
+    {
+      "question": "This container is full _____ water so I can’t carry it for a long distance at one go.",
+      "options": ["a. with", "b. off", "c. of", "d. in"],
+      "correctOption": "a. with"
+    },
+    {
+      "question": "Freedom fighters laboured ______ the good of the poor enslaved masses.",
+      "options": ["a. with", "b. to", "c. from", "d. for"],
+      "correctOption": "d. for"
+    },
+    {
+      "question": "You must be aware of the fact that men ______ 25 years of age cannot take examination.",
+      "options": ["a. under", "b. below", "c. beneath", "d. underneath"],
+      "correctOption": "b. below"
+    },
+    {
+      "question": "He is exceptionally good _____ teaching Mathematics and English as well.",
+      "options": ["a. at", "b. in", "c. on", "d. for"],
+      "correctOption": "a. at"
+    },
+    {
+      "question": "His mother and father are vexed ______ his brother’s rude behaviour.",
+      "options": ["a. with", "b. at", "c. for", "d. in"],
+      "correctOption": "a. with"
+    },
+    {
+      "question": "I don’t understand why you should be surprised _____ this action of hers.",
+      "options": ["a. with", "b. to", "c. at", "d. by"],
+      "correctOption": "c. at"
+    },
+    {
+      "question": "He is a fanatic kind of guy and there is no limit ____ his zeal and zest.",
+      "options": ["a. of", "b. off", "c. to", "d. with"],
+      "correctOption": "c. to"
+    },
+    {
+      "question": "The introduction to this book is very good, but the preface ___ this book is very short.",
+      "options": ["a. to", "b. at", "c. of", "d. with"],
+      "correctOption": "a. to"
+    },
+    {
+      "question": "You must know one thing that we will on no account comply ___ your request or demand.",
+      "options": ["a. to", "b. by", "c. with", "d. towards"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "Can anyone over here let me know what the cause _____ her anxiety is?",
+      "options": ["a. for", "b. of", "c. from", "d. with"],
+      "correctOption": "b. of"
+    },
+    {
+      "question": "Although you have got a well-paid job, yet in my opinion you are not worthy _____ it from any angle.",
+      "options": ["a. for", "b. of", "c. at", "d. with"],
+      "correctOption": "b. of"
+    },
+    {
+      "question": "The decline ____ the price of petrol is now ever so indispensable and it must come down within a week.",
+      "options": ["a. in", "b. of", "c. from", "d. with"],
+      "correctOption": "a. in"
+    },
+    {
+      "question": "I know I have committed a blunder and I beg pardon _____ you for what I have done.",
+      "options": ["a. in", "b. under", "c. of", "d. off"],
+      "correctOption": "c. of"
+    },
+    {
+      "question": "Whether you accept it or not, you must be ashamed ___ this folly of yours.",
+      "options": ["a. at", "b. of", "c. with", "d. from"],
+      "correctOption": "b. of"
+    },
+    {
+      "question": "The court absolved him ____ all the charges.",
+      "options": ["a. off", "b. of", "c. with", "d. by"],
+      "correctOption": "b. of"
+    },
+    {
+      "question": "I absolved him _____ his promise",
+      "options": ["a. from", "b. towards", "c. with", "d. by"],
+      "correctOption": "a. from"
+    },
+    {
+      "question": "He was acquitted _____all the charges levelled against him.",
+      "options": ["a. for", "b. against", "c. of", "d. beside"],
+      "correctOption": "c. of"
+    },
+    {
+      "question": "She accused me ___ stealing her handbag.",
+      "options": ["a. off", "b. of", "c. with", "d. by"],
+      "correctOption": "b. of"
+    },
+    {
+      "question": "I have no access ____ the Prime Minister.",
+      "options": ["a. off", "b. to", "c. with", "d. for"],
+      "correctOption": "b. to"
+    },
+    {
+      "question": "We decided to adhere _____ the rules of the team.",
+      "options": ["a. off", "b. to", "c. with", "d. for"],
+      "correctOption": "b. to"
+    },
+    {
+      "question": "Sheetal approved ____ my proposal in no time.",
+      "options": ["a. of", "b. to", "c. with", "d. for"],
+      "correctOption": "a. of"
+    },
+    {
+      "question": "The President has given assent ___ the Bill.",
+      "options": ["a. off", "b. to", "c. with", "d. for"],
+      "correctOption": "b. to"
+    },
+    {
+      "question": "I am not acquainted _____ this girl.",
+      "options": ["a. of", "b. to", "c. with", "d. for"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "He is addicted ____ alcohol.",
+      "options": ["a. towards", "b. to", "c. in", "d. for"],
+      "correctOption": "b. to"
+    },
+    {
+      "question": "I am assured _____ his help in need.",
+      "options": ["a. of", "b. to", "c. with", "d. for"],
+      "correctOption": "a. of"
+    },
+    {
+      "question": "Shivani availed herself ___ this opportunity and got success.",
+      "options": ["a. of", "b. in", "c. with", "d. for"],
+      "correctOption": "a. of"
+    },
+    {
+      "question": "Keep aloof ____ bad people.",
+      "options": ["a. off", "b. in", "c. from", "d. for"],
+      "correctOption": "c. from"
+    },
+    {
+      "question": "You should abide _____ the rules laid down by the committee.",
+      "options": ["a. by", "b. to", "c. with", "d. for"],
+      "correctOption": "a. by"
+    },
+ {
+      "question": "Rohit was admitted _____ the school on merit.",
+      "options": ["a. in", "b. to", "c. into", "d. for"],
+      "correctOption": "b. to"
+    },
+    {
+      "question": "You will have to answer ____ your misdeeds.",
+      "options": ["a. off", "b. to", "c. with", "d. for"],
+      "correctOption": "d. for"
+    },
+    {
+      "question": "You should account ____ your absence from the office.",
+      "options": ["a. by", "b. to", "c. with", "d. for"],
+      "correctOption": "d. for"
+    },
+    {
+      "question": "Lady Sri Ram college is affiliated ____ the Delhi University.",
+      "options": ["a. off", "b. to", "c. with", "d. for"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "He did not attend ___ what his mother advised him.",
+      "options": ["a. off", "b. to", "c. with", "d. for"],
+      "correctOption": "b. to"
+    },
+    {
+      "question": "I do not agree ___ you.",
+      "options": ["a. off", "b. to", "c. with", "d. for"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "He agreed ____ all my views but his sister did not.",
+      "options": ["a. by", "b. to", "c. with", "d. for"],
+      "correctOption": "b. to"
+    },
+    {
+      "question": "India is afflicted _____ extreme poverty.",
+      "options": ["a. by", "b. to", "c. with", "d. for"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "Always act ____ the advice of your elders.",
+      "options": ["a. upon", "b. to", "c. with", "d. for"],
+      "correctOption": "a. upon"
+    },
+    {
+      "question": "You must adapt yourself ____ new situations to succeed in life.",
+      "options": ["a. by", "b. to", "c. with", "d. for"],
+      "correctOption": "b. to"
+    },
+    {
+      "question": "I am accustomed ___ eating fruits.",
+      "options": ["a. by", "b. to", "c. with", "d. for"],
+      "correctOption": "b. to"
+    },
+    {
+      "question": "I am aware ____ this fact.",
+      "options": ["a. by", "b. to", "c. with", "d. of"],
+      "correctOption": "d. of"
+    },
+    {
+      "question": "Beware ___ wild dogs lest you should be bitten.",
+      "options": ["a. by", "b. to", "c. of", "d. for"],
+      "correctOption": "c. of"
+    },
+    {
+      "question": "His son is blind ____ right eye and needs major surgery.",
+      "options": ["a. of", "b. in", "c. with", "d. for"],
+      "correctOption": "b. in"
+    },
+    {
+      "question": "We should not be blind ___ the fault of our children.",
+      "options": ["a. by", "b. to", "c. with", "d. for"],
+      "correctOption": "b. to"
+    },
+    {
+      "question": "Your speech has no bearing ____ the subject we are discussing.",
+      "options": ["a. on", "b. to", "c. with", "d. for"],
+      "correctOption": "a. on"
+    },
+    {
+      "question": "I believe ____ him because he is honest.",
+      "options": ["a. by", "b. in", "c. with", "d. for"],
+      "correctOption": "b. in"
+    },
+    {
+      "question": "He compensated me _____ the damage to my scooter.",
+      "options": ["a. by", "b. to", "c. with", "d. for"],
+      "correctOption": "d. for"
+    },
+    {
+      "question": "He is cured ____ illness after long treatment.",
+      "options": ["a. by", "b. of", "c. with", "d. for"],
+      "correctOption": "b. of"
+    },
+    {
+      "question": "There is no cure _____ AIDS yet.",
+      "options": ["a. by", "b. of", "c. with", "d. for"],
+      "correctOption": "d. for"
+    },
+    {
+      "question": "He will compete with me ___ the first position in the college.",
+      "options": ["a. by", "b. of", "c. with", "d. for"],
+      "correctOption": "d. for"
+    },
+    {
+      "question": "I conform ___ the rules of the committee.",
+      "options": ["a. by", "b. to", "c. with", "d. for"],
+      "correctOption": "b. to"
+    },
+    {
+      "question": "The child was clinging ____ her mother.",
+      "options": ["a. by", "b. of", "c. with", "d. to"],
+      "correctOption": "d. to"
+    },
+    {
+      "question": "You must comply ____ the rules laid down by the committee.",
+      "options": ["a. by", "b. of", "c. with", "d. for"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "The accused was condemned _____ death.",
+      "options": ["a. to", "b. of", "c. with", "d. for"],
+      "correctOption": "a. to"
+    },
+    {
+      "question": "Sahil congratulated his friend ___ his success.",
+      "options": ["a. by", "b. on", "c. with", "d. for"],
+      "correctOption": "b. on"
+    },
+    {
+      "question": "My sister is always confident ____ her success.",
+      "options": ["a. by", "b. of", "c. with", "d. for"],
+      "correctOption": "b. of"
+    },
+    {
+      "question": "You should never count ___ unreliable persons.",
+      "options": ["a. by", "b. of", "c. on", "d. for"],
+      "correctOption": "c. on"
+    },
+    {
+      "question": "Charge ___ murder was framed against him.",
+      "options": ["a. by", "b. of", "c. on", "d. for"],
+      "correctOption": "b. of"
+    },
+    {
+      "question": "He was charged ____ the murder of his neighbour.",
+      "options": ["a. by", "b. with", "c. on", "d. for"],
+      "correctOption": "b. with"
+    },
+ {
+      "question": "My advocate can’t cope ____ heavy court work.",
+      "options": ["a. by", "b. of", "c. with", "d. for"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "Every Indian should contribute ___ the success of Indian economy.",
+      "options": ["a. to", "b. of", "c. on", "d. for"],
+      "correctOption": "a. to"
+    },
+    {
+      "question": "He complained ___ the Principal against me.",
+      "options": ["a. by", "b. of", "c. to", "d. for"],
+      "correctOption": "c. to"
+    },
+    {
+      "question": "The teacher complained ____ his rude behaviour.",
+      "options": ["a. by", "b. of", "c. on", "d. for"],
+      "correctOption": "b. of"
+    },
+    {
+      "question": "He has committed himself ____ the service of the society.",
+      "options": ["a. by", "b. to", "c. on", "d. for"],
+      "correctOption": "b. to"
+    },
+    {
+      "question": "The house consists ___ four rooms.",
+      "options": ["a. by", "b. of", "c. on", "d. for"],
+      "correctOption": "b. of"
+    },
+    {
+      "question": "The teacher dwelt ___ the need of discipline.",
+      "options": ["a. by", "b. of", "c. on", "d. for"],
+      "correctOption": "c. on"
+    },
+    {
+      "question": "He died ___ Malaria after a few days’ illness.",
+      "options": ["a. by", "b. of", "c. from", "d. for"],
+      "correctOption": "b. of"
+    },
+    {
+      "question": "He died ____ over work because hard work had affected his health adversely.",
+      "options": ["a. from", "b. of", "c. on", "d. for"],
+      "correctOption": "a. from"
+    },
+    {
+      "question": "I differ ____ you on the views of life.",
+      "options": ["a. by", "b. of", "c. with", "d. for"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "She differs ____ me both in habits and looks.",
+      "options": ["a. from", "b. with", "c. on", "d. for"],
+      "correctOption": "a. from"
+    },
+    {
+      "question": "My friend deals _____ cloth.",
+      "options": ["a. in", "b. with", "c. on", "d. for"],
+      "correctOption": "a. in"
+    },
+    {
+      "question": "You must learn how to deal _____ customers.",
+      "options": ["a. by", "b. with", "c. on", "d. for"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "You can’t dispense ___ the use of fan in summer.",
+      "options": ["a. by", "b. with", "c. on", "d. for"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "I shall dispose ____ my old furniture and buy new one.",
+      "options": ["a. by", "b. of", "c. off", "d. for"],
+      "correctOption": "b. of"
+    },
+    {
+      "question": "Being spiritual he is disgusted _____ materials lie life.",
+      "options": ["a. by", "b. with", "c. on", "d. for"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "Everyone felt disgusted ___ his jokes.",
+      "options": ["a. by", "b. with", "c. on", "d. at"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "He has decided to embark ___ new business undertaking.",
+      "options": ["a. by", "b. with", "c. on", "d. for"],
+      "correctOption": "c. on"
+    },
+    {
+      "question": "India and America entered ___ various agreements.",
+      "options": ["a. into", "b. in", "c. on", "d. for"],
+      "correctOption": "a. into"
+    },
+    {
+      "question": "My brother has decided to enter ___ expansion programme of his business.",
+      "options": ["a. upon", "b. with", "c. in", "d. for"],
+      "correctOption": "c. in"
+    },
+    {
+      "question": "I need not enlarge ____ the problem and waste your time.",
+      "options": ["a. by", "b. with", "c. on", "d. for"],
+      "correctOption": "c. on"
+    },
+    {
+      "question": "His wife is endowed ____ both charms and talents.",
+      "options": ["a. by", "b. with", "c. on", "d. for"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "The children were fascinated ____ all the toys in the shop windows.",
+      "options": ["a. by", "b. with", "c. on", "d. for"],
+      "correctOption": "a. by"
+    },
+    {
+      "question": "I was fascinated ____ her because of her admirable manners.",
+      "options": ["a. by", "b. with", "c. on", "d. for"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "Carnivorous animals feed ____ flesh.",
+      "options": ["a. by", "b. with", "c. on", "d. for"],
+      "correctOption": "c. on"
+    },
+    {
+      "question": "He is fond _____ classical music.",
+      "options": ["a. by", "b. with", "c. of", "d. for"],
+      "correctOption": "c. of"
+    },
+    {
+      "question": "For lack ____ money he could not continue study further.",
+      "options": ["a. of", "b. with", "c. on", "d. for"],
+      "correctOption": "a. of"
+    },
+    {
+      "question": "Katrina is good _____ dancing.",
+      "options": ["a. at", "b. with", "c. of", "d. to"],
+      "correctOption": "a. at"
+    },
+    {
+      "question": "I have not heard ___ him for a long time.",
+      "options": ["a. at", "b. from", "c. of", "d. to"],
+      "correctOption": "b. from"
+    },
+    {
+      "question": "I heard ____ this event in Mumbai and rushed back to Delhi.",
+      "options": ["a. at", "b. with", "c. of", "d. to"],
+      "correctOption": "c. of"
+    },
+ {
+      "question": "You can’t infer anything _____ his statement.",
+      "options": ["a. at", "b. with", "c. from", "d. to"],
+      "correctOption": "c. from"
+    },
+    {
+      "question": "Wise persons have insight ___ the reality of life.",
+      "options": ["a. at", "b. with", "c. into", "d. to"],
+      "correctOption": "c. into"
+    },
+    {
+      "question": "Sara is wanting ____ common sense.",
+      "options": ["a. over", "b. upon", "c. for", "d. in"],
+      "correctOption": "d. in"
+    },
+    {
+      "question": "Hindus believe in many rituals to ward the evils ____.",
+      "options": ["a. over", "b. upon", "c. for", "d. off"],
+      "correctOption": "d. off"
+    },
+    {
+      "question": "Sheetal yearned _____ the return to her own home.",
+      "options": ["a. over", "b. upon", "c. for", "d. to"],
+      "correctOption": "c. for"
+    },
+    {
+      "question": "The police are inquiring _____ the case.",
+      "options": ["a. at", "b. with", "c. of", "d. into"],
+      "correctOption": "d. into"
+    },
+    {
+      "question": "Don’t interfere ____ my private affairs.",
+      "options": ["a. at", "b. in", "c. of", "d. to"],
+      "correctOption": "b. in"
+    },
+    {
+      "question": "Refrain from interfering ____ the course of justice.",
+      "options": ["a. at", "b. with", "c. of", "d. to"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "He intruded ___ the room but was turned out.",
+      "options": ["a. at", "b. with", "c. into", "d. to"],
+      "correctOption": "c. into"
+    },
+    {
+      "question": "Your remarks are really worthy ___ note.",
+      "options": ["a. over", "b. upon", "c. for", "d. of"],
+      "correctOption": "d. of"
+    },
+    {
+      "question": "Don’t intrude ___ the privacy of anyone.",
+      "options": ["a. on", "b. with", "c. of", "d. to"],
+      "correctOption": "a. on"
+    },
+    {
+      "question": "Don’t jump ___ conclusion without giving due consideration to the facts.",
+      "options": ["a. at", "b. to", "c. of", "d. to"],
+      "correctOption": "b. to"
+    },
+    {
+      "question": "Mr Rohit is well known ___ his benevolence.",
+      "options": ["a. at", "b. with", "c. for", "d. to"],
+      "correctOption": "c. for"
+    },
+    {
+      "question": "He lives entirely ___ vegetables these days.",
+      "options": ["a. on", "b. with", "c. for", "d. to"],
+      "correctOption": "a. on"
+    },
+    {
+      "question": "I have to live ___ the labour of my own hands.",
+      "options": ["a. at", "b. with", "c. for", "d. by"],
+      "correctOption": "d. by"
+    },
+    {
+      "question": "You should listen ___ my advice.",
+      "options": ["a. at", "b. with", "c. for", "d. to"],
+      "correctOption": "d. to"
+    },
+    {
+      "question": "I hold you liable ___ the murder.",
+      "options": ["a. at", "b. with", "c. for", "d. to"],
+      "correctOption": "c. for"
+    },
+    {
+      "question": "He is liable ___ imprisonment and fine.",
+      "options": ["a. at", "b. with", "c. for", "d. to"],
+      "correctOption": "d. to"
+    },
+    {
+      "question": "Never laugh ____ the old persons.",
+      "options": ["a. at", "b. with", "c. for", "d. to"],
+      "correctOption": "a. at"
+    },
+    {
+      "question": "Even educated persons were lacking ____ table manner.",
+      "options": ["a. at", "b. with", "c. in", "d. to"],
+      "correctOption": "c. in"
+    },
+    {
+      "question": "She has great liking ____ children.",
+      "options": ["a. at", "b. with", "c. for", "d. to"],
+      "correctOption": "c. for"
+    },
+    {
+      "question": "He warned the nation ____ financial crisis.",
+      "options": ["a. over", "b. of", "c. for", "d. to"],
+      "correctOption": "b. of"
+    },
+    {
+      "question": "There is likeness _____ the Chinese and Koreans.",
+      "options": ["a. at", "b. with", "c. between", "d. for"],
+      "correctOption": "c. between"
+    },
+    {
+      "question": "There is always a limit ___ friendship.",
+      "options": ["a. at", "b. with", "c. for", "d. to"],
+      "correctOption": "d. to"
+    },
+    {
+      "question": "He has been neglectful ____ his business.",
+      "options": ["a. at", "b. to", "c. for", "d. of"],
+      "correctOption": "d. of"
+    },
+    {
+      "question": "Don’t be negligent _____ your duty.",
+      "options": ["a. at", "b. in", "c. for", "d. to"],
+      "correctOption": "b. in"
+    },
+    {
+      "question": "Oblivious ____ danger, they kept on marching ahead.",
+      "options": ["a. of", "b. with", "c. for", "d. to"],
+      "correctOption": "a. of"
+    },
+    {
+      "question": "Her mother was overwhelmed ____ love for his son.",
+      "options": ["a. at", "b. with", "c. for", "d. to"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "The enemy was overwhelmed ___ our army.",
+      "options": ["a. at", "b. with", "c. by", "d. for"],
+      "correctOption": "c. by"
+    },
+    {
+      "question": "Thickly populated areas are prone _____ riots and diseases.",
+      "options": ["a. at", "b. with", "c. for", "d. to"],
+      "correctOption": "d. to"
+    },
+    {
+      "question": "They prevailed _____ all odds in life.",
+      "options": ["a. at", "b. with", "c. upon", "d. against"],
+      "correctOption": "c. upon"
+    },
+    {
+      "question": "I have prevailed ____ him to come to attend the function.",
+      "options": ["a. at", "b. with", "c. for", "d. on"],
+      "correctOption": "d. on"
+    },
+    {
+      "question": "He presided ____ the meeting in the absence of the Chairman.",
+      "options": ["a. upon", "b. with", "c. for", "d. over"],
+      "correctOption": "d. over"
+    },
+    {
+      "question": "He is popular ___ the students of the class.",
+      "options": ["a. at", "b. with", "c. for", "d. to"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "They partook ____ our food and were satisfied.",
+      "options": ["a. at", "b. with", "c. of", "d. for"],
+      "correctOption": "c. of"
+    },
+    {
+      "question": "The rich prey ___ the poor",
+      "options": ["a. at", "b. on", "c. for", "d. to"],
+      "correctOption": "b. on"
+    },
+    {
+      "question": "He repented ______ the misdeeds of his youth.",
+      "options": ["a. at", "b. of", "c. for", "d. to"],
+      "correctOption": "b. of"
+    },
+    {
+      "question": "He has not yet been reconciled ____ his wife.",
+      "options": ["a. at", "b. with", "c. for", "d. to"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "You can safely reckon _____ the books for advice.",
+      "options": ["a. upon", "b. with", "c. for", "d. to"],
+      "correctOption": "a. upon"
+    },
+    {
+      "question": "All his friends smiled mockingly ____ his failure.",
+      "options": ["a. at", "b. with", "c. for", "d. to"],
+      "correctOption": "a. at"
+    },
+{
+      "question": "At last fate smiled ___ him and he was successful.",
+      "options": ["a. at", "b. with", "c. for", "d. on"],
+      "correctOption": "d. on"
+    },
+    {
+      "question": "I shall speak _____ you to the commander.",
+      "options": ["a. at", "b. with", "c. for", "d. to"],
+      "correctOption": "d. to"
+    },
+    {
+      "question": "There is no scenic spot here to speak _____.",
+      "options": ["a. at", "b. with", "c. for", "d. of"],
+      "correctOption": "d. of"
+    },
+    {
+      "question": "He started _____ journey for Mumbai though he did not have enough money.",
+      "options": ["a. at", "b. on", "c. for", "d. to"],
+      "correctOption": "c. for"
+    },
+    {
+      "question": "It is futile to strive _____ permanent joy in life.",
+      "options": ["a. at", "b. with", "c. for", "d. to"],
+      "correctOption": "c. for"
+    },
+    {
+      "question": "Don’t strive ____ the rich and the powerful.",
+      "options": ["a. at", "b. with", "c. for", "d. to"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "He would never side _____ those who are unjust.",
+      "options": ["a. at", "b. with", "c. for", "d. to"],
+      "correctOption": "b. with"
+    },
+    {
+      "question": "Communal speeches will spark ____ riots in the town.",
+      "options": ["a. at", "b. with", "c. off", "d. to"],
+      "correctOption": "c. off"
+    },
+    {
+      "question": "Think ___ a plan and let me know tomorrow.",
+      "options": ["a. at", "b. with", "c. for", "d. of"],
+      "correctOption": "d. of"
+    },
+    {
+      "question": "I will think ____ your case after some time.",
+      "options": ["a. at", "b. upon", "c. for", "d. to"],
+      "correctOption": "b. upon"
+    },
+    {
+      "question": "Her remarks are tantamount _____ insult.",
+      "options": ["a. over", "b. upon", "c. for", "d. to"],
+      "correctOption": "d. to"
+    },
+    {
+      "question": "Do not trespass ____ government land.",
+      "options": ["a. over", "b. upon", "c. for", "d. on"],
+      "correctOption": "b. upon"
+    },
+    {
+      "question": "Sohan was punished for trespassing ______ rules of the road.",
+      "options": ["a. over", "b. upon", "c. against", "d. to"],
+      "correctOption": "c. against"
+    },
+    {
+      "question": "I am vexed ____ my sister’s absence.",
+      "options": ["a. over", "b. upon", "c. for", "d. at"],
+      "correctOption": "d. at"
+    },
+    {
+      "question": "At last he triumphed ____ his difficulties.",
+      "options": ["a. over", "b. upon", "c. for", "d. to"],
+      "correctOption": "a. over"
+    },
+    {
+      "question": "Globalisation has ushered ____ an era of market economy.",
+      "options": ["a. over", "b. upon", "c. for", "d. in"],
+      "correctOption": "d. in"
+    },
+    {
+      "question": "She is versed _____ the art of cooking.",
+      "options": ["a. in", "b. upon", "c. for", "d. to"],
+      "correctOption": "a. in"
+    },
+    {
+      "question": "Though rich, Rohit is not vain _____ her health.",
+      "options": ["a. over", "b. upon", "c. of", "d. to"],
+      "correctOption": "c. of"
+    },
+    {
+      "question": "Don’t get vexed ____ me.",
+      "options": ["a. over", "b. upon", "c. with", "d. to"],
+      "correctOption": "c. with"
+    },
+    {
+      "question": "He tided ______ all the difficulties with determination.",
+      "options": ["a. Of", "b. away", "c. for", "d. over"],
+      "correctOption": "d. over"
+    },
+
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

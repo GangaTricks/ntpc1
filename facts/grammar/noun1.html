@@ -1,0 +1,3089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noun Practice QUIZ APP</title>
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Noun Part 1 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'noun1';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+     // Display explanation
+    const explanation = document.createElement('explanation');
+explanation.innerHTML = `${currentQuestion.explanation || ''}`;
+optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+{
+    question: "1. Can't you see (a) / that the cattle (b) / is grazing in the field? (c) / So, you cannot play there. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 1. (c) Cattle is a plural noun, so use are grazing in the field." },
+{
+    question: "2. If those (a) / cattles are (b) / yours, whose (c) / are these ones. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 2. (b) Cattle is a plural noun, hence it is not made plural by adding -s/es." },
+{
+    question: "3. The gentry of Mumbai does not (a) / like Salman Khan at (b) / all, even though he has a (c) / number of good movies to his credit. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 3. (a) Gentry is a plural noun, so use do instead of does." },
+{
+    question: "4. The police (a) / has arrested him, (b) / so we are going (c) / to the police station. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 4. (b) Police is a plural noun, so use have instead of has." },
+{
+    question: "5. Science has (a) / proved that (b) / even vermin (c) / carries diseases. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 5. (d) Vermin is a plural noun, so use carry instead of carries." },
+{
+    question: "6. Yesterday she gave me (a) / several pieces of advices (b) / which have really proved (c) / an elixir to me. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 6. (b) Use Advice instead of Advices." },
+{
+    question: "7. These furnitures are (a) / of very good quality; (b) / this is why they (c) / are so expensive. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 7. Furniture is an uncountable noun, hence it does not have a plural." },
+{
+    question: "8. She had already (a) / given you (b) / an information regarding that mishap, (c) / however, she did care even an iota for it. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 8. (c) Information is an uncountable noun, so do not use it before it." },
+{
+    question: "9. I have heard that (a) / you are shifting (b) / to a new quarter (c) / at Andheri tomorrow. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 9. (c) Quarters is the right word for where someone resides." },
+{
+    question: "10. What would you like (a) / to say, if one (b) / asks you anything (c) / about the Indian force. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "Answer key 10. (d) Use 'The Indian Forces'." },
+{
+    question: "11. On the way to Pune (a) / she stopped so many times (b) / to admire the vernal (c) / sceneries flanking along the macadamized roads. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 11. (d) 'Scenery' is an uncountable noun, hence its plural is not formed." },
+{
+    question: "12. Would you please (a) / tell me how many (b) / soaps do you (c) / use in a month? (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 12. (c) 'Soap' is an uncountable noun. Soap cannot be made plural by adding (s), hence pieces/bars of soap will be used instead of soaps." },
+{
+    question: "13. Don’t you (a) / know her angers (b) / is as dangerous (c) / as the flaring fire. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 13. (b) Anger will be used in place of 'Angers'. 'Anger' is an uncountable noun, it cannot be made plural by adding (-s) to it, hence 'a fit of/ fits of anger' is used to make it countable." },
+{
+    question: "14. Can you give me at (a) / least five breads to eat, (b) / because I am so hungry (c) / that one or two won’t do at all. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 14. (b) 'Bread' is an uncountable noun, so to make it countable, 'loaves of' should be used, like 'five loaves of bread'. Some such uncountable nouns are- information, advice, apparatus, furniture, music, research, baggage, land, crockery, poetry, scenery, bread, anger, dress, jewellery, chocolate, grass etc. Before these, as per requirement, use a bit of/an items of/an article of/a piece of/a type of/a kind of/a fit of as their singular and bits of/items of/articles of/pieces of/types of. Their plural is made by using /kinds of/fits of." },
+{
+    question: "15. A few days ago (a) / she received a letter (b) / of advices on how to (c) / give a makeover to life. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 15. (c) A letter of advice will be used instead of A letter of advices, because advice is an uncountable noun. Therefore, it cannot be made plural by adding (-s) at the end. To make it countable, a piece of/a bit of is used. As- A piece/bit of advice Pieces/bits of advice" },
+{
+    question: "16. Commander-in-chiefs (a) / are among (b) / those who (c) / get handsome salary. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 16. (a) Use Commanders-in-chief. Compound noun is made plural by adding s/es to the head word, hence -s will be used with commander." },
+{
+    question: "17. Only today I have (a) / come to know (b) / that Sunny has two (c) / sister-in-laws. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 17. (d) Use 'Sisters-in-Law'." },
+{
+    question: "18. She was greeted (a) / by all the (b) / passer-bys near (c) / Laxmi Nagar Metro station. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 18. (c) Use passers-by instead of 'passer-bys'. It means 'passerby'." },
+{
+    question: "19. The Karkardooma court has issued (a) / five summons against him (b) / so far, but he (c) / has attended to none of them. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 19. (b) Use 'Summonses' in place of 'Summons', because summons is a singular countable noun. Therefore, article 'a' is also used before it and summonses are made by adding its plural '-es'. Like- The court has issued a summons. Five summonses have been issued. Summons: An official order to appear in a court of law." },
+{
+    question: "20. Mathematics are a very (a) / difficult subject for (b) / those students who (c) / don’t work hard. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 20. (a) Use 'Mathematics is'." },
+{
+    question: "21. His mathematics is very (a) / good, so she will (b) / surely obtain more (c) / than 90% marks. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 21. (a) His mathematics are will be used in place of His mathematics is. Know the rule: There are some subjects or activities whose names end with -ics; Like: Economics, Mathematics, Politics, Statistics, Ethics, Acoustics, Linguistics, Physics, Classics, Genetics, Athletics etc.. These are singular, hence singular verb is generally used with them. But using the or Possessive Adjectives (my, your, his, her etc.) before these words changes their meaning, and they become plural nouns and in such a situation their Plural verbs are used with. Like- My mathematics (i.e. mathematical calculations) are very good. The economics (i.e. the economical facts) of the situation have yet to be explored. What are his politics (i.e. poltical views)." },
+{
+    question: "22. The politics of India is (a) / very pathetic because (b) / politicians are corrupt (c) / and inefficient. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 22. (a) Use 'The politics of India are...'." },
+{
+    question: "23. She has only (a) / two issues while (b) / her sister has (c) / four offspring. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 23. (b) Use two issues or two children instead of two issues. Know the Rule: When Issue means child, it is used without any change in both singular and plural forms; That means -s is not added to it. But when issue means issue or problem, then issues is used as its plural form. E.g.: India has to face many issues (समस्याएँ) such as poverty, corruption, terrorism etc. She died without issue (सन्तान). There are some nouns which are used without any change in both singular and plural forms, such as- Barracks, corps, crossroads, means, innings, precis, se- ries, species, works (=factory), deer, sheep, swine, issue (संतान), offspring (संतान) etc." },
+{
+    question: "24. Most people in India (a) / now live in a house (b) / built of bricks, (c) / but earlier it was not like that. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 24. (c) Brick will be used instead of bricks. Here brick is used as a building material, hence it is an uncountable noun and cannot be made plural. Structure: Made of/ built of + brick/stone/ marble/ glass/ wood (always singular)" },
+{
+    question: "25. She asked me (a) / to tell you that (b) / whenever you went to market, you would (c) / get her some fruits. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 25. (d) 'Some fruit' will be used in place of 'Some fruits'. Know the rule: 1. Fruit is used as an uncountable noun in the meaning of 'fruit' (apple, orange etc.). In this situation, a (article) is not used before it, nor is it used with plural formation (-s). As- Fruit is expensive these days. He is going to buy some fruit. 2. But when fruit is used in the sense of kind of fruit, then it is used as a countable noun and article (a) can be used before it and it becomes plural by adding -s. Is also made. Like- A mango is a fruit. (a kind of fruit) A mango and an orange are two fruits. (two kinds of fruit) Fruits is also used as a plural noun in the sense of benefit or result. Like- Hard work bears fruits. The fruits of industry are very sweet." },
+{
+    question: "1. You cannot rely (a) / on him (b) / because he is not (c) / true to his words. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "Answer key 1. (d) True to his words will be used in place of True to his words. Here the meaning of word is 'promise'. When word means 'word' then it can be used in both singular and plural forms but when word means promise then it is always used in singular form."  },
+{
+    question: "2. One has (a) / rightly said that (b) / the beauty (c) / is only skin deep. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "Answer key 2. (c) Remove 'The'. Know the rule: When an uncountable noun is used in general form, no article is used. As- Life is beautiful. But when it is connected to another word through of, then the is used, like - The life of Mr. Kaam Karim was inspiring."  },
+{
+    question: "3. There are a number of (a) / Indian beauties who (b) / are going to participate (c) / in this contest. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "Answer key 3. (e) There is no error. Here beauties means beauties."  },
+{
+    question: "4. I have an urgent work (a) / to do right now, (b) / so call me (c) / up after some time. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "Answer key 4. (a) Here 'an' will stand for urgent piece of work, because work is an uncountable noun."  },
+{
+    question: "5. The news were (a) / so shocking that (b) / depressed her to bits and she (c) / decided to leave the town. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "Answer key 5. (a) Use was instead of were."  },
+{
+    question: "6. We need to (a) / change this house (b) / because it is (c) / out of repairs. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "Answer key 6. (d) Use 'repair' instead of 'Repairs', because repair is an uncountable noun."  },
+{
+    question: "7. Her hairs are not (a) / so straight and silky (b) / as yours, because she/ does not take care of it properly. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "Answer key 7. (a) Use hair instead of hairs. Know the Rule: When Hair is used in the sense of 'hair' (inclusively) then it is an uncountable noun. Therefore, its plural is not formed by adding (-s). As- Your hair is black. He is going to have his hair cut."  },
+{
+    question: "8. Can you imagine(a) / that she (b) / has fifty (c) / two pairs of shoes. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "Answer key 8. (e) There is no error."  },
+{
+    question: "9. We all are (a) / living life with all (b) / creature comforts but (c) / her circumstance is not good. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "Answer key 9. (d) Use 'Her circumstances are...'. If it is generally used in plural form, here it means the condition of a person's life which can be financial or any other type."  },
+{
+    question: "10. Manjeet has bought (a) / four dozens eggs (b) / and a few pieces of pencil (c) / for his nephew. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "Answer key 10. (b) Use 'dozen' instead of 'dozens'. If a numerical adjective is used before numerical nouns then it is not made plural."  },
+{
+    question: "11. Could you please (a) / lend me (b) / five thousands rupees (c) / for a week. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "Answer key 11. (c) Use 'Five thousand rupees'."  },
+{
+    question: "12. Lac of people came (a) / to see the final test match (b) / between India (c) / and Australia yesterday. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "Answer key 12. (a) Use 'Lacs of people' because no numerical adjective has been used before the numerical. noun"  },
+{
+    question: "13. Thirty million of people (a) / are below the poverty (b) / line in India and our government (c) / is not doing anything in this regard. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "Answer key 13. (a) Use 'Thirty million of the people'."  },
+{
+    question: "14. Can you bring (a) / a ten inches ruler (b) / for me now, because (c) / I have to measure something? (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "Answer key 14. (b) Use 'inch' instead of 'inches'. When a noun describes another noun coming after it, the first noun is not made plural."  },
+{
+    question: "15. You will surely (a) / get tired, if (b) / you take (c) / another two miles walk now. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "Answer key 15. (d) Use 'mile' in place of 'Miles'."  },
+{
+    question: "16. No matter how (a) / adverse the situation (b) / is, you must not stop (c) / your study. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "Answer key 16. (d) Use 'studies' in place of 'Study'. Know the rule: When study is used as a noun, it is used with different meanings in both singular and plural forms. As- Study (singular noun) Study of a particular subject or field Studies (plural noun) - study/study Study/Studies (Noun) study room/room - Study (verb) - When study is used as a verb, it means to study."  },
+{
+    question: "17. Having won the world cup (a) / for three times (b) /on the trot, Australia must (c) / be in high spirits. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "Answer key 17. (e) There is no error. 'In high spirit' is wrong, but 'In high spirits' is correct. Spirits - A person's feelings or state of mind. E.g.: You must try and keep your spirits up."  },
+{
+    question: "18. She will have finished (a) / two third of the work (b) / by the next Monday for sure, so you can (c) / think of allotting another assignment to her. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "Answer key 18. (d) Use 'two thirds of the work'."  },
+{
+    question: "19. She is good at English, (a) / so we can expect (b) / that she will get (c) / full mark in Grammar. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "Answer key 19. (d) 'Full marks' will be used in place of 'Full marks'."  },
+{
+    question: "20. My mother does not like (a) / those sort of guys (b) / even in the least, (c) / I cannot invite them. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "Answer key 20. (b) Use 'those sorts of' instead of 'those sort of'."  },
+{
+    question: "21. Man is a product (a) / of the environment so (b) / we should keep (c) / our surrounding salubrious. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "Answer key 21. (d) Use 'surroundings' instead of 'surrounding'. Surroundings means 'environment'. Surrounding is a present participle form and adjective and surroundings is a noun."  },
+{
+    question: "22. The rich is getting (a) / richer and richer (b) / and the poor (c) / are getting poorer.(d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "Answer key 22. (a) 'The rich are...' will be used. Know the rule: 'The+Adjective' is used as a plural noun. Therefore, only plural verb will always be used with it. As- The poor are getting poorer and poorer. The rich are getting richer and richer."  },
+{
+    question: "23. The poor’s plight in India (a) / is very pathetic, (b) / so we must do something (c) / to improve their condition. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "Answer key 23. (a) Use of Apostrophe (s) The+Adj. Is not done with. Therefore use 'The plight of the poor'."  },
+{
+    question: "24. He has been (a) / very kind enough (b) / to give five billion rupees (c) / to a poor for their rehabilitation. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "Answer key 24. (d) Use 'the poor', because the use of a/an+ Adj (without noun) st pr is wrong. When there is an adjective without a noun, only the is used before it."  },
+{
+    question: "25. The life of the rich (a) / is not as peaceful and (b) / pleasant as that of the poor’s (c) / in so many ways. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "Answer key 25. (c) Remove the apostrophe (-s) from Poor."  },
+{
+    question: "1. She does not (a)/get along with (b)/her sister-in-laws. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "Answer key 1. (c) 'Sister-in-law' will be used instead of 'Sister-in-laws'. Know the Rule: The plural of any compound noun is formed by adding '-s' or '-es' to its head or root word. As- brothers-in-law passers-by"  },
+{
+    question: "2. Please give me (a)/the binocular, (b)/I want to look at the hills. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "Answer key 2. (b) 'Binoculars' will be used instead of 'Binocular'. Know the rule: Scissors, binoculars, tongs, pincers, and pliers' are some nouns that are always used in the plural form."  },
+{
+    question: "3. Alms (a)/are given (b)/ to the poors. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "Answer key 3. (c) 'Poor' will be used instead of 'Poors' because 'poor' is an adjective which cannot be made plural. Keep in mind that the + Adjective forms a plural noun, so it is wrong to add s/es to it."  },
+{
+    question: "4. He (a)/takes pain (b)/over his work. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "Answer key 4. (b) 'Pains' will be used instead of 'Pain' because 'pain' is used in the sense of 'physical pain' whereas 'pains' is used in the sense of 'struggle, trouble or effort'."  },
+{
+    question: "5. He was asked (a)/to put his sign (b)/in the application. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "Answer key 5. (b) Instead of 'Put his sign', 'put his signature' will be used. As a noun, sign means 'sign' and not 'signature'."  },
+{
+    question: "6. The most studious boy (a)/in the class (b)/was made as the captain. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "Answer key 6. (c) The use of 'As the' is unnecessary. Know the rule: If any noun is used as a complement after the verbs 'elect, appoint, select, make, crown', then neither article nor 'as' is used before that noun."  },
+{
+    question: "7. I am participating (a)/in the two-miles race (b)/tomorrow morning. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "Answer key 7. (b) 'Two-mile' will be used instead of 'Two-miles'."  },
+{
+    question: "8. Many peoples were (a)/brought to safety (b)/by the army helicopters (c)/from the flood hit area. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "Answer key 8. (a) 'People' will be used instead of 'people' because when 'people' means 'men and women' i.e. 'people' then it is plural, but when 'people' means 'nation' ( If it is a nation or 'race'/tribe, then it is considered a singular countable noun and its plural is made 'peoples' as per requirement; As- People know that the earth is round. Thousands of peoples (= races) invaded India in the past."  },
+{
+    question: "9. The company's decision to issue (a)/bonus shares clearly indicates (b)/the management's confident (c)/about the future. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "Answer key 9. (c) 'Confidence' will be used instead of 'Confident' because 'confident' is an adjective whereas 'confidence' is a noun, and after any possessive adjective or its equivalent word, a noun is used, not an adjective."  },
+{
+    question: "10. My daughter-in-laws (a)/who are in Kolkata (b)/have come to visit us. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "Answer key 10. (a) 'Daughters-in-law' will be used instead of 'Daughter-in-laws'. Know the rule: The plural of any compound noun is formed by adding '-s' or '-es' to its head or root word, like - Sisters-in-law. Commanders-in-chief"  },
+{
+    question: "11. The sceneries (a)/of Kashmir (b)/is very charming. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "Answer key 11. (a) 'Scenery' will be used instead of 'Sceneries'. Know the rules: Scenery, poetry, imagery, drapery, pottery, jewellery, cutlery, crockery etc. They are uncountable nouns and they are not made plural."  },
+{
+    question: "12. Two million of people (a)/attended the meeting (b)/held in the parade ground. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "Answer key 12. (a) Use of 'Of' is unnecessary. Know the rule: If any numerical adjective is used before 'hundred, thousand, million, billion, trillion' and is indicating a total number, then 'of' is not used after it."  },
+{
+    question: "13. There is a Bach's violin concerto (a)/on the radio (b)/at 6 p.m. this evening. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "Answer key 13. (a) 'Concerto' will be used instead of 'Concerto' because 'concerto' means 'music composition' while 'concert' means 'music seminar'."  },
+{
+    question: "14. While I am (a)/doing the house works (b)/I like to listen to (c)/music on the radio. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "Answer key 14. (b) 'Work' will be used instead of 'Works' because 'work' is an uncountable noun in the sense of work and 'home work' is used for 'home work'."  },
+{
+    question: "15. You will find a lamp-post (a)/ at the front side (b)/ of the institute. (c)/No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "Answer key 15. (b) Instead of 'Front side' only 'front' will be used. Know the rule: Side is not used with front/back."  },
+{
+    question: "16. The manager put forward (a)/a number of criterions (b)/for the post. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "Answer key 16. (b) 'Cirteria' will be used instead of 'Criterions' because 'criterion' is a singular noun whose plural is 'criteria', not 'criterions'."  },
+{
+    question: "17. The Railways have (a)/ made crossing tracks (b)/a punished offence. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "Answer key 17. (c) 'Punishable' will be used instead of 'Punished'. 'Punishable offence' means 'punishable offence'."  },
+{
+    question: "18. A member shall be required (a)/to pay interest at such rate (b)/as is fixed by the committee. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "Answer key 18. (b) 'Such a rate' will be used instead of 'Such rate' because 'a/an' is used after such if it is followed by singular countable. Noun has been used."  },
+{
+    question: "19. I like (a)/the poetries (b)/of Byron and Shelley. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "Answer key 19. (b) 'Poetry' will be used instead of 'Poetries' because 'poetry' is an uncountable noun and its plural cannot be made."  },
+{
+    question: "20. The Actress believes in (a)/being fit and feels that there (b)/ are too much hype around size zero (c)/in the entertainment world. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "Answer key 20. (c) 'Is' will be used instead of 'Are' because the verb used after 'there' depends on the number of noun or pronoun used after it and in the given sentence the verb used after 'there' The noun 'hype' is singular."  },
+{
+    question: "21. It is very (a)/ difficult to chase (b)/ a huge score (c)/ in the second inning. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "Answer key 21. (d) In this sentence, 'in the second innings' will be used instead of 'in the second innings', because innings is used with 5 in both singular and plural forms."  },
+{
+    question: "22. Nine tenths (a)/of the pillar (b)/have rotted away. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "Answer key 22. (c) 'Has' will be used instead of 'Have'. Know the rule: Expressions like 'One third of, two thirds of, three fourths of' are used to indicate both number and quantity, hence if a plural noun is used after them, then they indicate the number and for them plural Verb is used, but if there is a singular countable noun or uncountable noun after them, then singular verb is used for them; As: Two thirds of the books are old. Two thirds of the road was damaged."  },
+{
+    question: "23. The infection which causes (a)/gums to bleed and teeth to fall out (b)/results from the build-up of (c)/a particular bacteria that is common to most mouths. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "Answer key 23. (d) Singular noun 'bacterium' will be used instead of plural noun 'bacteria', because article 'a' is used before singular countable noun."  },
+{
+    question: "24. Hectic schedule can (a)/take a toll on anybody and (b)/the solutions to this is (c)/a quick holiday to some exotic location. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "Answer key 24. (c) Instead of 'Solutions' singular form 'solution' will be used. 'Hecetic schedule' is a problem and a quick holiday has been talked about as a solution. Since only one solution has been discussed, solution will be used in singular form."  },
+{
+    question: "25. The professor tried (a)/his best to clean all (b)/their doubts in the subject (c)/after his lecturing. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "Answer key 25. (d) 'Lecture' will be used instead of 'Lectruing' because 'lecture' is a noun and a noun is used with a possessive adjective (my, our, his, her, its, their)."  },
+{
+    question: "1. She has gone through (a) / the several plays of Marlowe’s (b) / who is said to have influenced (c) / Shakespeare in many ways. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 1. (b) Remove the apostrophe ('s) as it is not required." },
+{
+    question: "2. Delhi water supply system is (a) / not as good as (b) / it should be because (c) / of various problems. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 2. (a) Use The water supply of Delhi instead of Delhi's water supply." },
+{
+    question: "3. To me, the root cause of (a) / failure and frustration lies (b) / in the Government's negligence (c) / to education system. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 3. (c) 'The negligence of the Government' will be used instead of 'The Government's negligence'." },
+{
+    question: "4. A friend of Preeti came (a) / to meet her mother who (b) / has been ill (c) / for more than two months. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 4. (a) Use ('s) with Preeti i.e. use 'A friend of Preeti'. Know the rule: In the construction of A + Noun + of + Noun, ['s] is used with the last noun if this noun is a specific person, like - A son of Damodar's, A sister of Amit's, etc. But keep in mind: A photograph of Parvesh (A photograph of Parvesh i.e. the photograph in which Parvesh is) A villa of Onkar's" },
+{
+    question: "5. The master said (a) / to the students, (b) / “ Everybody business is (c) / nobody’s business. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 5. (c) Use 'Everybody's business'." },
+{
+    question: "6. His problems in life are, (a) / however, not so serious (b) / and painful as (c) / Vikas for sure. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 6 (d) Use apostrophe (') with Vikas, because the comparison is with Vikas's problem and not with Vikas himself." },
+{
+    question: "7. Gold of a gram weight (a) / will cost you two thousand rupees (b) / and the making cost will be (c) / as per the type of jewellery. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 7. (a) Use 'a gram's weight' in place of 'A gram weight'." },
+{
+    question: "8. The chair’s legs are (a) / not as strong as that yours (b) / so I will not buy that one (c) / even though it is cheaper. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 8. (b) Instead of 'Table's legs' we have to use 'The legs of the table'. Know the rule: Ownership and possession are expressed with the help of apostrophe ('s) or of. But there are some main differences in the use of ('s) and 'of'. Use of Apostrophe ('s)- (a) Human beings, animals, words telling time, weight Apostrophe is used with descriptive words, natural objects etc., like- Man's life, parrot's feather, a year's leave, three years' time, a gram's weight, the earth's gravity, the sun's rays, etc. (b) Apostrophe ['s] is not generally used with inanimate objects. But, if they are used in human form then ['s] can be used; Like- Death's kiss, fortune's favorite etc. The bes (c) Sometimes ('s) is also used to keep the expression short; As- The train's journey, the plane's pilot etc." },
+{
+    question: "9. Your suggestion was certainly (a) / billons of rupees value, (b) / as it changed (c) / my life well and truly. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 9. (b) Use 'Worth billions of rupees'." },
+{
+    question: "10. An earth quake is (a) / a natural phenomenon and (b) / it is very difficult (c) / to get control over it. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "Answer key 10. (e) There is no error." },
+{
+    question: "11. One of my best book (a) / on communication skill is going (b) / to be published as soon as (c) / I am finished with it. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 11. (a) Plural noun is used after 'One of', hence use 'My best books'. Know the rule: After one of, plural noun and singular verb are used. One of + the + Plural Noun +Singular Verb One of each of / either of/ neither of/ none of / any of + the + Plural Noun + Singular Verb E.g. One of the boys is coming to meet you. Neither of the girls is my sister." },
+{
+    question: "12. Judge in him (a) / is very considerate (b) / and (c) / sagacious to the bone. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 12. (a) The judge will be used in place of Judge, because here the judge within him has been talked about i.e. his ability to take right or wrong decisions. Know the rule: If a common noun is used like an abstract noun, then the is used before that common noun. (i) The patriot in him (ii) The mother in you (the feeling of the mother present inside you)" },
+{
+    question: "13. She has been running (a) / four five stars hotels (b) / in India for more (c) / than ten years. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 13. (b) Use singular form 'star' in place of 'Stars'." },
+{
+    question: "14. Several summons have been (a) / issued by the court but (b) / he has not turned up (c) / even a single time. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 14. (a) Use 'summonses' in place of 'summons'." },
+{
+    question: "15. She said to her friend, (a) / “ Do convey my best (b) / regard and wishes (c) / to your brother. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 15. (c) Respects will be used in place of Regard. Regard - respect/respect Regards - Best wishes" },
+{
+    question: "16. All of the poetries by Keats (a) / are very fascinating and (b) / mesmerizing, so you must (c) / go through it at least once. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 16. (a) Use 'Poems'. 'Poetry' is an uncountable noun, hence its plural is not formed, whereas 'poem' is a countable noun and its plural is 'poems'." },
+{
+    question: "17. Each of the boy and the girl (a) / has to be present (b) / here at (c) / ten o’ clock sharp at any cost. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 17. (a) Use 'Each of the boys and the girls'. Know the rule: After each of, either of, neither of, plural noun or pronoun and singular verb is used, As- Each of us wants to succeed in life. Either of you was absent from the class." },
+{
+    question: "18. These type of books (a) / are undoubtedly very useful (b) / to the guys preparing for (c) / all kinds of competitive examinations. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 18. (a) Use 'These types of'. Plural noun is always used after these and those." },
+{
+    question: "19. Due to my illness, I (a) / have not been able to write (b) / even the two third of the book (c) / which was expected to be published in May. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 19. (c) Use 'Two thirds of the book'." },
+{
+    question: "20. For certain reason, (a) / he was not able to come (b) / here to see her mother (c) / and he is very remorseful of this fact. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 20. (a) Use 'For certain reasons' instead of 'For certain reason'. Know the rule: Plural noun is used after certain. But, after a certain singular noun is used. E.g.: For a certain reason, I couldn't go." },
+{
+    question: "21. Although his means is very (a) / scanty and slander, (b) / he is able to raise his (c) / four children on his own. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 21 (a) Use 'His means are'. When 'means' means income/earnings it is always plural. Know the Rule: When means means method, it is used in both singular and plural meanings. But when means means source of money, 'monetary resources' then it is always used in plural meaning, like- This means of transport is very old. Several means (methods) of transport are available to you. His means (monetary resources) are insufficent to keep him." },
+{
+    question: "22. At least those who belong (a) / to the same profession must (b) / live amicably, as they are bothers and a bond (c) / however professional in nature does exist among them. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 22. (c) 'Brethren' will be used in place of 'Brothers'. Know the rule: Plurals of some nouns are formed in two ways - Brother (i) Brothers: Sons of the same parents. (ii) Brethren: Members of a society or community Cloth (i) Cloths: Unstitched cloth (ii) Clothes: Stitched clothes (Garments) The (i) Dies: A device used for printing and coining (ii) Dice: Small cubes used in games. Index (i) Indexes: Tables of contents in a book. (ii) Indices: Signs used in algebra." },
+{
+    question: "23. Don’t you think (a) / he does everything (b) / for conscience’s sake and I do everything (c) / for God’s sake? (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 23. (c) Use 'Conscience' sake instead of 'Conscience's sake'." },
+{
+    question: "24. Good night Mukesh! (a) / How (b) / are you (c) / feeling now? (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 24. (a) Use 'Good evening' instead of 'Good night'." },
+{
+    question: "25. You cannot imagine (a) / that I have been in (b) / the teaching line for more than (c) / thirty years. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 25. (c) Saying 'teaching line' is a slang, hence use 'teaching profession'." },
+{
+    question: "1. Will you please (a) / tell me how long you (b) / will take to credit (c) / this sum to my name? (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 1. (d) Use 'my account' instead of 'my name'." },
+{
+    question: "2. The police (a) / has arrested (b) / him for his wrongdoings (c) / for more than five times. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 2. (b) 'The police' is a plural noun, hence use have." },
+{
+    question: "3. My cousin brother (a) / who lives in America (b) / is coming tomorrow to (c) / attend his brother’s marriage ceremony. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 3. (a) Remove 'Brother'. It is considered wrong to use brother or sister with cousin." },
+{
+    question: "4. Finally, the jury was divided (a) / over an issue, which (b) / did not augur well (c) / by any means. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 4. (a) 'Jury were divided' will be used. Here we are talking about members of the 'jury', hence it is plural. Know the Rule: When a collective noun is used as a noun of multitude, then a plural verb is always used with it. In other words, if the collective noun implies a unit then singular verb is used and if it implies members then plural verb is used. Collective Nouns Audience, assembly, army, committee, community, council, crowd, company, family, firm, flock, government, group, gang, herd, jury, parliament, public, team, union, opposition, etc. Examples of Collective Noun best (a) Her family is the best family amongst us. (b) The team is all agog to play. Examples of Noun of Multitude (a) Her family are scattered all around the world. (b) The team are fighting with one another." },
+{
+    question: "5. If you score more (a) / than 90% marks in the examination, (b) / you will be granted (c) / freeship by the school. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 5. (d) 'Free studentship' will be used in place of 'Freeship'." },
+{
+    question: "6. Because of his misconduct (a) / and irregularity, (b) / his service (c) / have been terminated finally. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 6. (c) Use 'services' in place of 'Service'." },
+{
+    question: "7. No one is able to tell (a) / the reason of the death of (b) / the world’s greatest (c) / dancing star, Michael Jackson. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 7. (b) 'The cause of death' will be used." },
+{
+    question: "8. It is strictly prohibited (a) / from going out in (b) / a windy weather because (c) / going out may be life threatening. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 8. (c) 'Weather' is an uncountable noun. So remove 'a'." },
+{
+    question: "9. If the item is not satisfactory, (a) / I assure you on behalf (c) / of the company, you (c) / will get all your moneys back. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 9. (d) Use money in place of moneys, because it is an uncountable noun." },
+{
+    question: "10. Right now, I cannot talk (a) / to you any more because (b) / I have an urgent work to finish (c) / which I was supposed to finish only yesterday. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 10. (c) 'Work' is an uncountable noun, hence remove 'an'." },
+{
+    question: "11. Though I have no exact figure, (a) / I can finally say (b) / that around millions (c) / would have been spent on the project. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 11. (c) 'Millions' itself represents an indefinite number so remove 'around'." },
+{
+    question: "12. Looking at the present scenario, (a) / it is very obvious that no Soniya (b) / but only Indira can think anyway better (c) / about the remedial solution to the cross border terrorism. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 12. (c) In place of 'Only Indira', 'only an Indira' will be used. Here 'an Indira' means a person with qualities like Indira, not the actual 'Indira' 1" },
+{
+    question: "13. Generally people hesitate (a) / to say but I never feel (b) / like anything when I have to tell somebody (c) / how much I get in hands. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 13. (d) Use 'How much I get in hand'." },
+{
+    question: "14. I understood things (a) / very clearly because (b) / they were explained (c) / words for words. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 14. (d) Use 'Word for word'. Know the Rule: When two nouns are joined by a preposition, both the nouns are used in singular form. Like- Ship after ship is arriving. He begged from door to door." },
+{
+    question: "15. The obsequy of his father (a) / cannot be performed (b) / until his eldest son (c) / who lives in America arrives here. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 15. (a) Obsequies will be used in place of obsequy, because obsequies (funeral rites) are always used in plural form." },
+{
+    question: "16. These days all the news (a) / by various news agencies (b) / are very hard to believe (c) / as they are meant to increase their TRP only. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 16. (c) 'Is' will be used in place of 'Are'. Know the Rule: News is a singular uncountable noun. Therefore, neither a/an is used before it nor its plural formation (-s) is done by adding it. Singular verb is always used with it. As- This is good news. All the news was false." },
+{
+    question: "17. Various things having taken into (a) / consideration, it becomes quite (b) / obvious that the politics of our (c) / country is based on nepotism. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 17. (d) The noun which has the suffix -ics attached to it is singular, but if the suffix is ​​attached to it then it is considered plural. Hence, plural verb 'are' will be used with The politics." },
+{
+    question: "18. In my book, everyone (a) / should take interest in (b) / paintings and poetries because they (c) / go a long way in building his character. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 18. (c) Use 'Painting and poetry'." },
+{
+    question: "19. When Sunny got back (a) / to his home last Monday, (b) / he found that a pair of his (c) / trousers were burnt badly. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 19. (d) 'Was' will be used in place of 'Were'." },
+{
+    question: "20. In India, law and order is not as good as (a) / it should be and the reason (b) / being this, the police never reaches in time (c) / to rescue the ones who need them most. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 20. (c) 'The reason being this, the police never reached in time' will be used." },
+{
+    question: "21. There are several means (a) / of transport but particularly (b) / this means of transport make one’s journey (c) / more enjoyable and comfortable. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 21. (c) Use 'makes' instead of 'make'." },
+{
+    question: "22. The officer said (a) / that he appreciated (b) / his staffs coming on time (c) / and co-operating with him. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 22. (c) Use 'His staff's coming'." },
+{
+    question: "23. Yesterday, I visited (a) / Madhaw’s and Meenakshi’s house (b) / but I found that the couple (c) / was not at home. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 23. (b) Use 'Madhaw and Minakshi's house'. Here only one house is mentioned which belongs to two persons and both are husband and wife, hence apostrophe ('s) will be used only with the second noun. Know the rule: If two nouns are connected by 'and' and there is a sense of possessiveness attached to them, then ['s] is used with the last noun. But if there is a sense of different possession then ['s] is used with both the nouns; As- Ravi and Rakhi's son (both have sons) Lalit's and kuldeep's wife (both have different wives)" },
+{
+    question: "24. You must know (a) / that I have always (b) / followed your suggestions (c) / and nobody’s else. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 24. (d) 'Nobody else's' will be used. Know the rule: ['s] is also used with everybody, somebody, nobody, anybody, anyone, someone, no one. But if else is used after this then ['s] is used with else. E.g. This is somebody else's home. Everybody's business is nobody's business." },
+{
+    question: "25. Beyond any shade of doubt, (a) / your advices are the proof (b) / of discerning mind and (c) / pragmatic approach. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 25. (b) Use 'Your advice is the proof'." },
+{
+    question: "1. There was a huge (a)/crowded in front (b)/of the actor's (c)/house on his birthday. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 1. (b) 'Crowded' will be used instead of 'Crowded', because 'crowded' is an adjective whereas 'crowd' is a noun, and for this in Part (A) article 'a' and adjective 'huge' have been used. ; That is, the correct usage would be 'a huge crowd'." },
+{
+    question: "2. Reena came early on (a)/Monday because she had (b)/to plan out the team's schedule (c)/for the whole weeks. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 2. (d) 'Weeks' will be used instead of 'week' because 'for the whole week' means only one week." },
+{
+    question: "3. The furnitures (a)/had become (b)/old and rusty. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 3. (a) 'Furniture' will be used instead of 'Furnitures' because 'furniture' is an uncountable noun and its plural is not made." },
+{
+    question: "4. Dress in black (a)/several students from the university took part (b)/in a protest march in the city on Thursday as a part (c)/of a campaign against female infanticide. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 4. (a) 'Dressed' will be used instead of 'Dress' because 'dress' is used as a noun in the sense of 'clothing' and as a verb in the sense of 'wearing clothes', but 'Dressed' It is used as an adjective in the sense of 'dressed', hence the use of 'Dressed in black' (dressed in black) in the given sentence would be correct." },
+{
+    question: "5. A small depression can (a)/be seen in the centre of the single cell cave (b)/which can accommodate (c)/ a few peoples. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 5. (d) 'People' will be used instead of 'Peoples' because 'people' is always a plural noun in the meaning of 'men and women'. E.g.: People know that the earth is round." },
+{
+    question: "6. The student handed over (a)/a hundred-rupees note (b)/to the class teacher. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 6. (b) Rupee will be used instead of Rupees." },
+{
+    question: "7. India is one (a)/of the largest producers of food in the world (b)/yet nearly 300 million people struggle (c)/to have two square meals a day. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 7. (b) Instead of 'Two square meals', 'a square meal' will be used because 'a square meal' is an idiom which means 'a full meal'." },
+{
+    question: "8. The government initiated (a)/various measures (b)/to raise the living (c)/standards of the people. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 8. (d) 'Measures' will be used instead of 'Measure'. Know the rule: After 'Various/several/many/few' the noun is always in plural form." },
+{
+    question: "9. They are standing (a)/at the gate of the auditorium (b)/as there is no place inside. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 9. (c) 'Room' will be used instead of 'Place' because 'room' is used to mean empty space for a particular purpose, not place. E.g.: Is there enough room for me in the car? 'Place' is used in the sense of 'area', 'city', 'town', 'building' etc. where something happens. Is or where a particular thing is held; As- This is a good place for a picnic." },
+{
+    question: "10. The Arabian Nights (a)/are indeed (b)/an interesting book. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 10. (b) 'Is' will be used instead of 'Are' because 'The Arabian Nights' is the name of a 'book'. Even if the name of any 'country, organization, disease, game, or book' is plural in form, it is always considered singular in function; E.g.: 'The Rivals' is a famous comedy of Sheridan." },
+{
+    question: "11. Children enjoy listening to (a)/ghost stories (b)/especially on Halloween. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 11. (b) 'Ghost stories' will be used instead of 'Ghosts stories' Know the rule: 'Ghost story', 'Fairy tale', 'Love story' are compound nouns whose plural is formed by adding s/es to their root word. That is, their plural will be 'Ghost stories', 'Fairy tales', 'Love stories'." },
+{
+    question: "12. I (a)/have (b)/many works to do. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 12. (c) 'Much work, a lot of work, lots of work, plenty of work' will be used instead of 'Many works' because when 'work' is used in the meaning of 'work' then it is an uncountable noun. It is believed. Therefore, in this sense, neither is it made plural nor 'a/an' is used before it, like - I have some work today. He has much work today. She has a lot of work today." },
+{
+    question: "13. There is so many filths (a)/all around (b)/the place. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 13. (a) 'Much filth' will be used instead of 'Many filths' because 'filth' is an uncountable noun which means 'garbage'. To describe its specialty, not Numerical Adjective 'many' but Quantitative Adjective 'much' will be used." },
+{
+    question: "14. The company has ordered (a)/some (b)/new equipments. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 14. (c) 'Equipment' will be used instead of 'Equipments' because 'equipment' is an uncountable noun whose plural is not made." },
+{
+    question: "15. The software takes (a)/only one seconds (b)/to generate tables and (c)/graphs out of raw data. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 15. (b) 'Second' will be used instead of 'Seconds' because only singular countable noun is used with 'one'." },
+{
+    question: "16. There was a huge (a)/crowd as the famous actor (b)/was invited to (c)/inaugurate the function. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 16. (d) 'Inaugurate' will be used instead of 'Inauguration' because 'inauguration' is a noun whereas 'inaugurate' (To inaugurate) is a verb, and in Part (c) 'to' is used followed by V, that is, 'to inaugurate' will be used." },
+{
+    question: "17. Slick advertising campaigns, (a)/soaring gold prices and (b)/increasing purchasing power of consumers have (c)/helped develop a market for diamonds. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "Answer key 17. (e) No error." },
+{
+    question: "18. In the afternoon, (a)/devotees organized a programme (b)/in which the name of the deity (c)/was chanted one lakh time. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 18. (d) 'Times' will be used instead of 'Time' because 'lakh' is a numerical noun and after it a plural noun is used." },
+{
+    question: "19. Ruskin had postulated (a)/the concept of 'social affection' (b)/as the founding principle (c)/of a humane economy. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 19. (d) 'Human' will be used instead of 'Humane' because 'humane' means 'kind / sympathetic' whereas 'human' means 'humane'. E.g. I have seen a terrible loss of human life. Animals must be reared in humane conditions." },
+{
+    question: "20. The name of (a)/Amitabh's (b)/and Ajitabh's (c)/father is Bachchanji (d)/No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 20. (b) Remove the apostrophe ('s) from 'Amitabh's', because here it implies joint possession and in such a situation apostrophe ('s) is used with the noun coming at the end." },
+{
+    question: "21. The beach (a)/trees and the breeze (b)/created a feeling (c)/of extraordinary calm. (d)/No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 21. (b) The correct spelling is 'breeze' (= cool gentle wind)." },
+{
+    question: "22. After several (a)/years of political turmoil (b)/the state has finally (c)/gained stability. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 22. (d) 'Stability' will be used instead of 'Stable' because 'stable' is an adjective which means 'permanent/firm' whereas 'stability' is a noun which means 'stability'." },
+{
+    question: "23. Instead of being (a)/helpful he was (b)/being hindrance. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 23. (c) 'a' will be used before 'Hindrance' because in the question 'hindrance' is a singular countable noun. 'Hindrance' means 'obstacle/obstacle/barrier' and is used in both countable and uncountable forms. When it is used as a singular countable noun, it takes the article 'a' before it but when it is used as an uncountable noun, it does not take the article 'a' before it." },
+{
+    question: "24. Where (a)/do I have (b)/to deposit fees? (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 24. (d) No error" },
+{
+    question: "25. By the time she finished her work (a)/I had nearly given up (b)/all hope of arriving at the party in time. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 25. (d) No error" },
+{
+    question: "1. When she was young, (a) / she used to keep in her (b) / wallet a bundle of one (c) / thousand rupees notes. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 1. (d) Use 'One thousand rupee notes' because [(Number + Noun (Singular) + Noun (Singular/Plural)]" },
+{
+    question: "2. The poor’s plight (a) / in India is very pathetic (b) / and to top it all, there is (c) / none to improve their condition. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 2. (a) Use 'The plight of the poor' because 'apostrophe ('s) cannot be used with The + Adjective." },
+{
+    question: "3. Whenever you have a free time, (a) / do give me a call. (b) / I would love to spend some (d) / time with you. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 3. (a) Remove 'A' because 'time' is an uncountable noun." },
+{
+    question: "4. Would you please (a)/ lend me ten thousand of rupees? (b)/ I will give you (c)/ back as soon as possible. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 4. (b) Remove 'Of' and use 'ten thousand rupees'." },
+{
+    question: "5. When I was your age, (a) / I used to walk (b) / one kilometer and a half on foot (c) / every day in the morning. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 5. (c) Instead of One kilometer and a half, either a kilometer and a half or one and a half kilometers will be used." },
+{
+    question: "6. Sunny Chandra is offering (a) / milk after milk to Lord Shiva (b) / to be blessed with a beautiful (c) / and vivacious damsel. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 6. (b) Use 'Milk and milk'. Know the rule: In the condition of repetition of noun, 'and' is used to connect two similar uncountable nouns, whereas 'after' or other preposition is used to connect countable nouns." },
+{
+    question: "7. My family is living in various parts (a) / of India and therefore (b) / it is very difficult for me (c) / to meet all folks in one visit. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 7. (a) My family are will be used in place of my family is because here my family means (my family members)." },
+{
+    question: "8. Whether you believe (a) / it or not, (b) / Delhi is one of the (c) / best metropolitan cities in India. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 8. (d) 'Metropolises' will be used in place of 'Metropolitan cities'. Saying 'Metropolitan cities' is slang, that is, it is wrong. Know the rule: After one of, plural countable noun and singular verb are always used, and here the plural form of metropolis (metropolis/main city) will be used 'metropo-lises'." },
+{
+    question: "9. Will you please let me (a) / know what is the criteria (b) / of getting a flat booked (c) / in the apartment? (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 9. (b) 'Criteria' is plural and 'criterion' is singular, hence use 'are' in place of 'is' or use 'criterion' in place of 'criteria'." },
+{
+    question: "10. So many students (a) / are of the opinion that (b) / Mathematics are not a very (c) / easy subject at all. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 10. (c) 'Mathematics is not a very easy subject' will be used." },
+{
+    question: "11. My politics is very (a) / moderate while (b) / his politics are radical (c) / and revolutionary. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 11. (a) Use 'My politics are', here 'politics' means political activities. If possessive adjective is used before noun + ics then it is considered plural." },
+{
+    question: "12. Do you know the (a) / fact that the economics (b) / of this project is very (c) / discouraging ? (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 12. (c) Use 'are' in place of 'is'." },
+{
+    question: "13. I am good (a) / at almost all games (b) / but billiards are not (c) / my cup of tea. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 13. (c) Use 'Billiards' because that is the name of the game. Know the rule: The names of some games like: billiards, dominoes, drafts, bowls, darts appear to be plural, but singular verbs are always used with them. Before these, neither article (a/an) was used, nor could they be made plural by adding extra (-5) to them. As- Let's have a game of draughts." },
+{
+    question: "14. Diabetes are not (a) / a lethal disease like (b) / AIDS but cancer is (c) / really very dangerous. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 14. (a) 'Diabetes is' will be used because it is the name of a disease. Know the rule: The names of some diseases like: diabetes, mumps, rickets, measles, rabies, shingles and appear to be plural, but they are singular, and take with them a singular verb. Before these, neither a/an is used nor can they be made plural by adding (-s). Like- Diabetes is not as serious as cancer. Measles is an infectious disease." },
+{
+    question: "15. The winnings of the game (a) / should be given to (b) / the player without (c) / any further delay. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "Answer key 15. (e) The sentence is correct." },
+{
+    question: "16. My earnings (a) / is not sufficient, (b) / so I have to be economical (c) / to save some against rainy days. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 16. (b) 'Earnings' is plural, hence 'My earnings are not sufficient' will be used." },
+{
+    question: "17. You had better (a) / stop doing the job (b) / and go for (c) / higher educations. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 17. (d) 's' is not used with 'Education' because it is an uncountable noun." },
+{
+    question: "18. You and your (a) / brother (b) / are bereft of (c) / common senses (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 18. (d) Use 'sense' in place of 'senses'. East - 18. (d) Use 'sense' in place of 'senses'." },
+{
+    question: "19. The incident sparked (a) / of three serieses of events (b) / that none had dreamt (c) / of even in his wildest dream. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 19. (b) Use 'series' in place of 'series'. Know the rule: There are some nouns which are same in both the forms – he best singular and plural. (A) Deer, sheep, aircraft, offspring, issue, etc. (B) Means, innings, crossroads, barracks, works, series, headquaters etc. (C) Salmon, squid, pike, carp, plaice, etc. E.g.: There are only two deer in the park. She has bought two sheep." },
+{
+    question: "20. The audience (a) / at Firoj Shah Kotla stadium (b) / is cheering (c) / and hailing ad infinitum. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 20. (c) Use 'Are cheering' because 'audience' refers to everyone sitting in the stadium." },
+{
+    question: "21. It is difficult (a) / to find a work (b) / in the present (c) / economic climate. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 21. (b) Delete 'A'." },
+{
+    question: "22. A marriage is a (a) / union of two beautiful souls (b) / and they say that it (c) / is made in heaven. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 22. (a) Remove 'A', here the word 'Marriage' is used as an uncountable noun. Know the rule: (I) Marriage is used as an uncountable noun in the meaning of 'marriage/marriage/nikah'. Like- Marriage is the union of two souls. (II) But, when marriage means wedding ceremony, it is used as a countable noun. As- Two marriages are to take place in my village next week." },
+{
+    question: "23. Central park (a) / is one and a half kilometer (b) / away (c) / from here. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 23. (b) 'One and a half kilometers' will be used because plural noun is used after 'Number + and + a half'." },
+{
+    question: "24. You need (a) / to cover (b) / one kilometre and a half (c) / within half an hour. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 24. (c) Use 'A kilometer and a half'. Know the rule: 'One' is not used before a noun followed by 'and a half', but any other numerical adjective can be used. That is, one is not used in the construction 'Numeral Adjective + Noun + and a half'. As- It is wrong to say one kilometer and a half, instead use a kilometer and a half." },
+{
+    question: "25. Socrates’s work (a) / is reckoned among (b) / the greatest works rendered (c) / by any philosopher in the world. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 25. (a) Use apostrophe without 's'. Know the rule: Some Greek or Roman names which are singular, and whose last letter is (-s), with such names only the apostrophe ['] is used. Like- Pythagoras' theorem, Archimedes' law, Euripides' plays, Sophocles' plays, Socrates' idealism." },
+{
+    question: "1. It must be noted (a) / that one of these (b) / men’s daughter was hanged (c) / to death during the fight for freedom. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 1. (c) Wrong construction has been used in this sentence, hence use 'the daughter of one of these men was hung'." },
+{
+    question: "2. The council consist of (a) / more than ten members (b) / and each and every member (c) / has to be very honest to his work. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 2. (a) 'Consists' will be used in place of 'Consist'." },
+{
+    question: "3. All her family members (a) / are great admirers of (b) / Sachin Tendulkar (c) / and Saurabh Ganguli. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 3. (a) It is slang to say 'All the members of her family'. Use. app'Family." },
+{
+    question: "4. People must know (a) / that the wages of sin (b) / are nothing but death (c) / or troublesome life. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 4. (c) Use 'The wages of sin is nothing but death' because here wages means result and in this sense it is a singular noun." },
+{
+    question: "5. Such a phenomena has (a) / never been seen here (b) / before and it is highly (c) / threatening for the whole humanity. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 5. (a) Use 'Phenomenon'. 'Phenomena' is its plural form." },
+{
+    question: "6. When I reached home (a) / I found that all (b) / of the members of his family (c) / were sleeping on the ground of the room. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 6. (d) “The floor of the room” will be used." },
+{
+    question: "7. I need twenty males and fifty females (a) / to get this work done (b) / within less (c) / than five days. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 7. (a) Use 'I need twenty men and fifty women'." },
+{
+    question: "8. No one has been able (a) / to know the reasons of the death (b) / of Michal Jackson so far, (c) / as it was a mysterious demise. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 8. (b) 'Cause' will be used in place of 'Reasons'." },
+{
+    question: "9. He says he knows French very well (a) / but as a matter of fact (b) / he does not know (c) / the alphabets of French. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 9. (d) 'Use Alphabet. 'Alphabet' is used for alphabet and 'alphabets' is used for different languages." },
+{
+    question: "10. Preeti has to finish (a) / two third of the (b) / work within twenty four hours (c) / and you have to finish the whole work in one day. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 10. (b) 'Two thirds of the work' will be used." },
+{
+    question: "11. It was two days ago (a) / that he bought a very beautiful (b) / car for eighty thousands dollars (c) / from USA. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 11. (c) Use 'eighty thousand dollars' instead of 'Eighty thousands dollars'. Know the rule: If numerical nouns like dozen, gross, score, hundred, thousand, million, billion, trillion etc. If indefinite article 'a' or any numerical adjective like one, two, three, four etc. is used before 'a', then their singular and plural forms are the same. Singular a/one dozen a/one hundred a/one million Plural five dozen five hundred twenty million." },
+{
+    question: "12. When I was going to Dubai (a) / I lost (b) / a bundle of one thousand rupees notes (c) / on the way. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 12. (c) 'Rupee' will be used in place of 'Rupees'." },
+{
+    question: "13. Three police were running after (a) / a terrorist who had (b) / recently made an attempt (c) / to explode the parliament (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 13. (a) 'Three police men' will be used in place of 'Three police'." },
+{
+    question: "14. Why don’t you take (a) / a two-kilometers walk (b) / in the morning, as it will (c) / help you stay fit and fine. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 14. (b) Use 'kilometre' instead of 'Kilometres'." },
+{
+    question: "15. The haves should not look down upon (a) / the haves not, (b) / rather they should help (c) / them prosper and flourish. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 15. (b) 'Have-nots' will be used in place of 'Haves-not'. The haves = The rich The have-nots = The poor." },
+{
+    question: "16. All his sister-in-laws (a) / have got ethereal beauty, (b) / so for me it is very (c) / difficult to choose one of (d) / them to tie knot with. (e) /No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 16. (a) Use 'Sisters-in-law'." },
+{
+    question: "17. He has bought two dozen of eggs (a) / to make omelettes for dinner (b) / but I do (c) / not like eggs at all. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 17. (b) Use 'omelette' instead of 'omelettes'. Know the rule: When the word 'omelette' is used for a dish, it is an uncountable noun and its plural is not made." },
+{
+    question: "18. Social surrounding play (a) / a very instrumental role (b) / in shaping the character (c) / and the life style of children. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 18. (a) Use 'surroundings' instead of 'surrounding'." },
+{
+    question: "19. My means are very limited, (a) / so I do not think (b) / that I will be able to afford (c) / such an expensive villa ever in life. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "Answer key 19. (e) There is no error." },
+{
+    question: "20. I use (a) / a very fine quality of shampoo (b) / to keep my hairs healthy (c) / and silky all the time. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "Answer key 20. (c) Use 'hair' in place of 'Hair'." },
+{
+    question: "21. She uses four soaps (a) / in a month while her mother used to be (b) / very economical as far as the expenses (c) / on the toilet preparations are concerned. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "Answer key 21. (a) 'Soap' is an uncountable noun. Hence use 'four pieces of soap'." },
+{
+    question: "22. Her house is (a) / made of bricks, (b) / while mine is made (c) / of glass and iron only. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 22. (b) Use 'brick' instead of 'Bricks'." },
+{
+    question: "23. I gave (a) / the police five informations about the (b) / terrorists who were hiding (c) / there to execute some bloody plan. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 23. (b) In place of 'five informations' 'five pieces of information' will be used." },
+{
+    question: "24. She has to leave for Mumbai (a) / tomorrow for an urgent work, (b) / so get a ticket (c) / booked for her. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "Answer key 24. (b) 'An urgent piece of work' will be used." },
+{
+    question: "25. When Sunil got back from Shimla, (a) / he said that he had never (b) / seen such a wonderful (c) / spectacles in his life before. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "Answer key 25. (d) 'Use Spectacle. Here singular form will be used because a has been used. In this sentence spectacle means 'scene'." },
+
+{
+    question: "1. Most of the Indian populations still lives (a)/in its villages and thus the contribution of agriculture to Indian economy (c)/becomes very important. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnsweKey 1. (a) Population will be used instead of Populations because population, which means population, is an uncountable noun and its plural is not made." },
+{
+    question: "2. Krishnakali, an early riser and a nature-lover (a)/goes to morning walk at Rabindra Sarovar lake (b)/before dawn. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 2. (d) Goes for a mor' in place of 'Goes to morning walk" },
+{
+    question: "3. On receiving the mark-sheet from the university (a)/I realised (b)/that I had got only passing marks in English. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 3. (c) Pass marks will be used instead of Passing marks." },
+{
+    question: "4. Two millions people (a)/attended the meeting (b)/held in parade grounds. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Use million instead of millions." },
+{
+    question: "5. I read (a)/a great deal of (b)/books. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Instead of A great deal of, a lot of/lots of/a number of/a large number of will be used, because a great deal of is used to express quantity in the sense of much. For is used before an uncountable noun, while a lot of or lots of is used before an uncountable noun or a plural countable noun to indicate quantity or number and a number of or a large number of is used before a plural countable noun to indicate number." },
+{
+    question: "6. The machineries are (a)/ not functioning (b)/these days. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 6. (a) Instead of The machinery are it would be the machinery is because machinery is an uncountable noun." },
+{
+    question: "7. In India (a)/working woman lead a life of dual responsibilities (b)/if they are married and have a family. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 7. (b) Instead of Working woman, working women will be used because plural subject will be used for plural verb lead, hence plural noun women will be used because in Part (c) plural pronoun will be used for it. they has been used." },
+{
+    question: "8. Many overseas students (a)/attend colleges (b)/in the Great Britain. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 8. (c) The is not used before Great Britain." },
+{
+    question: "9. The media of films has been accepted by all (a)/as the most powerful force (b)/that influences the younger generation. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 9. (a) Medium will be used in place of media, because here only medium films has been talked about. Keep in mind that the plural form of medium is media." },
+{
+    question: "10. My father gave me (a)/a pair of binocular (b)/on my birthday. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 10. (b) Binoculars will be used instead of Binoculars because there are some tools whose names are always in plural form; Like- binoculars, clippers, compasses, dividers, pincers, pliers, scissors, tongs, etc." },
+{
+    question: "11. Kalidas is (a)/a Shakespeare (b)/of India. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) The Shakespeare will be used instead of A Shakespeare. If of + Noun is used after the name of a person, then the is used before that person's name." },
+{
+    question: "12. Soudoku was first designed in the 1970s (a)/by a retired arhitect (b)/and freelance puzzle constructor. (c)/No Error. (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 12. (c) Designer will be used instead of Constructor because the one who prepares the puzzle is called puzzle designer." },
+{
+    question: "13. Each of these boys (a)/play (b)/games. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 13. (b) Plays will be used instead of Play because plural noun or plural pronoun is used after each of/either of/neither of/one of/revery one of/any one of, but The verb is always singular." },
+{
+    question: "14. I (a)/go to school (b)/by walk. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 14. (c) Use on foot instead of by walk. Go on foot is used for to go on foot." },
+{
+    question: "15. The paintings of natural sceneries (a)/are selling (b)/like hot cakes. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 15. (a) Scenery will be used instead of Sceneries." },
+{
+    question: "16. It is a (a)/desert (b)/place. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 16. (b) Desert will be used instead of Desert because desert is a noun which means desert, whereas deserted is an adjective which means abandoned/uninhabited/deserted. . Since place is a noun and its characteristic is described by adjective, hence the use of deserted would be correct." },
+{
+    question: "17. You shall get (a)/all the informations (b)/if you read this book carefully. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 17. (b) Information will be used instead of Informations because information is an uncountable noun before which neither a/an is used nor is it made plural." },
+{
+    question: "18. On entering the crowding room (a)/I could not see one person (b)/whom I knew. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 18. (a) Crowded will be used instead of Crowding because crowd is used as a noun in the sense of crowd, while as a verb it is used in the sense of crowded and its adjective. The form is crowded which means full of people. As far as crowding is concerned, it means to gather or to gather, here the use of crowded would be appropriate from the point of view of meaning." },
+{
+    question: "19. According to some estimates (a)/there are (b)/five thousands type of flowers. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 19. (c) Use thousand types instead of thousands type." },
+{
+    question: "20. According to some estimates, (a)/there are (b)/seven thousand type of plants. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 20. (c) Use of types instead of Type because the noun coming after a numerical noun is always in plural form." },
+{
+    question: "21. Some of his (a)/luggages were lost (b)/ in the train. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 21. (b) Luggage will be used instead of Luggages because luggage, baggage, breakage, espionage, postage, knowledge, progress, furniture, traffic, information, news etc. They are uncountable nouns, hence neither the article a/an is used before them nor they are made plural." },
+{
+    question: "22. Mohan's eyes (a)/reflect a hope (b)/for a better future in Microsoft. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 22. (a) Mohan's will be used instead of Mohans because to make Mohan possessive, apostrophe ['s] will be used with Mohan." },
+{
+    question: "23. According to state government’s estimates (a)/at least six millions tones of rice (b)/will have to be imported (c)/this year because of a poor monsoon. (d)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 23. (b) Million will be used in place of Millions." },
+{
+    question: "24. Many passer-bys (a)/stopped at (b)/the place of the accident. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 24. (a) Passers-by will be used instead of Passer-bys because passer-by is a countable noun which means pathik/rahi and its plural is passers-by. Similarly, the plural of looker-on is lookers-on, and the plural of hanger-on is hangers-on." },
+{
+    question: "25. Akbar was (a)/one of the finest king (b)/that India ever had. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 25. (b) Kings will be used instead of King, because the noun coming after one of/each of/either of/neither of/every one of/each one of/any one of is always plural. Is. Like- One of the boys. Each of the girls." },
+{
+    question: "1. The FBI has already (a) / informed the Indian government (b) / of the whereabout of (c) / these three terrorists. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnsweKey 1. (c) Always use whereabouts." },
+{
+    question: "2. One must work (a) / hard day in day out (b) / to attain one goal, (c) / the preacher said to his followers. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 2. (c) Use To attain one's goal." },
+{
+    question: "3. The Indian captain does (a) / not like his player playing (b) / in such a reckless (c) / manner all the time. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 3. (b) Use Does not like his player's playing." },
+{
+    question: "4. It is very difficult to (a) / improve the present (b) / political agitation of (c) / this country’s by any means. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 4. (d) Remove the apostrophe ('s)." },
+{
+    question: "5. His sister’s-in-law hubby (a) / has been ill for more (b) / than two months, so you (c) / must go to see him. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 5. (a) Use His sister-in-law's hubby." },
+{
+    question: "6. You must appreciate him (a) / helping the needy man (b) / who was suffering (c) / from a chronic disease. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 6. (A) Use his in place of him, because here helping is a gerund, and possessive adjective (his) is used before this form of the verb." },
+{
+    question: "7. One must be (a) / true to one’s words, (b) / said the teacher (c) / while delivering a speech on the Independence Day. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 7. (b) Use word in place of Words." },
+{
+    question: "8. A beauty is (a) / only skin deep, (b) / said one of the students (c) / at the convocation. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 8. (a) Remove A." },
+{
+    question: "9. This dress is made of a (a) / wonderful cloth which (b) / is not only expensive (c) / but also rare. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 9. (a) Delete A. In this sentence cloth is an uncountable noun." },
+{
+    question: "10. His circumstance is not good, (a) / so we must support (b) / and give him eighty thousand rupees (c) / for his mother’s treatment. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 10. (a) Use His circumstances are not good." },
+{
+    question: "11. In spite of all his efforts, (a) / I could not get full mark (b) / in the examination (c) / held on 25th January last year. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use Full marks." },
+{
+    question: "12. He was very hungry (a) / when he reached home, (b) / so he ate twelve breads (c) / and a lot of chicken curry. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 12. (c) Use Twelve pieces of bread, not twelve breads." },
+{
+    question: "13. If you are (a) / going to market, (b) / do get me some fruit, (c) / as I am on fast today. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 13. (e) There is no error." },
+{
+    question: "14. Bengali people (a) / do eat fishes every day, (b) / but she does not (c) / like it at all. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 14. (b) Use fish instead of fishes." },
+{
+    question: "15. Do you know that (a) / there is only one police (b) / barracks nearby Church Gate (c) / in Mumbai? (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 15. (e) There is no error." },
+{
+    question: "16. He decided to marry (a) / her only because of (b) / the fact that her look is (c) / very attractive and fascinating. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 16. (c) Use looks instead of look." },
+{
+    question: "17. Yesterday I met God (a) / and He told me that (b) / He is not happy with (c) / menkind even in the least. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 17. (d) Use mankind in place of Mankind." },
+{
+    question: "18. You must learn good manner (a) / and unlearn those bad (b) / habits of staring (c) / at girls passing along the road. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 18. (a) Manners will be used in place of Manner." },
+{
+    question: "19. Indian society disapproves (a) / of sex before a marriage, (b) / while in western countries (c) / there is nothing of this sort. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 19. (b) The word marriage used in this sentence is an uncountable noun, hence remove a." },
+{
+    question: "20. I remember meeting (a) / you along with my (b) / mother and sister (c) / in a summer time nearby Juhu Beach. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 20. (d) Summertime is an uncountable noun, so drop the a and use in the summertime. It is also used without the." },
+{
+    question: "21. People used to live (a) / on the branches of (b) / the trees during the ancient (c) / time but now it is completely changed. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 21. (d) Always use Ancient times instead of Ancient times." },
+{
+    question: "22. You must have (a) / had fantastic time with (b) / your would-be better (c) / half in Shimla. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 22. (b) Use A fantastic time." },
+{
+    question: "23. His house is made of a glass, (a) / while mine is made (b) / of brick. So, you (c) / cannot compare mine with his. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 23. (a) Remove A. Glass is an uncountable noun." },
+{
+    question: "24. You could not help laughing, (a) / while the team was squabbling (b) / like children (c) / over something trivial. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 24. (b) Use The team were squabbling. Here we are talking about the members of the team because squabbling is an activity and every member of the team is doing this activity separately, hence here we are talking about the individuals of the team." },
+{
+    question: "25. The return on the investment of (a) / this sort is undoubtedly (b) / ample, but it has (c) / some risks too. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 25. (a) Returns will be used in place of Return." },
+{
+    question: "1. The opposition has not (a) / been able to oppose (b) / the new bill regarding the (c) / woman reservation. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnsweKey 1. (d) Women's will be used." },
+{
+    question: "2. The unemployed’s number (a) / in India is increasing (b) / day by day, (c) / but the Government seems little concerned. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 2. (a) Use The number of the unemployed." },
+{
+    question: "3. There is a very (a) / dangerous crossroads nearby (b) / South Extension Part II, (c) / so drive carefully when you reach there. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 3. (e) There is no error." },
+{
+    question: "4. I have bought a goggle (a) / for you and (b) / two pairs of trousers (c) / for Shyam. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Use I have bought a pair of goggles." },
+{
+    question: "5. One should never (a) / give alm to the beggar, (b) / as it only increases the (c) / numbers of beggars. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Use Alms. It is always used with -s." },
+{
+    question: "6. This Sunday we are (a) / going to the (b) / picture to have (c) / fun with our friends. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 6. (c) Use Go to the pictures. Here The pictures means cinema." },
+{
+    question: "7. Yesterday night (a) / she gave me a very fantastic news, (b) / which I shared (c) / with my mother. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 7. (b) News is an uncountable noun, hence A fantastic piece of news will be used." },
+{
+    question: "8. Billiards are such a wonderful (a) / game which can be (b) / played by both men (c) / and women. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 8. (a) Billiards is will be used because it is the name of the game and it is singular." },
+{
+    question: "9. If you think that (a) / measles are a very infectious (b) / disease, you are (c) / off the beam. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 9. (b) Use Measles is, because it is the name of a disease and it is singular." },
+{
+    question: "10. I will present you (a) / a fancy dress on your 21st birth day, (b) / so cheer up and go to (c) / school now. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 10. (e) There is no error." },
+{
+    question: "11. People who enjoy (a) / these kind of activities (b) / can be very useful (c) / for your company. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use These kinds of activities." },
+{
+    question: "12. It is true that Shakespeare (a) / gave this world (b) / a number of literary work (c) / which speak volumes about his artistic genius. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 12. (c) Works will be used in place of Work." },
+{
+    question: "13. People were said (a) / to be more innocent in (b) / ancient time than those (c) / in this age and time. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 13. (c) Use Ancient times." },
+{
+    question: "14. You should always (a) / work hard because (b) / the fruits of hard work (c) / are very sweet and rewarding. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 14. (e) There is no error." },
+{
+    question: "15. When I was in U.K (a) / on a sabbatical with my (b) / wife and children who (c) / were very young, (d) / we kept a good time over there. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 15. (b) Remove a before Sabbatical." },
+{
+    question: "16. I take a pride (a) / in saying that our troop (b) / have fought bravely (c) / or in other words, they fight fire with fire. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 16. (a) Use Take pride. Remove a because pride is an uncountable noun and indefinite article is not used before an uncountable noun." },
+{
+    question: "17. I am going to an iron works (a) / to meet the general (b) / manager of this factory (c) / who has promised to pay off my debt. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 17. (e) There is no error, because here works means factory." },
+{
+    question: "18. The way you stare at (a) / beautiful and bold gals (b) / is really a bad manner (c) / which you must improve as soon as possible. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 18. (c) Drop ‘A’ and use ‘bad manners’." },
+{
+    question: "19. It is strictly prohibited (a) / to eat beeves, (b) / if you are a Hindu (c) / but I do not think that way. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 19. (b) Use Eat beef." },
+{
+    question: "20. Let’s go out to breathe (a) / some fresh airs, (b) / since we spend the whole (c) / day sitting in this windowless room. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 20. (b) Use Fresh air." },
+{
+    question: "21. Although the audience were (a) / small in the meeting, (b) / it was a very good (c) / brain-storming session for all of us. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 21. (a) Use The audience was." },
+{
+    question: "22. I am very much satisfied (a) / with what life has (b) / given me but I (c) / must do something for the betterment of poor. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 22. (d) Use the before Poor." },
+{
+    question: "23. Disabled are not (a) / allowed to take part in this (b) / competition which is (c) / going to be held next Monday in Bombay. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 23. (a) The will be used before Disabled." },
+{
+    question: "24. My earning is less than (a) / what you earn yearly, (b) / so it is difficult for me to (c) / afford such an expensive villa right now. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 24. (a) Use earnings in place of Earnings." },
+{
+    question: "25. After taking dinner every (a) / one of us has to take (b) / some sweet which my (c) / mother has sent me. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 25. (c) Sweets will be used, because sweet means sweet while sweets means sweets." },
+{
+    question: "1. Please give me two (a)/dozens bananas and (b)/a piece of coconut. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnsweKey 1. (b) Dozen will be used instead of Dozens." },
+{
+    question: "2. The way to increase the production of the food (a)/ is to bring more land (b)/ under- cultivation. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 2. (a) Remove the the used before Food." },
+{
+    question: "3. A lot of money (a)/were spent (b)/on the commonwealth games. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 3. (b) Was will be used instead of Were because money is an un-countable noun, for which singular verb is used. A lot of, lots of, and plenty of are used to express both number and quantity. If after this a plural countable noun is used then a plural verb is used and if an uncountable noun is used then a singular verb is used." },
+{
+    question: "4. Neurotoxin attacks (a)/the nervous system (b)/and damage it. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 4. (c) Damages will be used instead of Damage because the subject Neurotoxin is singular for which singular verb attacks has been used in Part (a), and singular verb damages has also been used in Part (c). Will be used." },
+{
+    question: "5. In these days of inflation (a)/a ten rupees note will not buy you (b)/even an ordinary meal. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Rupee will be used instead of Rupees." },
+{
+    question: "6. A five-men (a)/enquiry committee was appointed (b)/to look into the matter. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 6. (a) Instead of five-men it will be five-man." },
+{
+    question: "7. People blamed him (a)/for being (b)/a coward person. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 7. (c) Use of Person is unnecessary, because coward is a singular countable noun meaning a cowardly person; Like- He is not a coward. These are cowards." },
+{
+    question: "8. He goes (a)/to the office (b)/by foot. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 8. (c) On foot will be used instead of By foot because on foot is an idiomatic use which means walking; As-" },
+{
+    question: "9. The hundred-rupees notes/that he gave them for the goods bought from them looked genuine (a)/but later they reliably (b)/learnt that the notes were all counterfeit. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 9. (a) hundred-rupees will be used instead of hundred-rupees because if a numerical adjective and a noun are used like an adjective then the plural of this noun is not formed." },
+{
+    question: "10. Cattles (a)/were grazing (b)/in the meadows (c)/near our farm. (d)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 10. (a) Cattle will be used instead of Cattle because cattle in itself is a plural noun and -s is not added to it." },
+{
+    question: "11. Their frequent visits (a)/to the sight keeps (b)/the labour force always alert (c)/and on their toes. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Site will be used instead of Sight." },
+{
+    question: "12. After the brief appearance before the waiting crowds, (a)/he was taken (b)/to the Governor chamber (c)/for the swearing-in ceremony. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 12. (c) Governor's chamber will be used instead of Governor's chamber." },
+{
+    question: "13. If a student needs advices about (a)/careers, (b)/he or she should consult (c)/the career officer. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 13. (a) Advice will be used instead of Advice, because advice is an uncountable noun in the meaning of advice. Advice is also used but it means information related to business." },
+{
+    question: "14. India is (a)/one of the leading (b)/film-producing country (c)/in the world. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 14. (c) Countries will be used instead of Country because the Noun or Pronoun coming after one of is always plural." },
+{
+    question: "15. Though he addressed the boys (a)/for a few minutes only (b)/the earnestness with which he spoke (c)/went home to them. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 15. (e) No error." },
+{
+    question: "16. One of my good friend (a)/is both an artist (b)/and a physician (c)/of repute. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 16. (a) Friends will be used instead of Friend because after one of, any of, either of, neither of, the noun or pronoun is always in the plural form pre; Like- One of the boys or One of them." },
+{
+    question: "17. Rajesh is one (a)/of the best (b)/student in (c)/his class. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Student will be used instead of students." },
+{
+    question: "18. The idea that shook (a)/the whole world was (b)/published in one (c)/of the unknown journal. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 18. (d) Journals will be used instead of Journal because the noun after one of is always plural." },
+{
+    question: "19. Aditi was unable (a)/to support her parent (b)/even though both of them (c)/had no income of their own. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 19. (b) Parents will be used instead of Parent because parents is used for parents. In Part (c) both of them has also been used, which shows that both parents are being discussed. By the way, parent is used only for mother or only for father." },
+{
+    question: "20. This type of product (a)/is not available in (b)/any of the shop (c)/in the market around the plaza. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 20. (c) Shops will be used instead of Shop because after any of, most of if the noun is countable then it is always plural." },
+{
+    question: "21. One of my brother (a)/told me about (b)/the sad demise (c)/of your uncle. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 21. (a) Brothers will be used instead of Brother because one of After this plural noun is used." },
+{
+    question: "22. Everyday when she (a)/passes through this side, (b)/all the employee gather (c)/around to have a glimpse of her. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 22. (c) Employees will be used instead of Employee." },
+{
+    question: "23. One of the most (a)/widely spread (b)/bad habit (c)/is the use of tobacco. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 23. (c) Habits will be used instead of Habit because the countable noun coming after one of is always plural." },
+{
+    question: "24. Did you see (a)/any of the child (b)/when you were (c)/in the garden? (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 24. (b) Children will be used instead of Child. Know the rule: If there is a countable noun after Any of, Some of, All of then it is always plural. Like- Any of the boys can do it." },
+{
+    question: "25. These kind of shoes (a)/seem to be expensive (b)/but they are relatively easy to care for. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 25. (a) Kind will be used instead of Kind because after These/Those the noun is always in plural form. E.g. These books [not These book] These books are mine." },
+{
+    question: "1. The doctor has given (a)/ me a few advices and (b)/ I follow them without fail. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 1. (b) Use a few pieces of advice" },
+{
+    question: "2. I am glad to hear such (a)/ a great news on the eve of (b)/ the New Year celebration. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 2. (b) Use a great piece of news" },
+{
+    question: "3. This is one of the poetry (a)/ that were written (b)/ by Rabindranath Tagore. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 3. (a) Use poems in place of poetry" },
+{
+    question: "4. Two third of the (a)/ population is still struggling (b)/ to come out of poverty. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Use two thirds" },
+{
+    question: "5. Sheeps are reared to (a)/ get wool and wool-growers like (b)/ to have them in a large number. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 5. (a) Use sheep" },
+{
+    question: "6. It is not safe (a)/ to walk in the (b)/ centre of the road. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 6. (c) Use middle in place of centre" },
+{
+    question: "7. Being in the same profession (a)/ we are brothers and (b)/ should live amicably. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 7. (b) Use brethren in place of brothers" },
+{
+    question: "8. The document is not (a)/ clearly legible, because (b)/ it was written in pencil. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 8. (d) No error" },
+{
+    question: "9. More than two (a)/ luggages have (b)/ been found missing. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 9. (b) Use two pieces of luggage" },
+{
+    question: "10. He has won (a)/ a prize worth (b)/ fifty lakhs. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 10. (c) Use lakh" },
+{
+    question: "11. The project has assumed (a)/ a gigantic dimension, therefore (b)/ the expenditure must be in crore. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 11. (c) Use crores" },
+{
+    question: "12. Hundred of students (a)/ are waiting to get (b)/ admission to your institute. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 12. (a) Use hundreds" },
+{
+    question: "13. More than twenty billion (a)/ dollar has been allocated (b)/ to digitalize the city. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 13. (b) Use dollars" },
+{
+    question: "14. You can get (a)/ it only for one (b)/ hundred rupee. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 14. (c) Use rupees" },
+{
+    question: "15. This will (a)/ cost you two (b)/ hundreds rupees. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 15. (c) Use hundred" },
+{
+    question: "16. It is quite difficult (a)/ for me to trust (b)/ a nine years old boy. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 16. (c) Use year" },
+{
+    question: "17. He is going to buy (a)/ a flat in that seven (b)/ storeys apartment. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Use storey" },
+{
+    question: "18. I want to know if (a)/ you have read any (b)/ of John Keats poems. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 18. (c) Use apostrophe (John Keats' poems)" },
+{
+    question: "19. Whatever I do (a)/ is all for my (b)/ conscience sake. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 19. (c) Use apostrophe (conscience' sake)" },
+{
+    question: "20. There are very few (a)/ who live their life (b)/ for goodness sake. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 20. (c) Use apostrophe (goodness' sake)" },
+{
+    question: "21. Who else’s (a)/ comment are (b)/ you waiting for (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 21. (a) Use whose else in place of who else's" },
+{
+    question: "22. The wall’s colour (a)/ does not blend with (b)/ that of the curtain. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 22. (a) Use the colour of the wall" },
+{
+    question: "23. You don’t understand (a)/ an idea’s importance (b)/ but you should. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 23. (b) Use the importance of an idea" },
+{
+    question: "24. We were expecting (a)/ at least a (b)/ week’s holiday. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 24. (d) No error" },
+{
+    question: "25. A friend of Jack (a)/ is mainly responsible (b)/ for this loss. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 25. (a) Use a friend of Jack's" },
+{
+    question: "1. The book of Ram (a)/ which you want to (b)/ read is really very useful. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 1. (d) No error" },
+{
+    question: "2. Mother-in-laws from different (a)/ daily soaps have been (b)/ nominated for this category. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 2. (a) Use Mothers-in-law" },
+{
+    question: "3. I can tell you everything (a)/ because I was one (b)/ of the looker-ons. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 3. (c) Use lookers-on" },
+{
+    question: "4. The Arabian Nights have (a)/ always been my favourite (b)/ when it comes to story-telling. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Use has" },
+{
+    question: "5. These are not supernatural (a)/ penomenons, because science (b)/ works behind them. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 5. (b) phenomena" },
+{
+    question: "6. It will take at least (a)/ one and a half year (b)/ to complete this project. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 6. (b) Use years" },
+{
+    question: "7. He explained (a)/ the concept (b)/ words for words. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 7. (c) Use word for word" },
+{
+    question: "8. Two more woman (a)/ receptionists have (b)/ been recruited. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 8. (a) Use women" },
+{
+    question: "9. It not easy for a newly (a)/ married girl to understand (b)/ her mother’s-in-law attitude. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 9. (c) Use mother-in-law's" },
+{
+    question: "10. Your mathematics (a)/ is beyond (b)/ my understanding. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 10. (b) Use are" },
+{
+    question: "11. I like all subjects, but (a)/ economics have been the (b)/ most intriguing of them for me. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use has" },
+{
+    question: "12. There are very (a)/ few who are true (b)/ to their words. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 12. (c) Use word" },
+{
+    question: "13. Most of the poultries (a)/ consumed in India (b)/ come from Bangladesh. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 13. (a) Use poultry" },
+{
+    question: "14. The jury has (a)/ different views (b)/ on this issue. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 14. (a) Use have" },
+{
+    question: "15. The committee have (a)/ various other (b)/ issues to deal with. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 15. (a) Use has" },
+{
+    question: "16. The order for the ban on (a)/ diesel vehicles in Delhi will (b)/ help reduce the pollution level. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 16. (a) Use orders" },
+{
+    question: "17. I need some money (a)/ because I have to (b)/ buy another spectacles. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Use another pair of spectacles" },
+{
+    question: "18. She has gifted (a)/ me a shirt (b)/ and trousers. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 18. (c) Use a pair of trousers" },
+{
+    question: "19. Those who live (a)/ on sand are used to (b)/ such heat of summer. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 19. (b) Use sands" },
+{
+    question: "20. He obtained a poorly (a)/ paid lecturership (b)/ at the university. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 20. (b) Use lectureship" },
+{
+    question: "21. A few children (a)/ are very quick at (a)/ learning alphabets. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 21. (c) Use alphabet" },
+{
+    question: "22. I have scores of (a)/ such informations as can (b)/ help your investigation. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 22. (b) Use such pieces of information" },
+{
+    question: "23. If you get late (a)/ it will be difficult for you to (b)/ find a place in the hall. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 23. (c) Use seat" },
+{
+    question: "24. Now there is no place (a)/ in this compartment, so you (b)/ should go to the one next to it. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 24. (a) Use room" },
+{
+    question: "25. A publisher basically (a)/ focuses on the content of (b)/ a book before publishing it. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 25. (b) Use contents" },
+{
+    question: "1. Let’s go to (a)/ the movie and (b)/ have some fun. (c) No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 1. (b) Use movies" },
+{
+    question: "2. He is planning (a)/ to go abroad (b)/ for higher study. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 2. (c) Use studies" },
+{
+    question: "3. After this unexpected (a)/ victory, all the players (b)/ are in high spirit. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 3. (c) Use spirits" },
+{
+    question: "4. The efficiency of an (a)/ employee also depends on the (b)/ surrounding he or she works in. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 4. (c) Use surroundings" },
+{
+    question: "5. I am trying to trace his (a)/ whereabout, so that (b)/ he may be consulted. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Use whereabouts" },
+{
+    question: "6. I want to know (a)/ where the headquarter of (b)/ Delhi police is situated. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 6. (b) Use headquarters" },
+{
+    question: "7. It is not possible to (a)/ prove him guilty on (b)/ the basis these evidences. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 7. (c) Use these pieces of evidence" },
+{
+    question: "8. Many want to know (a)/ how people lived (b)/ in ancient time. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 8. (c) Use ancient times" },
+{
+    question: "9. A summon has (a)/ been issued (b)/ against him. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 9. (a) Use summons" },
+{
+    question: "10. I want my belonging (a)/ to be moved to my (b)/ new house at Bandra. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 10. (a) Use belongings" },
+{
+    question: "11. Some seats are (a)/ reserved for disabled (b)/ in each compartment. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use the disabled" },
+{
+    question: "12. Only concerned can (a)/ sympathise with those (b)/ who are homeless. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 12. (a) Use the concerned" },
+{
+    question: "13. The armed force (a)/ of this country can (b)/ face any eventuality. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 13. (a) Use forces" },
+{
+    question: "14. One should not hesitate in joining (a)/ the force, because it is (b)/ nothing but one’s service to the nation. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 14. (b) Use forces" },
+{
+    question: "15. Considering the hazardous effect (a)/ of the modern developments, one can (b)/ say that mankinds are in danger. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 15. (c) Use mankind" },
+{
+    question: "16. I appreciate the boy’s (a)/ intelligence who helped them (b)/ come out of the difficulty. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 16. (a) Use the intelligence of the boy" },
+{
+    question: "17. This son of Mohan’s is (a)/ very studious, so his teachers (b)/ like him very much. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 17. (a) Use Mohan" },
+{
+    question: "18. Sumit’s son’s knowledge is (a)/ very deep (b)/ because he is good at studies. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 18. (a) Use the knowledge of Sumit's son" },
+{
+    question: "19. My family has (a)/ lived in this area (b)/ from times immemorial. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 19. (c) Use time" },
+{
+    question: "20. One who is in the habit (a)/ of finding faults with others (b)/ is generally criticised. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 20. (b) Use fault" },
+{
+    question: "21. I want to tell you (a)/ that you have forgotten (b)/ to put your sing here. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 21. (c) Use signature in place of sign" },
+{
+    question: "22. I am doing all this (a)/ simply to manage two (b)/ squares meal a day. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 22. (c) Use square meals" },
+{
+    question: "23. If you read these (a)/ kind of books, you (b)/ will learn a lot. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 23. (b) Use these kinds" },
+{
+    question: "24. He likes to be on vacation (a)/ with wife and children (b)/ and it is nothing unusual. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 24. (d) No error" },
+{
+    question: "25. She loves (a)/ being with the William (b)/ because she likes the family very much. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 25. (b) Use the Williams" },
+{
+    question: "1. Her cousin (a)/ brother is coming (b)/ to wish you. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 1. (b) Remove 'brother" },
+{
+    question: "2. Whatever you have (a)/ said is a kind of (b)/ complement to me. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 2. (c) Use 'complimenty a" },
+{
+    question: "3. There is (a)/ no amend (b)/ for sin. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 3. (b) Use 'amends" },
+{
+    question: "4. The analyses you (a)/ have given is far (b)/ more trustworthy and suggests no further investigation. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Use 'analysis" },
+{
+    question: "5. He was asking (a)/ questions after questions to ensure (b)/ my worthiness to the post. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Use 'question after question" },
+{
+    question: "6. Good boys (a)/ do not move in (b)/ bad companies. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 6. (c) Use 'company" },
+{
+    question: "7. You need some recreation (a)/ because you seem to (b)/ be feeling out of sort. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 7. (c) Use 'sorts" },
+{
+    question: "8. Temptation to (a)/ rich is a (b)/ common phenomenon. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 8. (b) Use 'riches" },
+{
+    question: "9. In these (a)/ circumstance (b)/ I can’t help you. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 9. (b) Use 'circumstances" },
+{
+    question: "10. You must know (a)/ that the wages (b)/ of sin are death. (c)/ No error(d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 10. (c) Use 'is" },
+{
+    question: "11. I saw (a)/ two cattle grazing (b)/ in the field. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use 'two heads of cattle" },
+{
+    question: "12. Very few houses (a)/ in this village are (b)/ built of bricks. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 12. (c) Use 'brick" },
+{
+    question: "13. There is more (a)/ than one female (b)/ in the compartment. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 13. (b) Use 'woman' in place of 'female" },
+{
+    question: "14. Are you (a)/ still staying (b)/ in the boarding (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 14. (c) Use 'boarding house" },
+{
+    question: "15. A doctor in me (a)/ will not allow any (b)/ surgical intervention. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 15. (a) Use 'The doctor" },
+{
+    question: "16. Mother was (a)/ up in her to (b)/ see the baby crying. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 16. (a) Use 'The mother" },
+{
+    question: "17. He got so tired (a)/ that he wanted to take (b)/ a rest in the shed of a tree. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Use 'shed' in place of 'shadow" },
+{
+    question: "18. We should (a)/ pay respect to (b)/ the fair sex. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 18. (c) Use 'woman' in place of 'fair sex" },
+{
+    question: "19. She may take insult (a)/ at such a remark, so you (b)/ have to be careful about it. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 19. (a) Use 'offence' in place of 'insult" },
+{
+    question: "20. You will get at least (a)/ passing marks in Mathematics (b)/ so you need to study harder to score more. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 20. (b) Use 'pass mark" },
+{
+    question: "21. Many of us don’t (a)/ know the exact reason (b)/ of the earthquake. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 21. (b) Use 'cause' in place of 'reason" },
+{
+    question: "22. I want to tell you that (a)/ they are not on speaking term (b)/ with each other these days. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 22. (b) Use 'speaking terms" },
+{
+    question: "23. Getting an employment (a)/ in this country is not that difficult (b)/ if you have competence. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 23. (a) Use 'a job' in place of 'an employment" },
+{
+    question: "24. Some required measures (a)/ have to be taken to increase (b)/ the proceeds of the annual sale. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 24. (c) Use 'proceeds" },
+{
+    question: "25. The balance in his saving (a)/ account is not enough for him to (b)/ avail himself of these facilities. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 25. (a) Use 'savings" },
+   
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

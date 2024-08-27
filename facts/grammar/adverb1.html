@@ -1,0 +1,2965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Preposition QUIZ APP</title>
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Adverb Part 1 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        }); 
+		
+		
+		
+		// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'adverb1';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+     // Display explanation
+    const explanation = document.createElement('explanation');
+explanation.innerHTML = `${currentQuestion.explanation || ''}`;
+optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+			{
+    question: "1. It is not that easy (a) / to acquire too high a (b) / position that (c) / many can just aspire for. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+	,explanation: "you are fool"
+  , explanation: "AnswerKey 1. (b) Will use 'So' instead of 'Too'. Know the rule: When that clause is used after an adjective, then the use of 'too' before this adjective is a wrong construction and in such a situation, the use of 'so' in place of 'too' is correct. Structure. Sub.+ Verb+so + adj./adv. + that + Sub. + Verb E.g.: Manish is so talkative that he will not let you feel bored.'  " },
+{
+    question: "2. India seems to be (a) / in such critical a situation (b) / that it seems (c) / difficult to bring it back to the track. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 2. (b) We will use so in place of such because That Clause is always used after So + Adjective + a/an + Noun. Therefore'  " },
+{
+    question: "3. When requested lolima (a) / had lunch and told (b) / me that it (c) / tasted deliciously. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 3. (b) 'Delicious' will be used instead of 'Deliciously' because 'sound' 'taste, feel, seem, appear, look, smell, etc.' Linking Verbs' Which are followed by Adjective and not 'Adverb' like- Tea tastes sweet. (न कि sweetly) The roses smelt sweet. (न कि sweetly) Suji looks vivacious (न कि vivaciously) But, She looks angrily at him.'  " },
+{
+    question: "4. My friend has gone (a) / such a foreign by nature that (b) / this thing having (c) / typical look and feature can hardly satisfy him. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 4. (b) Will use 'So foreign'. Know the Rules: Always remember the following structures: (i) So+Adj/Adv... + that + S + V..... (ii) So+Adj.+A/An+Noun... + that + S + V +.. (iii) Such+A/An+Noun (iv) Such+A/An+Adj+Noun As- (i) I am not so great a man that you should emulate me. (ii) You are such a beautiful Widow.'  " },
+{
+    question: "5. The time given to me (a) / was too little that it (b) / was not possible for me (c) / to finish the task in time. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 5. (b) Will use 'so' instead of 'too'.'  " },
+{
+    question: "6. The house you have purchased (a) / is so spacious (b) / that two families (c) / can easily accommodate in it. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 6. (e) No error'  " },
+{
+    question: "7. This story is (a) / so interesting as every (b) / body would (c) / like to listen to it. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 7. (b) Use 'So interesting that'.'  " },
+{
+    question: "8. The people who gathered (a) / to welcome the new president (b) / created so much furore over dearness that the (c) / security had to resort to the lathi charge. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 8. (c) Due to being a That clause, use only so here. Like- She spoke so quietly that I could hardly hear her.'  " },
+{
+    question: "9. Such exciting was the movie that (a) / no audience could (b) / move their eyes from (c) / the screen even for a while. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 9. (a) 'So exciting was the movie' will be used.'  " },
+{
+    question: "10. My younger brother was (a) / too intelligent to deal with (b) / a situation like this, (c) / therefore people loved him very much. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 10. (b) 'Too' is used to give negative thoughts and 'Enough' is used to give positive thoughts. So use 'Intelligent Enough to deal'.'  " },
+{
+    question: "11. After a considerable amount of (a) / endeavour which was made to give the (b) / project a flying start, it came to too much (c) / ruinous a condition to revive. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 11. (c) In place of 'too much' we will use 'much too'. Know the rule: N (i) Too (Adj) + much + Noun :-Too much importance (ii) Much (Adj) + too + (Adj):- Much too important'  " },
+{
+    question: "12. Your ideas are really (a) / too much provoking and I (b) / think it would be better for us (c) / to give them up. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 12. (b) 'Much too' will be used instead of 'Too much'.'  " },
+{
+    question: "13. Everybody knows that (a) / Tsunami inflicted much too pain (b) / on a number of people and many of (c) / them had even succumbed to this traumatic situation. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 13. (b) Instead of 'Much too' we will use 'too much'. Des'  " },
+{
+    question: "14. I know that this product (a) / is too fairly priced and (b) / people would love to buy it the moment they (c) / look at its price tag with gorgeous features. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 14. (b) Delete 'Too'. Too is not used with fairly.'  " },
+{
+    question: "15. No doubt developments (a)/ in urban areas are(b)/ too satisfying but rural (c)/ areas are still to be explored. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 15. (c) 'Very/quite satisfying' will be used. Because of Too It is used to give negative thoughts.'  " },
+{
+    question: "16. It is true that he is (a) / facing much too difficulty in (b) / managing his life because (c) / his means are very small. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 16. (b) Instead of 'Much too' we will use 'too much'.'  " },
+{
+    question: "17. With the statement too much (a) / doubtful, it was not that (b) / easy to take the (c) / delegates in confidence. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 17. (a) Instead of 'Too much' we will use 'much too'. Because Doubtful is an Adj.'  " },
+{
+    question: "18. I was really astonished (a) / to find so confusing a person (b) / to deal with in a (c) / compromising situation like this. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 18. (b) 'Too' will be used in place of 'So'. Know the rule: (a) 'Too' means more than required (not as much as it should be), it is used with unpleasant/undesirable adjectives. Too weak, too bad, too fat, too wicked etc. (b) 'Too'. To+V1 is used to explain the reason for not getting the work done. E.g.: She is too poor to present you with a gift. (c) 'Too' also means 'also' like - I bought a car, too.'  " },
+{
+    question: "19. Whatever he has said (a) / regarding the profits (b) / of organization (c) / is so good to believe. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 19. (d) Will use 'Too good to believe'.'  " },
+{
+    question: "20. With a desire (a) / too high and vision (b) / lofty, man can really (c) / think of achieving something worthwhile in life. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 20. (e) No Error'  " },
+{
+    question: "21. He seems (a) / to have done it (b) / with fairly too good intention, (c) / however I have some doubt about it. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 21. (c) Remove 'Too' because it is not used with 'fairly' and can be used with 'Rather'.'  " },
+{
+    question: "22. The rather cruel intention (a) / of lady Macbeth shows (b) / the lopsidedness (c) / of a woman’s character. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 22. (e) There is no error.'  " },
+{
+    question: "23. The comic elements (a) / which have added to this (b) / movie make it (c) / rather amusing and are supposed to draw all types of audience to the theatre. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 23. (e) The sentence is pure. Rather can be used with amusing, clever, well, pretty, good.'  " },
+{
+    question: "24. His proposal was (a) / only too good, however (b) / it succeeded in evoking (c) / interest in the panel member. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 24. (b) Instead of 'Only too' we will use 'none too'. Know the rule: Only Too = Very None Too = Not Very'  " },
+{
+    question: "25. If you watch him closely, (a) / you will find that he has all (b) / goodness to be a leader but as a politician (c) / he has proved only too worthless. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 25. (e) There is no error.'  " },
+{
+    question: "1. When the thief (a)/entered the house, (b)/the watchman on duty (c)/was fast asleep. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 1. (d) 'Asleep' will be used instead of 'Aslept' because 'aslept' is not a word. 'Asleep' is used like Adjective and Adverb; As- (i) He was asleep.'  " },
+{
+    question: "2. He ultimately decided (a)/to willingly and cheerfully accept (b)/the responsibility entrusted to him. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 2. (b) 'Willingly and cheerfully' will be used after 'accept'. Keep in mind that the use of adverb by breaking an infinitive is called split infinitive, and according to Nesfield, adverb should not be used like this.'  " },
+{
+    question: "3. He only is responsible (a)/for the suffering caused (b)/to the whole family. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 3. a) 'Only' will be used before 'he' because 'only' is generally used before the word whose characteristic it describes; As- (i) Only you saw him. [Only you saw him.] (ii) You only saw him. [You only looked at him.]'  " },
+{
+    question: "4. Mahesh thought that he (a)/would pass in the examination (b)/although he did not answer (c)/most of the questions correct. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 4. (d) 'Correctly' will be used instead of 'Correct' because 'correct' is an Adjective while 'correctly' is an Adverb, and 'answer', which is a Verb, can be characterized by an Adverb and not an Adjective. See- (i) His answers are correct.'  " },
+{
+    question: "5. He walked (a)/quick so that (b)/he would not (c)/be late. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 5. (b) 'Quickly' will be used instead of 'Quick' because 'quick' is an Adjective and 'quickly' is an Adverb. In the given question, 'walked' is a verb and its characteristic can be described only by an Adverb, not an Adjective. See the difference in the use of 'Quick' and 'Quickly'- (i) A quick decision.'  " },
+{
+    question: "6. We could not see (a)/the places clear (b)/as the train was (c)/moving very fast. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 6. (b) 'Clearly' will be used instead of 'Clear' because 'clear' is an Adjective and 'clearly' is an Adverb. In the given sentence, the Verb tells the characteristics of 'see' and only the Adverb does the work of telling the characteristics of the Verb; As: He talked to me clearly.'  " },
+{
+    question: "7. Praveen is so good (a)/a batsman that (b)/he would be certainly (c)/included in the team. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 7. (c) 'Certainly' should be used between 'would be' i.e. 'would certainly be included' would be the correct form of construction.'  " },
+{
+    question: "8. Although he is usually (a)/rude with everyone (b)/he behaved nice with (c)/all of us today. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 8. (c) 'Nicely' will be used instead of 'Nice' because 'behaved' is an intransitive verb. After this, Adjective is not used but Adverb. Example: She behaved nicely. (not nice)'  " },
+{
+    question: "9. He ran so fastly (a)/that he reached (b)/the destination in (c)/just two minutes. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 9. (a) 'Fast' will be used instead of 'Fastly' because 'fast' is used in both Adjective and Adverb forms, and there is no such word as 'fastly'; जैसे: Shyam and Jeevan are fast runners.'  " },
+{
+    question: "10. Although the patient (a)/was rude with the (b)/nurses, he behaved (c)/nice with the doctor. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 10. (d) 'Nicely' will be used instead of 'Nice' because 'behaved' is an intransitive verb after which Adjective is not used but Adverb is used; Like: They live with me.'  " },
+{
+    question: "11. John is working very hardly (a)/as the examinations (b)/are fast approaching. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 11. (a) Hard will be used in place of Hardly.'  " },
+{
+    question: "12. Although he is usually (a)/rude with everyone (b)/he behaved nice with (c)/all of us today. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 12. (c) 'Nicely' will be used instead of 'Nice' because 'nice' is an Adjective which describes a Noun or Pronoun and not a Verb, but 'nicely' is an Adverb (of Manner) which describes a Verb Can characterize; As: (i) She is a nice lady.'  " },
+{
+    question: "13. Don't be unreasonable (a)/ angry with me (b)/ because I understand your problem. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 13. (a) 'Unreasonably' will be used in place of 'Unreasonable'.'  " },
+{
+    question: "14. The observers feel that (a)/the stronger team has to face defeat (b)/because the players (c)/don't play whole heartedly. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 14. (d) 'Heartedly' will be used instead of 'Hearted' because 'Hearted' is an Adjective while 'Heartedly' is an Adverb, and 'Play' is used to describe the characteristics of the verb, not Adjective.'  " },
+{
+    question: "15. The taxi driver who had come (a)/to receive us at (b)/the airport was speaking (c)/fluently French. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 15. (d) 'French fluently' will be used instead of 'Fluently French' because Sub. + Verb + Obj. + Adverb of manner is used; As: He speaks English fluently. Or Subject + Adverb of Manner + Verb + Object is also used; As: He speaks English fluently. But Adverb of Manner is not used before Object. Hence it is wrong to say He speaks fluent French.'  " },
+{
+    question: "16. Your scooter would not (a)/have given you so much trouble (b)/if you had (c)/maintained it properly. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 16. (d) 'Properly' will be used instead of 'Proper' because the structure is based on Subject + Verb + Object + Adverb of Manner; Example: Based She sang a song beautifully.'  " },
+{
+    question: "17. Human race has been depending (a)/largely on (b)/land resources for its welfare (c)/and survival. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 17. (b) The correct spelling is 'largely'.'  " },
+{
+    question: "18. She was so (a)/emotionally stable that (b)/she was not moved (c)/by their decision to suspend her. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 18. (b) 'Emotinally' will be used instead of 'Emotional' because 'emotional' is an Adjective whereas 'emotinally' is an Adverb. 'Stable' used in Part (b) is an Adjective which can be characterized by an Adverb, not an Adjective.'  " },
+{
+    question: "19. Though his actions (a)/ were severely criticised, (b)/ he didn't lose his temper (c)./No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 19. (b) 'Were severely criticized' will be used instead of 'Were severely criticized' because 'severe' is an Adjective while 'severely' is an Adverb, and the Verb in Part (b) of the sentence given in the question is 'criticised'. To tell the characteristics for which Adverb will be used and not Adjective. An Adjective only characterizes a Noun or Pronoun; Like: It was severely criticised.'  " },
+{
+    question: "20. The new industries (a)/differed markedly (b)/from their (c)/predecessors in many respects. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 20. (b) 'Remarkably' will be used instead of 'Marketedly' because 'marketedly' is not a word whereas 'remarkably' means 'exceptionally, uniquely'; As: She is remarkably good at mathematics.'  " },
+{
+    question: "21. The guest picked up the child (a)/very affectionately (b)/and handed over to him (c)/the packet of sweets. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 21. (b) 'Affectionately' will be used instead of 'Affectionate' because 'affectionate' is an Adjective while 'affectionately' is an Adverb, and the function of describing the characteristic of the verb 'picked' will be done by an Adverb, not an Adjective.'  " },
+{
+    question: "22. After careful examining (a)/the medicines (b)/installed in the laboratory (c)/he wrote a detailed report and submitted it (d)/to the higher authorities. (e)/No Error (f)",
+    options: ["A", "B", "C", "D", "E", "F"],
+    correctOption: "A"
+  , explanation: "AnswerKey 22. (a) 'After carefully examining' will be used instead of 'After careful examining' because careful is an Adjective while carefully is an Adverb and the verb examining will be characterized by an Adverb, not an Adjective; Example: She is a careful girl.'  " },
+{
+    question: "23. We have now (a)/reliably learnt that (b)/he was involved (c)/in the bank robbery. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 23. (b) 'Reliably learned' will be used instead of 'Reliable learned' because reliable (= reliable) is an Adjective while reliably (= reliably) is an Adverb and only an Adverb can describe the characteristics of the Verb 'learnt'. is, not an adjective; Example: I have reliably learned that Mira has failed.'  " },
+{
+    question: "24. We can't trust (a)/your statement that you were thorough (b)/ignorant (c)/of the consequences. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 24. (b) 'Thoroughly' will be used instead of 'Thorough', because 'thorough' is an Adjective while thoroughly is an Adverb and the adjective 'ignorant' can be characterized by an Adverb and not an Adjective; Example: A thoroughly discussed matter.'  " },
+{
+    question: "25. One of its objects is (a)/certainly to provide some (b)/comfort and food for (c)/refreshment of my co-workers. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 25. (e) No Error'  " },
+{
+    question: "1. My last journey was (a) / none too pleasant and I enjoyed (b) / the alluring sights of flora and fauna (c) / through the tinsel window pan. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 1. (b) Use 'Only Too' instead of 'None Too'. ' " },
+{
+    question: "2. It is none too bad, (a) / so I would like to (b) / do it and have (c) / a new experience in life. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 2. (e) There is no error.'  " },
+{
+    question: "3. If you compare my sister (a) / with her classmates, (b) / you will find her very better (c) / than all other girls. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 3. (c) 'Much Better' will be used instead of 'Very better'. Know the rule: Very is not used before Comparative Degree of Adjective. Instead of very you can use much, very much, even, still etc.'  " },
+{
+    question: "4. You have really come up with (a) / a much intelligent idea (b) / and it will (c) / definitely serve our purpose. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 4. No Error.'  " },
+{
+    question: "5. You will find everybody (a) / saying that it is (b) / the much best movie (c) / ever made in the Indian film industry. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 5. (c) Use 'Much The Best Movie'. Know the Rule: Much and very are used according to the following structure. Structure: I. Much + the + superlative degree of Adj. E.g.: This is much the best book written by me. II. The+ +Very+ Superlative degree of Adj. E.g.: This is the very best book written by me.'  " },
+{
+    question: "6. That was (a) / the more worst (b) / situation that (c) / I had ever undergone in my life. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 6. (b) Remove 'More'. Know the rule: Do not use 'More' before Superlative Degree.'  " },
+{
+    question: "7. I know that you (a) / always give good ideas (b) / but this time you have (c) / given an even good one. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 7. (d) 'Even Better' will be used instead of 'Even Good'. Because the new idea has been compared with the earlier idea, we will use the comparative degree of good (better).'  " },
+{
+    question: "8. Today you are (a) / looking very (b) / smarter than (c) / all other girls sitting here. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 8. (b) Will use 'Much' instead of 'Very'.'  " },
+{
+    question: "9. How true is (a) / the fact that learning (b) / Hindi is far difficult (c) / than learning English. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 9. (c) Use 'More' instead of 'Far'. Because comparison has been talked about here. Therefore of comparative degree (more) Will use.'  " },
+{
+    question: "10. Not better price (a) / can you avail yourself of (b) / amid the kind of (c) / competition we have in the market today. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 10. (a) Will use 'No Better Price'. 'No' is used before Comparative Degree.'  " },
+{
+    question: "11. It would be (a) / nice of you, (b) / if you speak to him (c) / a little less loudly. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 11. (e) There is no error.'  " },
+{
+    question: "12. This world is (a) / very much cruel to one (b) / and all of us, however (c) / we love to live it at best. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 12. (b) Delete ‘Much’. Know the rule: 'Very Much' will be used before Past Participle and 'Very Much' is also used before 'Comparative Degree'. But use very in positive degree.'  " },
+{
+    question: "13. The universe is still (a) / a mystery to our (b) / scientists because (c) / it is fairly too big to explore. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 13. (d) 'Rather' will be used instead of 'Fairly'.'  " },
+{
+    question: "14. The question he has (a) / put is fairly an involving one, (b) / so I need some more (c) / time to answer it. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 14. (b) 'Rather' will be used in place of 'Fairly'. Know the Rule: Fairly is used in good sense while Rather is used in a bad sense.'  " },
+{
+    question: "15. They are working on (a) / a rather interesting project which (b) / will prove a boon to (c) / those living in rural areas. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 15. (b) 'Fairly' will be used instead of 'Rather'.'  " },
+{
+    question: "16. I really cannot work (a) / in fairly bad weather (b) / condition, so I have (c) / decided to get back. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 16. (b) 'Rather Bad' will be used in place of 'Fairly Bad'.'  " },
+{
+    question: "17. You are right here (a) / because I, too, found it (b) / rather difficult a problem (c) / to deal with. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 17. (c) 'Rath' will use 'Too' instead of 'Rather'. Structure Too + Adj.+ Noun + To infinitive'  " },
+{
+    question: "18. You cannot judge India (a) / by how it looks (b) / As a matter of fact, (c) / it is fairly a rich country. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 18. (d) Will use 'A Fairly Rich Country'.'  " },
+{
+    question: "19. He looks a little (a) / concerned about the financial crunch his company (b) / has incurred, while he should have gone (c) / deep into the matter and discovered the real cause of the disaster. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 19. (a) 'A little' will be used instead of 'A little'. Know the Rule: Little = This is a negative word, 'Almost Not'. it would mean A little = It means a little'  " },
+{
+    question: "20. His preparation is not (a) / upto the mark, (b) / so I am little worried about (c) / his performance in the examination. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 20. (c) Will use 'A Little'.'  " },
+{
+    question: "21. The Indian team is in its (a) / prime condition, (b) / so the strategies adopted (c) / by the opponent matters a little. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 21. (d) Drop 'A' and use 'Little'.'  " },
+{
+    question: "22. You must know that (a) / we have taken (b) / enough rest so (c) / we are a little tired. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 22. (d) Drop 'A' and use 'Little'.'  " },
+{
+    question: "23. Japan has gone (a) / far ahead in the field of technology, (b) / so we a little expect that any (c) / other country would be able to beat it. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 23. (c) Remove ‘A’, ‘Little’ will be used.'  " },
+{
+    question: "24. Her lawyer is enough witted to (a) / wriggle her out of the unexpected (b) / situation which has (c) / arised somehow. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 24. (a) After 'Witted' we will use 'Enough'. Know the Rule: Enough is used when Adverb. It happens as. So it comes immediately after the Adjective or Adverb which it characterizes. [Adj./Adv. +Enough+To+V1] E.g. I. He is kind enough to help us. II. She is beautiful enough to tempt me.'  " },
+{
+    question: "25. India is enough prepared (a) / to host any kind of game, (b) / however, the Olympic committee (c) / has several misgivings about the feasibility. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 25. (a) Use 'Enough' after 'Prepared'.'  " },
+{
+    question: "1. When you learn about his nature, (a) / you will find him (b) / fastidious enough to (c) / convince him on any point. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 1. (c) Will use 'Too Fastidious to Convince'.'  " },
+{
+    question: "2. He is too intelligent (a) / to handle the (b) / situation in a (c) / successful manner. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 2. (a) Use 'He is Intelligent Enough to Handle'.'  " },
+{
+    question: "3. The buildings have been (a) / enough decorated to (b) / welcome the (c) / newly wed couple. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 3. (b) 'Decorated Enough' will be used.'  " },
+{
+    question: "4. The bus was crowded enough, (a) / so I decided to not (b) / to get into it and (c) / hired a private cab. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 4. (a) Will use 'Too crowded'.'  " },
+{
+    question: "5. I presently received (a) / a piece of news and (b) / it is so shocking that I do not (c) / want to break it to others. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 5. (a) 'I have Just Received' will be used. Know the rule: 'Presently'/directly/shortly is used for 'Future Action', it means very soon.'  " },
+{
+    question: "6. Your brother’s performance (a) / is said to be comparatively (b) / better than (c) / all other participants. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 6. (b) Remove 'Comparatively' because two comparative degrees are not used together.'  " },
+{
+    question: "7. On the basis of the economic (a) / growth recorded so far, (b) / we can say that India is (c) / relatively more progressive than Pakistan. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 7. (d) Remove 'Relatively' because it is not used with Comparative Degree of Adj.+Than.'  " },
+{
+    question: "8. The flat you have decided (a) / to buy is preferably more (b) / impressive with various (c) / romantic features. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 8. (b) Remove 'Preferably' because it is not used with Comparative Degree.'  " },
+{
+    question: "9. People living in urban areas (a) / have been making (b) / comparatively more progress (c) / than those living in rural areas. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 9. (c) Remove 'Comparatively' because Comp. It is not used with Adjective + Than.'  " },
+{
+    question: "10. Your friend is looking (a) / relatively more confused, (b) / so you have to make him (c) / understand the things in the best possible manner. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 10. (b) Remove 'More' because after 'Relatively' and 'Comparatively' simple form of Adjective is used.'  " },
+{
+    question: "11. So far I have watched (a) / a number of comic movies (b) / but this one I think is relatively (c) / more hilarious than all the previous ones. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 11. (c) Remove 'Relatively'.'  " },
+{
+    question: "12. When I was (a) / in Chicago, (b) / I would often go to (c) / discotheque off and on. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 12. (d) Instead of 'Off and on' we will use 'Now and then'.'  " },
+{
+    question: "13. She keeps calling (a) / me up now and then and now (b) / I am bored (c) / of this act of hers. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 13. (b) Use 'off and on' instead of 'Now and then'.'  " },
+{
+    question: "14. All the students are requested (a) / to make their exit by and by, (b) / so that there may not be (c) / any stampede around here. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 14. (b) Use 'One by One' instead of 'By and By'. By and By = immediately/Eventually'  " },
+{
+    question: "15. We all know that (a) / India is progressing (b) / by and by (c) / and will definitely become a superpower by 2020. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 15. (c) 'Gradually' will be used in place of 'By and By'.'  " },
+{
+    question: "16. The container got empty (a) / because the water in it (b) / flowed out little by little (c) / through a tiny pore on it. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 16. (e) No Error'  " },
+{
+    question: "17. I was delighted to (a) / hear him say that (b) / he would, of course, (c) / be there by the next evening. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 17. (c) 'Certainly' will be used in place of 'Of Course'. (Of Course) is used for some definite future/truth.'  " },
+{
+    question: "18. Of course, you are going (a) / to be a winner, (b) / if you continue to work (c) / with the same spirit. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 18. (a) 'Certainly' will be used in place of 'Of Course'.'  " },
+{
+    question: "19. He admittedly said (a) / that certainly blood (b) / is always (c) / thicker than water. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 19. (b) 'Of Course' will be used in place of 'Certainly'.'  " },
+{
+    question: "20. If you ask Obama (a) / if he belongs to the Muslim origin, (b) / he will say that (c) / certainly he does. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 20. (d) 'Of Course' will be used in place of 'Certainly'.'  " },
+{
+    question: "21. When I was in Mumbai, (a) / I used to get back (b) / home timely and Shally, (c) / my daughter, would play with me. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 21. (c) 'In time' will be used instead of 'Timely'.'  " },
+{
+    question: "22. The government has announced (a) / that medicine will be (b) / distributed freely among those (c) / who are below the poverty line. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 22. 'Free' will be used in place of 'Freely'. Free - Without payment Freely (adv.) - Without restriction'  " },
+{
+    question: "23. I always notice (a) / one thing that she (b) / comes when I am (c) / away from home. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 23. (c) Will use 'While' in place of 'When'. Know the Rule: While refers to the period of time during which something happened.'  " },
+{
+    question: "24. He got angry (a) / when I asked (b) / him how much (c) / late he was. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 24. (c) Remove 'Much' because 'Much' is not used between 'How' and 'Adjective'.'  " },
+{
+    question: "25. We searched for a doctor (a) / far and away but we (b) / did not find any, so we decided to (c) / leave the village only next morning. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 25. (b) Instead of 'Far and Away' we will use 'Far and Wide'. Know the rule: Far and Away = Decidedly Far and Wide = In all Directions'  " },
+{
+    question: "1. Often in political campaigns, a point is reached at which (a)/ the candidates take out their gloves (b)/ and start slugging with bare fists. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 1. (a) 'Where' will be used instead of 'At which' because 'to' or 'at' preposition is not used after the verb reach but direct adverb of place is used; As: She has reached where she wanted.'  " },
+{
+    question: "2. He invited me to often (a)/ visit (b)/ him. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 2. (b) The place of 'Often' will be before the main verb 'invited' because 'always, often, rarely, never, hardly' is used before the main verb. Example: She always comes to meet me.'  " },
+{
+    question: "3. Though he was (a)/ no relating to me, (b)/ I helped him by (c)/ giving money and profitable advice. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 3. (b) 'Not related' will be used instead of 'No relating' because Be (is/are/am/was/were/been/being) + V3 is used in Passive Voice. As: She is not related to me.'  " },
+{
+    question: "4. Mostly of the (a)/ newly recruited officers (b)/ have no experience (c)/ in the banking sector. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 4. (a) 'Most' will be used instead of 'Mostly' because 'mostly' is an Adverb which means 'mostly' and 'most' is an Adjective or Pronoun, and 'most' is used as 'many' or 'much''  " },
+{
+    question: "5. RBI is in favour (a)/ of amending currently (b)/ policies governing operations of (c)/ foreign banks in India. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 5. (b) 'Currently' will be used instead of 'Currently' because 'currently' is an Adverb whereas 'current' is an Adjective and the work of describing the specialty of the Noun 'policies' will be done by Adjective, not Adverb; As: All the option are currently available.'  " },
+{
+    question: "6. I tried to read your letter, (a)/ but it was so bad written (b)/ that I had to leave the attempt. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 6. (b) 'Badly' will be used instead of 'bad' because 'bad' is an Adjective while 'badly' is an Adverb, and the Past Participle Adjective 'written' will be characterized as an Adverb, not an Adjective.'  " },
+{
+    question: "7. Mr. Gupta insisted (a)/ that he was (b)/ fully prepare (c)/ to prevent the proposal. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 7. (c) 'Prepared' will be used instead of 'Prepare' because to describe the specialty of 'he', after the verb 'be' 'was', the Past Participle form of 'prepare' will work as an adjective whose specialty is The adverb 'fully' will tell.'  " },
+{
+    question: "8. They waited patient (a)/ for the Chairman's speech (b)/ to end in order (c)/ to begin the discussion. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 8. (a) 'Patiently' will be used instead of 'Patient' because 'patient' is an Adjective while 'patiently' is an Adverb, and the characteristic of the Verb 'awaited' will be described by the Adverb, not the Adjective.'  " },
+{
+    question: "9. When he found out that (a)/ the girl had escaped (b)/ he was absolute (c)/ irritated and furious. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 9. (c) 'Absolutely' will be used instead of 'Absolute' because 'absolute' is an Adjective while 'absolutely' is an Adverb, and the adjectives 'irritated' and 'furious' will be described by an Adverb and not an Adjective.'  " },
+{
+    question: "10. More than half the food products (a)/ targetted at babies and toddlers have (b)/ a high sugar content and are (c)/ excessive sweet. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 10. (d) 'Excessively' will be used instead of 'Excessive' because 'sweet' is an Adjective whose characteristic will be described by the Adverb 'excessively', not the Adjective 'excessive'.'  " },
+{
+    question: "11. The buzz at the party was (a)/ that a famous (b)/ filmstar and politician (c)/ would probable drop by for a while. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 11. (d) 'Probably' will be used instead of 'Probable' because 'probably' is an Adjective while 'probably' is an Adverb, and the characteristic of the Verb is 'drop'. An Adverb will tell, not an Adjective.'  " },
+{
+    question: "12. The tennis player easy through (a)/ the opening set before her opponent (b)/ rallied to take the final two sets (c)/ for the biggest victory of her young career. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 12. (a) 'Easily thrown' will be used instead of 'Easy through' because 'easy' is an Adjective and 'through' is a Preposition which are not used together, and in the question 'The tennis player' is the Subject. For which the past form of the verb 'throw' is 'throw' and 'easily' should be used.'  " },
+{
+    question: "13. Rakesh anger asked (a)/ his son to tell him (b)/ what had happened to (c)/ the food and drinks kept in the fridge. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 13. (a) 'Angrily' will be used instead of 'Anger' because 'anger' (anger) is a Noun while 'angrily' (being angry while getting angry) is an Adverb and is a characteristic of the Verb 'asked'. An Adverb will tell, not a Noun.'  " },
+{
+    question: "14. My friend was (a)/ bruised (b)/ quiet badly in a recent (c)/ accident. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 14. (c) 'Quiet' will be used instead of 'Quiet' because 'quiet' is an Adjective and means 'silent, quiet' while 'quiet' is an Adverb and means 'completely, completely' and Adverb ' The specialty of 'badly' will be described by the Adverb 'quiet', not the Adjective 'quiet'.'  " },
+{
+    question: "15. The cost of food items (a)/ is increasing so rapid (b)/ making it unaffordable (c)/ to a majority of the people. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 15. (b) 'So rapid' will be used instead of 'So rapid' because 'rapid' is an Adjective which means 'quickly' whereas 'rapidly' is an Adverb which means 'rapidly', and Verb Adverb will do the job of describing the characteristics of 'increasing', not Adjective.'  " },
+{
+    question: "16. We admired (a)/ his many (b)/ attempts bravely (c)/ to enter the burning building. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 16. (c) 'Of bravery' will be used instead of 'Bravely' because 'bravely' is an adverb which means 'bravely' and it describes the specialty of a verb, but 'bravery' is a noun which means 'Bravery' and 'attempts of bravery' mean 'efforts of bravery' like- Rani Laxmibai fought bravely.'  " },
+{
+    question: "17. It was fortunate (a)/ all of the inmates escaped (b)/ from the blazing fire. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 17. (a) 'Fortunately' will be used instead of 'It was fortunate' because 'fortunate' is an adjective which means 'fortunate' and it is used for 'person' and not for 'thing'. Secondly, 'Fortunately' works as an adverb and means 'fortunately, fortunately' and it can characterize the entire sentence; As:- Fortunately, nobody was injured in this accident. Similarly we can say- Unfortunately, three persons were killed in this accident.'  " },
+{
+    question: "18. The air is very (a)/ hotter today (b)/ than yesterday. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 18. (a) There is no need for Very in the sentence.'  " },
+{
+    question: "19. The government's earnings (a)/ through royalty, dividends and profit sharing (b)/ have been steady rising (c)/ over the years. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 19. (c) 'Steady' will be used instead of 'Steady' because 'steady' is an Adjective which means 'immovable, stable' and 'steadily' is an Adverb which means 'steadily, firmly' and Verb ' Rising' would be characterized by an Adverb, not an Adjective; Like- Katappa is making a steady progress in his business. a stead'  " },
+{
+    question: "20. The man was (a)/ reportedly upset (b)/ over his sister's death (c)/ about a fortnight behind. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 20. (d) 'Ago' will be used instead of 'Behind' because 'behind' is a Preposition which means 'behind' whereas 'ago' is an Adverb of Time which means 'before' for past time. is used;'  " },
+{
+    question: "21. To the men who worked so hard in the project, (a)/ the news was (b)/ profound disappointing. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 21. (c) 'Profoundly' will be used instead of 'Profound' because 'profound' is an Adjective which means 'deep' (= deep, deep, intense) 'profoundly' is an Adverb which means 'deeply' (deeply, intensely, strongly) and 'disappointing' is an Adjective which means 'disappointing', and the characteristic of an Adjective can be described only by an Adverb, not an Adjective. As He has a profound knowledge of English Literature.'  " },
+{
+    question: "22. He studied (a)/ so hardly (b)/ that he was sure of passing. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 22. (b) 'Hardly' will be used instead of 'Hardly' because 'hardly' is an Adverb of Frequency which means 'nil, negligible' whereas 'hard' is an Adverb of Manner which means 'studied hard' , not 'studied not at all'. Secondly, 'hardly' is used before the main verb, whereas 'hard' is used after the main verb; As: He hardly studied to pass.'  " },
+{
+    question: "23. We swam up to the drowning man caught hold of his clothes (a)/ before he could go down again (b)/ and pulled him out safe to the shore. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 23. (c) 'Safely' will be used instead of 'Safe', because 'safe' is an Adjective which means 'safe' while 'safely' is an Adverb which means 'safely' and the Verb is 'pull out' The characteristic will be described by an Adverb, not an Adjective; As- I wished him a safe journey.'  " },
+{
+    question: "24. Rohan was leading (a)/ a happy and leisurely (b)/ life after his retirement (c)/ from service. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 24. The house was safely locked up.'  " },
+{
+    question: "25. The face of this (a)/ country girl (b)/ is too beautiful. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 25. (c) Very will be used in place of too.'  " },
+{
+    question: "1. We are going (a) / directly to Mumbai, (b) / so we will not be (c) / able to meet you. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 1. (b) Will use 'direct' instead of 'directly'. Direct Directly = Straight Soon'  " },
+{
+    question: "2. They came direct to the conclusion (a) / after his death that (b) / they would have to leave the (c) / town as soon as possible. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 2. (a) Use 'directly' instead of 'Direct'.'  " },
+{
+    question: "3. It is true that you have performed (a) / well this time and we (b) / hope you to exceed in future (c) / as well. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 3. (b) 'Better' will be used instead of 'Well'. Because his current performance has been compared with his earlier performance. Example: 'It is true that you have performed better this time and we hope you to excell in future as well.'  " },
+{
+    question: "4. Before the trial, (a) / I was put to an interrogation so (b) / that they might know as to (c) / why I had killed the colonel. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 4. (e) There is no error. (There is no Adverbial Error in the sentence, yet the use of 'As to' before Why is Superfluous (more than necessary).'  " },
+{
+    question: "5. I would have accepted it (a) / gladly if you had (b) / given me anything (c) / else than the money. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 5. (e) There is no error.'  " },
+{
+    question: "6. Soldiers are trained on both mental (a) / and physical level, (b) / so that they cannot act or (c) / behave cowardly before their enemies. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 6. (d) Will use 'Behave in a cowardly manner'. 'Cowardly' is an adjective, not an adverb.'  " },
+{
+    question: "7. You are requested to kindly (a) / grant me leave for three (b) / days, (c) / because my mother is (d) / seriously ill and I need to go to her. (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 7. (a) Use 'kindly' before 'Requested'. This is a case of Split Infinitive.'  " },
+{
+    question: "8. It was raining (a) / very hard, yet she came (b) / out and ran fastly (c) / to get to another shop. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 8. (c) 'Fast' will be used instead of 'Fastly'. Because both Adverb and Adjective forms of fast are same.'  " },
+{
+    question: "9. He gets only disturbed when (a) / he thinks (b) / about you because (c) / he still loves you intensely. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 9. (a) 'Only' has been used in the wrong place whereas it is used Should be done before 'when'.'  " },
+{
+    question: "10. The success of an organization (a) / largely depends on the well (b) / articulated values it works (c) / on to meet the present demands. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 10. (b) After 'Depends' we will use 'largely'.'  " },
+{
+    question: "11. Tendulkar hit the ball so hardly (a) / that the fielders around (b) / him could not budge even a bit (c) / and it went over the boundary for six. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 11. (a) Use 'hard' in place of 'hardly'. Hard Hardly - With great effort Scarcely/Barely'  " },
+{
+    question: "12. That the Kalidas was not a much (a) / learned man, though he (b) / wrote an epic like (c) / Abhigyanshakuntalm is great riddle for us. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 12. (a) Will use 'very' instead of 'much'.'  " },
+{
+    question: "13. I am completely fed up with your (a) / coming so lately at night, (b) / and saying that you have (c) / taken dinner with a friend of yours. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 13. (b) 'Late' will be used instead of 'Lately'. Late After the usual or proper time Lately Recently'  " },
+{
+    question: "14. People dislike him not because (a) / he lived miserly but because he did not (b) / have any benevolent (c) / approach towards others. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 14. (b) Use 'Lived in a miserable manner'.'  " },
+{
+    question: "15. Not only he insulted me but (a) / he also forced me to (b) / resign the post for (c) / which I had struggled a lot. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 15. (a) 'Not only did he insult me' will be used. Know the rule: According to the rule of Verb Inversion when Adverb If is is used before the subject then auxiliary kiya is used before the subject.'  " },
+{
+    question: "16. So carefully he manages (a) / the whole operation that (b) / all the high authorities of the (c) / organization never forget to admire him in a meeting. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 16. (a) 'So carefully does he manage' will be used.'  " },
+{
+    question: "17. Only yesterday I received (a) / the advices from the head (b) / quarters located at one (c) / of the most beautiful cities in America. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 17. (a) Will use 'Only yesterday did I receive'. [due to the rules of inversion]'  " },
+{
+    question: "18. No sooner he came out (a) / his office than quite a few (b) / number of his employees gathered (c) / around him to request him not to leave that company. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 18. (a) 'No sooner did he come...' will be used.'  " },
+{
+    question: "19. Hardly it matters to a person (a) / who has never (b) / thought of what society (c) / thinks about him. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 19. (a) 'Hardly does it matter...' will be used.'  " },
+{
+    question: "20. When I was in London, (a) / I used to take coffee thrice a day (b) / and it really perked me (c) / to work with extra energy. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 20. (b) Will use 'Three times a day'. But once/twice/ thrice a day is not used. When there is three times, we will use Three Times.'  " },
+{
+    question: "21. When I insisted on his revising (a) / thoroughly the lesson, (b) / he refused to do so because (c) / he did not like the way I said it to him. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 21. (b) Will use 'Revising the lesson thoroughly'.'  " },
+{
+    question: "22. I request you kindly to grant (a) / me leave for three days, (b) / because I have to (c) / go to see my sick mother. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 22. (a) 'Kindly' will be used before 'Request'.'  " },
+{
+    question: "23. She asked me how (a) / I dared to prevent her (b) / people from not entering (c) / the central cabin. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 23. (c) Delete 'Not'.'  " },
+{
+    question: "24. She came here on yesterday and (a) / told me to call you up and (b) / remind you of the money (c) / you had borrowed from her. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 24. (a) Delete 'On'. Rule को जानें: Today, tomorrow, yesterday, the following day, the next day, yesterday evening, yesterday afternoon, last night, this morning, this afternoon, On/at/in is not used before these words 'tonight, tomorrow morning, tomorrow evening'. But other prepositions can be used as per need. Example: I have not eaten anything since yesterday.'  " },
+{
+    question: "25. I cannot even imagine how (a) / she turned up on last Monday, (b) / while she was supposed (c) / to be here today only. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 25. (b) Delete 'on'.'  " },
+{
+    question: "1. I think you (a) / all must have been informed that (b) / your examination is going to (c) / start from next Tuesday. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 1. (d) Remove 'From'. Know the Rule: Do not use prepositions before Next and Last when these words are used before a day, month, or year.'  " },
+{
+    question: "2. When I reached Mumbai to meet him, (a) / a friend of his told (b) / me that he had passed (c) / away in the previous year only. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 2. (d) Remove 'In'.'  " },
+{
+    question: "3. I am really surprised (a) / to know that you somehow (b) / managed to meet her in last (c) / week and discussed everything with her. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 3. (c) Remove 'In'.'  " },
+{
+    question: "4. I want to tell you frankly (a) / that I am none the wise (b) / for the kind of explanation (c) / you seem to expect from me. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 4. (b) Will use 'I am none the wiser'.'  " },
+{
+    question: "5. I full well know that (a) / not two men think alike, (b) / so their attitudes and manners (c) / cannot be the same. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 5. (b) Use 'No two men think alike'. Know the rule: Before any Numeral Adjective we use No and not not.'  " },
+{
+    question: "6. Not only other country (a) / but India can excel itself (b) / to that extent, so it is (c) / supposed to be the next super power. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 6. (a) 'No other country but India' will be used.'  " },
+{
+    question: "7. She did not ask me (a) / to complain against him, (b) / because she wanted to punish (c) / him in her own way. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 7. (a) 'She asked me not' will be used.'  " },
+{
+    question: "8. You were not wrong in speaking (a) / the truth (b) / before that judge, otherwise he (c) / would have been convicted and punished by now. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 8. (a) Use 'You were wrong in not speaking...'.'  " },
+{
+    question: "9. Let me tell you that (a) / I love and respect you so much (b) / because you are nearly (c) / like a father to me. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 9. (b) 'I love you and respect you so much, because you are almost...' (When we are saying that one thing is similar to another, we use 'Almost'. (The Boat Looked Almost) Like a toy)'  " },
+{
+    question: "10. I nearly wish (a) / I too would have bought (b) / one like that, because (c) / it is really a very useful thing. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 10. (a) Use 'I almost wish'. Ta'  " },
+{
+    question: "11. You know we are now (a) / cut off from the real mre (a) / that I met her first and (b) / we also had lunch (c) / together in a restaurant. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 11. (d) 'Almost nothing to eat' will be used.'  " },
+{
+    question: "12. He is working hardly day (a) / and night so that he (b) / may be as successful (c) / as his friend. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 12. (a) 'Hard' will be used instead of 'Hardly'. Know the Rule: Hard = Forcefully/ Vigorously Hardly Barely/Scarcely'  " },
+{
+    question: "13. Hard does he think of cheating (a) / anyone, so you can (b) / say that she is (c) / a girl of good character. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 13. (a) 'Hardly' will be used in place of 'Hard'.'  " },
+{
+    question: "14. I have rung him (a) / up five times yet but (b) / have not been (c) / able to talk to him. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 14. (b) 'So far' will be used in place of 'Yet' (Yet is used in negative sentences.)'  " },
+{
+    question: "15. I know that he has (a) / changed himself completely, (b) / but she yet does (c) / not like him at all. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 15. (c) Will use 'still' instead of 'yet'. (Still is used to emphasize the ongoing state but 'yet' shows that the work has not started yet.'  " },
+{
+    question: "16. She met me five (a) / years ago and has (b) / been in regular (c) / contact with me ever. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 16. (d) Will use 'since' after 'Ever'.'  " },
+{
+    question: "17. We had a lunch together (a) / last year only (b) / and we have (c) / been together yet. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 17. (d) 'Ever since' will be used in place of 'Yet'. Ever since'  " },
+{
+    question: "18. I shall ever remember (a) / you regardless of the (b) / fact that you have now (c) / no love for me at all. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 18. (a) Use 'always' in place of 'ever'.'  " },
+{
+    question: "19. You cannot expect (a) / any treat from him because (b) / he has hardly (c) / money on him. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 19. (d) Use 'any' before 'Money' because Hardly has been used.'  " },
+{
+    question: "20. We all know that (a) / he scarcely works hard, (b) / however, he has succeeded in (c) / obtaining good marks in the examination. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 20. (b) Use 'He scarcely ever works hard'.'  " },
+{
+    question: "21. Nothing like (a) / this has happened (b) / in this city, so you (c) / need not bother much about it. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 21. (b) 'Nothing like this has ever happened' will be used.'  " },
+{
+    question: "22. I simply (a) / want to know (b) / if you have (c) / been to a foreign before. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 22. (d) 'If you have ever been to...' will be used.'  " },
+{
+    question: "23. I have never (a) / been to Mumbai earlier, (b) / so I have no idea (c) / about the life in this city. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 23. (b) 'Before' will be used in place of 'Earlier'. Know the Rule: When 'Before' is used as an adverb, it means before or any time before now, but 'Earlier' means at the beginning of a time period.'  " },
+{
+    question: "24. It was ten years before (a) / that I met her first and (b) / we also had lunch (c) / together in a restaurant. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 24. (a) Use 'ago' in place of 'before' Know the rule: Ago and before 1. Although ago and before both mean 'before', there is a lot of difference in the meaning of both. Ago is used in past tense in the meaning of 'before now'. It should also be kept in mind that time expression + ago is used; As (i) He met me a month ago. (ii) They went to Uganda two years ago. 2. That is used after ago and not since; Like- It was two years ago that Lolima married me. In this sentence the use of when/since instead of that would be incorrect. But we can say- It is two years since Lolima married me. Uses of 'Before' (a) Before is used as adverb of time in the following cases. 1. When Before means at any time then it is used in Present Perfect Tense with you. Like- I think I've met you before.'  " },
+{
+    question: "25. He lived with me five (a) / before but these (b) / days he is living (c) / with his fiancée. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 25. (b) 'Ago' will be used in place of 'Before'.'  " },
+{
+    question: "1. He was the only influential (a)/person to be impressed (b)/ by his scholarly (c)/deliberations. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 1. (c) Scholarly एक adjective है।'  " },
+{
+    question: "2. The father told his son (a)/that he was a lazy boy (b)/and that he had done (c)/his work very bad. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 2. (d) 'Badly' will be used instead of 'Bad' because 'bad' is an Adjective whereas 'badly' is an Adverb. Like- (i) He is bad at mathematics. (ii) Drinking is a bad habit.'  " },
+{
+    question: "3. His son (a)/is working (b)/very hardly. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 3. (c) Hard will be used instead of Hardly.'  " },
+{
+    question: "4. Last night (a)/you returned (b)/lately. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 4. (c) It will be late instead of Lately.'  " },
+{
+    question: "5. Prabha was exorbitantly paid (a)/for how skilful she received (b)/the visitors and entertained (c)/them. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 5. (b) Skilfully will be used instead of Skilful because it is received Telling the characteristics of (verb). E.g.: He works carefully.'  " },
+{
+    question: "6. He studied (a)/so hardly (b)/he was sure of passing. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 6. (b) Hard will be used instead of Hardly.'  " },
+{
+    question: "7. They are very senior (a)/to me, so I (b)/dare not play a joke (c)/on them. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 7. (a) Much will be used instead of Very. Know the rule: Very is used before Adjective of Positive Degree whereas Much is used before Adjective of Comparative Degree. As- (i) He is very good. (ii) He is much better than you.'  " },
+{
+    question: "8. After toiling very hardly (a)/over a long period of time (b)/he found that people recognised him as a successful person. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 8. (a) Hard will be used in place of Hardly.'  " },
+{
+    question: "9. I advised Prashant (a)/not to walk (b)/on the road (c)/lately at night. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 9. (d) Will be late instead of Lately. Lately - Lately'  " },
+{
+    question: "10. He is sure (a)/to succeed because (b)/he is used (c)/to working very hardly. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 10. (d) To work very hard will be used. place to work very hard'  " },
+{
+    question: "11. At a time which most firms (a)/were finding it difficult (b)/to raise money, we succeeded (c)/in raising the necessary funds. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 11. (a) At a time when most firms will be used instead of At a time which most firms. Because at a time shows time and the adverb 'when' is used for time, not which. When will you willyor ato uar arrive in Delhi? (referring to time).'  " },
+{
+    question: "12. We are confident (a)/enough to earn (b)/our livelihood by (c)/toiling hardly. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 12. (d) Hard will be used instead of Hardly.'  " },
+{
+    question: "13. The students requested their Principal (a)/to be enough kind to grant (b)/them five thousand rupees for (c)/the reconstruction of the tennis court. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 13. (b) 'Enough' will be used after 'kind' (adj.). When used as an adverb of quantity, enough always comes after the word it characterizes. E.g.: Intelligent (adj.) enough (adv.).'  " },
+{
+    question: "14. We seldom or ever (a)/ go to the movie these days (b)/ because we don't like moving out. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 14. (a) 'Never' will be used in place of 'Ever'.'  " },
+{
+    question: "15. This machine looks (a)/good but is very (b)/badly designed (c)/and doesn't work good. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 15. (d) Well will be used in place of good, because good is an adjective, whereas well is an adverb.'  " },
+{
+    question: "16. They can promise you (a)/an experience (b)/you can't never (c)/forget. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 16. (c) Double Negative has been used here, hence you won't forget/you would not forget will be used.'  " },
+{
+    question: "17. He read widely, (a)/thought hardly, (b)/listened to those who (c)/had something to contribute. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 17. (b) Hard will be used instead of Hardly.'  " },
+{
+    question: "18. He was fortunately (a)/not present on (b)/the rostrum when (c)/the bomb exploded. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 18. (a) Fortunately will be used at the beginning of the sentence because the place of adverb describing the characteristics of the entire sentence is generally at the beginning of the sentence. E.g.: Frankly speaking, you are dull.'  " },
+{
+    question: "19. Firstly you should (a)/think over the meaning of the words (b)/and then use them. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 19. (a) First will be in place of Firstly.'  " },
+{
+    question: "20. From Bangalore railway station (a)/I went directly (b)/to Mr. Bhan at Jayanagar. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 20. (b) Instead of directly, there will be direct.'  " },
+{
+    question: "21. The clerks (a)/in this office (b)/work hardly. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 21. (c) Hard will be used instead of Hardly.'  " },
+{
+    question: "22. The city people stayed (a)/fearlessly despite (b)/rumour of terrorist attack (c)/in the area. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 22. (b) Instead of Fearlessly, there will be fearless.'  " },
+{
+    question: "23. We are confident that the steps (a)/we have taken to attract talented people (b)/and build a solid organisation (c)/will ensure we remain profitably. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 23. (d) Instead of profitable, there will be profitable.'  " },
+{
+    question: "24. Never I have (a)/ seen such (b)/ breathtaking scenery. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 24. (a) Never have I will be used in place of Never I have. Know the rule: Inversion is used in sentences starting with Seldom, never, hardly, rarely, scarcely etc. E.g.: Never does she tell a lie.'  " },
+{
+    question: "25. All of them will execute (a)/the plan so skilful (b)/that their officer (c)/will feel surprised. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 25. (b) Will be used skillfully.'  " },
+{
+    question: "1. Before man lived in a cave (a) / and ate the flesh of animals (b) / for which they had to (c) / hunt a forest from morning till evening. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 1. (a) Use 'earlier' in place of 'before'.'  " },
+{
+    question: "2. I think you have read (a) / this book earlier, therefore (b) / you know a lot about this (c) / concept of the market gimmick. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 2. (b) 'Before' will be used in place of 'Earlier'.'  " },
+{
+    question: "3. I am shocked to know (a) / that he told you that his (b) / father along with his wife (c) / had committed suicide six years ago. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 3. (d) Will use 'before' in place of 'Ago'. Know the rule: Before/ago, both of these mean 'before'. But ago is used only in period of time and simple past tense. And before is used for point of time and with any tense.'  " },
+{
+    question: "4. I have already told (a) / you not to come so lately, (b) / because the new boss is (c) / noticing our check-in and checkout every day. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 4. (b) Use 'late' instead of 'lately'. Know the rule: Late/lately Late = देर/ After the right/ Stipulated or usual time जैसे- The train is late. I met her in the late winter. She came late this morrning Lately = (recently) It is used as an adverb. Like- I haven't watched any movie lately.'  " },
+{
+    question: "5. The reason for his not being (a) / selected is that he reported (b) / lately and the interview board (c) / took it in a negative way. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 5. (c) 'Late' will be used in place of 'Lately'.'  " },
+{
+    question: "6. She has seen this movie (a) / lately and is going to (b) / watch it again with (c) / her friends this evening. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 6. (b) 'Recently' will be used instead of 'Lately'. Know the rule: 'lately' and 'recently' have the same meaning but 'lately' is used in negative and interrogative sense.'  " },
+{
+    question: "7. We received this message lately, (a) / but we have not (b) / been able to forward (c) / it to the higher authorities yet. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 7. (a) 'Recently' is used in place of 'Lately'. Know the Rule: 'recently' is generally used in Perfect Tense. But when it means just a few minutes ago, it is also used in Simple Past.'  " },
+{
+    question: "8. Till lately we believed (a) / that it was the Aryans (b) / who first invaded (c) / India and established their realm here. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 8. st (a) Will use 'Till recently' because 'Lately' is not used with 'Till'.'  " },
+{
+    question: "9. Off late, not only people (a) / living in India but also those (b) / living (c) / in other countries are facing the problems (d) / caused by the economic slowdown. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 9, (a) 'Of late' will be used instead of 'Off late'. Of Late means- recently'  " },
+{
+    question: "10. I have met her as lately as (a) / last month and (b) / I have always been (c) / talking to her ever since. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 10. (a) 'I met her as recently as' will be used. Know the rule: Always use Simple Past Tense with As Lately As.'  " },
+{
+    question: "11. The train is (a) / running lately so (b) / we must not wait (c) / for them. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 11. (b) Will use 'Running Late'.'  " },
+{
+    question: "12. My friends have arrived just now (a) / and they are getting (b) / ready for the show in (c) / the green room. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 12. (a) 'My friends arrived just now/my friends have just arrived' का प्रयोग करेंगे Know the Rule: Just is used in Present Perfect Tense while Just Now is used in Simple Past.) Just = ( a moment ago) A moment ago It is used as an adverb of time in present perfect tense. Like- She has just come in. Just now = 1. At this moment 2. A short time ago/ a moment ago when it means at this moment. So it is used in simple present. Like- She is only too busy just now. But when it is used in the sense of (some time/moment ago) then it is used in Simple past. Like- she gave me a ring just now.'  " },
+{
+    question: "13. He just said that (a) / he had finished the work before (b) / the concerned authority (c) / reached there for inspection. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 13. (a) 'He has just said that' will be used.'  " },
+{
+    question: "14. Everybody knows that (a) / it seldom or ever rains (b) / over here (c) / the way it is raining today. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 14. (b) Instead of 'Ever' we will use 'never', we will either use Seldom Never or 'Seldom If Ever')'  " },
+{
+    question: "15. The Hindus seldom if never visit (a) / this temple because (b) / it is a controversial site and (c) / they believe that is actually a mosque. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 15. (a) 'Ever' will be used instead of 'Never'.'  " },
+{
+    question: "16. He managed to work early but (a) / it has not been (b) / done so properly (c) / as expected. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 16. (a) 'Quickly' will be used in place of 'Early'.'  " },
+{
+    question: "17. All the people who (a) / have been invited to the (b) / party are expected to arrive (c) / early. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 17. (d) 'Earlier' will be used instead of 'Early'.'  " },
+{
+    question: "18. The meeting started (a) / a bit sooner, therefore (b) / many of us could not hear the (c) / inaugural speech delivered by the chairman. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 18. (b) 'Earlier' will be used in place of 'Sooner'. Know the rule: early/soon'  " },
+{
+    question: "19. You are supposed (a) / to be here earlier today (b) / because it is you who (c) / have to manage everything at the reception party. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 19. (b) 'Early' will be used in place of 'Earlier'.'  " },
+{
+    question: "20. What I do not like about (a) / you is that you leave the (b) / office quickly after (c) / it is 6 P.M. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 20. (c) Instead of 'quickly after' we will use 'soon after'.'  " },
+{
+    question: "21. The train was about to move away, (a) / so I soon got into it (b) / and asked my (c) / friends to come by the next train. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 21. (b) Use 'quickly' instead of 'Soon'.'  " },
+{
+    question: "22. I have already spent (a) / two and half an hour (b) / sitting idle here and (c) / now I am not going to wait for you any more. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 22. (d) 'Any longer' will be used in place of 'Any more' because Any Longer is used for time and Any More is used for number and quantity.'  " },
+{
+    question: "23. It was more than (a) / five o’clock in the evening, (b) / so I quickly wrote the articles (c) / and sent them to my boss. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 23. (e) There is no error.'  " },
+{
+    question: "24. Firstly you should think (a) / over the meaning (b) / of the words (c) / and then use them. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 24. (a) Use 'first' in place of 'firstly'. Know the Rule: First means before another thing or person e.g. First I have to Decide what to wear and then we would go out shopping.'  " },
+{
+    question: "25. The technician reminded (a) / them of having a thoroughly cleaning (b) / of the machine after (c) / each use. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 25. (b) 'Through' will be used instead of 'Thoroughly'.'  " },
+{
+    question: "1. My observation is that (a) / bringing a car to a (b) / suddenly stop (c) / may cause a serious accident. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 1. (c) 'Sudden' will be used instead of 'Suddenly'. Know the Rule: Sudden is an Adjective and Suddenly is an Adverb. Here Stop is a Noun, hence Sudden will be used because Adjective tells the characteristics of Noun and not Adverb.'  " },
+{
+    question: "2. I must say (a) / that he is too intelligent (b) / to make (c) / a mistake. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 2. (e) There is no error.'  " },
+{
+    question: "3. A man at the CWG site came (a) / to me and asked for some (b) / help with decided foreign accent (c) / but he was not looking like a foreigner. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 3, (c) Instead of 'Decided' (Adjective) we will use 'Decidedly' (Adverb).'  " },
+{
+    question: "4. You can touch the nimbus (a) / of sky when you (b) / get to know (c) / how to think independent. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 4. (d) Use 'Independently' (Adverb) instead of 'Independent' (Adjective).'  " },
+{
+    question: "5. Watch how careful (a) / the sparrow knits the straws (b) / into one another (c) / to form a nest. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 5. (a) 'Carefully' will be used in place of 'Careful'.'  " },
+{
+    question: "6. How beautiful you do (a) / everything is something (b) / every one present (c) / here must learn. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 6. (a) Instead of 'Beautiful' we will use 'beautifully'.'  " },
+{
+    question: "7. In spite of working (a) / very neat and careful (b) / he could not win (c) / even the third prize. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 7. (b) Will use 'Very neatly and carefully' (Adverb).'  " },
+{
+    question: "8. Even though it was raining (a) / bad I went (b) / out to get some (c) / medicines for my daughter. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 8. (b) 'Badly' will be used instead of 'Bad'.'  " },
+{
+    question: "9. It is rather ironically (a) / that so much has been (b) / spent on the proper development of Khel Gaun while more than (c) / half of the population are living in utter penury. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 9. (a) 'It is rather ironical' will be used. An Adjective is required here.'  " },
+{
+    question: "10. The angry man walked (a) / hurriedly into (b) / the crowded room (c) / and shouted loud at the guest. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 10, (d) Instead of 'Loud' we will use 'aloud' or 'loudly'.'  " },
+{
+    question: "11. You will be promoted (a) / on a condition that (b) / you do all types (c) / of work satisfactory. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 11. (d) In place of 'Satisfactory' we will use 'satisfactorily'.'  " },
+{
+    question: "12. The night was young, (a) / the sky was dotted with clouds and (b) / the stars were shining bright (c) / and beckoning me to come back home. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 12, (c) 'Brightly' will be used in place of 'Bright'.'  " },
+{
+    question: "13. He ultimately decided (a) / to willingly and cheerfully (b) / accept the responsibility (c) /entrusted to him. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 13. (b) Use 'Willingly and cheerfully' either at the end of the sentence or before the Decided Verb. If they are used before the Decided Verb, then 'Ultimately' will be used at the beginning of the sentence.'  " },
+{
+    question: "14. After toiling very hardly (a) / over a long period (b) / of time he found that people (c) /recognised him as a successful person. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 14. (a) 'Hard' will be used instead of 'Hardly'.'  " },
+{
+    question: "15. After reaching the room, (a) / I went directly to (b) / the father’s room to know (c) / about the recent financial crunch. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 15. (b) 'Direct' will be used in place of 'Directly'.'  " },
+{
+    question: "16. It is your father (a) / whom I esteem highly (b) / than (c) / one of my forefathers. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 16. (b) Use 'higher' instead of 'highly'. Because we are talking about comparison here.'  " },
+{
+    question: "17. You need to learn (a) / more than ten words (b) / on a regularly basis (c) / in order to qualify this examination. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 17. (c) 'Regular' will be used in place of 'Regularly'.'  " },
+{
+    question: "18. We did as good as (a) / we could to save his life but (b) / at the end of the day we got nothing (c) / but frustration and failure. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 18. (a) We will use 'We did as well as'.'  " },
+{
+    question: "19. Socrates was never born (a) / in this month, (b) / as far as my (c) / knowledge is concerned. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 19. (a) Use 'not' in place of 'Never'.'  " },
+{
+    question: "20. The book is (a) / making waves (b) / and the sale is quite brisk (c) / in all major cities. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 20. (c) Use 'Very brisk' because 'quite' is generally used to mean 'perfectly'.'  " },
+{
+    question: "21. Wearing extreme fashionable clothes (a) / and surrounded by (b) / photographers and pressmen (c) / she swept up to the microphone. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 21. (a) In place of 'Extreme' (adj.) we will use 'extremely' (adverb).'  " },
+{
+    question: "22. He used to often go to (a) / the mosque whenever he (b) / found himself (c) / in deep mental trauma. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 22. (a) Either use only often in place of used to often or use 'would' in place of 'used to'. (With 'used to' we do not use 'often', 'some times', 'occasionally' etc.)'  " },
+{
+    question: "23. I asked him (a) / so many questions (b) / but he only answered (c) / two of them. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 23. (c) Use 'only' before 'Two of them'.'  " },
+{
+    question: "24. I forbade her not (a) / to go to her parents (b) / without my (c) / permission but she did not pay heed to it. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 24. (a) 'Not' will not be used,'  " },
+{
+    question: "25. ‘He rewarded liberally all those (a) / who had served (b) / him good,’ said (c) / the author of a book. (d) / No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 25. (c) “Well” (adverb) will be used in place of “Good” (adj.).'  " },
+{
+    question: "1. Being much contented with the sincerity (a)/of the members of the staff (b)/the C.M. said that the state (c)/needed sincere men like them. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 1. (a) Very will be used instead of much. Know the rule: Generally, 'much' is used before the adjective of past participle. Like: Much surprised/much shocked etc. But we use very before tired, dejected, contented, drunk etc. E.g.: I found him very dejected.'  " },
+{
+    question: "2. When the prince saw the princess, (a)/he cried out that he had (b)/never seen such (c)/a beautiful lady before. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 2. (e) No Error'  " },
+{
+    question: "3. Firstly you should (a)/think over the meaning of the words (b)/and then use them, (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 3. (a) First will be used in place of Firstly.'  " },
+{
+    question: "4. He behaved (a)/cowardly (b)/before the principal. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 4. (b) In a cowardly manner will be used in place of Cowardly (adjective). Note: ] Coward-Noun Cowardly - Adjective In a cowardly manner - Adverb'  " },
+{
+    question: "5. He is (a)/too intelligent (b)/to make a mistake. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 5. (d) No Error'  " },
+{
+    question: "6. He is being (a)/very politely (b)/for the reason best known to him. (c)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 6. (b) Polite will be used instead of politely.'  " },
+{
+    question: "7. He is enough tall (a)/to be selected as Sub Inspector (b)/in Delhi Police. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 7. (a) Tall enough will be used instead of tall enough.'  " },
+{
+    question: "8. He said that the examination was bad (a)/ and added that he could not answer (b)/questions enough (c)/to pass it. (d)/ No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+  , explanation: "AnswerKey 8. (e) No Error'  " },
+{
+    question: "9. He seldom (a)/or ever (b)/tells a lie. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 9. (b) If will be used instead of or. See the difference: Seldom if ever Seldom or never'  " },
+{
+    question: "10. Her speech was not clearly (a)/but we understood (b)/the underlying meaning. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 10. (a) Clear will be used in place of clearly.'  " },
+{
+    question: "11. His son (a)/is working (b)/very hardly. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 11. (c) Hard (adj.) will be used in place of Hardly.'  " },
+{
+    question: "12. I advised my son (a)/to engage two coolies instead of one (b)/because the luggage was too much heavy for a single coolie. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 12. (c) Much too will be used in place of too much. Understand the rule: A noun is used after too much whereas an adjective is used after much too. As- (i) It gives me too much pain. (ii) It is much too painful.'  " },
+{
+    question: "13. I am very disturbed (a)/to hear that (b)/his services have been terminated. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 13. (a) Much would be correct instead of Very.'  " },
+{
+    question: "14. I don't like (a)/such nasty (b)/nor he does. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 14. (c) Nor does he would be right. Know the rule: In sentences starting with hard, rarely, scarcely, rarely, not, no, nor etc., the helping verb is used before the subject, this is called the rule of inversion. Like- Seldom does he help me.'  " },
+{
+    question: "15. I forbade you (a)/not to enter (b)/this room. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 15. (b) Forbade gives negative meaning and not has to be removed. so so before to to enter'  " },
+{
+    question: "16. He has just been appointed (a)/Ambassador to an important country (b)/for a five-year term. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 16. (a) Recently will be used in place of just. According to the meaning of the sentence, the use of recently would be appropriate because just means a moment ago.'  " },
+{
+    question: "17. It rained (a)/like cats and dogs (b)/throughout the night. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 17. (b) There is no need of like in the sentence. Because cats and dogs is an idiom.'  " },
+{
+    question: "18. It was bitter (a)/cold (b)/yesterday. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 18. (a) Bitterly (adverb) will be used in place of Bitter (adj.).'  " },
+{
+    question: "19. John is working very hardly (a)/as the examinations (b)/are far approaching. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 19. (a) Hard will be used instead of Hardly. Very hard'  " },
+{
+    question: "20. Lolima did this work (a)/ as good as (b)/she could do. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 20. (b) 'Well' will be used in place of 'Good'.'  " },
+{
+    question: "21. Mangoes taste (a)/more sweetly than (b)/any other fruit of this world. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 21. (b) Sweeter will be used instead of more sweetly.'  " },
+{
+    question: "22. Mr. Akki is working (a)/very hardly (b)/on this project. (c)/ No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 22. (b) Hard will be used in place of Hardly.'  " },
+{
+    question: "23. The milk (a)/of a cow (b)/is too nutritious. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 23. (c) The word too is used with words that have a negative meaning, whereas the meaning of sentence gives the sense of 'positive sentence', hence it would be correct to use very in place of too.'  " },
+{
+    question: "24. She sounded (a)/very sadly after (b)/the death of her pet. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 24. (b) Very sad will be used instead of very sadly, because sad is an adjective whereas sadly is an adverb.'  " },
+{
+    question: "25. Sugar is (a)/too (b)/sweet. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 25. (b) Very will be used in place of too. Know the Rule: Too means 'more than required' and is generally used before an adjective that describes bad qualities. Like- Too ugly, too dull, too horrible, too difficult, too careless, too dangerous, hence it would be wrong to say too glad, too happy, too healthy, too pleasant.'  " },
+{
+    question: "1. I am too busy these days (a)/ because I have to (b)/ complete the project within a month (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 1. (a) Use 'very' in place of 'too' " },
+{
+    question: "2. They were (a)/ enough unlucky to (b)/ be caught in the storm. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 2. (b) Use 'unlucky enough' " },
+{
+    question: "3. Would you be enough (a)/ kind to lend (b)/ me some money?(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 3. (a) Use 'kind enough' " },
+{
+    question: "4. I know him very well (a)/ because he comes to (b)/ my house often. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 4. (c) Use 'often' before 'comes' " },
+{
+    question: "5. He makes (b)/ such (b)/ remarks seldom. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 5. (c) Use 'seldom' before 'makes' " },
+{
+    question: "6. One who (a)/ speaks the truth always is (b)/ liked by all. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 6. (b) Use 'always' before 'liked' " },
+{
+    question: "7. You can (a)/ call me anything (b)/ else than a rascal. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 7. (c) Use 'but' in place of 'than' " },
+{
+    question: "8. I was compelled to (a)/ at once make (b)/ some changes in it. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 8. (b) Use 'at once' after 'it' at the end' " },
+{
+    question: "9. I request (a)/ you to kindly grant (b)/ me leave for three days. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 9. (b) Use 'kindly to grant' " },
+{
+    question: "10. I want to know (a)/ who came to meet (b)you yesterday night. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 10. (c) Use '...meet you last night' " },
+{
+    question: "11. It is very difficult (a)/ to convince these (b)/ illiterate people. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 11. (a) Use 'too' in place of 'very' " },
+{
+    question: "12. He is quite (a)/ confused to take (b)/ a decision. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 12. (a) Use 'too' in place of 'quite' " },
+{
+    question: "13. The old man said (a)/ ‘My son (b)/ I am too proud of you. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 13. (c) Use 'very' in place of 'too' " },
+{
+    question: "14. He only (a)/ spoke to me (b)/ because he trusts me. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 14. (a) Use 'only' after 'spoke' " },
+{
+    question: "15. He carefully (a)/ answered (b)/ my question. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 15. (a) Use '...answered my question carefully' " },
+{
+    question: "16. It is (a)/ a mistake they (b)/ always almost make. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 16. (c) Use 'almost always' " },
+{
+    question: "17. I almost (a)/ like (b)/ all of them. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 17. (a) Use 'almost' after 'like' " },
+{
+    question: "18. He (a)/ slipped and (b)/ fell almost. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 18. (c) Use 'almost fell' " },
+{
+    question: "19. I unfortunately (a)/ could not have any (b)/ contact with him. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 19. (a) Say 'Unfortunately I could....' " },
+{
+    question: "20. Do you (a)/ think ever about (b)/ living there? (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 20. (b) Use 'ever think' " },
+{
+    question: "21. We all know (a)/ that he plays (b)/ well the piano. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 21. (c) Use 'well' after 'the piano' " },
+{
+    question: "22. We cannot tell you (a)/ obviously the result but we can give (b)/ you an indication. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 22. (b) Say 'Obviously we cannot.....' " },
+{
+    question: "23. Very few of us are (a)/ able to speak (b)/ French much fluently. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 23. (c) Use 'very' in place of 'much' " },
+{
+    question: "24. Your sister is (a)/ very cleverer than any other (b)/ girl in her class. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 24. (b) Use 'much' in place of 'very' " },
+{
+    question: "25. Her ideas are much (a)/ interesting and useful (b)/ so I would like you to give me one. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 25. (a) Use 'very' in place of 'much' " },
+{
+    question: "1. I can tell you (a)/ that they are much (b)/ confident of success. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 1. (b) Use 'very' in place of 'much' " },
+{
+    question: "2. I am very (a)/ surprised to (b)/ hear this news. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 2. (a) Use 'much' in place of 'very' " },
+{
+    question: "3. The story is much (a)/ exciting and children would (b)/ love listening to it. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 3. (a) Use 'very' in place of 'much' " },
+{
+    question: "4. The plane will take off just now (a)/ so ensure that you have (b)/ fastened your seat-belt properly. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 4. (a) Use 'presently' in place of 'just now' " },
+{
+    question: "5. He took his breakfast (a)/ and left for the (b)/ office just now. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 5. (c) Use 'presently' in place of 'just now' " },
+{
+    question: "6. The parcel that arrived (a)/ presently has been (b)/ sent to the store room. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 6. (b) Use 'just now' in place of 'presently' " },
+{
+    question: "7. I am so happy today (a)/ because my son is returning (b)/ home from America. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 7. (a) Use 'very' in place of 'so' " },
+{
+    question: "8. She has the (a)/ ability to prepare meals (b)/ quicker than anybody else. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 8. (c) Use 'more quickly' in place of 'quicker' " },
+{
+    question: "9. A receptionist (a)/ must know to behave (b)/ with a customer. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 9. (b) Use 'how to behave' " },
+{
+    question: "10. He seldom or (a)/ ever gives anything (b)/ to a beggar. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 10. (b) Use 'never' in place of 'ever' " },
+{
+    question: "11. I never remember (a)/ having spent even a (b)/ single day at this hotel. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 11. (a) Use 'do not in place of 'never' " },
+{
+    question: "12. Firstly a person (a)/ should be courteous and (b)/ secondly dutiful. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 12. (a) Use 'Firsť in place of 'firstly' " },
+{
+    question: "13. I never (a)/ withdrew any money (b)/ from the bank today. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 13. (a) Use 'late' in place of 'lately' " },
+{
+    question: "14. Most of the (a)/ guests arrived (b)/ rather lately. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 14. (c) Remove 'than' after 'senseless' " },
+{
+    question: "15. I think (a)/ your sister is (b)/ somewhat tall for her age. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 15. (c) Use 'rather' in place of 'somewhat' " },
+{
+    question: "16. When the (a)/ police reached there (b)/ they found him lying senselessly. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 16. (c) Use 'senseless' " },
+{
+    question: "17. The passengers (a)/ went out of the (b)/ metro-train by and by. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 17. (c) Use 'one by one' in place of 'by and by' " },
+{
+    question: "18. The team (a)/ will recover its prime (b)/ condition by and by. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 18. (c) Remove 'by and by' and use'... will " },
+{
+    question: "19. The task (a)/ assigned to me is too much (b)/ difficult to do. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 19. (b) Use 'much too' in place of 'too much' " },
+{
+    question: "20. She should be named as Laxmi (a)/ because her birth has (b)/ brought prosperity to the family. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 20. (a) Remove 'as' after 'named' " },
+{
+    question: "21. The Government’s decision to ban (a)/ the sale of alcohol in the (b)/ state is appreciated greatly everywhere. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 21. (c) Use 'greatly appreciated' " },
+{
+    question: "22. My heart (a)/ is much (b)/ full for words. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 22. (b) Use 'too' in place of 'much' " },
+{
+    question: "23. Whom do (a)/ you love the most (b)/ most in the family? (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 23. (c) Remove 'the' before 'mosť' " },
+{
+    question: "24. It was (a)/ long before that (b)/ the temple was built. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 24. (b) Use 'ago' in place of 'before' " },
+{
+    question: "25. She asked me if (a)/ I had ever been to a (b)/ foreign country earlier. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 25. (c) Use 'before' in place of 'earlier' " },
+{
+    question: "1. The judge could not believe (a)/ her because her (b)/ statement was somewhat true. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 1. (c) Use 'partially' in place of 'somewhat' " },
+{
+    question: "2. As it is bitter cold today (a)/ we should eat and (b)/ drink something hot. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 2. (a) Use 'bitterly' in place of 'bitter' " },
+{
+    question: "3. A good thing about this (a)/ hospital is that medicines are (b)/ distributed freely here. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 3. (c) Use 'free' in place of 'freely' " },
+{
+    question: "4. The truth is (a)/ coming out little by little (b)/ therefore nobody knows (c)/ the whole truth yet. (d)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 4. (b) Use 'by and by' in place of 'little by little' " },
+{
+    question: "5. Instead of going (a)/ anywhere else, he (b)/ went directly to the office. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 5. (c) Use 'direct' in place of 'directly' " },
+{
+    question: "6. I think (a)/ she cares (b)/ a fig for you. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 6. (a) Use 'I don't think....' " },
+{
+    question: "7. As it is in the (a)/ benefit of the organization (b)/ we must do it at all. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 7. (c) Remove 'at all' " },
+{
+    question: "8. The irony is that (a)/ several Indians cannot (b)/ even speak correct Hindi. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 8. (c) Use speak even correct Hindi' " },
+{
+    question: "9. I am presently at (a)/ home and about to (b)/ leave for the office. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 9. (a) Use 'at present' in place of 'presently' " },
+{
+    question: "10. These buildings need repairs badly (a)/ but the residents are (b)/ not willing to spend even a single penny. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 10. (a) Use 'badly' before 'need' " },
+{
+    question: "11. I have only consulted two lawyers (a)/ so far and they have (b)/ the same view about it. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 11. (a) Use 'only' before 'two lawyers' " },
+{
+    question: "12. He fought (a)/ manly and (b)/ defeated the enemy. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 12. (b) Use'..fought in a manly manner' " },
+{
+    question: "13. Your being (a)/ kindly to a beggar is no (b)/ exceptional thing. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 13. (b) Use 'kind' in place of'kindly' " },
+{
+    question: "14. It is true (a)/ that the rich hardly (b)/ sleep soundly. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+  , explanation: "AnswerKey 14. (d) No error' " },
+{
+    question: "15. We had not (a)/ hardly sat down to supper (b)/ when the phone rang. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 15. (a) Remove 'not' " },
+{
+    question: "16. This award (a)/ is considered as (b)/ a great honour for a soldier. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 16. (b) Remove 'as'. Not used after 'consider' " },
+{
+    question: "17. Never we have witnessed (a)/ such a cruel behaviour by (b)/ one child to another. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 17. (a) Say 'Never have we...' " },
+{
+    question: "18. Seldom (a)/ one hears (b)/ a politician say ‘sorry’. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 18. (b) Say 'Seldom does one hear' " },
+{
+    question: "19. Not until (a)/ I got home I realised (b)/ my wallet was missing. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 19. (b) Say 'Not until did I get...' " },
+{
+    question: "20. Only then (a)/ I understood why (b)/ the tragedy had happened. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 20. (b) Say 'Only then did I understand...' " },
+{
+    question: "21. On no account you (a)/ should do anything without (b)/ asking me first. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 21. (b) Say 'On no account should you do...' " },
+{
+    question: "22. Little you know about my country (a)/ so you had better (b)/ keep your mouth shut. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 22. (a) Say 'Little do you know...' " },
+{
+    question: "23. The company (a)/ hardly bothers about the (b)/ good paid employees. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 23. (c) Use 'well' in place of 'good' " },
+{
+    question: "24. I am not in touch with him (a)/ because he has shifted to (b)/ Mumbai with bag and baggage. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 24. (c) Remove 'with' " },
+{
+    question: "25. Don’t be (a)/ too quick to part with your (b)/ hardly earned money. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 25. (c) Use 'hard' in place of 'hardly' " },
+{
+    question: "1. Some teachers (a)/ find it difficult to keep (b)/ classes orderly(c)/ No error (d).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 1. (c) Use 'in order' in place of 'orderly' " },
+{
+    question: "2. The society dwellers (a)/ are fighting with tooth and nail to (b)/ stop the new development.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 2. (b) Remove 'with' " },
+{
+    question: "3. He was thinking loudly (a)/ therefore I heard (b)/ everything clearly.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 3. (a) Use 'aloud' in place of 'loudly' " },
+{
+    question: "4. It is crucially that the (a)/ required measures (b)/ be taken as soon as possible.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 4. (a) Use 'crucial' in place of 'crucialD' " },
+{
+    question: "5. I haven’t (a)/ seen the movie and (b)/ my brother hasn’t too.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 5. (c) Use 'either' in place of 'too' " },
+{
+    question: "6. I have no (a)/ money to give (b)/ you and no idea as well.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 6. (c) Use 'either' in place of 'as well' " },
+{
+    question: "7. One who (a)/ travels lightly (b)/ enjoys the journey most.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 7. (b) Use 'light' in place of 'lightly' " },
+{
+    question: "8. Come straightly to (a)/ the point and tell (b)/ me what you want.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 8. (a) Use 'straight' in place of 'straightly' " },
+{
+    question: "9. Many of (a)/ you ave unreasonable (b)/ high expectation.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 9. (b) Use 'Unreasonably' " },
+{
+    question: "10. Success comes (a)/ to those who work (b)/ with heart and soul.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 10. (c) Remove 'with' " },
+{
+    question: "11. The point of (a)/ consolation is that each of (b)/ my guests has reached home safely.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 11. (c) Use 'safe' in place of 'safely' " },
+{
+    question: "12. It very often happens (a)/ that a man who (b)/ talks most does little.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 12. (c) Use 'much' in place of 'mosť' " },
+{
+    question: "13. The book is (a)/ making waves and (b)/ the sale is quite (c)/ brisk in all major cities.(d)/ No error",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 13. (c) Use 'very' in place of 'quite' " },
+{
+    question: "14. When I came back to India (a)/ my father was yet (b)/ practising law.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 14. (b) Use 'still' in place of 'yet' " },
+{
+    question: "15. My uncle is a (a)/ disciplined person (b)/ and does as he is told.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 15. (c) Use 'what' in place of 'as' " },
+{
+    question: "16. It is evident from his (a)/ statement that he was never (b)/ born in a rich family.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 16. (b) Use 'not' in place of 'never' " },
+{
+    question: "17. Like you said yesterday (a)/ the house should be (b)/ renovated before the marriage.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 17. (a) Use 'As' in place of 'Like' " },
+{
+    question: "18. Even many people (a)/ carry an infection (b)/ without showing its symptoms.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 18. (a) Use 'Often' in place of 'even' " },
+{
+    question: "19. It is nothing else but your (a)/ humbleness which makes (b)/ you behave gentlemanly.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 19. (c) Use 'in a gentlemanly manner' " },
+{
+    question: "20. Many of us have (a)/ very much money (b)/ but don’t use for a good cause.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+  , explanation: "AnswerKey 20. (b) Use 'too much' in place of 'very much' " },
+{
+    question: "21. I am going upstair (a)/ to see whether (b)/ she is ready yet or not.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 21. (a) Use 'upstairs' " },
+{
+    question: "22. I don’t like (a)/ the boy, because (b)/ he fairly impudent.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 22. (c) Use 'rather' in place of 'fairly' " },
+{
+    question: "23. To such an extent he has been (a)/ tortured that he will never think of (b)/ going there again.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 23. (a) Use '...has he been...' " },
+{
+    question: "24. Nearly everybody (a)/ agreed to work with (b)/ me on this project.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+  , explanation: "AnswerKey 24. (a) Use 'Almost' in place of 'Nearly' " },
+{
+    question: "25. I respect you (a)/ so much because you are (b)/ nearly like a mentor to me.(c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+  , explanation: "AnswerKey 25. (c) Use 'almost' in place of 'nearly' " },
+   
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

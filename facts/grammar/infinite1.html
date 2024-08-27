@@ -1,0 +1,2841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Preposition QUIZ APP</title>
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Infinite Part 1 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        }); 
+		
+		
+		
+		// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'infinite1';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+     // Display explanation
+    const explanation = document.createElement('explanation');
+explanation.innerHTML = `${currentQuestion.explanation || ''}`;
+optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+{
+    question: "1. My best friend (a)/left the country; (b)/I hope to hearing (c)/from her again soon. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+	,explanation: "you are fool"
+ , explanation: "AnswerKey 1. (c) 'Hear' will be used instead of 'Hearing' because Infinitive (to + V1) is used after the verbs 'hope, want, wish, like, order, request, advise, allow'; Like- I want to stay here." },
+{
+    question: "2. Cleanliness drives will be (a)/conducted in various localities (b)/to opening the drains blocked (c)/with polythene bags. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 2. (c) 'Open' will be used instead of 'Opening' because V1 is used with Infinitive Particle 'to' which we call Full Infinitive/To-Infinitive or generally Infinitive." },
+{
+    question: "3. The first task is provided (a)/sufficient arable land (b)/to the dispossessed farmers. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 3. (a) 'To provide' will be used instead of 'Provided' because the purpose is shown in the sentence. Is used in the sentence is a be verb and after this verb, V3 is used to form passive voice. But the use of passive in this sentence is not appropriate, because the subject of the sentence 'The first task' has not been used as the object of provided." },
+{
+    question: "4. I remember (a)/meet him (b)/five years ago. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 4. (b) 'Meeting' will be used instead of 'Meet' because after 'remember' both to + V1 and V-ing are used, but there is a difference in the meaning of both. 'Remember + to + V1, used in 'future' Is for work, whereas 'Remember + V-ing' is used for work done in the past. As- I remeber/shall remember to post your letter." },
+{
+    question: "5. In about five minutes, they would (a)/cover the distance from the road to the point (b)/where the waves would (c)/begin lick their feet. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 5. (d) 'Begin to lick' will be used instead of 'Begin lick' because infinitive (to + V1) is used after 'begin'." },
+{
+    question: "6. To curbing the spread of voilence, (a)/authorities brought under curfew (b)/more areas in the state, where (c)/youths were killed. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 6. (a) 'To curb' will be used instead of 'To curbing' because when 'To' is used as an infinitive particle, V1 is used with it." },
+{
+    question: "7. There are just a few trains (a)/for the ever-grow (b)/number of passengers (c)/in the city. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 7. (b) 'Ever-growing' will be used instead of 'Ever-grow' because ever + V-ing is used; Like- ever-changing, ever-lasting, ever-growing." },
+{
+    question: "8. In response to the growing crisis, (a)/the agency is urgently asking (b)/for more contributions to make up for (c)/its sharp decline in purchasing power. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 8. (c) 'Making' will be used instead of 'Make' because 'to' used with 'contribution' is a Preposition, not it is forming Infinitive Particle with the verb and the verb coming after any Preposition, Gerund is in (V-ing) form. As- He is addicted to smoking." },
+{
+    question: "9. The priest did not (a)/want to do any (b)/hard work but dreamt (c)/of be rich in one day. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 9. (d) 'Of being' will be used instead of 'Of be' because 'of' is a preposition and the verb coming after any preposition is always in the Gerund (V-ing) form; Like She is ambitious of becoming the P.M. of India." },
+{
+    question: "10. I requested my friend (a)/to come (b)/and shopping (c)/with me. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 10. (c) 'Shop' will be used instead of 'Shopping', because 'to come' used in Part (b) is an infinitive and after it and is used, hence Gerund cannot be used after it. Always remember that two or more words of the same type are joined by and, like- She likes swimming and playing. I would like to sing and dance." },
+{
+    question: "11. The biggest (a)/health burden that India (b)/is set to face in the coming years (c)/is tackle cancer. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 11. (d) Use of 'how to tackle' instead of 'tackle' because 'cancer' has the meaning of 'how to solve', or 'cancer' has the meaning of 'how to diagnose' for which 'how + to + V1 ' is used; Like- Our problem is how to catch the thief." },
+{
+    question: "12. The movement, which aims to (a)/raise awareness about climate change, hopes (b)/to bring people together to think about (c)/what they can do for reduce harmful pollution. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 12. (d) 'For reducing' will be used instead of 'For reducing' because the verb coming after a preposition is always in the form of Gerund (V-ing)." },
+{
+    question: "13. Concerns are being raised (a)/over the Government's plans (b)/to relocating cheetahs (c)/in India. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 13. (c) 'relocate' will be used instead of 'relocating' because 'plan + to + V1' is used; As- He has no plan to buy a car." },
+{
+    question: "14. Bangalore youths are for protest (a)/aganist the decision to (b)/grant a free plot of land (c)/to each member of the winning team. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 14. (a) 'To protest' will be used instead of 'For protest' because 'is/are/am + to + V1' is used for any work happening in the future. Like- HRIS The train is to start now. She is to go to Mumbai." },
+{
+    question: "15. He left for Mumbai on Sunday (a)/arriving there (b)/on Monday. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 15. (b) 'to arrive' will be used instead of 'arriving' because infinitive is used to express purpose; E.g.: He left for America to participate in an international seminar." },
+{
+    question: "16. If the allegations (a)/made against him (b)/are found to be true (c)/he could face rigorous imprisonment. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 16. (c) 'Found true' will be used instead of 'Found to be true' because to be is used between 'found' and the adjective coming after it. Does not happen ." },
+{
+    question: "17. The Magician, who has been (a)/using his talent for make the public aware (b)/of social issues, is confident (c)/that his mission would be a success. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 17. (b) 'Making' will be used instead of 'Make' because the main verb coming after any preposition is always in the form 'V4 (V + ing)'; As- He was punished for getting late. Ram prevented me from going there." },
+{
+    question: "18. His only motive (a)/was to finding (b)/the truth and (c)/follow it. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 18. (b) 'To find' will be used instead of 'To finding' because the infinitive form of the verb is 'to + V1'. As- She was ready to go there. The patient is to die." },
+{
+    question: "19. Since time immemorial, (a)/India's spiritual (b)/wisdom has being (c)/its strength. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 19. (c) 'Been' will be used instead of 'Being' because 'have/has/had/ having + V3' is used and the 'V3' form of the verb 'Be' is 'been'. E.g.: He has been ill for a week." },
+{
+    question: "20. Being a rainy day (a)/Vijay decided to stay (b)/at home and work (c)/further on the problem. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 20. (a) 'It' will be used before 'Being'" },
+{
+    question: "21. Being a sunday (a)/he went out (b)/for a trip to Pune (c)/with his family. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 21. (a) 'It' will be used before 'Being' because there should be a Subject of Reference for every Participle. Since 'It' is used as introductory subject for time, day, date, season, season etc., hence 'It' will be used before 'Being'" },
+{
+    question: "22. The guide said that (a)/she could help us finding out (b)/the ancient monument. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 22. (b) 'Find' will be used instead of 'Finding' because after help + Object, to + V1 or only V1 is used. E.g.: She helped me to do the sums." },
+{
+    question: "23. John's parents knew (a)/that he was addicted to gamble (b)/but they could not do anything to reform him. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 23. (b) 'Gambling' will be used instead of 'Gamble' because Gerund is used after addicted to, accustomed to etc.; As- He is addicted to smoking. She is accustomed to working hard." },
+{
+    question: "24. We found the soldier (a)/lying seriously wounded (b)/and died shortly afterwards. (c)/No Error. (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 24. (c) 'Dying' will be used instead of 'Died' because if two main verbs are joined by 'and' then they are in the same form; As- He wrote a letter and posted it. He will go to the station and buy a ticket." },
+{
+    question: "25. Kamala worked very (a)/hard so that she (b)/might not keep the others (c)/wait too long. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 25. (d) 'Waiting' will be used instead of 'Wait' because Verb-ing is used after keep, mind, can't help; As- Will you mind my coming late? They can't help laughing at him when they see him." },
+{
+    question: "1. I don’t know (a) / about you but (b) / I think he will not pass (c)/ the examination (d)/No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 1. (c) Use 'I don't think he will pass the examination'" },
+{
+    question: "2. If you work hard (a) / with all care and caution, (b) / you will have every chance (c) / to pass the examination with flying colours (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 2. (d) In place of 'to pass' we will use 'of passing'. Explanation: Of + V-ing is used after Chance. Know the Rules: Assist (in), Persist (in), Insist (on), Aim (at), Prevent (from), Desist (from), Debar (from), Abstain (from), Refrain (from), etc. Gerund form of verb is always used with words." },
+{
+    question: "3. I am already (a) / sick and tired of your obstinacy (b) / and tenacity, so you must (c) / go away and not persist to stay here (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 3. (d) 'Persist in spotting' will be used in place of 'Persist to spot'" },
+{
+    question: "4. Please never insist to do (a) / a thing like (b) / this or I will have (c) / to leave the job (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Use 'insist on doing' instead of 'insist to do'" },
+{
+    question: "5. Anyone that practises to spot common (a) / errors regularly (b) / can definitely pass any (c) / competitive examination (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 5. (a) Use 'practices staying' in place of 'Practices to stay'" },
+{
+    question: "6. Success is sure, (a) / if you aim to achieve your goal and do all (b) / requisite things within (c) / a given time frame (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 6. (b) 'Aim at achieving your goal and doing all.' का प्रयोग करें।" },
+{
+    question: "7. She has made (a) / several attempts for being (b) / the number one team of the (c) / world, but failed in achieving it (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 7. (b) Use 'Attempts to be'" },
+{
+    question: "8. After so many (a) / years of incessant (b) / struggle and strife, (c) / she has finally succeeded to win this case (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 8. (d) Use 'Succeeded in winning' instead of 'Succeeded to win'" },
+{
+    question: "9. Now the time is up, (a) / so every student is requested (b) / to stop to write (c) / as soon as possible and submit them to me (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 9. (c) Use 'to stop writing' instead of 'to stop to write'" },
+{
+    question: "10. My teacher has (a) / taught me to speak English (b) / and French in a very (c) / short span of time (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 10. (b) Use 'taught me speaking/how to speak' instead of 'taught me to speak'. Know the rule: Know, explain, learn, discover, teach, ask, show, wonder, remember, forget etc. There are some words after which the verb is used as 'how + to + verb' because it gives the sense of manner/method. As- I know to befool customers. I know how to befool customer. (Incorrect) (Correct)" },
+{
+    question: "11. Deepak is going to (a) / Dubai for bringing a few musical (b) / instruments and will (c) / come back within a few days (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) In place of 'for bringing' we will use 'to bring'. for some purpose Infinitive is used to show. Know the Rule: To-infinitive is used to express purpose (implying future time)." },
+{
+    question: "12. It was windy weather (a) / and storm could hit the (b) / town any time, so I prevented (c) / them to go out shopping (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 12. (d) 'Prevent them from going out' will be used. Explanation.: Preposition 'from' is used with Prevent and gerund (V+ing) form is used with it. E.g.: Nothing would prevent him from speaking out against injustice." },
+{
+    question: "13. Finally, she has (a) / managed to learn to swim, (b) / but it took her many (c) / months of hard work and great determination (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 13. (b) Use 'learn swimming/learn how to swim' instead of 'Learn to swim'. Explanation: If the meaning of the sentence is to learn or teach, then learn + how + to + V1 is used." },
+{
+    question: "14. No one was ready (a) / to help me to do it, (b) / but one of my college (c) / friends assisted me to do it (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 14. (e) There is no error." },
+{
+    question: "15. One should never (a) / take pride to do such a heinous (b) / thing like this gruesome (c) / and cold blooded murder (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 15. (b) Use 'pride in doing' instead of 'pride to do'" },
+{
+    question: "16. As you finish to do your homework, (a) / do let me know, (b) / because I have some (c) / urgent work with you (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 16. (a) Use 'finish doing' instead of 'finish to do'. Know the rule: There are some verbs which always take the gerundial form of the verb (V-ing) after itself. Admit, avoid, like, dislike, mind, love, appreciate, detest, resist, delay, deny, forgive, mention, enjoy, postpone, stop, start, defer, prefer, finish, risk, propose, escape, suggest, consider, practice, imagine, anticipate, hate, mean, regret, endure, contemplate, fancy, miss, pardon, excuse, resent….etc. Gerund (V-ing) is used after the given verbs. As- I enjoy to spend holiday with my friends. (Incorrect) I enjoy spending holidays with my friends. (Correct)" },
+{
+    question: "17. I am very much (a) / fond to do it and (b) / I do it regularly even when I am not (c) / well or do not feel like doing it (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 17. (b) In place of 'fond to do', 'fond of doing' will be used." },
+{
+    question: "18. I do not (a) / know to drive a car, (b) / so I have to learn how to drive (c) / a car before I buy a car (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 18. (b) Use 'know driving/know how to drive' instead of 'Know to drive'" },
+{
+    question: "19. After twenty hours, (a) / we discovered to open (b) / the safe, but it was (c) / too late by then, as the police had come (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 19. (b) Use 'We discovered how to open." },
+{
+    question: "20. You haven’t yet decided (a) / whether studying arts (b) / or science and only two (c) / days are left for the closing of the admission (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 20. (b) Instead of 'Whether studying' do 'whether to'. Use of 'whether 0 study' Know the rule: To + V1 is used after Whether." },
+{
+    question: "21. I wondered (a) / whether writing or phoning to (b) / her regarding the (c) / status quo of India (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 21. (b) 'Whether to write or phone' will be used." },
+{
+    question: "22. This machine (a) / is to measure (b) / the height and apart from this, (c) / it can perform any other tasks as well (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 22. (b) Use 'for measuring' in place of 'to measure'" },
+{
+    question: "23. My mother has gone for seeing (a) / my maternal uncle (b) / and she will be back (c) / within a week (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 23. (a) 'To see' will be used in place of 'For seeing' because (To + v1) infinitive is used for Purpose." },
+{
+    question: "24. I was in a precarious situation (a) / which compelled to leave (b) / the city as (c) / soon as possible (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 24. (b) Use 'Compled me to leave/ compelled leaving' in place of 'Compelled to leave'. Know the rule: When there is no object after advise, request, order, allow, forbid, permit, compel etc. then Gerund is used and if there is an object then to + V1 (Infinitive) is used." },
+{
+    question: "25. Initially my father (a) / was not ready but (b) / at last he allowed to tie (c) / the knot with my girl friend (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 25. Use 'Allowed tying' instead of 'Allowed to tie'" },
+{
+    question: "1. I requested to give (a) / five lac rupees, but he turned (b) / a deaf ear to me (c) / and went away without saying anything (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 1. (a) Use 'giving' instead of 'to give'" },
+{
+    question: "2. As he is in the habit of giving (a) / unsolicited advice, (b) / he came out of his cabin (c) / and advised to live life taking things granted for it (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 2. (d) 'Living life' will be used in place of 'To live life'" },
+{
+    question: "3. He was not working well, (a) / so finally his boss ordered to fire him (b) / a week ago, (c) / but I could not (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 3. (b) Use 'ordered firing' in place of 'ordered to fire'" },
+{
+    question: "4. You need not to (a) / take pains, (b) / because I am competent enough to (c) / manage things on my own (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 4. (a) 'Need not to take pains' will be used in place of 'Need not to take pains'. Know the Rule: When need and dare are used as a modal auxiliary, then Bare Infinitive is always used after it." },
+{
+    question: "5. She needn’t to go to market (a) / to bring sugar, as (b) / it is Sunday and all (c) / the shops are closed (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 5. (a) 'Needn't go' will be used in place of 'Needn't to go'" },
+{
+    question: "6. They need not to ask (a) / for money now, (b) / as these days dad (c) / is down on the dumps (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 6. (a) Use 'Need not ask'" },
+{
+    question: "7. She dare not to go (a) / out in a dark night, (b) / because she is a very (c) / timid kind of creature (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 7. (a) Use 'Dare not go'" },
+{
+    question: "8. You dare not to talk (a) / to me like this or else (b) / I will suspend you for this (c) / rude behaviour of yours (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 8. (a) 'Dare not talk' will be used" },
+{
+    question: "9. He bade me not to go (a) / there, but I (b) / went there in spite of that (c) / and I met with an accident as a result of that (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 9. (e) There is no error." },
+{
+    question: "10. Shreya was heard to sing a (a) / mellifluous song so many (b) / times on television and was (c) / awarded many prizes (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 10. (e) The sentence is correct." },
+{
+    question: "11. I have made all the (a) / students to learn how to (b) / find grammatical errors in (c) / a sentence in no time (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use 'Learn' without 'to'. Know the rule: After make, help, see, hear, let and bid, infinitive is used without to, but with them to is used in Passive Voice." },
+{
+    question: "12. I want to know who all have (a) / made her to cry, (b) / in spite of the fact that (c) / crying can harm her eyes (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 12. (b) 'Cry' will be used in place of 'To cry'. Explanation: After make, there is infinitive without to." },
+{
+    question: "13. When I was in Mumbai (a) / and struggling to get a break, (b) / no one helped me (c) / materialize my dream (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 13. (e) There is no error." },
+{
+    question: "14. All the students were (a) / made speak English during (b) / their final presentation on (c) / “Why are we poor?” (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 14. (b) Instead of 'Made speak' we will use 'Made to speak'" },
+{
+    question: "15. She is the finest singer (a) / I have ever seen in my life (b) / and you also must have heard her (c) / to sing on television (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 15. (d) Sing / Singing will be used in place of “To Sing”" },
+{
+    question: "16. Many friends of mine (a) / have helped me establishing this (b) / business and I (c) / am very grateful to them (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 16. (b) Instead of 'Helped me establishing' we will use 'Helped me establish'" },
+{
+    question: "17. I was very much (a) / keen to go to watch the movie (b) / but my mother (c) / did not let me to go (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 17. (d) Instead of 'Let me to go' we will use 'let me go'" },
+{
+    question: "18. It is very dangerous (a) / to go out this time, (b) / so you had better to stay (c) / here with me for some time (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 18. (c) Use 'Had better said'. Know the Rule: Infinitive is always used without to after Had sooner, had rather, had better, would sooner, would rather, would better." },
+{
+    question: "19. You had better left the (a) / meeting and come (b) / to see me (c)/as soon as possible (d)/No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 19. (a) 'Leave' will be used instead of 'Left'" },
+{
+    question: "20. You had better try (a) / it once again than (b) / to give up and go (c) / away for ever (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 20. (c) Use 'Give up' without 'to'" },
+{
+    question: "21. When I told him to beg, (a) / he said that (b) / he would rather (c) / die than to beg (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 21. (d) 'Beg' will be used instead of 'To beg'" },
+{
+    question: "22. It is raining cats (a) / and dogs and you (b) / had better to take (c) / an umbrella or wear a raincoat (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 22. (c) 'Had better taken' will be used" },
+{
+    question: "23. He does nothing (a) / but to watch a movie (b) / all the time sitting at home (c) / with her mother and sisters (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 23. (b) Instead of 'But to watch' we will use 'but watch'. Know the rule: The verb used after do/does/did+anything/nothing/ everything+but/except is always bare infinitive." },
+{
+    question: "24. I want nothing (a) / but to love as (b) / long as I am (c) / above ground (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 24. (e) There is no error." },
+{
+    question: "25. He does nothing but (a) / to laugh at his school (b) / mates without any (c) / rhyme and reasons (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 25. (b) Instead of 'But to laugh' we will use 'but laugh'" },
+{
+    question: "1. Why to pay more (a) / at this shop when it (b) / is available for $ 40 (c) / only at Vishal Mega Mart (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 1. (a) Will use 'Why pay more'. Know the rule: Bare infinitive is used after why/why not in such a sentence that it conveys the sense of question or suggestion." },
+{
+    question: "2. Why not to go to a (a) / dentist, if all (b) / your teeth are (c) / decaying rapidly (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 2. (a) Use 'Why not go'" },
+{
+    question: "3. Why to talk to him if (a) / he is not ready (b) / to act on the advice (c) / you have given to him (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 3. (a) 'Why talk to him' will be used." },
+{
+    question: "4. Sooner or later I (a) / will have you to believe (b) / that none can (c) / love you more than I (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 4. (b) Will use 'I will have you believe'" },
+{
+    question: "5. Some day I will have (a) / her to be a great (b) / scientist, as she is (c) / completely competent (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Use 'be' in place of 'to be'" },
+{
+    question: "6. The ship which was (a) / on the way to Dubai is (b) / reported to sink (c) / deep into the mid-sea (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 6. (c) In place of 'reported to sink' we will use 'reported to have sunk'. Know the rule: To show the completeness of the work, not To infinitive but perfect infinitive (To + have + V3) is used." },
+{
+    question: "7. On 26th of January, (a) / I intended to (b) / have gone to Delhi (c) / University to collect my third year admission form (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 7. (c) Use 'to go' instead of 'To have gone'" },
+{
+    question: "8. After the three day’s rigorous (a) / interrogation, the thief has (b) / admitted to commit (c) / crime in Delhi (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 8. (c) Use 'Admitted to have Committed' in place of 'Admitted to commit'" },
+{
+    question: "9. Mahatma Gandhi is believed (a) / to do so many (b) / things which (c) / helped India to be independent (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 9. (b) Use 'to have done' in place of 'to do'" },
+{
+    question: "10. She refused to fall in (a) / love with me before (b) / her father, but it (c) / was not the reality at all (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 10. (a) 'To have fallen' will be used in place of 'To fall'" },
+{
+    question: "11. The whole mankind seems (a) / to go wayward (b) / which has resulted (c) / in the disappearance of humanity from the earth (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use 'to have gone' in place of 'to go'" },
+{
+    question: "12. Three years has passed (a) / but I still remember (b) / to meet her in the train (c) / along with her family (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 12. (c) 'To have met' will be used in place of 'To meet'" },
+{
+    question: "13. She was requested to kindly sit (a) / quietly in the class (b) / room or she (c) / would be expelled out from it (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 13. (a) Do not use adverb like kindly between To and verb; This is called Split Infinitive and it is considered wrong. - Adverb is used either before the infinitive or after the infinitive. So we will say (She was requests kindly to sit...)" },
+{
+    question: "14. Every one of us is required (a) / to at least learn 20 (b) / words per day to breeze (c) / through any competitive examination (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 14. (b) Use 'at least' after 'Learn'" },
+{
+    question: "15. I request you to kindly (a) / give me two million rupees (b) / for two months as soon as (c) / possible (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 15. (a) Use 'Kindly' before 'to give'" },
+{
+    question: "16. My mother always advises (a) / me to carefully cross the road (b) /when I go to (c) / school in the morning (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 16. (b) Use 'carefully' after The Road" },
+{
+    question: "17. He prohibited me to go out (a) / in the night,as these (b) / days a black monkey (c) / is always out there to find its prey (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 17. (a) Use 'from going out' instead of 'To go out'" },
+{
+    question: "18. I am used to play (a) / cricket all day long, (b) / so just stay (c) / with me as long as you can (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 18. (a) Use 'to playing' instead of 'to play'. Know the rules: To be accustomed to, given to, in addition to, look forward to, owing to, object to, prone to, with a view to, to be used to, to be habituated to, to be addicted to etc. phrases After (V-ing) is always used." },
+{
+    question: "19. We all are looking (a) / forward to having much rain (b) / this season, as there (c) / was a famine last year (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 19. (e) There is no error." },
+{
+    question: "20. He, in addition to make money, (a) / also does so many (b) / things for (c) / the welfare of society (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 20. (a) 'In addition to making' will be used." },
+{
+    question: "21. Walking along the street, (a) / a dog bit him and (b) / this is why he is taking (c) / injections every week these days (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 21. (a) 'While he was walking' will be used.' Explanation- The subject of the participle clause is not present in the sentence, hence the use of while he was walking would be appropriate." },
+{
+    question: "22. Being a hot day, (a) / I do not like to go out of (b) / the room and play cricket (c) / with my friends in the field (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 22. (a) Use 'It being a hot day'. Explanation: Being a hot day is a participle clause, but its subject is not present in the sentence, hence to complete this subject, it will be used just before being." },
+{
+    question: "23. Having been failed in the examination, (a) / he decided to (b) / leave hearth and home, which resulted (c) / into frustration and disappointment (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 23. (a) Delete Been because having + been + V3 is a passive construction which is not needed here." },
+{
+    question: "24. Having got several pieces of (a) / information of (b) / plundering and sabotaging, (c) / he was arrested (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 24. (d) The subject of Having got cannot be 'he', hence the police arrested him will be used according to the sense of the sentence." },
+{
+    question: "25. On no account will (a) / I like your staying awake (b) / so late into the night (c) / for studies and all (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 25. (a) 'Would' is used in place of 'Will'. Rule: 'Would' is always used with verbs like like, wish, love, prefer etc. and not will." },
+{
+    question: "1. The children were (a)/playing with a ball (b)/and run around when (c)/the accident occurred. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 1. (c) 'Run' will have to be changed to 'running' because when two main verbs are used with one auxiliary verb, both the main verbs remain in the same form; Sharmila is singing and dancing." },
+{
+    question: "2. The firemen could not (a)/succeed in rescue the (b)/child although they (c)/could put out the fire. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 2. (b) 'Rescuing' will be used instead of 'Rescue' because if the verb is used after prepositions like by, before, after, in, at, on etc. then it remains in '-ing' form, that is, it remains in gerund form." },
+{
+    question: "3. The boys are playing (a)/outside the house whereas (b)/the girls are sitting (c)/inside and talked loudly. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 3. (d) 'talking' will be used instead of 'talked' because if two main verbs are used with one auxiliary verb then both the main verbs remain in the same form." },
+{
+    question: "4. The driver could not (a)/prevent the car from hit (b)/the child although he (c)/applied the brakes suddenly. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 4. (b) 'Hitting' will be used instead of 'Hit' because 'from, by, at, in, If the verb is used after prepositions like 'on, after, before' etc. then it is with '-ing', that is, it is in the gerund form." },
+{
+    question: "5. The warden (a)/forbade the student (b)/from leaving the hostel. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 5. (c) 'To leave' will be used instead of 'From leaving' because to + V1 is used after prohibit; Like- He forbade me to go out." },
+{
+    question: "6. It is necessary (a)/that everybody (b)/must have a house. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 6. (c) 'Should' will be used instead of 'Must' because 'necessary' and 'must' are not used together; As- It is necessary for you to be economical. (= You must be economical)" },
+{
+    question: "7. I am hearing (a)/a lot about (b)/the problem of AIDS these days. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 7. (a) 'Hear' will be used instead of 'Am hearing' because when 'hear' means 'hearing' (experience through the ears) then it is not used in Continuous Tense." },
+{
+    question: "8. I can hear (a)/the bell ringing (b)/but nobody seems to be coming (c)/to opening the door. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 8. (d) 'To open' will be used instead of 'To opening' because if 'to' is used as an Infinitive Particle, then V1 is always used after it and not V4 (V-ing). Like- He seems to be coming to help us. He seems to have met his sweet-heart." },
+{
+    question: "9. In the absence of (a)/clear instructions (b)/one cannot be expected (c)/to be functioned effectively. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 9. (d) 'To function' will be used instead of 'To be functioned', that is, Active Infinitive will be used instead of Passive Infinitive." },
+{
+    question: "10. All his relatives (a)/expect his daughter (b)/have gone on (c)/a month's vacation tour. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 10. (c) 'To go' will be used instead of 'Have gone' because Object + Infinitive (to + V1) is used after the verbs 'like, want, expect, allow, invite, request, encourage'; As-" },
+{
+    question: "11. After much thought (a)/the boys devised (b)/a clever plan in escaping (c)/from the cave. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 11. (c) 'To escape' will be used instead of 'In escaping', because it is correct to write make a plan to do something, like- He wants to make a plan of/for a story." },
+{
+    question: "12. Dheeraj said that (a)/he would rather (b)/fail than copying in the examination. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 12. (c) 'Copy' will be used instead of 'Copying'. Keep in mind that- Had better/would better या Had sooner/would sooner या Had rather/would rather + V1 + than + V1 is used. Hence the correct option is (c)." },
+{
+    question: "13. He could make (a)/them accepted his proposal (b)/because he was quite (c)/familiar with their practice. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 13. (b) 'Accept' will be used instead of 'Accepted' because after the verb 'make' Object is used and Bare Infinitive. That is, the texture is (make + Object + V1); As- I made her laugh." },
+{
+    question: "14. To our surprise (a)/we noticed that (b)/every soldier and every sailor (c)/was in his his place. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 14. (e) No Error" },
+{
+    question: "15. I can hear (a)/the conversation inside (b)/but nobody is coming to opening the door (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 15. (c) 'To open' will be used instead of 'To opening' because V1 is used after the infinitive particle 'to'." },
+{
+    question: "16. All the parties whose (a)/presidents were asked to resign (b)/were involved in (c)/anti-national activities (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 16. (e) No Error" },
+{
+    question: "17. Growing awareness (a)/among the people (b)/will put some effect (c)/on the politician's action. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 17. (e) No Error" },
+{
+    question: "18. Visiting tribals and (a)/talks to them are the activities (b)/which all of us enjoy (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 18. (b) 'Talking' will be used instead of 'Talk' because in Part (a) visiting is a Gerund and two verbs joined by and are used in the same form." },
+{
+    question: "19. India is so poor (a)/that it can't afford lose (b)/Mondays on account of strikes. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 19. (b) 'Afford to lose' will be used instead of 'Afford lose' because To-Infinitive is used after the verbs afford/like/want and not Bare Infinitive." },
+{
+    question: "20. We are aware (a)/that we do not (b)/always get what (c)/we want to get. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 20. (e) No Error" },
+{
+    question: "21. What was his response (a)/when you tried (b)/to got some (c)/information from him? (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 21. (c) 'Get' will be used instead of 'Got' because V1 is used after the Infinitive Particle 'to'." },
+{
+    question: "22. Being a cold morning, (a)/I decided not (b)/to go for (c)/my morning walk. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 22. (a) 'It' has to be used before 'Being' because it is necessary for every Participle to have a Subject of Reference, otherwise the sentence gets the defect of 'Unrelated Participle'." },
+{
+    question: "23. Having tired (a)/of play (b)/he sat down to rest. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 23. (a) 'Being tired' will be used instead of 'Having tired' because 'Having tired' is Active Participle whereas Passive Participle is required in the sentence." },
+{
+    question: "24. Rakesh does not (a)/know to swim (b)/so he is (c)/afraid of water. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 24. (b) 'Know how to swim' will be used instead of 'Know to swim' because if infinitive is to be used after know, then to show manner, infinitive is used along with how after know." },
+{
+    question: "25. Managers frequently encounter situations (a)/where they need to help (b)/others solved problems. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 25. (c) 'Solve' will be used instead of 'Solved' because help + somebody + do + something or help + somebody + to do + something is used; Like- She helped me solve this problem." },
+{
+    question: "1. He has proposed to me that (a) / he will join me and (b) / wage a war against (c) / all corrupt politicians (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 1. (b) 'Should' will be used in place of 'Will'. Know the rule: Should clause is used after propose and suggest." },
+{
+    question: "2. The reason why I am (a) / very good at English is (b) / that I have always (c) / enjoyed to learn English (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 2. (d) 'Learning' will be used in place of 'To learn'. Explanation: Gerund form (V-ing) of the verb is used after Enjoy." },
+{
+    question: "3. Whenever he passes filthy (a) / remarks or use abusive words, (b) / I always try (c) / to avoid to speak to him (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 3. (d) 'Speaking' will be used in place of 'To speak'" },
+{
+    question: "4. It is sure that (a) / if you apologize for having failed (b) / in keeping your promises, (c) / your better half will forgive you (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 4. (e) There is no error." },
+{
+    question: "5. Shakespeare is said to write (a) / many dramas and more (b) / than one hundred (c) / and fifty sonnets (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 5. (a) Use 'to have written' in place of 'to write'" },
+{
+    question: "6. It is a slippery road, (a) / so you had better to (b) / drive with all care and (c) / caution or we may meet with a serious accident (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 6. (b) 'Drive' will be used instead of 'To drive'. Know the rule: Had sooner, had rather, had better, would sooner. Would rather, would better are always followed by an infinitive verb without to." },
+{
+    question: "7. It is advisable to stay at (a) / home than to go (b) / out and play cricket (c) / on such a sunny (d) / and hot day No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 7. (b) 'Go' will be used in place of 'To go'" },
+{
+    question: "8. The thief is reported (a) / to steal all my money and (b) / several pieces of jewellery (c) / from my locker (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 8. (b) In place of 'to steal' we will use 'to have stolen'" },
+{
+    question: "9. He does nothing but to (a) / take care of his old (b) / parents who can meet (c) / their maker any time now (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 9. (a) 'Take' will be used instead of 'To take'. Explanation: Bare infinitive is used after Nothing but, hence 'take' will be used in place of 'to take'" },
+{
+    question: "10. Having been finished his work, (a) / Praveen went to (b) / market to get some (c) / fruit and vegetables for dinner (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 10. (a) The sentence is in Active Voice, hence 'been' should be removed." },
+{
+    question: "11. Having had taken the tickets, (a) / you may wait for (b) / some time or (c) / roam around the theatre (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 11. (a) According to the structure Having + V3,+ S + V +...., Had is not needed here." },
+{
+    question: "12. All the people present (a) / there to welcome the chief (b) / guest got together to hear (c) / him to speak on corruption and scams (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 12. (d) 'Speak/speaking' will be used in place of 'To speak'. Know the rule: After make, help, see, hear, let and bid, infinitive is used without to, but with them to is used in Passive Voice." },
+{
+    question: "13. She refused to say such (a) / things to his father but (b) / I myself heard her saying (c) / such things (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 13. (e) There is no error." },
+{
+    question: "14. When I came back to India (a) / I found people toil and moil (b) / for bread and (c) / butter as usual (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 14. (b) Use 'I found people toiling and moiling'" },
+{
+    question: "15. Take everything into consideration, (a) / I decided to give (b) / him a flat to live (c) / in and some money to start a business with (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 15. (a) 'Taking every thing into consideration' will be used." },
+{
+    question: "16. It is our incompetent (a) / politicians and their ineffective (b) / strategy that are letting (c) / the terrorist to put the country on fire (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 16. (d) Remove 'To put' and use only 'put'" },
+{
+    question: "17. The news caster (a) / has broadcasted an untrue (b) / piece of news which (c) / has caused political agitation all over India (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 17. (b) Use 'broadcast' in place of 'broadcasted'" },
+{
+    question: "18. Why to play alone (a) / when we have a number (b) / of friends who can (c) / take part in this game (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 18. (a) Use 'Why play alone'. Know the rule: Bare infinitive is used after why/why not when it forms a complete interrogative sentence. Like- Why play alone?" },
+{
+    question: "19. Having depressed, (a) / she decided to shut (b) / down her company and leave (c) / India as soon as possible (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 19. (a) 'Being' will be used instead of 'Having' because it shows the reason." },
+{
+    question: "20. Having tired, (a) / he went to take a rest (b) / under a dense tree which (c) / was on the bank of a river (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 20. (a) 'Being' will be used in place of 'Having'. Know the Rule: Being + V3 is used to show reason. As- Being depressed, she did away with herself." },
+{
+    question: "21. He complained to the (a) / police that his briefcase (b) / has been stolen and that (c) / he was lefted without any money (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 21. (d) 'Left' will be used instead of 'Lefted'" },
+{
+    question: "22. Being a raining day, (a) / Vijay decided to stay (b) / at home and work (c) / further on the problem (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 22. (a) 'It being a rainy day' will be used." },
+{
+    question: "23. The book, being written (a) / in simple language is (b) / suitable for children as it contains many good pieces of advice (c)/No error (d).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 23. (d) There is no error." },
+{
+    question: "24. Having been his own boss (a) / for such a long time he found (b) / it hard to accept orders from another (c) / No error (d).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 24. (d) There is no error." },
+{
+    question: "25. On no account will (a) / I like your staying awake (b)/ so late into the night (c) / for studies and all (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 25. (e) There is no error." },
+
+{
+    question: "1. The unreasonable behaviour of (a) / his daughter (b) / was thoroughly upset (c) / Mr. Gupta (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 1. (c) The mood of the sentence is in Active, hence remove 'was' to purify the sentence." },
+{
+    question: "2. We were still talking (a) / about what we (b) / should do when (c) / we heard the children shouting (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 2. (e) There is no error." },
+{
+    question: "3. Rajan abided by all (a) / the rules which (b) / were explained to him (c) / before the programme (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 3. (e) The sentence is correct." },
+{
+    question: "4. I do not know why most (a) / people feel depress (b) / and dejected even (c) / at the slightest provocation (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 4. (b) Use 'depressed' in place of 'depress'" },
+{
+    question: "5. It took ten long years (a) / for them to realization (b) / that there were several (c) / problems to deal with (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Use 'realize' instead of 'realization'" },
+{
+    question: "6. \"We are looking (a) / forward to see (b) / you soon\", said (c) / the Prime Minister of India (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 6. (b) Use 'seeing' instead of 'See'" },
+{
+    question: "7. She soon got used to live (a) / in a country where population (b) / and poverty seems to (c) / have brought it to a pitiable condition (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 7. (a) Use 'living' instead of 'Live'" },
+{
+    question: "8. The early national movement (a) / succeeded to arouse the (b) / feeling among the people that they belonged (c) / to one common nation that is India (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 8. (b) Use 'Succeeded in arousing'" },
+{
+    question: "9. Being a cold morning, (a) / I decided (b) / not to go for (c) / my morning walk (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 9. (a) Use 'It being a cold moning'" },
+{
+    question: "10. What was his response, (a) / when you tried to (b) / got some (c) / information from him (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 10. (c) 'Get' will be used in place of 'Got' because V1 is used after to." },
+{
+    question: "11. We decided (a) / to purchase flowers (b) / rather than (c) / looking for fruit (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 11. (e) There is no error." },
+{
+    question: "12. The purchase made (a) / by him (b) / brought him a (c) / number of prizes (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 12. (e) There is no error." },
+{
+    question: "13. The leader repeatedly mentioned (a) / that his mission was (b) / not merely to achieve (c) / freedom but give the country a new form (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 13. (d) Will use 'But to give'" },
+{
+    question: "14. India is so poor (a) / that it cannot afford (b) / losing Mondays on (c) / account of strikes (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 14. (c) Use 'to lose' instead of 'Losing'" },
+{
+    question: "15. It is reliably learnt (a) / that he will be the (b) / next president of our (c) / professional association (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 15. (e) There is no error." },
+{
+    question: "16. The proper assessment of (a) / the training needs for allow (b) / for the meaningful follow-up (c) / of the training activity (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 16. (b) 'Needs to be allowed' will be used" },
+{
+    question: "17. Visiting tribals and talk to them (a) / are the activities which (b) / all of us enjoy, as they let us learn (c) / various things about the way they live their life (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 17. (a) Use 'talking' instead of 'talk'" },
+{
+    question: "18. Even after the fifty years (a) / of independence many (b) / social problems still (c) / remaining to be solved in India (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 18. (d) Use 'remain' in place of 'remaining'" },
+{
+    question: "19. I can hear the (a) / conversation inside, (b) / but nobody (c) / is coming to opening the door (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 19. (d) 'Open' will be used in place of 'Opening'" },
+{
+    question: "20. These days Ashok along (a) / with his friends (b) / is not going to (c) / a walk in the morning (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 20. (c) Use 'for' instead of 'to'" },
+{
+    question: "21. He will not tell you (a) / his problem, (b) / unless you agree (c) / for helping him (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 21. (d) Use 'to help' instead of 'For helping'" },
+{
+    question: "22. He could make them (a) / accepted his (b) / proposal because he was (c) / quite familiar with their practice (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 22. (b) Use 'accept' instead of 'accepted'" },
+{
+    question: "23. They asked the guide (a) / whether they could wait (b) / and to watch the sight (c) / after the sunset (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 23. (c) Remove 'To' and use 'and watch'" },
+{
+    question: "24. The book is written (a) / in a simple and (b) / lucid manner (c) / with a number of well-drawned illustrations (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 24. (d) 'Well-drawn' will be used in place of 'Well-drawn'" },
+{
+    question: "25. I have told Suresh (a) / that it will not be possible (b) / for me carrying (c) / on this kind of work (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 25. (c) Use 'to carry' instead of 'carrying'" },
+
+{
+    question: "1. We are (a)/looking forward to (b)/see you. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 1. (c) 'Seeing' will be used instead of 'See' because with a view to, look forward to, used to, habituated to, accustomed to, addicted to etc. V-ing is used after -, like- She is accustomed to drinking." },
+{
+    question: "2. Strong people do no late (a)/their ambitions (b)/be subdued (c)/by poverty of such extraneous factors. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 2. (a) 'Let' will be used instead of 'Late' because 'late' is used as an Adjective and an Adverb whereas 'let' is used as a Verb; As- He came late today." },
+{
+    question: "3. We request you to (a)/study the proposal carefully (b)/and submitted your recommendations (c)/at your earliest convenience. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 3. (c) Use 'submit' instead of 'Submitted' because in the presented sentence two infinitives are joined by and. Hence the correct usage would be to study and submit." },
+{
+    question: "4. He quickly (a)/ordered the boy (b)/to being brought (c)/before him.(d)/No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 4. (c) 'To be brought' will be used instead of 'To being brought' because Infinitive [to + V1] has Passive [to + be + V3]. As- There is nothing to be done." },
+{
+    question: "5. Despite (a)/ the pills which (b)/are available, many people still (c)/have no sleeping. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 5. (d) 'Sleeping' will be used instead of 'Sleeping' because 'sleeping' is generally used as a Verb or as a Participle. Whereas 'sleep' is used as a Verb or Noun. In the sentence given in the question, the verb have needs an object and only a noun or non-equivalent is used in the object form." },
+{
+    question: "6. Being recovered (a)/from their astonishment, (b)/the explorers realized (c)/that the problem was easy to solve. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 6. (a) 'Having recovered' will be used instead of 'Being recovered'" },
+{
+    question: "7. I made him (a)/to apologize (b)/for his rudeness. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 7. (b) 'Apologize' will be used instead of 'To apologise' because Bare Infinitive is used after the verbs make/let/bid/see/hear/watch." },
+{
+    question: "8. He was (a)/bent upon (b)/to murder him. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 8. (c) 'Murdering' will be used instead of 'To murder' because the verb coming after any preposition is always in the Gerund (V + ing) form. As- He was punished for beating a girl." },
+{
+    question: "9. Golu heard (a)/him to speak (b)/on several subjects. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 9. (b) 'Speak' will be used in place of 'To speak'. Because Bare Infinitive (without 'to') is used after let, bid, see, hear, make etc." },
+{
+    question: "10. Judge everything in the light of what (a)/the pleaders of both the parties had said, (b)/the judge came to the conclusion that the case was false. (c)/No Error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 10. (a) Use 'Judging' or Having judged in place of 'Judge' because participle clause is needed in the sentence." },
+{
+    question: "11. Not only will she go (a)/to the pictures but she will (b)/also meet some of her common (c)/friends in the evening. (d)/No Error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 11. (e) No Error" },
+{
+    question: "12. Water contamination has (a)/ become more serious (b)/since chemists have (c)/begun to use new substances. (d)/No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 12, (d) Began will be used in place of Have begun, because the time clause coming after since is used only in 'Simple Past'.', 'in me only" },
+{
+    question: "13. Being very often ill (a)/ and frequently absent, (b)/he had no opportunity to finish his work (c)/or do much of it in fact. (d)/No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 13. (d) To will be used before do. Rule: When two verbs are used in a sentence and to is used with the first verb, then it will be used before the second verb also. E.g. He prefers to die, not to beg." },
+{
+    question: "14. Being a rainy day (a)/ Vijay decided to stay (b)/at home and work (c)/further on the problem. (d)/No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 14. (a) It will be used before being because subject of reference is required whereas for being in a sentence for every participle. Is not the subject of reference. For example, Subject (It) is used for weather, season, time etc. For example: Introductory It was a fine morning." },
+{
+    question: "15. Going towards them (a)/ with some cups of (b)/tea in the tray, somebody knocked (c)/at the door. (d)/No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 15. (a) Going is used as a participle. But its subject of reference is not clear. Hence it should be said while I/ she/ he was going." },
+{
+    question: "16. Having had reached (a)/ the station, you (b)/may buy your ticket and wait for the train for New Delhi. (c)/No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 16. (a) Use of Had is superfluous. Having + V3 is the correct usage. Like- Having read the book, you should return it to the library." },
+{
+    question: "17. She stole something (a)/ from my room and hid it (b)/in her recently got sari, so I can't tell you anything about (c)/the stolen thing unless or until I check the room. (d)/No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Gotten will be used instead of Got, because gotten is used as an Adjective." },
+{
+    question: "18. Walking in the field (a)/ late at night, a snake bite me (b)/and that was the reason (c)/why I was in a hurry. (d)/No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 18. (a) While I was walking will be used instead of walking, because in walking in the field, a snake bit me, walking has been used as a participle whose subject is 'A snake'. The relation of Snake as a subject with walking is not meaningful, because the work of walking is done by I and not by the snake. Therefore, the use of while I was walking is necessary to make the sentence meaningful." },
+{
+    question: "19. For testing the (a)/ new microphone, I (b)/tried to (c)/record my voice. (d)/No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 19. (a) Infinitive is used to show purpose. Hence, to test will be used here. E.g. To speak the truth is a good habit." },
+{
+    question: "20. I like (a)/ reading (b)/more than (c)/to play. (d)/No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 20. (d) Gerund (playing) will be used here instead of Infinitive (to play). Like- I like studying more than watching TV." },
+{
+    question: "21. Tornadoes ripped through (a)/ the south-central US killing (b)/at least 100 people (c)/and wiped out entire neighbourhoods. (d)/No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 21. (d) Here wiping out will be used instead of wiped out, because killing has been used before and and the two verbs joined by and are in the same form." },
+{
+    question: "22. It was strange (a)/when people started (b)/congratulate me on (c)/completion of my dissertation. (d)/No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 22. (c) Congratulating me will be used here, because Gerund is used after start and not V1." },
+{
+    question: "23. On a holiday (a)/I prefer reading (b)/books than (c)/visiting my friends. (d)/No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 23. (c) If Noun/Pronoun/Gerund is used after Prefer, then to should be used and not than or rather than. Hence, to visiting my friends will be used here." },
+{
+    question: "24. We were looking forward (a)/to hear news (b)/about the missing fishermen (c)/No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 24. (b) Here, instead of to hear the news, to hearing the news will be used." },
+{
+    question: "25. It is better (a)/to keep one's head in the face of danger than (b)/losing one's courage. (c)/No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 25. (c) Infinitive (to keep) has been used in the first part of the sentence. Hence, to lose one's courage will be used here." },
+{
+    question: "1. You always mistake to think (a) / that your mother-in-law (b) / is (c) / ganging against you (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 1. (a) Use 'Mistake thinking'. Know the rule: Gerundial form of verb is used after Mistake." },
+{
+    question: "2. I have never and will (a) / never go against (b) / you because you are the (c) / only one that I love more than my life (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 2. (a) Use 'I have never gone and will never go'. Know the rule: If in a sentence a primary auxiliary and a modal are used by joining them with and and only one main verb is used for them, then the appropriate form of the verb should be used for both the auxiliaries as per the need." },
+{
+    question: "3. Now your daughter is more (a) / than thirty, so you (b) / had better got her (c) / married as soon as possible (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 3. (c) 'Had better get' will be used. Know the rule: Had sooner, had rather, had better, would sooner, would rather, would better are always followed by an infinitive without to." },
+{
+    question: "4. If I were you, (a) / I would go for telling (b) / her that she must not have (c) / done it the way she did (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 4. (b) 'I would go to tell her' will be used." },
+{
+    question: "5. He loved me (a) / more than (b)/ your husband (c) loves you. (d)/ No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 5. (e) There is no error." },
+{
+    question: "6. All renew license (a) / may be (b) / collected from the cashier’s (c) / counter after paying the fees (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 6. (a) 'All renewed licenses' will be used because Renewed is working like an Adj." },
+{
+    question: "7. We are still unknown to the fact (a) / as to who is going to (b) / take our examination tomorrow (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 7. (d) Will use 'Give us an examination'. Take an examination means exam. To sit and give an examination means exam. Take ." },
+{
+    question: "8. You are still weak, (a) / so you had better taken (b) / some rest than (c) / resume your duty (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 8. (b) 'Take' will be used instead of 'Taken'. Know the rule: After had better, infinitive is always used without 'to'." },
+{
+    question: "9. All his relatives expect (a) / his daughter have gone (b) / on a month’s (c) / vacation tour (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 9. (b) 'His daughter to have gone' will be used." },
+{
+    question: "10. The fireman could not (a) / succeed in rescue (b) / the child, although they (c) / could put out the fire (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 10. (b) Will use 'Succeed in rescuing'." },
+{
+    question: "11. I can hear (a) / the bell ringing (b) / but nobody seems to be (c) / coming to opening the door (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 11. (d) Use 'open' instead of 'opening'." },
+{
+    question: "12. The book was (a) / so advance that (b) / even a graduate in the (c) / discipline found it difficult (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 12. (b) Use advanced instead of Advance." },
+{
+    question: "13. It is raining cats and dogs, (a) / so you had better stayed (b) / for some more (c) / time till it stops raining (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 13. (b) 'Stayed' will be used in place of 'Stayed'." },
+{
+    question: "14. The wood cutter fell a number (a) / of trees daily (b) / and sold them in the (c) / market at cheaper rate (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 14. (a) Use 'felled' in place of 'fell'. 'Fell' means to cut and fall." },
+{
+    question: "15. He has found (a) / a number of educational (b) / institutes not delivering (c) / quality education in the contry. (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 15. (e) There is no error." },
+{
+    question: "16. You should never forgiven (a) / him for his fault, (b) / because he is in (c) / the habit of making mistakes (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 16. (a) Use 'forgive' in place of 'forgiven'. Know the rule: Only the bare infinitive (V1) of the verb is used after the Modal Auxiliary." },
+{
+    question: "17. I see no point in why (a) / this man bears me a grudge, (b) / while I have (c) / never met him before (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 17. (e) There is no error." },
+{
+    question: "18. For what you done to this country, (a) / you must be punished, (b) / if others have to be forbidden to repeat (c) / all that you have done (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 18. (a) Use you have done instead of you did." },
+{
+    question: "19. You must know that (a) / it is Christopher Columbus (b) / who discovered America (c) / many years ago (d)/ No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 19. (e) There is no error." },
+{
+    question: "20. The warden forbade the students (a) / from leaving the hostel, (b) / because they were to be (c) / interrogated by some security officer (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 20. (b) 'To leave' will be used instead of 'From leaving'. To + V1 is used with Forbade." },
+{
+    question: "21. I brought so many pieces (a) / of painting but he hanged only (b) / one of them (c) / on the wall (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 21. (b) Use 'hung' instead of 'Hanged'." },
+{
+    question: "22. All murders, rapists and people (a) / involved in any sort of (b) / crime or scam should (c) / be hung in India (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 22. (d) Use 'hung' instead of 'hung'." },
+{
+    question: "23. Monisha was to about tell (a) / her teacher the truth (b) / when her friend (c) / interrupted her (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 23. (a) Use about before to." },
+{
+    question: "24. He was about to telling (a) / the investigators the truth, (b) / when his companion (c) / suddenly interrupted him (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 24. (a) Use 'tell' instead of 'telling'." },
+{
+    question: "25. After making (a) / a number of attempts, (b) / Edison finally (c) / discovered the gramophone (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 25. (d) Use 'invented' in place of 'Discovered'." },
+{
+    question: "1. When I was passing by a river, (a) / I saw a boy sinking (b) / in the river but I (c) / was not able to save him (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 1. (b) Use 'drowning' instead of 'sinking'. E.g.: Sink is used for inanimate objects and 'Drown' is used for living objects." },
+{
+    question: "2. Titanic was very big ship (a) / with a capacity of more than (b) / 1500 people and it was reported (c) / to have drowned in the sea (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 2. (d) Use 'sunk' instead of 'Drowned'. Explanation: Sink is used for inanimate objects and Drowned is used for living objects." },
+{
+    question: "3. Keep your finger (a) / crossed and hope (b) / to have succeeded (c) / in your plan very soon (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 3. (c) Use 'to succeed' in place of 'To have succeeded'." },
+{
+    question: "4. For a long time, I could not decide (a) / whether I should marry her or not, but by (b) / the time I made my mind to marrying her, (c) / she was already married (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 4. (c) Use 'To marry' instead of 'To marry'." },
+{
+    question: "5. I felt when (a) / I was on a world tour (b) / that a true lover cannot (c) / bear to live away from his beloved (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 5. (d) Use 'living' instead of 'To live'." },
+{
+    question: "6. You have rightly said (a) / that it is no use to cry over (b) / the spilt milk and wasting time in (c) / doing something which has no importance at all (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 6. (b) Use 'No use crying'. Know the rule: Only gerund is used after No use, much use, any use, some use, any good, no good, worth, etc. Can't help, can't stand, can't bear, etc. Even after V-ing, only V-ing is used." },
+{
+    question: "7. I have gone through (a) / a number of books and found that (b) / ‘The book of Mirdad’ (c)/ is worth to read (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 7. (d) 'Worth reading' will be used." },
+{
+    question: "8. I must help the people (a) / of India be aware of (b) / the fact that it is no use batting (c) / for a corrupt and unconscious leader (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 8. (b) Will use 'Help the people of India to be aware of'." },
+{
+    question: "9. I am afraid, (a) / I cannot allow to smoke here (b) / in the hospital, so you had (c) / better go out to smoke (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 9. (b) Use 'allow smoking' instead of 'allow to smoke'." },
+{
+    question: "10. Yesterday I found him (a) / to talk to his girl (b) / friend but today he (c) / is denying to have talked to her (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 10. (b) 'Talking' will be used instead of 'To talk'." },
+{
+    question: "11. Police caught two thieves (a) / to steal money from (b) / a jewellery shop (c) / near by the GopalDas Building, Connaught Place (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) 'Stealing' will be used in place of 'To steal'." },
+{
+    question: "12. There is a weather forecast (a) / that there will be no hope (b) / of the fog’s lifting for (c) / another three hours (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 12. (c) Will use 'The lifting of the fog'. ," },
+{
+    question: "13. He burst into tears to narrate (a) / the saga of his love story (b) / which remained half-told (c) / because of his lover’s death before marriage (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 13. (a) 'Narrating' will be used in place of 'To narrate'." },
+{
+    question: "14. Being the responsible citizens (a) / of India, we should consider it our duty (b) / to wage a war against all (c) / the corrupt leaders of India (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 14. (e) There is no error." },
+{
+    question: "15. God willing, (a) / you will surely get success (b) / in life and do your parents (c) / proud by being the Prime minister of India (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 15. (e) The sentence is correct." },
+{
+    question: "16. You seem to fall in love (a) / with the splendour and grandeur (b) / of India but we have (c) / to be back home as soon as possible (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 16. (a) 'Seem to have fallen' will be used." },
+{
+    question: "17. She is not only well (a) / qualified but also (b) / well behave, so you can hire (c) / her for this vacant post of counsellor (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Use 'Well behaved'." },
+{
+    question: "18. Considering the circumstances, (a) / that decision to ditch the (c) / project in the middle (d) / was taken unanimously (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 18. (e) There is no error." },
+{
+    question: "19. Having been finished (a) / the work, you must have gone (b) / to her house to congratulate her (c) / on what she has achieved (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 19. (a) Use 'Having finished' because Having + been + V3 is a Passive Construction and Active Construction is needed in the sentence. When the object of the sentence is placed after the verb then it is known as Active Voice. The object of this sentence 'the work' is placed after the verb (finished), hence Active Construction is required here." },
+{
+    question: "20. Satisfying with her performance, (a) / I decided to promote (b) / her and send her on a (c) / luxury tour on behalf of the company (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 20. (a) Use 'Being satisfied'." },
+{
+    question: "21. The television (a) / was (b) / discovered (c) / by John Baired (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 21. (c) Use ‘invented’ in place of ‘Discovered’." },
+{
+    question: "22. The crew were on board (a) / and they soon busied (b) / themselves in (c) / preparing to meet the storm (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 22. (c) Delete 'In'." },
+{
+    question: "23. When the college (a) / was established he (b) / was still to practise (c) / law which delayed his marriage (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 23. (c) Use 'practicing' in place of 'To practice'." },
+{
+    question: "24. It cannot (a) / be forecasted how (b) / society will emerge (c) / from generations hence (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 24. (b) Use 'forecast' in place of 'forecasted'." },
+{
+    question: "25. Children visiting (a) / the park are amused (b) / by (c) / the monkeys play in the cages (d) / No error (e).",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 25. (d) Use 'playing' instead of 'Play'." },
+{
+    question: "1. We had a lot of difficulty (a)/to find (b)/the house. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 1. (b) Here in finding (Gerund) will be used instead of To find (Infinitive). Rule: In + Gerund is used after difficulty. Like- She has got difficulty in crossing the road." },
+{
+    question: "2. You should avoid (a)/to travel (b)/in the rush hour. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 2. (b) Traveling will be used in place of To travel, because Gerund is always used after avoid, not Infinitive. Like- Ram avoids doing his duties." },
+{
+    question: "3. Banks were developed to keep people's money safe (a)/and to make it available (b)/when they need it. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 3. (b) And make it available will be used instead of To make it available. As- When two infinitives are joined by and, or, except, but, save or than, then the use of to in the second infinitive is usually missing. As- Do you want to eat now or wait till evening?" },
+{
+    question: "4. In spite of the roadblock (a)/the guards allowed us (b)/enter the restricted area to search for our friends. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 4. (c) To enter will be used as infinitive. Rule: To-Infinitive comes after Allow but after let, only Infinitive without to comes. Like- The be (i) My father allowed me to go to Jaipur. (ii) My father let me go to Jaipur." },
+{
+    question: "5. I hope to go to shopping (a)/this weekend (b)/if the weather permits. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 5. (a) Here I hope to go shopping will be used. Because go/come + V-ing is used especially to describe sports or free-time physical activities, like- go climbing, go riding, go skiping, go dancing, go sailing, go swimming, go fishing, go shooting, go walking, go hunting, go shopping." },
+{
+    question: "6. The lawyer asked (a)/if it was worth to take (b)/the matter to court. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 6. (b) Here If it was worth taking will be used because Gerund is always used after worth." },
+{
+    question: "7. I remember (a)/meet him (b)/five years ago. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 7. (b) Here meeting (Gerund) him will be used instead of Meet him. Gerund shows that this action has happened before the action of the Main Verb. As- I remember losing all my money in the casino." },
+{
+    question: "8. You should have used the money (a)/for paying your debts (b)/instead of buy a motor cycle. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 8. (c) Gerund i.e. buying a motor cycle will be used here because Gerund is always used after instead of. Like- You should consider paying him instead of threatening him." },
+{
+    question: "9. Coaches have the advantage of (a)/draw on their personal expreriences (b)/and providing their players (c)/with unique inputs. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 9. (b) Drawing (Gerund) will be used here because Gerund is always used after of (preposition)." },
+{
+    question: "10. The actor loves to think (a)/never enjoys stick to one kind of role (b)/and finds it difficult to (c)/fulfill everyone's expectations. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 10. (b) Gerund will be used here. Hence never enjoys sticking (Gerund) to one kind of role will be used because Gerund is used after enjoy. Like- A nomadic person never enjoys staying at one place for a long time." },
+{
+    question: "11. The rise in prices of food items is (a)/likely the cause inflation (b)/to exceed eight percent (c)/during the next quarter. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Infinitive i.e. likely to cause the inflation will be used here, because the sentence shows the possibility of future. E.g. He is likely to succeed in the exam." },
+{
+    question: "12. The government has announced (a)/plans to creating (b)/one million new (c)/training places. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 12. (b) Here to create will be used instead of to creating because to V1 is always used after; As- I have planned to visit Kashmir next year." },
+{
+    question: "13. The evening breeze (a)/won't carrying the poetry (b)/ of peace beyond (c)/ the school building. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 13. (b) Here won't carry the poetry will be used instead of won't carrying. As- Wouldn't/shouldn't के बाद V1 (Infinitive without to) का Is used. As- We would not meet again." },
+{
+    question: "14. Reading newspapers will (a)/help you in understaning (b)/banking and business concepts. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 14. (b) Here, instead of help you in understanding, help you understand will be used because after help, bare infinitive (without to) is used." },
+{
+    question: "15. Today we are closer (a)/to reaching an agreement (b)/than we were (c)/a few months ago. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 15. (b) To reach an agreement instead of to reach an agreement will be used, because V1 is always used after to." },
+{
+    question: "16. In school (a)/we have to enrolled (b)/in sports (c)/and music classes. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 16. (b) V1 of to en to enroll is used in place of to enrolled. will be used, because after to always" },
+{
+    question: "17. He spent a lot (a)/of time and money (b) building a hospital (c)/ in his village. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "E"
+ , explanation: "AnswerKey 17. (e) No error [Spend/waste + expressions denoting time or money + V-ing के अनुसार ये वाक्य सही है।] E.g. You are wasting you time trying to explain it." },
+{
+    question: "18. To run a company effectively (a)/it is very important (b)/in knowing the strengths and weaknesses (c)/of the employees. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 18. (c) Infinitive (to+V1) will be used here i.e. to know the strengths and weaknesses will be used." },
+{
+    question: "19. There was a huge (a)/crowd as the famous actor (b)/was invited to (c)/inauguration the function. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "D"
+ , explanation: "AnswerKey 19. (d) Inaugurate the function will be used here, because V1 is used after to. Inaugurate is a verb, while inauguration is a noun." },
+{
+    question: "20. I am going (a)/to have this certificate (b)/attest by the Director. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 20. (c) Use Attested instead of Attest here. When Have is used as a causative verb then you should use the following structure. Know the Rule: When Have/get is used with a causative verb If it is in the form past with the object coming after have/get" },
+{
+    question: "21. Comparing to the other (a)/states in India (b)/Goa is the (c)/ smallest geographically. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 21. (a) Here Past Participle i.e. compared to the... will be used. As- Compared to my notes, yours are more nicely written." },
+{
+    question: "22. The Planning Commission (a)/is drawing up a (b)/scheme for involve the scientists of the country (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 22. (c) To involve will be used in place of For involve, because here the sentence is showing purpose and Infinitive - to + V1 is used to show purpose." },
+{
+    question: "23. Product planners in the production (a)/units work intimately with (b)/programme managers to defining (c)/ new ideas for products or product features. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 23. (c) Here, to define (Infinitive) will be used instead of to defining, because V1 is used after to. As- (i) It is easy to sing. (ii) They want to go home." },
+{
+    question: "24. Honesty has always and (a)/ will always be (b)/ a great virtue (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 24. (a) If two Aux in a sentence. If verbs are used and different forms of verb come with both, then appropriate forms of verb will be used for both. So use has always been." },
+{
+    question: "25. Being a rainy day (a)/ most of the people(b)/ out on the street were (c)/ carrying umbrellas. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 25. (a) 'It' will be used before 'Being' because there should be a Subject of Reference for every Participle. Since 'It' is used as introductory subject for time, day, date, season, season etc., and after Being, the sentence given in the question is talking about a rainy day. Hence 'It' will be used before 'Being'. Used to be. Hence Being" },
+{
+    question: "1. I want to know (a)/ how is she (b)/ going to do it. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 1. (b) Use 'how she is going" },
+{
+    question: "2. He asked (a)/ him where had he (b)/ met the lawyer. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 2. (b) Use 'where he had met" },
+{
+    question: "3. Walking along the road (a)/ a truck knocked (b)/ him down. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 3. (a) Use 'While he was walking along Se road" },
+{
+    question: "4. Coming out of the office (a)/ his call came (b)/ but I could not take it. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 4. (a) Use 'While I was coming" },
+{
+    question: "5. Nobody will (a)/ prevent you (b)/ to enter the ball-room. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 5. (c) Use 'from entering" },
+{
+    question: "6. You should (a)/ not insist to get what is not (b)/ meant for you. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 6. (b) Use 'on getting" },
+{
+    question: "7. Why do you persist (a)/ to blame yourself for (b)/ what happened? (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 7. (b) Use 'in blaming" },
+{
+    question: "8. He checked (a)/ me to do it (b)/ the way you said. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 8. (b) Use 'from doing" },
+{
+    question: "9. The law enforcement agencies (a)/ will not hinder the people (b)/ to do anything good for the nation. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 9. (c) Use 'from doing" },
+{
+    question: "10. The good news is that (a)/ he has succeeded to find (b)/ a solution to the problem. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 10. (b) Use 'succeeded in finding" },
+{
+    question: "11. It is your (a)/ responsibility to make (b)/ him to speak the truth. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 11. (c) Remove 'to' after 'him" },
+{
+    question: "12. Neither (a)/ I said anything to her (b)/ nor he did. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 12. (c) Use 'nor did he" },
+{
+    question: "13. No sooner (a)/ he heard the news than (b)/ he became happy. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 13. (b) Use 'No sooner did he hear" },
+{
+    question: "14. She did not (a)/ try to convince him (b)/ nor I did. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 14. (c) Use 'nor did I" },
+{
+    question: "15. Hardly (a)/ I had reached the station (b)/ when the train left. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 15. (b) Use 'Hardly had I reached" },
+{
+    question: "16. It is (a)/ true that seeing (b)/ is to believe. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 16. (c) Use 'believing' in place of 'to believe" },
+{
+    question: "17. If you find (a)/ yourself unable making it happen today (b)/ you may try tomorrow. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 17. (b) Use 'to make' in place of 'making" },
+{
+    question: "18. He consulted the lawyer (a)/ for discussing some issues (b)/ related to the property. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 18. (b) Use 'to discuss' in place of 'for discussing" },
+{
+    question: "19. She started (a)/ weeping on seeing (b)/ the dead body of her husband. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 19. (b) Use 'to see' in place of 'on seeing" },
+{
+    question: "20. What cut me to (a)/ the quick was that (b)/ he refused working with me. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 20. (c) Use 'refused to work" },
+{
+    question: "21. I am sorry to (a)/ say that she has attempted (b)/ committing suicide once again. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 21. (c) Use 'attempted to commit" },
+{
+    question: "22. I would (a)/ prefer to die than (b)/ begging before him. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 22. (b) Use 'dying to begging" },
+{
+    question: "23. He ordered to arrest (a)/ him after a great (b)/ deal of consideration. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 23. (a) Use 'ordered arresting" },
+{
+    question: "24. She forbade her (a)/ son that he should live (b)/ in such a bad company. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 24. (b) Use 'forbade her son to live" },
+{
+    question: "25. He suggested (a)/ to me to avoid (b)/ such unwanted questions. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 25. (b) Use 'suggested my avoiding' or 'suggested to me that I should avoid" },
+{
+    question: "1. You should reconsider (a)/ your decision (b)/ of leaving the company. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 1. (c) Use 'decision to leave" },
+{
+    question: "2. I found (a)/ it difficult expressing my view-point (b)/ before the interviewers. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 2. (b) Use 'to express' in place 'expressing" },
+{
+    question: "3. You (a)/ need not to do (b)/ it the way he said. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 3. (b) Remove 'to' and use 'need not do" },
+{
+    question: "4. You might have seen (a)/ the children to walk (b)/ on further down the street. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 4. (b) Use 'walk/walking' in place of 'to walk" },
+{
+    question: "5. People (a)/ like to watch the movie (b)/ because it makes them to laugh. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 5. (c) Remove 'to' and use 'makes them laugh'" },
+{
+    question: "6. Let it to be (a)/ as close to the (b)/ wall as possible. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 6. (a) Use 'Let it be" },
+{
+    question: "7. Most of the (a)/ political parties in this country do nothing but (b)/ to make false promises. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 7. (c) Remove 'to' and use 'but make" },
+{
+    question: "8. I want (a)/ nothing but make (b)/ it available to all viewers. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 8. (b) Use 'to' before 'make" },
+{
+    question: "9. Why to pay (a)/ more if we can get it (b)/ at a cheaper rate? (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 9. (a) Use 'Why pay" },
+{
+    question: "10. You had better (a)/ consulted a doctor (b)/ and take his advice. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 10. (b) Use 'consult in place of 'consulted" },
+{
+    question: "11. He is good to satisfy (a)/ his customers (b)/ therefore the boss (c)/likes him very much. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 11. (a) Use 'good at satisfying" },
+{
+    question: "12. What she does not (a)/ like at all is that some of the (b)/ employees hardly mind to come late. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 12. (c) Use 'mind coming late" },
+{
+    question: "13. The people were (a)/ shocked at the honest (b)/ leader to be humiliated. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 13. (c) Use 'being humiliated' in place of 'to be humiliated" },
+{
+    question: "14. The committee (a)/ proposed to review the policies (b)/ launched last year. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 14. (b) Use 'reviewing' in place of 'to review" },
+{
+    question: "15. These measures (a)/ are being taken with view to (b)/ control the rising prices. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 15. (c) Use 'with view to controlling" },
+{
+    question: "16. He wanted (a)/ to know if it was of any use (b)/ to support the rioters. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 16. (c) Use 'supporting' in place of 'to support" },
+{
+    question: "17. If you are not (a)/ comfortable in sitting here (b)/ you can sit somewhere else. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 17. (b) Remove 'in' after 'comfortable" },
+{
+    question: "18. When (a)/ he heard the news (b)/ he couldn’t help to laugh. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 18. (c) Use 'laughing' in place of 'to laugh" },
+{
+    question: "19. I can’t bear (a)/ to see you (b)/suffering so much. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 19. (b) Use 'seeing' in place of 'to see" },
+{
+    question: "20. As she is busy in (a)/ preparing for the beauty contest (b)/ she will not be able to join us on the trip. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 20. (a) Remove 'in' after 'busy" },
+{
+    question: "21. He found her (a)/ discuss some important (b)/ issues with the director. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 21. (b) Use 'discussing' in place of 'discuss" },
+{
+    question: "22. I don’t like those (a)/ who spend more than an hour (b)/ in adorning themselves. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 22. (c) Remove 'in' before 'adorning" },
+{
+    question: "23. Eating (a)/ his breakfast (b)/ he left for the office. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 23. (a) Use 'Having eaten his breakfast" },
+{
+    question: "24. Having completed (a)/ my work, the manager (b)/ allowed me to go home. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 24. (a) Use 'I having completed" },
+{
+    question: "25. Being (a)/ the cloudy weather (b)/ the match started late. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 25. (a) Use 'It being the cloudy weather" },
+{
+    question: "1. Being a rainy day (a)/ I could not reach the (b)/ office on time. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 1. (a) Use 'It being a rainy day" },
+{
+    question: "2. We should avoid (a)/ to over-spend in (b)/ the first half of the year. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 2. (b) Use 'overspending' in place of 'to overspend" },
+{
+    question: "3. There are (a)/ many who are having all those (b)/ things which you are still dreaming of. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 3. (b) Use 'who have' in place of 'who are having" },
+{
+    question: "4. There are very (a)/ few movies which (b)/ are worth to watch. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 4. (c) Use 'watching' in place of 'to watch" },
+{
+    question: "5. He bade me (a)/ to go there and talk (b)/ to the clients. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 5. (b) Use 'He bade me go" },
+{
+    question: "6. You should not (a)/ consider him as the perfect person (b)/ because everybody on earth (c)/has some lacuna or the other. (d)/ No error (e)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 6. (b) Remove 'as" },
+{
+    question: "7. He denied (a)/ to be with us, but (b)/ I did not mind it. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 7. (b) Use 'being' in place of 'to be" },
+{
+    question: "8. Doctors advise (a)/ taking boiling (b)/ water during the rainy season. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 8. (b) Use 'boiled' in place of 'boiling" },
+{
+    question: "9. You seem (a)/ to make a mistake, therefore (b)/ he is angry with you. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 9. (b) Use 'You seem to have made" },
+{
+    question: "10. It is time (a)/ his father returns (b)/ from the office. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 10. (b) Use 'returned' in place of 'returns" },
+{
+    question: "11. The police (a)/ have always and (b)/ will always be with you. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 11. (b) Use 'been' and say 'The police have always been" },
+{
+    question: "12. We are proud of you (a)/ because you have and are (b)/ still doing a lot for the needy. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 12. (b) Use 'you have done" },
+{
+    question: "13. Be careful (a)/ lest you (b)/ should do a mistake. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 13. (c) Use 'make/commiť in place of 'do" },
+{
+    question: "14. I think he (a)/ will not accept (b)/ the proposal. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 14. (b) Say 'I don't think he will accept the proposal" },
+{
+    question: "15. She caught (a)/him steal her (b)/ diamond necklace. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 15. (b) Use 'stealing' in place of 'steal" },
+{
+    question: "16. As soon as (a)/ I return back from the office (b)/ we will go to watch a movie. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 16. (b) Remove 'back" },
+{
+    question: "17. I am looking (a)/ forward to (b)/ hear from you. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 17. (c) Use 'hearing' in place of 'to hear" },
+{
+    question: "18. You have to (a)/ get it repair (b)/ today only. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 18. (b) Use 'repaired' in place of 'repair" },
+{
+    question: "19. I started this business (a)/ only five months back (b)/ making so many customers. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 19. (c) Use 'and made' in place of 'making" },
+{
+    question: "20. Not listening to his speech carefully (a)/ some important points (b)/ remained unheard. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 20. (a) Use 'His speech not being listened to carefully" },
+{
+    question: "21. They are not (a)/ friends today but appear to be (b)/ very close to each other in the past. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 21. (b) Use 'to have been' in place of 'to be" },
+{
+    question: "22. You can go places in (a)/ life only when you aim (b)/ to achieve something big. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 22. (c) Use 'at achieving' in place of 'to achieve" },
+{
+    question: "23. If you don’t know (a)/ to behave with elders (b)/ you must learn it. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "B"
+ , explanation: "AnswerKey 23. (b) Use 'know how to behave" },
+{
+    question: "24. Roughly spoken (a)/ it will take more than (b)/ a week to complete this project. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "A"
+ , explanation: "AnswerKey 24. (a) Use 'speaking' in place of 'spoken" },
+{
+    question: "25. The news is (a)/ that the rapist (b)/ will be hung till death. (c)/ No error (d)",
+    options: ["A", "B", "C", "D", "E"],
+    correctOption: "C"
+ , explanation: "AnswerKey 25. (c) Use 'hanged' in place of 'hung" },
+   
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>
