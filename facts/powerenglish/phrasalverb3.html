@@ -1,0 +1,3210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phrasal Verb Mr. Fusion QUIZ APP</title> 
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Rule the Phrasal Verbs | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'onewordgtphrasalverb3';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+         const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+ {
+    "question": "The other witness did not ______ his testimony.",
+    "options": ["bear out", "bear with", "bear away", "bear up"],
+    "correctOption": "bear out"
+  },
+  {
+    "question": "Please _____ us until we finish the job.",
+    "options": ["bear out", "bear with", "bear away", "bear up"],
+    "correctOption": "bear with"
+  },
+  {
+    "question": "If you want to pass the test, you have to _____ on your studies.",
+    "options": ["bear out", "bear down", "bear with", "bear away"],
+    "correctOption": "bear down"
+  },
+  {
+    "question": "She______ well during her illness.",
+    "options": ["bore out", "bore up", "bore away", "bore with"],
+    "correctOption": "bore up"
+  },
+  {
+    "question": "The shareholders were requested to _____ the losses.",
+    "options": ["bear down", "bear up", "bear with", "bear away"],
+    "correctOption": "bear with"
+  },
+  {
+    "question": "If you ______ when experiencing problems, you remain cheerful.",
+    "options": ["bear up", "bear away", "bear on", "bear with"],
+    "correctOption": "bear up"
+  },
+  {
+    "question": "Statistics ______ the government position on the issue.",
+    "options": ["bear out", "bear down", "bear up", "bear with"],
+    "correctOption": "bear out"
+  },
+  {
+    "question": "Your suggestions have no ……. the problem.",
+    "options": ["Bearing out", "Bearing upon", "Bearing with", "Bearing away"],
+    "correctOption": "Bearing upon"
+  },
+  {
+    "question": "If you ………with them, you will have all the work done.",
+    "options": ["Bear out", "Bear upon", "Bear with", "Bear up"],
+    "correctOption": "Bear with"
+  },
+  {
+    "question": "In a view of the heavy losses suffered by the organisation, the workers were requested to……………..",
+    "options": ["bear out", "bear upon", "bear with", "bear in"],
+    "correctOption": "bear with"
+  },
+  {
+    "question": "The government must ........... on drug traffickers and terrorists.",
+    "options": ["bear down", "bear with", "bear on", "bear away"],
+    "correctOption": "bear on"
+  },
+  {
+    "question": "She must be praised for .............. under so much pressure.",
+    "options": ["bearing up", "bearing away", "bearing out", "bearing with"],
+    "correctOption": "bearing up"
+  },
+  {
+    "question": "The artist had to ________ the criticism of his latest work.",
+    "options": ["bear down on", "bear with", "bear up", "bear out"],
+    "correctOption": "bear with"
+  },
+  {
+    "question": "The police ______ the door when no one opened it.",
+    "options": ["broke open", "broke into", "broke off", "broke down"],
+    "correctOption": "broke into"
+  },
+  {
+    "question": "They are beginning to ______in their fight against cancer.",
+    "options": ["break through", "break in", "break apart", "break into"],
+    "correctOption": "break through"
+  },
+  {
+    "question": "She ______ the relationship after she found out that he was cheating.",
+    "options": ["broke up", "broke out", "broke down", "broke into"],
+    "correctOption": "broke up"
+  },
+  {
+    "question": "She _____ after the death of his father.",
+    "options": ["broke in", "broke with", "broke into", "broke down"],
+    "correctOption": "broke down"
+  },
+  {
+    "question": "My car _____ in the middle of the road.",
+    "options": ["broke down", "broke into", "broke up", "broke off"],
+    "correctOption": "broke down"
+  },
+  {
+    "question": "Pope _____ the duties of the church.",
+    "options": ["broke with", "broke into", "broke in", "broke up"],
+    "correctOption": "broke into"
+  },
+  {
+    "question": "She ______ with her boyfriend last week so I'm going to go and take her some ice cream.",
+    "options": ["Broke out of", "Broke in", "Broke up", "Broke down"],
+    "correctOption": "Broke up"
+  },
+  {
+    "question": "They ______ prison by digging a tunnel out of the cell.",
+    "options": ["Broke into", "Broke out of", "Broke up", "Broke in"],
+    "correctOption": "Broke out of"
+  },
+  {
+    "question": "I was late because my car (stopped functioning) on the way to work.",
+    "options": ["Broke out", "Broke up", "Broke down", "Broke through"],
+    "correctOption": "Broke down"
+  },
+  {
+    "question": "Eva decided to (stop her relationship) with Tom when he lied to her.",
+    "options": ["Break down", "Break up", "Break out", "Break into"],
+    "correctOption": "Break up"
+  },
+  {
+    "question": "He ______in the middle of the story .",
+    "options": ["Broke into", "Broke out of", "Broke through", "Broke off"],
+    "correctOption": "Broke off"
+  },
+  {
+    "question": "The student (lost control of her emotions) when she heard she had failed.",
+    "options": ["Broke down", "Broke up", "Broke in", "Broke into"],
+    "correctOption": "Broke down"
+  },
+  {
+    "question": "The supervisor suddenly (interrupted) our telephone conversation.",
+    "options": ["Broke away from", "Broke up", "Broke in on", "Broke into"],
+    "correctOption": "Broke in on"
+  },
+  {
+    "question": "An epidemic of cholera (started quickly) after the earthquake.",
+    "options": ["Broke through", "Broke out", "Broke into", "Broke up"],
+    "correctOption": "Broke out"
+  },
+  {
+    "question": "A dangerous criminal (escaped from captivity) a high-security jail today.",
+    "options": ["Broke away", "Broke through", "Broke out of", "Broke off"],
+    "correctOption": "Broke out of"
+  },
+  {
+    "question": "- When I heard she had died, I ____.",
+    "options": ["broke down", "broke away", "broke off", "broke up"],
+    "correctOption": "broke down"
+  },
+  {
+    "question": "- He keeps _____ when other people are talking.",
+    "options": ["breaking in", "breaking off", "breaking to", "breaking into"],
+    "correctOption": "breaking in"
+  },
+  {
+    "question": "Thieves _____ and stole all the money.",
+    "options": ["broke in", "broke off", "broke away", "broke up"],
+    "correctOption": "broke in"
+  },
+  {
+    "question": "She ______ her engagement.",
+    "options": ["broke out", "broke out of", "broke off", "broke in"],
+    "correctOption": "broke off"
+  },
+  {
+    "question": "Their marriage ______ last year.",
+    "options": ["broke up", "broke off", "broke out", "broke out of"],
+    "correctOption": "broke up"
+  },
+  {
+    "question": "My microwave has _____- I'll have to get it fixed.",
+    "options": ["broken out", "broken up", "broken down", "broken into"],
+    "correctOption": "broken down"
+  },
+  {
+    "question": "My parents were 9 years old when the second world war .........",
+    "options": ["broke out", "broke up", "broke into", "broke away"],
+    "correctOption": "broke out"
+  },
+  {
+    "question": "My car is very reliable it hasn't ………... since I bought it 7 years ago.",
+    "options": ["broken into", "broken through", "broken down", "broken out"],
+    "correctOption": "broken down"
+  },
+  {
+    "question": "We are going to ........ tradition, this Christmas we are having fish instead of turkey.",
+    "options": ["break with", "break out", "break down", "break into"],
+    "correctOption": "break with"
+  },
+  {
+    "question": "John and Mary's marriage ……... after only 6 months. They realised that they were just good friends!",
+    "options": ["broke up", "broke out", "broke out", "broke away"],
+    "correctOption": "broke up"
+  },
+  {
+    "question": "An epidemic ______ in the locality.",
+    "options": ["broke off", "broke out", "broke up", "broke in"],
+    "correctOption": "broke out"
+  },
+  {
+    "question": "Having invented many gadgets that failed to sell well, Thomas finally had a ______ with his wireless blowdryer.",
+    "options": ["break even", "break away", "break through", "break out"],
+    "correctOption": "break through"
+  },
+  {
+    "question": "I don’t know why their marriage is ______.",
+    "options": ["breaking through", "breaking in", "breaking up", "breaking down"],
+    "correctOption": "breaking up"
+  },
+  {
+    "question": "When he spread the news, panic ______ in the city.",
+    "options": ["broke in", "broke away", "broke out", "broke off"],
+    "correctOption": "broke out"
+  },
+  {
+    "question": "Scientists will ______ in their search for new sources of energy.",
+    "options": ["break up", "break through", "break out", "break off"],
+    "correctOption": "break through"
+  },
+   {
+    "question": "I think it’s a lot more difficult to ______ children nowadays than it used to be.",
+    "options": ["bring out", "bring off", "bring on", "bring up"],
+    "correctOption": "bring up"
+  },
+  {
+    "question": "We shall bring ______ the question of the new swimming-pool at the next committee meeting.",
+    "options": ["about", "up", "forward", "off"],
+    "correctOption": "up"
+  },
+  {
+    "question": "Low pressure coming in from the Mediterranean will ___ a change in the weather.",
+    "options": ["bring round", "bring down", "bring up", "bring about"],
+    "correctOption": "bring about"
+  },
+  {
+    "question": "The doctors thought that too much stress had ________________ the illness.",
+    "options": ["brought forth", "brought about", "brought on", "brought out"],
+    "correctOption": "brought about"
+  },
+  {
+    "question": "We argued for hours about it but in the end I managed to bring her _________.",
+    "options": ["back", "around", "off", "back"],
+    "correctOption": "around"
+  },
+  {
+    "question": "The war _____________ a revolution.",
+    "options": ["brought about", "brought around", "brought up", "brought out"],
+    "correctOption": "brought about"
+  },
+  {
+    "question": "The place where I was __________ is very small, unlike the place I live now.",
+    "options": ["brought back", "bring around", "brought up", "brought on"],
+    "correctOption": "brought up"
+  },
+  {
+    "question": "After she passed out, the doctors ______ her ______ with some medicine.",
+    "options": ["brought round", "brought in", "brought on", "brought up"],
+    "correctOption": "brought round"
+  },
+  {
+    "question": "I've lived here my whole life, where were you brought ___?",
+    "options": ["up", "out", "about", "back"],
+    "correctOption": "up"
+  },
+  {
+    "question": "The teacher gave many examples to ___ the idea contained in the poem.",
+    "options": ["bring out", "bring around", "bring down", "bring forth"],
+    "correctOption": "bring out"
+  },
+  {
+    "question": "The government was ___ by the corruption scandal.",
+    "options": ["brought down", "brought off", "brought up", "brought out"],
+    "correctOption": "brought down"
+  },
+  {
+    "question": "The fall in profits brought ___ a change in company policy.",
+    "options": ["up", "off", "to", "about"],
+    "correctOption": "about"
+  },
+  {
+    "question": "It took 2 minutes to bring her ___ after her accident. It was lucky there was a doctor there.",
+    "options": ["around", "out", "about", "off"],
+    "correctOption": "around"
+  },
+  {
+    "question": "What brought ___ the Roman empire? It was so powerful and then it was suddenly gone.",
+    "options": ["down", "back", "up", "out"],
+    "correctOption": "down"
+  },
+  {
+    "question": "His dishonesty brought ……….. his ruin.",
+    "options": ["in", "about", "out", "back"],
+    "correctOption": "about"
+  },
+  {
+    "question": "The publisher is bringing ………. a new edition of this book.",
+    "options": ["out", "on", "down", "over"],
+    "correctOption": "out"
+  },
+  {
+    "question": "At last I brought him ……………. to my opinion.",
+    "options": ["about", "round", "up", "out"],
+    "correctOption": "round"
+  },
+  {
+    "question": "Well done! Nobody thought you'd (succeed).",
+    "options": ["Bring it over", "Bring it out", "Bring it off", "bring it up"],
+    "correctOption": "Bring it off"
+  },
+  {
+    "question": "An increase in sales can usually (reduce) the price of an article.",
+    "options": ["Bring over", "Bring down", "Bring about", "Bring off"],
+    "correctOption": "Bring down"
+  },
+  {
+    "question": "The politician's statement (generated) a movement of anger.",
+    "options": ["Brought forth", "Brought out", "Brought back", "Brought around"],
+    "correctOption": "Brought forth"
+  },
+  {
+    "question": "This song always ________________ memories of my childhood.",
+    "options": ["brings back", "brings off", "brings round", "brings out"],
+    "correctOption": "brings back"
+  },
+  {
+    "question": "A situation like this _____ action.",
+    "options": ["calls on", "calls for", "calls round", "calls after"],
+    "correctOption": "calls for"
+  },
+  {
+    "question": "The meeting has been _____ because the manager is ill.",
+    "options": ["called on", "called out", "called off", "called for"],
+    "correctOption": "called off"
+  },
+  {
+    "question": "I was called ______ my grandmother.",
+    "options": ["called after", "called round", "called up", "called upon"],
+    "correctOption": "called after"
+  },
+  {
+    "question": "My aunt is ill, so I'm going to _____ and see her after work.",
+    "options": ["call in", "call off", "call out", "call on"],
+    "correctOption": "call on"
+  },
+  {
+    "question": "The sink is leaking; I'd better ____ a plumber.",
+    "options": ["call off", "call in", "call round", "call by"],
+    "correctOption": "call in"
+  },
+  {
+    "question": "Call her ______ on her landline.",
+    "options": ["off", "up", "for", "out"],
+    "correctOption": "up"
+  },
+  {
+    "question": "If you have an electrical problem you should (ask to come) an electrician.",
+    "options": ["Call in", "Call on", "Call for", "call by"],
+    "correctOption": "Call in"
+  },
+  {
+    "question": "The teacher (shouted) all the children's names to make sure they were all there.",
+    "options": ["Called up", "Called on", "Called out", "Called by"],
+    "correctOption": "Called out"
+  },
+  {
+    "question": "The senator (demanded) an investigation into the misuse of public funds.",
+    "options": ["Called on", "Called for", "Called forth", "Called in on"],
+    "correctOption": "Called for"
+  },
+  {
+    "question": "The excursion was (cancelled) because of the bad weather.",
+    "options": ["Called off", "Called back", "Called away", "called for"],
+    "correctOption": "Called off"
+  },
+  {
+    "question": "The earthquake (produced a reaction) a wave of international solidarity.",
+    "options": ["Called up", "Called out", "Called forth", "called in"],
+    "correctOption": "Called forth"
+  },
+  {
+    "question": "His name is George. He is (given the same name as) his grandfather.",
+    "options": ["Called at", "Called for", "Called after", "Called upon"],
+    "correctOption": "Called after"
+  },
+  {
+    "question": "This job is very demanding and ______ an experienced manager with lots of patience and determination.",
+    "options": ["calls up", "calls in", "calls for", "calls on"],
+    "correctOption": "calls for"
+  },
+  {
+    "question": "It seems this problem is much greater than our technician can handle. We'll need to ______ a specialist.",
+    "options": ["call to", "call in", "call off", "call on"],
+    "correctOption": "call in"
+  },
+  {
+    "question": "As a first year nurse at the hospital, Sandra needs to _____ for night shifts, meaning she needs to be ready to go to the hospital whenever they need her.",
+    "options": ["call off", "call off", "call in", "call on"],
+    "correctOption": "call on"
+  },
+  {
+    "question": "Since the weather forecast predicts heavy rains on Saturday, we'll have to ______ the picnic.",
+    "options": ["call up", "call into", "call off", "call for"],
+    "correctOption": "call off"
+  },
+  {
+    "question": "My boss really appreciated all my hard work. This _______ a celebration.",
+    "options": ["calls up", "calls upon", "calls for", "calls off"],
+    "correctOption": "calls for"
+  },
+  {
+    "question": "If you are not feeling well, I will call ……………… a doctor.",
+    "options": ["call forth", "call on", "call in", "call off"],
+    "correctOption": "call in"
+  },
+  {
+    "question": "They will have to ……………… the wedding due to the prevailing tension between them.",
+    "options": ["call for", "call on", "call off", "call in"],
+    "correctOption": "call off"
+  },
+  {
+    "question": "I called ………… his name, but there was no answer.",
+    "options": ["on", "out", "in", "for"],
+    "correctOption": "out"
+  },
+  {
+    "question": "Call me ………… when you reach there.",
+    "options": ["in", "on", "up", "at"],
+    "correctOption": "up"
+  },
+  {
+    "question": "A situation like this calls ___ action.",
+    "options": ["on", "for", "round", "around"],
+    "correctOption": "for"
+  },
+  {
+    "question": "By the way, Clive ______ (paid a short visit) but you were out. So I told him to come and see you tomorrow.",
+    "options": ["Called out", "called by", "called upon", "called in"],
+    "correctOption": "called by"
+  },
+  {
+    "question": "Because of possible bomb threats, the Queen has decided to ______ her proposed visit to Northern Ireland next month.",
+    "options": ["call out", "call away", "call up", "call off"],
+    "correctOption": "call off"
+  },
+  {
+    "question": "The meeting was ______ as the chairman was ill.",
+    "options": ["called for", "called off", "called up", "called out"],
+    "correctOption": "called off"
+  },
+  {
+    "question": "For the unity of the country, discipline among the people is______.",
+    "options": ["called out", "called for", "called in", "called forth"],
+    "correctOption": "called for"
+  },
+  {
+    "question": "His master_____ an explanation of his conduct.",
+    "options": ["called off", "called up", "called on", "called for"],
+    "correctOption": "called for"
+  },
+  {
+    "question": "The principal____ an explanation from the clerks.",
+    "options": ["called up", "called for", "called out", "called for"],
+    "correctOption": "called for"
+  },
+  {
+    "question": "You are getting married! I think this _______ a glass of champagne!",
+    "options": ["calls for", "calls up", "calls out", "calls off"],
+    "correctOption": "calls for"
+  },
+  {
+    "question": "He was ________ to give testimony in the court.",
+    "options": ["called out", "called forth", "called on", "called upon"],
+    "correctOption": "called upon"
+  },
+  {
+    "question": "Shall we ________ to see Harry later?",
+    "options": ["call after", "call round", "call out", "call for"],
+    "correctOption": "call round"
+  },
+  {
+    "question": "This situation ____ a high degree of courage.",
+    "options": ["calls for", "calls on", "calls in", "calls off"],
+    "correctOption": "calls for"
+  },
+  {
+    "question": "The earthquake ______ a large outpouring of international aid.",
+    "options": ["called for", "called at", "called on", "called by"],
+    "correctOption": "called for"
+  },
+  {
+    "question": "Jill ______ in the evening but no one was home.",
+    "options": ["called on", "called for", "called upon", "called in"],
+    "correctOption": "called for"
+  },
+   {
+    "question": "The moment Kit noticed the beautiful young girl, he _____ her.",
+    "options": ["fell with", "fell for", "fell on", "fell apart"],
+    "correctOption": "fell for"
+  },
+  {
+    "question": "The value of condos has _____ because the market is saturated.",
+    "options": ["fallen for", "fallen off", "fallen apart", "fallen down"],
+    "correctOption": "fallen off"
+  },
+  {
+    "question": "It ____ Line to give her brother the bad news.",
+    "options": ["fell with", "fell to", "fell before", "fell down"],
+    "correctOption": "fell to"
+  },
+  {
+    "question": "When he found out that his son had died in battle, the father ___ .",
+    "options": ["fell apart", "fell out", "fell off", "fell on"],
+    "correctOption": "fell apart"
+  },
+  {
+    "question": "Jay made up a story about why he was so late, and his parents ____ it.",
+    "options": ["fell for", "fell with", "fell on", "fell apart"],
+    "correctOption": "fell for"
+  },
+  {
+    "question": "I .......... with my work because I was ill for a few days and couldn't do anything",
+    "options": ["fell out", "fell behind", "fell apart", "fell through"],
+    "correctOption": "fell behind"
+  },
+  {
+    "question": "His hair is ............. and he is worried about going bald.",
+    "options": ["falling off", "falling through", "falling out", "falling with"],
+    "correctOption": "falling out"
+  },
+  {
+    "question": "My holiday ............ when the travel agent went bankrupt, so I'll be staying at home this year",
+    "options": ["fell down", "fell out", "fell through", "fell for"],
+    "correctOption": "fell through"
+  },
+  {
+    "question": "Nobody else would tell her the news so it …...... me to do it",
+    "options": ["Fell flat", "fell to", "fell for", "fell through"],
+    "correctOption": "fell to"
+  },
+  {
+    "question": "If everything goes wrong, you can always ……….. your family for support",
+    "options": ["fall into", "fall out with", "fall back on", "fall for"],
+    "correctOption": "fall back on"
+  },
+  {
+    "question": "They met on holiday,…….... each other and were married within a month",
+    "options": ["fell off", "fell behind", "fell for", "fell through"],
+    "correctOption": "fell for"
+  },
+  {
+    "question": "They ……….... after he was rude to her.",
+    "options": ["fell in", "fell off", "fell out", "fell for"],
+    "correctOption": "fell out"
+  },
+  {
+    "question": "I completely believed her; I ........... her lies",
+    "options": ["fell for", "fell through", "fell to", "fell off"],
+    "correctOption": "fell for"
+  },
+  {
+    "question": "The thieves …...... me when I left the bank",
+    "options": ["fell on", "fell apart", "fell off", "fell for"],
+    "correctOption": "fell on"
+  },
+  {
+    "question": "Select the most appropriate phrasal verb the meaning of which is given in the bracket. The old lady was led to (believe) the salesman's promises.",
+    "options": ["fell to", "fell for", "fell behind", "fell through"],
+    "correctOption": "fell for"
+  },
+  {
+    "question": "Select the most appropriate phrasal verb the meaning of which is given in the bracket. Jennifer and Andrea had an argument and (stopped being friends) .",
+    "options": ["fell down", "fell out", "fell apart", "fell through"],
+    "correctOption": "fell out"
+  },
+  {
+    "question": "Select the most appropriate phrasal verb the meaning of which is given in the bracket. Our plans for a picnic (failed) because of the bad weather.",
+    "options": ["fell down", "fell apart", "fell through", "fell off"],
+    "correctOption": "fell through"
+  },
+  {
+    "question": "Select the most appropriate phrasal verb the meaning of which is given in the bracket. The old desk (disintegrated) when they tried to move it.",
+    "options": ["fell apart", "fell about", "fell out", "fell through"],
+    "correctOption": "fell apart"
+  },
+  {
+    "question": "A good salesman can sell anything to anyone; he knows what tricks people usually _____.",
+    "options": ["fall to", "fall for", "fall flat", "fall through"],
+    "correctOption": "fall for"
+  },
+  {
+    "question": "Heather and Katie had a _______ over a boy five years ago. They haven't spoken to each other since then.",
+    "options": ["falling out", "falling down", "falling off", "falling on"],
+    "correctOption": "falling out"
+  },
+  {
+    "question": "Michael's parents were worried about Michael's going to school in a different city; they mostly worried that he would _______ bad kids.",
+    "options": ["fall back", "fall to", "fall in with", "fall off"],
+    "correctOption": "fall in with"
+  },
+  {
+    "question": "Last month I spent all the money in my checking account, but luckily I had some savings to __________.",
+    "options": ["fall back on", "fall for", "fall through", "fall off"],
+    "correctOption": "fall back on"
+  },
+  {
+    "question": "Don't _______ the hype - that new computer isn't as great as it looks.",
+    "options": ["fall off", "fall for", "fall out", "fall through"],
+    "correctOption": "fall for"
+  },
+  {
+    "question": "No, I didn't go to graduate school. Unfortunately, things __________ at the last minute.",
+    "options": ["fell apart", "fell over", "fell through", "fell on"],
+    "correctOption": "fell through"
+  },
+  {
+    "question": "I need to study harder; I'm _______ on my work for English class.",
+    "options": ["falling apart", "falling back", "falling behind", "falling through"],
+    "correctOption": "falling behind"
+  },
+  {
+    "question": "The workers were so hungry, they ____ for the sandwiches and cakes with gusto.",
+    "options": ["fell for", "fell in", "fell on", "fell over"],
+    "correctOption": "fell for"
+  },
+  {
+    "question": "They had a plan to trick him, but he didn’t ______ it.",
+    "options": ["fall for", "fall to", "fall at", "fall by"],
+    "correctOption": "fall for"
+  },
+  {
+    "question": "After a lot of persuasion, he finally agreed to ______ our plans.",
+    "options": ["fall across to", "fall down in", "fall in with", "fall up to"],
+    "correctOption": "fall in with"
+  },
+  {
+    "question": "His project has (failed to be completed).",
+    "options": ["fallen through", "fallen out", "fallen on", "fallen off"],
+    "correctOption": "fallen through"
+  },
+   {
+    "question": "We don't earn much money but we can get .......................",
+    "options": ["Get on", "Get by", "Get away", "Get at"],
+    "correctOption": "Get by"
+  },
+  {
+    "question": "How could you..............cheating in the test?",
+    "options": ["Get on", "Get across", "Get away with", "Get by"],
+    "correctOption": "Get away with"
+  },
+  {
+    "question": "My puppy died last month and I can't .................... it.",
+    "options": ["Get on", "Get over", "Get away", "Get up"],
+    "correctOption": "Get over"
+  },
+  {
+    "question": "We __________ so well. He’s like a brother to me!",
+    "options": ["get on", "get out", "get over", "get by"],
+    "correctOption": "get on"
+  },
+  {
+    "question": "Stop ___________ me today! I feel like I’m doing everything wrong.",
+    "options": ["getting on", "getting by", "getting at", "getting across"],
+    "correctOption": "getting at"
+  },
+  {
+    "question": "At the meeting, I think you ________ the main ideas really well.",
+    "options": ["got on", "got across", "got by", "Got away with"],
+    "correctOption": "got across"
+  },
+  {
+    "question": "I’ve been living here for 6 months now and I’ve been __________ really well.",
+    "options": ["getting out", "getting across", "getting along", "getting at"],
+    "correctOption": "getting along"
+  },
+  {
+    "question": "It took her a long time to ............ the illness.",
+    "options": ["get over", "get by", "get In", "get on"],
+    "correctOption": "get over"
+  },
+  {
+    "question": "The thieves ............. with several thousand pounds.",
+    "options": ["got in", "got on", "got Away", "got for"],
+    "correctOption": "got Away"
+  },
+  {
+    "question": "The family has a very low income but they manage to (cope / survive).",
+    "options": ["get round", "get at", "get by", "get on"],
+    "correctOption": "get by"
+  },
+  {
+    "question": "It took me 3 weeks to ___________ that nasty cold.",
+    "options": ["get over", "get away", "get up to", "get at"],
+    "correctOption": "get over"
+  },
+  {
+    "question": "I wish the boys could all ________. They are always fighting.",
+    "options": ["get along", "get up", "get off", "get over"],
+    "correctOption": "get along"
+  },
+  {
+    "question": "Many employers want to hire an employee who can _________ others.",
+    "options": ["Get away with", "Get along with", "Get through", "Get at"],
+    "correctOption": "Get along with"
+  },
+  {
+    "question": "Once you ________ the first part of the process, the rest is really easy.",
+    "options": ["Get away with", "get across", "Get up to", "Get through"],
+    "correctOption": "Get through"
+  },
+   {
+        "question": "She decided to ___________ her old clothes to charity.",
+        "options": ["give off", "give back", "give away", "give in"],
+        "correctOption": "give away"
+    },
+    {
+        "question": "The fire ___________ a lot of smoke.",
+        "options": ["gave off", "gave out", "gave back", "gave up"],
+        "correctOption": "gave off"
+    },
+    {
+        "question": "The student decided to ___________ and pursue a different major.",
+        "options": ["give off", "give in", "give up", "give out"],
+        "correctOption": "give up"
+    },
+    {
+        "question": "The exhausted hiker ___________ and needed assistance to descend the mountain.",
+        "options": ["gave off", "gave in", "gave out", "gave away"],
+        "correctOption": "gave out"
+    },
+    {
+        "question": "The fire ___________ warmth on the cold winter night.",
+        "options": ["gave off", "gave in", "gave out", "gave up"],
+        "correctOption": "gave off"
+    },
+    {
+        "question": "The company decided to ___________ a portion of their profits to charity.",
+        "options": ["give off", "give in", "give away", "give back"],
+        "correctOption": "give away"
+    },
+    {
+        "question": "The flowers ___________ a pleasant fragrance.",
+        "options": ["gave off", "gave out", "gave back", "gave in"],
+        "correctOption": "gave off"
+    },
+    {
+        "question": "The exhausted runner ___________ and had to withdraw from the race.",
+        "options": ["gave off", "gave back", "gave out", "gave away"],
+        "correctOption": "gave out"
+    },
+    {
+        "question": "The company ___________ a large donation to support local schools.",
+        "options": ["gave off", "gave back", "gave away", "gave in"],
+        "correctOption": "gave away"
+    },
+    {
+        "question": "The student ___________ when faced with a difficult question.",
+        "options": ["gave off", "gave back", "gave in", "gave out"],
+        "correctOption": "gave in"
+    },
+    {
+        "question": "The company ___________ the annual bonuses to its employees.",
+        "options": ["gave off", "gave in", "gave out", "gave up"],
+        "correctOption": "gave out"
+    },
+    {
+        "question": "The children were excited when Santa ___________ presents.",
+        "options": ["gave away", "gave over", "gave up", "gave in"],
+        "correctOption": "gave away"
+    },
+    {
+        "question": "She decided to ___________ her dream of becoming an artist and pursued a different career.",
+        "options": ["give off", "give up", "give back", "give in"],
+        "correctOption": "give up"
+    },
+    {
+        "question": "The factory ___________ toxic fumes.",
+        "options": ["gave off", "gave out", "gave back", "gave up"],
+        "correctOption": "gave off"
+    },
+    {
+        "question": "The company ___________ all the necessary resources for the project.",
+        "options": ["gave off", "gave in", "gave out", "gave up"],
+        "correctOption": "gave out"
+    },
+    {
+        "question": "The factory ___________ a strong odor of chemicals.",
+        "options": ["gave off", "gave away", "gave back", "gave up"],
+        "correctOption": "gave off"
+    },
+    {
+        "question": "She decided to ___________ her old car and buy a new one.",
+        "options": ["give off", "give back", "give away", "give up"],
+        "correctOption": "give up"
+    },
+    {
+        "question": "The bakery ___________ free samples of its new pastries.",
+        "options": ["gave off", "gave in", "gave away", "gave back"],
+        "correctOption": "gave away"
+    },
+    {
+        "question": "The chimney ______ a cloud of grey smoke.",
+        "options": ["gave forth", "gave away", "gave in", "gave up"],
+        "correctOption": "gave forth"
+    },
+    {
+        "question": "She decided to _______ her secret.",
+        "options": ["give in", "give up", "give away", "give back"],
+        "correctOption": "give away"
+    },
+	 {
+        "question": "The teacher handed ..................... the question booklets to the students.",
+        "options": ["over", "in", "out", "down"],
+        "correctOption": "out"
+    },
+    {
+        "question": "That is my pen. Hand it ..........",
+        "options": ["down", "in", "back", "over"],
+        "correctOption": "back"
+    },
+    {
+        "question": "My grandmother has promised that she will hand her precious jewels ............. to me.",
+        "options": ["over", "in", "back", "down"],
+        "correctOption": "over"
+    },
+    {
+        "question": "My teacher was surprised when I handed ............... my assignment on time.",
+        "options": ["out", "down", "in", "over"],
+        "correctOption": "in"
+    },
+    {
+        "question": "Before I can leave my job, I have to hand ................ my resignation at least two weeks in advance.",
+        "options": ["over", "down", "in", "out"],
+        "correctOption": "in"
+    },
+    {
+        "question": "The teacher will hand .............. all the answer sheets tomorrow.",
+        "options": ["down", "through", "over", "back"],
+        "correctOption": "over"
+    },
+    {
+        "question": "The house that I live in was handed ............... from my grandfather to my father.",
+        "options": ["out", "back", "down", "in"],
+        "correctOption": "down"
+    },
+    {
+        "question": "The boys are handing ........... flyers for the show.",
+        "options": ["in", "down", "out", "over"],
+        "correctOption": "out"
+    },
+    {
+        "question": "I am saving money because I must have something to hand ............ to my children.",
+        "options": ["over", "back", "down", "out"],
+        "correctOption": "down"
+    },
+    {
+        "question": "The accused was handed .............. a prison sentence of five years.",
+        "options": ["in", "over", "down", "out"],
+        "correctOption": "out"
+    },
+	{
+        "question": "I read the papers to keep ... what's happening in the outside world.",
+        "options": ["on about", "close to", "up with", "down on"],
+        "correctOption": "up with"
+    },
+    {
+        "question": "Put a cloth over the salad to keep the flies ....",
+        "options": ["about", "down", "away", "off"],
+        "correctOption": "away"
+    },
+    {
+        "question": "I like to keep .... my ex-employer, you never know when you might need a reference.",
+        "options": ["in with", "down on", "up with", "out of"],
+        "correctOption": "up with"
+    },
+    {
+        "question": "You must eat to keep your strength ...........",
+        "options": ["down", "from", "off", "up"],
+        "correctOption": "up"
+    },
+    {
+        "question": "Will you keep your eye ... my suitcase while I go to get the tickets?",
+        "options": ["on", "off", "with", "to"],
+        "correctOption": "on"
+    },
+    {
+        "question": "She kept ... asking me questions the whole time.",
+        "options": ["down", "on", "up", "off"],
+        "correctOption": "on"
+    },
+    {
+        "question": "For heaven's sake let's keep ... the point or we'll never reach any decisions.",
+        "options": ["off", "up", "down", "to"],
+        "correctOption": "to"
+    },
+    {
+        "question": "I prefer to keep ... arguments about money.",
+        "options": ["down on", "out of", "up with", "in with"],
+        "correctOption": "out of"
+    },
+    {
+        "question": "He kept ________ talking for three hours.",
+        "options": ["on", "in", "out", "up"],
+        "correctOption": "on"
+    },
+    {
+        "question": "He was told to keep ________ (= to not go into) his sister's room.",
+        "options": ["up with", "out off", "out with", "out of"],
+        "correctOption": "out of"
+    },
+    {
+        "question": "He runs very fast. It's hard for me to keep ________ him.",
+        "options": ["out with", "in with", "up with", "out of"],
+        "correctOption": "up with"
+    },
+    {
+        "question": "This isn't any of your business! Keep ________ this!",
+        "options": ["out of", "out from", "up with", "out with"],
+        "correctOption": "out of"
+    },
+    {
+        "question": "He's a very private individual. He keeps ________ himself.",
+        "options": ["away", "with", "out", "off"],
+        "correctOption": "off"
+    },
+    {
+        "question": "In some parks visitors are requested to keep ______ the grass.",
+        "options": ["off", "aside", "out", "away"],
+        "correctOption": "off"
+    },
+    {
+        "question": "If you want to make a good impression, it’s important to ______ your colleagues.",
+        "options": ["keep away from", "keep in with", "keep out of", "keep on at"],
+        "correctOption": "keep in with"
+    },
+    {
+        "question": "I try to keep ______ the latest fashions by going lots of shows in London.",
+        "options": ["up with", "along with", "up to", "next to"],
+        "correctOption": "up with"
+    },
+	 {
+        "question": "My Mum has gone to France for a week, so I have to ___ my little sister.",
+        "options": ["look up", "look after", "look out", "look for"],
+        "correctOption": "look after"
+    },
+    {
+        "question": "Please can you ___ this word in the dictionary, I don't know what it means.",
+        "options": ["look up to", "look for", "look up", "look over"],
+        "correctOption": "look up"
+    },
+    {
+        "question": "I really ___ her, I think she's a great role model for young women.",
+        "options": ["look up to", "look forward to", "look into", "look for"],
+        "correctOption": "look up to"
+    },
+    {
+        "question": "I really ___ my yearly trip to Paris.",
+        "options": ["look out", "look up", "look forward to", "look for"],
+        "correctOption": "look forward to"
+    },
+    {
+        "question": "Please could you ___ my essay and check for any mistakes?",
+        "options": ["look up to", "look into", "look at", "look through"],
+        "correctOption": "look through"
+    },
+    {
+        "question": "When I ___ my life, I realise how much I have grown as a person.",
+        "options": ["look up", "look back on", "look out", "look into"],
+        "correctOption": "look back on"
+    },
+    {
+        "question": "___, he's got a gun!",
+        "options": ["Look up", "Look into", "Look out", "Look at"],
+        "correctOption": "Look out"
+    },
+    {
+        "question": "I think she ___ me, she doesn't think I'm as good at singing as she is.",
+        "options": ["looks down on", "looks out", "looks up to", "looks for"],
+        "correctOption": "looks down on"
+    },
+    {
+        "question": "When I _________ on my college days, I can't believe the crazy things we did as students.",
+        "options": ["look back", "look down", "look after", "look out"],
+        "correctOption": "look back"
+    },
+    {
+        "question": "He offered to look _________ the report to establish the full story.",
+        "options": ["look out", "look at", "look up", "look through"],
+        "correctOption": "look into"
+    },
+    {
+        "question": "He _________ his colleagues because he has a degree but they haven't.",
+        "options": ["looks down on", "looks into", "looks through", "looks up"],
+        "correctOption": "looks down on"
+    },
+    {
+        "question": "We had a really bad time about six months ago but now things are _______ .",
+        "options": ["looking forward", "looking back", "looking up", "looking for"],
+        "correctOption": "looking up"
+    },
+    {
+        "question": "Veena left her job to _________ her mother.",
+        "options": ["look after", "look down on", "look up to", "look into"],
+        "correctOption": "look after"
+    },
+    {
+        "question": "Tim has always _________ his father and hopes one day to emulate his success.",
+        "options": ["looked down on", "looked up", "looked up to", "looked for"],
+        "correctOption": "looked up to"
+    },
+    {
+        "question": "You need to ____ the meaning of the words in the dictionary.",
+        "options": ["look out", "look for", "look at", "look up"],
+        "correctOption": "look up"
+    },
+    {
+        "question": "The graduates ____ to have a vacation.",
+        "options": ["look at", "look into", "look forward", "look over"],
+        "correctOption": "look forward"
+    },
+    {
+        "question": "____-! A fast car is approaching.",
+        "options": ["Look back on", "Look out", "Look at", "Look for"],
+        "correctOption": "Look out"
+    },
+    {
+        "question": "You should……… the matter",
+        "options": ["look over", "look into", "look for", "look out"],
+        "correctOption": "look into"
+    },
+    {
+        "question": "I was……… my elder brother.",
+        "options": ["looking for", "looking over", "looking on", "looking up"],
+        "correctOption": "looking after"
+    },
+    {
+        "question": "We are………… the lost keys.",
+        "options": ["looking for", "looking on", "looking forward to", "looking at"],
+        "correctOption": "looking for"
+    },
+    {
+        "question": "The eagle is…………. prey.",
+        "options": ["looking into", "looking over", "looking out for", "looking through"],
+        "correctOption": "looking out for"
+    },
+    {
+        "question": "The Indian economy is now …………",
+        "options": ["looking up to", "looking up", "looking after", "looking on"],
+        "correctOption": "looking up"
+    },
+    {
+        "question": "My uncle…….. me.",
+        "options": ["looks over", "looks after", "looks on", "looks for"],
+        "correctOption": "looks after"
+    },
+    {
+        "question": "……….. your manners.",
+        "options": ["Look after", "Look on", "Look over", "Look to"],
+        "correctOption": "Look after"
+    },
+    {
+        "question": "……….. the word in the dictionary.",
+        "options": ["Look at", "Look up", "Look to", "Look into"],
+        "correctOption": "Look up"
+    },
+    {
+        "question": "I………. him as my son.",
+        "options": ["look on", "look at", "look after", "look up"],
+        "correctOption": "look after"
+    },
+    {
+        "question": "If you don’t know what the word means, you’d better ______ in the dictionary.",
+        "options": ["look it over", "look for it", "look it up", "look into it"],
+        "correctOption": "look it up"
+    },
+    {
+        "question": "We ______ to receiving a prompt reply to our letter.",
+        "options": ["look round", "look through", "look after", "look forward"],
+        "correctOption": "look forward"
+    },
+    {
+        "question": "At least half a dozen people ______ (watched without doing anything) while the man was being attacked.",
+        "options": ["looked at", "looked on", "looked over", "looked into"],
+        "correctOption": "looked on"
+    },
+    {
+        "question": "I____ seeing my friends again.",
+        "options": ["look forward to", "look after", "look at", "look up"],
+        "correctOption": "look forward to"
+    },
+    {
+        "question": "It is a folly on your part to____ upon the poor students.",
+        "options": ["look down", "look after", "look up", "look into"],
+        "correctOption": "look down"
+    },
+    {
+        "question": "I don’t know where my book is. I have to ______ it.",
+        "options": ["look into", "look up", "look for", "look in"],
+        "correctOption": "look for"
+    },
+    {
+        "question": "A committee was formed to_____ the building.",
+        "options": ["look after", "look at", "look for", "look up"],
+        "correctOption": "look at"
+    },
+    {
+        "question": "He was not___ the blackboard when the teacher was writing on it.",
+        "options": ["looking for", "looking to", "looking at", "looking on"],
+        "correctOption": "looking at"
+    },
+	 {
+        "question": "Nothing will ______ for their inefficiency.",
+        "options": ["make over", "make out", "make up", "make off with"],
+        "correctOption": "make up"
+    },
+    {
+        "question": "Don’t trust him. He always ______ stories.",
+        "options": ["makes up", "makes out", "makes after", "make away with"],
+        "correctOption": "makes up"
+    },
+    {
+        "question": "Only good employer-employee relationships can ______ good production.",
+        "options": ["make out", "make for", "make after", "make up"],
+        "correctOption": "make for"
+    },
+    {
+        "question": "I can hardly ______ the letters on that sign. They are too small.",
+        "options": ["make in", "make off", "make out", "make up"],
+        "correctOption": "make out"
+    },
+    {
+        "question": "It took 20 years for them to ______ after their fight.",
+        "options": ["make up", "make over", "make out", "make up for"],
+        "correctOption": "make up"
+    },
+    {
+        "question": "If there is an earthquake, you should ______ the park.",
+        "options": ["make out", "make up", "make for", "make away with"],
+        "correctOption": "make for"
+    },
+    {
+        "question": "It was so foggy that she couldn’t ______ the road ahead.",
+        "options": ["make out", "make over", "make up", "make into"],
+        "correctOption": "make out"
+    },
+    {
+        "question": "I wish she wouldn’t ______ stories like that.",
+        "options": ["make for", "make up", "make over", "make out"],
+        "correctOption": "make up"
+    },
+    {
+        "question": "He emptied his glass and _________ the door.",
+        "options": ["made for", "made off with", "made up for", "made away with"],
+        "correctOption": "made for"
+    },
+    {
+        "question": "She's indecisive and can never .......... her mind",
+        "options": ["make up", "make out", "make out of", "make off"],
+        "correctOption": "make up"
+    },
+    {
+        "question": "She could just _________ the dark outline of a ship on the horizon.",
+        "options": ["make out", "make over", "make up", "make up for"],
+        "correctOption": "make out"
+    },
+    {
+        "question": "The thieves _________ a TV and some jewellery.",
+        "options": ["made up", "made off with", "made up for", "made out"],
+        "correctOption": "made off with"
+    },
+    {
+        "question": "I wanted to do something nice for Anna, to _________ the way I'd treated her.",
+        "options": ["make away with", "make up for", "make up to", "make out"],
+        "correctOption": "make up for"
+    },
+    {
+        "question": "It took them ages to ......... after their quarrel",
+        "options": ["make off", "make up", "make over", "make into"],
+        "correctOption": "make up"
+    },
+    {
+        "question": "If specialists change your style and image, they make you ..........",
+        "options": ["over", "off", "through", "out"],
+        "correctOption": "over"
+    },
+    {
+        "question": "When it was 12 o'clock, She said : We better ........... home.",
+        "options": ["make up", "make away with", "make for", "make into"],
+        "correctOption": "make for"
+    },
+    {
+        "question": "I didn't know what to write about, but then I ......... a marvellous story.",
+        "options": ["made for", "made off with", "made up", "made by"],
+        "correctOption": "made up"
+    },
+    {
+        "question": "She didn't have good computer skills, However she ........ ........ it with a course.",
+        "options": ["makes up to", "makes up as", "makes up for", "makes up Over"],
+        "correctOption": "makes up for"
+    },
+    {
+        "question": "As far as I ........., He has never won a price.",
+        "options": ["make out", "make up", "make over", "make for"],
+        "correctOption": "make out"
+    },
+    {
+        "question": "Everybody ........... that it was really difficult, but I found it dead easy",
+        "options": ["made up", "made off", "made out", "made into"],
+        "correctOption": "made out"
+    },
+    {
+        "question": "The play was so boring that half the audience were …….... the exits after a quarter of an hour",
+        "options": ["making up", "making for", "making out", "making into"],
+        "correctOption": "making for"
+    },
+    {
+        "question": "If you pay as much as you can, I'll ...... the difference",
+        "options": ["make up", "Make up for", "make in", "make out"],
+        "correctOption": "Make up for"
+    },
+    {
+        "question": "She …...... the story because she was afraid to tell the truth",
+        "options": ["made for", "made up", "made off with", "made away with"],
+        "correctOption": "made up"
+    },
+    {
+        "question": "It started to pour with rain, so we …..... the nearest village",
+        "options": ["made up", "made out", "made for", "made into"],
+        "correctOption": "made for"
+    },
+    {
+        "question": "Thieves .......... over twenty thousand pounds",
+        "options": ["made up", "made off", "made off with", "made out"],
+        "correctOption": "made off with"
+    },
+    {
+        "question": "The newspaper had to pay thousands of pounds to ........... their mistake",
+        "options": ["make in", "make out with", "make up for", "make off"],
+        "correctOption": "make up for"
+    },
+    {
+        "question": "She was perfect in the play; she was ......... the part",
+        "options": ["made for", "made off", "made up", "made out"],
+        "correctOption": "made out"
+    },
+    {
+        "question": "He had to (invent) an excuse for not attending the meeting.",
+        "options": ["make out", "make up", "make for", "make off"],
+        "correctOption": "make up"
+    },
+    {
+        "question": "I can't (understand) what the customer is saying on the phone.",
+        "options": ["make of", "make fun of", "make out", "make into"],
+        "correctOption": "make out"
+    },
+    {
+        "question": "Lea and Amy accepted to (become friends again) and end their disagreement.",
+        "options": ["make out", "make up for", "make up", "make off"],
+        "correctOption": "make up"
+    },
+    {
+        "question": "I promise i'll (compensate) the two weeks I was absent.",
+        "options": ["make out", "make up for", "make up", "make off"],
+        "correctOption": "make up for"
+    },
+    {
+        "question": "The boy (stole and ran away with) my wallet while I was checking the bill.",
+        "options": ["made up with", "made out with", "made off with", "made for with"],
+        "correctOption": "made off with"
+    },
+    {
+        "question": "The participants all (headed in the direction of) the exit at the same time.",
+        "options": ["made up", "made for", "made out", "made off"],
+        "correctOption": "made for"
+    },
+	 {
+        "question": "The old man ___________ peacefully in his sleep.",
+        "options": ["passed off", "passed up", "passed away", "passed by"],
+        "correctOption": "passed away"
+    },
+    {
+        "question": "The bus ___________ the bus stop without picking up any passengers.",
+        "options": ["passed out", "passed through", "passed over", "passed by"],
+        "correctOption": "passed by"
+    },
+    {
+        "question": "She ___________ after standing in the hot sun for hours.",
+        "options": ["passed by", "passed over", "passed on", "passed out"],
+        "correctOption": "passed out"
+    },
+    {
+        "question": "He tried to ___________ as a famous celebrity at the party.",
+        "options": ["pass up", "pass on", "pass off", "pass through"],
+        "correctOption": "pass off"
+    },
+    {
+        "question": "The manager ___________ her for the promotion, even though she was highly qualified.",
+        "options": ["passed away", "passed on", "passed over", "passed out"],
+        "correctOption": "passed over"
+    },
+    {
+        "question": "The train ___________ several small towns on its way to the final destination.",
+        "options": ["passed through", "passed up", "passed away", "passed off"],
+        "correctOption": "passed through"
+    },
+    {
+        "question": "The speaker ___________ his knowledge and expertise to the audience.",
+        "options": ["passed by", "passed out", "passed on", "passed up"],
+        "correctOption": "passed on"
+    },
+    {
+        "question": "She ___________ the opportunity to study abroad and regretted it later.",
+        "options": ["passed over", "passed away", "passed up", "passed out"],
+        "correctOption": "passed up"
+    },
+    {
+        "question": "The counterfeit money was cleverly ___________ as genuine currency.",
+        "options": ["passed off", "passed on", "passed away", "passed up"],
+        "correctOption": "passed off"
+    },
+    {
+        "question": "The athlete ___________ during the marathon and had to withdraw from the race.",
+        "options": ["passed away", "passed out", "passed on", "passed by"],
+        "correctOption": "passed out"
+    },
+    {
+        "question": "The stolen artwork was ___________ as a legitimate painting by an art collector.",
+        "options": ["passed on", "passed off", "passed up", "passed through"],
+        "correctOption": "passed off"
+    },
+    {
+        "question": "The resolution to the conflict ___________ without any further incidents.",
+        "options": ["passed away", "passed over", "passed on", "passed off"],
+        "correctOption": "passed off"
+    },
+    {
+        "question": "The news of the accident quickly ___________ to everyone in the neighborhood.",
+        "options": ["passed away", "passed through", "passed on", "passed out"],
+        "correctOption": "passed on"
+    },
+    {
+        "question": "The project was ___________ due to lack of funding.",
+        "options": ["passed away", "passed by", "passed off", "passed up"],
+        "correctOption": "passed up"
+    },
+    {
+        "question": "She was able to ___________ a talented artist with her impressive paintings.",
+        "options": ["pass through", "pass for", "pass up", "pass on"],
+        "correctOption": "pass for"
+    },
+    {
+        "question": "The company decided to ___________ the savings to the customers in the form of discounts.",
+        "options": ["pass out", "pass away", "pass over", "pass on"],
+        "correctOption": "pass on"
+    },
+    {
+        "question": "The opportunity to travel to Europe was too good to ___________.",
+        "options": ["pass away", "pass for", "pass by", "pass up"],
+        "correctOption": "pass up"
+    },
+    {
+        "question": "The opportunity to work with a renowned company was too good to ___________.",
+        "options": ["pass off", "pass by", "pass up", "pass through"],
+        "correctOption": "pass up"
+    },
+    {
+        "question": "She couldn't ___________ the chance to see her favorite band perform live.",
+        "options": ["pass up", "pass out", "pass on", "pass through"],
+        "correctOption": "pass up"
+    },
+    {
+        "question": "The details of the meeting were ___________ to the team members.",
+        "options": ["passed up", "passed for", "passed over", "passed on"],
+        "correctOption": "passed on"
+    },
+    {
+        "question": "The opportunity ___________, and she deeply regretted not taking it.",
+        "options": ["passed by", "passed off", "passed out", "passed away"],
+        "correctOption": "passed by"
+    },
+    {
+        "question": "The proposal to increase taxes was ___________ by the majority of the committee.",
+        "options": ["passed up", "passed by", "passed over", "passed for"],
+        "correctOption": "passed over"
+    },
+    {
+        "question": "The plane ___________ the storm and landed safely at its destination.",
+        "options": ["passed through", "passed away", "passed on", "passed out"],
+        "correctOption": "passed through"
+    },
+    {
+        "question": "The opportunity to travel the world ___________ her, and she embarked on an adventure.",
+        "options": ["passed over", "passed by", "passed off", "passed up"],
+        "correctOption": "passed up"
+    },
+    {
+        "question": "She was able to ___________ her fear and perform on stage without any hesitation.",
+        "options": ["pass away", "pass on", "pass through", "pass over"],
+        "correctOption": "pass through"
+    },
+	 {
+        "question": "The children tried to ___________ the stubborn door, but it wouldn't budge.",
+        "options": ["pull up", "pull off", "pull through", "pull down"],
+        "correctOption": "pull down"
+    },
+    {
+        "question": "The driver was instructed to ___________ at the next gas station.",
+        "options": ["pull through", "pull over", "pull in", "pull out"],
+        "correctOption": "pull over"
+    },
+    {
+        "question": "Despite the challenges, they managed to ___________ a successful event.",
+        "options": ["pull back", "pull off", "pull up", "pull in"],
+        "correctOption": "pull off"
+    },
+    {
+        "question": "The old building was scheduled to be ___________ to make space for a new shopping complex.",
+        "options": ["pulled down", "pulled in", "pulled through", "pulled out"],
+        "correctOption": "pulled down"
+    },
+    {
+        "question": "The team had to ___________ to secure the victory in the last few minutes.",
+        "options": ["pull through", "pull back", "pull in", "pull up"],
+        "correctOption": "pull through"
+    },
+    {
+        "question": "The driver was asked to ___________ and show their driver's license.",
+        "options": ["pull over", "pull out", "pull in", "pull through"],
+        "correctOption": "pull over"
+    },
+    {
+        "question": "The child tried to ___________ the toy car to see how it worked.",
+        "options": ["pull up", "pull apart", "pull off", "pull down"],
+        "correctOption": "pull apart"
+    },
+    {
+        "question": "They had to ___________ their plans due to unexpected circumstances.",
+        "options": ["pull back", "pull off", "pull over", "pull in"],
+        "correctOption": "pull back"
+    },
+    {
+        "question": "The car ___________ to a stop at the red light.",
+        "options": ["pulled through", "pulled back", "pulled up", "pulled apart"],
+        "correctOption": "pulled up"
+    },
+    {
+        "question": "The CEO decided to ___________ from the business deal.",
+        "options": ["pull in", "pull back", "pull together", "pull down"],
+        "correctOption": "pull back"
+    },
+    {
+        "question": "The storm caused the tree to ___________ and block the road.",
+        "options": ["pull up", "pull down", "pull off", "pull in"],
+        "correctOption": "pull down"
+    },
+    {
+        "question": "The company decided to ___________ the product due to poor sales.",
+        "options": ["pull out", "pull through", "pull over", "pull down"],
+        "correctOption": "pull out"
+    },
+    {
+        "question": "The committee members had to ___________ to finalize the report.",
+        "options": ["pull back", "pull off", "pull in", "pull together"],
+        "correctOption": "pull together"
+    },
+    {
+        "question": "The doctors were able to ___________ the patient from the brink of death.",
+        "options": ["pull apart", "pull in", "pull through", "pull up"],
+        "correctOption": "pull through"
+    },
+    {
+        "question": "The siblings tried to ___________ their father's attention to the spider on the ceiling.",
+        "options": ["pull off", "pull up", "pull in", "pull apart"],
+        "correctOption": "pull up"
+    },
+    {
+        "question": "The construction workers had to _________ the damaged wall and rebuild it.",
+        "options": ["pull down", "pull out", "pull over", "pull through"],
+        "correctOption": "pull down"
+    },
+    {
+        "question": "Despite the setbacks, they were determined to ___________ their project successfully.",
+        "options": ["pull back", "pull off", "pull in", "pull up"],
+        "correctOption": "pull off"
+    },
+    {
+        "question": "The magician was able to ___________ an incredible trick that amazed the audience.",
+        "options": ["pull apart", "pull off", "pull down", "pull up"],
+        "correctOption": "pull off"
+    },
+    {
+        "question": "The rescue team managed to ___________ the trapped hikers from the mountain.",
+        "options": ["pull over", "pull out", "pull through", "pull in"],
+        "correctOption": "pull through"
+    },
+    {
+        "question": "The company had to ___________ the product due to safety concerns.",
+        "options": ["pull off", "pull out", "pull in", "pull through"],
+        "correctOption": "pull out"
+    },
+    {
+        "question": "The team had to ___________ their efforts to complete the project on time.",
+        "options": ["pull back", "pull together", "pull in", "pull over"],
+        "correctOption": "pull together"
+    },
+    {
+        "question": "The injured player was determined to ___________ and rejoin the game.",
+        "options": ["pull through", "pull apart", "pull up", "pull in"],
+        "correctOption": "pull through"
+    },
+    {
+        "question": "The driver failed to ___________ at the pedestrian crossing and was fined.",
+        "options": ["pull over", "pull out", "pull in", "pull down"],
+        "correctOption": "pull over"
+    },
+    {
+        "question": "She had to ___________ the information from various sources to write her research paper.",
+        "options": ["pull back", "pull apart", "pull off", "pull together"],
+        "correctOption": "pull together"
+    },
+    {
+        "question": "The strong current threatened to ___________ the boat into the rocks.",
+        "options": ["pull down", "pull off", "pull apart", "pull away"],
+        "correctOption": "pull away"
+    },
+    {
+        "question": "The lawyer pulled ______ all the stops to get her client acquitted.",
+        "options": ["out", "up", "in", "back"],
+        "correctOption": "out"
+    },
+    {
+        "question": "The politician pulled ______ a surprise victory in the election.",
+        "options": ["off", "out", "in", "through"],
+        "correctOption": "off"
+    },
+    {
+        "question": "The car pulled ______ to the side of the road and stopped.",
+        "options": ["over", "in", "out", "off"],
+        "correctOption": "over"
+    },
+    {
+        "question": "The company pulled ______ its advertising campaign after it was criticized for being offensive.",
+        "options": ["out", "up", "in", "off"],
+        "correctOption": "off"
+    },
+    {
+        "question": "The actor pulled ______ a great performance in the play.",
+        "options": ["off", "together", "in", "over"],
+        "correctOption": "off"
+    },
+	 {
+        "question": "I can't ______ him anymore, he's driving me crazy.",
+        "options": ["Put up", "Put on", "Put up with", "Put out"],
+        "correctOption": "Put up with"
+    },
+    {
+        "question": "The fireman _______ the fire.",
+        "options": ["put up", "put out", "put off", "put on"],
+        "correctOption": "put out"
+    },
+    {
+        "question": "Can we _______ the meeting until Wednesday please?",
+        "options": ["Put up", "Put down", "Put off", "Put across"],
+        "correctOption": "Put off"
+    },
+    {
+        "question": "He ______ all the time, I don't know why she's still with him.",
+        "options": ["Puts her down", "Puts him across", "Puts her up", "Puts her in"],
+        "correctOption": "Puts her down"
+    },
+    {
+        "question": "They _______ a new newsletter every Friday. It's worth reading.",
+        "options": ["Put forward", "Put up with", "Put out", "Put in"],
+        "correctOption": "Put out"
+    },
+    {
+        "question": "I was trying to ______ my point of view but no one was listening.",
+        "options": ["Put up with", "Put off", "Put across", "Put through"],
+        "correctOption": "Put across"
+    },
+    {
+        "question": "I _______ a beautiful dress and my high heels.",
+        "options": ["Put on", "Put across", "Put out", "Put by"],
+        "correctOption": "Put on"
+    },
+    {
+        "question": "I can't _____ the tent. I think it's broken.",
+        "options": ["Put up with", "Put up", "Put down", "Put off"],
+        "correctOption": "Put up"
+    },
+    {
+        "question": "I don’t know how you ________ your boss. He’s such a bully!",
+        "options": ["put up", "put up with", "put in", "Put down"],
+        "correctOption": "put up with"
+    },
+    {
+        "question": "My father _____ the money to buy the house.",
+        "options": ["put up", "put in", "put aside", "put off"],
+        "correctOption": "put in"
+    },
+    {
+        "question": "He ______ for a transfer, but it was refused.",
+        "options": ["put on", "put in", "put by", "put across"],
+        "correctOption": "put in"
+    },
+    {
+        "question": "She doesn't exercise anymore and she has put ______ weight.",
+        "options": ["on", "in", "by", "off"],
+        "correctOption": "on"
+    },
+    {
+        "question": "Will the last one to leave please ______ the candles?",
+        "options": ["put out", "put in", "put by", "put down"],
+        "correctOption": "put out"
+    },
+    {
+        "question": "They _______ their differences because they loved each other.",
+        "options": ["put aside", "put through", "put up", "put across"],
+        "correctOption": "put aside"
+    },
+    {
+        "question": "I don’t smoke. Would you mind _______ your cigarette?",
+        "options": ["putting out", "putting through", "Putting off", "putting up with"],
+        "correctOption": "putting out"
+    },
+    {
+        "question": "Will you help me to _______ this poster?",
+        "options": ["put in", "put on", "put up", "put across"],
+        "correctOption": "put up"
+    },
+    {
+        "question": "The game was _______ until next month.",
+        "options": ["put aside", "put off", "put in", "put by"],
+        "correctOption": "put off"
+    },
+    {
+        "question": "My father ______ the money to buy the house.",
+        "options": ["put aside", "put on", "put through", "put across"],
+        "correctOption": "put aside"
+    },
+    {
+        "question": "The amount of money you make depends on the efforts you ______ .",
+        "options": ["put on", "put in", "put by", "put off"],
+        "correctOption": "put in"
+    },
+    {
+        "question": "He found it difficult ______ what he wanted to say at the meeting.",
+        "options": ["put off", "put through", "put across", "put by"],
+        "correctOption": "put across"
+    },
+    {
+        "question": "Select the most appropriate phrasal verb of the word in bold in the given sentence. I really must buy a car so I’m going to save some money every month until I can afford one.",
+        "options": ["put by", "put up", "put off", "put on"],
+        "correctOption": "put by"
+    },
+    {
+        "question": "Select the most appropriate phrasal verb of the word in bold in the given sentence. I didn’t feel like going to the dentist’s so I delayed going there until I had a really bad toothache.",
+        "options": ["put off", "put by", "put on", "put out"],
+        "correctOption": "put off"
+    },
+    {
+        "question": "I had to put ______ having the party because I was ill.",
+        "options": ["up", "through", "off", "on"],
+        "correctOption": "off"
+    },
+    {
+        "question": "I was ______ with Alvin for arguing with the waiter about our bill.",
+        "options": ["put out", "put off", "put down", "put on"],
+        "correctOption": "put out"
+    },
+    {
+        "question": "I find her husband unbearable, and I can’t imagine how she can ______ his awful behaviour.",
+        "options": ["put by", "put up with", "put down on", "Put up"],
+        "correctOption": "put up with"
+    },
+    {
+        "question": "I was very ______ by the nurse’s attitude, it really annoyed me.",
+        "options": ["put out", "put up", "put by", "put aside"],
+        "correctOption": "put out"
+    },
+    {
+        "question": "Select the most appropriate phrasal verb of the word in bold in the given sentence. The meeting was postponed until next week.",
+        "options": ["put off", "put away", "put out", "put up"],
+        "correctOption": "put off"
+    },
+    {
+        "question": "She put ______ an interesting proposal.",
+        "options": ["to", "against", "forward", "backwards"],
+        "correctOption": "forward"
+    },
+    {
+        "question": "I refuse to put up with his actions any longer.",
+        "options": ["pretend", "support", "endure", "consider"],
+        "correctOption": "endure"
+    },
+    {
+        "question": "It’s very kind of you to put me ______ for the night, James.",
+        "options": ["along", "down", "in", "up"],
+        "correctOption": "up"
+    },
+    {
+        "question": "In order to be able to afford a holiday every summer I have to try to put ______ some money each month.",
+        "options": ["away", "aside", "in", "of"],
+        "correctOption": "aside"
+    },
+    {
+        "question": "He proposed a very good suggestion.",
+        "options": ["put in", "put down", "put out", "put forward"],
+        "correctOption": "put forward"
+    },
+    {
+        "question": "Even if it rains all day, I will not be able to _____ my journey.",
+        "options": ["put by", "put out", "put off", "put away"],
+        "correctOption": "put off"
+    },
+    {
+        "question": "She_____ the two candles in one breath.",
+        "options": ["put down", "put up", "put out", "put off"],
+        "correctOption": "put out"
+    },
+    {
+        "question": "I absolutely refuse to_____ that sort of conduct.",
+        "options": ["put on", "put up", "put up with", "put out"],
+        "correctOption": "put up with"
+    },
+	 {
+        "question": "Can you get some sugar from the shop? We have ………………",
+        "options": ["run off", "run out", "run for", "Run down"],
+        "correctOption": "run out"
+    },
+    {
+        "question": "This car is …………… of petrol.",
+        "options": ["running on", "running off", "running out", "running through"],
+        "correctOption": "running out"
+    },
+    {
+        "question": "The boy …………….. from home because he had no one to love him there.",
+        "options": ["ran out", "ran down", "ran away", "ran after"],
+        "correctOption": "ran away"
+    },
+    {
+        "question": "The police constable …….… the thief but he could not catch him.",
+        "options": ["ran over", "ran out", "ran after", "ran away"],
+        "correctOption": "ran after"
+    },
+    {
+        "question": "When we were kids we would spend the entire afternoon ……….... the neighborhood.",
+        "options": ["running over", "running around", "running on", "running in"],
+        "correctOption": "running around"
+    },
+    {
+        "question": "I …………….. an old friend of mine yesterday.",
+        "options": ["ran at", "ran into", "Ran over", "Ran down"],
+        "correctOption": "ran into"
+    },
+    {
+        "question": "After prolonged illness, she appeared ____.",
+        "options": ["ran down", "ran away", "ran after", "ran off"],
+        "correctOption": "ran down"
+    },
+    {
+        "question": "I ………. a dog while driving home from work.",
+        "options": ["ran after", "ran over", "ran on", "ran in"],
+        "correctOption": "ran over"
+    },
+    {
+        "question": "He has ……………… a huge debt on his credit cards.",
+        "options": ["run into", "run up", "run out", "run with"],
+        "correctOption": "run into"
+    },
+    {
+        "question": "He ………. the presentation one more time to ensure that everything is perfect.",
+        "options": ["ran through", "ran away", "ran out", "ran at"],
+        "correctOption": "ran through"
+    },
+    {
+        "question": "Our dog was _________ by a truck.",
+        "options": ["run out", "run over", "run Up", "run for"],
+        "correctOption": "run over"
+    },
+    {
+        "question": "Has your son ever _________ from home before?",
+        "options": ["run around", "run away", "run Out", "run for"],
+        "correctOption": "run away"
+    },
+    {
+        "question": "We were still no nearer to a decision, and time was ________.",
+        "options": ["running down", "running off", "running out", "running over"],
+        "correctOption": "running out"
+    },
+    {
+        "question": "The battery has ______.",
+        "options": ["run down", "run off", "run over", "run about"],
+        "correctOption": "run down"
+    },
+    {
+        "question": "I’m feeling ______ and could do with a holiday.",
+        "options": ["run across", "run down", "run out", "run over"],
+        "correctOption": "run down"
+    },
+	 {
+        "question": "The rainy season has …………..",
+        "options": ["set in", "set", "set down", "set back"],
+        "correctOption": "set in"
+    },
+    {
+        "question": "It’s time you …………. your work.",
+        "options": ["set about", "set aside", "set in", "set up"],
+        "correctOption": "set about"
+    },
+    {
+        "question": "The princess ………….. on a long journey.",
+        "options": ["set off", "set in", "set aside", "set to"],
+        "correctOption": "set off"
+    },
+    {
+        "question": "They have ……….. a factory in the town.",
+        "options": ["set out", "set up", "set forth", "set apart"],
+        "correctOption": "set up"
+    },
+    {
+        "question": "Set some money ……………. for your retirement.",
+        "options": ["aside", "for", "out", "in"],
+        "correctOption": "aside"
+    },
+    {
+        "question": "The Supreme Court has ……… the High Court judgment.",
+        "options": ["set aside", "set in", "set out", "set back"],
+        "correctOption": "set aside"
+    },
+    {
+        "question": "She has …………… a handsome amount for her children’s education.",
+        "options": ["set aside", "set apart", "set up", "set to"],
+        "correctOption": "set aside"
+    },
+    {
+        "question": "His dad set him ……………… in their family business.",
+        "options": ["up", "out", "on", "in"],
+        "correctOption": "up"
+    },
+    {
+        "question": "Set some money ………………. for your retirement.",
+        "options": ["aside", "for", "out", "in"],
+        "correctOption": "aside"
+    },
+    {
+        "question": "She has ………………… a handsome amount for her children’s education.",
+        "options": ["set aside", "set apart", "set upon", "set off"],
+        "correctOption": "set aside"
+    },
+    {
+        "question": "Suddenly the dog …..….... me with no provocation.",
+        "options": ["set out", "set forth", "set off", "set upon"],
+        "correctOption": "set upon"
+    },
+    {
+        "question": "What sets him ............. from his colleagues is his commitment to his work.",
+        "options": ["out", "off", "apart", "in"],
+        "correctOption": "apart"
+    },
+    {
+        "question": "She................. the novel and started doing her homework.",
+        "options": ["set off", "set apart", "set aside", "set upon"],
+        "correctOption": "set aside"
+    },
+    {
+        "question": "Three months after quitting the job, remorse ...............",
+        "options": ["set off", "set out", "set in", "set up"],
+        "correctOption": "set in"
+    },
+    {
+        "question": "We .................... on our voyage in the morning.",
+        "options": ["set off", "set up", "set down", "set in"],
+        "correctOption": "set off"
+    },
+    {
+        "question": "The merchant .................... on his journey in the morning.",
+        "options": ["set off", "set out", "set in", "set down"],
+        "correctOption": "set off"
+    },
+    {
+        "question": "They ............... the tent in a couple of minutes.",
+        "options": ["set down", "set out", "set off", "set up"],
+        "correctOption": "set up"
+    },
+    {
+        "question": "The project was ………... for several weeks because of the appalling weather.",
+        "options": ["set on", "set back", "set to", "set apart"],
+        "correctOption": "set back"
+    },
+    {
+        "question": "It's been snowing for two days now; winter has ............",
+        "options": ["set in", "set on", "set out", "set up"],
+        "correctOption": "set in"
+    },
+    {
+        "question": "They ............ on their trip around India last week.",
+        "options": ["set in", "set off", "set to", "set upon"],
+        "correctOption": "set off"
+    },
+    {
+        "question": "She set the company ……...... in 1990.",
+        "options": ["in", "to", "up", "off"],
+        "correctOption": "up"
+    },
+    {
+        "question": "They .......... on their journey two days ago.",
+        "options": ["set in", "set off", "set to", "set out"],
+        "correctOption": "set off"
+    },
+    {
+        "question": "The bus will set you ........... at the end of my road.",
+        "options": ["down", "out", "off", "to"],
+        "correctOption": "off"
+    },
+    {
+        "question": "She was ............ by muggers when she was getting money from a cash machine.",
+        "options": ["set upon", "set to", "set up", "set off"],
+        "correctOption": "set upon"
+    },
+    {
+        "question": "Soon after they'd got married, they sold their flat and …......... home in Leeds.",
+        "options": ["set off", "set out", "set up", "set aside"],
+        "correctOption": "set up"
+    },
+    {
+        "question": "They are totally opposed to the idea; they are ............. it.",
+        "options": ["set upon", "set against", "set to", "set in"],
+        "correctOption": "set against"
+    },
+    {
+        "question": "The taxi set me ...... outside the airport.",
+        "options": ["down", "against", "on", "up"],
+        "correctOption": "down"
+    },
+    {
+        "question": "The workers’ strike will _____ the building’s completion target by about six weeks.",
+        "options": ["set on", "set apart", "set to", "set back"],
+        "correctOption": "set back"
+    },
+    {
+        "question": "What sets him _____ from his colleagues is his eagerness to help others.",
+        "options": ["apart", "aside", "straight", "back"],
+        "correctOption": "apart"
+    },
+    {
+        "question": "As soon as the couple got the keys to their new home they ........ decorating the living room.",
+        "options": ["set about", "set up", "set aside", "set down"],
+        "correctOption": "set about"
+    },
+    {
+        "question": "The flight was at 7.00 in the morning so he had to ............ from home at 4.00.",
+        "options": ["set on", "set away", "set in", "set off"],
+        "correctOption": "set off"
+    },
+    {
+        "question": "Most financial consultants will advise you to _____ a certain percentage of your salary each month in order to invest in your future.",
+        "options": ["set up", "set off", "set back", "set aside"],
+        "correctOption": "set aside"
+    },
+    {
+        "question": "This strike has set us ______ months.",
+        "options": ["up", "down", "back", "of"],
+        "correctOption": "back"
+    },
+    {
+        "question": "The government wants people to ______ their own businesses.",
+        "options": ["set off", "set in", "set up", "set down"],
+        "correctOption": "set up"
+    },
+	 {
+        "question": "The plane ________ at 7:00 AM.",
+        "options": ["took off", "took up", "took for", "took in"],
+        "correctOption": "took off"
+    },
+    {
+        "question": "He really ________ his father.",
+        "options": ["takes after", "takes on", "takes with", "takes up"],
+        "correctOption": "takes after"
+    },
+    {
+        "question": "Don’t take him ………………….. an idiot.",
+        "options": ["in", "for", "off", "to"],
+        "correctOption": "for"
+    },
+    {
+        "question": "Please take your shoes …………… before entering the temple.",
+        "options": ["away", "up", "down", "off"],
+        "correctOption": "off"
+    },
+    {
+        "question": "How are you going to meet the deadlines if you ………………… . too many projects?",
+        "options": ["take in", "take off", "take on", "take out"],
+        "correctOption": "take on"
+    },
+    {
+        "question": "He took ………………… farming after retirement.",
+        "options": ["took in", "took for", "took out", "took up"],
+        "correctOption": "took up"
+    },
+    {
+        "question": "The employee was late and the officer took him......... task.",
+        "options": ["after", "to", "in", "for"],
+        "correctOption": "to"
+    },
+    {
+        "question": "The plane couldn't take ............. because of the snow.",
+        "options": ["off", "in", "up", "on"],
+        "correctOption": "off"
+    },
+    {
+        "question": "He ..... swimming when his doctor told him he needed to take more exercise.",
+        "options": ["took after", "took down", "took up", "took in"],
+        "correctOption": "took up"
+    },
+    {
+        "question": "He ..... everything the lecturer said in his notebook.",
+        "options": ["took up", "took in", "took down", "took on"],
+        "correctOption": "took down"
+    },
+    {
+        "question": "He spoke too quickly for us to ...... everything he said.",
+        "options": ["take in", "take for", "take on", "take to"],
+        "correctOption": "take in"
+    },
+    {
+        "question": "Can you take this phone number ..... for me, please?",
+        "options": ["up", "on", "in", "down"],
+        "correctOption": "down"
+    },
+    {
+        "question": "He took ...... the piano straightaway and became proficient in a few months.",
+        "options": ["to", "in", "up", "down"],
+        "correctOption": "up"
+    },
+    {
+        "question": "They took the company ....... when it went bankrupt.",
+        "options": ["in", "out", "down", "over"],
+        "correctOption": "over"
+    },
+    {
+        "question": "She took her new clothes ..... and went to bed.",
+        "options": ["off", "out", "on", "down"],
+        "correctOption": "off"
+    },
+    {
+        "question": "It was announced that the plane would (leave the ground) at 6 p.m.",
+        "options": ["take away", "take down", "take off", "take after"],
+        "correctOption": "take off"
+    },
+    {
+        "question": "The boy really (resembles) his father, doesn't he?",
+        "options": ["takes care of", "takes to", "takes in", "takes after"],
+        "correctOption": "takes after"
+    },
+    {
+        "question": "It didn't take him long to (understand) the seriousness of the situation.",
+        "options": ["take care of", "take for", "take apart", "take in"],
+        "correctOption": "take in"
+    },
+    {
+        "question": "We were both completely taken ______ by the car salesman, who turned out to be a crook.",
+        "options": ["out", "up", "in", "down"],
+        "correctOption": "in"
+    },
+    {
+        "question": "I knew from the start he was dishonest so I wasn’t taken ______ by him, but some of my friends lost money.",
+        "options": ["in", "down", "at", "to"],
+        "correctOption": "in"
+    },
+    {
+        "question": "My doctor advised me to get some exercise, so I’ve decided to ______ tennis.",
+        "options": ["take up", "take after", "take on", "take down"],
+        "correctOption": "take up"
+    },
+    {
+        "question": "She’s got very light hair. She (resembles) her mother.",
+        "options": ["takes back", "takes after", "takes down", "takes apart"],
+        "correctOption": "takes after"
+    },
+    {
+        "question": "More Turkish students should ______ a foreign language and follow it through until they know it well.",
+        "options": ["take for", "take after", "take on", "take up"],
+        "correctOption": "take up"
+    },
+    {
+        "question": "I have so much work to do that I can’t (accept) any more.",
+        "options": ["take in", "take after", "take up", "take on"],
+        "correctOption": "take on"
+    },
+    {
+        "question": "I took ______ tennis again at the beginning of this year.",
+        "options": ["on", "with", "by", "up"],
+        "correctOption": "up"
+    },
+    {
+        "question": "I really thought he was telling the truth. He certainly took me ____ .",
+        "options": ["to", "up", "in", "off"],
+        "correctOption": "in"
+    },
+    {
+        "question": "I hope my teacher will _____ the fact that I was ill.",
+        "options": ["Take up", "Take down", "Take for", "Take into account"],
+        "correctOption": "Take into account"
+    },
+    {
+        "question": "He was__________ by the news of his death.",
+        "options": ["Taken to", "Taken up", "Taken aback", "Taken for"],
+        "correctOption": "Taken aback"
+    },        // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

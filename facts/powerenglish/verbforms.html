@@ -1,0 +1,2550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocab Error Prone</title> 
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Verb Forms | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'powerenglishverbforms';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+         const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+ 
+   {
+        "question": "He wants to _______________ a new car next month.",
+        "options": ["buy", "bought", "buying", "buys"],
+        "correctOption": "buy"
+    },
+    {
+        "question": "She decided to _______________ her own business.",
+        "options": ["building", "builded", "built", "builds"],
+        "correctOption": "built"
+    },
+    {
+        "question": "An unexpected situation _______________ during the meeting.",
+        "options": ["arises", "arose", "arisen", "arise"],
+        "correctOption": "arose"
+    },
+    {
+        "question": "No problems have _______________ so far.",
+        "options": ["arose", "arising", "arisen", "arises"],
+        "correctOption": "arisen"
+    },
+    {
+        "question": "He _______________ early in the morning.",
+        "options": ["awakes", "awoke", "awaken", "awake"],
+        "correctOption": "awoke"
+    },
+    {
+        "question": "The noise _______________ him from his sleep.",
+        "options": ["awake", "awakes", "awaken", "awoke"],
+        "correctOption": "awaken"
+    },
+    {
+        "question": "Yesterday, she _______________ very busy.",
+        "options": ["was", "were", "been", "being"],
+        "correctOption": "was"
+    },
+    {
+        "question": "They have _______________ instructed not to enter the building.",
+        "options": ["was", "were", "been", "being"],
+        "correctOption": "were"
+    },
+    {
+        "question": "He couldn't _______________ the pain anymore.",
+        "options": ["bore", "bear", "born", "bearing"],
+        "correctOption": "bear"
+    },
+    {
+        "question": "The tree has _______________ beautiful flowers.",
+        "options": ["bore", "born", "borne", "bearing"],
+        "correctOption": "borne"
+    },
+    {
+        "question": "She _______________ her opponent in the game.",
+        "options": ["beaten", "beat", "beating", "beats"],
+        "correctOption": "beat"
+    },
+    {
+        "question": "The rug has _______________ several times to remove the dust.",
+        "options": ["beat", "beaten", "beating", "beats"],
+        "correctOption": "beaten"
+    },
+    {
+        "question": "He has _______________ a skilled pianist over the years.",
+        "options": ["became", "become", "becoming", "becomes"],
+        "correctOption": "become"
+    },
+    {
+        "question": "The caterpillar has _______________ a butterfly.",
+        "options": ["became", "become", "becoming", "becomes"],
+        "correctOption": "become"
+    },
+    {
+        "question": "She _______________ her new job last Monday.",
+        "options": ["beginning", "began", "begun", "begins"],
+        "correctOption": "began"
+    },
+    {
+        "question": "The movie has _______________ already.",
+        "options": ["beginning", "began", "begun", "begins"],
+        "correctOption": "begun"
+    },
+    {
+        "question": "He _______________ down to pick up the fallen book.",
+        "options": ["bending", "bent", "bend", "bends"],
+        "correctOption": "bent"
+    },
+    {
+        "question": "The metal rod has _______________ during the storm.",
+        "options": ["bending", "bent", "bend", "bends"],
+        "correctOption": "bent"
+    },
+    {
+        "question": "She had no choice _______________ to accept the offer.",
+        "options": ["but", "butt", "butter", "buts"],
+        "correctOption": "but"
+    },
+    {
+        "question": "He had no reason _______________ to apologize.",
+        "options": ["but", "butt", "butter", "buts"],
+        "correctOption": "but"
+    },
+    {
+        "question": "She _______________ the pages of the book together.",
+        "options": ["bound", "bind", "binds", "binding"],
+        "correctOption": "bound"
+    },
+    {
+        "question": "The contract has _______________ them to secrecy.",
+        "options": ["bound", "bind", "binds", "binding"],
+        "correctOption": "bound"
+    },
+    {
+        "question": "The dog _______________ him on the leg.",
+        "options": ["bite", "bit", "bitten", "biting"],
+        "correctOption": "bit"
+    },
+    {
+        "question": "He felt a sharp pain where he had been _______________ by the insect.",
+        "options": ["bite", "bit", "bitten", "biting"],
+        "correctOption": "bitten"
+    },
+    {
+        "question": "The wound _______________ profusely.",
+        "options": ["bleed", "bled", "bleeding", "bleeds"],
+        "correctOption": "bled"
+    },
+    {
+        "question": "His nose has _______________ for the past ten minutes.",
+        "options": ["bleed", "bled", "bleeding", "bleeds"],
+        "correctOption": "bled"
+    },
+    {
+        "question": "The wind _______________ fiercely.",
+        "options": ["blow", "blew", "blowing", "blows"],
+        "correctOption": "blew"
+    },
+    {
+        "question": "He _______________ out the candles on his birthday cake.",
+        "options": ["blow", "blew", "blowing", "blows"],
+        "correctOption": "blew"
+    },
+    {
+        "question": "She accidentally _______________ the glass.",
+        "options": ["breaking", "broke", "broken", "breaks"],
+        "correctOption": "broke"
+    },
+    {
+        "question": "The news of his failure _______________ her heart.",
+        "options": ["breaking", "broke", "broken", "breaks"],
+        "correctOption": "broken"
+    },
+    {
+        "question": "He _______________ a gift to the party.",
+        "options": ["bringing", "brought", "bring", "brings"],
+        "correctOption": "brought"
+    },
+    {
+        "question": "The incident _______________ back painful memories.",
+        "options": ["bringing", "brought", "bring", "brings"],
+        "correctOption": "brought"
+    },
+    {
+        "question": "The radio station _______________ the news every hour.",
+        "options": ["broadcasting", "broadcasted", "broadcast", "broadcasts"],
+        "correctOption": "broadcast"
+    },
+    {
+        "question": "The event was _______________ live on television.",
+        "options": ["broadcasting", "broadcasted", "broadcast", "broadcasts"],
+        "correctOption": "broadcast"
+    },
+    {
+        "question": "They plan to _______________ a new house next year.",
+        "options": ["building", "built", "build", "builds"],
+        "correctOption": "build"
+    },
+    {
+        "question": "The company has _______________ a strong reputation over the years.",
+        "options": ["building", "built", "build", "builds"],
+        "correctOption": "built"
+    },
+    {
+        "question": "The fire _______________ brightly in the fireplace.",
+        "options": ["burned", "burning", "burns", "burn"],
+        "correctOption": "burned"
+    },
+    {
+        "question": "The toast was _______________.",
+        "options": ["burned", "burning", "burns", "burn"],
+        "correctOption": "burned"
+    },
+    {
+        "question": "The balloon _______________ with a loud noise.",
+        "options": ["burst", "bursting", "bursted", "bursts"],
+        "correctOption": "burst"
+    },
+    {
+        "question": "He felt like his head was about to _______________ with anger.",
+        "options": ["burst", "bursting", "bursted", "bursts"],
+        "correctOption": "burst"
+    },
+    {
+        "question": "She tried to _______________ the ball, but missed.",
+        "options": ["catch", "catches", "caught", "catching"],
+        "correctOption": "caught"
+    },
+    {
+        "question": "The fisherman has _______________ many fish today.",
+        "options": ["catch", "catches", "caught", "catching"],
+        "correctOption": "caught"
+    },
+    {
+        "question": "He _______________ the blue shirt over the red one.",
+        "options": ["choose", "choosing", "chose", "chosen"],
+        "correctOption": "chose"
+    },
+    {
+        "question": "The winner has _______________ his prize.",
+        "options": ["choose", "choosing", "chose", "chosen"],
+        "correctOption": "chosen"
+    },
+    {
+        "question": "Yesterday, he _______________ late to the meeting.",
+        "options": ["come", "came", "coming", "comes"],
+        "correctOption": "came"
+    },
+    {
+        "question": "The guests have _______________ from far away.",
+        "options": ["come", "came", "coming", "comes"],
+        "correctOption": "come"
+    },
+    {
+        "question": "The repairs _______________ more than I expected.",
+        "options": ["cost", "costing", "costs", "costed"],
+        "correctOption": "cost"
+    },
+    {
+        "question": "The new car has _______________ a lot of money.",
+        "options": ["cost", "costing", "costs", "costed"],
+        "correctOption": "cost"
+    },
+    {
+        "question": "He _______________ his finger while chopping vegetables.",
+        "options": ["cut", "cuts", "cutting", "cutted"],
+        "correctOption": "cut"
+    },
+    {
+        "question": "The paper has _______________ into small pieces.",
+        "options": ["cut", "cuts", "cutting", "cutted"],
+        "correctOption": "cut"
+    },
+    {
+        "question": "She _______________ with the difficult situation very well.",
+        "options": ["deal", "dealing", "dealt", "deals"],
+        "correctOption": "dealt"
+    },
+    {
+        "question": "The company has _______________ with many clients.",
+        "options": ["deal", "dealing", "dealt", "deals"],
+        "correctOption": "dealt"
+    },
+    {
+        "question": "She _______________ her homework last night.",
+        "options": ["do", "doing", "did", "done"],
+        "correctOption": "did"
+    },
+    {
+        "question": "The task has _______________ already.",
+        "options": ["do", "doing", "did", "done"],
+        "correctOption": "done"
+    },
+    {
+        "question": "He _______________ a beautiful picture of the sunset.",
+        "options": ["draw", "drew", "drawing", "drawn"],
+        "correctOption": "drew"
+    },
+    {
+        "question": "The map has _______________ by a professional.",
+        "options": ["draw", "drew", "drawing", "drawn"],
+        "correctOption": "drawn"
+    },
+    {
+        "question": "Last night, she _______________ of flying.",
+        "options": ["dream", "dreaming", "dreamt", "dreams"],
+        "correctOption": "dreamt"
+    },
+    {
+        "question": "He has always _______________ of becoming a pilot.",
+        "options": ["dream", "dreaming", "dreamt", "dreams"],
+        "correctOption": "dreamt"
+    },
+    {
+        "question": "She _______________ a glass of water after her workout.",
+        "options": ["drink", "drank", "drinking", "drunk"],
+        "correctOption": "drank"
+    },
+    {
+        "question": "The juice has _______________ already.",
+        "options": ["drink", "drank", "drinking", "drunk"],
+        "correctOption": "drunk"
+    },
+    {
+        "question": "He _______________ carefully on the icy road.",
+        "options": ["drive", "driving", "drove", "driven"],
+        "correctOption": "drove"
+    },
+    {
+        "question": "The car has _______________ for many miles without any issues.",
+        "options": ["drive", "driving", "drove", "driven"],
+        "correctOption": "driven"
+    },
+    {
+        "question": "Yesterday, she _______________ sushi for dinner.",
+        "options": ["eat", "eating", "ate", "eaten"],
+        "correctOption": "ate"
+    },
+    {
+        "question": "The food has _______________ already.",
+        "options": ["eat", "eating", "ate", "eaten"],
+        "correctOption": "eaten"
+    },
+    {
+        "question": "She _______________ off her bike and hurt her knee.",
+        "options": ["fall", "falling", "fell", "fallen"],
+        "correctOption": "fell"
+    },
+    {
+        "question": "The leaves have _______________ from the trees.",
+        "options": ["fall", "falling", "fell", "fallen"],
+        "correctOption": "fallen"
+    },
+    {
+        "question": "She _______________ the birds in the park.",
+        "options": ["feed", "feeding", "fed", "feeds"],
+        "correctOption": "fed"
+    },
+    {
+        "question": "The animals have _______________ already.",
+        "options": ["feed", "feeding", "fed", "feeds"],
+        "correctOption": "fed"
+    },
+    {
+        "question": "He _______________ tired after the long journey.",
+        "options": ["feel", "feeling", "felt", "feels"],
+        "correctOption": "felt"
+    },
+    {
+        "question": "She has _______________ better since taking the medicine.",
+        "options": ["feel", "feeling", "felt", "feels"],
+        "correctOption": "felt"
+    },
+    {
+        "question": "They _______________ over the last piece of cake.",
+        "options": ["fight", "fighting", "fought", "fights"],
+        "correctOption": "fought"
+    },
+    {
+        "question": "The soldiers have _______________ bravely for their country.",
+        "options": ["fight", "fighting", "fought", "fights"],
+        "correctOption": "fought"
+    },
+    {
+        "question": "He _______________ his lost keys under the sofa.",
+        "options": ["find", "finding", "found", "finds"],
+        "correctOption": "found"
+    },
+    {
+        "question": "The solution has _______________ already.",
+        "options": ["find", "finding", "found", "finds"],
+        "correctOption": "found"
+    },
+    {
+        "question": "She _______________ to Paris last week.",
+        "options": ["fly", "flying", "flew", "flown"],
+        "correctOption": "flew"
+    },
+    {
+        "question": "The birds have _______________ south for the winter.",
+        "options": ["fly", "flying", "flew", "flown"],
+        "correctOption": "flown"
+    },
+    {
+        "question": "The teacher _______________ the students from using their phones during class.",
+        "options": ["forbid", "forbade", "forbidden", "forbidding"],
+        "correctOption": "forbade"
+    },
+    {
+        "question": "The sign has clearly _______________ parking in this area.",
+        "options": ["forbid", "forbade", "forbidden", "forbidding"],
+        "correctOption": "forbidden"
+    },
+    {
+        "question": "He _______________ his wallet at home.",
+        "options": ["forget", "forgetting", "forgot", "forgotten"],
+        "correctOption": "forgot"
+    },
+    {
+        "question": "The incident has _______________ from his memory.",
+        "options": ["forget", "forgetting", "forgot", "forgotten"],
+        "correctOption": "forgotten"
+    },
+    {
+        "question": "She _______________ him for his mistake.",
+        "options": ["forgive", "forgiving", "forgave", "forgiven"],
+        "correctOption": "forgave"
+    },
+    {
+        "question": "The offense has been _______________ by the victim.",
+        "options": ["forgive", "forgiving", "forgave", "forgiven"],
+        "correctOption": "forgiven"
+    },
+    {
+        "question": "The water _______________ in the pipes during the winter.",
+        "options": ["freeze", "froze", "frozen", "freezing"],
+        "correctOption": "froze"
+    },
+    {
+        "question": "The food has _______________ solid in the freezer.",
+        "options": ["freeze", "froze", "frozen", "freezing"],
+        "correctOption": "frozen"
+    },
+    {
+        "question": "She _______________ a new job last month.",
+        "options": ["get", "getting", "got", "gotten"],
+        "correctOption": "got"
+    },
+    {
+        "question": "The message has _______________ across to everyone.",
+        "options": ["get", "getting", "got", "gotten"],
+        "correctOption": "gotten"
+    },
+    {
+        "question": "He _______________ her a beautiful necklace for her birthday.",
+        "options": ["give", "giving", "gave", "given"],
+        "correctOption": "gave"
+    },
+    {
+        "question": "The charity has _______________ out food to those in need.",
+        "options": ["give", "giving", "gave", "given"],
+        "correctOption": "given"
+    },
+    {
+        "question": "They _______________ to the beach last weekend.",
+        "options": ["go", "going", "went", "gone"],
+        "correctOption": "went"
+    },
+    {
+        "question": "The plan has _______________ smoothly so far.",
+        "options": ["go", "going", "went", "gone"],
+        "correctOption": "gone"
+    },
+    {
+        "question": "The plants _______________ quickly in the sunlight.",
+        "options": ["grow", "growing", "grew", "grown"],
+        "correctOption": "grew"
+    },
+    {
+        "question": "The garden has _______________ a variety of fruits and vegetables.",
+        "options": ["grow", "growing", "grew", "grown"],
+        "correctOption": "grown"
+    },
+    {
+        "question": "She _______________ the picture on the wall.",
+        "options": ["hang", "hanging", "hung", "hanged"],
+        "correctOption": "hung"
+    },
+    {
+        "question": "The clothes have been _______________ on the line to dry.",
+        "options": ["hang", "hanging", "hung", "hanged"],
+        "correctOption": "hung"
+    },
+    {
+        "question": "She _______________ a lot of work to do.",
+        "options": ["have", "having", "had", "has"],
+        "correctOption": "had"
+    },
+    {
+        "question": "The guests have _______________ a wonderful time at the party.",
+        "options": ["have", "having", "had", "has"],
+        "correctOption": "had"
+    },
+    {
+        "question": "She _______________ the sound of footsteps behind her.",
+        "options": ["hear", "hearing", "heard", "hears"],
+        "correctOption": "heard"
+    },
+    {
+        "question": "The news has _______________ around the neighborhood.",
+        "options": ["hear", "hearing", "heard", "hears"],
+        "correctOption": "heard"
+    },
+    {
+        "question": "He _______________ the key under the mat.",
+        "options": ["hide", "hiding", "hid", "hidden"],
+        "correctOption": "hid"
+    },
+    {
+        "question": "The treasure has been _______________ in the cave for centuries.",
+        "options": ["hide", "hiding", "hid", "hidden"],
+        "correctOption": "hidden"
+    },
+    {
+        "question": "She _______________ the ball with great force.",
+        "options": ["hit", "hitting", "hit", "hits"],
+        "correctOption": "hit"
+    },
+    {
+        "question": "The target has been _______________ accurately.",
+        "options": ["hit", "hitting", "hit", "hits"],
+        "correctOption": "hit"
+    },
+    {
+        "question": "He _______________ her hand tightly.",
+        "options": ["hold", "holding", "held", "holds"],
+        "correctOption": "held"
+    },
+    {
+        "question": "The event has been _______________ annually for the past decade.",
+        "options": ["hold", "holding", "held", "holds"],
+        "correctOption": "held"
+    },
+	{
+        "question": "She _______________ her ankle while running.",
+        "options": ["hurt", "hurting", "hurt", "hurts"],
+        "correctOption": "hurt"
+    },
+    {
+        "question": "The news has _______________ his feelings deeply.",
+        "options": ["hurt", "hurting", "hurt", "hurts"],
+        "correctOption": "hurt"
+    },
+    {
+        "question": "She _______________ the secret to herself.",
+        "options": ["keep", "keeping", "kept", "keeps"],
+        "correctOption": "kept"
+    },
+    {
+        "question": "The tradition has been _______________ alive for generations.",
+        "options": ["keep", "keeping", "kept", "keeps"],
+        "correctOption": "kept"
+    },
+    {
+        "question": "He _______________ down to tie his shoelaces.",
+        "options": ["kneel", "kneeling", "knelt", "kneeled"],
+        "correctOption": "knelt"
+    },
+    {
+        "question": "The statue has _______________ before the king.",
+        "options": ["kneel", "kneeling", "knelt", "kneeled"],
+        "correctOption": "knelt"
+    },
+    {
+        "question": "She _______________ the answer to the question.",
+        "options": ["know", "knowing", "knew", "known"],
+        "correctOption": "knew"
+    },
+    {
+        "question": "The truth has _______________ to everyone.",
+        "options": ["know", "knowing", "knew", "known"],
+        "correctOption": "known"
+    },
+    {
+        "question": "She _______________ the book on the table.",
+        "options": ["lay", "laying", "laid", "lain"],
+        "correctOption": "laid"
+    },
+    {
+        "question": "The foundation has been _______________ for the new building.",
+        "options": ["lay", "laying", "laid", "lain"],
+        "correctOption": "laid"
+    },
+    {
+        "question": "He _______________ the team to victory.",
+        "options": ["lead", "leading", "led", "leaded"],
+        "correctOption": "led"
+    },
+    {
+        "question": "The path has _______________ us to the top of the mountain.",
+        "options": ["lead", "leading", "led", "leaded"],
+        "correctOption": "led"
+    },
+    {
+        "question": "He _______________ over the fence to escape.",
+        "options": ["leap", "leaped", "leapt", "leaping"],
+        "correctOption": "leapt"
+    },
+    {
+        "question": "The athlete has _______________ a new personal record.",
+        "options": ["leap", "leaped", "leapt", "leaping"],
+        "correctOption": "leaped"
+    },
+    {
+        "question": "She _______________ to play the piano when she was young.",
+        "options": ["learn", "learning", "learned", "learnt"],
+        "correctOption": "learned"
+    },
+    {
+        "question": "The lesson has been _______________ quickly.",
+        "options": ["learn", "learning", "learned", "learnt"],
+        "correctOption": "learned"
+    },
+    {
+        "question": "He _______________ his keys on the table.",
+        "options": ["leave", "leaving", "left", "leaves"],
+        "correctOption": "left"
+    },
+    {
+        "question": "The train has _______________ the station already.",
+        "options": ["leave", "leaving", "left", "leaves"],
+        "correctOption": "left"
+    },
+    {
+        "question": "She _______________ me her umbrella.",
+        "options": ["lend", "lending", "lent", "lends"],
+        "correctOption": "lent"
+    },
+    {
+        "question": "The bank has _______________ money to many businesses.",
+        "options": ["lend", "lending", "lent", "lends"],
+        "correctOption": "lent"
+    },
+    {
+        "question": "She _______________ her dog run free in the park.",
+        "options": ["let", "letting", "let", "lets"],
+        "correctOption": "let"
+    },
+    {
+        "question": "The landlord has _______________ the apartment to new tenants.",
+        "options": ["let", "letting", "let", "lets"],
+        "correctOption": "let"
+    },
+    {
+        "question": "He _______________ on the grass and watched the clouds.",
+        "options": ["lie", "lying", "lay", "lain"],
+        "correctOption": "lay"
+    },
+    {
+        "question": "The evidence has _______________ undisturbed for years.",
+        "options": ["lie", "lying", "lay", "lain"],
+        "correctOption": "lain"
+    },
+    {
+        "question": "She _______________ the candle and placed it on the table.",
+        "options": ["light", "lighting", "lit", "lights"],
+        "correctOption": "lit"
+    },
+    {
+        "question": "The room has been _______________ by the morning sun.",
+        "options": ["light", "lighting", "lit", "lights"],
+        "correctOption": "lit"
+    },
+    {
+        "question": "He _______________ his wallet on the train.",
+        "options": ["lose", "losing", "lost", "loses"],
+        "correctOption": "lost"
+    },
+    {
+        "question": "The game has been _______________ by the home team.",
+        "options": ["lose", "losing", "lost", "loses"],
+        "correctOption": "lost"
+    },
+    {
+        "question": "She _______________ a delicious cake for her friend's birthday.",
+        "options": ["make", "making", "made", "makes"],
+        "correctOption": "made"
+    },
+    {
+        "question": "The decision has been _______________ by the committee.",
+        "options": ["make", "making", "made", "makes"],
+        "correctOption": "made"
+    },
+    {
+        "question": "He _______________ what he said.",
+        "options": ["mean", "meaning", "meant", "means"],
+        "correctOption": "meant"
+    },
+    {
+        "question": "The gesture has been _______________ to show appreciation.",
+        "options": ["mean", "meaning", "meant", "means"],
+        "correctOption": "meant"
+    },
+    {
+        "question": "They _______________ at the café for coffee.",
+        "options": ["meet", "meeting", "met", "meets"],
+        "correctOption": "met"
+    },
+    {
+        "question": "The deadline has been _______________ by the team.",
+        "options": ["meet", "meeting", "met", "meets"],
+        "correctOption": "met"
+    },
+    {
+        "question": "She _______________ for her groceries with cash.",
+        "options": ["pay", "paying", "paid", "pays"],
+        "correctOption": "paid"
+    },
+    {
+        "question": "The bill has been _______________ already.",
+        "options": ["pay", "paying", "paid", "pays"],
+        "correctOption": "paid"
+    },
+    {
+        "question": "She _______________ the books on the shelf.",
+        "options": ["put", "putting", "put", "puts"],
+        "correctOption": "put"
+    },
+    {
+        "question": "The keys have been _______________ on the table.",
+        "options": ["put", "putting", "put", "puts"],
+        "correctOption": "put"
+    },
+    {
+        "question": "He _______________ his job because of the stress.",
+        "options": ["quit", "quitting", "quitted", "quits"],
+        "correctOption": "quit"
+    },
+    {
+        "question": "The team has _______________ the competition.",
+        "options": ["quit", "quitting", "quitted", "quits"],
+        "correctOption": "quit"
+    },
+    {
+        "question": "She _______________ a book every night before bed.",
+        "options": ["read", "reading", "read", "reads"],
+        "correctOption": "read"
+    },
+    {
+        "question": "The document has been _______________ thoroughly.",
+        "options": ["read", "reading", "read", "reads"],
+        "correctOption": "read"
+    },
+    {
+        "question": "He _______________ his bike to work every day.",
+        "options": ["ride", "riding", "rode", "ridden"],
+        "correctOption": "rode"
+    },
+    {
+        "question": "The roller coaster has been _______________ many times.",
+        "options": ["ride", "riding", "rode", "ridden"],
+        "correctOption": "ridden"
+    },
+    {
+        "question": "She _______________ the bell to call everyone for dinner.",
+        "options": ["ring", "ringing", "rang", "rung"],
+        "correctOption": "rang"
+    },
+    {
+        "question": "The phone has been _______________.",
+        "options": ["ring", "ringing", "rang", "rung"],
+        "correctOption": "rung"
+    },
+    {
+        "question": "The sun _______________ early in the morning.",
+        "options": ["rise", "rising", "rose", "risen"],
+        "correctOption": "rose"
+    },
+    {
+        "question": "The dough has _______________ in the oven.",
+        "options": ["rise", "rising", "rose", "risen"],
+        "correctOption": "risen"
+    },
+    {
+        "question": "He _______________ in the marathon last weekend.",
+        "options": ["run", "running", "ran", "runs"],
+        "correctOption": "ran"
+    },
+    {
+        "question": "The project has been _______________ smoothly.",
+        "options": ["run", "running", "ran", "runs"],
+        "correctOption": "run"
+    },
+    {
+        "question": "She _______________ goodbye and left.",
+        "options": ["say", "saying", "said", "says"],
+        "correctOption": "said"
+    },
+    {
+        "question": "The message has been _______________ loud and clear.",
+        "options": ["say", "saying", "said", "says"],
+        "correctOption": "said"
+    },
+    {
+        "question": "He _______________ the movie last night.",
+        "options": ["see", "seeing", "saw", "seen"],
+        "correctOption": "saw"
+    },
+    {
+        "question": "The artwork has been _______________ by many people.",
+        "options": ["see", "seeing", "saw", "seen"],
+        "correctOption": "seen"
+    },
+    {
+        "question": "She _______________ her old car.",
+        "options": ["sell", "selling", "sold", "sells"],
+        "correctOption": "sold"
+    },
+    {
+        "question": "The products have been _______________ quickly.",
+        "options": ["sell", "selling", "sold", "sells"],
+        "correctOption": "sold"
+    },
+    {
+        "question": "He _______________ the package to his friend.",
+        "options": ["send", "sending", "sent", "sends"],
+        "correctOption": "sent"
+    },
+    {
+        "question": "The email has been _______________.",
+        "options": ["send", "sending", "sent", "sends"],
+        "correctOption": "sent"
+    },
+    {
+        "question": "She _______________ the table for dinner.",
+        "options": ["set", "setting", "set", "sets"],
+        "correctOption": "set"
+    },
+    {
+        "question": "The sun has _______________ over the horizon.",
+        "options": ["set", "setting", "set", "sets"],
+        "correctOption": "set"
+    },
+    {
+        "question": "He _______________ hands with his new colleague.",
+        "options": ["shake", "shaking", "shook", "shaken"],
+        "correctOption": "shook"
+    },
+    {
+        "question": "The earthquake has _______________ the entire city.",
+        "options": ["shake", "shaking", "shook", "shaken"],
+        "correctOption": "shaken"
+    },
+    {
+        "question": "The sun _______________ brightly in the sky.",
+        "options": ["shine", "shining", "shone", "shines"],
+        "correctOption": "shone"
+    },
+    {
+        "question": "The shoes have been _______________.",
+        "options": ["shine", "shining", "shone", "shines"],
+        "correctOption": "shone"
+    },
+    {
+        "question": "He _______________ the target with his arrow.",
+        "options": ["shoot", "shooting", "shot", "shoots"],
+        "correctOption": "shot"
+    },
+    {
+        "question": "The film has _______________ in various locations.",
+        "options": ["shoot", "shooting", "shot", "shoots"],
+        "correctOption": "shot"
+    },
+    {
+        "question": "She _______________ me a picture of her new puppy.",
+        "options": ["show", "showing", "showed", "shown"],
+        "correctOption": "showed"
+    },
+    {
+        "question": "The movie has _______________ in cinemas for weeks.",
+        "options": ["show", "showing", "showed", "shown"],
+        "correctOption": "shown"
+    },
+    {
+        "question": "The sweater _______________ in the wash.",
+        "options": ["shrink", "shrinking", "shrank", "shrunk"],
+        "correctOption": "shrank"
+    },
+    {
+        "question": "The company has _______________ its workforce.",
+        "options": ["shrink", "shrinking", "shrank", "shrunk"],
+        "correctOption": "shrunk"
+    },
+    {
+        "question": "She _______________ the door behind her.",
+        "options": ["shut", "shutting", "shuts", "shutted"],
+        "correctOption": "shut"
+    },
+    {
+        "question": "The windows have been _______________ for the night.",
+        "options": ["shut", "shutting", "shuts", "shutted"],
+        "correctOption": "shut"
+    },
+    {
+        "question": "She _______________ beautifully at the concert.",
+        "options": ["sing", "singing", "sang", "sung"],
+        "correctOption": "sang"
+    },
+    {
+        "question": "The song has been _______________ many times.",
+        "options": ["sing", "singing", "sang", "sung"],
+        "correctOption": "sung"
+    },
+    {
+        "question": "The ship _______________ to the bottom of the ocean.",
+        "options": ["sink", "sinking", "sank", "sunk"],
+        "correctOption": "sank"
+    },
+    {
+        "question": "The feeling of disappointment has _______________ in.",
+        "options": ["sink", "sinking", "sank", "sunk"],
+        "correctOption": "sunk"
+    },
+    {
+        "question": "He _______________ on the bench in the park.",
+        "options": ["sit", "sitting", "sat", "sits"],
+        "correctOption": "sat"
+    },
+    {
+        "question": "The committee has _______________ for hours discussing the issue.",
+        "options": ["sit", "sitting", "sat", "sits"],
+        "correctOption": "sat"
+    },
+    {
+        "question": "She _______________ peacefully throughout the night.",
+        "options": ["sleep", "sleeping", "slept", "sleeps"],
+        "correctOption": "slept"
+    },
+    {
+        "question": "The baby has finally _______________ after being awake for hours.",
+        "options": ["sleep", "sleeping", "slept", "sleeps"],
+        "correctOption": "slept"
+    },
+    {
+        "question": "He _______________ down the snowy hill on his sled.",
+        "options": ["slide", "sliding", "slid", "slided"],
+        "correctOption": "slid"
+    },
+    {
+        "question": "The door has _______________ shut.",
+        "options": ["slide", "sliding", "slid", "slided"],
+        "correctOption": "slid"
+    },
+    {
+        "question": "She _______________ the delicious aroma of freshly baked bread.",
+        "options": ["smell", "smelling", "smelt", "smelled"],
+        "correctOption": "smelled"
+    },
+    {
+        "question": "The flowers have _______________ sweet all day.",
+        "options": ["smell", "smelling", "smelt", "smelled"],
+        "correctOption": "smelled"
+    },
+    {
+        "question": "He _______________ with confidence during the presentation.",
+        "options": ["speak", "speaking", "spoke", "spoken"],
+        "correctOption": "spoke"
+    },
+    {
+        "question": "The language has been _______________ by many people.",
+        "options": ["speak", "speaking", "spoke", "spoken"],
+        "correctOption": "spoken"
+    },
+    {
+        "question": "She _______________ through the empty streets.",
+        "options": ["speed", "speeding", "sped", "speeds"],
+        "correctOption": "sped"
+    },
+    {
+        "question": "The car has _______________ up to overtake.",
+        "options": ["speed", "speeding", "sped", "speeds"],
+        "correctOption": "sped"
+    },
+    {
+        "question": "He _______________ his name for the teacher.",
+        "options": ["spell", "spelling", "spelled", "spelt"],
+        "correctOption": "spelled"
+    },
+    {
+        "question": "The word has been _______________ incorrectly.",
+        "options": ["spell", "spelling", "spelled", "spelt"],
+        "correctOption": "spelled"
+    },
+    {
+        "question": "She _______________ all her money on clothes.",
+        "options": ["spend", "spending", "spent", "spends"],
+        "correctOption": "spent"
+    },
+    {
+        "question": "The weekend has been _______________ relaxing at home.",
+        "options": ["spend", "spending", "spent", "spends"],
+        "correctOption": "spent"
+    },
+    {
+        "question": "He _______________ his coffee on the table.",
+        "options": ["spill", "spilling", "spilled", "spills"],
+        "correctOption": "spilled"
+    },
+    {
+        "question": "The drink has been _______________ all over the floor.",
+        "options": ["spill", "spilling", "spilled", "spills"],
+        "correctOption": "spilled"
+    },
+    {
+        "question": "She _______________ around in circles.",
+        "options": ["spin", "spinning", "spun", "spins"],
+        "correctOption": "spun"
+    },
+    {
+        "question": "The wheel has _______________ rapidly.",
+        "options": ["spin", "spinning", "spun", "spins"],
+        "correctOption": "spun"
+    },
+    {
+        "question": "He _______________ out his gum.",
+        "options": ["spit", "spitting", "spat", "spitted"],
+        "correctOption": "spat"
+    },
+    {
+        "question": "The watermelon seeds have been _______________ out.",
+        "options": ["spit", "spitting", "spat", "spitted"],
+        "correctOption": "spat"
+    },
+    {
+        "question": "She _______________ the apple in half.",
+        "options": ["split", "splitting", "split", "splits"],
+        "correctOption": "split"
+    },
+    {
+        "question": "The group has _______________ into smaller teams.",
+        "options": ["split", "splitting", "split", "splits"],
+        "correctOption": "split"
+    },
+    {
+        "question": "He _______________ his dinner by adding too much salt.",
+        "options": ["spoil", "spoiling", "spoiled", "spoilt"],
+        "correctOption": "spoiled"
+    },
+    {
+        "question": "The food has been _______________ in the heat.",
+        "options": ["spoil", "spoiling", "spoiled", "spoilt"],
+        "correctOption": "spoiled"
+    },
+    {
+        "question": "She _______________ butter on her toast.",
+        "options": ["spread", "spreading", "spread", "spreads"],
+        "correctOption": "spread"
+    },
+    {
+        "question": "The news has been _______________ quickly.",
+        "options": ["spread", "spreading", "spread", "spreads"],
+        "correctOption": "spread"
+    },
+    {
+        "question": "He _______________ in line at the ticket counter.",
+        "options": ["stand", "standing", "stood", "stands"],
+        "correctOption": "stood"
+    },
+    {
+        "question": "The building has _______________ tall for decades.",
+        "options": ["stand", "standing", "stood", "stands"],
+        "correctOption": "stood"
+    },
+    {
+        "question": "He _______________ the wallet from the table.",
+        "options": ["steal", "stealing", "stole", "stolen"],
+        "correctOption": "stole"
+    },
+    {
+        "question": "The thief has _______________ many valuable items.",
+        "options": ["steal", "stealing", "stole", "stolen"],
+        "correctOption": "stolen"
+    },
+    {
+        "question": "The glue _______________ to the paper.",
+        "options": ["stick", "sticking", "stuck", "sticks"],
+        "correctOption": "stuck"
+    },
+    {
+        "question": "The problem has _______________ with us for years.",
+        "options": ["stick", "sticking", "stuck", "sticks"],
+        "correctOption": "stuck"
+    },
+    {
+        "question": "The bee _______________ him on the arm.",
+        "options": ["sting", "stinging", "stung", "stings"],
+        "correctOption": "stung"
+    },
+    {
+        "question": "The insect bites have _______________.",
+        "options": ["sting", "stinging", "stung", "stings"],
+        "correctOption": "stung"
+    },
+    {
+        "question": "He _______________ the ball with all his might.",
+        "options": ["strike", "striking", "struck", "strikes"],
+        "correctOption": "struck"
+    },
+    {
+        "question": "The workers have _______________ for better wages.",
+        "options": ["strike", "striking", "struck", "strikes"],
+        "correctOption": "struck"
+    },
+    {
+        "question": "He _______________ under his breath.",
+        "options": ["swear", "swearing", "swore", "sworn"],
+        "correctOption": "swore"
+    },
+    {
+        "question": "The witness has _______________ to tell the truth.",
+        "options": ["swear", "swearing", "swore", "sworn"],
+        "correctOption": "sworn"
+    },
+    {
+        "question": "She _______________ the floor clean.",
+        "options": ["sweep", "sweeping", "swept", "sweeps"],
+        "correctOption": "swept"
+    },
+    {
+        "question": "The wind has _______________ the leaves away.",
+        "options": ["sweep", "sweeping", "swept", "sweeps"],
+        "correctOption": "swept"
+    },
+    {
+        "question": "He _______________ back and forth on the swing.",
+        "options": ["swing", "swinging", "swung", "swings"],
+        "correctOption": "swung"
+    },
+    {
+        "question": "The mood has _______________ from joy to sadness.",
+        "options": ["swing", "swinging", "swung", "swings"],
+        "correctOption": "swung"
+    },
+    {
+        "question": "She _______________ across the pool.",
+        "options": ["swim", "swimming", "swam", "swum"],
+        "correctOption": "swam"
+    },
+    {
+        "question": "The fish have _______________ in the lake for years.",
+        "options": ["swim", "swimming", "swam", "swum"],
+        "correctOption": "swum"
+    },
+    {
+        "question": "He _______________ a photograph of the sunset.",
+        "options": ["take", "taking", "took", "taken"],
+"correctOption": "took"
+},
+  {
+    "question": "The opportunity has been _______________.",
+    "options": ["take", "taking", "took", "taken"],
+    "correctOption": "taken"
+  },
+  {
+    "question": "She _______________ English to children.",
+    "options": ["teach", "teaching", "taught", "taughten"],
+    "correctOption": "taught"
+  },
+  {
+    "question": "The concept has been _______________ to them.",
+    "options": ["teach", "teaching", "taught", "taughten"],
+    "correctOption": "taught"
+  },
+  {
+    "question": "He _______________ the paper in half.",
+    "options": ["tear", "tearing", "tore", "torn"],
+    "correctOption": "tore"
+  },
+  {
+    "question": "The fabric has been _______________.",
+    "options": ["tear", "tearing", "tore", "torn"],
+    "correctOption": "torn"
+  },
+  {
+    "question": "She _______________ him a secret.",
+    "options": ["tell", "telling", "told", "tells"],
+    "correctOption": "told"
+  },
+  {
+    "question": "The story has been _______________ countless times.",
+    "options": ["tell", "telling", "told", "tells"],
+    "correctOption": "told"
+  },
+  {
+    "question": "He _______________ deeply about the problem.",
+    "options": ["think", "thinking", "thought", "thinks"],
+    "correctOption": "thought"
+  },
+  {
+    "question": "The idea has _______________ through.",
+    "options": ["think", "thinking", "thought", "thinks"],
+    "correctOption": "thought"
+  },
+  {
+    "question": "She _______________ the ball to her friend.",
+    "options": ["throw", "throwing", "threw", "thrown"],
+    "correctOption": "threw"
+  },
+  {
+    "question": "The garbage has been _______________ out.",
+    "options": ["throw", "throwing", "threw", "thrown"],
+    "correctOption": "thrown"
+  },
+  {
+    "question": "He _______________ the instructions perfectly.",
+    "options": ["understand", "understanding", "understood", "understands"],
+    "correctOption": "understood"
+  },
+  {
+    "question": "The concept has been _______________ clearly.",
+    "options": ["understand", "understanding", "understood", "understands"],
+    "correctOption": "understood"
+  },
+  {
+    "question": "She _______________ up early every morning.",
+    "options": ["wake", "waking", "woke", "woken"],
+    "correctOption": "woke"
+  },
+  {
+    "question": "The city has _______________ to the sound of sirens.",
+    "options": ["wake", "waking", "woke", "woken"],
+    "correctOption": "woken"
+  },
+  {
+    "question": "She _______________ a red dress to the party.",
+    "options": ["wear", "wearing", "wore", "worn"],
+    "correctOption": "wore"
+  },
+  {
+    "question": "The shoes have been _______________ out.",
+    "options": ["wear", "wearing", "wore", "worn"],
+    "correctOption": "worn"
+  },
+  {
+    "question": "He _______________ the race.",
+    "options": ["win", "winning", "won", "wins"],
+    "correctOption": "won"
+  },
+  {
+    "question": "The team has _______________ many championships.",
+    "options": ["win", "winning", "won", "wins"],
+    "correctOption": "won"
+  },
+  {
+    "question": "He _______________ the clock every day.",
+    "options": ["wind", "winding", "wound", "winds"],
+    "correctOption": "wound"
+  },
+  {
+    "question": "The river has _______________ through the valley.",
+    "options": ["wind", "winding", "wound", "winds"],
+    "correctOption": "winds"
+  },
+  {
+    "question": "She _______________ a novel last year.",
+    "options": ["write", "writing", "wrote", "written"],
+    "correctOption": "wrote"
+  },
+  {
+    "question": "The letter has been _______________.",
+    "options": ["write", "writing", "wrote", "written"],
+    "correctOption": "written"
+  },
+  {
+    "question": "She _______________ from the tree.",
+    "options": ["fall", "falling", "fell", "fallen"],
+    "correctOption": "fell"
+  },
+  {
+    "question": "The leaves have _______________ from the branches.",
+    "options": ["fall", "falling", "fell", "fallen"],
+    "correctOption": "fallen"
+  },
+  {
+    "question": "He _______________ the texture of the fabric.",
+    "options": ["feel", "feeling", "felt", "feels"],
+    "correctOption": "felt"
+  },
+  {
+    "question": "The emotion has been _______________ by many.",
+    "options": ["feel", "feeling", "felt", "feels"],
+    "correctOption": "felt"
+  },
+  {
+    "question": "She _______________ the glass with water.",
+    "options": ["fill", "filling", "filled", "fills"],
+    "correctOption": "filled"
+  },
+  {
+    "question": "The container has been _______________ with sand.",
+    "options": ["fill", "filling", "filled", "fills"],
+    "correctOption": "filled"
+  },
+  {
+    "question": "He _______________ his keys in the drawer.",
+    "options": ["find", "finding", "found", "finds"],
+    "correctOption": "found"
+  },
+  {
+    "question": "The solution has been _______________.",
+    "options": ["find", "finding", "found", "finds"],
+    "correctOption": "found"
+  },
+  {
+    "question": "They _______________ a new company.",
+    "options": ["found", "founding", "founded", "founds"],
+    "correctOption": "founded"
+  },
+  {
+    "question": "The organization has been _______________ for years.",
+    "options": ["found", "founding", "founded", "founds"],
+    "correctOption": "founded"
+  },
+  {
+    "question": "The river _______________ steadily.",
+    "options": ["flow", "flowing", "flowed", "flows"],
+    "correctOption": "flowed"
+  },
+  {
+    "question": "The ink has _______________ onto the paper.",
+    "options": ["flow", "flowing", "flowed", "flows"],
+    "correctOption": "flowed"
+  },
+  {
+    "question": "The bird _______________ high in the sky.",
+    "options": ["fly", "flying", "flew", "flown"],
+    "correctOption": "flew"
+  },
+  {
+    "question": "The plane has _______________ over the ocean.",
+    "options": ["fly", "flying", "flew", "flown"],
+    "correctOption": "flown"
+  },
+  {
+    "question": "He _______________ from danger.",
+    "options": ["flee", "fleeing", "fled", "flees"],
+    "correctOption": "fled"
+  },
+  {
+    "question": "The refugees have _______________ their homeland.",
+    "options": ["flee", "fleeing", "fled", "flees"],
+    "correctOption": "fled"
+  },
+  {
+    "question": "She _______________ the book on the table.",
+    "options": ["lay", "laying", "laid", "lays"],
+    "correctOption": "laid"
+  },
+  {
+    "question": "The foundation has been _______________.",
+    "options": ["lay", "laying", "laid", "lays"],
+    "correctOption": "laid"
+  },
+  {
+    "question": "He _______________ on the grass.",
+    "options": ["lie", "lying", "lay", "lain"],
+    "correctOption": "lay"
+  },
+  {
+    "question": "The cat has _______________ in the sun all day.",
+    "options": ["lie", "lying", "lay", "lain"],
+    "correctOption": "lain"
+  },
+  {
+    "question": "He _______________ about his whereabouts.",
+    "options": ["lie", "lying", "lied", "lies"],
+    "correctOption": "lied"
+  },
+  {
+    "question": "The truth has been _______________ for years.",
+    "options": ["lie", "lying", "lied", "lies"],
+    "correctOption": "lied"
+  },
+  {
+    "question": "She _______________ her keys on the table.",
+    "options": ["leave", "leaving", "left", "leaves"],
+    "correctOption": "left"
+  },
+  {
+    "question": "The city has been _______________ behind.",
+    "options": ["leave", "leaving", "left", "leaves"],
+    "correctOption": "left"
+  },
+  {
+    "question": "They _______________ in the countryside.",
+    "options": ["live", "living", "lived", "lives"],
+    "correctOption": "lived"
+  },
+  {
+    "question": "The lifestyle has been _______________ for generations.",
+    "options": ["live", "living", "lived", "lives"],
+    "correctOption": "lived"
+  },
+  {
+    "question": "She _______________ her hand to ask a question.",
+    "options": ["raise", "raising", "raised", "raises"],
+    "correctOption": "raised"
+  },
+  {
+    "question": "The flag has been _______________ high.",
+    "options": ["raise", "raising", "raised", "raises"],
+    "correctOption": "raised"
+  },
+  {
+    "question": "He _______________ early every morning.",
+    "options": ["rise", "rising", "rose", "risen"],
+    "correctOption": "rose"
+  },
+  {
+    "question": "The sun has _______________ in the east.",
+    "options": ["rise", "rising", "rose", "risen"],
+    "correctOption": "risen"
+  },
+  {
+    "question": "He _______________ the nail with a hammer.",
+    "options": ["strike", "striking", "struck", "strikes"],
+    "correctOption": "struck"
+  },
+  {
+    "question": "The clock has _______________ midnight.",
+    "options": ["strike", "striking", "struck", "strikes"],
+    "correctOption": "struck"
+  },
+  {
+    "question": "She _______________ the cat gently.",
+    "options": ["stroke", "stroking", "stroked", "strokes"],
+    "correctOption": "stroked"
+  },
+  {
+    "question": "The painting has been _______________ with care.",
+    "options": ["stroke", "stroking", "stroked", "strokes"],
+    "correctOption": "stroked"
+  },
+  {
+    "question": "He _______________ the watch every day.",
+    "options": ["wind", "winding", "wound", "winds"],
+    "correctOption": "wound"
+  },
+  {
+    "question": "The river has _______________ through the valley.",
+    "options": ["wind", "winding", "wound", "winds"],
+    "correctOption": "winds"
+  },
+  {
+    "question": "He _______________ his leg in the accident.",
+    "options": ["wound", "wounding", "wounded", "wounds"],
+    "correctOption": "wounded"
+  },
+  {
+    "question": "The soldiers have been _______________ in battle.",
+    "options": ["wound", "wounding", "wounded", "wounds"],
+    "correctOption": "wounded"
+  },
+
+ 
+ 
+
+	// Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

@@ -1,0 +1,2515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Improvement QUIZ APP</title>
+			<script src="../../urlRewrite.js"></script>
+		<link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Improvement Gati Part 1 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+
+ const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'sscenglishimprovementsi382s9s93';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Find the next bookmarked question index
+  let nextBookmarkedIndex = currentQuestionIndex + 1;
+  while (nextBookmarkedIndex < questions.length && !bookmarks[nextBookmarkedIndex]) {
+    nextBookmarkedIndex++;
+  }
+
+  // Display total bookmarked questions count
+  const bookmarkedCount = Object.values(bookmarks).filter(Boolean).length;
+  const bookmarkedCountElement = document.createElement('p');
+  bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+  bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+  bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+  bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+  bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+  bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+  bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+  bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show the current bookmarked question
+  if (bookmarks[currentQuestionIndex]) {
+    // Create a div for the current bookmarked question
+    const questionDiv = document.createElement('div');
+    questionDiv.classList.add('bookmarked-question');
+
+    // Display the question
+    const questionText = document.createElement('p');
+    questionText.textContent = `Question ${currentQuestionIndex + 1}: ${questions[currentQuestionIndex].question}`;
+    questionDiv.appendChild(questionText);
+
+    // Display the options as radio buttons
+    const optionsList = document.createElement('ul');
+    for (let j = 0; j < questions[currentQuestionIndex].options.length; j++) {
+      const optionItem = document.createElement('ul');
+      const optionLabel = document.createElement('label');
+      const optionInput = document.createElement('input');
+      optionInput.type = 'radio';
+      optionInput.name = `question${currentQuestionIndex}`;
+      optionInput.value = j;
+      optionLabel.textContent = questions[currentQuestionIndex].options[j];
+      optionLabel.prepend(optionInput);
+      optionItem.appendChild(optionLabel);
+      optionsList.appendChild(optionItem);
+    }
+    questionDiv.appendChild(optionsList);
+	
+	
+	// Add event listener to optionsList
+  optionsList.addEventListener('change', function() {
+    const selectedOption = optionsList.querySelector('input:checked');
+    if (selectedOption) {
+      const selectedIndex = parseInt(selectedOption.value);
+      // Highlight the selected option
+      const selectedOptionLabel = optionsList.querySelectorAll('label')[selectedIndex];
+      selectedOptionLabel.style.backgroundColor = 'Cornsilk';
+      // Highlight the correct option
+      const correctOptionIndex = questions[currentQuestionIndex].options.indexOf(questions[currentQuestionIndex].correctOption);
+      const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+      correctOptionLabel.style.backgroundColor = 'lightgreen';
+      correctOptionLabel.textContent += '   ☑';
+    }
+  });
+	
+
+// Add a button to check the correct answer
+const checkAnswerButton = document.createElement('button');
+checkAnswerButton.textContent = 'Check Answer';
+checkAnswerButton.onclick = function() {
+  // Get the selected option
+  const selectedOption = optionsList.querySelector('input:checked');
+  if (selectedOption) {
+    const selectedIndex = parseInt(selectedOption.value);
+    // Highlight the selected option
+    const selectedOptionLabel = optionsList.querySelectorAll('label')[selectedIndex];
+    selectedOptionLabel.style.backgroundColor = 'lightblue';
+    // Check if the selected option is correct
+    if (questions[currentQuestionIndex].options[selectedIndex] === questions[currentQuestionIndex].correctOption) {
+      // Highlight the correct option
+      const correctOptionIndex = questions[currentQuestionIndex].options.indexOf(questions[currentQuestionIndex].correctOption);
+      const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+      correctOptionLabel.style.backgroundColor = 'lightgreen';
+      correctOptionLabel.textContent += ' (Correct)';
+    } else {
+      // If the selected option is incorrect, highlight the correct option
+      const correctOptionIndex = questions[currentQuestionIndex].options.indexOf(questions[currentQuestionIndex].correctOption);
+      const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+      correctOptionLabel.style.backgroundColor = 'lightgreen';
+      correctOptionLabel.textContent += ' (Correct)';
+    }
+  } else {
+    // No option selected
+    alert('Please select an option.');
+  }
+};
+questionDiv.appendChild(checkAnswerButton);
+
+
+
+    // Add a button to remove the bookmark
+    const removeBookmarkButton = document.createElement('button');
+    removeBookmarkButton.textContent = 'Remove Bookmark';
+    removeBookmarkButton.onclick = function() {
+      // Remove the bookmark for this question
+      bookmarks[currentQuestionIndex] = false;
+      // Update the UI to reflect the change
+      showBookmarkedQuestions(); // Update the bookmarked questions list
+    };
+    questionDiv.appendChild(removeBookmarkButton);
+
+    // Add the bookmarked question to the container
+    bookmarkedQuestionsContainer.appendChild(questionDiv);
+  }
+
+  // Add previous button
+  const prevButton = document.createElement('button');
+  prevButton.textContent = 'Previous Question';
+  prevButton.onclick = function() {
+    let prevBookmarkedIndex = currentQuestionIndex - 1;
+    while (prevBookmarkedIndex >= 0 && !bookmarks[prevBookmarkedIndex]) {
+      prevBookmarkedIndex--;
+    }
+    if (prevBookmarkedIndex >= 0) {
+      currentQuestionIndex = prevBookmarkedIndex;
+      showBookmarkedQuestions(); // Show the updated question
+    }
+  };
+  bookmarkedQuestionsContainer.appendChild(prevButton);
+
+  // Add next button
+  const nextButton = document.createElement('button');
+  nextButton.textContent = 'Next Question';
+  nextButton.onclick = function() {
+    if (nextBookmarkedIndex < questions.length) {
+      currentQuestionIndex = nextBookmarkedIndex;
+      showBookmarkedQuestions(); // Show the updated question
+    }
+  };
+  bookmarkedQuestionsContainer.appendChild(nextButton);
+
+
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+         const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+	  prevButton.key();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+	  nextButton.key();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+<script>
+const questions = [ 
+
+{
+  "question": "What will come in the place of 'should have done'. It is time we should have done something useful.",
+  "options": [
+    "No substitution",
+    "did",
+    "have done",
+    "would do"
+  ],
+  "correctOption": "did"
+},
+{
+    "question": "He was looking into his book for the last two hours but couldn't find it.",
+    "options": [
+      "looking down on his book",
+      "looking for his book",
+      "looking after his book",
+      "looking above his book"
+    ],
+    "correctOption": "looking for his book"
+  },
+  {
+    "question": "Finally, here are a few examples of passages and their précis.",
+    "options": [
+      "of passages and there précis",
+      "of passages and there precises",
+      "No substitution",
+      "by passages and their précis"
+    ],
+    "correctOption": "No substitution"
+  },
+  {
+    "question": "Last before year, Shirley got very good grades.",
+    "options": [
+      "Before year last",
+      "The year before last",
+      "The last year before",
+      "Before last year"
+    ],
+    "correctOption": "The year before last"
+  },
+  {
+    "question": "I am working hard in order to earn a decent living.",
+    "options": [
+      "No substitution",
+      "buying a decent living",
+      "earning a better living",
+      "purchase a reputed life"
+    ],
+    "correctOption": "No substitution"
+  },
+  {
+    "question": "Blind by a dust storm, they fell into disorder.",
+    "options": [
+      "Blinded",
+      "Blinding",
+      "Being blind",
+      "Have been blind"
+    ],
+    "correctOption": "Blinded"
+  },
+  {
+    "question": "This package is ideal for infant teenager who are just getting started with babysitting.",
+    "options": [
+      "youngest teenagers",
+      "younger teenagers",
+      "young teenagers",
+      "No substitution required"
+    ],
+    "correctOption": "young teenagers"
+  },
+  {
+    "question": "has to leave",
+    "options": [
+      "has to leave",
+      "leaves",
+      "is leaving",
+      "is going to leave"
+    ],
+    "correctOption": "is going to leave"
+  },
+  {
+    "question": "In spite of being seriously handicapped, Stephen Hawking's is one of most eminent modern scientists.",
+    "options": [
+      "No substitution required",
+      "is one of the most",
+      "been one of the",
+      "was one among most"
+    ],
+    "correctOption": "is one of the most"
+  },
+  {
+    "question": "Ripan’s nature and his strange habits can often unintentionally hurt others.",
+    "options": [
+      "Eccentricity",
+      "Abnormality",
+      "Anomaly",
+      "Beatnik"
+    ],
+    "correctOption": "Eccentricity"
+  },
+  {
+    "question": "The train will arrive with five minutes.",
+    "options": [
+      "by five minutes",
+      "at five minutes",
+      "in five minutes",
+      "on five minutes"
+    ],
+    "correctOption": "in five minutes"
+  },
+  {
+    "question": "Snow fluttered in Josie’s window as she got ready for work.",
+    "options": [
+      "inside Josie’s window",
+      "No substitution required",
+      "at Josie’s window",
+      "outside Josie’s window"
+    ],
+    "correctOption": "outside Josie’s window"
+  },
+  {
+    "question": "I'm so hungry I could eat lots of food.",
+    "options": [
+      "poison",
+      "a horse",
+      "like a horse",
+      "sour grapes"
+    ],
+    "correctOption": "a horse"
+  },
+  {
+    "question": "Some children surprisingly take on their grandparents in appearance.",
+    "options": [
+      "taking after",
+      "take later",
+      "No substitution",
+      "take after"
+    ],
+    "correctOption": "take after"
+  },
+  {
+    "question": "Ben was always been a good father.",
+    "options": [
+      "had been always",
+      "was always being",
+      "had always been",
+      "No substitution required"
+    ],
+    "correctOption": "had always been"
+  },
+  {
+    "question": "Tapan face a very difficult situation during the whole lockdown period and seeing him go through all this, I forgave his pardonable mistakes.",
+    "options": [
+      "Impervious",
+      "Credulous",
+      "Extempore",
+      "Venial"
+    ],
+    "correctOption": "Venial"
+  },
+  {
+    "question": "It is his first interview, so he has a nervous feeling.",
+    "options": [
+      "Butterflies in his stomach",
+      "Icing on the cake",
+      "Tug at his heartstrings",
+      "A slap on the wrist"
+    ],
+    "correctOption": "Butterflies in his stomach"
+  },
+  {
+    "question": "The story did not go by well enough.",
+    "options": [
+      "go off",
+      "go down",
+      "go through",
+      "go into"
+    ],
+    "correctOption": "go down"
+  },
+  {
+    "question": "The bridge which (connecting) the two cities has been destroyed by the bomb.",
+    "options": [
+      "connected",
+      "will be connecting",
+      "has connecting",
+      "connects"
+    ],
+    "correctOption": "connected"
+  },
+  {
+    "question": "How did you come about his purse?",
+    "options": [
+      "come off",
+      "come into",
+      "come out",
+      "come by"
+    ],
+    "correctOption": "come by"
+  },
+  {
+    "question": "With tear eyes, she said goodbye to her dear friend.",
+    "options": [
+      "teary eyes",
+      "tear up eyes",
+      "No substitution required",
+      "tearing eyes"
+    ],
+    "correctOption": "teary eyes"
+  },
+  {
+    "question": "In order to succeed in life, we need to work instead waste time.",
+    "options": [
+      "despite wasting time",
+      "No improvement required",
+      "in spite of wasting time",
+      "instead of wasting time"
+    ],
+    "correctOption": "instead of wasting time"
+  },
+  {
+    "question": "A lot of people are seen gathering, discussing and negotiating in front of our stall in the town.",
+    "options": [
+      "bargaining",
+      "collecting",
+      "jostling",
+      "dealing"
+    ],
+    "correctOption": "bargaining"
+  },
+  {
+    "question": "The walls of the temple caved out due to weak construction.",
+    "options": [
+      "apart",
+      "at",
+      "around",
+      "in"
+    ],
+    "correctOption": "in"
+  },
+  {
+    "question": "In the introductory session, the teacher asked me to what district I came from.",
+    "options": [
+      "to which district",
+      "which district",
+      "No substitution required",
+      "what district"
+    ],
+    "correctOption": "which district"
+  },
+  {
+    "question": "I'll try to phone you in the meeting.",
+    "options": [
+      "at the meeting",
+      "during the meeting",
+      "in meeting",
+      "No substitution required"
+    ],
+    "correctOption": "during the meeting"
+  },
+  {
+    "question": "The numbers applying for the course had dropped off very sharply during the pandemic.",
+    "options": [
+      "have dropped off sharply",
+      "has dropped off sharply",
+      "have dropped off very sharply",
+      "had dropped off sharply"
+    ],
+    "correctOption": "have dropped off sharply"
+  },
+  {
+    "question": "Select the correct degree of comparison for the given sentence. My new work is challenging and interesting.",
+    "options": [
+      "My new work is challenge and interesting.",
+      "My new work is most challenging and most interesting.",
+      "My new work is most challenging and interesting.",
+      "My new work is more challenging and more interesting."
+    ],
+    "correctOption": "My new work is more challenging and more interesting."
+  },
+  {
+    "question": "Select the correct degree of comparison for the given sentence. David looks (old) than he really is.",
+    "options": [
+      "David looks old than he really is.",
+      "David looks older than he really is.",
+      "David looks elder than he really is.",
+      "David looks elder from he really is."
+    ],
+    "correctOption": "David looks older than he really is."
+  },
+  {
+    "question": "He was just starting his career in the field of politics.",
+    "options": [
+      "during 1980",
+      "because 1980",
+      "since 1980",
+      "yet 1980"
+    ],
+    "correctOption": "since 1980"
+  },
+  {
+    "question": "His story was not creditable so he was detained by the officers for further inquiry.",
+    "options": [
+      "was not credible so",
+      "were not certified",
+      "were not creditable so",
+      "was not credulous so"
+    ],
+    "correctOption": "was not credible so"
+  },
+  {
+    "question": "The soldiers advanced when the bugle slept.",
+    "options": [
+      "when the bugle ran",
+      "when the bugle blew",
+      "when the bugle died",
+      "when the bugle flew"
+    ],
+    "correctOption": "when the bugle blew"
+  },
+  {
+    "question": "I hardly worked to pass the qualifying exam and be selected for admission.",
+    "options": [
+      "hardly worked",
+      "working hardly",
+      "work hardly",
+      "worked hard"
+    ],
+    "correctOption": "worked hard"
+  },
+  {
+    "question": "At the aerodrome he saw a flock of fighter jets.",
+    "options": [
+      "a crew of airplanes",
+      "a squadron of airplanes",
+      "a cluster of airplanes",
+      "a bellowing of airplanes"
+    ],
+    "correctOption": "a squadron of airplanes"
+  },
+  {
+    "question": "No sooner did the villagers see.",
+    "options": [
+      "No sooner did the villagers see",
+      "As soon as the villagers saw",
+      "No sooner did the villagers saw",
+      "No sooner had the villagers seen"
+    ],
+    "correctOption": "No sooner did the villagers see"
+  },
+  {
+    "question": "Manavi's public oratory skills are so nice that everyone who hears gets impressed by her.",
+    "options": [
+      "intonation",
+      "pronunciation",
+      "articulation",
+      "elocution"
+    ],
+    "correctOption": "elocution"
+  },
+  {
+    "question": "If you heat the ice cube, it will melt.",
+    "options": [
+      "would melt",
+      "No substitution",
+      "melts",
+      "would have melt"
+    ],
+    "correctOption": "melts"
+  },
+  {
+    "question": "Today is more hot than yesterday.",
+    "options": [
+      "hotter than",
+      "more hotter",
+      "most hot than",
+      "No substitution required"
+    ],
+    "correctOption": "hotter than"
+  },
+  {
+    "question": "I helped Siben monetarily even though I knew that he is unable to pay his debts.",
+    "options": [
+      "insolent",
+      "insolvent",
+      "incapable",
+      "innate"
+    ],
+    "correctOption": "insolvent"
+  },
+  {
+    "question": "I am experiencing repetition of a sound caused by reflection of sound waves. Can you reconnect?",
+    "options": [
+      "wave reflection",
+      "an echo",
+      "an echo sounder",
+      "echolocation"
+    ],
+    "correctOption": "an echo"
+  },
+  {
+    "question": "First language also known as mother tongue is the general language a person learns first.",
+    "options": [
+      "is generally the language",
+      "is a casual language",
+      "is simply a language",
+      "No substitution required"
+    ],
+    "correctOption": "is generally the language"
+  },
+  {
+    "question": "Of the two plans submitted by the architect, this is the one more likely to be accepted.",
+    "options": [
+      "much likely",
+      "No substitution required",
+      "most likely",
+      "most likelihood"
+    ],
+    "correctOption": "No substitution required"
+  },
+  {
+    "question": "I may as such.",
+    "options": [
+      "may as such",
+      "might well",
+      "No improvement required",
+      "may as well as"
+    ],
+    "correctOption": "No improvement required"
+  },
+  {
+    "question": "My father was always ordering about my sister.",
+    "options": [
+      "ordering on my sister",
+      "No improvement required",
+      "giving order for my sister",
+      "ordering my sister about"
+    ],
+    "correctOption": "ordering my sister about"
+  },
+  {
+    "question": "I peeped through the window.",
+    "options": [
+      "knocked at the door",
+      "No substitution required",
+      "knocked door",
+      "knocked on door"
+    ],
+    "correctOption": "knocked at the door"
+  },
+  {
+    "question": "You are welcome to partake this light refreshment.",
+    "options": [
+      "in partaken",
+      "No improvement required",
+      "for partaking",
+      "to partake of"
+    ],
+    "correctOption": "to partake of"
+  },
+  {
+    "question": "Such was his performance that the audience gave a standing ovation.",
+    "options": [
+      "So was",
+      "Much was",
+      "No substitution required",
+      "Such as"
+    ],
+    "correctOption": "No substitution required"
+  },
+  {
+    "question": "As I am hearing the lecture it reminded me of a book I had read two years ago.",
+    "options": [
+      "As I heard",
+      "As I have heard",
+      "When I hear",
+      "No substitution required"
+    ],
+    "correctOption": "As I heard"
+  },
+  {
+    "question": "A bit nicer.",
+    "options": [
+      "a bit nicer",
+      "far more nicer",
+      "far nicer",
+      "No improvement required"
+    ],
+    "correctOption": "far nicer"
+  },
+  {
+    "question": "Who is the person to contact there?",
+    "options": [
+      "Who is the person",
+      "No substitution required",
+      "Whom were the persons",
+      "Whom is the person"
+    ],
+    "correctOption": "Who is the person"
+  },
+  {
+    "question": "by far the brightest.",
+    "options": [
+      "by far the brightest",
+      "No improvement",
+      "by so far the brighter",
+      "so far most bright"
+    ],
+    "correctOption": "by far the brightest"
+  },
+  {
+    "question": "I don’t fancy to go out this evening.",
+    "options": [
+      "No improvement required",
+      "going out",
+      "to be going out",
+      "to going outside"
+    ],
+    "correctOption": "going out"
+  },
+  {
+    "question": "The apple tree was loaded of fruit.",
+    "options": [
+      "loaded with",
+      "loaded from",
+      "laden with",
+      "No Improvement"
+    ],
+    "correctOption": "laden with"
+  },
+  {
+    "question": "If we do nothing to curb this pollution, I guarantee we will face the wall in the future.",
+    "options": [
+      "face the stick",
+      "face the wind",
+      "face the dark",
+      "face the music"
+    ],
+    "correctOption": "face the music"
+  },
+  {
+    "question": "All his bones could be counted because his body was totally shrivelled and wrinkled with age.",
+    "options": [
+      "bony",
+      "dried",
+      "wizened",
+      "shrunken"
+    ],
+    "correctOption": "wizened"
+  },
+  {
+    "question": "At the end of our first two weeks on the island, we were informed that our lawyers, Bram Fischer and Joel Joffe, were going to be visiting the following day.",
+    "options": [
+      "No substitution required",
+      "we were inform",
+      "we are informed",
+      "we get inform"
+    ],
+    "correctOption": "No substitution required"
+  },
+  {
+    "question": "the midst of all her problems.",
+    "options": [
+      "drove her up",
+      "tore her up",
+      "stood her up",
+      "bore her up"
+    ],
+    "correctOption": "bore her up"
+  },
+  {
+    "question": "The teacher said, 'the sun raises in the east every day'.",
+    "options": [
+      "the sun will rise in the east",
+      "the sun rises at the east",
+      "No substitution required",
+      "the sun rises in the east"
+    ],
+    "correctOption": "the sun rises in the east"
+  },
+  {
+    "question": "successful.",
+    "options": [
+      "sucessful",
+      "successful",
+      "sucessfull",
+      "sucessfful"
+    ],
+    "correctOption": "successful"
+  },
+  {
+    "question": "In this scene, a close-up shot was taken by the cameraman for display the emotions.",
+    "options": [
+      "in order to display the emotions",
+      "in order of emotions",
+      "for show of emotions",
+      "to show emotions"
+    ],
+    "correctOption": "in order to display the emotions"
+  },
+  {
+    "question": "I would like to thank you for your coming out tonight.",
+    "options": [
+      "for you came out",
+      "for coming out",
+      "for comes out",
+      "for you will come out"
+    ],
+    "correctOption": "for coming out"
+  },
+  {
+    "question": "Life is hard, unpredictable, but though manageable.",
+    "options": [
+      "though achievable",
+      "still controllable",
+      "although bearable",
+      "despite practicable"
+    ],
+    "correctOption": "still controllable"
+  },
+  {
+    "question": "Reema and Aasha were frolicking in the park.",
+    "options": [
+      "were enjoying in the garden",
+      "were participating in the garden",
+      "were playing in the garden",
+      "were performing in the garden"
+    ],
+    "correctOption": "were playing in the garden"
+  },
+  {
+    "question": "The South Indian dish was approved by the guests as it was tasty.",
+    "options": [
+      "accepted by the visitors",
+      "condemned by the visitors",
+      "doomed by the visitors",
+      "gratified by the visitors"
+    ],
+    "correctOption": "accepted by the visitors"
+  },
+  {
+    "question": "The problem was to locate a solution to the crisis.",
+    "options": [
+      "laid a solution",
+      "search a solution",
+      "find a solution",
+      "find out a solution"
+    ],
+    "correctOption": "find a solution"
+  },
+   {
+    "question": "A need of an hour is to provide employment to the youth of the country.",
+    "options": [
+      "No improvement required",
+      "The need of an",
+      "The need of the",
+      "The need in an"
+    ],
+    "correctOption": "The need of an"
+  },
+  {
+    "question": "The need of the watch the actors.",
+    "options": [
+      "have gathered in the area",
+      "has gathered around the area",
+      "No substitution required",
+      "have gather around the area"
+    ],
+    "correctOption": "has gathered around the area"
+  },
+  {
+    "question": "The forest area.",
+    "options": [
+      "about three-fourth",
+      "No improvement required",
+      "nearly three-fourths",
+      "around three-fourth"
+    ],
+    "correctOption": "nearly three-fourths"
+  },
+  {
+    "question": "The soldiers would not have surrendered if they not ran out of ammunition.",
+    "options": [
+      "do not run out",
+      "No improvement required",
+      "had not run out",
+      "did not ran out"
+    ],
+    "correctOption": "had not run out"
+  },
+  {
+    "question": "The show flopped miserably to the utter disappointment of everybody.",
+    "options": [
+      "No improvement required",
+      "at an utter",
+      "by the utterly",
+      "for the utter"
+    ],
+    "correctOption": "No improvement required"
+  },
+  {
+    "question": "Unless you carry a Covid-19 negative report, you can travel by air.",
+    "options": [
+      "Provided",
+      "No improvement required",
+      "Only",
+      "Until"
+    ],
+    "correctOption": "Provided"
+  },
+  {
+    "question": "Not only the workmen but also the supervisor.",
+    "options": [
+      "No improvement required.",
+      "was suspend",
+      "were suspended",
+      "have been suspended"
+    ],
+    "correctOption": "No improvement required."
+  },
+  {
+    "question": "Megha’s habit of procrastination puts her colleagues on lot of trouble.",
+    "options": [
+      "No improvement required",
+      "into lot troubles",
+      "to a lot of trouble",
+      "in lot of troubles"
+    ],
+    "correctOption": "to a lot of trouble"
+  },
+  {
+    "question": "The news about the surge in Covid-19 cases is broadcasted every morning.",
+    "options": [
+      "No improvement required",
+      "is broadcast",
+      "are broadcasted",
+      "are broadcast"
+    ],
+    "correctOption": "is broadcast"
+  },
+  {
+    "question": "Is this the same book like our teacher recommended?",
+    "options": [
+      "No improvement required",
+      "similar book that",
+      "same book who",
+      "same book as"
+    ],
+    "correctOption": "same book as"
+  },
+  {
+    "question": "He was knowing her for a long time before he finally married her.",
+    "options": [
+      "has been knowing",
+      "had known",
+      "No improvement required",
+      "had knew"
+    ],
+    "correctOption": "had known"
+  },
+  {
+    "question": "This work is much heavy to do by one person single-handedly.",
+    "options": [
+      "too heavy to do",
+      "much heavy to be done",
+      "too heavy to be done",
+      "No improvement required"
+    ],
+    "correctOption": "too heavy to be done"
+  },
+  {
+    "question": "I found my bag to lie where I had left it.",
+    "options": [
+      "to be lying",
+      "No improvement required",
+      "to lay",
+      "lying"
+    ],
+    "correctOption": "lying"
+  },
+  {
+    "question": "The report that markets are open is not true.",
+    "options": [
+      "has opened",
+      "was open",
+      "No improvement required",
+      "have open"
+    ],
+    "correctOption": "No improvement required"
+  },
+  {
+    "question": "Clearing the entrance examination for universities abroad was the biggest challenge of my life.",
+    "options": [
+      "is the bigger",
+      "No substitution",
+      "has been bigger",
+      "had been the big"
+    ],
+    "correctOption": "No substitution"
+  },
+  {
+    "question": "It is the responsibility of all of us to invest time and effort in verifying information and not fall victim to fake news.",
+    "options": [
+      "No improvement",
+      "not following victim",
+      "not falls victim",
+      "not fall victim"
+    ],
+    "correctOption": "not fall victim"
+  },
+  {
+    "question": "Wasim agreed to share his notes with Arif on conditions that he are return them in a day.",
+    "options": [
+      "on his condition that he is returning",
+      "No substitution required",
+      "on condition that he will be return",
+      "on the condition that he would return"
+    ],
+    "correctOption": "on the condition that he would return"
+  },
+  {
+    "question": "There was a bell over the door.",
+    "options": [
+      "which jingled wherever",
+      "No substitution required",
+      "that jingle when",
+      "who jingles whenever"
+    ],
+    "correctOption": "No substitution required"
+  },
+  {
+    "question": "The roof is being held up over two stone pillars.",
+    "options": [
+      "is hold upon",
+      "No substitution required",
+      "is held up by",
+      "was held above"
+    ],
+    "correctOption": "is held up by"
+  },
+  {
+    "question": "I must have dropped one of my gloves in the car.",
+    "options": [
+      "an",
+      "any",
+      "the",
+      "No improvement"
+    ],
+    "correctOption": "No improvement"
+  },
+  {
+    "question": "A school teacher earns fewer salary from a college lecturer.",
+    "options": [
+      "less salary from",
+      "No substitution required",
+      "a lower salary than",
+      "fewer salary than"
+    ],
+    "correctOption": "a lower salary than"
+  },
+  {
+    "question": "The interview will be conducted by 9 a.m. till 11 a.m.",
+    "options": [
+      "from 9 a.m. to 11 a.m.",
+      "during 9 a.m. till 11 a.m.",
+      "No substitution",
+      "from 9 a.m. until 11 a.m."
+    ],
+    "correctOption": "from 9 a.m. to 11 a.m."
+  },
+  {
+    "question": "Despite living in the same neighborhood, we only did not greet each other.",
+    "options": [
+      "No improvement",
+      "even",
+      "still",
+      "mainly"
+    ],
+    "correctOption": "still"
+  },
+  {
+    "question": "When challenged, the man had no answer for his actions.",
+    "options": [
+      "When to be challenged",
+      "When in challenge",
+      "No substitution required",
+      "While challenges"
+    ],
+    "correctOption": "No substitution required"
+  },
+  {
+    "question": "A large swarm of dogs was blocking the way.",
+    "options": [
+      "herd of",
+      "No substitution required",
+      "pack of",
+      "school of"
+    ],
+    "correctOption": "pack of"
+  },
+  {
+    "question": "The mare hurt its hooves when running to the forest.",
+    "options": [
+      "No substitution required",
+      "when running into",
+      "with running across",
+      "while running through"
+    ],
+    "correctOption": "while running through"
+  },
+  {
+    "question": "That tree fell down yesterday narrowly miss my car.",
+    "options": [
+      "No substitution required",
+      "narrowly missed",
+      "narrowly missing",
+      "narrowed missing"
+    ],
+    "correctOption": "narrowly missing"
+  },
+  {
+    "question": "Such easy as",
+    "options": [
+      "such easy as",
+      "as easy as",
+      "No substitution required",
+      "as easy so"
+    ],
+    "correctOption": "as easy as"
+  },
+  {
+    "question": "Are you trying to say that you are stupid so proud of it?",
+    "options": [
+      "No substitution",
+      "though",
+      "so that",
+      "but"
+    ],
+    "correctOption": "but"
+  },
+  {
+    "question": "Any of the boy in my team are very intelligent.",
+    "options": [
+      "All the boy",
+      "No substitution required",
+      "Some of the boys",
+      "Some of boys"
+    ],
+    "correctOption": "Some of the boys"
+  },
+  {
+    "question": "He is no clever to make sound business decisions.",
+    "options": [
+      "not enough clever to make",
+      "not clever enough to make",
+      "No improvement required",
+      "not clever to be making"
+    ],
+    "correctOption": "not clever enough to make"
+  },
+  {
+    "question": "He waves to me whoever he sees me at the window.",
+    "options": [
+      "whenever",
+      "wherever",
+      "whatever",
+      "No improvement required"
+    ],
+    "correctOption": "whenever"
+  },
+  {
+    "question": "Practising math sums in so many periods over time is better than in long periods at a time, for effective learning.",
+    "options": [
+      "much",
+      "No substitution",
+      "short",
+      "too much"
+    ],
+    "correctOption": "short"
+  },
+  {
+    "question": "You might spot a tiger in the Sariska reserve if you would be lucky.",
+    "options": [
+      "if you are",
+      "No improvement required",
+      "if it was",
+      "then you are"
+    ],
+    "correctOption": "if you are"
+  },
+  {
+    "question": "I asked my brother for the key to the garage.",
+    "options": [
+      "key of garage.",
+      "No substitution required",
+      "key in the garage.",
+      "key into the garage."
+    ],
+    "correctOption": "No substitution required"
+  },
+  {
+    "question": "The examination was more simpler than I expected it to be.",
+    "options": [
+      "very simple",
+      "No substitution required",
+      "most simple",
+      "much simpler"
+    ],
+    "correctOption": "much simpler"
+  },
+  {
+    "question": "There are adventitres to be found in history and",
+    "options": [
+      "despite",
+      "as well as",
+      "No substitution",
+      "in addition to"
+    ],
+    "correctOption": "as well as"
+  },
+  {
+    "question": "She told you that she is quite afraid of dogs, did she?",
+    "options": [
+      "had she",
+      "didn’t she",
+      "isn’t she",
+      "No substitution required"
+    ],
+    "correctOption": "didn’t she"
+  },
+  {
+    "question": "A deer is likely to attack by lions or tigers throughout its life.",
+    "options": [
+      "subject to attack",
+      "going to attack",
+      "will be attacked",
+      "No substitution"
+    ],
+    "correctOption": "subject to attack"
+  },
+  {
+    "question": "Footballers run from one corner of the field",
+    "options": [
+      "No improvement required",
+      "to another",
+      "through others",
+      "on the other"
+    ],
+    "correctOption": "to another"
+  },
+  {
+    "question": "She was too startled at first saying something , but finally she blurted out the truth.",
+    "options": [
+      "say something",
+      "to say anything",
+      "No substitution required",
+      "saying anything"
+    ],
+    "correctOption": "to say anything"
+  },
+  {
+    "question": "Our new accountant fall short in my expectations.",
+    "options": [
+      "falls short of",
+      "falls short in",
+      "No substitution required",
+      "fall short on"
+    ],
+    "correctOption": "falls short of"
+  },
+  {
+    "question": "She is not ready for marriage, isn't it?",
+    "options": [
+      "is she",
+      "is it",
+      "No improvement",
+      "isn’t she"
+    ],
+    "correctOption": "is she"
+  },
+  {
+    "question": "He has being put behind prison for life.",
+    "options": [
+      "being putting in",
+      "No improvement",
+      "been put behind",
+      "been put in"
+    ],
+    "correctOption": "been put in"
+  },
+  {
+    "question": "I suggest you to see a solicitor.",
+    "options": [
+      "am suggesting you",
+      "No improvement",
+      "suggest you that",
+      "suggest that you"
+    ],
+    "correctOption": "suggest that you"
+  },
+  {
+    "question": "I am not use to drink coffee.",
+    "options": [
+      "not used to drinking",
+      "No improvement",
+      "not used to drink",
+      "not use to drank"
+    ],
+    "correctOption": "not used to drinking"
+  },
+  {
+    "question": "But about their defeated.",
+    "options": [
+      "But about their",
+      "Because of their",
+      "Except with their",
+      "No improvement"
+    ],
+    "correctOption": "No improvement"
+  },
+  {
+    "question": "She was smiling b looking pleased about something.",
+    "options": [
+      "and looked",
+      "so looking",
+      "but look",
+      "No improvement"
+    ],
+    "correctOption": "and looked"
+  },
+  {
+    "question": "Lot of times she advised him for not being lazy for completing such a tough task.",
+    "options": [
+      "A lot of times",
+      "A lot of time",
+      "Much of time",
+      "No improvement"
+    ],
+    "correctOption": "A lot of times"
+  },
+  {
+    "question": "She is tender-hearted by nature and I have found her eyes moist many times a over the sad face of any children.",
+    "options": [
+      "so many atimes",
+      "manya time",
+      "No improvement",
+      "many time"
+    ],
+    "correctOption": "No improvement"
+  },
+  {
+    "question": "The Arabian Sea region is very important for India as several major ports are locating there.",
+    "options": [
+      "are located",
+      "have been locating",
+      "was locating",
+      "No improvement"
+    ],
+    "correctOption": "are located"
+  },
+  {
+    "question": "Sele, is a near extinct villages in Nepal, which lie close to Tibet.",
+    "options": [
+      "spoken out",
+      "spoken of",
+      "spoken in",
+      "No improvement"
+    ],
+    "correctOption": "spoken in"
+  },
+  {
+    "question": "The firing of the missile and also created political furore.",
+    "options": [
+      "not only kill innocent persons and also",
+      "but killed innocent person and also",
+      "not only killed innocent persons but also",
+      "No improvement"
+    ],
+    "correctOption": "not only killed innocent persons but also"
+  },
+  {
+    "question": "Doctors at the AIIMS Trauma Centre managed to save the life of 12 year old archer Shivangini, whose were struck by an arrow in the neck during a practice session.",
+    "options": [
+      "who was striked",
+      "No improvement",
+      "which was struck",
+      "who was struck"
+    ],
+    "correctOption": "who was struck"
+  },
+  {
+    "question": "We've had a long day. We",
+    "options": [
+      "hadn't we",
+      "haven't we",
+      "won't we",
+      "No improvement"
+    ],
+    "correctOption": "No improvement"
+  },
+  {
+    "question": "Hardly had he sit on the chair than it broke.",
+    "options": [
+      "sit in the chair when",
+      "sat on the chair when",
+      "sat onto a chair then",
+      "No substitution"
+    ],
+    "correctOption": "sat on the chair when"
+  },
+  {
+    "question": "After switching off the light, he went off to sleep.",
+    "options": [
+      "he has switched off the light",
+      "being switched off the light",
+      "No improvement",
+      "switching off a light"
+    ],
+    "correctOption": "No improvement"
+  },
+  {
+    "question": "Have you got confirmation of the receipt of the donation?",
+    "options": [
+      "Did you got confirmation",
+      "No improvement",
+      "Has you got confirmations",
+      "Have you get confirmation"
+    ],
+    "correctOption": "Have you get confirmation"
+  },
+  {
+    "question": "The Delhi Birla International School alumnus occupy leading positions in different areas of profession and service.",
+    "options": [
+      "No improvement",
+      "alumnus occupies",
+      "alumni occupy",
+      "alumnus occupying"
+    ],
+    "correctOption": "alumni occupy"
+  },
+  {
+    "question": "Her rooms window was left open.",
+    "options": [
+      "Her window in room",
+      "Her rooms window",
+      "No substitution needed",
+      "The window of her room"
+    ],
+    "correctOption": "The window of her room"
+  },
+  {
+    "question": "How are you going on with your work?",
+    "options": [
+      "No substitution needed",
+      "get on",
+      "getting on",
+      "getting off"
+    ],
+    "correctOption": "getting on"
+  },
+  {
+    "question": "It is heartening regulations strictly.",
+    "options": [
+      "seeing that everyone are observing",
+      "No substitution",
+      "to see that everyone will observe",
+      "to see that everyone is observing"
+    ],
+    "correctOption": "to see that everyone is observing"
+  },
+  {
+    "question": "Many people their MLA.",
+    "options": [
+      "No substitution",
+      "are having a high opinion of",
+      "have high opinions on",
+      "have high opinion"
+    ],
+    "correctOption": "No substitution"
+  },
+  {
+    "question": "This plan is going to benefit certainly all of us.",
+    "options": [
+      "going certainly benefit to",
+      "going benefit certainly to",
+      "No substitution",
+      "certainly going to benefit"
+    ],
+    "correctOption": "certainly going to benefit"
+  },
+  {
+    "question": "He is not so.a person thatwill betray a friend.",
+    "options": [
+      "such a person as",
+      "as a person that",
+      "No substitution",
+      "so a person but"
+    ],
+    "correctOption": "such a person as"
+  },
+  {
+    "question": "He had many works for doing at home before leaving for work.",
+    "options": [
+      "much of works for doing",
+      "much work to do",
+      "No substitution",
+      "many work for doing"
+    ],
+    "correctOption": "much work to do"
+  },
+  {
+    "question": "No other bird is more taller than a ostrich.",
+    "options": [
+      "most tall than an",
+      "as tall as an",
+      "taller than a",
+      "No substitution"
+    ],
+    "correctOption": "taller than a"
+  },
+  {
+    "question": "The musicians were balancing up their instruments.",
+    "options": [
+      "standing up",
+      "tuning up",
+      "turning up",
+      "No substitution"
+    ],
+    "correctOption": "tuning up"
+  },
+  {
+    "question": "The flames had shot up higher then never.",
+    "options": [
+      "the never",
+      "than never",
+      "No substitution",
+      "than ever"
+    ],
+    "correctOption": "than ever"
+  },
+  {
+    "question": "For now on, all the salesmen will be paid a commission and not a salary.",
+    "options": [
+      "Since now on",
+      "No substitution",
+      "As of now on",
+      "From now on"
+    ],
+    "correctOption": "From now on"
+  },
+        // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

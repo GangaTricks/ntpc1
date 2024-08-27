@@ -1,0 +1,3043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Quizzes</title> 
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Vocabulary Quiz | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'vocabularyquizzes1englishpower';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+     // Display explanation
+    const explanation = document.createElement('explanation');
+explanation.innerHTML = `<h5>${currentQuestion.explanation || ''}</h5>`;
+optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+   
+   
+    {
+        "question": "What does 'queasy' mean in the sentence: I started to feel queasy as soon as the boat left the harbour?",
+        "options": ["happy", "excited", "nauseous", "calm"],
+        "correctOption": "nauseous",
+        "explanation": "In this context, 'queasy' means feeling sick or nauseous."
+    },
+    {
+        "question": "What does 'proselytizing' mean in the sentence: Television has provided the evangelists with yet another platform for their proselytizing?",
+        "options": ["preaching", "advertising", "debating", "entertaining"],
+        "correctOption": "preaching",
+        "explanation": "In this context, 'proselytizing' means the act of attempting to convert people to another religion or opinion."
+    },
+    {
+        "question": "What does 'ordained' mean in the sentence: He was ordained (as) a priest in this cathedral in 1999?",
+        "options": ["appointed", "dismissed", "trained", "promoted"],
+        "correctOption": "appointed",
+        "explanation": "In this context, 'ordained' means officially made a priest."
+    },
+    {
+        "question": "What does 'Oral contraceptives' mean in the sentence: Oral contraceptives are referred to as 'the pill' in common parlance?",
+        "options": ["vitamins", "medicines", "birth control pills", "painkillers"],
+        "correctOption": "birth control pills",
+        "explanation": "In this context, 'Oral contraceptives' refer to birth control pills."
+    },
+    {
+        "question": "What does 'gumption' mean in the sentence: One must have the gumption to make decisions for the welfare of oneself?",
+        "options": ["intelligence", "courage", "laziness", "indecisiveness"],
+        "correctOption": "courage",
+        "explanation": "In this context, 'gumption' means the courage and determination to take action."
+    },
+    {
+        "question": "What does 'valedictory' mean in the sentence: It may be a valedictory speech, but it is an important one?",
+        "options": ["introductory", "farewell", "motivational", "boring"],
+        "correctOption": "farewell",
+        "explanation": "In this context, 'valedictory' means a farewell speech."
+    },
+    {
+        "question": "What does 'denouement' mean in the sentence: You made me miss the denouement of the play?",
+        "options": ["beginning", "climax", "ending", "middle"],
+        "correctOption": "ending",
+        "explanation": "In this context, 'denouement' means the final part of a play, movie, or narrative where the strands of the plot are drawn together and matters are explained or resolved."
+    },
+    {
+        "question": "What does 'welter' mean in the sentence: We are reducing the company's welter of development projects and will streamline sales and marketing?",
+        "options": ["increase", "variety", "confusion", "success"],
+        "correctOption": "confusion",
+        "explanation": "In this context, 'welter' means a large number of items in no order; a confused mass."
+    },
+    {
+        "question": "What does 'drivel' mean in the sentence: You're talking drivel as usual?",
+        "options": ["sense", "nonsense", "intelligence", "humor"],
+        "correctOption": "nonsense",
+        "explanation": "In this context, 'drivel' means nonsense or silly talk."
+    },
+    {
+        "question": "What does 'scuttled off' mean in the sentence: The children scuttled off as soon as the head teacher appeared?",
+        "options": ["ran quickly", "walked slowly", "stood still", "talked loudly"],
+        "correctOption": "ran quickly",
+        "explanation": "In this context, 'scuttled off' means to run away quickly."
+    },
+    {
+        "question": "What does 'iniquitous' mean in the sentence: It is an iniquitous system that allows a person to die because they have no money to pay for medicine?",
+        "options": ["fair", "just", "unjust", "perfect"],
+        "correctOption": "unjust",
+        "explanation": "In this context, 'iniquitous' means grossly unfair and morally wrong."
+    },
+    {
+        "question": "What does 'haggard' mean in the sentence: He'd been drinking the night before and was looking a bit haggard?",
+        "options": ["healthy", "fresh", "exhausted", "happy"],
+        "correctOption": "exhausted",
+        "explanation": "In this context, 'haggard' means looking exhausted and unwell, especially from fatigue, worry, or suffering."
+    },
+    {
+        "question": "What does 'ravines' mean in the sentence: They are coursing through ravines and over mountain tops?",
+        "options": ["hills", "rivers", "deep narrow valleys", "plains"],
+        "correctOption": "deep narrow valleys",
+        "explanation": "In this context, 'ravines' means deep, narrow valleys with steep sides."
+    },
+    {
+        "question": "What does 'inscrutable' mean in the sentence: He has an inscrutable face at that time?",
+        "options": ["expressive", "easy to understand", "mysterious", "angry"],
+        "correctOption": "mysterious",
+        "explanation": "In this context, 'inscrutable' means impossible to understand or interpret; mysterious."
+    },
+    {
+        "question": "What does 'perjury' mean in the sentence: She was sentenced to two years in jail for committing perjury?",
+        "options": ["theft", "lying under oath", "bribery", "assault"],
+        "correctOption": "lying under oath",
+        "explanation": "In this context, 'perjury' means the offense of willfully telling an untruth or making a misrepresentation under oath."
+    },
+    {
+        "question": "What does 'ravenous' mean in the sentence: I'm ravenous - where's supper?",
+        "options": ["full", "starving", "angry", "thirsty"],
+        "correctOption": "starving",
+        "explanation": "In this context, 'ravenous' means extremely hungry."
+    },
+    {
+        "question": "What does 'saucy' mean in the sentence: With a saucy attitude, the waitress was able to engage and irritate customers at the same time?",
+        "options": ["respectful", "disrespectful", "boring", "calm"],
+        "correctOption": "disrespectful",
+        "explanation": "In this context, 'saucy' means showing a lack of respect or being boldly impudent."
+    },
+    {
+        "question": "What does 'taut with concentration' mean in the sentence: He kept his eyes on the road ahead, his face taut with concentration?",
+        "options": ["relaxed", "loose", "tense", "happy"],
+        "correctOption": "tense",
+        "explanation": "In this context, 'taut with concentration' means being mentally and physically tense due to intense focus."
+    },
+    {
+        "question": "What does 'outlandish' mean in the sentence: She liked to dress in outlandish clothes?",
+        "options": ["conventional", "ordinary", "bizarre", "fashionable"],
+        "correctOption": "bizarre",
+        "explanation": "In this context, 'outlandish' means looking or sounding bizarre or unfamiliar."
+    },
+    {
+        "question": "What does 'wrangle' mean in the sentence: The joint venture ended in a legal wrangle between the two companies?",
+        "options": ["agreement", "cooperation", "dispute", "friendship"],
+        "correctOption": "dispute",
+        "explanation": "In this context, 'wrangle' means a dispute or argument, typically one that is long and complicated."
+    },
+    {
+        "question": "What does 'heuristic' mean in the sentence: a heuristic method of argument is applauded?",
+        "options": ["experimental", "conventional", "theoretical", "unnecessary"],
+        "correctOption": "experimental",
+        "explanation": "In this context, 'heuristic' means enabling a person to discover or learn something for themselves."
+    },
+    {
+        "question": "What does 'esurient' mean in the sentence: Have a lunch with us - you must be esurient?",
+        "options": ["full", "hungry", "thirsty", "angry"],
+        "correctOption": "hungry",
+        "explanation": "In this context, 'esurient' means hungry or greedy."
+    },
+    {
+        "question": "What does 'indigent' mean in the sentence: Roshan belonged to an indigent family?",
+        "options": ["wealthy", "poor", "famous", "educated"],
+        "correctOption": "poor",
+        "explanation": "In this context, 'indigent' means poor or needy."
+    },
+    {
+        "question": "What does 'reconnoitre' mean in the sentence: It is an aircraft of exceedingly long range, high speed and great reconnoitre capability?",
+        "options": ["attack", "explore", "surveillance", "transport"],
+        "correctOption": "surveillance",
+        "explanation": "In this context, 'reconnoitre' means to make a military observation of a region."
+    },
+    {
+        "question": "What does 'overtures' mean in the sentence: Neither side in the conflict seems willing to make peace overtures?",
+        "options": ["attacks", "negotiations", "gifts", "promises"],
+        "correctOption": "negotiations",
+        "explanation": "In this context, 'overtures' means approaches or proposals made with the aim of opening negotiations or establishing a relationship."
+    },
+    {
+        "question": "What does 'bestial' mean in the sentence: The soldiers were accused of bestial acts against unarmed civilians?",
+        "options": ["humane", "brutal", "kind", "cowardly"],
+        "correctOption": "brutal",
+        "explanation": "In this context, 'bestial' means savagely cruel and depraved."
+    },
+    {
+        "question": "What does 'desiderate' mean in the sentence: Let's assess how well the proposal does when measured against this list of desiderat?",
+        "options": ["requirements", "suggestions", "criticisms", "stories"],
+        "correctOption": "requirements",
+        "explanation": "In this context, 'desiderate' means things that are needed or wanted."
+    },
+    {
+        "question": "What does 'recondite' mean in the sentence: We had to work from material that was both complex and recondite?",
+        "options": ["simple", "obvious", "arcane", "boring"],
+        "correctOption": "arcane",
+        "explanation": "In this context, 'recondite' means little known or obscure."
+    },
+    {
+        "question": "What does 'perfunctory' mean in the sentence: He gave a perfunctory nod?",
+        "options": ["thorough", "careless", "enthusiastic", "casual"],
+        "correctOption": "casual",
+        "explanation": "In this context, 'perfunctory' means carried out with a minimum of effort or reflection."
+    },
+    {
+        "question": "What does 'constricted' mean in the sentence: He hated wearing a tie - he felt it constricted his breathing?",
+        "options": ["aided", "hindered", "improved", "inspired"],
+        "correctOption": "hindered",
+        "explanation": "In this context, 'constricted' means to make narrower, especially by encircling pressure."
+    },
+    {
+        "question": "What does 'fretting about' mean in the sentence: He spent the day fretting about / over what he'd said to Rashmika?",
+        "options": ["ignoring", "worrying", "forgetting", "planning"],
+        "correctOption": "worrying",
+        "explanation": "In this context, 'fretting about' means to be constantly or visibly worried or anxious."
+    },
+    {
+        "question": "What does 'occluded' mean in the sentence: Veins can get occluded by blood clots?",
+        "options": ["blocked", "opened", "healed", "inflamed"],
+        "correctOption": "blocked",
+        "explanation": "In this context, 'occluded' means to block or stop up (a passage or opening)."
+    },
+    {
+        "question": "What does 'obtrusive' mean in the sentence: The soldiers were in civilian clothes, to make their presence less obtrusive?",
+        "options": ["invisible", "conspicuous", "hidden", "annoying"],
+        "correctOption": "conspicuous",
+        "explanation": "In this context, 'obtrusive' means noticeable or prominent in an unwelcome or intrusive way."
+    },
+    {
+        "question": "What does 'predilection' mean in the sentence: Ever since she was a child, she has had a predilection for spicy food?",
+        "options": ["dislike", "preference", "aversion", "allergy"],
+        "correctOption": "preference",
+        "explanation": "In this context, 'predilection' means a preference or special liking for something."
+    },
+    {
+        "question": "What does 'protean' mean in the sentence: It is difficult to comprehend the whole of this protean subject?",
+        "options": ["unchanging", "varied", "simple", "boring"],
+        "correctOption": "varied",
+        "explanation": "In this context, 'protean' means tending or able to change frequently or easily; versatile."
+    },
+    {
+        "question": "What does 'fiendish' mean in the sentence: He took a fiendish pleasure in hurting people?",
+        "options": ["angelic", "evil", "innocent", "harmless"],
+        "correctOption": "evil",
+        "explanation": "In this context, 'fiendish' means extremely cruel or unpleasant; devilish."
+    },
+    {
+        "question": "What does 'sobriety' mean in the sentence: This judge is known for his sobriety and fairness?",
+        "options": ["drunkenness", "seriousness", "injustice", "leniency"],
+        "correctOption": "seriousness",
+        "explanation": "In this context, 'sobriety' means the quality of being serious, solemn, or calm."
+    },
+    {
+        "question": "What does 'apocryphal' mean in the sentence: It's a good story but I dare say it's apocryphal?",
+        "options": ["authentic", "doubtful", "true", "documented"],
+        "correctOption": "doubtful",
+        "explanation": "In this context, 'apocryphal' means of doubtful authenticity, although widely circulated as being true."
+    },
+    {
+        "question": "What does 'insolent' mean in the sentence: The teacher punished the insolent child?",
+        "options": ["polite", "respectful", "rude", "obedient"],
+        "correctOption": "rude",
+        "explanation": "In this context, 'insolent' means showing a rude and arrogant lack of respect."
+    },
+    {
+        "question": "What does 'flippant' mean in the sentence: A) a flippant remark / attitude B) I think she just thought I was being flippant?",
+        "options": ["serious", "respectful", "casual", "attentive"],
+        "correctOption": "casual",
+        "explanation": "In this context, 'flippant' means not showing a serious or respectful attitude."
+    },
+    {
+        "question": "What does 'amorphous' mean in the sentence: How can historians deal with such amorphous human qualities as fear and grief?",
+        "options": ["well-defined", "shapeless", "clear", "rigid"],
+        "correctOption": "shapeless",
+        "explanation": "In this context, 'amorphous' means without a clearly defined shape or form."
+    },
+    {
+        "question": "What does 'meandering' mean in the sentence: Meandering rivers flow at vastly different rates?",
+        "options": ["straight", "twisting", "narrow", "wide"],
+        "correctOption": "twisting",
+        "explanation": "In this context, 'meandering' means following a winding course."
+    },
+    {
+        "question": "What does 'seamy' mean in the sentence: The film vividly portrays the seamy side of life in London in the early 1970s?",
+        "options": ["pleasant", "unpleasant", "clean", "boring"],
+        "correctOption": "unpleasant",
+        "explanation": "In this context, 'seamy' means sordid and disreputable."
+    },
+    {
+        "question": "What does 'tardy' mean in the sentence: Dinner at Rashmika's home was somewhat delayed on account of Rajat's rather tardy arrival?",
+        "options": ["early", "late", "quick", "unexpected"],
+        "correctOption": "late",
+        "explanation": "In this context, 'tardy' means delayed or late."
+    },
+    {
+        "question": "What does 'forlorn' mean in the sentence: She looked a forlorn figure standing at the bus stop?",
+        "options": ["cheerful", "hopeful", "abandoned", "confident"],
+        "correctOption": "abandoned",
+        "explanation": "In this context, 'forlorn' means pitifully sad and abandoned or lonely."
+    },
+    {
+        "question": "What does 'insular' mean in the sentence: Rajat was an insular person?",
+        "options": ["open-minded", "narrow-minded", "friendly", "curious"],
+        "correctOption": "narrow-minded",
+        "explanation": "In this context, 'insular' means ignorant of or uninterested in cultures, ideas, or peoples outside one's own experience."
+    },
+    {
+        "question": "What does 'levity' mean in the sentence: She would tolerate no levity in the classroom?",
+        "options": ["seriousness", "humor", "sadness", "discipline"],
+        "correctOption": "humor",
+        "explanation": "In this context, 'levity' means humor or frivolity, especially the treatment of a serious matter with humor."
+    },
+    {
+        "question": "What does 'fidgety' mean in the sentence: She seemed restless and fidgety?",
+        "options": ["calm", "still", "agitated", "focused"],
+        "correctOption": "agitated",
+        "explanation": "In this context, 'fidgety' means unable to remain still or quiet, typically as a result of anxiety or boredom."
+    },
+    {
+        "question": "What does 'cosseted' mean in the sentence: Children sometimes need to be cosseted?",
+        "options": ["neglected", "cared for", "ignored", "disciplined"],
+        "correctOption": "cared for",
+        "explanation": "In this context, 'cosseted' means cared for and protected in an overindulgent way."
+    },
+    {
+        "question": "What does 'fuddled' mean in the sentence: The heat had fuddled my brain?",
+        "options": ["cleared", "confused", "calmed", "refreshed"],
+        "correctOption": "confused",
+        "explanation": "In this context, 'fuddled' means confused or stupefied."
+    },
+    {
+        "question": "What does 'sortie' mean in the sentence: It was our first sortie into the shopping centre?",
+        "options": ["mission", "attack", "flight", "outing"],
+        "correctOption": "outing",
+        "explanation": "In this context, 'sortie' means a short trip or journey."
+    },
+    {
+        "question": "What does 'wrung out' mean in the sentence: She wrung out the shirt and hung it out to dry?",
+        "options": ["washed", "dried", "squeezed", "spun"],
+        "correctOption": "squeezed",
+        "explanation": "In this context, 'wrung out' means to twist and squeeze to remove liquid."
+    },
+    {
+        "question": "What does 'frazzle' mean in the sentence: She's worn herself to a frazzle (made herself very tired and nervous) trying to meet the deadline?",
+        "options": ["comfort", "exhaustion", "relaxation", "boredom"],
+        "correctOption": "exhaustion",
+        "explanation": "In this context, 'frazzle' means the state of being completely exhausted or worn out."
+    },
+    {
+        "question": "What does 'flayed' mean in the sentence: The critics really flayed (= severely criticised) his new book?",
+        "options": ["praised", "ignored", "criticized", "banned"],
+        "correctOption": "criticized",
+        "explanation": "In this context, 'flayed' means to criticize harshly."
+    },
+    {
+        "question": "What does 'hews to' mean in the sentence: He never states his own opinion but hews to the party line?",
+        "options": ["deviates from", "adheres to", "opposes", "ignores"],
+        "correctOption": "adheres to",
+        "explanation": "In this context, 'hews to' means to conform or adhere to."
+    },
+    {
+        "question": "What does 'chagrin' mean in the sentence: My children have never shown an interest in music, much to my chagrin?",
+        "options": ["delight", "surprise", "embarrassment", "anger"],
+        "correctOption": "embarrassment",
+        "explanation": "In this context, 'chagrin' means distress or embarrassment at having failed or been humiliated."
+    },
+    {
+        "question": "What does 'petulant' mean in the sentence: He plays the part of a petulant young man in the film?",
+        "options": ["mature", "irritable", "friendly", "brave"],
+        "correctOption": "irritable",
+        "explanation": "In this context, 'petulant' means childishly sulky or bad-tempered."
+    },
+    {
+        "question": "What does 'redolent' mean in the sentence: The description is so redolent of history as to be a constitutional precedent in itself?",
+        "options": ["unrelated", "reminiscent", "forgettable", "modern"],
+        "correctOption": "reminiscent",
+        "explanation": "In this context, 'redolent' means strongly reminiscent or suggestive of something."
+    },
+    {
+        "question": "What does 'anathema' mean in the sentence: It is an anathema to me to suggest that someone in their 60s is past their sell-by date?",
+        "options": ["blessing", "curse", "joy", "necessity"],
+        "correctOption": "curse",
+        "explanation": "In this context, 'anathema' means something or someone that one vehemently dislikes."
+    },
+    {
+        "question": "What does 'rapprochement' mean in the sentence: Policies aimed at bringing about a rapprochement with China?",
+        "options": ["conflict", "estrangement", "reconciliation", "isolation"],
+        "correctOption": "reconciliation",
+        "explanation": "In this context, 'rapprochement' means an establishment or resumption of harmonious relations."
+    },
+    {
+        "question": "What does 'cataclysmic' mean in the sentence: Twentieth century's final years witnessed some cataclysmic events unprecedented in history?",
+        "options": ["trivial", "gradual", "disastrous", "fortunate"],
+        "correctOption": "disastrous",
+        "explanation": "In this context, 'cataclysmic' means relating to or denoting a violent natural event."
+    },
+    {
+        "question": "What does 'unremitting' mean in the sentence: He achieved what he did by unremitting?",
+        "options": ["sporadic", "continuous", "half-hearted", "lazy"],
+        "correctOption": "continuous",
+        "explanation": "In this context, 'unremitting' means never relaxing or slackening; incessant."
+    },
+    {
+        "question": "What does 'blase' mean in the sentence: She was becoming quite blase about the dangers?",
+        "options": ["excited", "unconcerned", "worried", "curious"],
+        "correctOption": "unconcerned",
+        "explanation": "In this context, 'blase' means unimpressed or indifferent to something because one has experienced or seen it so often before."
+    },
+    {
+        "question": "What does 'girdled' mean in the sentence: The bus stop in her village is a semi circle of paved road girdled by a hillock?",
+        "options": ["surrounded", "distant", "separated", "hidden"],
+        "correctOption": "surrounded",
+        "explanation": "In this context, 'girdled' means encircled or surrounded."
+    },
+    {
+        "question": "What does 'ingenuous' mean in the sentence: Policy-planning, decision-making and implementation of strategy should be transparent and ingenuous?",
+        "options": ["deceptive", "naive", "sophisticated", "dishonest"],
+        "correctOption": "naive",
+        "explanation": "In this context, 'ingenuous' means innocent and unsuspecting."
+    },
+    {
+        "question": "What does 'praxis' mean in the sentence: Patterns of Christian praxis in Church and society?",
+        "options": ["theory", "practice", "belief", "fiction"],
+        "correctOption": "practice",
+        "explanation": "In this context, 'praxis' means practice, as distinguished from theory."
+    },
+    {
+        "question": "What does 'rescission' mean in the sentence: The defendants claim rescission of the Charge Agreement or damages?",
+        "options": ["approval", "termination", "ratification", "creation"],
+        "correctOption": "termination",
+        "explanation": "In this context, 'rescission' means the revocation, cancellation, or repeal of a law, order, or agreement."
+    },
+    {
+        "question": "What does 'commensurate with' mean in the sentence: Salary will be commensurate with experience?",
+        "options": ["inappropriate for", "proportional to", "disproportionate to", "exceeding"],
+        "correctOption": "proportional to",
+        "explanation": "In this context, 'commensurate with' means corresponding in size or degree; in proportion."
+    },
+    {
+        "question": "What does 'galling' mean in the sentence: I find it galling to see such negativity applied to our young people?",
+        "options": ["pleasing", "irritating", "amusing", "comforting"],
+        "correctOption": "irritating",
+        "explanation": "In this context, 'galling' means causing annoyance or resentment."
+    },
+    {
+        "question": "What does 'proffering' mean in the sentence: They too will have to work with accepting the new notes and with proffering the correct change?",
+        "options": ["rejecting", "offering", "spending", "hiding"],
+        "correctOption": "offering",
+        "explanation": "In this context, 'proffering' means holding out or offering for acceptance."
+    },
+    {
+        "question": "What does 'debilitating' mean in the sentence: Many people spend a substantial part of old age in a debilitating condition?",
+        "options": ["strengthening", "weakening", "refreshing", "energizing"],
+        "correctOption": "weakening",
+        "explanation": "In this context, 'debilitating' means making someone very weak and infirm."
+    },
+    {
+        "question": "What does 'onus' mean in the sentence: The onus is on employers to follow health and safety laws?",
+        "options": ["responsibility", "freedom", "privilege", "reward"],
+        "correctOption": "responsibility",
+        "explanation": "In this context, 'onus' means something that is one's duty or responsibility."
+    },
+    {
+        "question": "What does 'expiated' mean in the sentence: Their sins must be expiated by sacrifice?",
+        "options": ["ignored", "atoned for", "celebrated", "forgotten"],
+        "correctOption": "atoned for",
+        "explanation": "In this context, 'expiated' means to make amends or reparation for (guilt or wrongdoing)."
+    },
+    {
+        "question": "What does 'tribulation' mean in the sentence: Rashmika's silence was a source of great tribulation for Rajat?",
+        "options": ["joy", "suffering", "confusion", "happiness"],
+        "correctOption": "suffering",
+        "explanation": "In this context, 'tribulation' means a cause of great trouble or suffering."
+    },
+    {
+        "question": "What does 'mundane' mean in the sentence: Mundane matters such as paying bills and shopping for food do not interest her?",
+        "options": ["exciting", "ordinary", "unique", "extraordinary"],
+        "correctOption": "ordinary",
+        "explanation": "In this context, 'mundane' means lacking interest or excitement; dull."
+    },
+    {
+        "question": "What does 'ascription' mean in the sentence: Most teachers would reject the ascription of particular traits to whole groups of children on the basis of social class?",
+        "options": ["assignment", "removal", "denial", "ignoring"],
+        "correctOption": "assignment",
+        "explanation": "In this context, 'ascription' means the attribution of something to a cause or person."
+    },
+    {
+        "question": "What does 'tinsel' mean in the sentence: The show was all tinsel and glitter?",
+        "options": ["substance", "decoration", "simplicity", "plainness"],
+        "correctOption": "decoration",
+        "explanation": "In this context, 'tinsel' refers to showy but worthless or superficial attractiveness."
+    },
+    {
+        "question": "What does 'flinging' mean in the sentence: A) He crumpled up the letter and flung it into the fire. B) They were flinging bitter accusations at each other. C) The girls are going to the beach for one last fling before the end of summer?",
+        "options": ["throwing", "embracing", "receiving", "calming"],
+        "correctOption": "throwing",
+        "explanation": "In this context, 'flinging' means to throw or hurl forcefully."
+    },
+    {
+        "question": "What does 'tepid' mean in the sentence: I got a tepid response to my suggestion?",
+        "options": ["enthusiastic", "lukewarm", "cold", "hostile"],
+        "correctOption": "lukewarm",
+        "explanation": "In this context, 'tepid' means showing little enthusiasm."
+    },
+    {
+        "question": "What does 'obstreperous' mean in the sentence: If someone is obstreperous, he must be detained in a cell?",
+        "options": ["calm", "disorderly", "silent", "obedient"],
+        "correctOption": "disorderly",
+        "explanation": "In this context, 'obstreperous' means noisy and difficult to control."
+    },
+    {
+        "question": "What does 'garble' mean in the sentence: It's bad when phone garble conversations?",
+        "options": ["clarify", "distort", "improve", "repeat"],
+        "correctOption": "distort",
+        "explanation": "In this context, 'garble' means to reproduce a message or sound in a confused and distorted way."
+    },
+    {
+        "question": "What does 'impervious' mean in the sentence: He is impervious to criticism and rational argument?",
+        "options": ["affected by", "resistant to", "responsive to", "open to"],
+        "correctOption": "resistant to",
+        "explanation": "In this context, 'impervious' means not allowing fluid to pass through or not affected by."
+    },
+    {
+        "question": "What does 'odious' mean in the sentence: Insulting a teacher is an odious task?",
+        "options": ["pleasant", "hateful", "enjoyable", "easy"],
+        "correctOption": "hateful",
+        "explanation": "In this context, 'odious' means extremely unpleasant or repulsive."
+    },
+    {
+        "question": "What does 'a furious tirade of abuse' mean in the sentence: In a furious tirade of abuse, the mayor demanded the Superintendent's resignation?",
+        "options": ["calm speech", "angry outburst", "silent treatment", "friendly conversation"],
+        "correctOption": "angry outburst",
+        "explanation": "In this context, 'a furious tirade of abuse' means a long, angry speech of criticism or accusation."
+    },
+    {
+        "question": "What does 'visceral' mean in the sentence: His approach to acting is visceral rather than intellectual?",
+        "options": ["analytical", "emotional", "logical", "calculated"],
+        "correctOption": "emotional",
+        "explanation": "In this context, 'visceral' means relating to deep inward feelings rather than to the intellect."
+    },
+    {
+        "question": "What does 'recapitulates' mean in the sentence: The passage recapitulates the version he offers in his prologue?",
+        "options": ["ignores", "repeats", "contradicts", "deletes"],
+        "correctOption": "repeats",
+        "explanation": "In this context, 'recapitulates' means to summarize and state again the main points."
+    },
+    {
+        "question": "What does 'quarried' mean in the sentence: The gray limestone in this area was once quarried for use?",
+        "options": ["abandoned", "dug up", "ignored", "covered"],
+        "correctOption": "dug up",
+        "explanation": "In this context, 'quarried' means extracted (stone or other materials) from a quarry."
+    },
+    {
+        "question": "What does 'procure' mean in the sentence: Rajat has managed somehow to procure Rashmika’s phone number?",
+        "options": ["lose", "obtain", "destroy", "hide"],
+        "correctOption": "obtain",
+        "explanation": "In this context, 'procure' means to obtain something, especially with effort."
+    },
+    {
+        "question": "What does 'upbraided' mean in the sentence: In newspaper articles, she consistently upbraided those in authority who overstepped their limits?",
+        "options": ["praised", "criticized", "ignored", "supported"],
+        "correctOption": "criticized",
+        "explanation": "In this context, 'upbraided' means to find fault with or reproach severely."
+    },
+    {
+        "question": "What does 'desultory' mean in the sentence: She made a desultory attempt at conversation?",
+        "options": ["energetic", "purposeful", "disconnected", "effective"],
+        "correctOption": "disconnected",
+        "explanation": "In this context, 'desultory' means lacking a plan, purpose, or enthusiasm."
+    },
+    {
+        "question": "What does 'revel' mean in the sentence: The stingy old man would revel in every penny he saved?",
+        "options": ["regret", "enjoy", "waste", "lose"],
+        "correctOption": "enjoy",
+        "explanation": "In this context, 'revel' means to take great pleasure or delight in something."
+    },
+    {
+        "question": "What does 'reviled' mean in the sentence: The judge was reviled in the newspapers for his opinions on rape?",
+        "options": ["praised", "hated", "ignored", "understood"],
+        "correctOption": "hated",
+        "explanation": "In this context, 'reviled' means criticized in an abusive or angrily insulting manner."
+    },
+    {
+        "question": "What does 'cupidity' mean in the sentence: His cupidity led him to rob the bank?",
+        "options": ["generosity", "greed", "fear", "confusion"],
+        "correctOption": "greed",
+        "explanation": "In this context, 'cupidity' means greed for money or possessions."
+    },
+    {
+        "question": "What does 'sycophants' mean in the sentence: The Prime Minister is surrounded by sycophants?",
+        "options": ["critics", "admirers", "followers", "flatterers"],
+        "correctOption": "flatterers",
+        "explanation": "In this context, 'sycophants' means a person who acts obsequiously toward someone important in order to gain advantage."
+    },
+    {
+        "question": "What does 'conscripted into' mean in the sentence: He was conscripted into the army at the age of 18?",
+        "options": ["volunteered for", "forced into", "promoted in", "retired from"],
+        "correctOption": "forced into",
+        "explanation": "In this context, 'conscripted into' means to be compulsorily enlisted for military service."
+    },
+    {
+        "question": "What does 'reproof' mean in the sentence: She got a sharp reproof for being late?",
+        "options": ["praise", "blame", "reward", "silence"],
+        "correctOption": "blame",
+        "explanation": "In this context, 'reproof' means an expression of blame or disapproval."
+    },
+    {
+        "question": "What does 'evinced' mean in the sentence: In all the years I knew her, she never evinced any desire to do such a thing?",
+        "options": ["showed", "hid", "ignored", "lost"],
+        "correctOption": "showed",
+        "explanation": "In this context, 'evinced' means to reveal the presence of a quality or feeling."
+    },
+    {
+        "question": "What does 'mordant' mean in the sentence: a mordant wit?",
+        "options": ["gentle", "biting", "silly", "serious"],
+        "correctOption": "biting",
+        "explanation": "In this context, 'mordant' means having or showing a sharp or critical quality; biting."
+    },
+    {
+        "question": "What does 'jinx' mean in the sentence: There is a jinx on this computer - it's crashed three times this morning?",
+        "options": ["blessing", "curse", "repair", "gift"],
+        "correctOption": "curse",
+        "explanation": "In this context, 'jinx' means a person or thing that brings bad luck."
+    },
+    {
+        "question": "What does 'spruce' mean in the sentence: He looked spruce and handsome in a clean white shirt?",
+        "options": ["untidy", "neat", "tired", "dirty"],
+        "correctOption": "neat",
+        "explanation": "In this context, 'spruce' means neat in dress and appearance."
+    },
+    {
+        "question": "What does 'gashed' mean in the sentence: She slipped on a rock and gashed her knee?",
+        "options": ["bruised", "cut deeply", "healed", "scratched lightly"],
+        "correctOption": "cut deeply",
+        "explanation": "In this context, 'gashed' means to make a long, deep cut."
+    },
+    {
+        "question": "What does 'wrenched from/off' mean in the sentence: The phone had been wrenched from/off the wall?",
+        "options": ["gently removed", "forcefully pulled", "delicately detached", "carefully taken"],
+        "correctOption": "forcefully pulled",
+        "explanation": "In this context, 'wrenched from/off' means to pull or twist something suddenly and violently."
+    },
+    {
+        "question": "What does 'splayed out' mean in the sentence: The petals splayed out from the middle of the flower?",
+        "options": ["contracted", "expanded", "shriveled", "darkened"],
+        "correctOption": "expanded",
+        "explanation": "In this context, 'splayed out' means to spread out or apart."
+    },
+    {
+        "question": "What does 'ephemeral' mean?",
+        "options": ["long-lasting", "short-lived", "permanent", "eternal"],
+        "correctOption": "short-lived",
+        "explanation": "Ephemeral means lasting for a very short time."
+    },
+    {
+        "question": "What does 'incursions' mean in the sentence: The country made incursions into enemy territory?",
+        "options": ["retreats", "advances", "attacks", "settlements"],
+        "correctOption": "attacks",
+        "explanation": "In this context, 'incursions' means an invasion or attack, especially a sudden or brief one."
+    },
+    {
+        "question": "What does 'gripe' mean in the sentence: Her main gripe is that she is not being trained properly?",
+        "options": ["complaint", "satisfaction", "solution", "suggestion"],
+        "correctOption": "complaint",
+        "explanation": "In this context, 'gripe' means a complaint or grumble about something, especially something trivial."
+    },
+    {
+        "question": "What does 'rendezvous' mean in the sentence: Rajat & Rashmika met at a secret rendezvous in the park?",
+        "options": ["argument", "meeting", "farewell", "reunion"],
+        "correctOption": "meeting",
+        "explanation": "In this context, 'rendezvous' means a meeting at an agreed time and place, typically between two people."
+    },
+    {
+        "question": "What does 'battered' mean in the sentence: He was battered to death with a rifle butt?",
+        "options": ["gently touched", "severely beaten", "lightly tapped", "affectionately hugged"],
+        "correctOption": "severely beaten",
+        "explanation": "In this context, 'battered' means injured by repeated blows or punishment."
+    },
+    {
+        "question": "What does 'jeered' mean in the sentence: Critics jeered at his moral stance?",
+        "options": ["cheered", "praised", "mocked", "ignored"],
+        "correctOption": "mocked",
+        "explanation": "In this context, 'jeered' means to make rude and mocking remarks, typically in a loud voice."
+    },
+    {
+        "question": "What does 'peripatetic' mean in the sentence: Rashmika has a peripatetic behaviour of running away in search of adventure?",
+        "options": ["settled", "nomadic", "stable", "fixed"],
+        "correctOption": "nomadic",
+        "explanation": "In this context, 'peripatetic' means traveling from place to place, especially working or based in various places for relatively short periods."
+    },
+    {
+        "question": "What does 'predisposed' mean in the sentence: Your family history can help a doctor determine if you are predisposed to developing heart diseases?",
+        "options": ["unaffected", "prone", "immune", "opposed"],
+        "correctOption": "prone",
+        "explanation": "In this context, 'predisposed' means to make someone liable or inclined to a specified attitude, action, or condition."
+    },
+    {
+        "question": "What does 'improvident' mean in the sentence: Vishal must bear the consequences of his improvident and undisciplined behaviour?",
+        "options": ["careful", "thrifty", "wasteful", "judicious"],
+        "correctOption": "wasteful",
+        "explanation": "In this context, 'improvident' means not having or showing foresight; spendthrift or thoughtless."
+    },
+    {
+        "question": "What does 'dovetail' mean in the sentence: The management of local affairs should dovetail regional interests with those of the country as a whole?",
+        "options": ["disrupt", "combine", "ignore", "separate"],
+        "correctOption": "combine",
+        "explanation": "In this context, 'dovetail' means to fit or cause to fit together easily and conveniently."
+    },
+    {
+        "question": "What does 'bucked' mean in the sentence: This company is the only one to have bucked the trend of a declining industry?",
+        "options": ["followed", "resisted", "caused", "ignored"],
+        "correctOption": "resisted",
+        "explanation": "In this context, 'bucked' means to oppose or resist something."
+    },
+    {
+        "question": "What does 'hilt' mean in the sentence: The men who wield the power are certainly backing him to the hilt?",
+        "options": ["partially", "completely", "reluctantly", "secretly"],
+        "correctOption": "completely",
+        "explanation": "In this context, 'hilt' means to the fullest extent."
+    },
+    {
+        "question": "What does 'swagger' mean in the sentence: Karlson is full of swagger when it comes to talking about his team?",
+        "options": ["humility", "arrogance", "indifference", "silence"],
+        "correctOption": "arrogance",
+        "explanation": "In this context, 'swagger' means a very confident and typically arrogant or aggressive gait or manner."
+    },
+    {
+        "question": "What does 'sobering' mean in the sentence: The bad news had a sobering effect on all of us?",
+        "options": ["cheering", "calming", "serious", "confusing"],
+        "correctOption": "serious",
+        "explanation": "In this context, 'sobering' means making you feel serious and think carefully."
+    },
+    {
+        "question": "What does 'prospective' mean in the sentence: Any prospective buyer will be turned off by the sight of rotting wood?",
+        "options": ["former", "potential", "current", "distant"],
+        "correctOption": "potential",
+        "explanation": "In this context, 'prospective' means expected or expecting to be something particular in the future."
+    },
+    {
+        "question": "What does 'conscription' mean in the sentence: He injured himself to avoid conscription?",
+        "options": ["volunteering", "enlistment", "retirement", "promotion"],
+        "correctOption": "enlistment",
+        "explanation": "In this context, 'conscription' means compulsory enlistment for state service, typically into the armed forces."
+    },
+    {
+        "question": "What does 'picket line' mean in the sentence: Workers were subjected to intimidation as they crossed the picket line?",
+        "options": ["parade", "workplace", "strike boundary", "assembly"],
+        "correctOption": "strike boundary",
+        "explanation": "In this context, 'picket line' refers to a boundary established by workers on strike, especially at the entrance to the place of work, which others are asked not to cross."
+    },
+    {
+        "question": "What does 'interloper' mean in the sentence: She felt like an interloper in her own family?",
+        "options": ["insider", "stranger", "host", "friend"],
+        "correctOption": "stranger",
+        "explanation": "In this context, 'interloper' means a person who becomes involved in a place or situation where they are not wanted or are considered not to belong."
+    },
+    {
+        "question": "What does 'revulsion' mean in the sentence: I turned away in revulsion when they showed a close-up of the operation?",
+        "options": ["fascination", "delight", "disgust", "interest"],
+        "correctOption": "disgust",
+        "explanation": "In this context, 'revulsion' means a sense of disgust and loathing."
+    },
+    {
+        "question": "What does 'straddle' mean in the sentence: The mountains straddle the French-Swiss border?",
+        "options": ["cross", "separate", "ignore", "avoid"],
+        "correctOption": "cross",
+        "explanation": "In this context, 'straddle' means to extend across or be situated on both sides of."
+    },
+    {
+        "question": "What does 'subsume' mean in the sentence: More than anything, Dennis was interested in choosing people who could subsume their egos?",
+        "options": ["suppress", "highlight", "ignore", "promote"],
+        "correctOption": "suppress",
+        "explanation": "In this context, 'subsume' means to include or absorb something in something else, often leading to its suppression."
+    },
+    {
+        "question": "What does 'whittle it down' mean in the sentence: Your article is too long, try to whittle it down to half its length?",
+        "options": ["expand", "reduce", "ignore", "prolong"],
+        "correctOption": "reduce",
+        "explanation": "In this context, 'whittle it down' means to gradually reduce the size or amount of something."
+    },
+    {
+        "question": "What does 'barb' mean in the sentence: A fish hook has a barb to prevent the fish from escaping after being hooked?",
+        "options": ["point", "decoration", "sharp projection", "weight"],
+        "correctOption": "sharp projection",
+        "explanation": "In this context, 'barb' means a sharp projection near the end of an arrow, fishhook, or similar item, angled away from the main point so as to make extraction difficult."
+    },
+    {
+        "question": "What does 'plank' mean in the sentence: The central plank of the bill was rural development?",
+        "options": ["wooden board", "central point", "side issue", "weak point"],
+        "correctOption": "central point",
+        "explanation": "In this context, 'plank' refers to a fundamental point of a political or other program."
+    },
+    {
+        "question": "What does 'frenzy' mean in the sentence: The speaker worked the crowd up into a frenzy?",
+        "options": ["calmness", "enthusiasm", "madness", "boredom"],
+        "correctOption": "madness",
+        "explanation": "In this context, 'frenzy' means a state or period of uncontrolled excitement or wild behavior."
+    },
+    {
+        "question": "What does 'interceptor' mean in the sentence: There have been repeated allegations that the current interceptor tests have been rigged to appear more successful than they have actually been?",
+        "options": ["fighter aircraft", "spy", "defense system", "researcher"],
+        "correctOption": "defense system",
+        "explanation": "In this context, 'interceptor' refers to a defensive system designed to counter incoming attacks."
+    },
+    {
+        "question": "What does 'rigged' mean in the sentence: There have been repeated allegations that the current interceptor tests have been rigged to appear more successful than they have actually been?",
+        "options": ["honest", "manipulated", "ineffective", "improved"],
+        "correctOption": "manipulated",
+        "explanation": "In this context, 'rigged' means to manipulate or control something dishonestly."
+    },
+    {
+        "question": "What does 'floundered' mean in the sentence: My senior floundered among a jumble of thoughts?",
+        "options": ["thrived", "struggled", "succeeded", "rested"],
+        "correctOption": "struggled",
+        "explanation": "In this context, 'floundered' means to struggle or stagger helplessly or clumsily."
+    },
+    {
+        "question": "What does 'a stark fault line' mean in the sentence: These issues have created a stark fault line within the peace process?",
+        "options": ["solid foundation", "clear division", "minor issue", "smooth path"],
+        "correctOption": "clear division",
+        "explanation": "In this context, 'a stark fault line' refers to a clear and significant division or difference."
+    },
+    {
+        "question": "What does 'overtone' mean in the sentence: My friend's words were polite, but there was an overtone of anger in his voice?",
+        "options": ["underlying tone", "direct statement", "joke", "compliment"],
+        "correctOption": "underlying tone",
+        "explanation": "In this context, 'overtone' refers to a subtle or secondary quality or meaning in someone's expression."
+    },
+    {
+        "question": "What does 'hamstrung' mean in the sentence: The company was hamstrung due to lack of funds?",
+        "options": ["empowered", "enabled", "restricted", "supported"],
+        "correctOption": "restricted",
+        "explanation": "In this context, 'hamstrung' means severely restricted or crippled."
+    },
+    {
+        "question": "What does 'travails' mean in the sentence: The travails of the British car industry are seldom out of the news?",
+        "options": ["successes", "joys", "struggles", "improvements"],
+        "correctOption": "struggles",
+        "explanation": "In this context, 'travails' means painful or laborious efforts or struggles."
+    },
+    {
+        "question": "What does 'incapacitate' mean in the sentence: A successful attack would incapacitate military training camps?",
+        "options": ["destroy", "strengthen", "improve", "empower"],
+        "correctOption": "destroy",
+        "explanation": "In this context, 'incapacitate' means to deprive of strength or ability."
+    },
+    {
+        "question": "What does 'metaphor' mean in the sentence: He uses the metaphor of fire to represent hatred?",
+        "options": ["literal meaning", "comparison", "symbol", "word"],
+        "correctOption": "symbol",
+        "explanation": "In this context, 'metaphor' means a figure of speech where a word or phrase is applied to an object or action to which it is not literally applicable."
+    },
+    {
+        "question": "What does 'harrowing' mean in the sentence: The court heard harrowing testimony from survivors and relatives of the victims?",
+        "options": ["uplifting", "calm", "distressing", "pleasant"],
+        "correctOption": "distressing",
+        "explanation": "In this context, 'harrowing' means extremely distressing or painful."
+    },
+    {
+        "question": "What does 'initiation rite' mean in the sentence: You have to go through an initiation rite before you become a full member?",
+        "options": ["graduation", "test", "ceremony", "celebration"],
+        "correctOption": "ceremony",
+        "explanation": "In this context, 'initiation rite' refers to a ceremony or series of actions performed to admit someone into a group."
+    },
+    {
+        "question": "What does 'untenable' mean in the sentence: His position had become untenable and he was forced to resign?",
+        "options": ["defensible", "unjustifiable", "promising", "secure"],
+        "correctOption": "unjustifiable",
+        "explanation": "In this context, 'untenable' means not able to be maintained or defended against attack or objection."
+    },
+    {
+        "question": "What does 'unnerved' mean in the sentence: His encounter with the wild dog had completely unnerved him?",
+        "options": ["encouraged", "calmed", "frightened", "confused"],
+        "correctOption": "frightened",
+        "explanation": "In this context, 'unnerved' means to make someone lose courage or confidence."
+    },
+    {
+        "question": "What does 'rebuff' mean in the sentence: She suffered a rebuff from her manager when she raised the matter?",
+        "options": ["approval", "rejection", "praise", "reward"],
+        "correctOption": "rejection",
+        "explanation": "In this context, 'rebuff' means to reject someone or something in an abrupt or ungracious manner."
+    },
+    {
+        "question": "What does 'provenance' mean in the sentence: There's no proof about the provenance of the painting?",
+        "options": ["authenticity", "origin", "value", "condition"],
+        "correctOption": "origin",
+        "explanation": "In this context, 'provenance' means the place of origin or earliest known history of something."
+    },
+    {
+        "question": "What does 'unfettered' mean in the sentence: In writing poetry, one is unfettered by the normal rules of sentence construction?",
+        "options": ["restricted", "liberated", "compelled", "guided"],
+        "correctOption": "liberated",
+        "explanation": "In this context, 'unfettered' means not confined or restricted."
+    },
+    {
+        "question": "What does 'indictment' mean in the sentence: This research is a terrible indictment on the medical profession?",
+        "options": ["praise", "criticism", "support", "reward"],
+        "correctOption": "criticism",
+        "explanation": "In this context, 'indictment' means a thing that serves to illustrate that a system or situation is bad and deserves to be condemned."
+    },
+    {
+        "question": "What does 'Apartheid' mean in the sentence: Apartheid used tribalism as the basis of its 'divide-and-rule' homeland policies?",
+        "options": ["segregation policy", "union", "independence", "freedom"],
+        "correctOption": "segregation policy",
+        "explanation": "In this context, 'Apartheid' refers to a policy or system of segregation or discrimination on grounds of race."
+    },
+    {
+        "question": "What does 'social stratum' mean in the sentence: The dissemination of music by radio and gramophone record permeated the whole country and every social stratum?",
+        "options": ["wealth level", "occupation", "ethnic group", "social class"],
+        "correctOption": "social class",
+        "explanation": "In this context, 'social stratum' refers to a level or class to which people are assigned according to their social status, education, or income."
+    },
+    {
+        "question": "What does 'purloined' mean in the sentence: Thieves purloined jewels worth of $4 million from the mansion?",
+        "options": ["stole", "found", "sold", "destroyed"],
+        "correctOption": "stole",
+        "explanation": "In this context, 'purloined' means to steal something."
+    },
+    {
+        "question": "What does 'pliant' mean in the sentence: He was deposed and replaced by a more pliant successor?",
+        "options": ["firm", "inflexible", "compliant", "resistant"],
+        "correctOption": "compliant",
+        "explanation": "In this context, 'pliant' means easily influenced or directed; yielding."
+    },
+    {
+        "question": "What does 'clique' mean in the sentence: The club is dominated by a small clique of intellectuals?",
+        "options": ["large group", "intellectual group", "exclusive group", "public group"],
+        "correctOption": "exclusive group",
+        "explanation": "In this context, 'clique' means a small group of people with shared interests or other features in common, who spend time together and do not readily allow others to join them."
+    },
+    {
+        "question": "What does 'intemperate' mean in the sentence: His intemperate ambition will bring him a disastrous failure?",
+        "options": ["moderate", "restrained", "excessive", "minimal"],
+        "correctOption": "excessive",
+        "explanation": "In this context, 'intemperate' means having or showing a lack of self-control; immoderate."
+    },
+    {
+        "question": "What does 'a rap on the knuckles' mean in the sentence: I got a rap on the knuckles for not finishing my essay on time?",
+        "options": ["reward", "praise", "criticism", "encouragement"],
+        "correctOption": "criticism",
+        "explanation": "In this context, 'a rap on the knuckles' means a mild reprimand or criticism."
+    },
+    {
+        "question": "What does 'the drudgery' mean in the sentence: Technological advances have taken much of the drudgery out of the assembly line and car plant?",
+        "options": ["joyful work", "monotonous work", "creative work", "interesting work"],
+        "correctOption": "monotonous work",
+        "explanation": "In this context, 'drudgery' means hard, menial, or dull work."
+    },
+    {
+        "question": "What does 'platitudes' mean in the sentence: He was seen on TV delivering platitudes about the crisis in a monotone voice?",
+        "options": ["insights", "commonplaces", "jokes", "commands"],
+        "correctOption": "commonplaces",
+        "explanation": "In this context, 'platitudes' refers to remarks or statements, especially those with a moral content, that have been used too often to be interesting or thoughtful."
+    },
+    {
+        "question": "What does 'hark back to' mean in the sentence: Some old people always hark back to how things were 30 years ago?",
+        "options": ["ignore", "forget", "mention", "reminisce"],
+        "correctOption": "reminisce",
+        "explanation": "In this context, 'hark back to' means to recall or reminisce about a past event or time."
+    },
+    {
+        "question": "What does 'filial piety' mean in the sentence: In a traditional Chinese family filial piety is rigidly observed?",
+        "options": ["family gatherings", "parental love", "childish behavior", "respect for parents"],
+        "correctOption": "respect for parents",
+        "explanation": "In this context, 'filial piety' means a virtue of respect for one's parents, elders, and ancestors in Chinese culture."
+    },
+    {
+        "question": "What does 'reconnoitre' mean in the sentence: The platoon was sent to reconnoitre the village before the attack?",
+        "options": ["attack", "defend", "retreat", "survey"],
+        "correctOption": "survey",
+        "explanation": "In this context, 'reconnoitre' means to make a military observation of a region."
+    },
+    {
+        "question": "What does 'putative' mean in the sentence: The putative leader of the terrorist organization was arrested by police in Birmingham yesterday?",
+        "options": ["official", "alleged", "former", "new"],
+        "correctOption": "alleged",
+        "explanation": "In this context, 'putative' means generally considered or reputed to be."
+    },
+    {
+        "question": "What does 'cave in' mean in the sentence: The President is unlikely to cave in to the demands for a public inquiry?",
+        "options": ["resist", "yield", "ignore", "address"],
+        "correctOption": "yield",
+        "explanation": "In this context, 'cave in' means to capitulate or yield under pressure."
+    },
+    {
+        "question": "What does 'apprise' mean in the sentence: We must apprise them of the dangers that may be involved?",
+        "options": ["hide", "conceal", "inform", "withhold"],
+        "correctOption": "inform",
+        "explanation": "In this context, 'apprise' means to inform or tell someone."
+    },
+    {
+        "question": "What does 'petulance' mean in the sentence: Zeus's pride and petulance became more and more intolerable?",
+        "options": ["calmness", "anger", "childishness", "modesty"],
+        "correctOption": "childishness",
+        "explanation": "In this context, 'petulance' means the quality of being childishly sulky or bad-tempered."
+    },
+    {
+        "question": "What does 'pesky' mean in the sentence: Those pesky kids from next door have let down my car tyres again?",
+        "options": ["annoying", "friendly", "helpful", "quiet"],
+        "correctOption": "annoying",
+        "explanation": "In this context, 'pesky' means causing trouble or annoyance."
+    },
+    {
+        "question": "What does 'cliché' mean in the sentence: A poignant but erroneous cliché has made its way into journalism over the past few years?",
+        "options": ["original idea", "overused phrase", "accurate fact", "new term"],
+        "correctOption": "overused phrase",
+        "explanation": "In this context, 'cliché' means a phrase or opinion that is overused and betrays a lack of original thought."
+    },
+    {
+        "question": "What does 'pang' mean in the sentence: She experienced a sharp pang of disappointment?",
+        "options": ["burst", "pain", "joy", "feeling"],
+        "correctOption": "pain",
+        "explanation": "In this context, 'pang' means a sudden sharp pain or painful emotion."
+    },
+    {
+        "question": "What does 'sop' mean in the sentence: Some critics question its sustainability and others view it as a sop to pacify the poor?",
+        "options": ["gift", "reward", "token", "insult"],
+        "correctOption": "token",
+        "explanation": "In this context, 'sop' means a thing given or done as a concession to appease someone."
+    },
+    {
+        "question": "What does 'beetles' mean in the sentence: The cars beside the feet of this humongous tyrannosaurus look like small beetles?",
+        "options": ["large insects", "shiny objects", "tiny creatures", "big vehicles"],
+        "correctOption": "tiny creatures",
+        "explanation": "In this context, 'beetles' is used metaphorically to describe the small size of cars compared to a large dinosaur."
+    },
+    {
+        "question": "What does 'starkly' mean in the sentence: This statement starkly contrasts with his previous statements?",
+        "options": ["vaguely", "clearly", "slightly", "subtly"],
+        "correctOption": "clearly",
+        "explanation": "In this context, 'starkly' means in a way that is clearly and sharply defined."
+    },
+    {
+        "question": "What does 'welter' mean in the sentence: Individual advertisements are swamped in the welter of political coverage?",
+        "options": ["calm", "clarity", "order", "confusion"],
+        "correctOption": "confusion",
+        "explanation": "In this context, 'welter' means a large number of items in no order; a confused mass."
+    },
+    {
+        "question": "What does 'peter out' mean in the sentence: We believe inflationary pressures will peter out in the coming months?",
+        "options": ["increase", "disappear", "remain", "intensify"],
+        "correctOption": "disappear",
+        "explanation": "In this context, 'peter out' means to gradually decrease and come to an end."
+    },
+    {
+        "question": "What does 'reneged' mean in the sentence: The government had reneged on its election promises?",
+        "options": ["fulfilled", "kept", "broken", "discussed"],
+        "correctOption": "broken",
+        "explanation": "In this context, 'reneged' means to go back on a promise, undertaking, or contract."
+    },
+
+    {
+        "question": "What does 'head-on' mean in the sentence: The leaders are preparing for a head-on clash at the summit?",
+        "options": ["indirect", "direct", "calm", "peaceful"],
+        "correctOption": "direct",
+        "explanation": "In this context, 'head-on' means something done in a direct or confrontational manner."
+    },
+    {
+        "question": "What does 'haggle' mean in the sentence: In many countries, you have to haggle before you buy anything?",
+        "options": ["negotiate", "pay", "ignore", "accept"],
+        "correctOption": "negotiate",
+        "explanation": "In this context, 'haggle' means to negotiate persistently over the price of something."
+    },
+    {
+        "question": "What does 'overarching' mean in the sentence: The crisis gave an overarching justification to the government's policy?",
+        "options": ["limited", "narrow", "general", "specific"],
+        "correctOption": "general",
+        "explanation": "In this context, 'overarching' means something that encompasses or affects everything."
+    },
+    {
+        "question": "What does 'dovetail' mean in the sentence: Their goals dovetail with the company's mission?",
+        "options": ["conflict", "separate", "align", "diverge"],
+        "correctOption": "align",
+        "explanation": "In this context, 'dovetail' means to fit together or combine harmoniously."
+    },
+    {
+        "question": "What does 'outbid' mean in the sentence: The retail group outbid all three competitors for space in the shopping centre?",
+        "options": ["bid less", "bid more", "ignore", "cancel"],
+        "correctOption": "bid more",
+        "explanation": "'Outbid' means to offer a higher price than others in a bidding process."
+    },
+    {
+        "question": "What does 'at bay' mean in the sentence: He fought bravely, holding his enemies at bay?",
+        "options": ["closely", "away", "nearby", "disarmed"],
+        "correctOption": "away",
+        "explanation": "'At bay' means to keep something or someone away or at a distance."
+    },
+    {
+        "question": "What does 'lumpen' mean in the sentence: My new neighbours seemed lumpen and boring?",
+        "options": ["charming", "energetic", "dull", "sophisticated"],
+        "correctOption": "dull",
+        "explanation": "'Lumpen' means lacking in refinement or sophistication."
+    },
+    {
+        "question": "What does 'pittance' mean in the sentence: She could barely survive on the pittance she received as a pension?",
+        "options": ["large amount", "small amount", "temporary relief", "full salary"],
+        "correctOption": "small amount",
+        "explanation": "'Pittance' refers to a very small or inadequate amount of money."
+    },
+    {
+        "question": "What does 'charade' mean in the sentence: Their whole marriage had been a charade—they had never loved each other?",
+        "options": ["a game", "a disguise", "a performance", "a genuine relationship"],
+        "correctOption": "a disguise",
+        "explanation": "'Charade' means a pretense or an act that is not genuine."
+    },
+    {
+        "question": "What does 'degenerated' mean in the sentence: The debate degenerated into farce when opposing speakers started shouting at each other?",
+        "options": ["improved", "worsened", "remained", "developed"],
+        "correctOption": "worsened",
+        "explanation": "'Degenerated' means to decline or deteriorate in quality or character."
+    },
+    {
+        "question": "What does 'mired' mean in the sentence: His reasons for leaving are mired in confusion?",
+        "options": ["clear", "complex", "simple", "obvious"],
+        "correctOption": "complex",
+        "explanation": "'Mired' means to be involved in difficulties or complications."
+    },
+    {
+        "question": "What does 'gut-wrenching' mean in the sentence: The gut-wrenching pain left him unable to process any rational thought?",
+        "options": ["mild", "pleasant", "intense", "ordinary"],
+        "correctOption": "intense",
+        "explanation": "'Gut-wrenching' means causing a strong, painful emotional reaction."
+    },
+    {
+        "question": "What does 'proclivity' mean in the sentence: This proclivity hinders their ability to respond effectively to challenges?",
+        "options": ["dislike", "inclination", "avoidance", "neutrality"],
+        "correctOption": "inclination",
+        "explanation": "'Proclivity' refers to a natural inclination or tendency towards something."
+    },
+    {
+        "question": "What does 'imprimatur' mean in the sentence: The project cannot go ahead without the imprimatur of the Treasury?",
+        "options": ["approval", "denial", "suspension", "rejection"],
+        "correctOption": "approval",
+        "explanation": "'Imprimatur' means official approval or sanction."
+    },
+    {
+        "question": "What does 'invidious' mean in the sentence: It seems invidious to make special mention of one aspect of his work?",
+        "options": ["harmless", "just", "Resentment", "beneficial"],
+        "correctOption": "Resentment",
+        "explanation": "'Invidious' means likely to arouse resentment or envy."
+    },
+    {
+        "question": "What does 'outright' mean in the sentence: No one party is expected to gain an outright majority?",
+        "options": ["partial", "complete", "temporary", "hidden"],
+        "correctOption": "complete",
+        "explanation": "'Outright' means total or complete, without any qualifications or conditions."
+    },
+    {
+        "question": "What does 'lilylivered' mean in the sentence: Sweet is for lilylivered puff balls made of much softer stuff than you?",
+        "options": ["cowardly", "brave", "strong", "honest"],
+        "correctOption": "cowardly",
+        "explanation": "'Lilylivered' means lacking courage or being cowardly."
+    },
+    {
+        "question": "What does 'jibe with' mean in the sentence: Your statement doesn't jibe with the facts?",
+        "options": ["conflict", "align", "ignore", "confuse"],
+        "correctOption": "align",
+        "explanation": "'Jibe with' means to be in agreement or consistent with something."
+    },
+    {
+        "question": "What does 'fawn upon' mean in the sentence: You must guard against those who fawn upon you and bow obsequiously before you?",
+        "options": ["ignore", "flatter", "argue", "disregard"],
+        "correctOption": "flatter",
+        "explanation": "'Fawn upon' means to seek favor by showing excessive affection or flattery."
+    },
+    {
+        "question": "What does 'pusillanimity' mean in the sentence: But for the EU to go ahead with new 'partnership' talks now would send a message of astounding pusillanimity?",
+        "options": ["courage", "timidity", "strength", "confidence"],
+        "correctOption": "timidity",
+        "explanation": "'Pusillanimity' refers to a lack of courage or determination, or being timid."
+    },
+    {
+        "question": "What does 'sabrerattling' mean in the sentence: It is too early to say whether the threats are mere sabrerattling?",
+        "options": ["genuine threats", "empty threats", "peaceful actions", "cooperative gestures"],
+        "correctOption": "empty threats",
+        "explanation": "'Sabrerattling' means making threats that are not likely to be carried out."
+    },
+    {
+        "question": "What does 'fringe' mean in the sentence: The fringe of her jeans got caught in the escalator?",
+        "options": ["center", "edge", "middle", "interior"],
+        "correctOption": "edge",
+        "explanation": "'Fringe' refers to the edge or border of something."
+    },
+    {
+        "question": "What does 'sheer bravado' mean in the sentence: Take no notice of his threats they're sheer bravado?",
+        "options": ["false courage", "genuine courage", "humility", "modesty"],
+        "correctOption": "false courage",
+        "explanation": "'Sheer bravado' means a show of boldness or confidence that is not backed by real courage."
+    },
+    {
+        "question": "What does 'furnaces' mean in the sentence: On some planets orbiting these stellar furnaces skies beget clouds, oceans fill with water and, sometimes, life begins?",
+        "options": ["stars", "planets", "moons", "comets"],
+        "correctOption": "stars",
+        "explanation": "'Furnaces' refers to stars, which produce intense heat and light."
+    },
+    {
+        "question": "What does 'scramble' mean in the sentence: When the manager retired, there was a scramble for his job?",
+        "options": ["organized search", "disorderly rush", "calm selection", "slow process"],
+        "correctOption": "disorderly rush",
+        "explanation": "'Scramble' means a hurried or chaotic attempt to obtain something."
+    },
+    {
+        "question": "What does 'semantic' mean in the sentence: Humans perform both syntactic and semantic processing when reading?",
+        "options": ["related to meaning", "related to structure", "related to pronunciation", "related to grammar"],
+        "correctOption": "related to meaning",
+        "explanation": "'Semantic' pertains to meaning in language."
+    },
+    {
+        "question": "What does 'syntactic' mean in the sentence: Humans perform both syntactic and semantic processing when reading?",
+        "options": ["related to meaning", "related to structure", "related to pronunciation", "related to spelling"],
+        "correctOption": "related to structure",
+        "explanation": "'Syntactic' relates to the structure and rules of sentence formation."
+    },
+    {
+        "question": "What does 'ratchet up' mean in the sentence: Raising the minimum wage would ratchet up real incomes in general?",
+        "options": ["decrease", "increase", "stabilize", "ignore"],
+        "correctOption": "increase",
+        "explanation": "'Ratchet up' means to gradually increase or raise something."
+    },
+    {
+        "question": "What does 'strangulated' mean in the sentence: Clearly terrified, he let out a strangulated whimper?",
+        "options": ["normal", "strained", "loud", "joyful"],
+        "correctOption": "strained",
+        "explanation": "'Strangulated' means something that is constrained or choked, often resulting in a strained or difficult expression."
+    },
+    {
+        "question": "What does 'inflection' mean in the sentence: Barbara’s inflection constantly wavered as she told the detective about her assault?",
+        "options": ["intonation", "volume", "speed", "content"],
+        "correctOption": "intonation",
+        "explanation": "'Inflection' refers to the modulation of the voice or pitch while speaking."
+    },
+    {
+        "question": "What does 'retraction' mean in the sentence: The newspaper printed a retraction for their previous error?",
+        "options": ["correction", "expansion", "addition", "confirmation"],
+        "correctOption": "correction",
+        "explanation": "'Retraction' means the withdrawal or correction of a previously stated or published statement."
+    },
+    {
+        "question": "What does 'etch' mean in the sentence: The author would always etch his initials into the bottom of his sculptures with a chisel?",
+        "options": ["carve", "erase", "paint", "stamp"],
+        "correctOption": "carve",
+        "explanation": "'Etch' means to engrave or carve something into a surface."
+    },
+    {
+        "question": "What does 'prise open' mean in the sentence: My mother used a knife to prise open the lid?",
+        "options": ["force open", "close tightly", "seal", "decorate"],
+        "correctOption": "force open",
+        "explanation": "'Prise open' means to force something open with effort."
+    },
+    {
+        "question": "What does 'seminal' mean in the sentence: Newton’s laws are seminal in the field of physics?",
+        "options": ["influential", "unimportant", "temporary", "recent"],
+        "correctOption": "influential",
+        "explanation": "'Seminal' means something that is highly influential or formative."
+    },
+    {
+        "question": "What does 'wedge' mean in the sentence: Please wedge this cabinet to keep it from tipping?",
+        "options": ["secure", "loosen", "move", "disassemble"],
+        "correctOption": "secure",
+        "explanation": "'Wedge' means to fix something in place or prevent movement by inserting a wedge."
+    },
+    {
+        "question": "What does 'transfixed' mean in the sentence: He transfixed the enemy's heart with a spear?",
+        "options": ["pierce", "avoid", "strike", "miss"],
+        "correctOption": "pierce",
+        "explanation": "'Transfixed' means to pierce or penetrate something with a sharp object."
+    },
+    {
+        "question": "What does 'smithereens' mean in the sentence: She dashed the glass into smithereens against the wall?",
+        "options": ["large pieces", "small fragments", "whole", "smooth surface"],
+        "correctOption": "small fragments",
+        "explanation": "'Smithereens' refers to very small pieces or fragments of something that has been shattered."
+    },
+{
+    "question": "What does 'sired' mean in the sentence: At the age of 70, he married a much younger woman and went on to sire two more children?",
+    "options": ["fathered", "adopted", "mentored", "nurtured"],
+    "correctOption": "fathered",
+    "explanation": "'Sired' means to father or produce offspring."
+},
+    {
+        "question": "What does 'the mirage of an oasis' refer to?",
+        "options": ["an illusion", "a real oasis", "a kind of mirage", "a type of plant"],
+        "correctOption": "an illusion",
+        "explanation": "'The mirage of an oasis' refers to an illusion of something desirable that is not real."
+    },
+    {
+        "question": "What does the phrase 'If the old dog barks, he gives counsel' imply?",
+        "options": ["Old people give advice", "Old dogs are noisy", "Old dogs are wise", "Old people are stubborn"],
+        "correctOption": "Old people give advice",
+        "explanation": "The phrase implies that older people often give advice or counsel."
+    },
+    {
+        "question": "What does 'desertions' refer to in the context: 'There were thousands of desertions in the last weeks of the war'?",
+        "options": ["abandonments", "victories", "recruits", "fortifications"],
+        "correctOption": "abandonments",
+        "explanation": "'Desertions' refers to the act of abandoning one's post, especially in a military context."
+    },
+    {
+        "question": "What does 'bowlerhatted' describe in the context: 'He is the bowlerhatted figure in the foreground of Orpen's famous painting'?",
+        "options": ["wearing a bowler hat", "dressed in a suit", "holding a bowler", "bowing down"],
+        "correctOption": "wearing a bowler hat",
+        "explanation": "'Bowlerhatted' describes someone who is wearing a bowler hat."
+    },
+    {
+        "question": "What does 'chauvinistic' mean in the sentence: 'The crowd was enthusiastically singing chauvinistic patriotic songs'?",
+        "options": ["patriotic", "generous", "apathetic", "critical"],
+        "correctOption": "patriotic",
+        "explanation": "'Chauvinistic' means showing excessive or prejudiced support for one's own cause or group."
+    },
+    {
+        "question": "What does 'buckle down' mean in the context: 'He tried to buckle down to some work'?",
+        "options": ["start working", "give up", "take a break", "avoid work"],
+        "correctOption": "start working",
+        "explanation": "'Buckle down' means to begin working hard or seriously."
+    },
+    {
+        "question": "What does 'pollinate' refer to in the context: 'Many of the indigenous insects are needed to pollinate the local plants'?",
+        "options": ["transfer pollen", "spread seeds", "water plants", "grow plants"],
+        "correctOption": "transfer pollen",
+        "explanation": "'Pollinate' means to transfer pollen from one flower to another to enable fertilization."
+    },
+    {
+        "question": "What does 'fester' mean in the sentence: 'The injury will fester and become infected if antibiotics are not applied quickly'?",
+        "options": ["worsen", "heal", "disappear", "improve"],
+        "correctOption": "worsen",
+        "explanation": "'Fester' means to become worse or more severe, especially in the context of an infection."
+    },
+    {
+        "question": "What does 'eerily' describe in the sentence: 'Her voice was eerily similar to her dead grandmother's'?",
+        "options": ["in a strange", "in a joyful way", "in a normal way", "in a calm way"],
+        "correctOption": "in a strange",
+        "explanation": "'Eerily' means in a way that is strange, frightening, or unsettling."
+    },
+    {
+        "question": "What is a 'token gesture' in the context: 'The government has only made a token gesture towards helping the unemployed'?",
+        "options": ["a small or symbolic action", "a large financial investment", "a significant reform", "a physical gift"],
+        "correctOption": "a small or symbolic action",
+        "explanation": "'Token gesture' refers to a small or symbolic action that is not meant to be effective or substantial."
+    },
+    {
+        "question": "What does 'trump up' mean in the sentence: 'The offer may trump up business for other companies, as well'?",
+        "options": ["increase", "decrease", "replace", "cancel"],
+        "correctOption": "increase",
+        "explanation": "'Trump up' means to exaggerate or inflate something, such as an offer or opportunity."
+    },
+    {
+        "question": "What does 'incumbent on' mean in the context: 'It's incumbent on parents to advise their children about the bad and good habits'?",
+        "options": ["responsible for", "optional for", "beneficial for", "unnecessary for"],
+        "correctOption": "responsible for",
+        "explanation": "'Incumbent on' means having a duty or responsibility."
+    },
+    {
+        "question": "What does 'spiral path' refer to in the sentence: 'The road of life is a spiral path, only swagger, flexible turning, can rise to the ideal'?",
+        "options": ["a winding route", "a direct route", "a fast route", "a straight path"],
+        "correctOption": "a winding route",
+        "explanation": "'Spiral path' refers to a route that winds or twists, symbolizing the complexities of life."
+    },
+    {
+        "question": "What does 'perfect foil' mean in the context: 'Her sparkling jewellery served as the perfect foil for her fine complexion'?",
+        "options": ["a complementary contrast", "an exact match", "a type of jewelry", "a disguise"],
+        "correctOption": "a complementary contrast",
+        "explanation": "'Perfect foil' means something that contrasts well with and enhances the qualities of something else."
+    },
+    {
+        "question": "What does 'manhandle' mean in the context: 'In his rear mirror he watched his father struggle with the doors and manhandle the basket on to the ground'?",
+        "options": ["handle roughly", "lift carefully", "place gently", "assemble"],
+        "correctOption": "handle roughly",
+        "explanation": "'Manhandle' means to handle or move something in a rough or forceful manner."
+    },
+    {
+        "question": "What does 'smash down' mean in the sentence: 'They got a battering ram to smash down the door'?",
+        "options": ["break", "repair", "unlock", "open slowly"],
+        "correctOption": "break",
+        "explanation": "'Smash down' means to break something with force."
+    },
+    {
+        "question": "What does 'detonate' mean in the context: 'France is expected to detonate its first nuclear device in the next few days'?",
+        "options": ["explode", "hide", "manufacture", "test"],
+        "correctOption": "explode",
+        "explanation": "'Detonate' means to cause something to explode."
+    },
+    {
+        "question": "What does 'up the ante' mean in the sentence: 'The owners are constantly carping about runaway salaries, then fall over themselves to jump the gun and up the ante'?",
+        "options": ["increase the stakes", "decrease the stakes", "play a game", "prepare for a challenge"],
+        "correctOption": "increase the stakes",
+        "explanation": "'Up the ante' means to increase the level of risk or stakes in a situation."
+    },
+    {
+        "question": "What does 'paradigmatic' mean in the context: 'This may be due to the greater paradigmatic influence of geophysical research on the other earth sciences'?",
+        "options": ["model", "ordinary", "experimental", "complex"],
+        "correctOption": "model",
+        "explanation": "'Paradigmatic' means serving as a model or example."
+    },
+    {
+        "question": "What does 'chicanery' refer to in the sentence: 'Clearly there is some chicanery going on and perhaps in due course we will find out the truth'?",
+        "options": ["deception", "clarity", "honesty", "accuracy"],
+        "correctOption": "deception",
+        "explanation": "'Chicanery' refers to the use of trickery or deception."
+    },
+    {
+        "question": "What does 'in moderation' mean in the context: 'Some people think drinking in moderation can prevent heart disease'?",
+        "options": ["reasonable", "excessively", "rarely", "frequently"],
+        "correctOption": "reasonable",
+        "explanation": "'In moderation' means within reasonable and balanced limits, not excessive."
+    },
+    {
+        "question": "What does 'pilloried' mean in the sentence: 'The man was pilloried in the newspapers and his resignation demanded'?",
+        "options": ["criticized", "praised", "ignored", "supported"],
+        "correctOption": "criticized",
+        "explanation": "'Pilloried' means to be criticized or attacked severely."
+    },
+    {
+        "question": "What does 'circumvented' mean in the context: 'The game had a single inviolable rule: obstacles were to be overcome, not circumvented'?",
+        "options": ["avoided", "faced directly", "solved", "disregarded"],
+        "correctOption": "avoided",
+        "explanation": "'Circumvented' means to avoid or bypass something, usually by using cleverness."
+    },
+    {
+        "question": "What does 'inviolable' mean in the context: 'The game had a single inviolable rule: obstacles were to be overcome, not circumvented'?",
+        "options": ["untouchable", "flexible", "optional", "unimportant"],
+        "correctOption": "untouchable",
+        "explanation": "'Inviolable' means something that is too important or sacred to be violated or disregarded."
+    },
+    {
+        "question": "What does 'parlous' mean in the sentence: 'My cousins had a parlous journey on hilly areas'?",
+        "options": ["dangerous", "pleasant", "easy", "short"],
+        "correctOption": "dangerous",
+        "explanation": "'Parlous' means full of danger or risk."
+    },
+    {
+        "question": "What does 'loom ahead' mean in the context: 'We should flag those problems that could loom ahead'?",
+        "options": ["become imminent", "disappear", "become less important", "become irrelevant"],
+        "correctOption": "become imminent",
+        "explanation": "'Loom ahead' means to appear as a significant and imminent issue."
+    },
+    {
+        "question": "What does 'unerring' mean in the sentence: 'He has an unerring knack of saying the wrong thing'?",
+        "options": ["always accurate", "frequently mistaken", "occasionally correct", "rarely accurate"],
+        "correctOption": "always accurate",
+        "explanation": "'Unerring' means consistently accurate or without error."
+    },
+    {
+        "question": "What does 'spanner' refer to in the context: 'I needed a special spanner and I couldn't beg, steal or borrow one anywhere'?",
+        "options": ["a type of wrench", "a type of screwdriver", "a type of drill", "a type of hammer"],
+        "correctOption": "a type of wrench",
+        "explanation": "'Spanner' is a tool used to turn nuts and bolts, similar to a wrench."
+    },
+    {
+        "question": "What does 'bung' mean in the sentence: 'Will you bung another coin in the machine?'",
+        "options": ["insert", "remove", "exchange", "purchase"],
+        "correctOption": "insert",
+        "explanation": "'Bung' means to put or insert something, especially quickly or carelessly."
+    },
+    {
+        "question": "What does 'gallows' refer to in the proverb: 'Save a thief from gallows and he will help hang you'?",
+        "options": ["a place for execution", "a type of punishment", "a court", "a jail"],
+        "correctOption": "a place for execution",
+        "explanation": "'Gallows' refers to a structure used for hanging people as a form of execution."
+    },
+    {
+        "question": "What does 'silver lining' mean in the sentence: 'The fall in inflation is the silver lining of the prolonged recession'?",
+        "options": ["a positive aspect", "a temporary relief", "a financial gain", "a solution to the problem"],
+        "correctOption": "a positive aspect",
+        "explanation": "'Silver lining' refers to a hopeful or positive aspect in a difficult situation."
+    },
+    {
+        "question": "What does 'elapse' mean in the context: 'The return of the echo will elapse longer time'?",
+        "options": ["pass", "repeat", "increase", "decrease"],
+        "correctOption": "pass",
+        "explanation": "'Elapse' means to pass or go by, usually in reference to time."
+    },
+    {
+        "question": "What does 'redound' mean in the sentence: 'Her success will redound to the fame of Beijing University'?",
+        "options": ["contribute to", "detract from", "ignore", "neglect"],
+        "correctOption": "contribute to",
+        "explanation": "'Redound' means to contribute to or have a positive effect on something."
+    },
+    {
+        "question": "What does 'condign' mean in the sentence: 'The public approved the condign punishment'?",
+        "options": ["deserved", "excessive", "lenient", "unfair"],
+        "correctOption": "deserved",
+        "explanation": "'Condign' means deserved, usually in the context of punishment."
+    },
+    {
+        "question": "What does 'hedge against' mean in the sentence: 'Buying new flat may be a hedge against inflation'?",
+        "options": ["protection from", "avoidance of", "investment in", "reliance on"],
+        "correctOption": "protection from",
+        "explanation": "'Hedge against' means to protect oneself from possible future problems or losses."
+    },
+    {
+        "question": "What does 'parley' mean in the context: 'The general manager decided to hold a parley with the opposition'?",
+        "options": ["a discussion", "a meeting", "a party", "a celebration"],
+        "correctOption": "a discussion",
+        "explanation": "'Parley' means a discussion between opposing parties."
+    },
+    {
+        "question": "What does 'salutary' mean in the sentence: 'The accident was a salutary reminder of the dangers of climbing'?",
+        "options": ["beneficial", "harmful", "irrelevant", "unpleasant"],
+        "correctOption": "beneficial",
+        "explanation": "'Salutary' means beneficial, often in the context of a lesson learned from a negative experience."
+    },
+    {
+        "question": "What does 'outweigh' mean in the sentence: 'The advantages of this deal largely outweigh the disadvantages'?",
+        "options": ["be more significant than", "be equal to", "be less than", "be irrelevant to"],
+        "correctOption": "be more significant than",
+        "explanation": "'Outweigh' means to be more significant or important than something else."
+    },
+    {
+        "question": "What does 'adjudication' mean in the context: 'The case was referred to a higher court for adjudication'?",
+        "options": ["judgment", "appeal", "negotiation", "investigation"],
+        "correctOption": "judgment",
+        "explanation": "'Adjudication' refers to the process of making a judgment in a legal case."
+    },
+    {
+        "question": "What does 'fetish' mean in the context: 'Women's underclothes are a common fetish'?",
+        "options": ["a strong obsession", "a casual interest", "a fashionable item", "a general preference"],
+        "correctOption": "a strong obsession",
+        "explanation": "'Fetish' refers to a strong and often irrational obsession with something."
+    },
+    {
+        "question": "What does 'negation' mean in the sentence: 'The author boxed the compass of negation in his article'?",
+        "options": ["rejection", "acceptance", "agreement", "clarification"],
+        "correctOption": "rejection",
+        "explanation": "'Negation' refers to the rejection of something."
+    },
+    {
+        "question": "What does 'invigorate' mean in the sentence: 'The tactic could help invigorate a struggling campaign'?",
+        "options": ["energize", "weaken", "ignore", "evaluate"],
+        "correctOption": "energize",
+        "explanation": "'Invigorate' means to energize, making something more effective or lively."
+    },
+    {
+        "question": "What does 'Given' mean in the sentence: 'Given the turbulent times which still afflict the industry, this is a remarkable achievement'?",
+        "options": ["considering", "ignoring", "accepting", "proclaiming"],
+        "correctOption": "considering",
+        "explanation": "'Given' means taking into account or considering a certain factor or condition."
+    },
+    {
+        "question": "What does 'sustenance' mean in the sentence: 'Elections necessary for the sustenance democracy'?",
+        "options": ["support", "destruction", "creation", "abandonment"],
+        "correctOption": "support",
+        "explanation": "'Sustenance' means support, especially necessary for survival or continuation."
+    },
+    {
+        "question": "What does 'existential' mean in the sentence: 'The electric light was an invention with profound existential consequences'?",
+        "options": ["relating to existence", "relating to technology", "relating to history", "relating to culture"],
+        "correctOption": "relating to existence",
+        "explanation": "'Existential' means relating to existence or the nature of being."
+    },
+    {
+        "question": "What does 'count on' mean in the sentence: 'When I am exhausted after work, I count on a hot shower to rejuvenate myself'?",
+        "options": ["rely on", "forget about", "ignore", "doubt"],
+        "correctOption": "rely on",
+        "explanation": "'Count on' means to rely on or depend on something or someone."
+    },
+    {
+        "question": "What does 'tamper with' mean in the sentence: 'We should not tamper with others' affairs'?",
+        "options": ["interfere", "ignore", "assist", "observe"],
+        "correctOption": "interfere",
+        "explanation": "'Tamper with' means to interfere or meddle with something, often in a way that causes harm."
+    },
+    {
+        "question": "What does 'errant' mean in the sentence: 'He fired his pistol in the air and charged over the top as if he were chasing some errant fox'?",
+        "options": ["wandering", "loyal", "calm", "friendly"],
+        "correctOption": "wandering",
+        "explanation": "'Errant' means wandering from the proper course or standards."
+    },
+    {
+        "question": "What does 'vestigial' mean in the sentence: 'They were no longer men, just the vestigial remains of what had once been human beings'?",
+        "options": ["remains", "new", "essential", "functional"],
+        "correctOption": "remains",
+        "explanation": "'Vestigial' refers to something that is a remnant or a leftover from an earlier stage of development."
+    },
+    {
+        "question": "What does 'adjunct' mean in the sentence: 'Physical therapy is an important adjunct to drug treatments'?",
+        "options": ["supplement", "replacement", "alternative", "primary"],
+        "correctOption": "supplement",
+        "explanation": "'Adjunct' means something that is added or supplementary to something else."
+    },
+    {
+        "question": "What does 'detractors' mean in the sentence: 'The detractors say they are relative newcomers who would have constituted a gamble'?",
+        "options": ["critics", "supporters", "neutral parties", "contributors"],
+        "correctOption": "critics",
+        "explanation": "'Detractors' are people who criticize or speak against someone or something."
+    },
+    {
+        "question": "What does 'adapt to' mean in the sentence: 'You'll either need to adapt to her fast-track lifestyle or simply get out of the race and let someone else take your place'?",
+        "options": ["adjust", "resist", "ignore", "oppose"],
+        "correctOption": "adjust",
+        "explanation": "'Adapt to' means to adjust or change oneself to fit a new or different situation."
+    },
+    {
+        "question": "What does 'spool' refer to in the sentence: 'The water wheel was constructed from an electric cable spool'?",
+        "options": ["a reel or cylinder for winding", "a type of tool", "a kind of container", "a machine part"],
+        "correctOption": "a reel or cylinder for winding",
+        "explanation": "'Spool' is a reel or cylinder on which wire, thread, or film is wound."
+    },
+    {
+        "question": "What does 'precipitate' mean in the sentence: 'I don't think we should make precipitate decisions'?",
+        "options": ["hasty or rash", "careful", "well-thought-out", "delayed"],
+        "correctOption": "hasty or rash",
+        "explanation": "'Precipitate' means hasty or rash, done quickly without careful consideration."
+    },
+    {
+        "question": "What does 'polemical' mean in the sentence: 'Setting aside the polemical aspects of his argument, Honderich's thesis boils down to three points'?",
+        "options": ["controversial", "neutral", "supportive", "unrelated"],
+        "correctOption": "controversial",
+        "explanation": "'Polemical' refers to something that involves strong or controversial arguments."
+    },
+    {
+        "question": "What does 'foreboding' mean in the sentence: 'He returned, full of foreboding, to the scene of the accident'?",
+        "options": ["doom", "excitement", "relief", "happiness"],
+        "correctOption": "doom",
+        "explanation": "'Foreboding' means a sense or feeling that something bad is going to happen."
+    },
+    {
+        "question": "What does 'clout' mean in the sentence: 'My mother carries a lot of clout in her opinion'?",
+        "options": ["influence", "wealth", "popularity", "authority"],
+        "correctOption": "influence",
+        "explanation": "'Clout' means influence, especially in a social or political context."
+    },
+    {
+        "question": "What does 'romantic' mean in the sentence: 'He was despotic, and she liked freedom; he was worldly, and she, perhaps, romantic'?",
+        "options": ["idealistic", "practical", "realistic", "skeptical"],
+        "correctOption": "idealistic",
+        "explanation": "'Romantic' refers to being idealistic or sentimental, often in a way that contrasts with practicality."
+    },
+    {
+        "question": "What does 'swayed' mean in the sentence: 'The first round of multilateral trade talks has swayed between hope and despair'?",
+        "options": ["moved back and forth", "stayed steady", "changed direction", "remained constant"],
+        "correctOption": "moved back and forth",
+        "explanation": "'Swayed' means to move or change direction, often in a back-and-forth manner."
+    },
+    {
+        "question": "What does 'detente' mean in the sentence: 'The talks are aimed at furthering detente between the two countries'?",
+        "options": ["easing of tensions", "increasing conflict", "solidifying alliances", "breaking relations"],
+        "correctOption": "easing of tensions",
+        "explanation": "'Detente' refers to the easing or relaxation of strained relations, especially political ones."
+    },
+    {
+        "question": "What does 'turnaround' mean in the sentence: 'We must reduce costs and shorten turnaround times'?",
+        "options": ["time taken to complete a process", "an increase in production", "a change in management", "a new strategy"],
+        "correctOption": "time taken to complete a process",
+        "explanation": "'Turnaround' refers to the time taken to complete a process or the period between the start and end of a process."
+    },
+    {
+        "question": "What does 'vestigial remains' mean in the sentence: 'They were no longer men, just the vestigial remains of what had once been human beings'?",
+        "options": ["remains", "new and evolving", "complete and functional", "recently developed"],
+        "correctOption": "remains",
+        "explanation": "'Vestigial remains' refers to remnants or traces of something that was once more developed or functional."
+    },
+    {
+        "question": "What does 'redact' mean in the sentence: 'You can redact a word simply by selecting it with your mouse cursor'?",
+        "options": ["edit", "add", "highlight", "ignore"],
+        "correctOption": "edit",
+        "explanation": "'Redact' means to edit or remove parts of a text, often for privacy or security reasons."
+    },
+    {
+        "question": "What does 'agnostic' mean in the sentence: 'These notices are sometimes the only way the agnostic or the non-church member can find of expressing their grief'?",
+        "options": ["someone who is uncertain about religious beliefs", "a devout believer", "a critic of religion", "an atheist"],
+        "correctOption": "someone who is uncertain about religious beliefs",
+        "explanation": "'Agnostic' refers to someone who is uncertain about the existence of a deity or religious beliefs."
+    },
+    {
+        "question": "What does 'anvil' mean in the sentence: 'But as soon as they had completed their calibration, Williams and Jeanloz began squeezing samples of iron in the diamond anvil'?",
+        "options": ["a heavy iron block used in metalworking", "a type of drill", "a kind of hammer", "a tool for cutting"],
+        "correctOption": "a heavy iron block used in metalworking",
+        "explanation": "'Anvil' is a heavy iron block used in metalworking to shape and hammer metal."
+    },
+    {
+        "question": "What does 'fissure' mean in the sentence: 'Ahead lay a large fissure in the ice, three feet across'?",
+        "options": ["a crack", "a smooth surface", "a small hole", "a thick layer"],
+        "correctOption": "a crack",
+        "explanation": "'Fissure' refers to a crack or split, especially in rock or ice."
+    },
+    {
+        "question": "What does 'flashpoint' mean in the sentence: 'The immediate flashpoint was Wednesday's big rally in the city centre'?",
+        "options": ["a critical point of conflict", "a sudden change in weather", "a point of major interest", "a place of safety"],
+        "correctOption": "a critical point of conflict",
+        "explanation": "'Flashpoint' refers to a critical point where conflict or tension erupts suddenly."
+    },
+    {
+        "question": "What does 'wafer-thin' mean in the sentence: 'No Government could continue on so wafer-thin a majority'?",
+        "options": ["very small and narrow", "large and secure", "thick and strong", "easily breakable"],
+        "correctOption": "very small and narrow",
+        "explanation": "'Wafer-thin' means very small or narrow, often used to describe a very slim majority or margin."
+    },
+    {
+        "question": "What does 'vouch from' mean in the sentence: 'As a medical examiner I can vouch from experience that his death was accidental'?",
+        "options": ["confirm based on personal knowledge", "guess without evidence", "assume without proof", "report based on hearsay"],
+        "correctOption": "confirm based on personal knowledge",
+        "explanation": "'Vouch from' means to confirm or support a statement based on personal knowledge or experience."
+    },
+    {
+        "question": "What does 'restitution' mean in the sentence: 'The chemicals company promised to make full restitution to the victims for the injury to their health'?",
+        "options": ["compensation and repayment", "a formal apology", "a public statement", "a legal declaration"],
+        "correctOption": "compensation and repayment",
+        "explanation": "'Restitution' refers to compensation or repayment for damage or injury."
+    },
+    {
+        "question": "What does 'conjugal' mean in the sentence: 'Some prisoners who want to start a family are to be permitted conjugal visits'?",
+        "options": ["relating to marriage or the relationship between married partners", "related to legal matters", "associated with religious ceremonies", "pertaining to family law"],
+        "correctOption": "relating to marriage or the relationship between married partners",
+        "explanation": "'Conjugal' refers to matters related to marriage or the relationship between married partners."
+    },
+    {
+        "question": "What does 'beleaguered' mean in the sentence: 'They beleaguered her with requests for forgiveness'?",
+        "options": ["harassed", "assisted", "ignored", "protected"],
+        "correctOption": "harassed",
+        "explanation": "'Beleaguered' means harassed or troubled by persistent problems or demands."
+    },
+    {
+        "question": "What does 'inalienable' mean in the sentence: 'He maintains that Taiwan has always been an inalienable part of China'?",
+        "options": ["unable to be taken away", "optional", "easily transferable", "unrelated"],
+        "correctOption": "unable to be taken away",
+        "explanation": "'Inalienable' means something that cannot be taken away or transferred, often used to describe rights or possessions."
+    },
+    {
+        "question": "What does 'jingoism' mean in the sentence: 'The man’s jingoism led him to attempt to destroy a federal building as a show of loyalty for his own nation'?",
+        "options": ["extreme patriotism", "neutrality", "internationalism", "apathy"],
+        "correctOption": "extreme patriotism",
+        "explanation": "'Jingoism' refers to extreme patriotism or nationalism, often accompanied by aggressive or warlike policies."
+    },
+    {
+        "question": "What does 'hovered' mean in the sentence: 'It hovered before his eyes like the mirage of an oasis'?",
+        "options": ["remained in one place", "moved quickly", "disappeared", "fell down"],
+        "correctOption": "remained in one place",
+        "explanation": "'Hovered' means to remain in one place in the air or to stay suspended."
+    },
+    {
+        "question": "What does 'wherewithal' mean in the sentence: 'She didn't have the wherewithal to repay the loan'?",
+        "options": ["resources", "courage", "advice", "opportunity"],
+        "correctOption": "resources",
+        "explanation": "'Wherewithal' refers to the resources or means necessary to accomplish something."
+    },
+    {
+        "question": "What does 'topple' mean in the sentence: 'It is the high time to take some serious and effective steps to topple the orthodoxy of society'?",
+        "options": ["overthrow", "support", "ignore", "maintain"],
+        "correctOption": "overthrow",
+        "explanation": "'Topple' means to overthrow or disrupt something established or entrenched."
+    },
+    {
+        "question": "What does 'plague' mean in the sentence: 'Fears about job security plague nearly half the workforce'?",
+        "options": ["cause continuous trouble", "provide relief", "create excitement", "offer support"],
+        "correctOption": "cause continuous trouble",
+        "explanation": "'Plague' means to cause continuous trouble or distress."
+    },
+    {
+        "question": "What does 'harping' mean in the sentence: 'He keeps on harping the same procedure'?",
+        "options": ["repeating", "changing", "ignoring", "discussing briefly"],
+        "correctOption": "repeating",
+        "explanation": "'Harping' means to repeat or dwell on something persistently."
+    },
+    {
+        "question": "What does 'overhaul' mean in the sentence: 'The machinery needs a complete overhaul'?",
+        "options": ["a thorough examination", "a simple cleaning", "a minor adjustment", "a new purchase"],
+        "correctOption": "a thorough examination",
+        "explanation": "'Overhaul' means a thorough examination and repair of something."
+    },
+    {
+        "question": "What does 'steer a middle course' mean in the sentence: 'The government chose to steer a middle course between the two strategies'?",
+        "options": ["to find a compromise", "to take a definitive side", "to avoid taking any action", "to follow a new strategy"],
+        "correctOption": "to find a compromise",
+        "explanation": "'Steer a middle course' means to find a balanced or compromise approach between two extremes."
+    },
+    {
+        "question": "What does 'bland' mean in the sentence: 'After the meeting, a bland statement was issued'?",
+        "options": ["lacking strong features", "exciting", "controversial", "formal"],
+        "correctOption": "lacking strong features",
+        "explanation": "'Bland' means lacking strong features or characteristics, often used to describe something that is dull or unremarkable."
+    },
+    {
+        "question": "What does 'well taken' mean in the sentence: 'There's no question about your advice being well taken'?",
+        "options": ["accepted", "ignored", "questioned", "criticized"],
+        "correctOption": "accepted",
+        "explanation": "'Well taken' means that something is accepted or appreciated."
+    },
+    {
+        "question": "What does 'damning' mean in the sentence: 'The author has delivered a damning counterblast to her critics'?",
+        "options": ["strongly condemning", "supportive", "neutral", "irrelevant"],
+        "correctOption": "strongly condemning",
+        "explanation": "'Damning' means strongly condemning or criticizing someone or something."
+    },
+    {
+        "question": "What does 'purport' mean in the sentence: 'The novel does not purport to be a complete history of the period'?",
+        "options": ["claim to be", "ignore", "describe briefly", "deny"],
+        "correctOption": "claim to be",
+        "explanation": "'Purport' means to claim or present oneself as being something."
+    },
+    {
+        "question": "What does 'sporadic' mean in the sentence: 'There were reports of sporadic fighting in the streets'?",
+        "options": ["occasional", "constant", "organized", "planned"],
+        "correctOption": "occasional",
+        "explanation": "'Sporadic' means occurring occasionally or at irregular intervals."
+    },
+    {
+        "question": "What does 'perpetuate' mean in the sentence: 'These actions will perpetuate the hostility between the two groups'?",
+        "options": ["to make something continue indefinitely", "to stop", "to reduce", "to create"],
+        "correctOption": "to make something continue indefinitely",
+        "explanation": "'Perpetuate' means to make something continue indefinitely or to keep something going."
+    },
+    {
+        "question": "What does 'obscure' mean in the sentence: 'His poetry is full of obscure literary allusions'?",
+        "options": ["hidden", "clear", "common", "simple"],
+        "correctOption": "hidden",
+        "explanation": "'Obscure' means not easily understood or hidden from view."
+    },
+    {
+        "question": "What does 'averse' mean in the sentence: 'He seems to be averse to hard work'?",
+        "options": ["opposition to", "enthusiastic about", "uninterested in", "supportive of"],
+        "correctOption": "opposition to",
+        "explanation": "'Averse' means having a strong dislike or opposition to something."
+    },
+    {
+        "question": "What does 'incapacitated' mean in the sentence: 'He was incapacitated by old age and sickness'?",
+        "options": ["unable to function normally", "energized", "improved", "temporarily confused"],
+        "correctOption": "unable to function normally",
+        "explanation": "'Incapacitated' means unable to function normally due to illness or other factors."
+    },
+    {
+        "question": "What does 'erratic' mean in the sentence: 'The singer gave an erratic performance'?",
+        "options": ["inconsistent", "perfect", "steady", "reliable"],
+        "correctOption": "inconsistent",
+        "explanation": "'Erratic' means unpredictable or inconsistent in behavior or performance."
+    },
+    {
+        "question": "What does 'beneficial' mean in the sentence: 'A half-hour daily walk can be more beneficial than one hard bout of exercise a week'?",
+        "options": ["advantageous", "unnecessary", "harmful", "neutral"],
+        "correctOption": "advantageous",
+        "explanation": "'Beneficial' means helpful or advantageous, providing a benefit."
+    },
+    {
+        "question": "What does 'lurk' mean in the sentence: 'Hidden dangers lurk in the ocean depths'?",
+        "options": ["to remain hidden while waiting", "to appear suddenly", "to be visible", "to retreat"],
+        "correctOption": "to remain hidden while waiting",
+        "explanation": "'Lurk' means to remain hidden while waiting for an opportunity to emerge or act."
+    },
+    {
+        "question": "What does 'wearing thin' mean in the sentence: 'I've warned you several times about being late and my patience is wearing thin'?",
+        "options": ["depleted", "increasing", "remaining constant", "strengthening"],
+        "correctOption": "depleted",
+        "explanation": "'Wearing thin' means becoming exhausted or depleted, often referring to patience or tolerance."
+    },
+    {
+        "question": "What does 'incumbent' mean in the sentence: 'It's incumbent on parents to advise their children about the bad and good habits'?",
+        "options": ["required", "optional", "unnecessary", "advisory"],
+        "correctOption": "required",
+        "explanation": "'Incumbent' means something that is obligatory or required as a duty."
+    },
+    {
+        "question": "What does 'overarching' mean in the sentence: 'The Supreme Court said that there has to be 'overarching' guidelines to guard personal information in public domain'?",
+        "options": ["comprehensive and all-encompassing", "specific", "minimal", "irrelevant"],
+        "correctOption": "comprehensive and all-encompassing",
+        "explanation": "'Overarching' means comprehensive and all-encompassing, covering or affecting many aspects."
+    },
+    {
+        "question": "What does 'bear out' mean in the sentence: 'Close examination fails to bear out the argument'?",
+        "options": ["to support", "to contradict", "to create", "to ignore"],
+        "correctOption": "to support",
+        "explanation": "'Bear out' means to confirm or support something with evidence or facts."
+    },
+    {
+        "question": "What does 'moot point' mean in the sentence: 'It's a moot point whether Rohan or Sohan is a better player'?",
+        "options": ["a subject open to debate", "a clear and decided issue", "a resolved question", "an irrelevant issue"],
+        "correctOption": "a subject open to debate",
+        "explanation": "'Moot point' refers to a subject open to debate or uncertain, often irrelevant to the current situation."
+    },
+    {
+        "question": "What does 'subvert' mean in the sentence: 'The man was sentenced to 10 years for plotting to subvert the government'?",
+        "options": ["to undermine", "to support", "to ignore", "to uphold"],
+        "correctOption": "to undermine",
+        "explanation": "'Subvert' means to undermine or overthrow an established system or authority."
+    },
+    {
+        "question": "What does 'stint' mean in the sentence: 'They didn't stint on food and drink at their wedding'?",
+        "options": ["to be frugal", "to be generous", "to waste", "to save"],
+        "correctOption": "to be frugal",
+        "explanation": "'Stint' means to be frugal or limit something, especially in the context of resources or spending."
+    },
+    {
+        "question": "What does 'outrageous' mean in the sentence: 'The man behaved outrageously in the party'?",
+        "options": ["extremely shocking", "ordinary", "pleasant", "normal"],
+        "correctOption": "extremely shocking",
+        "explanation": "'Outrageous' means extremely shocking or unacceptable in behavior or manner."
+    },
+    {
+        "question": "What does 'specious' mean in the sentence: 'They wouldn't accept his specious claim'?",
+        "options": ["deceptively attractive", "clear and truthful", "irrelevant", "straightforward"],
+        "correctOption": "deceptively attractive",
+        "explanation": "'Specious' means deceptively attractive or misleading, often used to describe false or deceptive arguments."
+    },
+    {
+        "question": "What does 'hound down' mean in the sentence: 'The police have promised to hound down those responsible for the explosion'?",
+        "options": ["to pursue relentlessly", "to avoid", "to investigate superficially", "to support"],
+        "correctOption": "to pursue relentlessly",
+        "explanation": "'Hound down' means to pursue or chase someone relentlessly until they are found."
+    },
+    {
+        "question": "What does 'paper over' mean in the sentence: 'He tried to paper over the country's deep-seated problems'?",
+        "options": ["to cover up", "to expose", "to resolve", "to address directly"],
+        "correctOption": "to cover up",
+        "explanation": "'Paper over' means to cover up or gloss over problems without addressing them thoroughly."
+    },
+    {
+        "question": "What does 'spearhead' mean in the sentence: 'The new managing director will act as spearhead of the campaign'?",
+        "options": ["to lead", "to follow", "to delay", "to oppose"],
+        "correctOption": "to lead",
+        "explanation": "'Spearhead' means to lead or initiate an effort or campaign."
+    },
+    {
+        "question": "What does 'shroud' mean in the sentence: 'Everything was covered in a thick shroud of dust'?",
+        "options": ["a covering", "an opening", "a detail", "a small piece"],
+        "correctOption": "a covering",
+        "explanation": "'Shroud' means a covering or layer that obscures or conceals something."
+    },
+    {
+        "question": "What does 'off the mark' mean in the sentence: 'Their estimates were completely off the mark'?",
+        "options": ["inaccurate", "accurate", "relevant", "minor"],
+        "correctOption": "inaccurate",
+        "explanation": "'Off the mark' means inaccurate or incorrect, not meeting the intended target or expectation."
+    },
+    {
+        "question": "What does 'rationalization' mean in the sentence: 'No amount of rationalization could justify his crime'?",
+        "options": ["attempts to justify", "an act of admitting fault", "a detailed analysis", "a simple explanation"],
+        "correctOption": "attempts to justify",
+        "explanation": "'Rationalization' refers to attempts to justify or explain away actions or behaviors."
+    },
+    {
+        "question": "What does 'forbearance' mean in the sentence: 'The teacher showed great forbearance in his classes'?",
+        "options": ["patience and tolerance", "strictness", "indifference", "anger"],
+        "correctOption": "patience and tolerance",
+        "explanation": "'Forbearance' means patience and tolerance, especially in difficult situations."
+    },
+    {
+        "question": "What does 'persist' mean in the sentence: 'If you want to achieve your goal, you must persist despite all obstacles'?",
+        "options": ["to continue steadfastly", "to give up", "to pause", "to reconsider"],
+        "correctOption": "to continue steadfastly",
+        "explanation": "'Persist' means to continue steadfastly or endure despite difficulties or obstacles."
+    },
+    {
+        "question": "What does 'prejudiced' mean in the sentence: 'The seniors consider that such disclosures would be seriously prejudiced to the concerns of the group'?",
+        "options": ["harmful", "supportive", "irrelevant", "neutral"],
+        "correctOption": "harmful",
+        "explanation": "'Prejudiced' means harmful or detrimental, often referring to actions or disclosures that negatively affect a situation."
+    },
+    {
+        "question": "What does 'taper off' mean in the sentence: 'We should taper off the amount of time given to work'?",
+        "options": ["to gradually decrease", "to increase suddenly", "to maintain steadily", "to stop abruptly"],
+        "correctOption": "to gradually decrease",
+        "explanation": "'Taper off' means to gradually decrease or reduce in amount or intensity."
+    },
+    {
+        "question": "What does 'armistice' mean in the sentence: 'Both the parties discussed their differences and finally agreed to call an armistice'?",
+        "options": ["a temporary ceasefire", "a formal declaration of war", "a peace treaty", "a final battle"],
+        "correctOption": "a temporary ceasefire",
+        "explanation": "'Armistice' means a temporary ceasefire or truce between opposing parties."
+    },
+    {
+        "question": "What does 'countenance' mean in the sentence: 'The school will not countenance bad behaviour'?",
+        "options": ["to tolerate", "to ban", "to encourage", "to ignore"],
+        "correctOption": "to tolerate",
+        "explanation": "'Countenance' means to tolerate or permit something."
+    },
+
+   
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

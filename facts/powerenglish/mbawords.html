@@ -1,0 +1,2798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>MBA Words QUIZ APP</title>
+			<script src="../../urlRewrite.js"></script>
+		<link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>MBA Words/Vocab | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+ const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'sscenglishmbawordsvocabs83js83l2d8';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+         const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+<script>
+const questions = [
+
+    {
+        "question": "Q1. What is the obsession with farming or agriculture called?",
+        "options": ["Agromania", "Anthomania", "Bibliomania", "Cynomania", "Demomania"],
+        "correctOption": "Agromania"
+    },
+    {
+        "question": "Q2. What is the obsession with flowers called?",
+        "options": ["Anthomania", "Agromania", "Bibliomania", "Cynomania", "Demomania"],
+        "correctOption": "Anthomania"
+    },
+    {
+        "question": "Q3. What is the obsession with books called?",
+        "options": ["Bibliomania", "Anthomania", "Agromania", "Cynomania", "Demomania"],
+        "correctOption": "Bibliomania"
+    },
+    {
+        "question": "Q4. What is the obsession with dogs called?",
+        "options": ["Cynomania", "Anthomania", "Bibliomania", "Agromania", "Demomania"],
+        "correctOption": "Cynomania"
+    },
+    {
+        "question": "Q5. What is the obsession with demons called?",
+        "options": ["Demomania", "Anthomania", "Bibliomania", "Cynomania", "Agromania"],
+        "correctOption": "Demomania"
+    },
+    {
+        "question": "Q6. What is the obsession with alcohol called?",
+        "options": ["Dipsomania", "Demomania", "Anthomania", "Bibliomania", "Cynomania"],
+        "correctOption": "Dipsomania"
+    },
+    {
+        "question": "Q7. What is the obsession with traveling called?",
+        "options": ["Dromomania", "Dipsomania", "Demomania", "Anthomania", "Bibliomania"],
+        "correctOption": "Dromomania"
+    },
+    {
+        "question": "Q8. What is the obsession with a particular belief called?",
+        "options": ["Entheomania", "Dromomania", "Dipsomania", "Demomania", "Anthomania"],
+        "correctOption": "Entheomania"
+    },
+    {
+        "question": "Q9. What is the obsession with work called?",
+        "options": ["Ergomania", "Entheomania", "Dromomania", "Dipsomania", "Demomania"],
+        "correctOption": "Ergomania"
+    },
+    {
+        "question": "Q10. What is the obsession with pleasure called?",
+        "options": ["Hedomania", "Ergomania", "Entheomania", "Dromomania", "Dipsomania"],
+        "correctOption": "Hedomania"
+    },
+    {
+        "question": "Q11. What is the obsession with horses called?",
+        "options": ["Hippomania", "Hedomania", "Ergomania", "Entheomania", "Dromomania"],
+        "correctOption": "Hippomania"
+    },
+    {
+        "question": "Q12. What is the obsession with stealing called?",
+        "options": ["Kleptomania", "Hippomania", "Hedomania", "Ergomania", "Entheomania"],
+        "correctOption": "Kleptomania"
+    },
+    {
+        "question": "Q13. What is the obsession with words called?",
+        "options": ["Logomania", "Kleptomania", "Hippomania", "Hedomania", "Ergomania"],
+        "correctOption": "Logomania"
+    },
+    {
+        "question": "Q14. What is the obsession with power called?",
+        "options": ["Megalomania", "Logomania", "Kleptomania", "Hippomania", "Hedomania"],
+        "correctOption": "Megalomania"
+    },
+    {
+        "question": "Q15. What is the obsession with music called?",
+        "options": ["Melomania", "Megalomania", "Logomania", "Kleptomania", "Hippomania"],
+        "correctOption": "Melomania"
+    },
+    {
+        "question": "Q16. What is the obsession with lying called?",
+        "options": ["Mythomania", "Melomania", "Megalomania", "Logomania", "Kleptomania"],
+        "correctOption": "Mythomania"
+    },
+    {
+        "question": "Q17. What is the obsession with returning home called?",
+        "options": ["Nostomania", "Mythomania", "Melomania", "Megalomania", "Logomania"],
+        "correctOption": "Nostomania"
+    },
+    {
+        "question": "Q18. What is the obsession with being eaten called?",
+        "options": ["Phagemania", "Nostomania", "Mythomania", "Melomania", "Megalomania"],
+        "correctOption": "Phagemania"
+    },
+    {
+        "question": "Q19. What is the obsession with wealth called?",
+        "options": ["Plutomania", "Phagemania", "Nostomania", "Mythomania", "Melomania"],
+        "correctOption": "Plutomania"
+    },
+    {
+        "question": "Q20. What is the obsession with wandering called?",
+        "options": ["Poriomania", "Plutomania", "Phagemania", "Nostomania", "Mythomania"],
+        "correctOption": "Poriomania"
+    },
+    {
+        "question": "Q21. What is the obsession with fire called?",
+        "options": ["Pyromania", "Poriomania", "Plutomania", "Phagemania", "Nostomania"],
+        "correctOption": "Pyromania"
+    },
+    {
+        "question": "Q22. What is the obsession with food called?",
+        "options": ["Sitomania", "Pyromania", "Poriomania", "Plutomania", "Phagemania"],
+        "correctOption": "Sitomania"
+    },
+    {
+        "question": "Q23. What is the obsession with words called?",
+        "options": ["Verbomania", "Sitomania", "Pyromania", "Poriomania", "Plutomania"],
+        "correctOption": "Verbomania"
+    },
+    {
+        "question": "Q24. What is the obsession with foreign things called?",
+        "options": ["Xenomania", "Verbomania", "Sitomania", "Pyromania", "Poriomania"],
+        "correctOption": "Xenomania"
+    },
+    {
+        "question": "Q1. What is the fear of noise or sounds called?",
+        "options": ["Acousticophobia", "Acrophobia", "Agoraphobia", "Aichmophobia", "Ailurophobia"],
+        "correctOption": "Acousticophobia"
+    },
+    {
+        "question": "Q2. What is the fear of heights called?",
+        "options": ["Acrophobia", "Acousticophobia", "Agoraphobia", "Aichmophobia", "Ailurophobia"],
+        "correctOption": "Acrophobia"
+    },
+    {
+        "question": "Q3. What is the fear of open or crowded spaces called?",
+        "options": ["Agoraphobia", "Acrophobia", "Acousticophobia", "Aichmophobia", "Ailurophobia"],
+        "correctOption": "Agoraphobia"
+    },
+    {
+        "question": "Q4. What is the fear of sharp objects called?",
+        "options": ["Aichmophobia", "Agoraphobia", "Acrophobia", "Acousticophobia", "Ailurophobia"],
+        "correctOption": "Aichmophobia"
+    },
+    {
+        "question": "Q5. What is the fear of cats called?",
+        "options": ["Ailurophobia/Gatophobia", "Aichmophobia", "Agoraphobia", "Acrophobia", "Acousticophobia"],
+        "correctOption": "Ailurophobia/Gatophobia"
+    },
+    {
+        "question": "Q6. What is the fear of pain called?",
+        "options": ["Algophobia/Dynophobia", "Ailurophobia/Gatophobia", "Aichmophobia", "Agoraphobia", "Acrophobia"],
+        "correctOption": "Algophobia/Dynophobia"
+    },
+    {
+        "question": "Q7. What is the fear of men called?",
+        "options": ["Androphobia", "Algophobia/Dynophobia", "Ailurophobia/Gatophobia", "Aichmophobia", "Agoraphobia"],
+        "correctOption": "Androphobia"
+    },
+    {
+        "question": "Q8. What is the fear of wind called?",
+        "options": ["Anemophobia", "Androphobia", "Algophobia/Dynophobia", "Ailurophobia/Gatophobia", "Aichmophobia"],
+        "correctOption": "Anemophobia"
+    },
+    {
+        "question": "Q9. What is the fear of bees called?",
+        "options": ["Apiophobia", "Anemophobia", "Androphobia", "Algophobia/Dynophobia", "Ailurophobia/Gatophobia"],
+        "correctOption": "Apiophobia"
+    },
+    {
+        "question": "Q10. What is the fear of spiders called?",
+        "options": ["Arachneophobia", "Apiophobia", "Anemophobia", "Androphobia", "Algophobia/Dynophobia"],
+        "correctOption": "Arachneophobia"
+    },
+    {
+        "question": "Q11. What is the fear of weakness called?",
+        "options": ["Asthenophobia", "Arachneophobia", "Apiophobia", "Anemophobia", "Androphobia"],
+        "correctOption": "Asthenophobia"
+    },
+    {
+        "question": "Q12. What is the fear of stars or celestial space called?",
+        "options": ["Astrophobia", "Asthenophobia", "Arachneophobia", "Apiophobia", "Anemophobia"],
+        "correctOption": "Astrophobia"
+    },
+    {
+        "question": "Q13. What is the fear of being alone called?",
+        "options": ["Autophobia/Monophobia", "Astrophobia", "Asthenophobia", "Arachneophobia", "Apiophobia"],
+        "correctOption": "Autophobia/Monophobia"
+    },
+    {
+        "question": "Q14. What is the fear of walking or falling called?",
+        "options": ["Basiphobia", "Autophobia/Monophobia", "Astrophobia", "Asthenophobia", "Arachneophobia"],
+        "correctOption": "Basiphobia"
+    },
+    {
+        "question": "Q15. What is the fear of depths called?",
+        "options": ["Bathophobia", "Basiphobia", "Autophobia/Monophobia", "Astrophobia", "Asthenophobia"],
+        "correctOption": "Bathophobia"
+    },
+    {
+        "question": "Q16. What is the fear of amphibians like frogs called?",
+        "options": ["Batrachophobia", "Bathophobia", "Basiphobia", "Autophobia/Monophobia", "Astrophobia"],
+        "correctOption": "Batrachophobia"
+    },
+    {
+        "question": "Q17. What is the fear of needles or pins called?",
+        "options": ["Belonophobia", "Batrachophobia", "Bathophobia", "Basiphobia", "Autophobia/Monophobia"],
+        "correctOption": "Belonophobia"
+    },
+    {
+        "question": "Q18. What is the fear of books called?",
+        "options": ["Bibliophobia", "Belonophobia", "Batrachophobia", "Bathophobia", "Basiphobia"],
+        "correctOption": "Bibliophobia"
+    },
+    {
+        "question": "Q19. What is the fear of plants called?",
+        "options": ["Botanophobia", "Bibliophobia", "Belonophobia", "Batrachophobia", "Bathophobia"],
+        "correctOption": "Botanophobia"
+    },
+    {
+        "question": "Q20. What is the fear of thunder and lightning called?",
+        "options": ["Brontophobia", "Botanophobia", "Bibliophobia", "Belonophobia", "Batrachophobia"],
+        "correctOption": "Brontophobia"
+    },
+    {
+        "question": "Q1. What is the fear of ugliness called?",
+        "options": ["Cacophobia", "Callophobia", "Chemophobia", "Chionophobia", "Chirophobia"],
+        "correctOption": "Cacophobia"
+    },
+    {
+        "question": "Q2. What is the fear of beauty called?",
+        "options": ["Callophobia", "Cacophobia", "Chemophobia", "Chionophobia", "Chirophobia"],
+        "correctOption": "Callophobia"
+    },
+    {
+        "question": "Q3. What is the fear of chemicals called?",
+        "options": ["Chemophobia", "Callophobia", "Cacophobia", "Chionophobia", "Chirophobia"],
+        "correctOption": "Chemophobia"
+    },
+    {
+        "question": "Q4. What is the fear of snow called?",
+        "options": ["Chionophobia", "Chemophobia", "Callophobia", "Cacophobia", "Chirophobia"],
+        "correctOption": "Chionophobia"
+    },
+    {
+        "question": "Q5. What is the fear of hands called?",
+        "options": ["Chirophobia", "Chionophobia", "Chemophobia", "Callophobia", "Cacophobia"],
+        "correctOption": "Chirophobia"
+    },
+    {
+        "question": "Q6. What is the fear of colors called?",
+        "options": ["Chromophobia", "Chirophobia", "Chionophobia", "Chemophobia", "Callophobia"],
+        "correctOption": "Chromophobia"
+    },
+    {
+        "question": "Q7. What is the fear of time called?",
+        "options": ["Chronophobia", "Chromophobia", "Chirophobia", "Chionophobia", "Chemophobia"],
+        "correctOption": "Chronophobia"
+    },
+    {
+        "question": "Q8. What is the fear of food called?",
+        "options": ["Cibophobia", "Chronophobia", "Chromophobia", "Chirophobia", "Chionophobia"],
+        "correctOption": "Cibophobia"
+    },
+    {
+        "question": "Q9. What is the fear of confined spaces called?",
+        "options": ["Claustrophobia", "Cibophobia", "Chronophobia", "Chromophobia", "Chirophobia"],
+        "correctOption": "Claustrophobia"
+    },
+    {
+        "question": "Q10. What is the fear of climbing or falling called?",
+        "options": ["Climacophobia", "Claustrophobia", "Cibophobia", "Chronophobia", "Chromophobia"],
+        "correctOption": "Climacophobia"
+    },
+    {
+        "question": "Q11. What is the fear of sexual intercourse called?",
+        "options": ["Coitophobia", "Climacophobia", "Claustrophobia", "Cibophobia", "Chronophobia"],
+        "correctOption": "Coitophobia"
+    },
+    {
+        "question": "Q12. What is the fear of feces called?",
+        "options": ["Coprophobia", "Coitophobia", "Climacophobia", "Claustrophobia", "Cibophobia"],
+        "correctOption": "Coprophobia"
+    },
+    {
+        "question": "Q13. What is the fear of cliffs or precipices called?",
+        "options": ["Cremnophobia", "Coprophobia", "Coitophobia", "Climacophobia", "Claustrophobia"],
+        "correctOption": "Cremnophobia"
+    },
+    {
+        "question": "Q14. What is the fear of dogs called?",
+        "options": ["Cynophobia", "Cremnophobia", "Coprophobia", "Coitophobia", "Climacophobia"],
+        "correctOption": "Cynophobia"
+    },
+    {
+        "question": "Q15. What is the fear of crowds called?",
+        "options": ["Demophobia", "Cynophobia", "Cremnophobia", "Coprophobia", "Coitophobia"],
+        "correctOption": "Demophobia"
+    },
+    {
+        "question": "Q16. What is the fear of skin or skin disease called?",
+        "options": ["Dermatophobia", "Demophobia", "Cynophobia", "Cremnophobia", "Coprophobia"],
+        "correctOption": "Dermatophobia"
+    },
+    {
+        "question": "Q17. What is the fear of drinking called?",
+        "options": ["Dipsophobia", "Dermatophobia", "Demophobia", "Cynophobia", "Cremnophobia"],
+        "correctOption": "Dipsophobia"
+    },
+    {
+        "question": "Q18. What is the fear of crossing streets called?",
+        "options": ["Dromophobia", "Dipsophobia", "Dermatophobia", "Demophobia", "Cynophobia"],
+        "correctOption": "Dromophobia"
+    },
+    {
+        "question": "Q19. What is the fear of vomiting called?",
+        "options": ["Emetophobia", "Dromophobia", "Dipsophobia", "Dermatophobia", "Demophobia"],
+        "correctOption": "Emetophobia"
+    },
+    {
+        "question": "Q20. What is the fear of insects called?",
+        "options": ["Entomophobia", "Emetophobia", "Dromophobia", "Dipsophobia", "Dermatophobia"],
+        "correctOption": "Entomophobia"
+    },
+    {
+        "question": "Q21. What is the fear of loneliness called?",
+        "options": ["Eremiophobia", "Entomophobia", "Emetophobia", "Dromophobia", "Dipsophobia"],
+        "correctOption": "Eremiophobia"
+    },
+    {
+        "question": "Q22. What is the fear of work called?",
+        "options": ["Ergophobia", "Eremiophobia", "Entomophobia", "Emetophobia", "Dromophobia"],
+        "correctOption": "Ergophobia"
+    },
+    {
+        "question": "Q23. What is the fear of the color red called?",
+        "options": ["Erythrophobia", "Ergophobia", "Eremiophobia", "Entomophobia", "Emetophobia"],
+        "correctOption": "Erythrophobia"
+    },
+    {
+        "question": "Q24. What is the fear of marriage called?",
+        "options": ["Gamophobia", "Erythrophobia", "Ergophobia", "Eremiophobia", "Entomophobia"],
+        "correctOption": "Gamophobia"
+    },
+    {
+        "question": "Q25. What is the fear of sex called?",
+        "options": ["Genophobia", "Gamophobia", "Erythrophobia", "Ergophobia", "Eremiophobia"],
+        "correctOption": "Genophobia"
+    },
+    {
+        "question": "Q26. What is the fear of growing old called?",
+        "options": ["Geraphobia", "Genophobia", "Gamophobia", "Erythrophobia", "Ergophobia"],
+        "correctOption": "Geraphobia"
+    },
+    {
+        "question": "Q1. What is the fear of growing old or aging called?",
+        "options": ["Gerontophobia", "Geumophobia", "Gnosiophobia", "Graphophobia", "Gynaephobia"],
+        "correctOption": "Gerontophobia"
+    },
+    {
+        "question": "Q2. What is the fear of taste called?",
+        "options": ["Geumophobia", "Gerontophobia", "Gnosiophobia", "Graphophobia", "Gynaephobia"],
+        "correctOption": "Geumophobia"
+    },
+    {
+        "question": "Q3. What is the fear of knowledge called?",
+        "options": ["Gnosiophobia", "Geumophobia", "Gerontophobia", "Graphophobia", "Gynaephobia"],
+        "correctOption": "Gnosiophobia"
+    },
+    {
+        "question": "Q4. What is the fear of writing called?",
+        "options": ["Graphophobia", "Gnosiophobia", "Geumophobia", "Gerontophobia", "Gynaephobia"],
+        "correctOption": "Graphophobia"
+    },
+    {
+        "question": "Q5. What is the fear of women called?",
+        "options": ["Gynaephobia", "Graphophobia", "Gnosiophobia", "Geumophobia", "Gerontophobia"],
+        "correctOption": "Gynaephobia"
+    },
+    {
+        "question": "Q6. What is the fear of blood called?",
+        "options": ["Haematophobia", "Gynaephobia", "Graphophobia", "Gnosiophobia", "Geumophobia"],
+        "correctOption": "Haematophobia"
+    },
+    {
+        "question": "Q7. What is the fear of being robbed called?",
+        "options": ["Harpaxophobia", "Haematophobia", "Gynaephobia", "Graphophobia", "Gnosiophobia"],
+        "correctOption": "Harpaxophobia"
+    },
+    {
+        "question": "Q8. What is the fear of pleasure called?",
+        "options": ["Hedonophobia", "Harpaxophobia", "Haematophobia", "Gynaephobia", "Graphophobia"],
+        "correctOption": "Hedonophobia"
+    },
+    {
+        "question": "Q9. What is the fear of the sun called?",
+        "options": ["Heliophobia", "Hedonophobia", "Harpaxophobia", "Haematophobia", "Gynaephobia"],
+        "correctOption": "Heliophobia"
+    },
+    {
+        "question": "Q10. What is the fear of worms called?",
+        "options": ["Helminthophobia", "Heliophobia", "Hedonophobia", "Harpaxophobia", "Haematophobia"],
+        "correctOption": "Helminthophobia"
+    },
+    {
+        "question": "Q11. What is the fear of horses called?",
+        "options": ["Hippophobia", "Helminthophobia", "Heliophobia", "Hedonophobia", "Harpaxophobia"],
+        "correctOption": "Hippophobia"
+    },
+    {
+        "question": "Q12. What is the fear of travel called?",
+        "options": ["Hodophobia", "Hippophobia", "Helminthophobia", "Heliophobia", "Hedonophobia"],
+        "correctOption": "Hodophobia"
+    },
+    {
+        "question": "Q13. What is the fear of fog or mist called?",
+        "options": ["Homichlophobia", "Hodophobia", "Hippophobia", "Helminthophobia", "Heliophobia"],
+        "correctOption": "Homichlophobia"
+    },
+    {
+        "question": "Q14. What is the fear of water called?",
+        "options": ["Hydrophobia", "Homichlophobia", "Hodophobia", "Hippophobia", "Helminthophobia"],
+        "correctOption": "Hydrophobia"
+    },
+    {
+        "question": "Q15. What is the fear of sleep or being hypnotized called?",
+        "options": ["Hypnophobia", "Hydrophobia", "Homichlophobia", "Hodophobia", "Hippophobia"],
+        "correctOption": "Hypnophobia"
+    },
+    {
+        "question": "Q16. What is the fear of fish called?",
+        "options": ["Ichthyophobia", "Hypnophobia", "Hydrophobia", "Homichlophobia", "Hodophobia"],
+        "correctOption": "Ichthyophobia"
+    },
+    {
+        "question": "Q17. What is the fear of empty spaces called?",
+        "options": ["Kenophobia", "Ichthyophobia", "Hypnophobia", "Hydrophobia", "Homichlophobia"],
+        "correctOption": "Kenophobia"
+    },
+    {
+        "question": "Q18. What is the fear of movement called?",
+        "options": ["Kinesophobia", "Kenophobia", "Ichthyophobia", "Hypnophobia", "Hydrophobia"],
+        "correctOption": "Kinesophobia"
+    },
+    {
+        "question": "Q19. What is the fear of stealing called?",
+        "options": ["Kleptophobia", "Kinesophobia", "Kenophobia", "Ichthyophobia", "Hypnophobia"],
+        "correctOption": "Kleptophobia"
+    },
+    {
+        "question": "Q20. What is the fear of speaking called?",
+        "options": ["Lalophobia", "Kleptophobia", "Kinesophobia", "Kenophobia", "Ichthyophobia"],
+        "correctOption": "Lalophobia"
+    },
+    {
+        "question": "Q21. What is the fear of words called?",
+        "options": ["Logophobia", "Lalophobia", "Kleptophobia", "Kinesophobia", "Kenophobia"],
+        "correctOption": "Logophobia"
+    },
+    {
+        "question": "Q22. What is the fear of being poisoned called?",
+        "options": ["Lophobia", "Logophobia", "Lalophobia", "Kleptophobia", "Kinesophobia"],
+        "correctOption": "Lophobia"
+    },
+    {
+        "question": "Q23. What is the fear of darkness called?",
+        "options": ["Lygophobia", "Lophobia", "Logophobia", "Lalophobia", "Kleptophobia"],
+        "correctOption": "Lygophobia"
+    },
+    {
+        "question": "Q24. What is the fear of becoming insane called?",
+        "options": ["Lyssophobia", "Lygophobia", "Lophobia", "Logophobia", "Lalophobia"],
+        "correctOption": "Lyssophobia"
+    },
+    {
+        "question": "Q25. What is the fear of large things called?",
+        "options": ["Megalophobia", "Lyssophobia", "Lygophobia", "Lophobia", "Logophobia"],
+        "correctOption": "Megalophobia"
+    },
+    {
+        "question": "Q1. What is the fear of bees called?",
+        "options": ["Melissophobia", "Musophobia", "Mysophobia", "Necrophobia", "Nosophobia"],
+        "correctOption": "Melissophobia"
+    },
+    {
+        "question": "Q2. What is the fear of mice or rats called?",
+        "options": ["Musophobia", "Melissophobia", "Mysophobia", "Necrophobia", "Nosophobia"],
+        "correctOption": "Musophobia"
+    },
+    {
+        "question": "Q3. What is the fear of dirt or germs called?",
+        "options": ["Mysophobia", "Musophobia", "Melissophobia", "Necrophobia", "Nosophobia"],
+        "correctOption": "Mysophobia"
+    },
+    {
+        "question": "Q4. What is the fear of dead things or death called?",
+        "options": ["Necrophobia", "Mysophobia", "Musophobia", "Melissophobia", "Nosophobia"],
+        "correctOption": "Necrophobia"
+    },
+    {
+        "question": "Q5. What is the fear of disease called?",
+        "options": ["Nosophobia", "Necrophobia", "Mysophobia", "Musophobia", "Melissophobia"],
+        "correctOption": "Nosophobia"
+    },
+    {
+        "question": "Q6. What is the fear of night or darkness called?",
+        "options": ["Nyctophobia", "Nosophobia", "Necrophobia", "Mysophobia", "Musophobia"],
+        "correctOption": "Nyctophobia"
+    },
+    {
+        "question": "Q7. What is the fear of crowds called?",
+        "options": ["Ochlophobia", "Nyctophobia", "Nosophobia", "Necrophobia", "Mysophobia"],
+        "correctOption": "Ochlophobia"
+    },
+    {
+        "question": "Q8. What is the fear of rain called?",
+        "options": ["Ombrophobia", "Ochlophobia", "Nyctophobia", "Nosophobia", "Necrophobia"],
+        "correctOption": "Ombrophobia"
+    },
+    {
+        "question": "Q9. What is the fear of snakes called?",
+        "options": ["Ophidiophobia", "Ombrophobia", "Ochlophobia", "Nyctophobia", "Nosophobia"],
+        "correctOption": "Ophidiophobia"
+    },
+    {
+        "question": "Q10. What is the fear of birds called?",
+        "options": ["Ornithophobia", "Ophidiophobia", "Ombrophobia", "Ochlophobia", "Nyctophobia"],
+        "correctOption": "Ornithophobia"
+    },
+    {
+        "question": "Q11. What is the fear of mountains or heights called?",
+        "options": ["Orophobia", "Ornithophobia", "Ophidiophobia", "Ombrophobia", "Ochlophobia"],
+        "correctOption": "Orophobia"
+    },
+    {
+        "question": "Q12. What is the fear of children called?",
+        "options": ["Paedophobia", "Orophobia", "Ornithophobia", "Ophidiophobia", "Ombrophobia"],
+        "correctOption": "Paedophobia"
+    },
+    {
+        "question": "Q13. What is the fear of everything called?",
+        "options": ["Pantophobia", "Paedophobia", "Orophobia", "Ornithophobia", "Ophidiophobia"],
+        "correctOption": "Pantophobia"
+    },
+    {
+        "question": "Q14. What is the fear of disease called?",
+        "options": ["Pathophobia", "Pantophobia", "Paedophobia", "Orophobia", "Ornithophobia"],
+        "correctOption": "Pathophobia"
+    },
+    {
+        "question": "Q15. What is the fear of sinning called?",
+        "options": ["Peccatophobia", "Pathophobia", "Pantophobia", "Paedophobia", "Orophobia"],
+        "correctOption": "Peccatophobia"
+    },
+    {
+        "question": "Q16. What is the fear of poverty called?",
+        "options": ["Peniophobia", "Peccatophobia", "Pathophobia", "Pantophobia", "Paedophobia"],
+        "correctOption": "Peniophobia"
+    },
+    {
+        "question": "Q17. What is the fear of eating or swallowing called?",
+        "options": ["Phagophobia", "Peniophobia", "Peccatophobia", "Pathophobia", "Pantophobia"],
+        "correctOption": "Phagophobia"
+    },
+    {
+        "question": "Q18. What is the fear of ghosts called?",
+        "options": ["Phasmophobia", "Phagophobia", "Peniophobia", "Peccatophobia", "Pathophobia"],
+        "correctOption": "Phasmophobia"
+    },
+    {
+        "question": "Q19. What is the fear of speaking called?",
+        "options": ["Phemophobia", "Phasmophobia", "Phagophobia", "Peniophobia", "Peccatophobia"],
+        "correctOption": "Phemophobia"
+    },
+    {
+        "question": "Q20. What is the fear of sounds or voices called?",
+        "options": ["Phonophobia", "Phemophobia", "Phasmophobia", "Phagophobia", "Peniophobia"],
+        "correctOption": "Phonophobia"
+    },
+    {
+        "question": "Q21. What is the fear of light called?",
+        "options": ["Photophobia", "Phonophobia", "Phemophobia", "Phasmophobia", "Phagophobia"],
+        "correctOption": "Photophobia"
+    },
+    {
+        "question": "Q22. What is the fear of wealth called?",
+        "options": ["Plutophobia", "Photophobia", "Phonophobia", "Phemophobia", "Phasmophobia"],
+        "correctOption": "Plutophobia"
+    },
+    {
+        "question": "Q23. What is the fear of choking or being smothered called?",
+        "options": ["Pnigerophobia", "Plutophobia", "Photophobia", "Phonophobia", "Phemophobia"],
+        "correctOption": "Pnigerophobia"
+    },
+    {
+        "question": "Q24. What is the fear of punishment called?",
+        "options": ["Poinophobia", "Pnigerophobia", "Plutophobia", "Photophobia", "Phonophobia"],
+        "correctOption": "Poinophobia"
+    },
+    {
+        "question": "Q25. What is the fear of rivers called?",
+        "options": ["Potamophobia", "Poinophobia", "Pnigerophobia", "Plutophobia", "Photophobia"],
+        "correctOption": "Potamophobia"
+    },
+    {
+        "question": "Q26. What is the fear of cold or cold things called?",
+        "options": ["Psychrophobia", "Potamophobia", "Poinophobia", "Pnigerophobia", "Plutophobia"],
+        "correctOption": "Psychrophobia"
+    },
+    {
+        "question": "Q1. What is the fear of cold or cold things called?",
+        "options": ["Psychrophobia", "Pterophobia", "Pyrophobia", "Renophobia", "Ruphophobia"],
+        "correctOption": "Psychrophobia"
+    },
+    {
+        "question": "Q2. What is the fear of flying called?",
+        "options": ["Pterophobia", "Psychrophobia", "Pyrophobia", "Renophobia", "Ruphophobia"],
+        "correctOption": "Pterophobia"
+    },
+    {
+        "question": "Q3. What is the fear of fire called?",
+        "options": ["Pyrophobia", "Pterophobia", "Psychrophobia", "Renophobia", "Ruphophobia"],
+        "correctOption": "Pyrophobia"
+    },
+    {
+        "question": "Q4. What is the fear of kidneys or kidney disease called?",
+        "options": ["Renophobia", "Pyrophobia", "Pterophobia", "Psychrophobia", "Ruphophobia"],
+        "correctOption": "Renophobia"
+    },
+    {
+        "question": "Q5. What is the fear of dirt or defilement called?",
+        "options": ["Ruphophobia", "Renophobia", "Pyrophobia", "Pterophobia", "Psychrophobia"],
+        "correctOption": "Ruphophobia"
+    },
+    {
+        "question": "Q6. What is the fear of being locked in a hard place called?",
+        "options": ["Sclerophobia", "Ruphophobia", "Renophobia", "Pyrophobia", "Pterophobia"],
+        "correctOption": "Sclerophobia"
+    },
+    {
+        "question": "Q7. What is the fear of darkness called?",
+        "options": ["Scotophobia", "Sclerophobia", "Ruphophobia", "Renophobia", "Pyrophobia"],
+        "correctOption": "Scotophobia"
+    },
+    {
+        "question": "Q8. What is the fear of railroads or trains called?",
+        "options": ["Siderodromophobia", "Scotophobia", "Sclerophobia", "Ruphophobia", "Renophobia"],
+        "correctOption": "Siderodromophobia"
+    },
+    {
+        "question": "Q9. What is the fear of stars called?",
+        "options": ["Siderophobia", "Siderodromophobia", "Scotophobia", "Sclerophobia", "Ruphophobia"],
+        "correctOption": "Siderophobia"
+    },
+    {
+        "question": "Q10. What is the fear of ghosts or specters called?",
+        "options": ["Spectrophobia", "Siderophobia", "Siderodromophobia", "Scotophobia", "Sclerophobia"],
+        "correctOption": "Spectrophobia"
+    },
+    {
+        "question": "Q11. What is the fear of hell or the infernal called?",
+        "options": ["Stygiophobia", "Spectrophobia", "Siderophobia", "Siderodromophobia", "Scotophobia"],
+        "correctOption": "Stygiophobia"
+    },
+    {
+        "question": "Q12. What is the fear of speed called?",
+        "options": ["Tacophobia", "Stygiophobia", "Spectrophobia", "Siderophobia", "Siderodromophobia"],
+        "correctOption": "Tacophobia"
+    },
+    {
+        "question": "Q13. What is the fear of the sea or ocean called?",
+        "options": ["Thalassophobia", "Tacophobia", "Stygiophobia", "Spectrophobia", "Siderophobia"],
+        "correctOption": "Thalassophobia"
+    },
+    {
+        "question": "Q14. What is the fear of death or dying called?",
+        "options": ["Thanatophobia", "Thalassophobia", "Tacophobia", "Stygiophobia", "Spectrophobia"],
+        "correctOption": "Thanatophobia"
+    },
+    {
+        "question": "Q15. What is the fear of heat called?",
+        "options": ["Thermophobia", "Thanatophobia", "Thalassophobia", "Tacophobia", "Stygiophobia"],
+        "correctOption": "Thermophobia"
+    },
+    {
+        "question": "Q16. What is the fear of thunder called?",
+        "options": ["Tonitrophobia", "Thermophobia", "Thanatophobia", "Thalassophobia", "Tacophobia"],
+        "correctOption": "Tonitrophobia"
+    },
+    {
+        "question": "Q17. What is the fear of poison or being poisoned called?",
+        "options": ["Toxicophobia", "Tonitrophobia", "Thermophobia", "Thanatophobia", "Thalassophobia"],
+        "correctOption": "Toxicophobia"
+    },
+    {
+        "question": "Q18. What is the fear of injury called?",
+        "options": ["Traumatophobia", "Toxicophobia", "Tonitrophobia", "Thermophobia", "Thanatophobia"],
+        "correctOption": "Traumatophobia"
+    },
+    {
+        "question": "Q19. What is the fear of hair called?",
+        "options": ["Trichophobia", "Traumatophobia", "Toxicophobia", "Tonitrophobia", "Thermophobia"],
+        "correctOption": "Trichophobia"
+    },
+    {
+        "question": "Q20. What is the fear of strangers or foreigners called?",
+        "options": ["Xenophobia", "Trichophobia", "Traumatophobia", "Toxicophobia", "Tonitrophobia"],
+        "correctOption": "Xenophobia"
+    },
+    {
+        "question": "Q21. What is the fear of dryness or dry places called?",
+        "options": ["Xerophobia", "Xenophobia", "Trichophobia", "Traumatophobia", "Toxicophobia"],
+        "correctOption": "Xerophobia"
+    },
+    {
+        "question": "Q22. What is the fear of animals called?",
+        "options": ["Zoophobia", "Xerophobia", "Xenophobia", "Trichophobia", "Traumatophobia"],
+        "correctOption": "Zoophobia"
+    },
+    {
+        "question": "Q1. What is the study of the cause of things called?",
+        "options": ["Actiology", "Anemology", "Angiology", "Anthropology", "Cardiology"],
+        "correctOption": "Actiology"
+    },
+    {
+        "question": "Q2. What is the study of the movement of the wind called?",
+        "options": ["Anemology", "Actiology", "Angiology", "Anthropology", "Cardiology"],
+        "correctOption": "Anemology"
+    },
+    {
+        "question": "Q3. What is the study of blood vessels called?",
+        "options": ["Angiology", "Anemology", "Actiology", "Anthropology", "Cardiology"],
+        "correctOption": "Angiology"
+    },
+    {
+        "question": "Q4. What is the study of human beings called?",
+        "options": ["Anthropology", "Angiology", "Anemology", "Actiology", "Cardiology"],
+        "correctOption": "Anthropology"
+    },
+    {
+        "question": "Q5. What is the study of the heart called?",
+        "options": ["Cardiology", "Anthropology", "Angiology", "Anemology", "Actiology"],
+        "correctOption": "Cardiology"
+    },
+    {
+        "question": "Q6. What is the study of fruit called?",
+        "options": ["Carpology", "Cardiology", "Anthropology", "Angiology", "Anemology"],
+        "correctOption": "Carpology"
+    },
+    {
+        "question": "Q7. What is the study of time called?",
+        "options": ["Chronology", "Carpology", "Cardiology", "Anthropology", "Angiology"],
+        "correctOption": "Chronology"
+    },
+    {
+        "question": "Q8. What is the study of the universe called?",
+        "options": ["Cosmology", "Chronology", "Carpology", "Cardiology", "Anthropology"],
+        "correctOption": "Cosmology"
+    },
+    {
+        "question": "Q9. What is the study of skulls called?",
+        "options": ["Craniology", "Cosmology", "Chronology", "Carpology", "Cardiology"],
+        "correctOption": "Craniology"
+    },
+    {
+        "question": "Q10. What is the study of codes and ciphers called?",
+        "options": ["Cryptology", "Craniology", "Cosmology", "Chronology", "Carpology"],
+        "correctOption": "Cryptology"
+    },
+    {
+        "question": "Q11. What is the study of cells called?",
+        "options": ["Cytology", "Cryptology", "Craniology", "Cosmology", "Chronology"],
+        "correctOption": "Cytology"
+    },
+    {
+        "question": "Q12. What is the study of fingers and hands called?",
+        "options": ["Dactylology", "Cytology", "Cryptology", "Craniology", "Cosmology"],
+        "correctOption": "Dactylology"
+    },
+    {
+        "question": "Q13. What is the study of trees called?",
+        "options": ["Dendrology", "Dactylology", "Cytology", "Cryptology", "Craniology"],
+        "correctOption": "Dendrology"
+    },
+    {
+        "question": "Q14. What is the study of the skin called?",
+        "options": ["Dermatology", "Dendrology", "Dactylology", "Cytology", "Cryptology"],
+        "correctOption": "Dermatology"
+    },
+    {
+        "question": "Q15. What is the study of the relationships between living organisms and their environment called?",
+        "options": ["Ecology", "Dermatology", "Dendrology", "Dactylology", "Cytology"],
+        "correctOption": "Ecology"
+    },
+    {
+        "question": "Q16. What is the study of the endocrine glands and hormones called?",
+        "options": ["Endocrinology", "Ecology", "Dermatology", "Dendrology", "Dactylology"],
+        "correctOption": "Endocrinology"
+    },
+    {
+        "question": "Q17. What is the study of insects called?",
+        "options": ["Entomology", "Endocrinology", "Ecology", "Dermatology", "Dendrology"],
+        "correctOption": "Entomology"
+    },
+    {
+        "question": "Q18. What is the study of knowledge called?",
+        "options": ["Epistemology", "Entomology", "Endocrinology", "Ecology", "Dermatology"],
+        "correctOption": "Epistemology"
+    },
+    {
+        "question": "Q19. What is the study of the end of the world or end times called?",
+        "options": ["Eschatology", "Epistemology", "Entomology", "Endocrinology", "Ecology"],
+        "correctOption": "Eschatology"
+    },
+    {
+        "question": "Q20. What is the study of ethnic groups called?",
+        "options": ["Ethnology", "Eschatology", "Epistemology", "Entomology", "Endocrinology"],
+        "correctOption": "Ethnology"
+    },
+    {
+        "question": "Q21. What is the study of animal behavior called?",
+        "options": ["Ethology", "Ethnology", "Eschatology", "Epistemology", "Entomology"],
+        "correctOption": "Ethology"
+    },
+    {
+        "question": "Q22. What is the study of family history called?",
+        "options": ["Genealogy", "Ethology", "Ethnology", "Eschatology", "Epistemology"],
+        "correctOption": "Genealogy"
+    },
+    {
+        "question": "Q23. What is the study of aging and the problems of older individuals called?",
+        "options": ["Gerontology", "Genealogy", "Ethology", "Ethnology", "Eschatology"],
+        "correctOption": "Gerontology"
+    },
+    {
+        "question": "Q24. What is the study of the evolution of languages called?",
+        "options": ["Glottochronology", "Gerontology", "Genealogy", "Ethology", "Ethnology"],
+        "correctOption": "Glottochronology"
+    },
+    {
+        "question": "Q25. What is the study of female reproductive systems and childbirth called?",
+        "options": ["Gynaecology", "Glottochronology", "Gerontology", "Genealogy", "Ethology"],
+        "correctOption": "Gynaecology"
+    },
+    {
+        "question": "Q1. What is the study of blood called?",
+        "options": ["Haematology", "Helminthology", "Hirology", "Histology", "Hydrology"],
+        "correctOption": "Haematology"
+    },
+    {
+        "question": "Q2. What is the study of parasitic worms called?",
+        "options": ["Helminthology", "Haematology", "Hirology", "Histology", "Hydrology"],
+        "correctOption": "Helminthology"
+    },
+    {
+        "question": "Q3. What is the study of sacred writings called?",
+        "options": ["Hirology", "Helminthology", "Haematology", "Histology", "Hydrology"],
+        "correctOption": "Hirology"
+    },
+    {
+        "question": "Q4. What is the study of tissues called?",
+        "options": ["Histology", "Hirology", "Helminthology", "Haematology", "Hydrology"],
+        "correctOption": "Histology"
+    },
+    {
+        "question": "Q5. What is the study of water called?",
+        "options": ["Hydrology", "Histology", "Hirology", "Helminthology", "Haematology"],
+        "correctOption": "Hydrology"
+    },
+    {
+        "question": "Q6. What is the study of fish called?",
+        "options": ["Ichthyology", "Hydrology", "Histology", "Hirology", "Helminthology"],
+        "correctOption": "Ichthyology"
+    },
+    {
+        "question": "Q7. What is the study of ants called?",
+        "options": ["Myrmecology", "Ichthyology", "Hydrology", "Histology", "Hirology"],
+        "correctOption": "Myrmecology"
+    },
+    {
+        "question": "Q8. What is the study of diseases called?",
+        "options": ["Nosology", "Myrmecology", "Ichthyology", "Hydrology", "Histology"],
+        "correctOption": "Nosology"
+    },
+    {
+        "question": "Q9. What is the study of teeth called?",
+        "options": ["Odontology", "Nosology", "Myrmecology", "Ichthyology", "Hydrology"],
+        "correctOption": "Odontology"
+    },
+    {
+        "question": "Q10. What is the study of wine and winemaking called?",
+        "options": ["Oenology", "Odontology", "Nosology", "Myrmecology", "Ichthyology"],
+        "correctOption": "Oenology"
+    },
+    {
+        "question": "Q11. What is the study of tumors and cancer called?",
+        "options": ["Oncology", "Oenology", "Odontology", "Nosology", "Myrmecology"],
+        "correctOption": "Oncology"
+    },
+    {
+        "question": "Q12. What is the study of dreams called?",
+        "options": ["Oneirology", "Oncology", "Oenology", "Odontology", "Nosology"],
+        "correctOption": "Oneirology"
+    },
+    {
+        "question": "Q13. What is the study of the nature of being called?",
+        "options": ["Ontology", "Oneirology", "Oncology", "Oenology", "Odontology"],
+        "correctOption": "Ontology"
+    },
+    {
+        "question": "Q14. What is the study of eggs called?",
+        "options": ["Oology", "Ontology", "Oneirology", "Oncology", "Oenology"],
+        "correctOption": "Oology"
+    },
+    {
+        "question": "Q15. What is the study of snakes called?",
+        "options": ["Ophiology", "Oology", "Ontology", "Oneirology", "Oncology"],
+        "correctOption": "Ophiology"
+    },
+    {
+        "question": "Q16. What is the study of the eyes and vision called?",
+        "options": ["Ophthalmology", "Ophiology", "Oology", "Ontology", "Oneirology"],
+        "correctOption": "Ophthalmology"
+    },
+    {
+        "question": "Q17. What is the study of birds called?",
+        "options": ["Ornithology", "Ophthalmology", "Ophiology", "Oology", "Ontology"],
+        "correctOption": "Ornithology"
+    },
+    {
+        "question": "Q18. What is the study of mountains called?",
+        "options": ["Orology", "Ornithology", "Ophthalmology", "Ophiology", "Oology"],
+        "correctOption": "Orology"
+    },
+    {
+        "question": "Q19. What is the study of bones called?",
+        "options": ["Osteology", "Orology", "Ornithology", "Ophthalmology", "Ophiology"],
+        "correctOption": "Osteology"
+    },
+    {
+        "question": "Q20. What is the study of children and their development called?",
+        "options": ["Paedology", "Osteology", "Orology", "Ornithology", "Ophthalmology"],
+        "correctOption": "Paedology"
+    },
+    {
+        "question": "Q21. What is the study of fossils called?",
+        "options": ["Palaeontology", "Paedology", "Osteology", "Orology", "Ornithology"],
+        "correctOption": "Palaeontology"
+    },
+    {
+        "question": "Q22. What is the study of diseases called?",
+        "options": ["Pathology", "Palaeontology", "Paedology", "Osteology", "Orology"],
+        "correctOption": "Pathology"
+    },
+    {
+        "question": "Q23. What is the study of soils called?",
+        "options": ["Pedology", "Pathology", "Palaeontology", "Paedology", "Osteology"],
+        "correctOption": "Pedology"
+    },
+    {
+        "question": "Q24. What is the study of rocks called?",
+        "options": ["Petrology", "Pedology", "Pathology", "Palaeontology", "Paedology"],
+        "correctOption": "Petrology"
+    },
+    {
+        "question": "Q25. What is the study of languages and their development called?",
+        "options": ["Philology", "Petrology", "Pedology", "Pathology", "Palaeontology"],
+        "correctOption": "Philology"
+    },
+    {
+        "question": "Q26. What is the study of the shape and size of the brain as a supposed indication of character and mental abilities called?",
+        "options": ["Phrenology", "Philology", "Petrology", "Pedology", "Pathology"],
+        "correctOption": "Phrenology"
+    },
+    {
+        "question": "Q27. What is the study of evolutionary relationships among groups of organisms called?",
+        "options": ["Phylogeny", "Phrenology", "Philology", "Petrology", "Pedology"],
+        "correctOption": "Phylogeny"
+    },
+    {
+        "question": "Q1. What is the study of evolutionary relationships among groups of organisms called?",
+        "options": ["Phylogeny", "Phylology", "Physiology", "Polemology", "Pomology"],
+        "correctOption": "Phylogeny"
+    },
+    {
+        "question": "Q2. What is the study of the functions and mechanisms in a living system called?",
+        "options": ["Physiology", "Phylology", "Phylogeny", "Polemology", "Pomology"],
+        "correctOption": "Physiology"
+    },
+    {
+        "question": "Q3. What is the study of war called?",
+        "options": ["Polemology", "Physiology", "Phylology", "Phylogeny", "Pomology"],
+        "correctOption": "Polemology"
+    },
+    {
+        "question": "Q4. What is the study of fruit and fruit trees called?",
+        "options": ["Pomology", "Polemology", "Physiology", "Phylology", "Phylogeny"],
+        "correctOption": "Pomology"
+    },
+    {
+        "question": "Q5. What is the study of rivers called?",
+        "options": ["Potamology", "Pomology", "Polemology", "Physiology", "Phylology"],
+        "correctOption": "Potamology"
+    },
+    {
+        "question": "Q6. What is the study of elections and voting called?",
+        "options": ["Psephology", "Potamology", "Pomology", "Polemology", "Physiology"],
+        "correctOption": "Psephology"
+    },
+    {
+        "question": "Q7. What is the study of feces or excrement called?",
+        "options": ["Scatology", "Psephology", "Potamology", "Pomology", "Polemology"],
+        "correctOption": "Scatology"
+    },
+    {
+        "question": "Q8. What is the study of earthquakes called?",
+        "options": ["Seismology", "Scatology", "Psephology", "Potamology", "Pomology"],
+        "correctOption": "Seismology"
+    },
+    {
+        "question": "Q9. What is the study of the moon called?",
+        "options": ["Selenology", "Seismology", "Scatology", "Psephology", "Potamology"],
+        "correctOption": "Selenology"
+    },
+    {
+        "question": "Q10. What is the study of caves called?",
+        "options": ["Speleology", "Selenology", "Seismology", "Scatology", "Psephology"],
+        "correctOption": "Speleology"
+    },
+    {
+        "question": "Q11. What is the study of the mouth and its diseases called?",
+        "options": ["Stomatology", "Speleology", "Selenology", "Seismology", "Scatology"],
+        "correctOption": "Stomatology"
+    },
+    {
+        "question": "Q12. What is the study of the manufacture of textiles called?",
+        "options": ["Textillology", "Stomatology", "Speleology", "Selenology", "Seismology"],
+        "correctOption": "Textillology"
+    },
+    {
+        "question": "Q13. What is the study of the properties and behavior of space and place called?",
+        "options": ["Topology", "Textillology", "Stomatology", "Speleology", "Selenology"],
+        "correctOption": "Topology"
+    },
+    {
+        "question": "Q14. What is the study of friction and wear of surfaces called?",
+        "options": ["Tribology", "Topology", "Textillology", "Stomatology", "Speleology"],
+        "correctOption": "Tribology"
+    },
+    {
+        "question": "Q15. What is the study of hair and scalp called?",
+        "options": ["Trichology", "Tribology", "Topology", "Textillology", "Stomatology"],
+        "correctOption": "Trichology"
+    },
+    {
+        "question": "Q16. What is the study of unidentified flying objects called?",
+        "options": ["Ufology", "Trichology", "Tribology", "Topology", "Textillology"],
+        "correctOption": "Ufology"
+    },
+    {
+        "question": "Q17. What is the study of maps called?",
+        "options": ["Cartography", "Ufology", "Trichology", "Tribology", "Topology"],
+        "correctOption": "Cartography"
+    },
+    {
+        "question": "Q18. What is the study of dance and the creation of dance movements called?",
+        "options": ["Choreography", "Cartography", "Ufology", "Trichology", "Tribology"],
+        "correctOption": "Choreography"
+    },
+    {
+        "question": "Q19. What is the study of regions and places called?",
+        "options": ["Chorography", "Choreography", "Cartography", "Ufology", "Trichology"],
+        "correctOption": "Chorography"
+    },
+    {
+        "question": "Q20. What is the study of populations called?",
+        "options": ["Demography", "Chorography", "Choreography", "Cartography", "Ufology"],
+        "correctOption": "Demography"
+    },
+    {
+        "question": "Q21. What is the study of inscriptions called?",
+        "options": ["Epigraphy", "Demography", "Chorography", "Choreography", "Cartography"],
+        "correctOption": "Epigraphy"
+    },
+    {
+        "question": "Q22. What is the study of the compilation and arrangement of dictionaries called?",
+        "options": ["Lexicography", "Epigraphy", "Demography", "Chorography", "Choreography"],
+        "correctOption": "Lexicography"
+    },
+    {
+        "question": "Q23. What is the study of ancient writing systems and the deciphering of historical manuscripts called?",
+        "options": ["Palaeography", "Lexicography", "Epigraphy", "Demography", "Chorography"],
+        "correctOption": "Palaeography"
+    },
+    {
+        "question": "Q24. What is the study of the features and contours of a place called?",
+        "options": ["Topography", "Palaeography", "Lexicography", "Epigraphy", "Demography"],
+        "correctOption": "Topography"
+    },
+    {
+        "question": "Q1. Who studies and keeps bees?",
+        "options": ["Apiarist", "Cardiologist", "Chiropodist", "Cosmetologist", "Dermatologist"],
+        "correctOption": "Apiarist"
+    },
+    {
+        "question": "Q2. Who specializes in heart diseases?",
+        "options": ["Cardiologist", "Apiarist", "Chiropodist", "Cosmetologist", "Dermatologist"],
+        "correctOption": "Cardiologist"
+    },
+    {
+        "question": "Q3. Who treats feet and their ailments?",
+        "options": ["Chiropodist", "Cardiologist", "Apiarist", "Cosmetologist", "Dermatologist"],
+        "correctOption": "Chiropodist"
+    },
+    {
+        "question": "Q4. Who specializes in beauty treatments?",
+        "options": ["Cosmetologist", "Chiropodist", "Cardiologist", "Apiarist", "Dermatologist"],
+        "correctOption": "Cosmetologist"
+    },
+    {
+        "question": "Q5. Who specializes in skin diseases?",
+        "options": ["Dermatologist", "Cosmetologist", "Chiropodist", "Cardiologist", "Apiarist"],
+        "correctOption": "Dermatologist"
+    },
+    {
+        "question": "Q6. Who studies insects?",
+        "options": ["Entomologist", "Dermatologist", "Cosmetologist", "Chiropodist", "Cardiologist"],
+        "correctOption": "Entomologist"
+    },
+    {
+        "question": "Q7. Who is from Eugene?",
+        "options": ["From Eugene", "Entomologist", "Dermatologist", "Cosmetologist", "Chiropodist"],
+        "correctOption": "From Eugene"
+    },
+    {
+        "question": "Q8. Who performs rituals to expel evil spirits?",
+        "options": ["Exorcist", "From Eugene", "Entomologist", "Dermatologist", "Cosmetologist"],
+        "correctOption": "Exorcist"
+    },
+    {
+        "question": "Q9. Who studies the Earth and rocks?",
+        "options": ["Geologist", "Exorcist", "From Eugene", "Entomologist", "Dermatologist"],
+        "correctOption": "Geologist"
+    },
+    {
+        "question": "Q10. Who studies aging and elderly people?",
+        "options": ["Gerontologist", "Geologist", "Exorcist", "From Eugene", "Entomologist"],
+        "correctOption": "Gerontologist"
+    },
+    {
+        "question": "Q11. Who studies handwriting?",
+        "options": ["Graphologist", "Gerontologist", "Geologist", "Exorcist", "From Eugene"],
+        "correctOption": "Graphologist"
+    },
+    {
+        "question": "Q12. Who specializes in women's reproductive health?",
+        "options": ["Gynaecologist", "Graphologist", "Gerontologist", "Geologist", "Exorcist"],
+        "correctOption": "Gynaecologist"
+    },
+    {
+        "question": "Q13. Who specializes in blood diseases?",
+        "options": ["Haematologist", "Gynaecologist", "Graphologist", "Gerontologist", "Geologist"],
+        "correctOption": "Haematologist"
+    },
+    {
+        "question": "Q14. Who specializes in garden cultivation and management?",
+        "options": ["Horticulturist", "Haematologist", "Gynaecologist", "Graphologist", "Gerontologist"],
+        "correctOption": "Horticulturist"
+    },
+    {
+        "question": "Q15. Who studies fish?",
+        "options": ["Ichthyologist", "Horticulturist", "Haematologist", "Gynaecologist", "Graphologist"],
+        "correctOption": "Ichthyologist"
+    },
+    {
+        "question": "Q16. Who studies butterflies and moths?",
+        "options": ["Lepidopterist", "Ichthyologist", "Horticulturist", "Haematologist", "Gynaecologist"],
+        "correctOption": "Lepidopterist"
+    },
+    {
+        "question": "Q17. Who studies weather and climate?",
+        "options": ["Meteorologist", "Lepidopterist", "Ichthyologist", "Horticulturist", "Haematologist"],
+        "correctOption": "Meteorologist"
+    },
+    {
+        "question": "Q18. Who specializes in the nervous system?",
+        "options": ["Neurologist", "Meteorologist", "Lepidopterist", "Ichthyologist", "Horticulturist"],
+        "correctOption": "Neurologist"
+    },
+    {
+        "question": "Q19. Who collects and studies coins and medals?",
+        "options": ["Numismatist", "Neurologist", "Meteorologist", "Lepidopterist", "Ichthyologist"],
+        "correctOption": "Numismatist"
+    },
+    {
+        "question": "Q20. Who specializes in the medical treatment of the eyes?",
+        "options": ["Oculist", "Numismatist", "Neurologist", "Meteorologist", "Lepidopterist"],
+        "correctOption": "Oculist"
+    },
+    {
+        "question": "Q21. Who specializes in eye and vision care?",
+        "options": ["Ophthalmologist", "Oculist", "Numismatist", "Neurologist", "Meteorologist"],
+        "correctOption": "Ophthalmologist"
+    },
+    {
+        "question": "Q22. Who specializes in eye examination and vision care?",
+        "options": ["Optometrist", "Ophthalmologist", "Oculist", "Numismatist", "Neurologist"],
+        "correctOption": "Optometrist"
+    },
+    {
+        "question": "Q23. Who studies birds?",
+        "options": ["Ornithologist", "Optometrist", "Ophthalmologist", "Oculist", "Numismatist"],
+        "correctOption": "Ornithologist"
+    },
+    {
+        "question": "Q24. Who specializes in straightening teeth?",
+        "options": ["Orthodontist", "Ornithologist", "Optometrist", "Ophthalmologist", "Oculist"],
+        "correctOption": "Orthodontist"
+    },
+    {
+        "question": "Q25. Who specializes in the medical care of children?",
+        "options": ["Paediatrician", "Orthodontist", "Ornithologist", "Optometrist", "Ophthalmologist"],
+        "correctOption": "Paediatrician"
+    },
+    {
+        "question": "Q26. Who studies diseases and their causes?",
+        "options": ["Pathologist", "Paediatrician", "Orthodontist", "Ornithologist", "Optometrist"],
+        "correctOption": "Pathologist"
+    },
+    {
+        "question": "Q1. Who specializes in the prevention, diagnosis, and treatment of diseases affecting the gums and supporting structures of the teeth?",
+        "options": ["Periodontist", "Philatelist", "Physicist", "Psephologist", "Psychiatrist"],
+        "correctOption": "Periodontist"
+    },
+    {
+        "question": "Q2. Who collects and studies postage stamps and related materials?",
+        "options": ["Philatelist", "Periodontist", "Physicist", "Psephologist", "Psychiatrist"],
+        "correctOption": "Philatelist"
+    },
+    {
+        "question": "Q3. Who studies the fundamental nature and properties of matter and energy?",
+        "options": ["Physicist", "Philatelist", "Periodontist", "Psephologist", "Psychiatrist"],
+        "correctOption": "Physicist"
+    },
+    {
+        "question": "Q4. Who studies elections and voting behavior?",
+        "options": ["Psephologist", "Physicist", "Philatelist", "Periodontist", "Psychiatrist"],
+        "correctOption": "Psephologist"
+    },
+    {
+        "question": "Q5. Who specializes in the diagnosis, prevention, and treatment of mental disorders?",
+        "options": ["Psychiatrist", "Psephologist", "Physicist", "Philatelist", "Periodontist"],
+        "correctOption": "Psychiatrist"
+    },
+    {
+        "question": "Q6. Who studies the mind and behavior?",
+        "options": ["Psychologist", "Psychiatrist", "Psephologist", "Physicist", "Philatelist"],
+        "correctOption": "Psychologist"
+    },
+    {
+        "question": "Q7. Who studies the meaning of words and language?",
+        "options": ["Semanticist", "Psychologist", "Psychiatrist", "Psephologist", "Physicist"],
+        "correctOption": "Semanticist"
+    },
+    {
+        "question": "Q8. What is the belief in or practice of activism called?",
+        "options": ["Activism", "Semanticist", "Psychologist", "Psychiatrist", "Psephologist"],
+        "correctOption": "Activism"
+    },
+    {
+        "question": "Q9. What is the belief in or practice of selfless concern for the well-being of others called?",
+        "options": ["Altruism", "Activism", "Semanticist", "Psychologist", "Psychiatrist"],
+        "correctOption": "Altruism"
+    },
+    {
+        "question": "Q10. What is the belief in a supernatural power that organizes and animates the material universe called?",
+        "options": ["Animatism", "Altruism", "Activism", "Semanticist", "Psychologist"],
+        "correctOption": "Animatism"
+    },
+    {
+        "question": "Q11. What is the state of being opposed or hostile to another called?",
+        "options": ["Antagonism", "Animatism", "Altruism", "Activism", "Semanticist"],
+        "correctOption": "Antagonism"
+    },
+    {
+        "question": "Q12. What is the attribution of human characteristics or behavior to a god, animal, or object called?",
+        "options": ["Anthropomorphism", "Antagonism", "Animatism", "Altruism", "Activism"],
+        "correctOption": "Anthropomorphism"
+    },
+    {
+        "question": "Q13. What is the belief in the existence of a god or gods called?",
+        "options": ["Antitheism", "Anthropomorphism", "Antagonism", "Animatism", "Altruism"],
+        "correctOption": "Antitheism"
+    },
+    {
+        "question": "Q14. What is opposition to the use of living animals for experimentation called?",
+        "options": ["Antivivisectionism", "Antitheism", "Anthropomorphism", "Antagonism", "Animatism"],
+        "correctOption": "Antivivisectionism"
+    },
+    {
+        "question": "Q15. What is a concise statement of a scientific principle, typically a maxim or adage?",
+        "options": ["Aphorism", "Antivivisectionism", "Antitheism", "Anthropomorphism", "Antagonism"],
+        "correctOption": "Aphorism"
+    },
+    {
+        "question": "Q16. What is the use of archaic words or expressions in speech or writing called?",
+        "options": ["Archaism", "Aphorism", "Antivivisectionism", "Antitheism", "Anthropomorphism"],
+        "correctOption": "Archaism"
+    },
+    {
+        "question": "Q17. What is the reappearance of a characteristic in an organism after several generations of absence called?",
+        "options": ["Atavism", "Archaism", "Aphorism", "Antivivisectionism", "Antitheism"],
+        "correctOption": "Atavism"
+    },
+    {
+        "question": "Q18. What is the lack of belief or disbelief in the existence of gods called?",
+        "options": ["Atheism", "Atavism", "Archaism", "Aphorism", "Antivivisectionism"],
+        "correctOption": "Atheism"
+    },
+    {
+        "question": "Q19. What is a summary of the principles of Christian religion in the form of questions and answers, used for the instruction of Christians?",
+        "options": ["Catechism", "Atheism", "Atavism", "Archaism", "Aphorism"],
+        "correctOption": "Catechism"
+    },
+    {
+        "question": "Q20. What is a movement in art and literature based on deliberate irrationality and negation of traditional artistic values?",
+        "options": ["Dadaism", "Catechism", "Atheism", "Atavism", "Archaism"],
+        "correctOption": "Dadaism"
+    },
+    {
+        "question": "Q21. What is the substitution of a mild, indirect, or vague term for one considered harsh, blunt, or offensive?",
+        "options": ["Euphemism", "Dadaism", "Catechism", "Atheism", "Atavism"],
+        "correctOption": "Euphemism"
+    },
+    {
+        "question": "Q22. What is an artificial, elaborate, and highly polished style of writing?",
+        "options": ["Euphuism", "Euphemism", "Dadaism", "Catechism", "Atheism"],
+        "correctOption": "Euphuism"
+    },
+    {
+        "question": "Q1. What is the use of mild or indirect words or phrases instead of harsh or direct ones?",
+        "options": ["Euphemism", "Euphuism", "Fatalism", "Hedonism", "Humanism"],
+        "correctOption": "Euphemism"
+    },
+    {
+        "question": "Q2. What is an artificial, elaborate, and highly polished style of writing or speech?",
+        "options": ["Euphuism", "Euphemism", "Fatalism", "Hedonism", "Humanism"],
+        "correctOption": "Euphuism"
+    },
+    {
+        "question": "Q3. What is the belief that all events are predetermined and therefore inevitable?",
+        "options": ["Fatalism", "Euphuism", "Euphemism", "Hedonism", "Humanism"],
+        "correctOption": "Fatalism"
+    },
+    {
+        "question": "Q4. What is the pursuit of pleasure and sensual self-indulgence called?",
+        "options": ["Hedonism", "Fatalism", "Euphuism", "Euphemism", "Humanism"],
+        "correctOption": "Hedonism"
+    },
+    {
+        "question": "Q5. What is a system of thought attaching prime importance to human rather than divine or supernatural matters?",
+        "options": ["Humanism", "Hedonism", "Fatalism", "Euphuism", "Euphemism"],
+        "correctOption": "Humanism"
+    },
+    {
+        "question": "Q6. What is lack of civic responsibility or a disregard for laws?",
+        "options": ["Incivism", "Humanism", "Hedonism", "Fatalism", "Euphuism"],
+        "correctOption": "Incivism"
+    },
+    {
+        "question": "Q7. What is a social theory favoring freedom of action for individuals over collective or state control?",
+        "options": ["Individualism", "Incivism", "Humanism", "Hedonism", "Fatalism"],
+        "correctOption": "Individualism"
+    },
+    {
+        "question": "Q8. What is the belief in the possibility of gradual improvement of the human race?",
+        "options": ["Meliorism", "Individualism", "Incivism", "Humanism", "Hedonism"],
+        "correctOption": "Meliorism"
+    },
+    {
+        "question": "Q9. What is the belief in the existence of only one god?",
+        "options": ["Monotheism", "Meliorism", "Individualism", "Incivism", "Humanism"],
+        "correctOption": "Monotheism"
+    },
+    {
+        "question": "Q10. What is excessive admiration or self-love?",
+        "options": ["Narcissism", "Monotheism", "Meliorism", "Individualism", "Incivism"],
+        "correctOption": "Narcissism"
+    },
+    {
+        "question": "Q11. What is the practice among those with power or influence of favoring relatives or friends, especially by giving them jobs?",
+        "options": ["Nepotism", "Narcissism", "Monotheism", "Meliorism", "Individualism"],
+        "correctOption": "Nepotism"
+    },
+    {
+        "question": "Q12. What is refusal to conform to an established or conventional creed, rule, or practice?",
+        "options": ["Non-conformity", "Nepotism", "Narcissism", "Monotheism", "Meliorism"],
+        "correctOption": "Non-conformity"
+    },
+    {
+        "question": "Q13. What is the belief that certain knowledge is or can be derived only from sense experience?",
+        "options": ["Objectivism", "Non-conformity", "Nepotism", "Narcissism", "Monotheism"],
+        "correctOption": "Objectivism"
+    },
+    {
+        "question": "Q14. What is the belief that disputes should be resolved by practical means and according to practical considerations?",
+        "options": ["Pragmatism", "Objectivism", "Non-conformity", "Nepotism", "Narcissism"],
+        "correctOption": "Pragmatism"
+    },
+    {
+        "question": "Q15. What is the doctrine that probability of the truth or falsity of a statement is the criterion of its meaning or truth?",
+        "options": ["Probablism", "Pragmatism", "Objectivism", "Non-conformity", "Nepotism"],
+        "correctOption": "Probablism"
+    },
+    {
+        "question": "Q16. What is the endurance of pain or hardship without the display of feelings and without complaint?",
+        "options": ["Stoicism", "Probablism", "Pragmatism", "Objectivism", "Non-conformity"],
+        "correctOption": "Stoicism"
+    },
+    {
+        "question": "Q17. What is a philosophical movement that emphasizes spiritual intuition as a means of understanding reality?",
+        "options": ["Transcendentalism", "Stoicism", "Probablism", "Pragmatism", "Objectivism"],
+        "correctOption": "Transcendentalism"
+    },
+    {
+        "question": "Q18. What is a defect in the eye or in a lens caused by a deviation from spherical curvature, which results in distorted images?",
+        "options": ["Astigmatism", "Transcendentalism", "Stoicism", "Probablism", "Pragmatism"],
+        "correctOption": "Astigmatism"
+    },
+    {
+        "question": "Q19. What is color blindness, especially partial or total inability to distinguish certain colors?",
+        "options": ["Daltonism", "Astigmatism", "Transcendentalism", "Stoicism", "Probablism"],
+        "correctOption": "Daltonism"
+    },
+    {
+        "question": "Q20. What is the coining or use of new words or phrases?",
+        "options": ["Neologism", "Daltonism", "Astigmatism", "Transcendentalism", "Stoicism"],
+        "correctOption": "Neologism"
+    },
+    {
+        "question": "Q21. What is an error in chronology in which events are misplaced in time?",
+        "options": ["Parachronism", "Neologism", "Daltonism", "Astigmatism", "Transcendentalism"],
+        "correctOption": "Parachronism"
+    },
+    {
+        "question": "Q1. What is a system of government in which the ruler has unlimited power and authority?",
+        "options": ["Absolutism", "Aristocracy", "Diarchy", "Gerontocracy", "Heirocracy/Theocracy"],
+        "correctOption": "Absolutism"
+    },
+    {
+        "question": "Q2. What is a system of government by a single person with absolute power?",
+        "options": ["Autocracy", "Absolutism", "Aristocracy", "Diarchy", "Gerontocracy"],
+        "correctOption": "Autocracy"
+    },
+    {
+        "question": "Q3. What is a system of government in which a single ruler exercises absolute power?",
+        "options": ["Autarchy", "Autocracy", "Absolutism", "Aristocracy", "Diarchy"],
+        "correctOption": "Autarchy"
+    },
+    {
+        "question": "Q4. What is a system of government where the ruler has unlimited power and uses it arbitrarily?",
+        "options": ["Despotism", "Autarchy", "Autocracy", "Absolutism", "Aristocracy"],
+        "correctOption": "Despotism"
+    },
+    {
+        "question": "Q5. What is a form of government in which the ruler is an absolute dictator?",
+        "options": ["Totalitarianism", "Despotism", "Autarchy", "Autocracy", "Absolutism"],
+        "correctOption": "Totalitarianism"
+    },
+    {
+        "question": "Q6. What is a government in which power is in the hands of a hereditary ruling class or nobility?",
+        "options": ["Aristocracy", "Totalitarianism", "Despotism", "Autarchy", "Autocracy"],
+        "correctOption": "Aristocracy"
+    },
+    {
+        "question": "Q7. What is a form of government where two individuals, typically monarchs, rule together?",
+        "options": ["Diarchy", "Aristocracy", "Totalitarianism", "Despotism", "Autarchy"],
+        "correctOption": "Diarchy"
+    },
+    {
+        "question": "Q8. What is a system of government in which old people rule?",
+        "options": ["Gerontocracy", "Diarchy", "Aristocracy", "Totalitarianism", "Despotism"],
+        "correctOption": "Gerontocracy"
+    },
+    {
+        "question": "Q9. What is a form of government in which priests or religious leaders rule in the name of God or a god?",
+        "options": ["Heirocracy/Theocracy", "Gerontocracy", "Diarchy", "Aristocracy", "Totalitarianism"],
+        "correctOption": "Heirocracy/Theocracy"
+    },
+    {
+        "question": "Q10. What is a form of social organization in which the mother is the head of the family or tribe?",
+        "options": ["Matriarchy", "Heirocracy/Theocracy", "Gerontocracy", "Diarchy", "Aristocracy"],
+        "correctOption": "Matriarchy"
+    },
+    {
+        "question": "Q11. What is a system of government or other administration in which merit governs?",
+        "options": ["Meritocracy", "Matriarchy", "Heirocracy/Theocracy", "Gerontocracy", "Diarchy"],
+        "correctOption": "Meritocracy"
+    },
+    {
+        "question": "Q12. What is a government by the people, especially rule of the majority?",
+        "options": ["Ochlocracy", "Meritocracy", "Matriarchy", "Heirocracy/Theocracy", "Gerontocracy"],
+        "correctOption": "Ochlocracy"
+    },
+    {
+        "question": "Q13. What is a government by a few, especially by a small faction of persons or families?",
+        "options": ["Oligarchy", "Ochlocracy", "Meritocracy", "Matriarchy", "Heirocracy/Theocracy"],
+        "correctOption": "Oligarchy"
+    },
+    {
+        "question": "Q14. What is a form of government in which all rule equally?",
+        "options": ["Pantisocracy", "Oligarchy", "Ochlocracy", "Meritocracy", "Matriarchy"],
+        "correctOption": "Pantisocracy"
+    },
+    {
+        "question": "Q15. What is a system of government by the wealthy?",
+        "options": ["Plutocracy/Timocracy", "Pantisocracy", "Oligarchy", "Ochlocracy", "Meritocracy"],
+        "correctOption": "Plutocracy/Timocracy"
+    },
+    {
+        "question": "Q16. What is a form of government in which the state is controlled by military officials?",
+        "options": ["Stratocracy", "Plutocracy/Timocracy", "Pantisocracy", "Oligarchy", "Ochlocracy"],
+        "correctOption": "Stratocracy"
+    },
+    {
+        "question": "Q17. What is a system of government in which decision-making is based on expertise in a given area?",
+        "options": ["Technocracy", "Stratocracy", "Plutocracy/Timocracy", "Pantisocracy", "Oligarchy"],
+        "correctOption": "Technocracy"
+    },
+    {
+        "question": "Q18. What is a form of alternative medicine that involves inserting thin needles into the body?",
+        "options": ["Acupuncture", "Technocracy", "Stratocracy", "Plutocracy/Timocracy", "Pantisocracy"],
+        "correctOption": "Acupuncture"
+    },
+    {
+        "question": "Q19. What is the therapeutic use of aromatic plant extracts and essential oils?",
+        "options": ["Aromatherapy", "Acupuncture", "Technocracy", "Stratocracy", "Plutocracy/Timocracy"],
+        "correctOption": "Aromatherapy"
+    },
+    {
+        "question": "Q20. What is the treatment of disease using chemical substances, especially cancer?",
+        "options": ["Chemotherapy", "Aromatherapy", "Acupuncture", "Technocracy", "Stratocracy"],
+        "correctOption": "Chemotherapy"
+    },
+    {
+        "question": "Q1. What is a person who loves or collects books?",
+        "options": ["Bibliophile", "Bibliologist", "Carnivore", "Cannibal", "Connoisseur"],
+        "correctOption": "Bibliophile"
+    },
+    {
+        "question": "Q2. What is a specialist in the history and science of books?",
+        "options": ["Bibliologist", "Bibliophile", "Carnivore", "Cannibal", "Connoisseur"],
+        "correctOption": "Bibliologist"
+    },
+    {
+        "question": "Q3. What is an animal that feeds on flesh?",
+        "options": ["Carnivore", "Bibliologist", "Bibliophile", "Cannibal", "Connoisseur"],
+        "correctOption": "Carnivore"
+    },
+    {
+        "question": "Q4. What is a person who eats the flesh of other human beings?",
+        "options": ["Cannibal", "Carnivore", "Bibliologist", "Bibliophile", "Connoisseur"],
+        "correctOption": "Cannibal"
+    },
+    {
+        "question": "Q5. What is an expert judge in matters of taste?",
+        "options": ["Connoisseur", "Cannibal", "Carnivore", "Bibliologist", "Bibliophile"],
+        "correctOption": "Connoisseur"
+    },
+    {
+        "question": "Q6. What is a person who loves trees?",
+        "options": ["Dendrophile", "Connoisseur", "Cannibal", "Carnivore", "Bibliologist"],
+        "correctOption": "Dendrophile"
+    },
+    {
+        "question": "Q7. What is a connoisseur of fine food and drink?",
+        "options": ["Gourmet", "Dendrophile", "Connoisseur", "Cannibal", "Carnivore"],
+        "correctOption": "Gourmet"
+    },
+    {
+        "question": "Q8. What is a person who travels widely or frequently?",
+        "options": ["Globe-trotter", "Gourmet", "Dendrophile", "Connoisseur", "Cannibal"],
+        "correctOption": "Globe-trotter"
+    },
+    {
+        "question": "Q9. What is a person who loves horses?",
+        "options": ["Hippophile", "Globe-trotter", "Gourmet", "Dendrophile", "Connoisseur"],
+        "correctOption": "Hippophile"
+    },
+    {
+        "question": "Q10. What is a person who is obsessed with their own power?",
+        "options": ["Megalomaniac", "Hippophile", "Globe-trotter", "Gourmet", "Dendrophile"],
+        "correctOption": "Megalomaniac"
+    },
+    {
+        "question": "Q11. What is a person primarily concerned with materialistic matters?",
+        "options": ["Materialist", "Megalomaniac", "Hippophile", "Globe-trotter", "Gourmet"],
+        "correctOption": "Materialist"
+    },
+    {
+        "question": "Q12. What is a person who is motivated purely by money?",
+        "options": ["Mercenary", "Materialist", "Megalomaniac", "Hippophile", "Globe-trotter"],
+        "correctOption": "Mercenary"
+    },
+    {
+        "question": "Q13. What is a person who has no permanent home and moves from place to place?",
+        "options": ["Nomad", "Mercenary", "Materialist", "Megalomaniac", "Hippophile"],
+        "correctOption": "Nomad"
+    },
+    {
+        "question": "Q14. What is a person who has an excessive interest in or admiration of themselves?",
+        "options": ["Narcissist", "Nomad", "Mercenary", "Materialist", "Megalomaniac"],
+        "correctOption": "Narcissist"
+    },
+    {
+        "question": "Q15. What is a person who is sexually attracted to children?",
+        "options": ["Paedophile", "Narcissist", "Nomad", "Mercenary", "Materialist"],
+        "correctOption": "Paedophile"
+    },
+    {
+        "question": "Q16. What is a person who studies historical linguistics and languages?",
+        "options": ["Philologist", "Paedophile", "Narcissist", "Nomad", "Mercenary"],
+        "correctOption": "Philologist"
+    },
+    {
+        "question": "Q17. What is a person who believes that war and violence are unjustifiable?",
+        "options": ["Pacifist", "Philologist", "Paedophile", "Narcissist", "Nomad"],
+        "correctOption": "Pacifist"
+    },
+    {
+        "question": "Q18. What is a person who seeks to promote the welfare of others, especially by the generous donation of money to good causes?",
+        "options": ["Philanthropist", "Pacifist", "Philologist", "Paedophile", "Narcissist"],
+        "correctOption": "Philanthropist"
+    },
+    {
+        "question": "Q19. What is a person who believes in the existence of a god or gods?",
+        "options": ["Theist", "Philanthropist", "Pacifist", "Philologist", "Paedophile"],
+        "correctOption": "Theist"
+    },
+    {
+        "question": "Q20. What is a person who promotes or advocates war or conflict?",
+        "options": ["Warmonger", "Theist", "Philanthropist", "Pacifist", "Philologist"],
+        "correctOption": "Warmonger"
+    },
+    {
+        "question": "Q21. What is a person who is sexually attracted to animals?",
+        "options": ["Zoophile", "Warmonger", "Theist", "Philanthropist", "Pacifist"],
+        "correctOption": "Zoophile"
+    },
+    {
+        "question": "Q1. What is a system of complementary medicine based on the diagnosis and manipulative treatment of misalignments of the joints, especially those of the spinal column?",
+        "options": ["Chiropractic", "Herbotherapy", "Hydrotherapy", "Hypnotherapy", "Naturopathy"],
+        "correctOption": "Chiropractic"
+    },
+    {
+        "question": "Q2. What is the use of plants or plant extracts for medicinal purposes (herbal medicine)?",
+        "options": ["Herbotherapy", "Chiropractic", "Hydrotherapy", "Hypnotherapy", "Naturopathy"],
+        "correctOption": "Herbotherapy"
+    },
+    {
+        "question": "Q3. What is the therapeutic use of water, both internally and externally?",
+        "options": ["Hydrotherapy", "Herbotherapy", "Chiropractic", "Hypnotherapy", "Naturopathy"],
+        "correctOption": "Hydrotherapy"
+    },
+    {
+        "question": "Q4. What is the use of hypnosis as a therapeutic technique?",
+        "options": ["Hypnotherapy", "Hydrotherapy", "Herbotherapy", "Chiropractic", "Naturopathy"],
+        "correctOption": "Hypnotherapy"
+    },
+    {
+        "question": "Q5. What is a system of alternative medicine based on the theory that diseases can be successfully treated or prevented without the use of drugs, by techniques such as control of diet, exercise, and massage?",
+        "options": ["Naturopathy", "Hypnotherapy", "Hydrotherapy", "Herbotherapy", "Chiropractic"],
+        "correctOption": "Naturopathy"
+    },
+    {
+        "question": "Q6. What is a system of medicine that emphasizes the treatment of medical disorders through the manipulation and massage of the skeleton and musculature?",
+        "options": ["Osteopathy", "Naturopathy", "Hypnotherapy", "Hydrotherapy", "Herbotherapy"],
+        "correctOption": "Osteopathy"
+    },
+    {
+        "question": "Q7. What is the therapeutic use of light?",
+        "options": ["Phototherapy", "Osteopathy", "Naturopathy", "Hypnotherapy", "Hydrotherapy"],
+        "correctOption": "Phototherapy"
+    },
+    {
+        "question": "Q8. What is the treatment of disease, injury, or deformity by physical methods such as massage, heat treatment, and exercise rather than by drugs or surgery?",
+        "options": ["Physiotherapy", "Phototherapy", "Osteopathy", "Naturopathy", "Hypnotherapy"],
+        "correctOption": "Physiotherapy"
+    },
+    {
+        "question": "Q9. What is a form of reflexology involving the application of pressure to the feet and hands with specific thumb, finger, and hand techniques without the use of oil or lotion?",
+        "options": ["Zone therapy", "Physiotherapy", "Phototherapy", "Osteopathy", "Naturopathy"],
+        "correctOption": "Zone therapy"
+    },
+        // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

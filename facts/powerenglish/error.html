@@ -1,0 +1,4123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Errors QUIZ APP</title>
+			<script src="../../urlRewrite.js"></script>
+		<link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Errors Gati Part 1 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+
+ const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'sscenglisherrori2s02ls0z';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+         const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+<script>
+const questions = [
+
+
+
+  {
+        "question": "Much of the art he discusses is funny, playful, and mischievous.",
+        "options": [
+            "(a) No error",
+            "(b) Much of the art he",
+            "(c) and mischievous.",
+            "(d) discusses is funny, playing"
+        ],
+        "correctOption": "(d) discusses is funny, playing"
+    },
+    {
+        "question": "Why is your friend giving me weird looks?",
+        "options": [
+            "(a) weird looks?",
+            "(b) Why is your friend",
+            "(c) No error",
+            "(d) giving me"
+        ],
+        "correctOption": "(c) No error"
+    },
+    {
+        "question": "I particular like that kitten because it has white feet.",
+        "options": [
+            "(a) No error",
+            "(b) has white feet",
+            "(c) that kitten because it",
+            "(d) I particularly like"
+        ],
+        "correctOption": "(d) I particular like"
+    },
+    {
+        "question": "While persimmons can be used in pies and tarts, you can also enjoy them plain.",
+        "options": [
+            "(a) use in pies and tarts, you",
+            "(b) No error",
+            "(c) While persimmons can be",
+            "(d) can also enjoy them plain."
+        ],
+        "correctOption": "(a) use in pies and tarts, you"
+    },
+    {
+        "question": "It is believed that difficult tasks demand a lot of our resources.",
+        "options": [
+            "(a) No error",
+            "(b) It is believed that",
+            "(c) of our resources.",
+            "(d) difficult tasks demand lot"
+        ],
+        "correctOption": "(d) difficult tasks demand lot"
+    },
+    {
+        "question": "Your ears are itching because you are having an allergic reaction.",
+        "options": [
+            "(a) because you are having an",
+            "(b) Your ears are itching",
+            "(c) No error",
+            "(d) allergic reaction."
+        ],
+        "correctOption": "(c) No error"
+    },
+    {
+        "question": "We talked about writing a will, but it was one of the best thing you never get around to doing.",
+        "options": [
+            "(a) around to doing.",
+            "(b) was one of the best things you never get",
+            "(c) No Error",
+            "(d) We talked about writing a will, but it"
+        ],
+        "correctOption": "(a) around to doing."
+    },
+    {
+        "question": "India is already the third-largest aviation market in terms of domestic travel.",
+        "options": [
+            "(a) terms of domestic travel.",
+            "(b) India is already the third-largest",
+            "(c) aviation market in",
+            "(d) No error"
+        ],
+        "correctOption": "(d) No error"
+    },
+    {
+        "question": "Our passage across the Arabian Sea was smooth as the most timid of navigators could desire.",
+        "options": [
+            "(a) Our passage across the Arabian Sea",
+            "(b) navigators could desire.",
+            "(c) was smooth as the most timid of",
+            "(d) No error"
+        ],
+        "correctOption": "(b) navigators could desire."
+    },
+    {
+        "question": "Using a loofah with a hydrating shower gel each day also ensures you'll have the most smoothest skin.",
+        "options": [
+            "(a) shower gel each day also ensures",
+            "(b) you'll have the most smoothest skin.",
+            "(c) Using a loofah with a hydrating",
+            "(d) No error"
+        ],
+        "correctOption": "(b) you'll have the most smoothest skin."
+    },
+    {
+        "question": "In 79 A. D., the Mount Vesuvius blew its top, burying the ancient cities of Pompeii and Herculaneum.",
+        "options": [
+            "(a) In 79 A. D., the Mount Vesuvius blew",
+            "(b) No Error",
+            "(c) its top. burying the ancient",
+            "(d) cities of"
+        ],
+        "correctOption": "(a) In 79 A. D., the Mount Vesuvius blew"
+    },
+    {
+        "question": "I hope that we will arrive at the ideal trade-off soon.",
+        "options": [
+            "(a) we will arrive at",
+            "(b) No error",
+            "(c) I hope that",
+            "(d) the ideal trade-off soon."
+        ],
+        "correctOption": "(b) No error"
+    },
+    {
+        "question": "Many female mammals, including rabbits and cats, ovulate only when they mate.",
+        "options": [
+            "(a) including rabbits and cats, ovulate",
+            "(b) only when they mate.",
+            "(c) Many female mammals,",
+            "(d) No error"
+        ],
+        "correctOption": "(d) No error"
+    },
+    {
+        "question": "Allergies can indirectly cause you to feel tired by robbing you of sleep.",
+        "options": [
+            "(a) robbing you of sleep.",
+            "(b) cause you to feel tired by",
+            "(c) Allergies can indirect",
+            "(d) No error"
+        ],
+        "correctOption": "(c) Allergies can indirect"
+    },
+    {
+        "question": "She never did apologize for her misconduct with the boss.",
+        "options": [
+            "(a) with the boss.",
+            "(b) She never did apologize",
+            "(c) No error",
+            "(d) for her misconduct"
+        ],
+        "correctOption": "(b) She never did apologize"
+    },
+    {
+        "question": "The kids there were so notorious, the more I asked them to quiet down, the more loud they would scream.",
+        "options": [
+            "(a) No error",
+            "(b) the more loud they would scream.",
+            "(c) more I asked them to quiet down,",
+            "(d) The kids there were so notorious, the"
+        ],
+        "correctOption": "(b) the more loud they would scream."
+    },
+    {
+        "question": "Before he could devote many more thought to the matter, Pranav had stepped up to him.",
+        "options": [
+            "(a) Before he could devote many more",
+            "(b) No error",
+            "(c) thought to the matter, Pranav",
+            "(d) had stepped up to him."
+        ],
+        "correctOption": "(a) Before he could devote many more"
+    },
+    {
+        "question": "His struggles were becoming more and more frenzied, a wild look creeping into his blue eyes.",
+        "options": [
+            "(a) His struggles were becoming",
+            "(b) more and more frenzied,",
+            "(c) No error",
+            "(d) a wild look creeping into his blue eyes."
+        ],
+        "correctOption": "(b) more and more frenzied,"
+    },
+    {
+        "question": "Mothers can pass the HIV virus to their newborns during delivery as well, WHO says.",
+        "options": [
+            "(a) as well, WHO says.",
+            "(b) their newborns during delivery",
+            "(c) Mothers can pass the HIV virus to",
+            "(d) No error"
+        ],
+        "correctOption": "(a) as well, WHO says."
+    },
+	 {
+        "question": "The benefits of rebuilding healthy, fertile soil are clear.",
+        "options": [
+            "(a) No error",
+            "(b) healthy, fertile soil",
+            "(c) are clear.",
+            "(d) The benefits of rebuilding"
+        ],
+        "correctOption": "(a) No error"
+    },
+    {
+        "question": "Fires in California is sounding alarm bells that cannot be ignored.",
+        "options": [
+            "(a) Fires in California is",
+            "(b) sounding alarm bells",
+            "(c) No error",
+            "(d) that cannot be ignored."
+        ],
+        "correctOption": "(a) Fires in California is"
+    },
+    {
+        "question": "He consolidated control over all the provinces of Great Britain and some of northern Gaul while Maximian dealt with other uprisings.",
+        "options": [
+            "(a) of northern Gaul while Maximian dealt with other uprisings.",
+            "(b) He consolidated control over all the",
+            "(c) No Error",
+            "(d) provinces of Great Britain and some"
+        ],
+        "correctOption": "(d) provinces of Great Britain and some"
+    },
+    {
+        "question": "I am thirty-two years old and my sister is fifteen.",
+        "options": [
+            "(a) No error",
+            "(b) years old and",
+            "(c) I am thirty-two",
+            "(d) my sister is fifteen."
+        ],
+        "correctOption": "(d) my sister is fifteen."
+    },
+    {
+        "question": "Far, far at the top of them, a shower of bright red sparks had flared among the stars.",
+        "options": [
+            "(a) No error",
+            "(b) had flared among the stars.",
+            "(c) Far, far at the top of them,",
+            "(d) a shower of bright red sparks"
+        ],
+        "correctOption": "(a) No error"
+    },
+    {
+        "question": "Susan had recently run into Catherine at the supermarket, they were seeing each other after many years.",
+        "options": [
+            "(a) Susan had recently run on to",
+            "(b) Catherine at the supermarket, they",
+            "(c) Were seeing each other after many years.",
+            "(d) No error"
+        ],
+        "correctOption": "(a) Susan had recently run on to"
+    },
+    {
+        "question": "Harry's eyes watered in the chill as they soared upwards; he could see nothing below now.",
+        "options": [
+            "(a) No error",
+            "(b) could see nothing below now.",
+            "(c) Harry's eyes watered in",
+            "(d) the chill as they soar upwards: he"
+        ],
+        "correctOption": "(d) the chill as they soar upwards: he"
+    },
+    {
+        "question": "In order to survive, humans need to eat ascorbic acid, also known as vitamin C.",
+        "options": [
+            "(a) known as vitamin C.",
+            "(b) No error",
+            "(c) need to eat ascorbic acid, also",
+            "(d) In order to survive,"
+        ],
+        "correctOption": "(b) No error"
+    },
+    {
+        "question": "Do you have the faint idea of what would happen if Maa sees this?",
+        "options": [
+            "(a) No error",
+            "(b) Do you have the faint",
+            "(c) idea of what would happen",
+            "(d) if Maa sees this?"
+        ],
+        "correctOption": "(b) Do you have the faint"
+    },
+    {
+        "question": "Even the most wise don't know what's hidden in the depths of their being.",
+        "options": [
+            "(a) know what's hidden in",
+            "(b) No error",
+            "(c) the depths of their being.",
+            "(d) Even the most wise don't"
+        ],
+        "correctOption": "(d) Even the most wise don't"
+    },
+    {
+        "question": "The differences were imperceptible to all but the most trained eye.",
+        "options": [
+            "(a) The differences were",
+            "(b) No error",
+            "(c) the most trained eye.",
+            "(d) imperceptible to all but"
+        ],
+        "correctOption": "(b) No error"
+    },
+    {
+        "question": "These include nature documentaries, including 'The Blue Planet' and 'Planet Earth'.",
+        "options": [
+            "(a) The Blue Planet' and 'Planet Earth'.",
+            "(b) documentaries. including",
+            "(c) These include nature",
+            "(d) No error"
+        ],
+        "correctOption": "(d) No error"
+    },
+    {
+        "question": "The baby's faces are expressionless and their pupils aren't visible which gives the appearance of lifelessness and dreadfulness.",
+        "options": [
+            "(a) The baby's faces are expressionless and",
+            "(b) No error",
+            "(c) the appearance of lifelessness and dreadfulness.",
+            "(d) their pupils aren't visible which gives"
+        ],
+        "correctOption": "(a) The baby's faces are expressionless and"
+    },
+    {
+        "question": "Time is the greater eraser, both of sorrow and of joy.",
+        "options": [
+            "(a) Time is the greater",
+            "(b) sorrow and of joy.",
+            "(c) No error",
+            "(d) eraser, both of"
+        ],
+        "correctOption": "(a) Time is the greater"
+    },
+    {
+        "question": "Raising temperatures in the springtime signal plants and animals to come alive.",
+        "options": [
+            "(a) springtime signal plants and",
+            "(b) animals to come alive.",
+            "(c) No error",
+            "(d) Raising temperatures in the"
+        ],
+        "correctOption": "(d) Raising temperatures in the"
+    },
+    {
+        "question": "Have you ever gone into a high-street shop wearing a pair of cycling shorts?",
+        "options": [
+            "(a) Have you ever gone into",
+            "(b) No error",
+            "(c) a high-street shop wearing",
+            "(d) a pair of cycling shorts?"
+        ],
+        "correctOption": "(b) No error"
+    },
+    {
+        "question": "Most impressive was record breaking 75.6 FPS on Crysis.",
+        "options": [
+            "(a) 75.6 FPS on Crysis.",
+            "(b) Most impressive",
+            "(c) Was record breaking",
+            "(d) No error"
+        ],
+        "correctOption": "(c) Was record breaking"
+    },
+    {
+        "question": "I began with writing one a week and now I do so every day.",
+        "options": [
+            "(a) one a week and",
+            "(b) I began with writing",
+            "(c) now I do so every day.",
+            "(d) No error"
+        ],
+        "correctOption": "(a) one a week and"
+    },
+ {
+        "question": "The current state of the literature on the efficacy under cognitive-behavioural therapy for individuals with generalised anxiety disorder suggests that it is a promising treatment option.",
+        "options": [
+            "The current state of the literature",
+            "suggests that it is a promising treatment option.",
+            "on the efficacy under cognitive-behavioural therapy",
+            "for individuals with generalised anxiety disorder"
+        ],
+        "correctOption": "on the efficacy under cognitive-behavioural therapy"
+    },
+    {
+        "question": "Do you want to visit a zoo when you go to Ahmedabad?",
+        "options": [
+            "Do you want",
+            "go to Ahmedabad",
+            "to visit a zoo",
+            "when you"
+        ],
+        "correctOption": "to visit a zoo"
+    },
+    {
+        "question": "A lot of adulterants are chemicals that can lead to a range of health problems in both children and adults.",
+        "options": [
+            "in both children and adult.",
+            "A lot of adulterants",
+            "are chemical that can lead",
+            "to a range of health problems"
+        ],
+        "correctOption": "to a range of health problems"
+    },
+    {
+        "question": "The committee was divided on the issue, and neither side were willing to compromise on the compensation amount to be given.",
+        "options": [
+            "L and neither side were willing to",
+            "amount to be given",
+            "compromise on the compensation",
+            "The committee was divided on the issue"
+        ],
+        "correctOption": "The committee was divided on the issue"
+    },
+    {
+        "question": "The investigation conducting by the research team yielded statistically significant results providing substantial evidence to support the hypothesis.",
+        "options": [
+            "yielded statistically significant results",
+            "The investigation conducting by the research team",
+            "providing substantial evidence",
+            "to support the hypothesis,"
+        ],
+        "correctOption": "The investigation conducting by the research team"
+    },
+    {
+        "question": "Can you make sure you have a correct address before you start driving?",
+        "options": [
+            "before you start driving",
+            "a correct address",
+            "Can you make.",
+            "sure you have"
+        ],
+        "correctOption": "a correct address"
+    },
+    {
+        "question": "This region was struck by unusual wave of violence last year.",
+        "options": [
+            "wave of violence",
+            "This region",
+            "last year.",
+            "was struck by unusual"
+        ],
+        "correctOption": "was struck by unusual"
+    },
+    {
+        "question": "Can you please open a door? I can hear somebody knocking.",
+        "options": [
+            "open a door?",
+            "Can you please",
+            "1 can hear",
+            "somebody knocking"
+        ],
+        "correctOption": "open a door?"
+    },
+    {
+        "question": "It is imperative in understanding the rising importance of artificial intelligence in the public sector to increase the efficacy and impact of the work done for public welfare.",
+        "options": [
+            "It is imperative in understanding",
+            "and impact of the work done for public welfare.",
+            "the rising importance of artificial intelligence",
+            "in the public sector to increase the efficacy"
+        ],
+        "correctOption": "It is imperative in understanding"
+    },
+    {
+        "question": "I need to buy an new iPhone.",
+        "options": [
+            "She is the best singer in the choir.",
+            "He is an artist who paints landscapes.",
+            "The cat sat on the windowsill",
+            "I need to buy an new iPhone."
+        ],
+        "correctOption": "I need to buy an new iPhone."
+    },
+    {
+        "question": "The man is a social animal.",
+        "options": [
+            "The man",
+            "social animal",
+            "No error",
+            "is a"
+        ],
+        "correctOption": "is a"
+    },
+    {
+        "question": "The poor undergoes several problems in life that could be solved with money.",
+        "options": [
+            "several problems in life",
+            "The poor undergoes",
+            "solved with money",
+            "that could be"
+        ],
+        "correctOption": "The poor undergoes"
+    },
+    {
+        "question": "He speaks pleasantly with her yesterday evening but not today.",
+        "options": [
+            "evening but not today.",
+            "No error",
+            "with her yesterday",
+            "He speaks pleasantly"
+        ],
+        "correctOption": "He speaks pleasantly"
+    },
+    {
+        "question": "Hurray! Here is the toy what I was looking for as my birthday gift.",
+        "options": [
+            "Hurray! Here is the toy",
+            "what I was looking for",
+            "as my birthday gift.",
+            "No error"
+        ],
+        "correctOption": "what I was looking for"
+    },
+    {
+        "question": "Her family lost their way in Daman.",
+        "options": [
+            "upon",
+            "in",
+            "over",
+            "No error"
+        ],
+        "correctOption": "in"
+    },
+    {
+        "question": "A crocodile was swimming in a river.",
+        "options": [
+            "was swimming",
+            "A crocodile",
+            "No error",
+            "in a river"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "The availability of funds will be ensured if they all tried to submit the proposals on time.",
+        "options": [
+            "ensured if they all tried to",
+            "The availability of funds will be",
+            "submit the proposals on time",
+            "No error"
+        ],
+        "correctOption": "ensured if they all tried to"
+    },
+    {
+        "question": "I fell asleep while I read the book.",
+        "options": [
+            "I read",
+            "the book",
+            "I fell",
+            "asleep while"
+        ],
+        "correctOption": "I read"
+    },
+    {
+        "question": "The present-century threats to our environment, which include interfering species, ailments, pollution, and a boiling temperature, were putting wildlife populations at peril.",
+        "options": [
+            "which include interfering species, ailments, pollution, and",
+            "The present-century threats to our environment",
+            "a boiling temperature, were putting wildlife populations at peril",
+            "No error"
+        ],
+        "correctOption": "a boiling temperature, were putting wildlife populations at peril"
+    },
+    {
+        "question": "\"Do you want to join us for lunch?\" \"I'm sorry, my physics class will start at 1 p.m. and doesn't finish till 3 p.m.\"",
+        "options": [
+            "Do you want to join us for lunch?",
+            "and doesn't finish till 3 p.m.",
+            "my physics class will start at 1 p.m.",
+            "I'm sorry"
+        ],
+        "correctOption": "my physics class will start at 1 p.m."
+    },
+    {
+        "question": "A celestial body or astronomical object is a naturally occurring physical thing, association, or configuration that happens in the visible universe.",
+        "options": [
+            "No error",
+            "a naturally occurring physical thing association",
+            "A celestial body or astronomical object is.",
+            "or configuration that happens in the visible universe"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "She rarely approached nobody to talk about the problems that she was facing.",
+        "options": [
+            "She rarely approached nobody",
+            "No error",
+            "that she was facing",
+            "to talk about the problems"
+        ],
+        "correctOption": "She rarely approached nobody"
+    },
+    {
+        "question": "It was (A) by a chance (B) he saw a movie in a theatre (C)",
+        "options": [
+            "A",
+            "No error",
+            "movie in a theatre (C)",
+            "C"
+        ],
+        "correctOption": "B"
+    },
+    {
+        "question": "If things were not going to be normal after the pandemic, mankind will have to accept the New Normal.",
+        "options": [
+            "no error",
+            "If things were not going to be normal",
+            "have to accept the New Normal",
+            "after the pandemic, mankind will"
+        ],
+        "correctOption": "If things were not going to be normal"
+    },
+    {
+        "question": "This will be most difficult of the adjustments we have to make because we have been used to spending a lot on guests.",
+        "options": [
+            "the adjustments we have to make",
+            "This will be most difficult of",
+            "spending a lot on guests",
+            "because we have been used to"
+        ],
+        "correctOption": "This will be most difficult of"
+    },
+    {
+        "question": "I must have a chance to rectify my error.",
+        "options": [
+            "alter",
+            "worsen",
+            "reason",
+            "No error"
+        ],
+        "correctOption": "worsen"
+    },
+    {
+        "question": "The historians are a great asset to the field of academia.",
+        "options": [
+            "The historians",
+            "are a great",
+            "asset to the",
+            "field of academia"
+        ],
+        "correctOption": "The historians"
+    },
+    {
+        "question": "Anti-party activities improved my relations with an opposition.",
+        "options": [
+            "With an opposition",
+            "Anti-party activities",
+            "No error",
+            "improved my relations"
+        ],
+        "correctOption": "With an opposition"
+    },
+	
+	
+	
+	
+	
+	  {
+        "question": "You wash the dishes and 1 dry the same.",
+        "options": [
+            "You wash",
+            "the dishes",
+            "and",
+            "Improved my relations",
+            "1 dry the same"
+        ],
+        "correctOption": "1 dry the same"
+    },
+    {
+        "question": "They usually allege that there is a delay in procuring stationery due to the faulty purchase orders.",
+        "options": [
+            "due to the faulty purchase orders",
+            "No error",
+            "They usually allege that there is",
+            "a delay in procuring stationery"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Kids learn a lot by their school activities and homework.",
+        "options": [
+            "school activities and homework.",
+            "a lot by",
+            "Kids learn",
+            "their"
+        ],
+        "correctOption": "a lot by"
+    },
+    {
+        "question": "If I were your mother I would have taken care of you and your sisters.",
+        "options": [
+            "I would have taken care",
+            "of you and your sisters",
+            "No error",
+            "If I were your mother"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "When I turn sixty, I will have been teaching students for forty-one years.",
+        "options": [
+            "When I turn sixty",
+            "I will have been teaching",
+            "students for forty-one years",
+            "No error"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Not the word was said during the general discussion about the concerns regarding these people.",
+        "options": [
+            "2. Not the word was said during the general discussion about the concerns regarding these people.",
+            "ing the general discussion about the concerns regarding these people.",
+            "Not the word was said during the general discussion about the concerns regarding these people.",
+            "Not the word was said during the general discussion about the concerns regarding these people."
+        ],
+        "correctOption": "2. Not the word was said during the general discussion about the concerns regarding these people."
+    },
+    {
+        "question": "She was happy to find out that the child could lay there all day without being disturbed by anyone.",
+        "options": [
+            "by anyone",
+            "that the child could lay there",
+            "all day without being disturbed",
+            "She was happy to find out"
+        ],
+        "correctOption": "that the child could lay there"
+    },
+    {
+        "question": "Rishi and Rahul are twins but both do not take off the kindness and generosity of their parents.",
+        "options": [
+            "of their parents",
+            "but both do not take off",
+            "the kindness and generosity",
+            "Rishi and Rahul are twins"
+        ],
+        "correctOption": "but both do not take off"
+    },
+    {
+        "question": "In the given sentence, several segments have been underlined. One of these underlined segments is grammatically incorrect in context of its usage in the sentence. Identify the INCORRECT segment from the following options.",
+        "options": [
+            "to address traffic congestion",
+            "the expansion of hike lanes,",
+            "but he doesn't believe any of them will be effective",
+            "including the introduction of a new public transportation system."
+        ],
+        "correctOption": "but he doesn't believe any of them will be effective"
+    },
+    {
+        "question": "And it just recently awarded a million-dollar contract that reeks of corruption.",
+        "options": [
+            "that reeks of corruption.",
+            "a million-dollar contract",
+            "No error",
+            "And it just recently"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "India has turned 70 years older as a Republic.",
+        "options": [
+            "as a Republic.",
+            "India has turned",
+            "No error",
+            "70 years older"
+        ],
+        "correctOption": "70 years older"
+    },
+    {
+        "question": "In the five next years, the migration will surely stop.",
+        "options": [
+            "will surely stop.",
+            "No error",
+            "years, the migration",
+            "In the five next"
+        ],
+        "correctOption": "In the five next"
+    },
+    {
+        "question": "They know they will face either a swift backlash or deafening silence.",
+        "options": [
+            "or deafening silence.",
+            "No error",
+            "They know they will face",
+            "either a swift backlash"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "If someone you are talking to is open of learning more, encourage that continued curiosity.",
+        "options": [
+            "No error",
+            "encourage that continued curiosity.",
+            "to is open of learning more,",
+            "If someone you are talking"
+        ],
+        "correctOption": "to is open of learning more,"
+    },
+    {
+        "question": "The Event Horizon Telescope can help scientists analyse the shapes and behaviours of event horizons.",
+        "options": [
+            "and behaviours of event horizons.",
+            "No error",
+            "The Event Horizon Telescope can",
+            "help scientists analyse the shapes"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Her failure in life is too much painful for me.",
+        "options": [
+            "is too much",
+            "Her failure in life",
+            "painful for me.",
+            "No error"
+        ],
+        "correctOption": "is too much"
+    },
+    {
+        "question": "And so for the sakes of his son he remained, absolutely calm.",
+        "options": [
+            "No error",
+            "And so for the sakes",
+            "absolutely calm",
+            "of his son he remained,"
+        ],
+        "correctOption": "And so for the sakes"
+    },
+    {
+        "question": "He lived close to the train station, yet travelled by bus.",
+        "options": [
+            "yet travelled by bus",
+            "the train station",
+            "No error",
+            "He lived close to"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Marine vertebrates are valuable for many reasons.",
+        "options": [
+            "valuable for",
+            "No error",
+            "many reasons",
+            "Marine vertebrates are"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Most of the freshwater lake in India are in the Himalayan region.",
+        "options": [
+            "Himalayan region",
+            "are in the",
+            "freshwater lake in India",
+            "Most of the"
+        ],
+        "correctOption": "freshwater lake in India"
+    },
+    {
+        "question": "Human being are the producers and the consumers of Earth's resources.",
+        "options": [
+            "Human being are",
+            "the producers and the",
+            "consumers of Earth's",
+            "resources"
+        ],
+        "correctOption": "Human being are"
+    },
+    {
+        "question": "A significant number of students volunteers each year for environmental projects.",
+        "options": [
+            "A significant number of students",
+            "environmental projects",
+            "volunteers each year for",
+            "No error"
+        ],
+        "correctOption": "volunteers each year for"
+    },
+    {
+        "question": "My teacher said to me that all that glitters were not gold.",
+        "options": [
+            "No error",
+            "glitters were not gold",
+            "all that",
+            "My teacher said to me that"
+        ],
+        "correctOption": "glitters were not gold"
+    },
+    {
+        "question": "One of the most important tasks in agriculture is turning the soil and loosening it.",
+        "options": [
+            "No error",
+            "One of the most important tasks",
+            "the soil and loosening it",
+            "in agriculture is turning"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Wind is one of biggest factors in the spread of fire.",
+        "options": [
+            "No error",
+            "of biggest factors",
+            "in the spread of fire",
+            "Wind is one"
+        ],
+        "correctOption": "of biggest factors"
+    },
+    {
+        "question": "Apart from Germany, they also visited Italy and Austria during its business trip.",
+        "options": [
+            "during its business trip",
+            "No error.",
+            "also visited Italy and Austria",
+            "Apart from Germany, they"
+        ],
+        "correctOption": "during its business trip"
+    },
+    {
+        "question": "Elizabeth beat her rival with the gold medal in the 2021 summer Olympics.",
+        "options": [
+            "2021 summer Olympics",
+            "with the gold medal in the",
+            "No error",
+            "Elizabeth beat her rival"
+        ],
+        "correctOption": "with the gold medal in the"
+    },
+    {
+        "question": "All the problems occurred because she does not hear my words follow the instructions.",
+        "options": [
+            "All the problems occurred",
+            "because she does not",
+            "No error",
+            "follow the instructionshear my words"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Hundreds of migrants work in private firms in Erode.",
+        "options": [
+            "work in private",
+            "firms in Erode",
+            "No error",
+            "Hundreds of migrants"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "He got afflicted with the disease when he was a teenager.",
+        "options": [
+            "when he was",
+            "No error",
+            "a teenager",
+            "He got afflicted with the disease"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "It feels greatly to be with you at this ceremony.",
+        "options": [
+            "It feels greatly",
+            "to be with you",
+            "at this ceremony",
+            "No error"
+        ],
+        "correctOption": "It feels greatly"
+    },
+    {
+        "question": "Thunderstorms develop in hot, humid, tropical areas like India much too frequently.",
+        "options": [
+            "in hot, humid, tropical areas",
+            "Thunderstorms develop",
+            "frequently",
+            "like India much to"
+        ],
+        "correctOption": "like India much to"
+    },
+    {
+        "question": "New fashion trends come onto the scene periodically.",
+        "options": [
+            "No error",
+            "New fashion trends",
+            "come onto the",
+            "scene periodically"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "There is no denying that our country is in an major economic slump.",
+        "options": [
+            "No error",
+            "There is no denying",
+            "that our country is in",
+            "an major economic slump"
+        ],
+        "correctOption": "an major economic slump"
+    },
+    {
+        "question": "I liked talking to you when you was a small boy.",
+        "options": [
+            "1 liked talking to",
+            "you when you was",
+            "a small boy",
+            "No error"
+        ],
+        "correctOption": "you when you was"
+    },
+    {
+        "question": "Scholars have studied the lives of present-day farmer's who practice agriculture.",
+        "options": [
+            "who practice agriculture",
+            "studied the lives of",
+            "Scholars have",
+            "present-day farmer's"
+        ],
+        "correctOption": "present-day farmer's"
+    },
+    {
+        "question": "Her comfort was in her children; her second son, Rupert, was especially dear to her.",
+        "options": [
+            "her second son, Rupert",
+            "was especially dear to her",
+            "Her comfort was in her children",
+            "No error"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "He has been presented off honorary awards.",
+        "options": [
+            "presented off",
+            "No error",
+            "honorable awards",
+            "He has been"
+        ],
+        "correctOption": "presented off"
+    },
+    {
+        "question": "When I reached there she have already started eating.",
+        "options": [
+            "When I reached",
+            "No error",
+            "there she have",
+            "already started eating"
+        ],
+        "correctOption": "there she have"
+    },
+    {
+        "question": "Other South African cities only had one venue for staging exhibitions or internationals events at highly standard.",
+        "options": [
+            "Other South African cities only",
+            "had one venue for staging exhibitions or",
+            "No error",
+            "internationals events at highly standard"
+        ],
+        "correctOption": "internationals events at highly standard"
+    },
+	{
+        "question": "Her failure in life is too much painful for me.",
+        "options": [
+            "is too much",
+            "Her failure in life",
+            "painful for me.",
+            "No error"
+        ],
+        "correctOption": "is too much"
+    },
+    {
+        "question": "And so for the sakes of his son he remained, absolutely calm.",
+        "options": [
+            "No error",
+            "And so for the sakes",
+            "absolutely calm",
+            "of his son he remained,"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "He lived close to the train station, yet travelled by bus.",
+        "options": [
+            "yet travelled by bus",
+            "the train station",
+            "No error",
+            "He lived close to"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Marine vertebrates are valuable for many reasons.",
+        "options": [
+            "valuable for",
+            "No error",
+            "many reasons",
+            "Marine vertebrates are"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Most of the freshwater lake in India are in the Himalayan region.",
+        "options": [
+            "Himalayan region",
+            "are in the",
+            "freshwater lake in India",
+            "Most of the"
+        ],
+        "correctOption": "freshwater lake in India"
+    },
+    {
+        "question": "Human being are the producers and the consumers of Earth's resources.",
+        "options": [
+            "Human being are",
+            "consumers of Earth's",
+            "resources",
+            "the producers and the"
+        ],
+        "correctOption": "Human being are"
+    },
+    {
+        "question": "A significant number of students volunteers each year for environmental projects.",
+        "options": [
+            "A significant number of students",
+            "environmental projects",
+            "volunteers each year for",
+            "No error"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "My teacher said to me that all that glitters were not gold.",
+        "options": [
+            "No error",
+            "glitters were not gold",
+            "all that",
+            "My teacher said to me that"
+        ],
+        "correctOption": "glitters were not gold"
+    },
+    {
+        "question": "Wind is one of biggest factors in the spread of fire.",
+        "options": [
+            "No error",
+            "of biggest factors",
+            "in the spread of fire",
+            "Wind is one"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Apart from Germany, they also visited Italy and Austria during its business trip.",
+        "options": [
+            "during its business trip",
+            "No error.",
+            "also visited Italy and Austria",
+            "Apart from Germany, they"
+        ],
+        "correctOption": "during its business trip"
+    },
+    {
+        "question": "Elizabeth beat her rival with the gold medal in the 2021 summer Olympics.",
+        "options": [
+            "2021 summer Olympics",
+            "with the gold medal in the",
+            "No error",
+            "Elizabeth beat her rival"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "All the problems occurred because she does not hear my words follow the instructions.",
+        "options": [
+            "All the problems occurred",
+            "because she does not",
+            "No error",
+            "follow the instructionshear my words"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Hundreds of migrants work in private firms in Erode.",
+        "options": [
+            "work in private",
+            "firms in Erode",
+            "No error",
+            "Hundreds of migrants"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "It feels greatly to be with you at this ceremony.",
+        "options": [
+            "It feels greatly",
+            "to be with you",
+            "at this ceremony",
+            "No error"
+        ],
+        "correctOption": "It feels greatly"
+    },
+    {
+        "question": "Thunderstorms develop in hot, humid, tropical areas like India much to frequently.",
+        "options": [
+            "in hot, humid, tropical areas",
+            "Thunderstorms develop",
+            "frequently",
+            "like India much to"
+        ],
+        "correctOption": "like India much to"
+    },
+    {
+        "question": "New fashion trends come onto the scene periodically.",
+        "options": [
+            "No error",
+            "New fashion trends",
+            "come onto the",
+            "scene periodically"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "There is no denying that our country is in an major economic slump.",
+        "options": [
+            "No error",
+            "There is no denying",
+            "that our country is in",
+            "an major economic slump"
+        ],
+        "correctOption": "an major economic slump"
+    },
+  {
+    "question": "I liked talking to / you when you was/ a small boy.",
+    "options": [
+      "1 liked talking to",
+      "you when you was",
+      "a small boy",
+      "No error"
+    ],
+    "correctOption": "2. you when you was"
+  },
+  {
+    "question": "Scholars have / studied the lives of/present-day farmer's/who practice agriculture.",
+    "options": [
+      "who practice agriculture",
+      "studied the lives of",
+      "Scholars have",
+      "present-day farmer's"
+    ],
+    "correctOption": "4. present-day farmer's"
+  },
+  {
+    "question": "Her comfort was in her children; / her second son, Rupert, / was especially her.",
+    "options": [
+      "her second son, Rupert",
+      "was especially dear to Rey",
+      "Her comfort was in her children",
+      "No error"
+    ],
+    "correctOption": "4. No error"
+  },
+  {
+    "question": "He has been presented off honorary awards.",
+    "options": [
+      "presented off",
+      "No error",
+      "honorable awards",
+      "He has been"
+    ],
+    "correctOption": "1. presented off"
+  },
+  {
+    "question": "When I reached there she have already started eating.",
+    "options": [
+      "When I reached",
+      "No error",
+      "there she have",
+      "already started eating"
+    ],
+    "correctOption": "3. there she have"
+  },
+  {
+    "question": "Other South African cities only/had one venue for staging - exhibitions or/internationals events at highly standard.",
+    "options": [
+      "Other South African cities only",
+      "had one venue for staging exhibitions or",
+      "No error",
+      "internationals events at highly standard"
+    ],
+    "correctOption": "4. internationals events at highly standard"
+  },
+  {
+    "question": "My sister called me for my lunch hours to tell me that she was getting married.",
+    "options": [
+      "was getting married",
+      "lunch hours to tell me that she",
+      "No error",
+      "My sister called me for my"
+    ],
+    "correctOption": "4. My sister called me for my"
+  },
+  {
+    "question": "His successful as a lawyer /grew so fast that he soon had / enough money to buy a house.",
+    "options": [
+      "grew so fast that he soon had",
+      "His successful as a lawyer",
+      "enough money to buy a house",
+      "No error"
+    ],
+    "correctOption": "2. His successful as a lawyer"
+  },
+  {
+    "question": "Soon or later, our efforts will be rewarded.",
+    "options": [
+      "No error",
+      "be rewarded",
+      "our efforts will",
+      "Soon or later"
+    ],
+    "correctOption": "4. Soon or later"
+  },
+  {
+    "question": "The education of girls / is a primary concern for the country, / so it should be started early, / isn't it?",
+    "options": [
+      "The education of girls",
+      "so it should be started early",
+      "country",
+      "isn't it"
+    ],
+    "correctOption": "4. isn't it"
+  },
+  {
+    "question": "Who do you think / who stole / the painting/from the museum?",
+    "options": [
+      "Who do you think",
+      "the painting",
+      "from the museum",
+      "who stole"
+    ],
+    "correctOption": "4. who stole"
+  },
+  {
+    "question": "Their dog is / more better/ trained than / our dog.",
+    "options": [
+      "our dog",
+      "trained than",
+      "more better",
+      "Their dog is"
+    ],
+    "correctOption": "3. more better"
+  },
+  {
+    "question": "They would have / won the race/ if they would have / run faster.",
+    "options": [
+      "won the race",
+      "if they would have",
+      "run faster",
+      "They would have"
+    ],
+    "correctOption": "2. if they would have"
+  },
+  {
+    "question": "Philip was/too proud/for extending/a hand of friendship.",
+    "options": [
+      "a hand of friendship",
+      "Philip was",
+      "for extending",
+      "too proud"
+    ],
+    "correctOption": "3. for extending"
+  },
+  {
+    "question": "The players have admitted / to have done / a month's rigorous training/before the match.",
+    "options": [
+      "a month's rigorous training",
+      "to have done",
+      "before the match",
+      "The players have admitted"
+    ],
+    "correctOption": "2. to have done"
+  },
+  {
+    "question": "Mother beat Jenny / by a stick/for going out / without permission.",
+    "options": [
+      "for going out",
+      "without permission",
+      "by a stick",
+      "Mother beat Jenny"
+    ],
+    "correctOption": "3. by a stick"
+  },
+  {
+    "question": "In summers, we must take care/ to drink enough water/ to keep ourselves hydrated.",
+    "options": [
+      "to drink enough water",
+      "In summers we must take care",
+      "No error",
+      "to keep ourselves hydrated"
+    ],
+    "correctOption": "3. No error"
+  },
+  {
+    "question": "Everyone needs / to have a home/and to feel secured / and be wanted.",
+    "options": [
+      "and be wanted",
+      "Everyone needs",
+      "and to feel secured",
+      "to have a home"
+    ],
+    "correctOption": "3. and to feel secured"
+  },
+  {
+    "question": "Why do you think / why John/refused to / marry her?",
+    "options": [
+      "why John",
+      "marry her",
+      "Why do you think",
+      "refused to"
+    ],
+    "correctOption": "1. why John"
+  },
+  {
+    "question": "God is great / and we could / be grateful to him for all the gifts/he has bestowed on us.",
+    "options": [
+      "he has bestowed on us",
+      "God is great",
+      "and we could",
+      "be grateful to him for all the gifts"
+    ],
+    "correctOption": "3. and we could"
+  },
+  {
+    "question": "Last night's / Christmas party was fun. / I wish/you would come.",
+    "options": [
+      "you would come",
+      "Last night's",
+      "I wish",
+      "Christmas party was fun"
+    ],
+    "correctOption": "1. you would come"
+  },
+  {
+    "question": "Sidharth made earnest attempts/to change / for better, / but nothing happened.",
+    "options": [
+      "to change",
+      "for better",
+      "Sidharth made earnest attempts",
+      "but nothing happened"
+    ],
+    "correctOption": "2. for better"
+  },
+  {
+    "question": "How many/languages do /most children / in India known?",
+    "options": [
+      "most children.",
+      "in India known",
+      "How many",
+      "languages do"
+    ],
+    "correctOption": "2. in India known"
+  },
+  {
+    "question": "Teachers are / expect to mentor/their students appropriately / during the Covid-19 pandemic.",
+    "options": [
+      "expect to mentor",
+      "during the Covid-19 pandemic",
+      "Teachers are",
+      "their students appropriately"
+    ],
+    "correctOption": "1. expect to mentor"
+  },
+  {
+    "question": "This newspaper has/a bigger circulation / from any other newspaper.",
+    "options": [
+      "a bigger circulation",
+      "This newspaper has",
+      "from any other newspaper",
+      "No error"
+    ],
+    "correctOption": "3. from any other newspaper"
+  },
+  {
+    "question": "The students/were tired /after working/at long hours.",
+    "options": [
+      "after working",
+      "at long hours",
+      "were tired",
+      "The students"
+    ],
+    "correctOption": "2. at long hours"
+  },
+  {
+    "question": "The manager told / the staff to complete / all the works /before going home.",
+    "options": [
+      "all the works",
+      "The manager told",
+      "before going home",
+      "the staff to complete"
+    ],
+    "correctOption": "1. all the works"
+  },
+  {
+    "question": "The music / blared out/ and was impossible / to have a conversation.",
+    "options": [
+      "to have a conversation",
+      "and was impossible",
+      "blared out",
+      "The music"
+    ],
+    "correctOption": "2. and was impossible"
+  },
+  {
+    "question": "Here into / the main campus of the hospital / comes the trained doctors / led by the Principal.",
+    "options": [
+      "the main campus of the hospital",
+      "Here into",
+      "led by the Principal",
+      "comes the trained doctors"
+    ],
+    "correctOption": "4. comes the trained doctors"
+  },
+  {
+    "question": "If he were / to climb the tree/ and bring the kitty down, / the child was happy.",
+    "options": [
+      "and bring the kitty down",
+      "the child was happy",
+      "to climb the tree",
+      "If he were"
+    ],
+    "correctOption": "2. the child was happy"
+  },
+  {
+    "question": "Had you not/been playing/ with a ball / for morning?",
+    "options": [
+      "Had you not",
+      "for morning",
+      "been playing",
+      "with a ball"
+    ],
+    "correctOption": "2. for morning"
+  },
+  {
+    "question": "The children played / merry in the park / while their parents/kept a watch.",
+    "options": [
+      "The children played",
+      "kept a watch",
+      "while their parents",
+      "merry in the park"
+    ],
+    "correctOption": "4. merry in the park"
+  },
+  {
+    "question": "Nature teach us / to maintain/a balance / in life.",
+    "options": [
+      "a balance",
+      "to maintain",
+      "Nature teach us",
+      "in life"
+    ],
+    "correctOption": "3. Nature teach us"
+  },
+  {
+    "question": "The Nature Channel / gives a lots of/interesting information/on wildlife.",
+    "options": [
+      "interesting information",
+      "The Nature Channel",
+      "on wildlife",
+      "gives a lots of"
+    ],
+    "correctOption": "4. gives a lots of"
+  },
+  {
+    "question": "The children were / bubbling with excitement / at the thought of / seeing sea.",
+    "options": [
+      "bubbling with excitement",
+      "The children were",
+      "at the thought of",
+      "seeing sea"
+    ],
+    "correctOption": "4. seeing sea"
+  },
+  {
+    "question": "The crow held back to the piece of bread with its claws.",
+    "options": [
+      "of bread",
+      "to the piece",
+      "The crow held back",
+      "with its claws"
+    ],
+    "correctOption": "3. The crow held back"
+  },
+  {
+    "question": "The farmer is cutting the corn which has ripen in the fields.",
+    "options": [
+      "in the fields",
+      "The farmer is",
+      "cutting the corn",
+      "which has ripen"
+    ],
+    "correctOption": "4. which has ripen"
+  },
+  {
+    "question": "Smitha was offered the job although having no qualifications.",
+    "options": [
+      "the job",
+      "Smitha was offered",
+      "no qualifications",
+      "although having"
+    ],
+    "correctOption": "4. although having"
+  },
+  {
+    "question": "After the rain was wet and waterlogged in some places.",
+    "options": [
+      "the roads was",
+      "wet and waterlogged",
+      "After the rain",
+      "in some places"
+    ],
+    "correctOption": "1. the roads was"
+  },
+  {
+    "question": "I have no inform about today's meeting with the managing director.",
+    "options": [
+      "about today's meeting",
+      "I have",
+      "no inform",
+      "with the"
+    ],
+    "correctOption": "3. no inform"
+  },
+  {
+    "question": "If you could wait for just half an hour you will certain be able to meet her.",
+    "options": [
+      "be able to meet her",
+      "you will certain",
+      "If you could wait",
+      "for just half an hour"
+    ],
+    "correctOption": "2. you will certain"
+  },
+  {
+    "question": "Mr. Choudhri goes to fly to Germany and France next weekend.",
+    "options": [
+      "to Germany and France",
+      "Mr. Choudhri goes",
+      "next weekend",
+      "to fly"
+    ],
+    "correctOption": "2. Mr. Choudhri goes"
+  },
+  {
+    "question": "Not get into the car, it has not been cleaned inside.",
+    "options": [
+      "into the car",
+      "it has not",
+      "Not get",
+      "been cleaned inside"
+    ],
+    "correctOption": "3. Not get"
+  },
+  {
+    "question": "\"You can meet me always you like,\" our teacher told us.",
+    "options": [
+      "our teacher told us",
+      "you like",
+      "You can meet",
+      "me always"
+    ],
+    "correctOption": "4. me always"
+  },
+  {
+    "question": "Jagdeep, the Bollywood comedian, began his film career at eight as a live childlike actor in the 1950's.",
+    "options": [
+      "Jagdeep, the comedian",
+      "as a live childlike actor",
+      "began his film career",
+      "in the 1950's"
+    ],
+    "correctOption": "2. as a live childlike actor"
+  },
+  {
+    "question": "I'm sure that I found the place without any difficulty when I go next time.",
+    "options": [
+      "I found the place",
+      "when I go next time",
+      "I'm sure that",
+      "without any difficulty"
+    ],
+    "correctOption": "1. I found the place"
+  },
+    {
+        "question": "Every country tries to do its good at the Olympic games as they are held in great prestige.",
+        "options": [
+            "its good",
+            "Every country",
+            "tries to do",
+            "they are held"
+        ],
+        "correctOption": "Every country"
+    },
+    {
+        "question": "The technician has found it extremely difficult to fix the error in the programme.",
+        "options": [
+            "No error",
+            "The technician has",
+            "the error in the programme",
+            "extremely difficult to fix found it"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "They have always take an hour's walk before breakfast.",
+        "options": [
+            "They have",
+            "always take",
+            "an hour's walk",
+            "before breakfast"
+        ],
+        "correctOption": "They have"
+    },
+    {
+        "question": "The instructions on the bottle say-open the packet and poured the contents into hot water.",
+        "options": [
+            "The instructions on the bottle",
+            "say-open the packet and",
+            "poured the contents",
+            "into hot water"
+        ],
+        "correctOption": "poured the contents"
+    },
+    {
+        "question": "Very few animals was as faithful as the dog.",
+        "options": [
+            "the dog",
+            "Very few animals",
+            "as faithful as",
+            "was"
+        ],
+        "correctOption": "was"
+    },
+    {
+        "question": "We (agree) to talk to terrorists.",
+        "options": [
+            "grant",
+            "allow",
+            "refuse",
+            "admit"
+        ],
+        "correctOption": "refuse"
+    },
+    {
+        "question": "Mrs. Meera and family received his letter a week ago.",
+        "options": [
+            "Mrs. Meera and family",
+            "a week ago",
+            "No error",
+            "received his letter"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Ameya won't eat any junk food at all.",
+        "options": [
+            "No error",
+            "Ameya won't",
+            "any junk food at all",
+            "eat"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "She, often, accuses him for a lack of morality.",
+        "options": [
+            "accuses him for",
+            "She often",
+            "No error",
+            "a lack of morality"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "The newspaper reported that it was a mystery how the thieves enter into the house.",
+        "options": [
+            "how the thieves enter",
+            "that it was a mystery",
+            "into the house",
+            "The newspaper reported"
+        ],
+        "correctOption": "how the thieves enter"
+    },
+    {
+        "question": "There are some monkeys on the roof of the carriage but Madhav did not see them.",
+        "options": [
+            "did not see them",
+            "There are some monkeys",
+            "carriage but Madhav",
+            "on the roof of the"
+        ],
+        "correctOption": "There are some monkeys"
+    },
+    {
+        "question": "After seeing that Shreya was in trouble, Rahul quietly stepped up to help.",
+        "options": [
+            "After seeing that Shreya",
+            "Rahul quietly stepped up to help",
+            "No error",
+            "was in trouble"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "There are no tables at the classroom.",
+        "options": [
+            "There are no tables at the classroom.",
+            "There are no tables at the classroom.",
+            "There are no tables at the classroom.",
+            "There are no tables at the classroom."
+        ],
+        "correctOption": "There are no tables at the classroom."
+    },
+    {
+        "question": "Bobo was very richer than Jim as he had illicitly accumulated all his wealth.",
+        "options": [
+            "all his wealth.",
+            "very richer than jim",
+            "as he had illicitly accumulated",
+            "Bobo was"
+        ],
+        "correctOption": "very richer than Jim"
+    },
+    {
+        "question": "Her concerts are very admired by the foreigners no error.",
+        "options": [
+            "by the foreigners.",
+            "are very admired",
+            "No error",
+            "Her concerts"
+        ],
+        "correctOption": "are very admired"
+    },
+    {
+        "question": "They all, except Shirin, were very sad during the farewell party given to the teacher retiring, and her indifference were well noticed.",
+        "options": [
+            "They all, except Shirin, were very sad",
+            "indifference were well noticed",
+            "during the farewell party given",
+            "to the teacher retiring, and her"
+        ],
+        "correctOption": "indifference were well noticed"
+    },
+    {
+        "question": "Mother said that it was quite all right for her to get upset for scoring less.",
+        "options": [
+            "it was quite all right",
+            "for her to get upset",
+            "for scoring less.",
+            "Mother said that"
+        ],
+        "correctOption": "it was quite all right"
+    },
+    {
+        "question": "The article that she wrote for the last week's Sunday Supplement fairly criticises the abuse of mobile phones.",
+        "options": [
+            "the abuses of mobile phones.",
+            "The article that she wrote",
+            "fairly criticises",
+            "for the last week's Sunday Supplement"
+        ],
+        "correctOption": "fairly criticises"
+    },
+    {
+        "question": "Usually, Ratheesh hasn't take part in these types of events because of his hectic schedule.",
+        "options": [
+            "his hectic schedule",
+            "take part in these types",
+            "of events because of",
+            "Usually, Ratheesh hasn't"
+        ],
+        "correctOption": "Usually, Ratheesh hasn't"
+    },
+    {
+        "question": "Ajay will have been writing his homework all day by the time his mom returns.",
+        "options": [
+            "Ajay will have been",
+            "the time his mom returns",
+            "No error",
+            "writing his homework all day"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Radha told her friends that she will discuss the project with her mentor when she would meet him tomorrow.",
+        "options": [
+            "Radha told her friends that",
+            "she would meet him tomorrow.",
+            "she will discuss the project",
+            "with her mentor when"
+        ],
+        "correctOption": "she would meet him tomorrow."
+    },
+    {
+        "question": "In his character, I could hardly find something worthy of admiration.",
+        "options": [
+            "In his character",
+            "I could hardly find something",
+            "No error",
+            "worthy of admiration"
+        ],
+        "correctOption": "I could hardly find something"
+    },
+    {
+        "question": "I miss you when you move to another building.",
+        "options": [
+            "No error",
+            "when you move",
+            "I miss you",
+            "to another building"
+        ],
+        "correctOption": "I miss you"
+    },
+    {
+        "question": "A child learnt the basics of his mother tongue mainly from his interactions with the mother.",
+        "options": [
+            "his interactions with the mother",
+            "A child learnt the basics of",
+            "No error",
+            "his mother tongue mainly from"
+        ],
+        "correctOption": "A child learnt the basics of"
+    },
+    {
+        "question": "Pompeii was a tragedy that cost the lives of millions of people.",
+        "options": [
+            "Pompeii was a tragedy",
+            "that cost the lives.",
+            "No error",
+            "of millions of people"
+        ],
+        "correctOption": "that cost the lives"
+    },
+    {
+        "question": "The newly admitted students could not access the library because they had not yet been given their ID cards.",
+        "options": [
+            "No error",
+            "access the library because they had",
+            "The newly admitted students could not",
+            "not yet been given their ID cards"
+        ],
+        "correctOption": "access the library because they had"
+    },
+    {
+        "question": "The committee recommended that the bill be passed immediately.",
+        "options": [
+            "be passed immediately",
+            "that the bill",
+            "No error",
+            "The committee recommended"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "The instructor made the students to solve the problem within five minutes.",
+        "options": [
+            "the students to solve",
+            "the instructor is told",
+            "the problem within five minutes",
+            "No error"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Although he was sincere and hard-working, he could not confront his boss manly.",
+        "options": [
+            "he could not confront",
+            "Although he was sincere and hard-working",
+            "No error",
+            "his boss manly"
+        ],
+        "correctOption": "his boss manly"
+    },
+    {
+        "question": "The team dwelt with their performance in the last quarter.",
+        "options": [
+            "their performance",
+            "No error",
+            "in the last quarter",
+            "The team dwelt with"
+        ],
+        "correctOption": "The team dwelt with"
+    },
+    {
+        "question": "Saleem has a tendency to switch off his mobile when things are not favourable for him.",
+        "options": [
+            "Saleem has a tendency to switch",
+            "are not favourable for him",
+            "No error",
+            "off his mobile when things."
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Not only will he take admission here, but also he will stay in the hostel.",
+        "options": [
+            "but also he will stay",
+            "No error",
+            "in the hostel",
+            "Not only will admission here"
+        ],
+        "correctOption": "Not only will admission here"
+    },
+    {
+        "question": "By the time we will reach the station, the train will have already left.",
+        "options": [
+            "No error",
+            "we will reach the station",
+            "By the time",
+            "the train will have already left"
+        ],
+        "correctOption": "we will reach the station"
+    },
+    {
+        "question": "His worse mistake was that he had left home without informing any of us.",
+        "options": [
+            "His worse mistake",
+            "without informing any of us",
+            "No error",
+            "was that he had left home"
+        ],
+        "correctOption": "His worse mistake"
+    },
+    {
+        "question": "She wont be watch the news on the BBC channel.",
+        "options": [
+            "No error",
+            "She won't be",
+            "watch the news",
+            "on the BBC channel"
+        ],
+        "correctOption": "watch the news"
+    },
+    {
+        "question": "There is too many pieces of glass on the ground.",
+        "options": [
+            "There is too many",
+            "No error",
+            "on the ground",
+            "pieces of glass"
+        ],
+        "correctOption": "There is too many"
+    },
+    {
+        "question": "I ate the egg yesterday for my dinner.",
+        "options": [
+            "yesterday for",
+            "the egg",
+            "my dinner",
+            "late"
+        ],
+        "correctOption": "the egg"
+    },
+    {
+        "question": "The investors were put off by the dirty visage of the workshop.",
+        "options": [
+            "The investors were",
+            "visage of the workshop",
+            "No error",
+            "put off by the dirty visage"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Psychology has been defined the scientific study of human psyche and behaviour.",
+        "options": [
+            "Psychology has been",
+            "human psyche and behaviour",
+            "defined the scientific study of",
+            "No error"
+        ],
+        "correctOption": "defined the scientific study of"
+    },
+    {
+        "question": "He took a hurried glance on the newspaper and swiftly left for work.",
+        "options": [
+            "on the newspaper",
+            "and swiftly left for work",
+            "He took a hurried glance",
+            "No error"
+        ],
+        "correctOption": "on the newspaper"
+    },
+    {
+        "question": "His cellphone is different and costlier than mine.",
+        "options": [
+            "No error",
+            "different and costlier",
+            "His cellphone is",
+            "than mine"
+        ],
+        "correctOption": "different and costlier"
+    },
+    {
+        "question": "She is the very ambitious woman I have ever come across.",
+        "options": [
+            "come across",
+            "She is",
+            "I have hard ever",
+            "the very ambitious woman"
+        ],
+        "correctOption": "the very ambitious woman"
+    },
+    {
+        "question": "The knight was received compliments from the king for his bravery.",
+        "options": [
+            "for his bravery",
+            "No error",
+            "compliments from the king",
+            "The knight was received"
+        ],
+        "correctOption": "The knight was received"
+    },
+    {
+        "question": "The child was irritable because she had not soundly slept the previous night.",
+        "options": [
+            "the previous night",
+            "soundly slept",
+            "The child was irritable",
+            "because she had not"
+        ],
+        "correctOption": "soundly slept"
+    },
+    {
+        "question": "He has always been quite careless for his own safety.",
+        "options": [
+            "quite careless for",
+            "He has always been",
+            "No error",
+            "his own safety"
+        ],
+        "correctOption": "quite careless for"
+    },
+    {
+        "question": "His whole life, he wrote music, played the piano, and was a singer.",
+        "options": [
+            "played the piano",
+            "and was a singer",
+            "His whole life he wrote music",
+            "No error"
+        ],
+        "correctOption": "and was a singer"
+    },
+    {
+        "question": "The gold is a precious metal that is popular across the world.",
+        "options": [
+            "that is popular",
+            "is a precious metal",
+            "The gold",
+            "across the world"
+        ],
+        "correctOption": "The gold"
+    },
+    {
+        "question": "Casper looks forward to end the meeting by lunch time.",
+        "options": [
+            "by lunch time",
+            "to end",
+            "the meeting on",
+            "Casper looks forward"
+        ],
+        "correctOption": "Casper looks forward"
+    },
+    {
+        "question": "The government is keen to end the disagreement and offer peace after the death of several innocent people. Hence, they decided to to the terrorists.",
+        "options": [
+            "hit the nail on the head",
+            "hit the jackpot",
+            "hold out an olive branch",
+            "have a brush with"
+        ],
+        "correctOption": "hold out an olive branch"
+    },
+    {
+        "question": "Tropic of Cancer passes through the state of Jharkhand.",
+        "options": [
+            "the state",
+            "of Jharkhand",
+            "Tropic of Cancer",
+            "passes through"
+        ],
+        "correctOption": "Tropic of Cancer"
+    },
+    {
+        "question": "The cows found their way back to the farmhouse on their own.",
+        "options": [
+            "on their own",
+            "back to the farmhouse",
+            "No error",
+            "The cows found their way"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "After a long discussion over a period of ten hours, the management finally agreed to the agitating workers' demands.",
+        "options": [
+            "After a long discussion",
+            "finally agreed to the agitating workers' demands",
+            "over a period of ten hours",
+            "the management"
+        ],
+        "correctOption": "over a period of ten hours"
+    },
+    {
+        "question": "As we lay on the couch, she lied to me about her trip.",
+        "options": [
+            "No error",
+            "about her trip",
+            "she lied to me",
+            "As we lay on the couch"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "With wobbly hands, his grandmother placed the terrible shaking cup on the table.",
+        "options": [
+            "his grandmother placed",
+            "the terrible shaking cup",
+            "With wobbly hands",
+            "on the table"
+        ],
+        "correctOption": "the terrible shaking cup"
+    },
+    {
+        "question": "The yellow pair of scissors you have searching for since yesterday, is on the dining table.",
+        "options": [
+            "is on the dining table",
+            "The yellow pair of scissors",
+            "since yesterday",
+            "you have searching for"
+        ],
+        "correctOption": "you have searching for"
+    },
+    {
+        "question": "The train is arriving in Bangalore at 9 o'clock tomorrow morning.",
+        "options": [
+            "arrives",
+            "has to arrive",
+            "will be arriving",
+            "have been arriving"
+        ],
+        "correctOption": "arrives"
+    },
+    {
+        "question": "The museum urgency needs a curator for the proper maintenance and documentation of all the collections.",
+        "options": [
+            "and documentation of all the collections",
+            "a curator for the proper maintenance",
+            "No error",
+            "The museum urgency needs"
+        ],
+        "correctOption": "The museum urgency needs"
+    },
+    {
+        "question": "Jason's office is near to the university building in town.",
+        "options": [
+            "is near to",
+            "Jason's office",
+            "the university building",
+            "in town"
+        ],
+        "correctOption": "is near to"
+    },
+    {
+        "question": "We often talk about travelling to Bali.",
+        "options": [
+            "often been talking",
+            "are often talking",
+            "often have been talking",
+            "have often talked"
+        ],
+        "correctOption": "have often talked"
+    },
+    {
+        "question": "It was the very well-directed film and we enjoyed it.",
+        "options": [
+            "It was",
+            "and we enjoyed it",
+            "No error",
+            "the very well-directed film"
+        ],
+        "correctOption": "the very well-directed film"
+    },
+    {
+        "question": "It is not worth having the trouble to write to him as he never replies.",
+        "options": [
+            "It is not worth",
+            "as he never replies",
+            "to write to him",
+            "having the trouble"
+        ],
+        "correctOption": "having the trouble"
+    },
+    {
+        "question": "He was late for school and punished.",
+        "options": [
+            "and punished",
+            "for school",
+            "late",
+            "He was"
+        ],
+        "correctOption": "and punished"
+    },
+    {
+        "question": "There is a very little time for them to prepare for the show.",
+        "options": [
+            "for the show",
+            "There is a very little time",
+            "for them to prepare",
+            "No error"
+        ],
+        "correctOption": "There is a very little time"
+    },
+    {
+        "question": "My neighbour's grandson is only five month old.",
+        "options": [
+            "is only",
+            "My neighbour's grandson",
+            "five month old",
+            "No error"
+        ],
+        "correctOption": "five month old"
+    },
+    {
+        "question": "The manager said, \"Could you please confirm me whether you have received all the items that you had ordered?\"",
+        "options": [
+            "The manager said, \"Could you please",
+            "confirm me whether you",
+            "have received all the items",
+            "that you had ordered"
+        ],
+        "correctOption": "confirm me whether you"
+    },
+    {
+        "question": "Nowadays, common people take interest in the manner in which they were governed.",
+        "options": [
+            "in which",
+            "they were governed",
+            "Nowadays common people take",
+            "interest in the manner"
+        ],
+        "correctOption": "they were governed"
+    },
+    {
+        "question": "Shamim have not attended school for four days now.",
+        "options": [
+            "Shamim have not",
+            "attended school",
+            "for four days now",
+            "No error"
+        ],
+        "correctOption": "Shamim have not"
+    },
+    {
+        "question": "A shop nearby sell all the goods of daily use.",
+        "options": [
+            "A shop nearby",
+            "No error",
+            "of daily use",
+            "sell all the goods"
+        ],
+        "correctOption": "sell all the goods"
+    },
+    {
+        "question": "He was formerly a doctor of the corporate hospital.",
+        "options": [
+            "a doctor of",
+            "the corporate hospital",
+            "No error",
+            "He was formerly"
+        ],
+        "correctOption": "a doctor of"
+    },
+    {
+        "question": "Smita lived in this house since she was five years old.",
+        "options": [
+            "Smita lived",
+            "in this house",
+            "since she was",
+            "five years old"
+        ],
+        "correctOption": "Smita lived"
+    },
+    {
+        "question": "Sunil refused to attend the meeting of association on Saturday.",
+        "options": [
+            "of association on Saturday",
+            "No error",
+            "Sunil refused to",
+            "attend the meeting"
+        ],
+        "correctOption": "of association on Saturday"
+    },
+    {
+        "question": "Mrs. Verma refused the second helping of ice cream.",
+        "options": [
+            "the second helping",
+            "No error",
+            "of ice cream",
+            "Mrs. Verma refused"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Will you care for a cup of hot coffee?",
+        "options": [
+            "Will you",
+            "hot coffee",
+            "care for",
+            "a cup of"
+        ],
+        "correctOption": "Will you"
+    },
+    {
+        "question": "I did not buy neither of the two dresses.",
+        "options": [
+            "two dresses",
+            "did not",
+            "of the",
+            "buy neither"
+        ],
+        "correctOption": "buy neither"
+    },
+    {
+        "question": "The team won very easily at the recent sports event.",
+        "options": [
+            "The team won",
+            "No error",
+            "very easily",
+            "at the recent sports event"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "These experiments had been going on since several months.",
+        "options": [
+            "since several months.",
+            "No error",
+            "These experiments",
+            "had been going on"
+        ],
+        "correctOption": "since several months."
+    },
+    {
+        "question": "Open your books at page tenth.",
+        "options": [
+            "books at",
+            "page tenth",
+            "Open your",
+            "No error"
+        ],
+        "correctOption": "page tenth"
+    },
+    {
+        "question": "I goes to the school every day irrespective of the weather.",
+        "options": [
+            "to the school",
+            "I goes",
+            "irrespective of the weather",
+            "every day"
+        ],
+        "correctOption": "I goes"
+    },
+    {
+        "question": "Ronaldo is a famous player of the football.",
+        "options": [
+            "Ronaldo is",
+            "a famous",
+            "player of",
+            "the football"
+        ],
+        "correctOption": "the football"
+    },
+    {
+        "question": "The students and the teachers worked hardly to make the event a success.",
+        "options": [
+            "The students",
+            "and their teachers",
+            "to make the event a success",
+            "worked hardly"
+        ],
+        "correctOption": "to make the event a success"
+    },
+    {
+        "question": "The river appears to have got its name from the town nearby.",
+        "options": [
+            "No error",
+            "The river appears to have",
+            "from the town nearby",
+            "got its name"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Lalitha will go to sister's house in Mumbai this summer.",
+        "options": [
+            "Lalitha will go",
+            "in Mumbai",
+            "to sister's house",
+            "this summer"
+        ],
+        "correctOption": "to sister's house"
+    },
+    {
+        "question": "The concept became too much clear to me after my tutor showed me the diagram.",
+        "options": [
+            "showed me the diagram",
+            "The concept became",
+            "too much clear to me",
+            "after my tutor"
+        ],
+        "correctOption": "too much clear to me"
+    },
+    {
+        "question": "The girl lay down on the bed besides her mother and went to sleep.",
+        "options": [
+            "on the bed",
+            "The girl lay down",
+            "besides her mother",
+            "and went to sleep"
+        ],
+        "correctOption": "besides her mother"
+    },
+    {
+        "question": "His son-in-laws have enhanced his business within a short period.",
+        "options": [
+            "His son-in-laws",
+            "his business",
+            "within a short period",
+            "have enhanced"
+        ],
+        "correctOption": "His son-in-laws"
+    },
+    {
+        "question": "Avika hopes getting a distinction in English.",
+        "options": [
+            "Avika hopes",
+            "a distinction",
+            "getting",
+            "in English"
+        ],
+        "correctOption": "getting"
+    },
+    {
+        "question": "Every soldier and every officer was in their place.",
+        "options": [
+            "Every soldier",
+            "their place",
+            "and every officer",
+            "was in"
+        ],
+        "correctOption": "and every officer"
+    },
+    {
+        "question": "A large number of student have participated in this music video.",
+        "options": [
+            "in this music video",
+            "have participated",
+            "of student",
+            "A large number"
+        ],
+        "correctOption": "of student"
+    },
+    {
+        "question": "A lot of food we serve are wasted.",
+        "options": [
+            "of food",
+            "we serve",
+            "are wasted",
+            "A lot"
+        ],
+        "correctOption": "are wasted"
+    },
+    {
+        "question": "Electric heaters were providing to all the officers at the guest house.",
+        "options": [
+            "Electric heaters",
+            "to all the officers",
+            "at the guest house",
+            "were providing"
+        ],
+        "correctOption": "were providing"
+    },
+    {
+        "question": "The monkeys swinged on the branches and jumped over the compound wall.",
+        "options": [
+            "jumped over the compound wall",
+            "The monkeys swinged",
+            "on the branches and",
+            "No error"
+        ],
+        "correctOption": "The monkeys swinged"
+    },
+    {
+        "question": "When I was at school I found my class teacher to be the best mentor as she always have time to listen and guide.",
+        "options": [
+            "I found my class teacher",
+            "to be the best mentor",
+            "When I was at school",
+            "as she always have time to listen and guide"
+        ],
+        "correctOption": "as she always have time to listen and guide"
+    },
+    {
+        "question": "Every participant gave so outstanding performance that it became difficult to choose the winner.",
+        "options": [
+            "to choose the winner",
+            "so outstanding performance",
+            "that it became difficult",
+            "Every participant gave"
+        ],
+        "correctOption": "so outstanding performance"
+    },
+    {
+        "question": "The need today is for both sides to introspect and re-examine the issue carefully and resolve it amicably.",
+        "options": [
+            "to introspect and re-examine the issue carefully",
+            "and resolve it amicably",
+            "No error",
+            "The need today is for both sides"
+        ],
+        "correctOption": "No error"
+    },
+    {
+        "question": "I am going to home soon after the programme gets over.",
+        "options": [
+            "to home",
+            "programme gets over",
+            "I am going",
+            "soon after the"
+        ],
+        "correctOption": "to home"
+    },
+    {
+        "question": "Your advices were timely and guided me to take the right decisions.",
+        "options": [
+            "Your advices were timely",
+            "and guided me",
+            "to take the right decisions",
+            "No error"
+        ],
+        "correctOption": "Your advices were timely"
+    },
+    {
+        "question": "Each players must play according to his full potential and not think only about winning.",
+        "options": [
+            "only about winning",
+            "according to",
+            "Each players",
+            "must play"
+        ],
+        "correctOption": "Each players"
+    },
+    {
+        "question": "It would be more better if she sang with an orchestra.",
+        "options": [
+            "more better if",
+            "It would be",
+            "she sang",
+            "with an orchestra"
+        ],
+        "correctOption": "more better if"
+    },
+    {
+        "question": "The sun rises at 6.35 yesterday morning.",
+        "options": [
+            "The sun",
+            "No error",
+            "rises at 6.35",
+            "yesterday morning"
+        ],
+        "correctOption": "rises at 6.35"
+    },
+    {
+        "question": "Sh! Someone listens to our conversation.",
+        "options": [
+            "No error",
+            "listens to",
+            "Sh! Someone",
+            "our conversation"
+        ],
+        "correctOption": "listens to"
+    },
+    {
+        "question": "He wondered what was the reason for her refusal to accompany him.",
+        "options": [
+            "to accompany him",
+            "for her refusal",
+            "He wondered what",
+            "was the reason"
+        ],
+        "correctOption": "was the reason"
+    },
+    {
+        "question": "You cannot lead a healthy life although you stop smoking.",
+        "options": [
+            "stop smoking",
+            "You cannot lead",
+            "a healthy life",
+            "although you"
+        ],
+        "correctOption": "although you"
+    },
+    {
+        "question": "Two elderly ladies narrated an rather improbable story to the police.",
+        "options": [
+            "Two elderly ladies",
+            "to the police",
+            "improbable story",
+            "narrated an rather"
+        ],
+        "correctOption": "narrated an rather"
+    },
+    {
+        "question": "The bottle slipped with my hand and broke into a thousand pieces.",
+        "options": [
+            "The bottle slipped",
+            "broke into",
+            "with my hand",
+            "into a thousand pieces"
+        ],
+        "correctOption": "with my hand"
+    },
+    {
+        "question": "The information you are asking for is quite irrelevance.",
+        "options": [
+            "asking for",
+            "The information",
+            "is quite irrelevance",
+            "you are"
+        ],
+        "correctOption": "is quite irrelevance"
+    },
+    {
+        "question": "She will come to work though it doesn't rain tomorrow.",
+        "options": [
+            "though it doesn't",
+            "to work",
+            "She will come",
+            "rain tomorrow"
+        ],
+        "correctOption": "though it doesn't"
+    },
+    {
+        "question": "More than 30 people were arresting on suspicion of terrorism offences in Jammu and Kashmir.",
+        "options": [
+            "in Jammu and Kashmir",
+            "on suspicion of terrorism offences",
+            "were arresting",
+            "More than 30 people"
+        ],
+        "correctOption": "were arresting"
+    },
+    {
+        "question": "Neither the reporters nor the editor were satisfied by the attitudes of the publishers of the newspaper.",
+        "options": [
+            "Neither the reporters",
+            "by the attitudes",
+            "were satisfied",
+            "of the publishers"
+        ],
+        "correctOption": "by the attitudes"
+    },
+    {
+        "question": "I think your watch goes ten minutes behind; mine shows the correct time.",
+        "options": [
+            "I think your watch",
+            "goes ten minutes behind",
+            "mine shows",
+            "the correct time"
+        ],
+        "correctOption": "goes ten minutes behind"
+    },
+    {
+        "question": "Although many people complain about her frank opinions, they seem perfectly alright to myself.",
+        "options": [
+            "complain about",
+            "Although many people",
+            "to myself",
+            "they seem"
+        ],
+        "correctOption": "to myself"
+    },
+    {
+        "question": "Which member of your family you respect the most?",
+        "options": [
+            "of your family",
+            "you respect",
+            "the most",
+            "Which member"
+        ],
+        "correctOption": "you respect"
+    },
+    {
+        "question": "One must not boast about their success.",
+        "options": [
+            "their success",
+            "One must",
+            "about",
+            "not boast"
+        ],
+        "correctOption": "their success"
+    },
+    {
+        "question": "He didn't know how getting to the Guest House so he stopped to ask the way.",
+        "options": [
+            "He didn't know",
+            "to ask the way",
+            "so he stopped",
+            "how getting to"
+        ],
+        "correctOption": "how getting to"
+    },
+    {
+        "question": "She is not as smart as I think at first.",
+        "options": [
+            "as smart as",
+            "at first",
+            "She is not",
+            "I think"
+        ],
+        "correctOption": "I think"
+    },
+    {
+        "question": "We were busy at the work and went for lunch only at 2.30 pm.",
+        "options": [
+            "We were busy",
+            "only at 2.30 pm",
+            "at the work",
+            "and went for lunch"
+        ],
+        "correctOption": "at the work"
+    },
+    {
+        "question": "No matter what that the mother did the baby didn't stop crying.",
+        "options": [
+            "what that",
+            "the mother did",
+            "the baby didn't stop crying",
+            "No matter"
+        ],
+        "correctOption": "what that"
+    },
+    {
+        "question": "It is difficult to make out that they are twins because they do not resemble to each other.",
+        "options": [
+            "resemble to each other",
+            "It is difficult to make out",
+            "because they do not",
+            "that they are twins"
+        ],
+        "correctOption": "resemble to each other"
+    },
+    {
+        "question": "Some of the issues discussed on the media nowadays has no relevance to the nation-building process.",
+        "options": [
+            "has no relevance",
+            "Some of the issues discussed",
+            "on the media nowadays",
+            "to the nation-building process"
+        ],
+        "correctOption": "has no relevance"
+    },
+    {
+        "question": "Our twenty-first century society expects all relevant information to simply be handing to us.",
+        "options": [
+            "handing to us.",
+            "Our twenty-first century society",
+            "expects all relevant information",
+            "to simply be"
+        ],
+        "correctOption": "handing to us."
+    },
+    {
+        "question": "We noticed that most of the shoppers in the mall looking for packets of ready to cook food.",
+        "options": [
+            "most of the shoppers",
+            "packets of ready to cook food",
+            "We noticed that",
+            "in the mall looking for"
+        ],
+        "correctOption": "in the mall looking for"
+    },
+    {
+        "question": "You had better not to try and feed the animals in the zoo, it is forbidden.",
+        "options": [
+            "You had better not to try",
+            "it is forbidden",
+            "in the zoo",
+            "and feed the animals"
+        ],
+        "correctOption": "You had better not to try"
+    },
+    {
+        "question": "My domestic help was taking ill the day I had a party in my house.",
+        "options": [
+            "the day I had a party",
+            "My domestic help",
+            "was taking ill",
+            "in my house"
+        ],
+        "correctOption": "was taking ill"
+    },
+    {
+        "question": "I learnt to adapt quickly to new schools because we moved to new places quite frequent.",
+        "options": [
+            "quite frequent",
+            "to new schools",
+            "I learnt to adapt quickly",
+            "we moved to new places"
+        ],
+        "correctOption": "quite frequent"
+    },
+    {
+        "question": "The wedding reception will be hosted in Mumbai at a late date.",
+        "options": [
+            "at a late date",
+            "The wedding reception",
+            "will be hosted",
+            "in Mumbai"
+        ],
+        "correctOption": "at a late date"
+    },
+    {
+        "question": "Firecrackers have seized by the government went off while being defused on the banks of the river Ganga, in a town in West Bengal.",
+        "options": [
+            "Firecrackers have seized by the government",
+            "on the banks of the river Ganga",
+            "in a town in West Bengal",
+            "while being defused"
+        ],
+        "correctOption": "Firecrackers have seized by the government"
+    },
+    {
+        "question": "The accused were finally charged and justice was meted on to the victim.",
+        "options": [
+            "The accused were",
+            "finally charged and",
+            "justice was meted on",
+            "to the victim"
+        ],
+        "correctOption": "justice was meted on"
+    },
+    {
+        "question": "If Ajit had looked in the garage, he would had found the ladder there.",
+        "options": [
+            "in the garage",
+            "he would had found",
+            "If Ajit had looked",
+            "the ladder there"
+        ],
+        "correctOption": "he would had found"
+    },
+    {
+        "question": "Instead of panicking, it is good to keep yourself safe and not get anxious whenever there is of natural calamity.",
+        "options": [
+            "of natural calamity",
+            "to keep yourself safe",
+            "and not get anxious",
+            "Instead of panicking"
+        ],
+        "correctOption": "of natural calamity"
+    },
+    {
+        "question": "How is it that by the mere sight of a spider, most people are overcame with fear?",
+        "options": [
+            "How is it that by",
+            "most people",
+            "are overcame with fear?",
+            "the mere sight of a spider,"
+        ],
+        "correctOption": "are overcame with fear?"
+    },
+    {
+        "question": "Each student will have to carry his own lunch on the picnic.",
+        "options": [
+            "Each student",
+            "will have to carry",
+            "his own lunch",
+            "on the picnic"
+        ],
+        "correctOption": "on the picnic"
+    },
+    {
+        "question": "Parul is ten years elder than her sibling.",
+        "options": [
+            "Parul is",
+            "her sibling",
+            "ten years",
+            "elder than"
+        ],
+        "correctOption": "elder than"
+    },
+    {
+        "question": "She speaks very highly of both her daughter-in-laws.",
+        "options": [
+            "very highly",
+            "daughter-in-laws",
+            "She speaks",
+            "of both her"
+        ],
+        "correctOption": "daughter-in-laws"
+    },
+
+
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>
