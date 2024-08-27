@@ -1,0 +1,2422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>SSC CENSUS</title>
+			<script src="../../urlRewrite.js"></script>
+		<link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">
+  
+   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+  
+  
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Science Tandav Samay | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+ const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'padaissccensus';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+       const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+<script>
+const questions = [
+ 
+    {
+        "question": "According to the 2011 language census in India, what is the 4th most spoken language?",
+        "options": ["Telugu", "Hindi", "Tamil", "Kannada", "Bengali"],
+        "correctOption": "Telugu"
+    },
+    {
+        "question": "According to the 2011 language census in India, which language holds the 1st position in terms of speakers?",
+        "options": ["Hindi", "Telugu", "Bengali", "Marathi", "Tamil"],
+        "correctOption": "Hindi"
+    },
+    {
+        "question": "As per the 2011 Census, which district in India is the most literate?",
+        "options": ["Serchhip, Mizoram", "South Delhi, Delhi", "Kannur, Kerala", "Thiruvananthapuram, Kerala", "Kolkata, West Bengal"],
+        "correctOption": "Serchhip, Mizoram"
+    },
+    {
+        "question": "As per the 2011 Census, which Indian district is the least densely populated?",
+        "options": ["Dibang Valley, Arunachal Pradesh", "Leh, Ladakh", "Kutch, Gujarat", "Nicobar, Andaman and Nicobar Islands", "North Sikkim, Sikkim"],
+        "correctOption": "Dibang Valley, Arunachal Pradesh"
+    },
+    {
+        "question": "In the context of the Indian Census, what does NPR stand for?",
+        "options": ["National Population Register", "National Public Register", "National Population Ratio", "National Population Report", "None of the above"],
+        "correctOption": "National Population Register"
+    },
+    {
+        "question": "What does CMMS stand for in the context of the Census of India?",
+        "options": ["Census Management and Monitoring System", "Census Management and Manipulation System", "Census Mapping and Monitoring System", "Census Management and Monitoring Service", "None of the above"],
+        "correctOption": "Census Management and Monitoring System"
+    },
+    {
+        "question": "In which year did James Prinsep conduct the census at Allahabad?",
+        "options": ["1824", "1811", "1837", "1845", "1805"],
+        "correctOption": "1824"
+    },
+    {
+        "question": "Under which article of the Indian Constitution is the population census a Union subject?",
+        "options": ["Article 246", "Article 245", "Article 248", "Article 250", "Article 251"],
+        "correctOption": "Article 246"
+    },
+    {
+        "question": "Which amendment act provides for the delimitation of constituencies on the basis of the 2001 census?",
+        "options": ["87th Amendment Act 2003", "84th Amendment Act 2001", "91st Amendment Act 2004", "93rd Amendment Act 2005", "None of the above"],
+        "correctOption": "87th Amendment Act 2003"
+    },
+    {
+        "question": "Which ministry oversees the work of the census organization?",
+        "options": ["Ministry of Home Affairs", "Ministry of Statistics and Programme Implementation", "Ministry of Finance", "Ministry of Rural Development", "Ministry of Human Resource Development"],
+        "correctOption": "Ministry of Home Affairs"
+    },
+    {
+        "question": "According to the coding convention of the Indian Census, how many digits are used for showing the state code?",
+        "options": ["1 digit", "2 digits", "3 digits", "4 digits", "5 digits"],
+        "correctOption": "2 digits"
+    },
+    {
+        "question": "What is the term for the official enumeration of the population done periodically?",
+        "options": ["Census", "Enumeration", "Population Check", "Demographic Survey", "Population Census"],
+        "correctOption": "Census"
+    },
+    {
+        "question": "According to the 2011 Census, what percentage of the total workforce is engaged in Agriculture and allied sector activities?",
+        "options": ["45.3%", "52.1%", "59.8%", "54.6%", "61.2%"],
+        "correctOption": "54.6%"
+    },
+    {
+        "question": "How often is the 'Agricultural Census' conducted in India?",
+        "options": ["3 years", "5 years", "7 years", "10 years", "15 years"],
+        "correctOption": "5 years"
+    },
+    {
+        "question": "According to the 2011 Census, which state in India has the largest gap in male and female literacy?",
+        "options": ["Uttar Pradesh", "Rajasthan", "Bihar", "Madhya Pradesh", "Jharkhand"],
+        "correctOption": "Rajasthan"
+    },
+    {
+        "question": "According to the 2011 Census, which state in India has the lowest population density?",
+        "options": ["Arunachal Pradesh", "Mizoram", "Sikkim", "Nagaland", "Manipur"],
+        "correctOption": "Arunachal Pradesh"
+    },
+    {
+        "question": "What was the national female workforce participation rate according to the 2011 Census?",
+        "options": ["20.16%", "22.83%", "25.51%", "28.79%", "31.47%"],
+        "correctOption": "25.51%"
+    },
+    {
+        "question": "Which Union Territory has the highest literacy rate according to the 2011 Census?",
+        "options": ["Lakshadweep", "Delhi", "Chandigarh", "Puducherry", "Andaman and Nicobar Islands"],
+        "correctOption": "Lakshadweep"
+    },
+    {
+        "question": "According to the 2011 Census, what percentage of the world's population does India account for?",
+        "options": ["15.2%", "17.5%", "19.8%", "21.3%", "23.7%"],
+        "correctOption": "17.5%"
+    },
+    {
+        "question": "In which year was the 'Below the Poverty Line' Census conducted for the 8th Five-Year Plan?",
+        "options": ["1988", "1990", "1992", "1994", "1996"],
+        "correctOption": "1992"
+    },
+    {
+        "question": "What is the term for employment for fewer than 6 months in the year preceding the Census?",
+        "options": ["Seasonal employment", "Temporary employment", "Marginal employment", "Part-time employment", "Casual employment"],
+        "correctOption": "Marginal employment"
+    },
+    {
+        "question": "Before the 1991 Census of India, literacy was defined as essentially illiterate children below the age of how many years?",
+        "options": ["3 years", "4 years", "5 years", "6 years", "7 years"],
+        "correctOption": "5 years"
+    },
+    {
+        "question": "According to the standard census definition in India, a person who works for less than 183 days in a year is classified as a?",
+        "options": ["Unemployed", "Underemployed", "Worker", "Labourer", "Casual worker"],
+        "correctOption": "Worker"
+    },
+    {
+        "question": "In which year was the Indian Rupee de-linked from the Pound Sterling?",
+        "options": ["1969", "1971", "1973", "1975", "1977"],
+        "correctOption": "1975"
+    },
+    {
+        "question": "Under which act is the decennial census of India conducted?",
+        "options": ["Census Act, 1948", "Indian Census Act, 1901", "Census and Statistics Act, 1908", "Indian Statistics Act, 1928", "None of the above"],
+        "correctOption": "Census Act, 1948"
+    },
+    {
+        "question": "As per Census 2011, The State with the largest gap in male and female literacy is",
+        "options": ["Rajasthan", "Gujarat", "Uttar Pradesh", "Madhya Pradesh", "Bihar"],
+        "correctOption": "Rajasthan"
+    },
+    {
+        "question": "As per Census 2011, State with Lowest population density is",
+        "options": ["Arunachal Pradesh", "Mizoram", "Sikkim", "Nagaland", "Meghalaya"],
+        "correctOption": "Arunachal Pradesh"
+    },
+    {
+        "question": "As per Census 2011, National female workforce participation rate was",
+        "options": ["25.51%", "28.65%", "31.20%", "23.45%", "27.83%"],
+        "correctOption": "25.51%"
+    },
+    {
+        "question": "As per Census 2011, Union Territories with the highest literacy rate",
+        "options": ["Lakshadweep", "Delhi", "Puducherry", "Chandigarh", "Andaman and Nicobar Islands"],
+        "correctOption": "Lakshadweep"
+    },
+    {
+        "question": "According to the census 2011, India accounts for the world population",
+        "options": ["17.5%", "19.2%", "15.8%", "21.4%", "14.1%"],
+        "correctOption": "17.5%"
+    },
+    {
+        "question": "As per Census 2011, literacy rate in India was",
+        "options": ["74.04%", "78.32%", "70.23%", "82.17%", "65.98%"],
+        "correctOption": "74.04%"
+    },
+    {
+        "question": "As per Census 2011, the sex ratio of Tamil Nadu is",
+        "options": ["996", "1012", "980", "1025", "1050"],
+        "correctOption": "996"
+    },
+    {
+        "question": "According to Census 2011, which state has the highest share of rural population",
+        "options": ["Himachal Pradesh", "Uttarakhand", "Jharkhand", "Chhattisgarh", "Assam"],
+        "correctOption": "Himachal Pradesh"
+    },
+    {
+        "question": "As per Sectoral Composition of workforce in India (2011), total workers are engaged in primary sector are",
+        "options": ["58.4%", "62.7%", "55.9%", "60.2%", "53.6%"],
+        "correctOption": "58.4%"
+    },
+    {
+        "question": "As per Census 2011, Average annual growth rate of India was",
+        "options": ["1.64%", "1.78%", "1.52%", "1.92%", "1.35%"],
+        "correctOption": "1.64%"
+    },
+    {
+        "question": "Highest male literacy rate, among the Union Territories, as per Census 2011 in",
+        "options": ["Lakshadweep", "Delhi", "Puducherry", "Chandigarh", "Andaman and Nicobar Islands"],
+        "correctOption": "Lakshadweep"
+    },
+    {
+        "question": "According to the Census of India 2011, highest populated metropolitan city is",
+        "options": ["Mumbai", "Delhi", "Kolkata", "Chennai", "Bengaluru"],
+        "correctOption": "Mumbai"
+    },
+    {
+        "question": "Lowest literacy rate among Union Territories, according to the 2011 Census",
+        "options": ["Dadra and Nagar Haveli", "Lakshadweep", "Andaman and Nicobar Islands", "Chandigarh", "Daman and Diu"],
+        "correctOption": "Dadra and Nagar Haveli"
+    },
+    {
+        "question": "According to 2011 census, Sikh communities in the total population of India are",
+        "options": ["1.7%", "2.3%", "1.2%", "1.5%", "2.1%"],
+        "correctOption": "1.7%"
+    },
+    {
+        "question": "According to 2011 Census, Rural literacy rate of India is",
+        "options": ["66.77%", "70.23%", "63.45%", "68.92%", "72.15%"],
+        "correctOption": "66.77%"
+    },
+    {
+        "question": "According to Census of India 2011, third largest spoken language in India",
+        "options": ["Marathi", "Tamil", "Telugu", "Bengali", "Gujarati"],
+        "correctOption": "Marathi"
+    },
+    {
+        "question": "According to the 2011 Census, any person aged 7 and above and has the ability to read and write is considered",
+        "options": ["Literate person", "Educated person", "Illiterate person", "Semi-literate person", "Enlightened person"],
+        "correctOption": "Literate person"
+    },
+    {
+        "question": "The number of live births occurring during the year per 1000 population estimated at midyear, indicates",
+        "options": ["Crude birth rate", "Fertility rate", "Birth mortality rate", "Neonatal mortality rate", "Infant mortality rate"],
+        "correctOption": "Crude birth rate"
+    },
+    {
+        "question": "According to census 2011, the State with lowest literacy rate is",
+        "options": ["Bihar", "Jharkhand", "Arunachal Pradesh", "Rajasthan", "Madhya Pradesh"],
+        "correctOption": "Bihar"
+    },
+    {
+        "question": "According to census 2011, State has highest Hindu population percentage",
+        "options": ["Himachal Pradesh", "Uttarakhand", "Uttar Pradesh", "Rajasthan", "Madhya Pradesh"],
+        "correctOption": "Himachal Pradesh"
+    },
+    {
+        "question": "Highest literate state, as per census 2011 is",
+        "options": ["Kerala", "Lakshadweep", "Mizoram", "Goa", "Tripura"],
+        "correctOption": "Kerala"
+    },
+    {
+        "question": "Union territory which has Highest literacy rate, as per census 2011 is",
+        "options": ["Lakshadweep", "Delhi", "Puducherry", "Chandigarh", "Andaman and Nicobar Islands"],
+        "correctOption": "Lakshadweep"
+    },
+    {
+        "question": "The lowest sex ratio (877), in Indian state, as per census 2011 is",
+        "options": ["Haryana", "Punjab", "Uttar Pradesh", "Rajasthan", "Bihar"],
+        "correctOption": "Haryana"
+    },
+    {
+        "question": "As per census 2011, sex ratio of India is",
+        "options": ["943 females per 1000 males", "950 females per 1000 males", "936 females per 1000 males", "952 females per 1000 males", "929 females per 1000 males"],
+        "correctOption": "943 females per 1000 males"
+    },
+    {
+        "question": "As per 2011 census, the Indian state recording negative population growth rate is",
+        "options": ["Nagaland", "Manipur", "Arunachal Pradesh", "Tripura", "Sikkim"],
+        "correctOption": "Nagaland"
+    },
+    {
+        "question": "Union Territory which recorded lowest population growth rate as per census 2011 is",
+        "options": ["Lakshadweep", "Andaman and Nicobar Islands", "Daman and Diu", "Dadra and Nagar Haveli", "Chandigarh"],
+        "correctOption": "Lakshadweep"
+    },
+    {
+        "question": "As per census 2011, Female literacy rate of india is",
+        "options": ["65.46%", "68.22%", "62.87%", "70.36%", "57.91%"],
+        "correctOption": "65.46%"
+    },
+    {
+        "question": "The least populated state in the country, as per census 2011 is",
+        "options": ["Sikkim", "Arunachal Pradesh", "Mizoram", "Goa", "Nagaland"],
+        "correctOption": "Sikkim"
+    },
+    {
+        "question": "State which has second highest sex ratio as per census 2011 is",
+        "options": ["Tamil Nadu", "Kerala", "Andhra Pradesh", "Karnataka", "Telangana"],
+        "correctOption": "Tamil Nadu"
+    },
+    {
+        "question": "As per census 2011, total population of India (approx) is",
+        "options": ["121 Crore", "130 Crore", "115 Crore", "140 Crore", "105 Crore"],
+        "correctOption": "121 Crore"
+    },
+    {
+        "question": "As per census 2011, Kerala’s literacy rate is",
+        "options": ["94.0%", "91.2%", "96.8%", "89.5%", "97.3%"],
+        "correctOption": "94.0%"
+    },
+    {
+        "question": "As per census 2011, population density of bihar is",
+        "options": ["1106 persons/km²", "1202 persons/km²", "1054 persons/km²", "1158 persons/km²", "1220 persons/km²"],
+        "correctOption": "1106 persons/km²"
+    },
+    {
+        "question": "The crude birth rate of India as per Census 2011 is",
+        "options": ["21.8%", "24.5%", "19.3%", "26.1%", "18.9%"],
+        "correctOption": "21.8%"
+    },
+    {
+        "question": "As per census 2011, highest female literacy rate state is",
+        "options": ["Kerala", "Mizoram", "Goa", "Tripura", "Manipur"],
+        "correctOption": "Kerala"
+    },
+    {
+        "question": "Decadal population growth rate as per census 2011",
+        "options": ["17.7%", "20.2%", "15.4%", "22.6%", "14.8%"],
+        "correctOption": "17.7%"
+    },
+    {
+        "question": "literacy rate of India as per the Census of 2011",
+        "options": ["74.04%", "78.32%", "70.23%", "82.17%", "65.98%"],
+        "correctOption": "74.04%"
+    },
+    {
+        "question": "District that has lowest literacy rate as per census 2011 is",
+        "options": ["Alirajpur", "Jhabua", "Dholpur", "Bijapur", "Katihar"],
+        "correctOption": "Alirajpur"
+    },
+    {
+        "question": "The population density of India as per the Census of 1951 was",
+        "options": ["117 per sq km", "130 per sq km", "105 per sq km", "122 per sq km", "98 per sq km"],
+        "correctOption": "117 per sq km"
+    },
+    {
+        "question": "Highest sex ratio of state as per census 2011",
+        "options": ["Kerala", "Tamil Nadu", "Andhra Pradesh", "Karnataka", "Telangana"],
+        "correctOption": "Kerala"
+    },
+    {
+        "question": "The Crude Death Rate of India as per Census 2011 is",
+        "options": ["7.1%", "6.5%", "7.8%", "5.9%", "8.2%"],
+        "correctOption": "7.1%"
+    },
+    {
+        "question": "According to Census of India 2011, the top three most populated states are",
+        "options": ["Uttar Pradesh, Maharashtra and Bihar", "Uttar Pradesh, Maharashtra and West Bengal", "Uttar Pradesh, Maharashtra and Madhya Pradesh", "Uttar Pradesh, Maharashtra and Rajasthan", "Uttar Pradesh, Maharashtra and Tamil Nadu"],
+        "correctOption": "Uttar Pradesh, Maharashtra and Bihar"
+    },
+    {
+        "question": "As per 2011 census, the percentage of Muslim population in India is",
+        "options": ["14.2%", "15.6%", "12.7%", "16.9%", "13.4%"],
+        "correctOption": "14.2%"
+    },
+    {
+        "question": "India's population living in rural areas As per census 2011",
+        "options": ["68.8%", "71.2%", "66.5%", "73.4%", "65.9%"],
+        "correctOption": "68.8%"
+    },
+    {
+        "question": "The percentage of persons below the Poverty Line in 2011-12 was estimated to",
+        "options": ["21.9%", "25.5%", "18.2%", "29.8%", "14.6%"],
+        "correctOption": "21.9%"
+    },
+    {
+        "question": "As per census 2011, the male literacy rate in India",
+        "options": ["82.14%", "85.32%", "78.92%", "87.56%", "79.73%"],
+        "correctOption": "82.14%"
+    },
+    {
+        "question": "As per census 2011, the state with the highest urban population is",
+        "options": ["Goa (62.2%)", "Maharashtra (58.2%)", "Tamil Nadu (52.8%)", "Gujarat (49.1%)", "Kerala (47.7%)"],
+        "correctOption": "Goa (62.2%)"
+    },
+    {
+        "question": "The literacy rate of Andhra Pradesh as per the Census of 2011",
+        "options": ["67.02%", "72.36%", "64.78%", "78.21%", "61.95%"],
+        "correctOption": "67.02%"
+    },
+    {
+        "question": "The percentage of urban population in India (Based on 2011 census) is",
+        "options": ["31.16%", "28.74%", "33.89%", "26.52%", "35.61%"],
+        "correctOption": "31.16%"
+    },
+    {
+        "question": "As per census 2011, the State with the highest number of rural population is",
+        "options": ["Uttar Pradesh", "Bihar", "West Bengal", "Madhya Pradesh", "Rajasthan"],
+        "correctOption": "Uttar Pradesh"
+    },
+    {
+        "question": "As per census 2011, the State with the lowest male literacy rate is",
+        "options": ["Bihar (71.20%)", "Jharkhand (75.71%)", "Arunachal Pradesh (78.25%)", "Rajasthan (76.89%)", "Uttar Pradesh (74.35%)"],
+        "correctOption": "Bihar (71.20%)"
+    },
+    {
+        "question": "According to Census of 2011, the percentage of total Sikh population in India is",
+        "options": ["1.7%", "2.3%", "1.2%", "1.5%", "2.1%"],
+        "correctOption": "1.7%"
+    },
+    {
+        "question": "India's population continued to be employed in agriculture until 1990, approximately",
+        "options": ["65%", "70%", "60%", "75%", "80%"],
+        "correctOption": "65%"
+    },
+    {
+        "question": "The First Official Census in India was done in",
+        "options": ["1881", "1871", "1891", "1861", "1901"],
+        "correctOption": "1881"
+    },
+    {
+        "question": "In India, the population census is held once every",
+        "options": ["10 years", "5 years", "15 years", "20 years", "25 years"],
+        "correctOption": "10 years"
+    },
+    {
+        "question": "The union territory has the highest sex ratio as per the 2011 Census is",
+        "options": ["Puducherry", "Chandigarh", "Daman and Diu", "Lakshadweep", "Andaman and Nicobar Islands"],
+        "correctOption": "Puducherry"
+    },
+    {
+        "question": "The decennial census is conducted by",
+        "options": ["Ministry of Home Affairs", "Ministry of Statistics and Programme Implementation", "Ministry of Rural Development", "Ministry of Finance", "Ministry of Human Resource Development"],
+        "correctOption": "Ministry of Home Affairs"
+    },
+    {
+        "question": "The first complete census of an Indian city was conducted in 1830 by Henry Walter in",
+        "options": ["Dacca", "Calcutta", "Bombay", "Madras", "Delhi"],
+        "correctOption": "Dacca"
+    },
+    {
+        "question": "The second lowest literacy rate as per the Census report 2011",
+        "options": ["Arunachal Pradesh", "Bihar", "Jharkhand", "Rajasthan", "Madhya Pradesh"],
+        "correctOption": "Arunachal Pradesh"
+    },
+    {
+        "question": "The number of deaths per 1,000 live births within the first 28 days of life is",
+        "options": ["Neonatal mortality rate", "Infant mortality rate", "Child mortality rate", "Maternal mortality rate", "Mortality rate"],
+        "correctOption": "Neonatal mortality rate"
+    },
+    {
+        "question": "As per the Census 2011, the second least populous state is",
+        "options": ["Mizoram", "Manipur", "Nagaland", "Arunachal Pradesh", "Sikkim"],
+        "correctOption": "Mizoram"
+    },
+    {
+        "question": "The lowest population density as per the Census 2011",
+        "options": ["Arunachal Pradesh", "Mizoram", "Sikkim", "Meghalaya", "Nagaland"],
+        "correctOption": "Arunachal Pradesh"
+    },
+    {
+        "question": "People of 15 years age and above are included while calculating",
+        "options": ["Adult literacy rate", "Youth literacy rate", "Child literacy rate", "Total literacy rate", "Senior literacy rate"],
+        "correctOption": "Adult literacy rate"
+    },
+    {
+        "question": "The population density (2011 census) of India",
+        "options": ["382 per square km", "412 per square km", "345 per square km", "298 per square km", "431 per square km"],
+        "correctOption": "382 per square km"
+    },
+    {
+        "question": "The last Census of 2011 was conducted in",
+        "options": ["2 phases", "1 phase", "3 phases", "4 phases", "5 phases"],
+        "correctOption": "2 phases"
+    },
+    {
+        "question": "The state with the lowest female literacy rate (Census 2011) is",
+        "options": ["Bihar", "Rajasthan", "Jharkhand", "Arunachal Pradesh", "Uttar Pradesh"],
+        "correctOption": "Bihar"
+    },
+    {
+        "question": "The second most populated state (by Census 2011) is",
+        "options": ["Maharashtra", "Uttar Pradesh", "Bihar", "West Bengal", "Andhra Pradesh"],
+        "correctOption": "Maharashtra"
+    },
+    {
+        "question": "The slogan of the 2011 Census of India",
+        "options": ["Our Census - Our Future", "Know Your Country", "Counting Every Indian", "Empowering India", "Building Our Nation"],
+        "correctOption": "Our Census - Our Future"
+    },
+    {
+        "question": "As per the census of 2011, the most populous state is",
+        "options": ["Uttar Pradesh", "Maharashtra", "Bihar", "West Bengal", "Andhra Pradesh"],
+        "correctOption": "Uttar Pradesh"
+    },
+    {
+        "question": "State has lowest population density as per 2011 census",
+        "options": ["Arunachal Pradesh", "Mizoram", "Sikkim", "Meghalaya", "Nagaland"],
+        "correctOption": "Arunachal Pradesh"
+    },
+    {
+        "question": "The 'period of stationary phase' of growth of India's population is",
+        "options": ["1901-1921", "1911-1921", "1921-1931", "1891-1901", "1881-1891"],
+        "correctOption": "1901-1921"
+    },
+    {
+        "question": "The highest growth in literacy rate during 2001-2011 is registered in",
+        "options": ["Bihar", "Uttar Pradesh", "Rajasthan", "Madhya Pradesh", "Jharkhand"],
+        "correctOption": "Bihar"
+    },
+    {
+        "question": "The least population density among the Union Territories as per 2011 census is",
+        "options": ["Andaman and Nicobar Islands", "Lakshadweep", "Daman and Diu", "Delhi", "Chandigarh"],
+        "correctOption": "Andaman and Nicobar Islands"
+    },
+    {
+        "question": "The second most populous state in India as per Census 2011 is",
+        "options": ["Maharashtra", "Uttar Pradesh", "Bihar", "West Bengal", "Andhra Pradesh"],
+        "correctOption": "Maharashtra"
+    },
+    {
+        "question": "The approximate population of Sikkim as per 2011 census is",
+        "options": ["6.11 lakh", "5.47 lakh", "7.32 lakh", "4.89 lakh", "8.15 lakh"],
+        "correctOption": "6.11 lakh"
+    },
+    {
+        "question": "The state that has the highest life expectancy at birth is",
+        "options": ["Kerala", "Goa", "Tamil Nadu", "Maharashtra", "Himachal Pradesh"],
+        "correctOption": "Kerala"
+    },
+    {
+        "question": "The first step of 'Theory of Demographic Transition' indicate",
+        "options": ["High Birth-Rate and High Death-Rate", "High Birth-Rate and Low Death-Rate", "Low Birth-Rate and High Death-Rate", "Low Birth-Rate and Low Death-Rate", "None of the above"],
+        "correctOption": "High Birth-Rate and High Death-Rate"
+    },
+    {
+        "question": "As per census 2011, 'a person aged seven and above, who can both read and write' is definition of",
+        "options": ["Literate person", "Illiterate person", "Educated person", "Semi-literate person", "Knowledgeable person"],
+        "correctOption": "Literate person"
+    },
+    {
+        "question": "The male-female gap in the literacy rate in the 2011 Census of India data was",
+        "options": ["16.68%", "18.25%", "15.03%", "17.91%", "14.56%"],
+        "correctOption": "16.68%"
+    },
+    {
+        "question": "The population of India recorded a negative growth rate in",
+        "options": ["1911-1921", "1901-1911", "1921-1931", "1891-1901", "1881-1891"],
+        "correctOption": "1911-1921"
+    },
+    {
+        "question": "According the Census of 2011, the most densely populated state in India is",
+        "options": ["Bihar", "West Bengal", "Uttar Pradesh", "Kerala", "Maharashtra"],
+        "correctOption": "Bihar"
+    },
+    {
+        "question": "According to the Census of India 2011, the literacy rate of Bihar is",
+        "options": ["61.8%", "58.4%", "65.2%", "69.6%", "54.7%"],
+        "correctOption": "61.8%"
+    },
+    {
+        "question": "The Registrar General of India provided for the first time three codes for enumeration, Male-1, Female-2, and Others-3, during",
+        "options": ["2011 census", "2001 census", "1991 census", "1981 census", "1971 census"],
+        "correctOption": "2011 census"
+    },
+    {
+        "question": "The percentage increase in the total literacy rate in 2011 over 2001 is",
+        "options": ["9.21%", "7.89%", "10.56%", "5.73%", "12.34%"],
+        "correctOption": "9.21%"
+    },
+    {
+        "question": "As per Census 2011, the sex ratio of Daman and Diu is",
+        "options": ["618", "631", "602", "647", "659"],
+        "correctOption": "618"
+    },
+    {
+        "question": "Death rate in India in 2011",
+        "options": ["7.2 per 1000", "6.5 per 1000", "8.1 per 1000", "5.9 per 1000", "9.3 per 1000"],
+        "correctOption": "7.2 per 1000"
+    },
+    {
+        "question": "Life expectancy at birth in India in 2012 is",
+        "options": ["67.89 years", "65.43 years", "70.21 years", "63.78 years", "72.56 years"],
+        "correctOption": "67.89 years"
+    },
+    {
+        "question": "As per 2011 census, the states having highest and the lowest tribal population in India respectively are",
+        "options": ["Madhya Pradesh and Punjab", "Maharashtra and Sikkim", "Jharkhand and Goa", "Andhra Pradesh and Kerala", "Odisha and Haryana"],
+        "correctOption": "Madhya Pradesh and Punjab"
+    },
+    {
+        "question": "Meghalaya, Arunachal Pradesh and Bihar recorded a very high population growth rate during",
+        "options": ["2001-2011", "1991-2001", "1981-1991", "1971-1981", "1961-1971"],
+        "correctOption": "2001-2011"
+    },
+    {
+        "question": "The child sex ratio in India as per 2011 Census",
+        "options": ["914 females per 1000 males", "927 females per 1000 males", "901 females per 1000 males", "936 females per 1000 males", "889 females per 1000 males"],
+        "correctOption": "914 females per 1000 males"
+    },
+    {
+        "question": "The period of stagnant or stationary phase of growth of India's population",
+        "options": ["1901-1921", "1911-1931", "1921-1941", "1891-1911", "1881-1901"],
+        "correctOption": "1901- 1921"
+    },
+    {
+        "question": "The State has highest population of India in 2011",
+        "options": ["Uttar Pradesh", "Maharashtra", "Bihar", "West Bengal", "Andhra Pradesh"],
+        "correctOption": "Uttar Pradesh"
+    },
+    {
+        "question": "India can be considered to be a country with Demographic Dividend due to high population between",
+        "options": ["15-64 years", "0-14 years", "0-24 years", "25-54 years", "15-44 years"],
+        "correctOption": "15-64 years"
+    },
+    {
+        "question": "The slogan of census of India 2011",
+        "options": ["'Our Census, Our Future'", "'Know Your Country'", "'Counting Every Indian'", "'Empowering India'", "'Building Our Nation'"],
+        "correctOption": "'Our Census, Our Future'"
+    },
+    {
+        "question": "The state having the highest sex ratio as per census 2011 is",
+        "options": ["Kerala", "Punjab", "Haryana", "Uttarakhand", "Meghalaya"],
+        "correctOption": "Kerala"
+    },
+    {
+        "question": "The percentage share of agricultural workers in India as per Census 2011",
+        "options": ["54.6%", "58.2%", "51.7%", "62.3%", "47.9%"],
+        "correctOption": "54.6%"
+    },
+    {
+        "question": "The density of the population of India in 2011 census",
+        "options": ["382 person per km2", "410 person per km2", "356 person per km2", "428 person per km2", "373 person per km2"],
+        "correctOption": "382 person per km2"
+    },
+    {
+        "question": "The period of population explosion in India",
+        "options": ["1951-1981", "1961-1991", "1971-2001", "1981-2011", "1991-2021"],
+        "correctOption": "1951-1981"
+    },
+    {
+        "question": "The 15th National census survey conducted by the Census Organization of India in",
+        "options": ["2011", "2001", "1991", "1981", "1971"],
+        "correctOption": "2011"
+    },
+    {
+        "question": "The state having the highest Hindu population percentage of the total population in 2011",
+        "options": ["Himachal Pradesh", "Uttar Pradesh", "Maharashtra", "Bihar", "Rajasthan"],
+        "correctOption": "Himachal Pradesh"
+    },
+    {
+        "question": "The average male literacy rate in India as per the 2011 census",
+        "options": ["82.14%", "85.23%", "79.76%", "87.41%", "78.92%"],
+        "correctOption": "82.14%"
+    },
+    {
+        "question": "The union territory having the highest sex ratio value according to the 2011 census",
+        "options": ["Puducherry", "Daman and Diu", "Chandigarh", "Andaman and Nicobar Islands", "Lakshadweep"],
+        "correctOption": "Puducherry"
+    },
+    {
+        "question": "The percentage of the total population in India lives in rural areas as per census 2011",
+        "options": ["68.8%", "62.3%", "71.2%", "65.5%", "69.6%"],
+        "correctOption": "68.8%"
+    },
+    {
+        "question": "As per the 2011 census, the sex ratio of Daman and Diu",
+        "options": ["618", "631", "602", "647", "659"],
+        "correctOption": "618"
+    },
+    {
+        "question": "The Lincoln index measure",
+        "options": ["Population size", "Population density", "Birth rate", "Death rate", "Life expectancy"],
+        "correctOption": "Population size"
+    },
+    {
+        "question": "As per the Census-2011, the state which recorded the lowest population",
+        "options": ["Sikkim", "Arunachal Pradesh", "Mizoram", "Manipur", "Nagaland"],
+        "correctOption": "Sikkim"
+    },
+    {
+        "question": "The population of a nation in the working age group is generally grouped between",
+        "options": ["15-59 years", "18-64 years", "20-55 years", "15-64 years", "20-60 years"],
+        "correctOption": "15-59 years"
+    },
+    {
+        "question": "The Union territory which had the highest decadal population growth rate between 2001-11",
+        "options": ["Dadra & Nagar Haveli", "Lakshadweep", "Chandigarh", "Daman & Diu", "Puducherry"],
+        "correctOption": "Dadra & Nagar Haveli"
+    },
+    {
+        "question": "As per census 2011, the percentage of urban population in India",
+        "options": ["31.16 %", "27.81 %", "35.45 %", "29.73 %", "33.58 %"],
+        "correctOption": "31.16 %"
+    },
+    {
+        "question": "Sex ratio in India is defined as the number of females per",
+        "options": ["1000 males", "500 males", "100 males", "10000 males", "5000 males"],
+        "correctOption": "1000 males"
+    },
+    {
+        "question": "There was a negative growth rate in the Indian population in decades",
+        "options": ["1911-1921", "1901-1911", "1921-1931", "1891-1901", "1881-1891"],
+        "correctOption": "1911-1921"
+    },
+    {
+        "question": "According to census 2011, the second largest religious minority of India",
+        "options": ["Christians", "Muslims", "Sikhs", "Buddhists", "Jains"],
+        "correctOption": "Christians"
+    },
+    {
+        "question": "Highest decadal population growth rate state between 2001-11",
+        "options": ["Meghalaya", "Arunachal Pradesh", "Manipur", "Mizoram", "Nagaland"],
+        "correctOption": "Meghalaya"
+    },
+    {
+        "question": "According to standard census definition, a main worker is a person who works for at least",
+        "options": ["183 days", "200 days", "175 days", "210 days", "220 days"],
+        "correctOption": "183 days"
+    },
+    {
+        "question": "As per census 2011, the approximate range of Total Fertility Rate in India",
+        "options": ["2.1 - 2.9", "1.8 - 2.4", "2.5 - 3.2", "1.5 - 2.1", "2.0 - 2.6"],
+        "correctOption": "2.1 - 2.9"
+    },
+    {
+        "question": "According to Census 2011, the total literacy rate in India",
+        "options": ["74 %", "79 %", "68 %", "82 %", "65 %"],
+        "correctOption": "74 %"
+    },
+    {
+        "question": "Climate, Soil, Topography, Water etc are the factors that affect",
+        "options": ["distribution of population", "industrial growth", "economic development", "agricultural production", "urbanization"],
+        "correctOption": "distribution of population"
+    },
+    {
+        "question": "The only Indian state having a negative decadal population growth rate between 2001-11 is",
+        "options": ["Nagaland", "Arunachal Pradesh", "Mizoram", "Manipur", "Sikkim"],
+        "correctOption": "Nagaland"
+    },
+    {
+        "question": "If Birth rate of a country is more than the death rate then the population will",
+        "options": ["Increase", "Decrease", "Remain constant", "Fluctuate", "Become zero"],
+        "correctOption": "Increase"
+    },
+    {
+        "question": "The first urban settlement to reach a population of one million was",
+        "options": ["London", "Rome", "Paris", "New York", "Tokyo"],
+        "correctOption": "London"
+    },
+    {
+        "question": "The Geographical, social, cultural, economic factors can affect",
+        "options": ["distribution of population", "industrial growth", "economic development", "agricultural production", "urbanization"],
+        "correctOption": "distribution of population"
+    },
+    {
+        "question": "The first recorded data on transgenders in India was collected in",
+        "options": ["2011", "2001", "1991", "1981", "1971"],
+        "correctOption": "2011"
+    },
+    {
+        "question": "According to census 2011, the population of tribals in India",
+        "options": ["10.42 Crore", "9.76 Crore", "11.18 Crore", "8.94 Crore", "12.05 Crore"],
+        "correctOption": "10.42 Crore"
+    },
+    {
+        "question": "As per census 2011, Meghalaya’s sex ratio is",
+        "options": ["989", "1002", "975", "1015", "980"],
+        "correctOption": "989"
+    },
+    {
+        "question": "The annual growth rate in the population of India from 2001 to 2011",
+        "options": ["1.64 %", "1.82 %", "1.47 %", "1.93 %", "1.36 %"],
+        "correctOption": "1.64 %"
+    },
+    {
+        "question": "As per census 2011, A person aged 7 years or older who can read and write in any language is considered",
+        "options": ["literate", "educated", "scholar", "intellectual", "learned"],
+        "correctOption": "literate"
+    },
+    {
+        "question": "As per census 2011, the state having the highest fertility rate in India",
+        "options": ["Bihar", "Uttar Pradesh", "Madhya Pradesh", "Rajasthan", "Jharkhand"],
+        "correctOption": "Bihar"
+    },
+    {
+        "question": "Decadal growth rate of population between 2001 - 2011 is",
+        "options": ["17.70%", "16.42%", "18.92%", "15.88%", "19.76%"],
+        "correctOption": "17.70%"
+    },
+    {
+        "question": "In India census is held",
+        "options": ["every 10 year", "every 5 year", "every 20 year", "every 15 year", "every 25 year"],
+        "correctOption": "every 10 year"
+    },
+    {
+        "question": "The annual population growth rate in India began gradually declining in",
+        "options": ["1981", "1971", "1991", "1961", "1951"],
+        "correctOption": "1981"
+    },
+    {
+        "question": "The Smallest state in India in terms of Area",
+        "options": ["Goa", "Sikkim", "Nagaland", "Tripura", "Manipur"],
+        "correctOption": "Goa"
+    },
+    {
+        "question": "As per census 2011, Mizoram literacy rate",
+        "options": ["91.33 %", "89.45 %", "92.76 %", "88.21 %", "90.67 %"],
+        "correctOption": "91.33 %"
+    },
+    {
+        "question": "The state in India which received the largest number of immigrants as per the 2001 Census",
+        "options": ["Maharashtra", "Gujarat", "Karnataka", "Tamil Nadu", "Andhra Pradesh"],
+        "correctOption": "Maharashtra"
+    },
+    {
+        "question": "The state having the lowest female literacy rate at 57.6% as per the 75th NSS report",
+        "options": ["Rajasthan", "Bihar", "Uttar Pradesh", "Madhya Pradesh", "Jharkhand"],
+        "correctOption": "Rajasthan"
+    },
+    {
+        "question": "As per census 2011, Odisha's sex ratio is",
+        "options": ["979", "987", "965", "993", "1001"],
+        "correctOption": "979"
+    },
+    {
+        "question": "As per census 2011, the percentage of males and females in total population",
+        "options": ["51.54 % (males), 48.46% (females)", "50.21 % (males), 49.79% (females)", "52.06 % (males), 47.94% (females)", "49.75 % (males), 50.25% (females)", "53.28 % (males), 46.72% (females)"],
+        "correctOption": "51.54 % (males), 48.46% (females)"
+    },
+    {
+        "question": "As per the 2011 census, lowest population density (per square kilometer)",
+        "options": ["Arunachal Pradesh (17)", "Mizoram (22)", "Sikkim (25)", "Manipur (28)", "Nagaland (31)"],
+        "correctOption": "Arunachal Pradesh (17)"
+    },
+    {
+        "question": "As per census 2011, state with second highest sex ratio in India",
+        "options": ["Puducherry (1037)", "Kerala (1084)", "Tamil Nadu (996)", "Andhra Pradesh (993)", "Chhattisgarh (991)"],
+        "correctOption": "Puducherry (1037)"
+    },
+    {
+        "question": "As per Socio-Economic Census 2015, the state having largest population of households with ‘destitute/living on alms’",
+        "options": ["Odisha", "Bihar", "Uttar Pradesh", "Madhya Pradesh", "Jharkhand"],
+        "correctOption": "Odisha"
+    },
+    {
+        "question": "The first census of Independent India was conducted in",
+        "options": ["1951", "1961", "1971", "1981", "1991"],
+        "correctOption": "1951"
+    },
+    {
+        "question": "As per census 2011, the third-lowest state in literacy rate",
+        "options": ["Rajasthan", "Bihar", "Uttar Pradesh", "Madhya Pradesh", "Jharkhand"],
+        "correctOption": "Rajasthan"
+    },
+    {
+        "question": "The number of deaths per thousand persons in a year",
+        "options": ["Death rate", "Mortality rate", "Fatality rate", "Morbidity rate", "Survival rate"],
+        "correctOption": "Death rate"
+    },
+    {
+        "question": "As per the 2011 Census, languages in descending order of Speakers strength is",
+        "options": ["Hindi, Marathi, Maithili", "Hindi, Bengali, Telugu", "Hindi, Tamil, Gujarati", "Hindi, Kannada, Malayalam", "Hindi, Punjabi, Odia"],
+        "correctOption": "Hindi, Marathi, Maithili"
+    },
+    {
+        "question": "The difference between birth rate and death rate is called",
+        "options": ["Growth rate of population", "Population density", "Population growth", "Population rate", "Population ratio"],
+        "correctOption": "Growth rate of population"
+    },
+    {
+        "question": "The distribution of the population according to different types of occupation is known",
+        "options": ["Occupational structure", "Economic distribution", "Social distribution", "Cultural distribution", "Demographic distribution"],
+        "correctOption": "Occupational structure"
+    },
+    {
+        "question": "As per census 2011, the percentage of rural child population to the total child population",
+        "options": ["74.05 %", "71.32 %", "76.57 %", "69.84 %", "78.93 %"],
+        "correctOption": "74.05 %"
+    },
+    {
+        "question": "The number of deaths during the first 28 completed days of life per 1000 live births in a given year",
+        "options": ["neonatal mortality rate", "infant mortality rate", "child mortality rate", "under-five mortality rate", "perinatal mortality rate"],
+        "correctOption": "neonatal mortality rate"
+    },
+    {
+        "question": "As per Census 2011, the estimated national mortality rate of children under the age of five",
+        "options": ["55", "60", "50", "65", "70"],
+        "correctOption": "55"
+    },
+    {
+        "question": "The number of stages of the demographic transition model are",
+        "options": ["Four", "Five", "Six", "Three", "Seven"],
+        "correctOption": "Four"
+    },
+    {
+        "question": "The total population per net cultivated area of a country refers to",
+        "options": ["Physiological density", "Agricultural density", "Cultural density", "Population density", "Ecological density"],
+        "correctOption": "Physiological density"
+    },
+    {
+        "question": "As per 2011 census, Bengali is spoken by",
+        "options": ["8.03 % population", "6.91 % population", "9.87 % population", "7.54 % population", "10.26 % population"],
+        "correctOption": "8.03 % population"
+    },
+    {
+        "question": "As per Census 2011, Most spoken language is",
+        "options": ["Hindi ( 43.63%)", "English (9.59%)", "Bengali (8.03%)", "Telugu (7.15%)", "Marathi (6.86%)"],
+        "correctOption": "Hindi ( 43.63%)"
+    },
+    {
+        "question": "During the British rule in India, about 85% of the country's population lived mostly in",
+        "options": ["Villages", "Cities", "Towns", "Metropolitan areas", "Hill stations"],
+        "correctOption": "Villages"
+    },
+    {
+        "question": "As per 2011 Census , the largest concentration of Buddhism is in",
+        "options": ["Maharashtra", "Uttar Pradesh", "Bihar", "Madhya Pradesh", "Sikkim"],
+        "correctOption": "Maharashtra"
+    },
+    {
+        "question": "In India, Largest Christian population is in the state of",
+        "options": ["Kerala", "Tamil Nadu", "Maharashtra", "Karnataka", "Andhra Pradesh"],
+        "correctOption": "Kerala"
+    },
+    {
+        "question": "As per census 2011, number of “million-plus cities'' in India were",
+        "options": ["53", "48", "58", "61", "45"],
+        "correctOption": "53"
+    },
+    {
+        "question": "As per census 2011, the largest Scheduled Caste population State",
+        "options": ["Punjab", "Uttar Pradesh", "Bihar", "West Bengal", "Madhya Pradesh"],
+        "correctOption": "Punjab"
+    },
+    {
+        "question": "The diagram representing the breakdown of population by gender and age at a given point of time",
+        "options": ["Population pyramid", "Population chart", "Demographic diagram", "Age-gender graph", "Population breakdown"],
+        "correctOption": "Population pyramid"
+    },
+    {
+        "question": "Factors which affect the population change are",
+        "options": ["Death rate, Birth rate and Migration", "Climate, Geography and Economy", "Education, Health and Employment", "Politics, Religion and Culture", "Technology, Urbanization and Agriculture"],
+        "correctOption": "Death rate, Birth rate and Migration"
+    },
+    {
+        "question": "As per census 2011, the decadal population growth rate of India is approximately",
+        "options": ["17.64%", "16.89%", "18.22%", "15.73%", "19.01%"],
+        "correctOption": "17.64%"
+    },
+    {
+        "question": "As per census 2011, Highest number of people living in rural areas",
+        "options": ["Uttar Pradesh", "Bihar", "West Bengal", "Madhya Pradesh", "Rajasthan"],
+        "correctOption": "Uttar Pradesh"
+    },
+    {
+        "question": "As per census 2011, the sex ratio of Daman and Diu was",
+        "options": ["618 females per 1000 males", "635 females per 1000 males", "602 females per 1000 males", "647 females per 1000 males", "621 females per 1000 males"],
+        "correctOption": "618 females per 1000 males"
+    },
+    {
+        "question": "As per census 2011, highest sex ratio in rural areas",
+        "options": ["Kerala", "Puducherry", "Tamil Nadu", "Andhra Pradesh", "Chhattisgarh"],
+        "correctOption": "Kerala"
+    },
+    {
+        "question": "The highest literate state of India as per Census 2011",
+        "options": ["Kerala", "Maharashtra", "Goa", "Tamil Nadu", "Himachal Pradesh"],
+        "correctOption": "Kerala"
+    },
+    {
+        "question": "A process of change in a society’s population over time is called",
+        "options": ["Demographic Transition", "Population Shift", "Cultural Evolution", "Social Transformation", "Economic Revolution"],
+        "correctOption": "Demographic Transition"
+    },
+    {
+        "question": "Theory of ‘Population growth' developed by",
+        "options": ["Malthus", "Marx", "Adam Smith", "Keynes", "Ricardo"],
+        "correctOption": "Malthus"
+    },
+    {
+        "question": "As per census 2011, the most thickly Populated state in India",
+        "options": ["Bihar", "West Bengal", "Uttar Pradesh", "Maharashtra", "Kerala"],
+        "correctOption": "Bihar"
+    },
+    {
+        "question": "Muslims, Christians, Buddhists, Sikhs, Parsis and Jains are",
+        "options": ["Minority communities in India", "Majority communities in India", "Indigenous communities in India", "Scheduled Tribes in India", "Backward Classes in India"],
+        "correctOption": "Minority communities in India"
+    },
+    {
+        "question": "As per census 2011, the least urbanized state of India is",
+        "options": ["Himachal Pradesh", "Uttarakhand", "Jharkhand", "Bihar", "Assam"],
+        "correctOption": "Himachal Pradesh"
+    },
+    {
+        "question": "As per census 2001, India received the most number of migrants from",
+        "options": ["Bangladesh", "Nepal", "Pakistan", "Sri Lanka", "Myanmar"],
+        "correctOption": "Bangladesh"
+    },
+    {
+        "question": "As per Census of India, 2011, Urban Agglomerations having more than 10 million population are known as",
+        "options": ["Mega Cities", "Metropolitan Cities", "Urban Complexes", "Big Cities", "Urban Agglomerations"],
+        "correctOption": "Mega Cities"
+    },
+    {
+        "question": "The first livestock census in India was conducted during",
+        "options": ["1919-1920", "1920-1921", "1921-1922", "1922-1923", "1923-1924"],
+        "correctOption": "1919-1920"
+    },
+    {
+        "question": "As per census 2011, the percentage of Indian population live in urban areas",
+        "options": ["31.15%", "28.84%", "34.62%", "29.33%", "36.18%"],
+        "correctOption": "31.15%"
+    },
+    {
+        "question": "Largest tribal population as per Census 2011 is found in",
+        "options": ["Madhya Pradesh", "Maharashtra", "Odisha", "Rajasthan", "Jharkhand"],
+        "correctOption": "Madhya Pradesh"
+    },
+    {
+        "question": "As per census 2011, the urban-rural population ratio in India was about",
+        "options": ["31 : 69", "29 : 71", "33 : 67", "28 : 72", "30 : 70"],
+        "correctOption": "31 : 69"
+    },
+    {
+        "question": "As per census 2011, city of India having 2nd largest population",
+        "options": ["Delhi", "Mumbai", "Kolkata", "Bangalore", "Chennai"],
+        "correctOption": "Delhi"
+    },
+    {
+        "question": "India’s population growth recorded as a negative growth rate in",
+        "options": ["1911-1921", "1921-1931", "1931-1941", "1941-1951", "1951-1961"],
+        "correctOption": "1911-1921"
+    },
+    {
+        "question": "India's largest state in terms of area",
+        "options": ["Rajasthan", "Madhya Pradesh", "Uttar Pradesh", "Maharashtra", "Gujarat"],
+        "correctOption": "Rajasthan"
+    },
+    {
+        "question": "As per census 2011, the third most populous state of India",
+        "options": ["Bihar", "West Bengal", "Uttar Pradesh", "Maharashtra", "Andhra Pradesh"],
+        "correctOption": "Bihar"
+    },
+    {
+        "question": "As census 2011, Least populous state in India",
+        "options": ["Sikkim", "Goa", "Manipur", "Tripura", "Meghalaya"],
+        "correctOption": "Sikkim"
+    },
+    {
+        "question": "The number of questions canvassed during the population enumeration in the 2011 Census of India is",
+        "options": ["29", "25", "30", "35", "28"],
+        "correctOption": "29"
+    },
+    {
+        "question": "Geographical Factors, Social Factors, Cultural Factors, Economic Factors are Factors affecting",
+        "options": ["Population Distribution", "Population Growth", "Population Density", "Population Composition", "Population Dynamics"],
+        "correctOption": "Population Distribution"
+    },
+    {
+        "question": "As per the 2001 Census, the state received the largest number of immigrants",
+        "options": ["Maharashtra", "Delhi", "Uttar Pradesh", "Kerala", "Gujarat"],
+        "correctOption": "Maharashtra"
+    },
+    {
+        "question": "As per the 75th NSS report, the state with lowest number of literate females is",
+        "options": ["Rajasthan", "Bihar", "Uttar Pradesh", "Madhya Pradesh", "Jharkhand"],
+        "correctOption": "Rajasthan"
+    },
+    {
+        "question": "According to the 2011 census, the difference in the male and female literacy rates in India",
+        "options": ["16.68 %", "15.72 %", "17.25 %", "14.93 %", "18.07 %"],
+        "correctOption": "16.68 %"
+    },
+    {
+        "question": "The percentage of persons below the poverty line estimated in rural areas of India, in 2011-12",
+        "options": ["25.7%", "22.3%", "27.5%", "20.8%", "30.1%"],
+        "correctOption": "25.7%"
+    },
+    {
+        "question": "As per 2011 Census, Percentage of the households having source of light through electricity",
+        "options": ["67.2%", "70.5%", "62.8%", "75.1%", "80.3%"],
+        "correctOption": "67.2%"
+    },
+    {
+        "question": "In 2001 and 2011 Census, Himachal Pradesh in literacy rate was ranked at",
+        "options": ["11th", "9th", "13th", "15th", "7th"],
+        "correctOption": "11th"
+    },
+    {
+        "question": "Percentage of population below poverty line, according to poverty in India data (2011-12) in bihar is",
+        "options": ["33.74%", "29.82%", "37.15%", "31.26%", "28.94%"],
+        "correctOption": "33.74%"
+    },
+    {
+        "question": "According to poverty in India data (2011-12), Percentage of population below poverty line in Assam is",
+        "options": ["31.98%", "28.75%", "35.23%", "27.41%", "32.57%"],
+        "correctOption": "31.98%"
+    },
+    {
+        "question": "Percentage of population below poverty line, according to poverty in India data (2011-12) in Gujrat is",
+        "options": ["16.63%", "19.75%", "14.21%", "22.08%", "11.97%"],
+        "correctOption": "16.63%"
+    },
+    {
+        "question": "The period is referred to 'steady population growth'",
+        "options": ["1921-1951", "1901-1921", "1911-1931", "1931-1951", "1941-1961"],
+        "correctOption": "1921-1951"
+    },
+    {
+        "question": "As per the 2011 census, lowest female literacy rate is in",
+        "options": ["Bihar", "Rajasthan", "Uttar Pradesh", "Madhya Pradesh", "Jharkhand"],
+        "correctOption": "Bihar"
+    },
+    {
+        "question": "Only state with negative population growth (2001-2011)",
+        "options": ["Nagaland", "Sikkim", "Manipur", "Arunachal Pradesh", "Meghalaya"],
+        "correctOption": "Nagaland"
+    },
+    {
+        "question": "State/UT having highest population growth (2001-2011)",
+        "options": ["Dadra and Nagar Haveli", "Uttarakhand", "Bihar", "Chhattisgarh", "Jharkhand"],
+        "correctOption": "Dadra and Nagar Haveli"
+    },
+    {
+        "question": "The highest poverty ratio Percentage of 64.75% in Bihar is in",
+        "options": ["Kishanganj District", "Madhubani District", "Sitamarhi District", "Araria District", "Supaul District"],
+        "correctOption": "Kishanganj District"
+    },
+    {
+        "question": "As Per the census 2001 and 2011, lowest density population is in",
+        "options": ["Arunachal Pradesh", "Mizoram", "Sikkim", "Manipur", "Nagaland"],
+        "correctOption": "Arunachal Pradesh"
+    },
+    {
+        "question": "Total population / Net cultivated area is called",
+        "options": ["Physiological density", "Agricultural density", "Population density", "Economic density", "Cultural density"],
+        "correctOption": "Physiological density"
+    },
+    {
+        "question": "The total increase in population density from the census years 1951 to 2011 is",
+        "options": ["More than 3 times", "Almost 2 times", "Remained constant", "Decreased", "Increased by 50%"],
+        "correctOption": "More than 3 times"
+    },
+    {
+        "question": "As per the 2011 census, The share of adolescents (aged 10-19 years) is found to be about",
+        "options": ["20.9%", "22.3%", "19.5%", "24.7%", "18.2%"],
+        "correctOption": "20.9%"
+    },
+    {
+        "question": "The formula for calculating crude literacy rate by the census of India",
+        "options": ["100 × Literate population / Total population", "100 × Total population / Literate population", "Total population / Literate population", "Literate population / Total population", "100 × Literate population / (Total population - Literate population)"],
+        "correctOption": "100 × Literate population / Total population"
+    },
+    {
+        "question": "The first population census in India was conducted in the year",
+        "options": ["1872", "1881", "1891", "1901", "1911"],
+        "correctOption": "1872"
+    },
+    {
+        "question": "The first census commissioner of India",
+        "options": ["W.C Plowden", "J.C Bayley", "G.F Waugh", "F.J. Mouat", "C.A Elliott"],
+        "correctOption": "W.C Plowden"
+    },
+    {
+        "question": "The First Official Census in India was done in",
+        "options": ["1881", "1891", "1901", "1911", "1921"],
+        "correctOption": "1881"
+    },
+    {
+        "question": "As per Census 2011, the diffrence between total literacy and female literacy rates in india",
+        "options": ["8.5%", "9.2%", "7.8%", "6.4%", "10.1%"],
+        "correctOption": "8.5%"
+    },
+    {
+        "question": "Motto of 2011 census is",
+        "options": ["Our Census, Our Future", "Your Census, Your Future", "India's Census, India's Future", "Population Census, Future Planning", "Census for Future"],
+        "correctOption": "Our Census, Our Future"
+    },
+    {
+        "question": "As per census 2011, the number of Empowered Action Group (EAG) states in India are",
+        "options": ["8", "6", "7", "5", "9"],
+        "correctOption": "8"
+    },
+    {
+        "question": "As per census 2011, the population density in Arunachal Pradesh is",
+        "options": ["17 persons/km2", "21 persons/km2", "13 persons/km2", "25 persons/km2", "29 persons/km2"],
+        "correctOption": "17 persons/km2"
+    },
+    {
+        "question": "As per census 2011, the least populous state in India is",
+        "options": ["Sikkim", "Mizoram", "Arunachal Pradesh", "Goa", "Nagaland"],
+        "correctOption": "Sikkim"
+    },
+    {
+        "question": "As per census 2011, the most populated state in India is",
+        "options": ["Uttar Pradesh", "Maharashtra", "Bihar", "West Bengal", "Madhya Pradesh"],
+        "correctOption": "Uttar Pradesh"
+    },
+    {
+        "question": "As per census 2011, the state that has more than 1000 sex ratio (females per 1000 males) is",
+        "options": ["Kerala (1084)", "Tamil Nadu (996)", "Andhra Pradesh (993)", "Himachal Pradesh (974)", "Uttarakhand (963)"],
+        "correctOption": "Kerala (1084)"
+    },
+    {
+        "question": "The ‘Year of the Great Divide’ in the demographic history of India is",
+        "options": ["1921", "1947", "1951", "1961", "1971"],
+        "correctOption": "1921"
+    },
+    {
+        "question": "As per census 2011, the least populated Union Territory is",
+        "options": ["Lakshadweep", "Daman and Diu", "Andaman and Nicobar Islands", "Chandigarh", "Delhi"],
+        "correctOption": "Lakshadweep"
+    },
+    {
+        "question": "As per census 2011, the second least populated state is",
+        "options": ["Mizoram", "Sikkim", "Arunachal Pradesh", "Nagaland", "Manipur"],
+        "correctOption": "Mizoram"
+    },
+    {
+        "question": "As per 2011 census, population density of Delhi is",
+        "options": ["11320 persons/ km2", "10250 persons/ km2", "12045 persons/ km2", "9500 persons/ km2", "13000 persons/ km2"],
+        "correctOption": "11320 persons/ km2"
+    },
+    {
+        "question": "As per census 2011, the lowest density of population among Union Territories is",
+        "options": ["Andaman and Nicobar Islands", "Chandigarh", "Daman and Diu", "Lakshadweep", "Delhi"],
+        "correctOption": "Andaman and Nicobar Islands"
+    },
+    {
+        "question": "As per 2011 census, Puducherry sex ratio is",
+        "options": ["1038", "1025", "1045", "1052", "1019"],
+        "correctOption": "1038"
+    },
+    {
+        "question": "According to Census of India, sex ratio is defined as the number of females per",
+        "options": ["1000 male", "500 male", "750 male", "800 male", "900 male"],
+        "correctOption": "1000 male"
+    },
+    {
+        "question": "According to Census 2011, the most prevalent drinking water source in more than 41% of the households",
+        "options": ["Hand Pump / Tube Well", "Tap Water", "River / Canal", "Pond / Lake", "Rainwater harvesting"],
+        "correctOption": "Hand Pump / Tube Well"
+    },
+    {
+        "question": "The 2011 census of India was the national census after independence",
+        "options": ["Seventh", "Sixth", "Eighth", "Fifth", "Fourth"],
+        "correctOption": "Seventh"
+    },
+    {
+        "question": "The first Census of Independent India began on",
+        "options": ["1951", "1947", "1961", "1971", "1981"],
+        "correctOption": "1951"
+    },
+    {
+        "question": "As per 2011 census, Sex ratio of Uttar Pradesh is",
+        "options": ["912", "899", "924", "937", "901"],
+        "correctOption": "912"
+    },
+    {
+        "question": "As per 2011 census, Sex ratio of Maharashtra is",
+        "options": ["929", "942", "916", "950", "905"],
+        "correctOption": "929"
+    },
+    {
+        "question": "As per 2011 census, Sex ratio of Gujarat is",
+        "options": ["919", "933", "910", "942", "897"],
+        "correctOption": "919"
+    },
+    {
+        "question": "As per 2011 census, Sex ratio of Rajasthan is",
+        "options": ["928", "942", "915", "950", "901"],
+        "correctOption": "928"
+    },
+    {
+        "question": "An official enumeration of population done periodically is known as",
+        "options": ["census", "survey", "audit", "evaluation", "analysis"],
+        "correctOption": "census"
+    },
+    {
+        "question": "The state that has the highest population growth rate as per Government of India Report 2011-2019 is",
+        "options": ["Bihar", "Uttar Pradesh", "Madhya Pradesh", "Rajasthan", "Maharashtra"],
+        "correctOption": "Bihar"
+    },
+    {
+        "question": "The first economic census in India was conducted in",
+        "options": ["1977", "1965", "1981", "1991", "1951"],
+        "correctOption": "1977"
+    },
+    {
+        "question": "The first census conducted in India non-synchronously in different parts during",
+        "options": ["1865-1872", "1851-1860", "1873-1880", "1841-1850", "1881-1890"],
+        "correctOption": "1865-1872"
+    },
+    {
+        "question": "The National Population Commission established in India",
+        "options": ["11 May 2000", "15 August 1998", "26 January 2001", "1 April 1999", "5 September 2002"],
+        "correctOption": "11 May 2000"
+    },
+    {
+        "question": "The life expectancy at birth 2011-15 for women in India",
+        "options": ["70 years", "68 years", "72 years", "74 years", "76 years"],
+        "correctOption": "70 years"
+    },
+    {
+        "question": "According to the National Population Policy (2000), the target year for reaching stability in population is",
+        "options": ["2045", "2050", "2035", "2040", "2055"],
+        "correctOption": "2045"
+    },
+    {
+        "question": "In India, the period of steady population growth referred to decades of",
+        "options": ["1921-1951", "1901-1921", "1911-1931", "1931-1951", "1941-1961"],
+        "correctOption": "1921-1951"
+    },
+    {
+        "question": "The number of people per unit area of arable land is termed as",
+        "options": ["Physiological density", "Agricultural density", "Population density", "Economic density", "Cultural density"],
+        "correctOption": "Physiological density"
+    },
+    {
+        "question": "In the year 2019, the infant mortality rate was",
+        "options": ["28.3 deaths per 1000 live births", "25.6 deaths per 1000 live births", "30.8 deaths per 1000 live births", "27.1 deaths per 1000 live births", "29.4 deaths per 1000 live births"],
+        "correctOption": "28.3 deaths per 1000 live births"
+    },
+    {
+        "question": "The Optimum Population Theory was propounded by",
+        "options": ["Edwin Kennan", "Adam Smith", "Karl Marx", "Thomas Malthus", "John Stuart Mill"],
+        "correctOption": "Edwin Kennan"
+    },
+    {
+        "question": "The Social Mal-adjustment Theory was propounded by",
+        "options": ["Henry George", "Adam Smith", "Karl Marx", "Thomas Malthus", "John Stuart Mill"],
+        "correctOption": "Henry George"
+    },
+    {
+        "question": "The Population Food Supply Relationship theory was propounded by",
+        "options": ["Malthus", "Adam Smith", "Karl Marx", "John Stuart Mill", "Henry George"],
+        "correctOption": "Malthus"
+    },
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

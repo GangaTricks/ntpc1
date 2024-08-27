@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Awareness QUIZ APP</title>
+			<script src="../../urlRewrite.js"></script>
+		<link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">
+  
+   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+  
+  
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Padai- Mock Analysis | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+ const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'padaicglmockanalysis001xys';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+       const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+<script>
+const questions = [
+{
+        "question": "As per the report 'Road Accidents in India-2022', which state recorded the highest number of road accidents on National Highways in 2022?",
+        "options": ["Tamil Nadu", "Uttar Pradesh", "Madhya Pradesh", "Maharashtra"],
+        "correctOption": "Tamil Nadu"
+    },
+    {
+        "question": "Which of the following is not a characteristic of Oxidation?",
+        "options": ["Loss of electron", "Addition of Oxygen", "Addition of electronegative element", "Addition of Hydrogen"],
+        "correctOption": "Addition of Hydrogen"
+    },
+    {
+        "question": "Bharat Ratna M S Subbulakshmi is associated with which of the following?",
+        "options": ["Bharat Natyam", "Kathak", "Carnatic Music", "Hindustani Classical Music"],
+        "correctOption": "Carnatic Music"
+    },
+    {
+        "question": "Consider the following statements:\n\nI. There is a fixed tenure for a judge of Supreme Court according to the Indian Constitution.\n\nII. A judge of Supreme Court holds office until he/she attains the age of 65 years.\n\nIII. A judge of Supreme Court can resign from office by writing to the Chief Justice of India.\n\nSelect the correct statements using the codes given below:",
+        "options": ["II only", "I and II only", "III only", "I and III only"],
+        "correctOption": "II only"
+    },
+    {
+        "question": "Who abolished the system of Dastak to stop the corruption among officials and regulated the internal trade?",
+        "options": ["Lord Dalhousie", "Lord Cornwallis", "Lord William Bentinck", "Warren Hastings"],
+        "correctOption": "Warren Hastings"
+    },
+    {
+        "question": "Which of the following is NOT a cause for widespread participation and popular sentiment behind '1857 revolt'?",
+        "options": ["Prevalence of the corruption at the lower level of administration", "Policies promoting intolerance among various religious groups", "New system of law and administration", "British government's land and land revenue policies"],
+        "correctOption": "Policies promoting intolerance among various religious groups"
+    },
+    {
+        "question": "Identify the last element from the fifth period.",
+        "options": ["Helium", "Yitrium", "Rubidium", "Xenon"],
+        "correctOption": "Xenon"
+    },
+    {
+        "question": "Which of the following is the value of all final goods and services produced within a country and adjusted for depreciation?",
+        "options": ["GDP", "GNI", "NNP", "NDP"],
+        "correctOption": "NDP"
+    },
+    {
+        "question": "One Weber is equal to a flux that produces an electromotive force of one volt in a single turn of wire when the flux is uniformly reduced to zero in a period of one?",
+        "options": ["Henry", "Candela", "Tesla", "Weber"],
+        "correctOption": "Weber"
+    },
+    {
+        "question": "Which of the following is an organic acid?",
+        "options": ["Carbonic acid", "Formic acid", "Nitric acid", "Phosphoric acid"],
+        "correctOption": "Formic acid"
+    },
+    {
+        "question": "Which of the following rivers flow through the trough faults of the peninsular block and hence made these rivers devoid of alluvial and deltaic deposits?",
+        "options": ["Narmada, Tapi", "Krishna, Godavari", "Ganga, Yamuna", "Cauvery, Periyar"],
+        "correctOption": "Narmada, Tapi"
+    },
+    {
+        "question": "In November 2023, who became the first batter in the world to score 50 ODI centuries, breaking iconic Sachin Tendulkar's record of 49 centuries?",
+        "options": ["Rohit Sharma", "AB de Villiers", "David Warner", "Virat Kohli"],
+        "correctOption": "Virat Kohli"
+    },
+    {
+        "question": "Hem Chandra Goswami received the Padma Shri in 2023 for reviving the art of traditional mask making of",
+        "options": ["West Bengal", "Assam", "Odisha", "Manipur"],
+        "correctOption": "Assam"
+    },
+    {
+        "question": "Which of the following classical dances involves the artist performing around a lamp and the story is narrated by hand gestures and is also characterized by what is called as 'Kalasams'?",
+        "options": ["Kathakali", "Mohiniyattam", "True", "Bharatnatyam"],
+        "correctOption": "Kathakali"
+    },
+    {
+        "question": "Securities and Exchange Board of India (SEBI), a regulatory body of the Government of India which controls the securities market, was established under the SEBI Act of",
+        "options": ["1990", "1992", "1994", "1997"],
+        "correctOption": "1992"
+    },
+    {
+        "question": "Which of the following Articles of the Constitution of India directs the State to raise the level of nutrition and the standard of living and to improve public health as among its primary duties?",
+        "options": ["Article 42", "Article 51", "Article 44", "Article 47"],
+        "correctOption": "Article 47"
+    },
+    {
+        "question": "PM Vishwakarma is a Central Sector Scheme, fully funded by the Government of India, with an initial outlay of Rs. 13,000 crore for an initial period of five years i.e. during",
+        "options": ["2023-24 to 2027-28", "2020-21 to 2023-24", "2021-22 to 2025-26", "2022-23 to 2026-27"],
+        "correctOption": "2023-24 to 2027-28"
+    },
+    {
+        "question": "In October 2023, Prime Minister Narendra Modi inaugurated the 9th G20 Parliamentary Speakers' Summit (P20) in",
+        "options": ["Bengaluru", "Mumbai", "Gandhinagar", "New Delhi"],
+        "correctOption": "New Delhi"
+    },
+    {
+        "question": "What are vestigial organs?",
+        "options": ["Organs which are non-functional and reduced in an organism", "Organs which have common origin and structure", "Organs which have common form and function", "Organisms having structures of two different groups"],
+        "correctOption": "Organs which are non-functional and reduced in an organism"
+    },
+    {
+        "question": "Khilafat Committee was formed in 1919 in the city of",
+        "options": ["Lucknow", "Bombay", "Calcutta", "Surat"],
+        "correctOption": "Bombay"
+    },
+    {
+        "question": "Consider the following statements.\n\n1. The periodic rise and fall of sea level due to gravitational force of sun and moon is called as tide.\n\nII. Movement of water caused by the wind and atmospheric pressure are called as surges.\n\nWhich among the above statements is/are correct?",
+        "options": ["I only", "II only", "Both I and II", "Neither I nor II"],
+        "correctOption": "Both I and II"
+    },
+    {
+        "question": "Which of the following schemes/initiatives of the Government is/are NOT related to skill development?\n\n1. Pradhan Mantri Kaushal Vikas Yojana\n\nII. National Apprenticeship Promotion Scheme\n\nIII. Jan Shikshan Sansthan Scheme",
+        "options": ["I only", "II only", "III only", "All the above are related to skill development"],
+        "correctOption": "All the above are related to skill development"
+    },
+    {
+        "question": "The three mascots for the Asian Games 2023, Chenchen, Congcong, and Lianlian, were a group of",
+        "options": ["Leopards", "Panda", "Rivers", "Robots"],
+        "correctOption": "Robots"
+    },
+    {
+        "question": "Who among the following Sultans of Delhi started the system of Sijda and Paibos?",
+        "options": ["Muhammad Bin Tughluq", "Nasir ud din Muhammad", "Ghiyas ud din Balban", "Qutb ud-din Aibak"],
+        "correctOption": "Ghiyas ud din Balban"
+    },
+    {
+        "question": "Which of the following statement is NOT correct regarding 'cerebral cortex'?",
+        "options": ["It controls and initiates voluntary muscle contractions.", "It receives and processes information from the sense organs.", "It carries out mental activities of thinking, reasoning etc.", "None of the above"],
+        "correctOption": "None of the above"
+    },
+    {
+        "question": "In the periodic table, the atomic radius of an element decreases across a period from",
+        "options": ["Top to bottom", "Bottom to top", "Right to left", "Left to right"],
+        "correctOption": "Left to right"
+    },
+    {
+        "question": "The Bada Osha dance festival is organised every year in which Indian state?",
+        "options": ["West Bengal", "Manipur", "Kerala", "Odisha"],
+        "correctOption": "Odisha"
+    },
+    {
+        "question": "If the speed of sound in a medium is slower, it means that",
+        "options": ["the density of the medium is less", "the density of the medium is more", "the molecules in the medium are tightly packed", "the temperature of the medium is more"],
+        "correctOption": "the density of the medium is less"
+    },
+    {
+        "question": "Who is the winner of the 'FIDE World Cup Chess Championship 2023'?",
+        "options": ["Rameshbabu Praggnanandhaa", "Magnus Carlsen", "Fabiano Caruana", "Nijat Abasov"],
+        "correctOption": "Magnus Carlsen"
+    },
+    {
+        "question": "______ and ______ are considered as the transfer incomes and can't be included in estimating national income.",
+        "options": ["Land; interest", "donations; rent", "charities; income from lotteries", "profit; wages"],
+        "correctOption": "charities; income from lotteries"
+    },
+    {
+        "question": "What is the formula of Acyl functional group?",
+        "options": ["R-N3", "RCHO", "R-COX", "RCO-"],
+        "correctOption": "RCO-"
+    },
+    {
+        "question": "The 23rd Asian Archery Championship has recently held in Bangkok, Thailand. Which among the following countries will host the 24th Asian Archery Championships in 2025?",
+        "options": ["Bhutan", "Bangladesh", "Myanmar", "Sri Lanka"],
+        "correctOption": "Bangladesh"
+    },
+    {
+        "question": "Which article of the Constitution of India states that 'all authorities, civil and judicial, in the territory of India shall act in aid of the Supreme Court'?",
+        "options": ["Article 137", "Article 121", "Article 144", "Article 157"],
+        "correctOption": "Article 144"
+    },
+    {
+        "question": "Which one of the following pairs is incorrectly matched?",
+        "options": ["A.D. 1526 - First battle of Panipat", "B.C. 422 - Establishment of Mauryan Empire", "A.D. 1206 - Commencement of the Era of Delhi Sultanates", "A.D. 1605 - Death of Akbar"],
+        "correctOption": "B.C. 422 - Establishment of Mauryan Empire"
+    },
+    {
+        "question": "As per the report released by NITI Aayog in April, 2023 titled 'Promoting Millets in Diets: Best Practices across States, UTs of India', how many commonly known traditional millets does India produce?",
+        "options": ["9", "10", "5", "6"],
+        "correctOption": "9"
+    },
+    {
+        "question": "In November 2023, Jocata, a digital lending transformation platform, collaborated with SIDBI to launch a one-of-its kind MSME Economic Activity Index called",
+        "options": ["Sambhavana", "Sumpoorn", "Shubiksha", "Vikasa"],
+        "correctOption": "Sumpoorn"
+    },
+    {
+        "question": "Which physicist introduced the concept of the uncertainty principle, stating that the position and momentum of a particle cannot be precisely determined simultaneously?",
+        "options": ["Werner Heisenberg", "Max Planck", "Niels Bohr", "Erwin Schrödinger"],
+        "correctOption": "Werner Heisenberg"
+    },
+    {
+        "question": "In October 2023, who among the following has been conferred the Tata Literature Lifetime Achievement Award for 2023?",
+        "options": ["Gita Hariharan", "Bama", "Ambai", "Kavita Murthy"],
+        "correctOption": "Ambai"
+    },
+    {
+        "question": "Satavahana kingdom was divided into subdivisions called aharas or rashtras, meaning",
+        "options": ["Districts", "Towns", "Blocks", "Village"],
+        "correctOption": "Districts"
+    },
+    {
+        "question": "Identify the human development approach that proposes to build the human capabilities in the areas of health, education and access to resources?",
+        "options": ["Income approach", "Welfare approach", "Basic needs approach", "Capability approach"],
+        "correctOption": "Capability approach"
+    },
+    {
+        "question": "Which Indian classical dancer's intricate and fluid movements in Odissi dance form brought it to the forefront of Indian classical dance?",
+        "options": ["Uday Shankar", "Sudha Chandran", "Kelucharan Mohapatra", "Birju Maharaj"],
+        "correctOption": "Kelucharan Mohapatra"
+    },
+    {
+        "question": "Which of the following was a trade centre established in India by the British?",
+        "options": ["Madras", "Serampore", "Chandernagore", "Cochin"],
+        "correctOption": "Madras"
+    },
+    {
+        "question": "Identify the crop described in the following paragraph: 'This is an evergreen plant that mainly grows in tropical and subtropical climates. It is labour intensive and grows faster under light shade. It requires high rainfall but its root cannot tolerate waterlogging.'",
+        "options": ["Jowar", "Bajra", "Tea", "Rice"],
+        "correctOption": "Tea"
+    },
+    {
+        "question": "Which Governor-General of India, in 1772, introduced two courts in each district, a criminal court (faujdari adalat) and a civil court (diwani adalat)?",
+        "options": ["Lord Dalhousie", "Warren Hastings", "Richard Wellesley", "Robert Clive"],
+        "correctOption": "Warren Hastings"
+    },
+    {
+        "question": "For how many years is the period between two coronations?",
+        "options": ["5 years", "8 years", "11 years", "15 years"],
+        "correctOption": "8 years"
+    },
+    {
+        "question": "What is the name of a rare-earth element with a metallic silver luster with atomic number 66 discovered in 1886?",
+        "options": ["Cobalt", "Tungsten", "Titanium", "Dysprosium"],
+        "correctOption": "Dysprosium"
+    },
+    {
+        "question": "Select the option that expresses the given sentence in the positive degree of comparison: 'Norwegian Wood is the most interesting book on the shelf.'",
+        "options": ["Norwegian Wood stands out as the most captivating book on the shelf.", "Among the books on the shelf, Norwegian Wood is the standout in terms of interest.", "Of all the books on the shelf, Norwegian Wood is the most absorbing.", "Norwegian Wood is the most engaging book on the shelf."],
+        "correctOption": "Among the books on the shelf, Norwegian Wood is the standout in terms of interest."
+    },
+    {
+        "question": "The wall's sheets, adorned with vibrant wallpaper, contribute to the overall aesthetic of the room, enhancing its ambience and style.",
+        "options": ["the wall's sheets, adorned with vibrant", "wallpaper, contribute to the overall aesthetic of the", "room, enhancing its ambience and style", "No error"],
+        "correctOption": "the wall's sheets, adorned with vibrant"
+    },
+    {
+        "question": "Select the option that will improve the bracketed part of the given sentence: Although the weather forecast predicted rain, (but the sun managed) to break through the clouds, creating a surprisingly pleasant day.",
+        "options": ["and the sun managed", "the sun manage but", "No improvement required", "the sun managed"],
+        "correctOption": "the sun managed"
+    },
+    {
+        "question": "The folk ______ appreciated by the traveller for their hospitality and the traveller said that he would visit again.",
+        "options": ["was", "were", "is", "have"],
+        "correctOption": "were"
+    },
+    {
+        "question": "Select the option that can be used as a one-word substitute for the given group of words: Preventing success or development",
+        "options": ["Dent", "Deduction", "Rogue", "Adverse"],
+        "correctOption": "Adverse"
+    },
+    {
+        "question": "Lakshminarayan Shastry is associated with which of the following classical dances of India?",
+        "options": ["Sattriya", "Odissi", "Kathak", "Kuchipudi"],
+        "correctOption": "Kuchipudi"
+    },
+    {
+        "question": "In electrochemistry, what type of reactions are used to generate electricity?",
+        "options": ["Combination reaction", "Displacement reaction", "Precipitation reaction", "Redox reaction"],
+        "correctOption": "Redox reaction"
+    },
+    {
+        "question": "Hemis festival is celebrated in the Hemis monastery in Ladakh during which period?",
+        "options": ["Monsoon", "Summer", "Winter", "Autumn"],
+        "correctOption": "Monsoon"
+    },
+    {
+        "question": "How many cities in the US will host the FIFA World Cup in 2026?",
+        "options": ["16", "13", "11", "9"],
+        "correctOption": "11"
+    },
+    {
+        "question": "Jeevika is the State Rural Livelihoods Mission of which state?",
+        "options": ["Maharashtra", "Bihar", "Rajasthan", "Haryana"],
+        "correctOption": "Bihar"
+    },
+    {
+        "question": "A Kathakali performance begins with the ______.",
+        "options": ["kelikotto", "todayam", "margin", "alarippu"],
+        "correctOption": "kelikotto"
+    },
+    {
+        "question": "Patola, which was woven in Surat, Ahmedabad and Patan, was highly valued in ______ and became part of the local weaving tradition there.",
+        "options": ["China", "Greece", "Indonesia", "France"],
+        "correctOption": "Indonesia"
+    },
+    {
+        "question": "According to the World Meteorological Organization report reviewed during 2010-12, the highest registered shade temperature of ______ was recorded at Al Aziziyah, Libya.",
+        "options": ["58 degree celsius", "68 degree celsius", "50 degree celsius", "72 degree celsius"],
+        "correctOption": "58 degree celsius"
+    },
+    {
+        "question": "Who among the following assassinated Lord Mayo in 1872 at Andaman and Nicobar Islands?",
+        "options": ["Mohammad Abdullah", "Sher Ali", "Ashfaqulla Khan", "Ram Prasad Bismil"],
+        "correctOption": "Sher Ali"
+    },
+    {
+        "question": "In November 2023, the 4th edition of ASEAN India Grassroots Innovation Forum (AIGIF) was held in",
+        "options": ["Japan", "Singapore", "Malaysia", "Cambodia"],
+        "correctOption": "Malaysia"
+    },
+    {
+        "question": "Which of the following mountain peaks is the highest?",
+        "options": ["Guru Shikar", "Kumbhalgarh", "Achalagarh", "Dilwara"],
+        "correctOption": "Guru Shikar"
+    },
+    {
+        "question": "Who among the following has become the second Indian to qualify for the World Chess Championship?",
+        "options": ["Praggnanandhaa R", "Dommaraju Gukesh", "Arjun Erigaisi", "Vidit Gujrathi"],
+        "correctOption": "Dommaraju Gukesh"
+    },
+    {
+        "question": "Article 323A deals with",
+        "options": ["Administrative tribunals", "Emergency Provisions", "Elections", "Official Languages"],
+        "correctOption": "Administrative tribunals"
+    },
+    {
+        "question": "Which of the following elements constitute the first period of the periodic table?",
+        "options": ["Hydrogen and Helium", "Only Hydrogen", "Only Helium", "None of the above"],
+        "correctOption": "Hydrogen and Helium"
+    },
+    {
+        "question": "Identify the atmospheric layer from the following statements. a) This layer is also called as chemosphere. b) A lot of chemical activity goes on here. c) It lies between the stratosphere and lower mesosphere.",
+        "options": ["Troposphere", "Ozonosphere", "Thermosphere", "Ionosphere"],
+        "correctOption": "Ozonosphere"
+    },
+    {
+        "question": "Which of the following is the sum of the chemical reactions that take place within each cell of a living organism and that provide energy for vital processes and for synthesizing new organic material?",
+        "options": ["Hemostasis", "Metabolism", "Homeostasis", "Equilibrium"],
+        "correctOption": "Metabolism"
+    },
+    {
+        "question": "Which of the following statement is incorrect regarding magnetic lines of force?",
+        "options": ["Lines of force never cross.", "Lines of force are discontinuous.", "Lines of force always form individual closed loops around the magnet.", "Lines of force have a definite direction from North to South."],
+        "correctOption": "Lines of force are discontinuous."
+    },
+    {
+        "question": "How many players are there in a water polo team?",
+        "options": ["5", "6", "7", "8"],
+        "correctOption": "7"
+    },
+    {
+        "question": "_____ is a system of winds that rotates about a centre of high atmospheric pressure clockwise in the northern hemisphere and counterclockwise in the southern hemisphere.",
+        "options": ["Cyclones", "Hurricane", "Anticyclones", "Polar Winds"],
+        "correctOption": "Anticyclones"
+    },
+    {
+        "question": "Dola Purnima festival is predominantly celebrated in",
+        "options": ["Mizoram", "Gujarat", "Punjab", "Jharkhand"],
+        "correctOption": "Gujarat"
+    },
+    {
+        "question": "Select the most appropriate SYNONYM to replace the italicised word. Joe's hapless search for fun led him from one disappointment to another.",
+        "options": ["Constant", "Unlucky", "Fruitful", "Tireless"],
+        "correctOption": "Unlucky"
+    },
+    {
+        "question": "Select the option that expresses the given sentence in reported speech. Rajeev said, 'I met my old friend from high school when I tried to catch a bus.'",
+        "options": ["Rajeev says that he met his old friend from high school when he was trying to catch a bus.", "Rajeev said that he has met his old friend from high school when he tried to catch a bus.", "Rajeev said that he had met his old friend from high school when he had been trying to catch a bus.", "Rajeev said that he met his old friend from high school when he tried to catch a bus."],
+        "correctOption": "Rajeev said that he met his old friend from high school when he tried to catch a bus."
+    },
+    {
+        "question": "Select the sentence that uses the given idiom correctly. Break a leg",
+        "options": ["He broke his leg when he fell off the ladder.", "She broke a leg during her performance, and the audience loved it.", "I told her to break a leg at her interview tomorrow.", "They broke a leg when they tried to escape from the police."],
+        "correctOption": "I told her to break a leg at her interview tomorrow."
+    },
+    {
+        "question": "Select the option that expresses the given sentence in the positive degree of comparison. She is the most generous person I know.",
+        "options": ["She is more generous among the people I know.", "A generous person among the people I know she is.", "No other person I know is as generous as she is.", "Among the people I know of all is she generous."],
+        "correctOption": "No other person I know is as generous as she is."
+    },
+    {
+        "question": "The following sentence has been split into three segments. Identify the segment that contains a grammatical error. If the sentence is error free, mark 'No error' as your answer. In half a minute, he turns the lights off and/ dashes off to his camera perched on/ the table to check the preview.",
+        "options": ["the table to check the preview", "dashes off to his camera perched on", "In half a minute, he turns the lights off and", "No error"],
+        "correctOption": "No error"
+    },
+    {
+        "question": "Select the most appropriate meaning of the given idiom. A bee in the bonnet",
+        "options": ["to have a suspicion about something", "to excel at something", "to have a fear of insects", "to be obsessed with something"],
+        "correctOption": "to be obsessed with something"
+    },
+    {
+        "question": "Select the option that can be used as a one-word substitute for the given group of words. The discipline that deals with the decipherment and analysis of ancient handwriting and scripts",
+        "options": ["Epigraphy", "Linguistics", "Palaeography", "Ethnography"],
+        "correctOption": "Palaeography"
+    },
+	{
+		"question": "From the neon glow of nightlife to the tranquillity of green spaces, the metro offers a _____ of opportunities and challenges.",
+		"options": ["Mosaic", "Plate", "Sphere", "Point"],
+		"correctOption": "Mosaic"
+	},
+
+ {
+        "question": "Calcium sulphate dihydrate is also commonly known as",
+        "options": ["Concrete", "Detergents", "Bleach", "Gypsum"],
+        "correctOption": "Gypsum"
+    },
+    {
+        "question": "In November 2023, which state government launched 'Every Right for Every Child' campaign for equality in education?",
+        "options": ["Bihar", "Chhattisgarh", "Madhya Pradesh", "Uttar Pradesh"],
+        "correctOption": "Uttar Pradesh"
+    },
+    {
+        "question": "Shirui Lily Festival is held in which of the following Indian state?",
+        "options": ["Manipur", "Assam", "Mizoram", "Tripura"],
+        "correctOption": "Manipur"
+    },
+    {
+        "question": "Ali Akbar Khan, who was awarded the second highest civilian award in India, Padma Vibhushan, in 1989, was a notable",
+        "options": ["Flute", "Tabla", "Sitar", "Sarod"],
+        "correctOption": "Sarod"
+    },
+    {
+        "question": "What is the name of India's first human manned Space Flight carrying Indian Astronauts into Space?",
+        "options": ["Human", "Robocop", "Indira", "Vyommitra"],
+        "correctOption": "Vyommitra"
+    },
+    {
+        "question": "Change of gaseous state directly to solid state without going through liquid state is known as:",
+        "options": ["Sublimation", "Evaporation", "Deposition", "Vaporization"],
+        "correctOption": "Deposition"
+    },
+    {
+        "question": "When was the Objective Resolution moved by Jawaharlal Nehru?",
+        "options": ["1947", "1946", "1950", "1948"],
+        "correctOption": "1946"
+    },
+    {
+        "question": "Kalidas was poet to which of the following emperor?",
+        "options": ["Samudragupta", "Harshvardhan", "Chandragupta II", "Ashoka"],
+        "correctOption": "Chandragupta II"
+    },
+    {
+        "question": "What is the Latin name of lead?",
+        "options": ["Potassium", "Lead", "Silver", "Sodium"],
+        "correctOption": "Plumbum"
+    },
+    {
+        "question": "Which of the following statement is correct in relation to Nor Westers?",
+        "options": [
+            "These are pre-monsoon showers which are a common phenomenon in Kerala and coastal areas of Karnataka.",
+            "These are dreaded evening thunderstorms in Bengal and Assam.",
+            "These are hot, dry and oppressive winds blowing in the Northern plain of India.",
+            "These showers are useful for Apple Cultivation."
+        ],
+        "correctOption": "These are dreaded evening thunderstorms in Bengal and Assam."
+    },
+    {
+        "question": "Who among the following was well versed in Sanskrit, Persian and several other Indian and European languages and tried to show through his writings that the practice of widow burning had no sanction in ancient texts?",
+        "options": ["Ishwar Chandra Vidyasagar", "Debendranath Tagore", "Keshab Chandra Sen", "Raja Rammohun Roy"],
+        "correctOption": "Raja Rammohun Roy"
+    },
+    {
+        "question": "Receptors are",
+        "options": ["Fats", "Carbohydrates", "Proteins", "None of the above"],
+        "correctOption": "Proteins"
+    },
+	 {
+        "question": "The word 'mole' was introduced around the year 1896 by",
+        "options": ["Linus Pauling", "Wilhelm Ostwald", "John Dalton", "Amedeo Avogadro"],
+        "correctOption": "Wilhelm Ostwald"
+    },
+    {
+        "question": "Who among the following waged the battle for Indian Independence from within the heart of the British Empire and was also sent as Indian National Congress (INC) representative to the World Peace Conference at Geneva?",
+        "options": ["Annie Besant", "V K Krishna Menon", "Jawaharlal Nehru", "Harold Laski"],
+        "correctOption": "V K Krishna Menon"
+    },
+    {
+        "question": "In August 2023, who became the first Indian woman wrestler to win two U20 Wrestling World Titles?",
+        "options": ["Priya Malik", "Savita", "Antim Panghal", "Harshita Mor"],
+        "correctOption": "Antim Panghal"
+    },
+    {
+        "question": "Which of the following is the correct representation of frequency?",
+        "options": ["1/time period", "1/distance travelled", "1/amplitude", "1/wavelength"],
+        "correctOption": "1/time period"
+    },
+    {
+        "question": "Which of the following can be a way of preventing soil erosion?",
+        "options": ["Overgrazing", "De-forestation", "No-till farming", "All of the above"],
+        "correctOption": "No-till farming"
+    },
+    {
+        "question": "Arjuna Award Winner of 2023, Naorem Roshibina Devi, is associated with which of the following sport?",
+        "options": ["Shooting", "Kabaddi", "Wushu", "Chess"],
+        "correctOption": "Wushu"
+    },
+    {
+        "question": "A typical human eye will respond to wavelengths lying in the visible spectrum. What is the wavelength of the vision spectrum?",
+        "options": [
+            "380 to 700 nanometers",
+            "400 to 500 nanometers",
+            "600 to 800 nanometers",
+            "500 to 750 nanometers"
+        ],
+        "correctOption": "380 to 700 nanometers"
+    },
+    {
+        "question": "When was the Nehru-Liaquat Agreement signed?",
+        "options": ["1947", "1948", "1949", "1950"],
+        "correctOption": "1950"
+    },
+    {
+        "question": "What is another name for the Nehru-Liaquat Pact?",
+        "options": [
+            "Karachi Accord",
+            "Lahore Declaration",
+            "Delhi Pact",
+            "Islamabad Agreement"
+        ],
+        "correctOption": "Delhi Pact"
+    },
+	{
+    "question": "The author crafted a fascinating and engrossing plot in the novel, keeping the readers hooked until the last page.",
+    "options": ["Enthusiastic", "Tedious", "Harmonious", "Progressive"],
+    "correctOption": "Tedious"
+	},
+	{
+    "question": "The professor and/ the researcher has(A)/ already/ left the (B)/ conference/ to attend an(C)/ important seminar. / No error (D).",
+    "options": ["A", "B", "C", "D"],
+    "correctOption": "A"
+	},
+	 {
+        "question": "Who were the signatories of the Nehru-Liaquat Agreement?",
+        "options": ["Jawaharlal Nehru and Mahatma Gandhi", "Liaquat Ali Khan and Muhammad Ali Jinnah", "Jawaharlal Nehru and Liaquat Ali Khan", "Indira Gandhi and Zulfikar Ali Bhutto"],
+        "correctOption": "Jawaharlal Nehru and Liaquat Ali Khan"
+    },
+    {
+        "question": "What was the purpose of the Nehru-Liaquat Agreement?",
+        "options": ["To establish economic cooperation", "To resolve territorial disputes", "To provide a framework for the treatment of minorities", "To strengthen military alliances"],
+        "correctOption": "To provide a framework for the treatment of minorities"
+    },
+    {
+        "question": "Where was the Nehru-Liaquat Agreement signed?",
+        "options": ["Karachi", "Lahore", "Delhi", "Islamabad"],
+        "correctOption": "Delhi"
+    },
+    {
+        "question": "What do India and Pakistan hold each other accountable for according to the Nehru-Liaquat Agreement?",
+        "options": ["Economic growth", "Environmental conservation", "Treatment of minorities", "Military expenditures"],
+        "correctOption": "Treatment of minorities"
+    },
+    {
+        "question": "According to the key takeaways, what was the stance on refugees returning to dispose of their property?",
+        "options": ["They were prohibited from returning.", "They were allowed to return but not to dispose of their property.", "They were allowed to return undisturbed to dispose of their property.", "They were allowed to return, but their property was confiscated."],
+        "correctOption": "They were allowed to return undisturbed to dispose of their property."
+    },
+    {
+        "question": "What action was mandated regarding abducted women and looted property as per the key takeaways?",
+        "options": ["They were to be ignored.", "They were to be sold.", "They had to be returned.", "They were to be used for exchange."],
+        "correctOption": "They had to be returned."
+    },
+    {
+        "question": "How were forced conversions addressed according to the key takeaways?",
+        "options": ["They were legalized.", "They were recognized.", "They were unrecognized.", "They were incentivized."],
+        "correctOption": "They were unrecognized."
+    },
+    {
+        "question": "Which aspect of minority rights was confirmed based on the key takeaways?",
+        "options": ["They were restricted.", "They were abolished.", "They were confirmed.", "They were under review."],
+        "correctOption": "They were confirmed."
+    },
+    {
+        "question": "When is the Karama Festival typically celebrated?",
+        "options": ["January-February", "March-April", "September-October", "November-December"],
+        "correctOption": "September-October"
+    },
+    {
+        "question": "In which Indian state is the Karama Festival primarily celebrated?",
+        "options": ["Madhya Pradesh", "Odisha", "Bihar", "Uttar Pradesh"],
+        "correctOption": "Odisha"
+    },
+    {
+        "question": "Which deity is honored during the Karama Festival?",
+        "options": ["Lord Shiva", "Goddess Durga", "God of youth and power", "Lord Ganesha"],
+        "correctOption": "God of youth and power"
+    },
+    {
+        "question": "What is the representation of the deity during the Karama Festival?",
+        "options": ["A statue made of gold", "A sacred fire", "A branch of the Karam tree", "A sacred animal"],
+        "correctOption": "A branch of the Karam tree"
+    },
+    {
+        "question": "Apart from Odisha, name one other state where the Karama Festival is celebrated, as mentioned in the text.",
+        "options": ["Maharashtra", "Tamil Nadu", "Madhya Pradesh", "Rajasthan"],
+        "correctOption": "Madhya Pradesh"
+    },
+    {
+        "question": "Where is the Thrissur Pooram festival held annually?",
+        "options": ["Vadakkunnathan Temple, Thrissur, Kerala", "Meenakshi Temple, Madurai, Tamil Nadu", "Somnath Temple, Gujarat", "Golden Temple, Amritsar, Punjab"],
+        "correctOption": "Vadakkunnathan Temple, Thrissur, Kerala"
+    },
+	 {
+        "question": "What is the main deity of the Vadakkunnathan Temple where the Thrissur Pooram festival is held?",
+        "options": ["Vishnu", "Shiva", "Krishna", "Devi"],
+        "correctOption": "Shiva"
+    },
+    {
+        "question": "Where is the Chandanakudam festival conducted on the eve of the Pettathullal?",
+        "options": [
+            "Vadakkunnathan Temple, Thrissur",
+            "Mecca Masjid, Hyderabad",
+            "Nainar Masjid (Vavar Palli), Erumeli, Kerala",
+            "Sabarimala Temple, Pathanamthitta"
+        ],
+        "correctOption": "Nainar Masjid (Vavar Palli), Erumeli, Kerala"
+    },
+    {
+        "question": "Which city hosts the Attukal Pongala festival?",
+        "options": ["Kochi", "Kozhikode", "Thiruvananthapuram", "Kannur"],
+        "correctOption": "Thiruvananthapuram"
+    },
+    {
+        "question": "What is the duration of the Attukal Pongala festival?",
+        "options": ["3 days", "5 days", "7 days", "10 days"],
+        "correctOption": "10 days"
+    },
+    {
+        "question": "How many Indian states share a border with Nepal?",
+        "options": ["Three", "Four", "Five", "Six"],
+        "correctOption": "Five"
+    },
+    {
+        "question": "Which of the following Indian states does NOT share a border with Nepal?",
+        "options": ["Assam", "Bihar", "Uttarakhand", "West Bengal"],
+        "correctOption": "Assam"
+    },
+    {
+        "question": "What was the Nij system in British India primarily associated with?",
+        "options": ["Cotton cultivation", "Indigo cultivation", "Wheat cultivation", "Tea cultivation"],
+        "correctOption": "Indigo cultivation"
+    },
+    {
+        "question": "How many main systems of indigo cultivation existed in British India?",
+        "options": ["One", "Two", "Three", "Four"],
+        "correctOption": "Two"
+    },
+    {
+        "question": "Under the Nij cultivation system, who produced indigo?",
+        "options": ["Zamindars", "Ryots", "Planters", "Labor unions"],
+        "correctOption": "Planters"
+    },
+    {
+        "question": "What is shifting cultivation also known as?",
+        "options": ["Terrace farming", "Green revolution", "Jhum or slash-and-burn cultivation", "Hydroponics"],
+        "correctOption": "Jhum or slash-and-burn cultivation"
+    },
+    {
+        "question": "Why has shifting cultivation been prohibited in India?",
+        "options": [
+            "Due to its ineffectiveness in crop production",
+            "Because it leads to excessive water usage",
+            "Because it was believed to be responsible for deforestation",
+            "Due to its high cost of implementation"
+        ],
+        "correctOption": "Because it was believed to be responsible for deforestation"
+    },
+    {
+        "question": "What happens to the land after initial use in shifting cultivation?",
+        "options": [
+            "It remains fertile for long-term use",
+            "It is abandoned and left fallow",
+            "It is converted into permanent agricultural land",
+            "It is sold to other farmers"
+        ],
+        "correctOption": "It is abandoned and left fallow"
+    },
+    {
+        "question": "How many World Cup India won in hockey?",
+        "options": ["Four", "Three", "One", "Two"],
+        "correctOption": "One"
+    },
+    {
+        "question": "Abhinav Bindra won gold in the men's 10m air rifle in the",
+        "options": [
+            "Rio Olympic Games in 2016",
+            "Beijing Olympic Games in 2008",
+            "Vancouver Olympic Games in 2010",
+            "London Olympic Games in 2012"
+        ],
+        "correctOption": "Beijing Olympic Games in 2008"
+    },
+	{
+        "question": "Sadashiva Pradhan is associated with which of the following dance forms?",
+        "options": ["Odissi", "Sattriya", "Chhau", "Kuchipudi"],
+        "correctOption": "Chhau"
+    },
+    {
+        "question": "According to Kautilya's Arthashastra, the Commanding Officer of the cavalry in the Mauryan administration was known as:",
+        "options": ["Rathadhyaksha", "Hastyadhyaksha", "Ashwadhyaksha", "Pathyadhyaksha"],
+        "correctOption": "Ashwadhyaksha"
+    },
+    {
+        "question": "Which of the following became the first country to embed abortion rights into its constitution?",
+        "options": ["Brazil", "France", "UK", "Germany"],
+        "correctOption": "France"
+    },
+    {
+        "question": "India's first centre for research on conserving the endangered Gangetic river dolphin was inaugurated in",
+        "options": ["Cuttack", "Patna", "Kolkata", "Bhubaneshwar"],
+        "correctOption": "Patna"
+    },
+    {
+        "question": "Vakpati Munja and Bhojadeva were the most famous rulers of",
+        "options": ["Tomars", "Gahadavalas", "Chandellas", "Paramaras"],
+        "correctOption": "Paramaras"
+    },
+    {
+        "question": "The purpose of setting up the NARCL is to",
+        "options": [
+            "Acquire stressed assets of banks.",
+            "Give loans for infrastructure projects.",
+            "Provide financial support to agriculture.",
+            "Facilitate good governance in public sector banks."
+        ],
+        "correctOption": "Acquire stressed assets of banks."
+    },
+	 {
+        "question": "Which suffix is used when the -CHO group is attached to a carbon atom of a ring or ring system, or to a heteroatom?",
+        "options": ["Amide", "Halide", "Nitrile", "Carbaldehyde"],
+        "correctOption": "Carbaldehyde"
+    },
+    {
+        "question": "Arvari river, the smallest river in India, flows through the",
+        "options": ["Andhra Pradesh", "West Bengal", "Karnataka", "Rajasthan"],
+        "correctOption": "Rajasthan"
+    },
+    {
+        "question": "If net external force on a body is zero then",
+        "options": ["Its velocity will be zero", "Its acceleration is zero", "Its acceleration is non zero", "Its velocity is non zero"],
+        "correctOption": "Its acceleration is zero"
+    },
+    {
+        "question": "Which of the following is the commercial unit of electric energy?",
+        "options": ["Kilowatt hour", "Joule", "Calorie", "Watt second"],
+        "correctOption": "Kilowatt hour"
+    },
+    {
+        "question": "Who among the following saints does not belong to Maharashtra?",
+        "options": ["Janeshwar", "Basavanna", "Tukaram", "Chokhamela family"],
+        "correctOption": "Basavanna"
+    },
+    {
+        "question": "_____ is a condition where household income is below a necessary level to maintain basic living standards.",
+        "options": ["Absolute Poverty", "Relative Poverty", "Situational Poverty", "Generational Poverty"],
+        "correctOption": "Absolute Poverty"
+    },
+    {
+        "question": "Qutub Festival of Classical Music and Dance is held in",
+        "options": ["Delhi", "Mumbai", "Bengaluru", "Kolkata"],
+        "correctOption": "Delhi"
+    },
+    {
+        "question": "______ is the energy absorbed or released by a substance during a change in its physical state (phase) that occurs without changing its temperature.",
+        "options": ["Enthalpy", "Latent heat", "Heat of combustion", "Ceiling heat"],
+        "correctOption": "Latent heat"
+    },
+    {
+        "question": "He was a social reformer and rationalist from Maharashtra. Who among the following is described above?",
+        "options": ["Ishwar Chandra Vidyasagar", "Jyotiba Phule", "Gopal Hari Deshmukh", "Gopal Krishna Gokhale"],
+        "correctOption": "Gopal Hari Deshmukh"
+    },
+    {
+        "question": "The Paika Bidroha (Paika Rebellion) of 1817 took place in",
+        "options": ["Odisha", "Bihar", "Bengal", "Rajasthan"],
+        "correctOption": "Odisha"
+    },
+	 {
+        "question": "Select the most appropriate meaning of the given idiom. Let the cat out of the bag",
+        "options": ["to keep a secret", "to reveal a secret", "to be dishonest", "to be quiet"],
+        "correctOption": "to reveal a secret"
+    },
+    {
+        "question": "Select the most appropriate antonym of the underlined word. During the storm, he experienced a vivid and unsettling flashback to childhood.",
+        "options": ["Reassuring", "Invigorating", "Tempting", "Boasting"],
+        "correctOption": "Reassuring"
+    },
+    {
+        "question": "Select the option that expresses the given sentence in positive degree of comparison. After months of dedicated training, her body had become noticeably stronger.",
+        "options": [
+            "Her body had become noticeably more strong after months of dedicated training.",
+            "Her strong body is the result of months of dedicated training.",
+            "Her body grew the strongest after months of dedicated training.",
+            "After months of dedicated training, her body has become not only stronger but firmer."
+        ],
+        "correctOption": "Her strong body is the result of months of dedicated training."
+    },
+    {
+        "question": "Select the denotation of the highlighted word. The unexpected twist in the plot managed to bewilder the entire audience.",
+        "options": ["Muddle", "Mingle", "Stumble", "Fumble"],
+        "correctOption": "Muddle"
+    },
+    {
+        "question": "Select the appropriate idiom for the given blank. Real Madrid was ________ when two of its most important players, Ramos and Ronaldo, joined other clubs.",
+        "options": ["at sixes and sevens", "at large", "at a stone's throw", "burying the hatchet"],
+        "correctOption": "at sixes and sevens"
+    },
+    {
+        "question": "Select the most appropriate synonym of the given word. Insightful",
+        "options": ["Legal", "Omnipresent", "Informative", "Intuitive"],
+        "correctOption": "Intuitive"
+    },
+    {
+        "question": "The length of the badminton court for singles is:",
+        "options": ["13.44 m", "13.55 m", "14 m", "13.40 m"],
+        "correctOption": "13.40 m"
+    },
+    {
+        "question": "Which of the following is the largest pan-India scheme to strengthen health care infrastructure across the country with focus on primary, secondary and tertiary care services?",
+        "options": ["LaQshya", "AB-PMJAY", "PM-ABHIM", "PM-MI"],
+        "correctOption": "PM-ABHIM"
+    },
+    {
+        "question": "In October 2021, 19-year-old _____ won the silver medal at the World Wrestling Championship.",
+        "options": ["Anshu Malik", "Seema Bisla", "Sanju Devi", "Sonam Malik"],
+        "correctOption": "Anshu Malik"
+    },
+    {
+        "question": "The Vedic Aryans lived in the area called Sapt-Sindhu, which means area drained by seven rivers. One of the rivers among the seven is Jhelum. What was its ancient name?",
+        "options": ["Askini", "Parushni", "Vipash", "Vitasta"],
+        "correctOption": "Vitasta"
+    },
+    {
+        "question": "In Chola administration, ______ was the assembly in the villages which were inhabited predominantly by the Brahmanas.",
+        "options": ["Ur", "Khilya", "Nagaram", "Sabha"],
+        "correctOption": "Sabha"
+    },
+    {
+        "question": "Which of the following is used as a cooling medium for the Large Hadron Collider (LHC) and the superconducting magnets in MRI scanners and NMR spectrometers?",
+        "options": ["Neon", "Chlorine", "Argon", "Helium"],
+        "correctOption": "Helium"
+    },
+    {
+        "question": "In 2018, Google Doodle celebrated the 100th birthday of Mrinalini Sarabhai. She is an exponent of which of the following dance forms?",
+        "options": ["Bharatanatyam and Kathakali", "Odissi and Kathak", "Kuchipudi and Bharatanatyam", "Yakshagana"],
+        "correctOption": "Bharatanatyam and Kathakali"
+    },
+    {
+        "question": "Who among the following musicians is popular for his mastery over the musical instrument Sitar?",
+        "options": ["Ali Akbar Khan", "Vilayat Khan", "Bahadur Khan", "Amjad Ali Khan"],
+        "correctOption": "Vilayat Khan"
+    },
+	{
+        "question": "Ms Bhakti Pradip Kulkarni was conferred with the Arjuna Award 2022 for her outstanding contribution in which of the following sports?",
+        "options": ["Table Tennis", "Chess", "Badminton", "Wrestling"],
+        "correctOption": "Chess"
+    },
+    {
+        "question": "Who among the following was the founder of 'Tiger Legion' or 'Free India Legion'?",
+        "options": ["Vinayak Damodar Savarkar", "Subhas Chandra Bose", "Sohan Singh Bakhna", "Lala Hardayal"],
+        "correctOption": "Subhas Chandra Bose"
+    },
+    {
+        "question": "Name a reproductive strategy in which parasites take advantage of the care of other individuals of the same species or different species to raise their young.",
+        "options": ["Brood parasitism", "Sexual parasitism", "Klepto parasitism", "Competitive parasitism"],
+        "correctOption": "Brood parasitism"
+    },
+    {
+        "question": "On the basis of tribal population (2011), identify the option that arranges the following states in ascending order like a. madhyapradesh b maharastra and c odisa.",
+        "options": ["(A), (B), (C)", "(B), (A), (C)", "(C), (B), (A)", "(B), (C), (A)"],
+        "correctOption": "(C), (B), (A)"
+    },
+    {
+        "question": "In which industrial policy was the investment limit for tiny industry/unit increased to 2 lakh?",
+        "options": ["1977", "1991", "1980", "1956"],
+        "correctOption": "1980"
+    },
+    {
+        "question": "Which scientist thought of the concept of steady state of the universe?",
+        "options": ["Harold Jeffrey", "Edwin Hubble", "Fred Hoyle", "Pierre-Simon Laplace"],
+        "correctOption": "Harold Jeffrey"
+    },
+    {
+        "question": "Ryotwari system of revenue collection in India, introduced by the British, was based on the",
+        "options": ["Smith's theory of rent", "Ricardian theory of rent", "Malthusian theory of rent", "Marx's theory of rent"],
+        "correctOption": "Ricardian theory of rent"
+    },
+    {
+        "question": "Who received the Nobel Prize in 1901 for 'recognition of the extraordinary services rendered by the discovery of the laws of chemical dynamics and osmotic pressure in solutions'?",
+        "options": ["Hermann Emil Fischer", "Jacobus Henricus van 't Hoff", "Svante August Arrhenius", "Henri Moissan"],
+        "correctOption": "Jacobus Henricus van 't Hoff"
+    },
+    {
+        "question": "Select the most appropriate meaning of the given idiom. Lily-livered",
+        "options": ["Brave", "Comical", "Not brave", "Naughty"],
+        "correctOption": "Not brave"
+    },
+    {
+        "question": "Neil Bartlett at the University of British Columbia observed the reaction of a noble gas in which year?",
+        "options": ["1952", "1962", "1972", "1982"],
+        "correctOption": "1962"
+    },
+	{
+        "question": "Part XVIII of the Indian Constitution deals with",
+        "options": ["Union Territories", "Emergency Provisions", "Languages", "Panchayat Raj"],
+        "correctOption": "Emergency Provisions"
+    },
+    {
+        "question": "Nettle is a herbaceous plant which grows in the wild. Its leaves have stinging hair, which cause painful stings when touched accidentally. This is due to the",
+        "options": ["Butyric acid", "Acetic acid", "Methanoic acid", "Propionic acid"],
+        "correctOption": "Methanoic acid"
+    },
+    {
+        "question": "What is the total financial outlay approved by the Union cabinet for the Vishwakarma Yojana in August 2023?",
+        "options": ["₹11,000 crore", "₹12,000 crore", "₹13,000 crore", "₹14,000 crore"],
+        "correctOption": "₹13,000 crore"
+    },
+    {
+        "question": "Which of the following chronology is correct?",
+        "options": ["Angstrom > Micrometre > Nanometre > Fermi", "Micrometre > Nanometre > Angstrom > Fermi", "Micrometre > Fermi > Angstrom > Nanometre", "Fermi > Angstrom > Nanometre > Micrometre"],
+        "correctOption": "Micrometre > Nanometre > Angstrom > Fermi"
+    },
+    {
+        "question": "Kirtivarman II was the last of the rulers of the Chalukyas. He was defeated by",
+        "options": ["Krishna I", "Dantidurga", "Amoghavarsha I", "Govinda III"],
+        "correctOption": "Dantidurga"
+    },
+    {
+        "question": "Who among the following founded the Nyaya School of Indian Philosophy?",
+        "options": ["Kapila", "Patanjali", "You have", "Akshapada Gautama"],
+        "correctOption": "Akshapada Gautama"
+    },
+    {
+        "question": "Match the columns Regions Name of Grasslands A Argentina i. Veldt B. South Africa ii. Prairies C. Australia iii. Pampas D. North America iv. Downs",
+        "options": [
+            "A-i, B- ii, C- iii, D- iv",
+            "A- ii, B- iii, C- i, D- iv",
+            "A-iii, B-i, C- iv, D- ii",
+            "A- iv, B- iii, C- ii, D- i"
+        ],
+        "correctOption": "A-iii, B-i, C- iv, D- ii"
+    },
+    {
+        "question": "In Karate, which of the following term refers to the training hall?",
+        "options": ["Dojo", "Deshi", "Obi", "Gi"],
+        "correctOption": "Dojo"
+    },
+	{
+        "question": "Which of the following best describes the Expenditure method of estimating the aggregate value of goods and services produced during a year?",
+        "options": [
+            "Measuring the sum total of the factor payments made in the production process.",
+            "Measuring the aggregate value of final goods and services produced by all the firms.",
+            "Measuring the aggregate value of spending that the firms receive for the final goods and services they produce",
+            "None of the above"
+        ],
+        "correctOption": "Measuring the aggregate value of spending that the firms receive for the final goods and services they produce"
+    },
+    {
+        "question": "Under the 'Mera Bill Mera Adhikaar' scheme launched by the Government of India, the minimum value for invoices to be considered for the draw has been kept at",
+        "options": ["Rs 500", "Rs 400", "Rs 300", "Rs 200"],
+        "correctOption": "Rs 200"
+    },
+    {
+        "question": "In which of the following cities is the Quwwat-al-Islam mosque situated?",
+        "options": ["Delhi", "Panipat", "Lahore", "Ajmer"],
+        "correctOption": "Delhi"
+    },
+    {
+        "question": "Fundamental duties are",
+        "options": [
+            "regulatory",
+            "non-statutory",
+            "statutory",
+            "common"
+        ],
+        "correctOption": "statutory"
+    },
+    {
+        "question": "In August 2023, the NITI Aayog and the",
+        "options": ["UNFCCC", "ADB", "UNDP", "UNICEF"],
+        "correctOption": "UNDP"
+    },
+    {
+        "question": "Chemical formula of Fluorspar is",
+        "options": ["CaF2", "CaMg(CO3)2", "CaF 4", "CaMgCO3"],
+        "correctOption": "CaF2"
+    },
+    {
+        "question": "Pandit Kumar Gandharva was a",
+        "options": ["flute player", "Kathak dancer", "Kuchipudi dancer", "classical singer"],
+        "correctOption": "classical singer"
+    },
+    {
+        "question": "Jungoo and Dooah are agricultural folk song traditions of",
+        "options": ["Rajasthan", "Sikkim", "Karnataka", "Uttarakhand"],
+        "correctOption": "Uttarakhand"
+    },
+    {
+        "question": "Naujawan Bharat Sabha is associated with",
+        "options": ["Chandrasekhar Azad", "Pritilata Waddedar", "Bhagat Singh", "Rash Behari Bose"],
+        "correctOption": "Bhagat Singh"
+    },
+    {
+        "question": "Which of the following committees is constituted of members of Lok Sabha only?",
+        "options": [
+            "Estimates Committee",
+            "Public Accounts Committee",
+            "Committee on Public Undertakings",
+            "Committee on Welfare of SCs and STs"
+        ],
+        "correctOption": "Estimates Committee"
+    },
+    {
+        "question": "Select the incorrectly spelt word.",
+        "options": ["Conscience", "Manoeuvre", "Supersede", "Perseverence"],
+        "correctOption": "Perseverence"
+    },
+    {
+        "question": "Select the most appropriate ANTONYM of the given word. Brilliant",
+        "options": ["Untalented", "Shining", "They observe", "Inactive"],
+        "correctOption": "Untalented"
+    },
+    {
+        "question": "A meal eaten in the middle of the day, typically one that is lighter or less formal than an evening meal.",
+        "options": ["Lunch", "Breakfast", "Brunch", "Dinner"],
+        "correctOption": "Lunch"
+    },
+    {
+        "question": "Select the most appropriate synonym for the given word. Unswerving",
+        "options": ["Ambiguous", "Tenacious", "Treachery", "Optimism"],
+        "correctOption": "Tenacious"
+    },
+    {
+        "question": "The old lady nearly dead from fright.",
+        "options": ["dead out of fright", "died of fright", "dead with frightening", "No improvement required"],
+        "correctOption": "died of fright"
+    },
+    {
+        "question": "Select the most appropriate ANTONYM of the given word. Teeming",
+        "options": ["Empty", "Adequate", "Galore", "Bumper"],
+        "correctOption": "Empty"
+    },          // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>
