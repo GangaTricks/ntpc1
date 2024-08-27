@@ -1,0 +1,2949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Quest Accounts</title>
+			<script src="../../urlRewrite.js"></script>
+		<link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">
+  
+   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+  
+  
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Account Padai S-001 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+ const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'accountancysscaccounts';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+       const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+<script>
+const questions = [
+ 
+
+   
+{
+"question": "Q1. All the following statements are objectives of accounting except",
+"options": [
+"Providing information about the performance of business entity.",
+"Providing details about the personal assets and liabilities of the owner.",
+"Maintaining records of business.",
+"Providing information about the assets, liabilities and capital of business entity."
+],
+"correctOption": "Providing details about the personal assets and liabilities of the owner."
+},
+{
+"question": "Q2. Which of the following is correct?",
+"options": [
+"Liabilities is equal to capital plus assets",
+"Capital is equal to assets minus liabilities",
+"Assets is equal to liabilities minus capital",
+"Capital is equal to assets plus liabilities"
+],
+"correctOption": "Capital is equal to assets minus liabilities"
+},
+{
+"question": "Q3. Amit purchased a typewriter, for sale, from Arvind for Rs. 8,000. This is:",
+"options": [
+"A transaction.",
+"An event.",
+"Neither a transaction nor an event.",
+"A transaction as well as an event."
+],
+"correctOption": "A transaction."
+},
+{
+"question": "Q4. Which of the following statements is incorrect?",
+"options": [
+"Financial statements are part of Accounting.",
+"Capital Account is a liability of the business.",
+"Returns Inwards implies purchase returns.",
+"Credit means increase in liability and decrease in asset."
+],
+"correctOption": "Returns Inwards implies purchase returns."
+},
+{
+"question": "Q5. Which of the following statement is incorrect about Book Keeping?",
+"options": [
+"It is a process concerned with recording of transactions.",
+"It constitutes as base for accounting.",
+"Financial position of business is ascertained on the basis of the book keeping.",
+"There is no sub-field of book-keeping."
+],
+"correctOption": "Financial position of business is ascertained on the basis of the accounting reports and not by book-keeping."
+},
+{
+"question": "Q6. Financial statements do not consider:",
+"options": [
+"Assets expressed in monetary terms.",
+"Liabilities expressed in monetary terms.",
+"Assets and Liabilities expressed in non-monetary terms.",
+"None of the above."
+],
+"correctOption": "Assets and Liabilities expressed in non-monetary terms."
+},
+{
+"question": "Q7. On 10th July, Ramesh paid rent of Rs. 10,000/-. This can be classified as:",
+"options": [
+"An event",
+"A Transaction",
+"A transaction as well as an event.",
+"None of the above"
+],
+"correctOption": "A Transaction"
+},
+{
+"question": "Q8. Which of the following is a function of accounting?",
+"options": [
+"Recording of financial transaction.",
+"Classifying of financial data.",
+"Summarizing of financial data.",
+"All of the above."
+],
+"correctOption": "All of the above."
+},
+{
+"question": "Q9. End users of accounting information are:",
+"options": [
+"Proprietors",
+"Creditors",
+"Government",
+"All of the above."
+],
+"correctOption": "All of the above."
+},
+{
+"question": "Q10. Which of the following is an objective of Accounting?",
+"options": [
+"To keep systematic records",
+"To protect business properties",
+"To ascertain the operational profit or loss.",
+"All of the above."
+],
+"correctOption": "All of the above."
+},
+{
+"question": "Q11. Which of the following statements is incorrect?",
+"options": [
+"Output of book-keeping is an input for accounting.",
+"Accounting is considered as a language of business.",
+"Accounting is a foundation of Book-Keeping.",
+"Objective of accounting is not only bookkeeping but also analyzing and interpreting reported financial information for information decisions."
+],
+"correctOption": "Accounting is a foundation of Book-Keeping."
+},
+{
+"question": "Q12. Which of the following represents correct accounting cycle?",
+"options": [
+"Journal – Ledger-Trial Balance—Adjustment Entries-Closing Entries—Adjusted Trial Balance-Recording of Transactions-Financial Statement",
+"Recording of Transactions – Journal – Ledger – Trial Balance – adjustment Entries – Adjusted Trial Balance – Closing Entries – Financial Statements.",
+"Recording of Transactions – Trial Balance Journal – Ledger – Adjustment Entries – Adjusted Trial Balance –– Financial Statements- Closing Entries",
+"Recording of Transactions – Trial Balance Journal – adjustment Entries – Adjusted Trial Balance –– Ledger- Financial Statements- Closing Entries"
+],
+"correctOption": "Recording of Transactions – Journal – Ledger – Trial Balance – adjustment Entries – Adjusted Trial Balance – Closing Entries – Financial Statements."
+},
+{
+"question": "Q13. The prime function of accounting is to:",
+"options": [
+"Attain non-economic goals.",
+"Provide the informational basis for action",
+"Record economic data",
+"Classify and record business transactions."
+],
+"correctOption": "Classify and record business transactions."
+},
+{
+"question": "Q1. Transactions between owner and business are recorded as per",
+"options": [
+"Going concern concept",
+"Periodicity concept",
+"Prudence concept",
+"None of these"
+],
+"correctOption": "None of these",
+"explanation": "Transactions between owner and business are recorded as per Entity concept."
+},
+{
+"question": "Q2. “Assets should be valued at the price paid to acquire them” is based on:",
+"options": [
+"Realization concept.",
+"Cost concept.",
+"Accrual concept.",
+"Money measurement concept."
+],
+"correctOption": "Cost concept.",
+"explanation": "Assets should be recorded at price paid to acquire them on the basis of cost concept."
+},
+{
+"question": "Q3. Mr. Mohan started a cloth business by investing Rs. 50,000, bought merchandise worth Rs. 50,000. He sold merchandise for Rs. 60,000. Customers paid him Rs. 50,000 cash and assured him to pay Rs. 10,000 shortly. The amount of revenue earned by him is:",
+"options": [
+"Rs. 1,00,000",
+"Rs. 50,000.",
+"Rs. 60,000",
+"Rs. 70,000"
+],
+"correctOption": "Rs. 60,000",
+"explanation": "Under Realization concept, revenue is recognized by the seller when it is earned irrespective of whether cash from the transaction has been received or not. Here Mr. Mohan sold merchandise for Rs. 60,000."
+},
+{
+"question": "Q4. ‘Advance received from customers is not taken as sale’ is based on:",
+"options": [
+"Conservation",
+"Money measurement concept",
+"Accrual concept",
+"Consistency concept"
+],
+"correctOption": "Accrual concept",
+"explanation": "Accrual concept requires recording revenues when they are earned and not when they are received in cash, and recording expenses when they are incurred and not when they are paid. ‘Advance received from customers’ is not earning until any sale is made against them hence, as per accrual concept this amount must not be taken as sales."
+},
+{
+"question": "Q5. A businessman purchased goods for Rs. 10,00,000/- and sold 70% of such goods during the accounting year ended 31st March, 2017. The market value of the remaining goods was Rs. 2,00,000/-. He valued the closing inventory at Rs. 2,00,000/- and not at Rs. 3,00,000/- due to:",
+"options": [
+"Periodicity",
+"Conservatism",
+"Money measurement",
+"Cost"
+],
+"correctOption": "Conservatism",
+"explanation": "The conservatism principle is the foundation for the lower of cost or market rule, which states that you should record inventory at the lower of either its acquisition cost or its current market value."
+},
+{
+"question": "Q6. The concept of conservatism when applied to the balance sheet results in:",
+"options": [
+"Overstatement of assets.",
+"Overstatement of capital",
+"Understatement of assets",
+"None of the above."
+],
+"correctOption": "Understatement of assets",
+"explanation": "In accounting, the convention of conservatism, also known as the doctrine of prudence, is a policy of anticipating possible future losses but not future gains. This policy tends to understate rather than overstate net assets and net income, and therefore lead companies to 'play safe'."
+},
+{
+"question": "Q7. Ramesh purchased goods for Rs. 25,00,000/- and sold 4/5th of the goods amounting 30,00,000/- and met expenses amounting Rs. 5,00,000/- during the same year. He counted net profit as Rs. 5,00,000/-. Which of the accounting concept was followed by him?",
+"options": [
+"Entity",
+"Matching",
+"Periodicity",
+"None of the above"
+],
+"correctOption": "Matching",
+"explanation": "The matching concept is an accounting practice whereby firms recognize revenues and their related expenses in the same accounting period. In this case, total profit after matching the gross profit with the expenses incurred during the year = 1000000-500000 = 500000."
+},
+{
+"question": "Q8. Which of the following statement is incorrect?",
+"options": [
+"Accounting principles are rules of action or conduct which are adopted by the accountants universally while recording account transactions.",
+"The convention of disclosure implies that all material information should be disclosed in the accounts.",
+"In accounting all business transactions are recorded as having a dual aspect.",
+"The concept of conservatism takes into account all prospective profits but leaves all prospective losses."
+],
+"correctOption": "The concept of conservatism takes into account all prospective profits but leaves all prospective losses.",
+"explanation": "It takes into consideration all prospective losses but leaves all prospective profits."
+},
+{
+"question": "Q9. Omission of paise and showing the round figures in financial statements is based on:",
+"options": [
+"Realization concept",
+"Materiality concept",
+"Consistency concept",
+"Conservatism concept"
+],
+"correctOption": "Materiality concept",
+"explanation": "The materiality concept is the principle in accounting that trivial matters are to be disregarded, and all-important matters are to be disclosed. Items that are large enough to matter are material items."
+},
+{
+"question": "Q10. The determination of expenses for an accounting period is based on the concept of:",
+"options": [
+"Objectivity",
+"Matching",
+"Materiality",
+"Periodicity"
+],
+"correctOption": "Matching",
+"explanation": "The matching concept is an accounting practice whereby firms recognize revenues and their related expenses in the same accounting period. Firms report revenues, that is, along with the expenses that brought them."
+},
+{
+"question": "Q11. The convention of conservatism is applicable:",
+"options": [
+"In understatement of assets",
+"In providing for discount on creditors",
+"In making provisions for bad and doubtful debts",
+"Providing for depreciation"
+],
+"correctOption": "In making provisions for bad and doubtful debts",
+"explanation": "The conservatism principle is the foundation for the lower of cost or market rule, which states that you should record inventory at the lower of either its acquisition cost or its current market value."
+},
+{
+"question": "Q1. Which of the following is incorrect?",
+"options": [
+"AS14: Accounting for Amalgamation",
+"AS 9: Revenue Recognition",
+"AS 32: Financial Instrument: Disclosures",
+"AS 30: Financial Instruments: Presentation"
+],
+"correctOption": "AS 30: Financial Instruments: Presentation",
+"explanation": "AS 30: Financial Instruments: Recognition & Measurement AS 31: Financial Instruments: Presentation"
+},
+{
+"question": "Q2. Which of the following is an incorrect match?",
+"options": [
+"AS 28: Impairment of Assets",
+"AS 29: Provisions, Contingent Asset Liabilities & Contingent Assets",
+"AS 20: Earning Per Share",
+"AS 9: Property, Plant and Equipment"
+],
+"correctOption": "AS 9: Property, Plant and Equipment",
+"explanation": "AS 9 is related to ‘Revenue Recognition’. AS 10 is related to ‘Property, Plant and Equipment’"
+},
+{
+"question": "Q3. Accounting standards:",
+"options": [
+"Harmonies accounting policies.",
+"Improve the reliability of financial statements.",
+"Eliminate the non-comparability of financial statements.",
+"All of the above."
+],
+"correctOption": "All of the above.",
+"explanation": "All the above statements are correct for Accounting standards."
+},
+{
+"question": "Q4. There are generally accepted measurement bases or valuation principles.",
+"options": [
+"Three",
+"Four",
+"Five",
+"Seven"
+],
+"correctOption": "Four",
+"explanation": "There are four generally accepted measurement bases or valuation principles which are as follows: 1. Historical Cost 2. Current Cost 3. Realisable Value 4. Present Value"
+},
+{
+"question": "Q5. In accounting ‘GAAP’ stands for:",
+"options": [
+"General Annual Accounting Principles",
+"General Accepted Accounting Practices",
+"Generally Accepted Accounting Principle",
+"None of the above"
+],
+"correctOption": "Generally Accepted Accounting Principle",
+"explanation": "GAAP (Generally Accepted Accounting Principles) is a collection of commonlyfollowed accounting rules and standards for financial reporting"
+},
+{
+"question": "Q6. In Accounting: AS 1 is related to .",
+"options": [
+"Disclosure of Accounting Policies.",
+"Valuation of Inventories",
+"Cash Flow Statement",
+"Contingencies and Events."
+],
+"correctOption": "Disclosure of Accounting Policies.",
+"explanation": "AS 1 is related to ‘Disclosure of Accounting Policies’, AS 2: ‘Valuation of Inventories’, AS 3: ‘Cash Flow Statement’ AS 4: ‘Contingencies and Events’"
+},
+{
+"question": "Q7. Which of the following is not a correct match?",
+"options": [
+"AS 1: Disclosure of Accounting Policies",
+"AS 9: Revenue Recognition",
+"AS 18: Related Party Disclosure",
+"AS 25: Discontinuing Operations"
+],
+"correctOption": "AS 25: Discontinuing Operations",
+"explanation": "AS 25 is related to Interim Financial Reporting. AS = Accounting Standards"
+},
+{
+"question": "Q1. Change in the method of depreciation is a change in .",
+"options": [
+"Measurement discipline",
+"Accounting policy.",
+"Accounting estimate.",
+"All of these."
+],
+"correctOption": "Accounting policy.",
+"explanation": "Change in method of depreciation is change in accounting policy not estimate."
+},
+{
+"question": "Q2. Which of the following is not an example of change in accounting policy?",
+"options": [
+"Change in method of valuation of investments.",
+"Adopting Double Entry system of accounting in place of Single Entry.",
+"Change in method of providing depreciation on fixed assets.",
+"All of the above are examples of change in accounting policy."
+],
+"correctOption": "Adopting Double Entry system of accounting in place of Single Entry.",
+"explanation": "Double Entry System of accounting in place of Single Entry is not an example of change in accounting policy. It is the change in whole system of accounting process."
+},
+{
+"question": "Q3. The system of recording transactions based on dual aspect concept is called?",
+"options": [
+"Double Account System",
+"Double Entry System",
+"Single Entry System",
+"None of the above."
+],
+"correctOption": "Double Entry System",
+"explanation": "Double-entry accounting is based on the fact that every financial transaction has equal and opposite effects in at least two different accounts. It is used to satisfy the equation Assets = Liabilities + Equity, in which each entry is recorded to maintain the relationship."
+},
+{
+"question": "Q4. Mohan Stationers will debit purchase of stationery in:",
+"options": [
+"Stationery account",
+"Purchases account",
+"General expenses account",
+"It can be debited in any of the above account."
+],
+"correctOption": "Purchases account",
+"explanation": "Mohan Stationers will not debit purchase of stationery in Stationery A/c but it will debit in purchases."
+},
+{
+"question": "Q5. Bank account is .",
+"options": [
+"Real Account",
+"Personal Account",
+"Nominal Account",
+"None of these"
+],
+"correctOption": "Personal Account",
+"explanation": "Bank account is personal account as it is in name of individual."
+},
+{
+"question": "Q6. Goods given as samples should be credited to:",
+"options": [
+"Purchase Account",
+"Sales Account",
+"Advertisement Account",
+"None of the above."
+],
+"correctOption": "Purchase Account",
+"explanation": "When accounting for goods distributed as free samples the purchases are credited and the advertisement account is debited."
+},
+{
+"question": "Q7. Choose the odd one:",
+"options": [
+"Sales Account",
+"Bad Debts Account",
+"Depreciation Account",
+"Cash Account"
+],
+"correctOption": "Cash Account",
+"explanation": "Cash account is a Real Account while all others are Nominal Accounts."
+},
+{
+"question": "Q8. A sale of goods to Ramesh for cash should be debited to;",
+"options": [
+"Ramesh",
+"Cash",
+"Sales",
+"None of the above"
+],
+"correctOption": "Cash",
+"explanation": "Journal entry for cash sales will be: Cash A/c. Dr. To Sales A/c."
+},
+{
+"question": "Q9. Capital of a Business is Rs. 50,000/- and liability is Rs. 30,000/- then total assets of business would be:",
+"options": [
+"80000",
+"20000",
+"50000",
+"30000"
+],
+"correctOption": "80000",
+"explanation": "As per the accounting equation of double entry: Assets = Capital + Liability Hence in this case: Total Assets = 50000 + 30000 = 80000"
+},
+{
+"question": "Q10. Narration is given along with journal entry to:",
+"options": [
+"Give a precise explanation for proper understanding the entry.",
+"Signify the impact of entry on profitability.",
+"Disclose the profit or loss of the transaction.",
+"Secretly understanding the inner meaning of entries."
+],
+"correctOption": "Give a precise explanation for proper understanding the entry.",
+"explanation": "Narration is given along with journal entry to give a precise explanation for proper understanding the entry."
+},
+    {
+        "question": "Q11. Goods worth Rs. 5,000/- taken by proprietor for domestic use should be credited to:",
+        "options": [
+            "Sales Account",
+            "Proprietor’s personal expenses.",
+            "Purchase account.",
+            "Purchase return account."
+        ],
+        "correctOption": "Purchase account.",
+        "explanation": "When the owner of a business takes goods from the business for their own use, those items must be accounted for. The double entry for goods taken by the owner is: DEBIT – Drawings Account CREDIT – Purchases Account"
+    },
+    {
+        "question": "Q12. Which of the following is a type of Personal Account?",
+        "options": [
+            "Representative Personal Account",
+            "Tangible Personal Account",
+            "Intangible Personal Account",
+            "None of the above."
+        ],
+        "correctOption": "Representative Personal Account",
+        "explanation": "Personal account includes the accounts of person with whom the business deals. These accounts can be classified into three categories. 1. Natural Personal Account 2. Artificial Personal Account 3. Representative Personal Account"
+    },
+    {
+        "question": "Q13. Which of the following statements is incorrect?",
+        "options": [
+            "Salary Prepaid Account is a Personal Account.",
+            "Rent Account is a Nominal Account.",
+            "Proprietor’s account is a Personal Account.",
+            "Patens Account is a Nominal Account."
+        ],
+        "correctOption": "Patens Account is a Nominal Account.",
+        "explanation": "Copyright, patent, goodwill... all are intangible assets. So according to our golden principle of accounting all assets falls into real account irrespective of their tangibility and intangibility."
+    },
+    {
+        "question": "Q14. Sales made to Ramesh for cash should be debited to:",
+        "options": [
+            "Cash Account",
+            "Ramesh’s Account",
+            "Sales Account",
+            "None of the above"
+        ],
+        "correctOption": "Cash Account",
+        "explanation": "Cash Account will be debited and Sales Account will be credited."
+    },
+    {
+        "question": "Q15. Which of the following is a correct statement?",
+        "options": [
+            "A person who owes money to the firm is a creditor.",
+            "A person who is entitled to get money from the firm is termed as creditor.",
+            "Drawings denote the withdrawal of cash or goods by the owner for business use.",
+            "Furniture for a cloth dealer is current asset."
+        ],
+        "correctOption": "A person who is entitled to get money from the firm is termed as creditor.",
+        "explanation": "(a) A person who owes money to the firm is a debtor. (b) Drawings denote the withdrawal of cash or goods by the owner for Personal use. (c) Furniture for a cloth dealer is Fixed asset."
+    },
+    {
+        "question": "Q16. Find the incorrect statement:",
+        "options": [
+            "In accounting all business transactions are recorded as having a dual aspect.",
+            "Accounting principles are rules of action or conduct which are adopted by the accountants universally while recording accounting transactions.",
+            "The convention of disclosure implies that all material information should be disclosed in the accounts.",
+            "The practice of appending notes regarding contingent liabilities in accounting statements is in pursuance to convention of conservatism."
+        ],
+        "correctOption": "The practice of appending notes regarding contingent liabilities in accounting statements is in pursuance to convention of conservatism.",
+        "explanation": "The practice of appending notes regarding contingent liabilities in accounting statements is in pursuance to convention of disclosure. The convention of disclosure requires that all material facts must be disclosed in the financial statements."
+    },
+    {
+        "question": "Q17. Goods worth Rs. 50,000/- were withdrawn by proprietor for his personal use. The account to be debited is:",
+        "options": [
+            "Expenses A/c",
+            "Purchase A/c",
+            "Sales A/c",
+            "Drawings A/c"
+        ],
+        "correctOption": "Drawings A/c",
+        "explanation": "When the gods are withdrawn for personal use by the proprietor, the following journal entry will be passed: Drawing A/ c Dr To Purchase A/c."
+    },
+    {
+        "question": "Q18. Nominal Account represents:",
+        "options": [
+            "Profit & gains",
+            "Loss /Expenses",
+            "Both",
+            "None"
+        ],
+        "correctOption": "Both",
+        "explanation": "Nominal Account represents: Expenses, Losses, Incomes & Gains"
+    },
+    {
+        "question": "Q19. Goods sold for cash Rs. 75,000/- plus 18% GST. Sales A/c will be credited by Rs. .",
+        "options": [
+            "Rs. 75,000/-",
+            "Rs. 88,500/-",
+            "Rs. 61,500/-",
+            "Rs. 13,500/-"
+        ],
+        "correctOption": "Rs. 75,000/-",
+        "explanation": "GST is collected by the seller, from the customer to be deposited in Government account. It is not to be treated as sale of the seller. Hence, sales account will be credited with Rs. 75, 000/- only. Journal entry will be: Customer A/c Dr. 88,500/- To Sales A/c 75,000/- To GST Payable A/c 13,500/-"
+    },
+    {
+        "question": "Q1. The accountant of the firm M/s ABC is unable to tally the following trial balance: S. No. Account heads Debit (Rs.) Credit (Rs.) 1. Sales 12,500 2. Purchases 10,000 3. Miscellaneous expenses 2,500 Total 10,000 15,000 The above difference in trial balance is due to:",
+        "options": [
+            "Wrong placing of all accounts.",
+            "Incorrect totaling",
+            "Wrong placing of miscellaneous expenses account",
+            "Wrong placing of sales account"
+        ],
+        "correctOption": "Wrong placing of miscellaneous expenses account",
+        "explanation": "The difference in trial balance is due to wrong placing of Misc. Expenses A/c. It should come on Dr. side."
+    },
+    {
+        "question": "Q2. A started business with Rs. 20,000 cash and Rs. 11,000 inventories. Cash sales & cash purchases were Rs. 10,000 & Rs. 5,000. Total sales and purchases amounted to Rs. 70,000 & Rs. 50,000. Outstanding Trade Payables were Rs. 15,000 and Trade Receivables Rs. 25,000. Expenses paid Rs. 17,000. Machine was purchased for Rs. 10,000 out of which Rs. 8000 has been paid. Cash in hand at the end of the year was Rs. 5,000. Total of Trial Balance at the end of the year will be",
+        "options": [
+            "Rs. 1,40,000",
+            "Rs. 1,20,000",
+            "Rs. 1,18,000",
+            "Rs. 1,25,000"
+        ],
+        "correctOption": "Rs. 1,18,000",
+        "explanation": ""
+    },
+    {
+        "question": "Q3. Trial balance is a statement which shows the or the of all the accounts.",
+        "options": [
+            "Posted balances, Total of balances.",
+            "Opening balances, Closing balances.",
+            "Debit balance, Credit balance.",
+            "Balances, Entries."
+        ],
+        "correctOption": "Debit balance, Credit balance.",
+        "explanation": "Trial balance is a statement of all debits and credits in a double-entry account book, with any disagreement indicating an error."
+    },
+    {
+        "question": "Q4. Trial Balance (Total method): S.No. Name of the account Dr. (Rs.) Cr. (Rs.) 1 Cash A/c. 10000 5000 2 Capital A/c. 2000 6000 3 Sales A/c 3000 4 Purchase A/c 1000 5 Ramesh 5000 5000 6 Rent A/c 1000 19000 19000 Amount of total balance according to balance method will be:",
+        "options": [
+            "19000",
+            "9000",
+            "8000",
+            "7000"
+        ],
+        "correctOption": "7000",
+        "explanation": "As per balance method, Trial balance will be prepared as follows: S.No. Name of the account Dr. (Rs.) Cr. (Rs.) 1 Cash A/c. 5000 2 Capital A/c. 4000 3 Sales A/c 3000 4 Purchase A/c 1000 5 Rent A/c 1000 7000 7000"
+    },
+    {
+        "question": "Q5. After preparing the trial balance the accountant finds that the total of debit side is short by Rs. 5,000/-. This difference will be .",
+        "options": [
+            "Credited to suspense account.",
+            "Debited to suspense account",
+            "Adjusted to any of the debit balance account.",
+            "Will be recorded as footnote on the balance sheet."
+        ],
+        "correctOption": "Debited to suspense account",
+        "explanation": "A suspense account is an account in the general ledger in which amounts are temporarily recorded. The suspense account is used because the proper account could not be determined at the time that the transaction was recorded. When the proper account is determined, the amount will be moved from the suspense account to the proper account. In this case as debit side is short by Rs. 5,000/- hence a suspense account will be created and Rs. 5,000/- will be debited in this account so that trial balance can be balanced."
+    },
+    {
+        "question": "Q6. Which of the following is known as the base for preparing trial balance?",
+        "options": [
+            "Journal",
+            "Cash Account",
+            "Ledger",
+            "Balance Sheet"
+        ],
+        "correctOption": "Ledger",
+        "explanation": "A trial balance is a bookkeeping worksheet in which the balances of all ledgers are compiled into debit and credit columns. Hence, Ledger is known as the base for preparing trial balance."
+    },
+    {
+        "question": "Q7. Find the incorrect statement:",
+        "options": [
+            "The equality of debit and credit of the Trial balance does not mean that the individual accounts are also accurate.",
+            "Journal lists the balance and the title of account in ledger.",
+            "Cash account is Real account",
+            "Goodwill account is an ‘intangible asset’"
+        ],
+        "correctOption": "Journal lists the balance and the title of account in ledger.",
+        "explanation": "Trial Balance lists the balance and the title of account in ledger. A trial balance is a bookkeeping worksheet in which the balances of all ledgers are compiled into debit and credit columns. A company prepares a trial balance periodically, usually at the end of every reporting period. The general purpose of producing a trial balance is to ensure the entries in a company's bookkeeping system are mathematically correct."
+    },
+    {
+        "question": "Q8. A Trial Balance contains the balance of:",
+        "options": [
+            "Only Nominal and Personal Accounts",
+            "Only Real and Nominal accounts.",
+            "Only Personal and Real accounts.",
+            "All accounts"
+        ],
+        "correctOption": "All accounts",
+        "explanation": "Balances of all accounts in the ledger are transferred to the Trial Balance whether they are personal, real or nominal in nature. Thus, it can be said that a Trial Balance contains the balances of all the accounts."
+    },
+    {
+        "question": "Q1. Total of purchase return book is posted periodically to the credit of .",
+        "options": [
+            "Purchase return account",
+            "Cash Book",
+            "Journal proper",
+            "None of the three"
+        ],
+        "correctOption": "Purchase return account",
+        "explanation": "Total of purchase return book is posted to Cr. of Purchases Return A/c."
+    },
+    {
+        "question": "Q2. Purchase of fixed assets on credit basis is recorded in:",
+        "options": [
+            "Purchase Book",
+            "Cash Book",
+            "Journal Proper",
+            "None of the above"
+        ],
+        "correctOption": "Journal Proper",
+        "explanation": ""
+    },
+    {
+        "question": "Q3. Journal Proper records:",
+        "options": [
+            "Opening entry",
+            "Bills payables",
+            "Cash payments",
+            "All of the above."
+        ],
+        "correctOption": "Opening entry",
+        "explanation": "Journal Proper is a book with original entries used for miscellaneous credit transactions that do not fit into other recorded books. The journal is maintained like a simple journal to record opening entries, closing entries, transfer entries, adjustment entries, rectification entries, and rare transactions."
+    },
+    {
+        "question": "Q4. The Balance of Sales Day Book is Rs. 50,000/-. Rs. 10,000/- were recovered from debtors. Then balance of Sales Day Book will be transferred by which amount?",
+        "options": [
+            "50,000",
+            "40,000",
+            "60,000",
+            "55,000"
+        ],
+        "correctOption": "50,000",
+        "explanation": "Sales day book records the credit sales of the business. When some amount is recovered from debtors, the following journal entry is made: Cash A/c. Dr. To Debtors. Amount recovered from debtors does not affect the Sales Day Book hence the amount of Rs. 50,000/- shall be transferred from sales day book & Rs, 10,000/- recovered from debtors will not affect the Sales Day Book."
+    },
+    {
+        "question": "Q5. Find the incorrect statement:",
+        "options": [
+            "Posting is done in the personal accounts from purchase Book daily.",
+            "Sales Return journal is also known as return outward journal.",
+            "Credit Note is sent to a customer when goods sold are returned by him.",
+            "Purchases Journal records only credit purchase of goods."
+        ],
+        "correctOption": "Sales Return journal is also known as return outward journal.",
+        "explanation": ""
+    },
+    {
+        "question": "Q6. The total of Sales Book shows the .",
+        "options": [
+            "Credit sale made during the period concerned.",
+            "Cash sale made during the period concerned.",
+            "Total sale made during the period concerned.",
+            "Cash purchase during the period concerned."
+        ],
+        "correctOption": "Credit sale made during the period concerned.",
+        "explanation": "Sales book records all credit sales made by a business during the period concerned. It is one of the secondary book of accounts and unlike cash sales which are recorded in cash book, sales book is only to record credit sales."
+    },
+    {
+        "question": "Q1. Where two aspects of a transaction are posted in the Cash Book, such an entry is called:",
+        "options": [
+            "Credit Entry",
+            "Debit Entry",
+            "Contra Entry",
+            "Double Entry"
+        ],
+        "correctOption": "Contra Entry",
+        "explanation": ""
+    },
+    {
+        "question": "Q2. Goods returned to supplier is an example of:",
+        "options": [
+            "Decrease in Asset & Owner’s Equity",
+            "Increase in Asset & Owner’s Equity",
+            "Increase in Liability & Owner’s Equity",
+            "Decrease in Liability & Increase in Owner’s Equity"
+        ],
+        "correctOption": "Decrease in Liability & Increase in Owner’s Equity",
+        "explanation": "Goods returned to supplier will decrease balance in supplier’s a/c (means reduction in liability) and will decrease purchases (add profit)."
+    },
+    {
+        "question": "Q3. Which of the following is not a type of cash book?",
+        "options": [
+            "Five column cash book",
+            "Three column cash book",
+            "Two column cash book",
+            "Simple cash book"
+        ],
+        "correctOption": "Five column cash book",
+        "explanation": "Cash book is a book in which receipts and payments of money are recorded. Followings are the types of cash book: 1. Simple Cash Book: This is the simplest form of Cash Book and is used in businesses where payments are made and received mostly in cash and where usually no cash discount is received or given. 2. Two-Column Cash Book: This type of cashbook has two columns, viz., cash column and discount column. 3. Three-Column Cash Book: The Cash Book with bank column in addition to the cash and discount columns. 4. Petty Cash Book: Petty cash book is a kind of cash book which records large number of small payments such as conveyance, cartage, postage, telegrams and other expenses under the imprest system."
+    },
+    {
+        "question": "Q4. The Cash book records:",
+        "options": [
+            "All cash receipts",
+            "All cash payments",
+            "All cash receipts and payments",
+            "All cash sales."
+        ],
+        "correctOption": "All cash receipts and payments",
+        "explanation": "A cash book is a financial journal that contains all cash receipts and payments, including bank deposits and withdrawals. Entries in the cash book are then posted into the general ledger."
+    },
+    {
+        "question": "Q1. Rs. 35,000 was spent on painting the new factory. It is a .",
+        "options": [
+            "Capital expenditure",
+            "Revenue expenditure",
+            "Deferred revenue expenditure",
+            "None of the above"
+        ],
+        "correctOption": "Capital expenditure",
+        "explanation": "Amount spent on painting new factory is capital expenditure."
+    },
+    {
+        "question": "Q2. Creditor for goods purchase come within the category of:",
+        "options": [
+            "Fixed Liabilities",
+            "Current Liabilities",
+            "Capital",
+            "Asset"
+        ],
+        "correctOption": "Current Liabilities",
+        "explanation": "Current liabilities are a company's debts or obligations that are due within one year, appearing on the company's balance sheet and include short term debt, accounts payable, accrued liabilities and other debts. Essentially, these are bills that are due to creditors and suppliers within a short period of time."
+    },
+    {
+        "question": "Q3. Which account is the odd one out?",
+        "options": [
+            "Vehicle for office use.",
+            "Office furniture & Equipment",
+            "Freehold land and Building",
+            "Inventory of material"
+        ],
+        "correctOption": "Inventory of material",
+        "explanation": ""
+    },
+    {
+        "question": "Q4. Anil purchased a car for Rs. 1,00,000/- and incurred Rs. 5,000/- for repairs, etc. He paid Rs. 2,500/- as insurance and Rs 500/- for petrol. What amount should be debited to Car A/c?",
+        "options": [
+            "108000",
+            "100000",
+            "105000",
+            "107500"
+        ],
+        "correctOption": "108000",
+        "explanation": "All expenses incurred at the time of purchase of a capital asset or to bring the new Cost of car 100000 Repairs 5000 Insurance 2500 Petrol 500 Total 108000 capital asset in the working condition should be capitalised. The following expenses were incurred at the time of purchase of car: Therefore, Car A/c will be debited with Rs. 1,08,000/-"
+    },
+    {
+        "question": "Q5. Which of the following is correct?",
+        "options": [
+            "Replacement cost of worn-out part of a plant is a revenue expenditure.",
+            "Repairs to furniture purchased second hand is a revenue expenditure.",
+            "Carriage paid on goods purchased is a capital expenditure.",
+            "Rs. 500 paid for removal of stock to a new site is a capital expenditure."
+        ],
+        "correctOption": "Replacement cost of worn-out part of a plant is a revenue expenditure.",
+        "explanation": "Repairs to furniture purchased second hand is a capital expenditure. Carriage paid on goods purchased is a revenue expenditure. Rs. 500 paid for removal of stock to a new site is a revenue expenditure."
+    },
+    {
+        "question": "Q6. Which of the following Expense will not be included in the acquisition of plant?",
+        "options": [
+            "Legal charges paid during acquisition.",
+            "Installation expenses.",
+            "Purchase price of plant.",
+            "Annual maintenance charges."
+        ],
+        "correctOption": "Annual maintenance charges.",
+        "explanation": "Repairs incurred after purchase and to repair the machine damaged in transit should be treated as revenue expenditure. All expenses incurred to bring the asset to its present location and condition are capitalized but subsequent repairs are not of that nature and hence to be treated as revenue expenditure."
+    },
+    {
+        "question": "Q7. Cost of goods purchased for resale is an example of:",
+        "options": [
+            "Deferred Revenue Expenditure",
+            "Revenue Expenditure",
+            "Capital Expenditure",
+            "None of the above"
+        ],
+        "correctOption": "Revenue Expenditure",
+        "explanation": "All the expenditures which are incurred in the day to day conduct and administration of a business and the effect-of which is completely exhausted within the current accounting year are known as 'revenue expenditures'. These expenditures are recurring by nature i.e. which are incurred for meeting day today requirements of a business and the effect of these expenditures is always short-lived i.e. the benefit thereof is enjoyed by the business within the current accounting year. These expenditures are also known as 'expenses or expired costs.' e.g. Purchase of goods, salaries paid, postages, rent, traveling expenses, stationery purchased, wages paid on goods purchased etc."
+    },
+    {
+        "question": "Q8. Medium term loan obtained from bank for augmenting working capital is:",
+        "options": [
+            "Revenue Expenditure",
+            "Revenue Receipt",
+            "Capital Expenditure",
+            "Capital Receipt"
+        ],
+        "correctOption": "Capital Receipt",
+        "explanation": "Receipts which are obtained in course of normal business activities are revenue receipts and all receipts other than revenue receipts are capital receipts. Securing of loan is not a normal business activity and hence medium-term loan taking from bank for augmenting working capital is a capital receipts."
+    },
+    {
+        "question": "Q9. A new machine was purchased in Mumbai and brought to Pune factory set for installation. The machine was damaged during transit and repair expenses were incurred amounting to Rs. 15,000/-. Such repair will be treated as:",
+        "options": [
+            "Capital expenditure",
+            "Revenue Expenses",
+            "Deferred revenue expenditure",
+            "None of the above."
+        ],
+        "correctOption": "Revenue Expenses",
+        "explanation": "Repairs incurred subsequent to purchase and to repair machine damaged in transit should be treated as revenue expenditure. All expenses incurred to bring the asset to its present location and condition are capitalized but subsequent repairs are not of that nature and hence to be treated as revenue expenditure."
+    },
+    {
+        "question": "Q10. Rs. 10,000/- spent on replacement of worn-out part of the machine will be charged as:",
+        "options": [
+            "Capital Expenditure",
+            "Revenue Expenditure",
+            "Deferred Revenue Expenditure",
+            "None of the above"
+        ],
+        "correctOption": "Revenue Expenditure",
+        "explanation": ""
+    },
+    {
+        "question": "Q11. An old machinery is purchased for Rs. 50,000/-, Installation charge of Rs. 5,000/- were incurred. Repairs to the old machinery is Rs. 10,000/-. Repairs Account will be debited by Rs. .",
+        "options": [
+            "10,000",
+            "15,000",
+            "0",
+            "65,000"
+        ],
+        "correctOption": "0",
+        "explanation": "Expenses incurred at the time of purchase of an asset should be capitalized. Such expenses are incurred to bring the asset into the working condition. Therefore, installation charges or repairs made to the old machinery purchased should be capitalized and hence should be debited to the Asset A/c. Nothing will be charged to Repairs A/c."
+    },
+    {
+        "question": "Q12. Find the incorrect statement:",
+        "options": [
+            "Carriage paid on goods purchased is Revenue Expenditure.",
+            "Wages of workman employed for setting up new machinery is a Revenue Expenditure.",
+            "Replacement cost of worn-out part of a plant is a Revenue Expenditure.",
+            "Repairs to furniture purchased second hand is Capital Expenditure."
+        ],
+        "correctOption": "Wages of workman employed for setting up new machinery is a Revenue Expenditure.",
+        "explanation": ""
+    },
+    {
+        "question": "Q1. Municipal tax Rs. 70,000 under dispute is a:",
+        "options": [
+            "Current liability",
+            "Contingent liability",
+            "Revenue loss",
+            "None of the above."
+        ],
+        "correctOption": "Contingent liability",
+        "explanation": "Payment of tax under dispute is contingent liability."
+    },
+    {
+        "question": "Q2. Provision is:",
+        "options": [
+            "A known liability but its amount and due date are indeterminate",
+            "An unknown liability and its amount and due date are determinate",
+            "An unknown liability but its amount and due date are indeterminate",
+            "A known liability and its amount and due date are determinate"
+        ],
+        "correctOption": "A known liability but its amount and due date are indeterminate",
+        "explanation": "A provision can be a liability of uncertain timing or amount i.e. a known liability but its amount and due date are indeterminate"
+    },
+    {
+        "question": "Q3. If a reliable estimate of probable outflow of resources to settle a present obligation cannot be made, it is-",
+        "options": [
+            "To be recognized as provision",
+            "To be disclosed as a contingent liability",
+            "To be recognized as liability",
+            "Is an asset."
+        ],
+        "correctOption": "To be disclosed as a contingent liability",
+        "explanation": "If an estimate of probable outflow of resources for settlement of present obligation can be made, it is recognised as contingent liability not provision."
+    },
+    {
+        "question": "Q4. Sales Tax demand, disputed by a company is .",
+        "options": [
+            "Long term liability",
+            "Current Liability",
+            "Contingent Liability",
+            "None of these"
+        ],
+        "correctOption": "Contingent Liability",
+        "explanation": "A contingent liability is a possible obligation arising from past events and may arise in future depending upon the occurrence or non-occurrence of one or more uncertain future events. A contingent liability may also be a present obligation that arises from past events The outcome of disputed sales tax demand is uncertain and may result into outflow of economic resources hence it is a contingent liability."
+    },
+    {
+        "question": "Q5. Present liability of uncertain amount, which can be measured reliably by using substantial degree of estimation is termed as .",
+        "options": [
+            "Provision.",
+            "Liability",
+            "Contingent liability",
+            "Contingent asset"
+        ],
+        "correctOption": "Provision.",
+        "explanation": "Present liability of uncertain amount, which can be measured reliably by using substantial degree of estimation is termed as Provision."
+    },
+    {
+        "question": "Q1. Errors of commission do not permit:",
+        "options": [
+            "Trial balance to agree",
+            "Incorrect totaling of the Balance sheet",
+            "Incorrect totaling of the trial balance",
+            "None of the above"
+        ],
+        "correctOption": "Trial balance to agree",
+        "explanation": "Errors of Commission include posting wrong amounts, posting on wrong side of accounts, wrong totalling or carrying forward, and wrong balancing. Errors of commission do not permit trail balance to agree."
+    },
+    {
+        "question": "Q2. The amount of the dishonored bill has been wrongly debited to general expenses account, which type of error has been committed?",
+        "options": [
+            "Error of principle",
+            "Compensating error",
+            "Error of commission",
+            "Error of omission"
+        ],
+        "correctOption": "Error of principle",
+        "explanation": "An error of principle in accounting occurs when the bookkeeping entry is made to the wrong type of account. Amount of dishonoured bill wrongly debited to general expenses account, is an error of principle."
+    },
+    {
+        "question": "Q3. There was an error in the trial balance & difference was put to Suspense A/c. Later on, it was found that the opening inventory of Rs. 1,080 was brought into the books as Rs. 1,800. Rectifying entry will be:",
+        "options": [
+            "Opening inventory A/c Dr. 720 To Suspense A/c 720",
+            "Trading A/c Dr. 720 To Opening inventory 720",
+            "Suspense A/c Dr. 720 To Opening inventory 720",
+            "None of these."
+        ],
+        "correctOption": "Suspense A/c Dr. 720 To Opening inventory 720",
+        "explanation": ""
+    },
+    {
+        "question": "Q4. Credit sale of Rs. 5,000/- made to Ramesh was passed through purchase book. The proper entry for rectification will be:",
+        "options": [
+            "Ramesh Dr. 10000 To sales A/c. 5000 To Purchase A/c. 5000",
+            "Ramesh Dr. 5000 To Sales A/c. 5000",
+            "Purchase A/c. Dr. 5000 To Ramesh 5000",
+            "None of the above."
+        ],
+        "correctOption": "Ramesh Dr. 10000 To sales A/c. 5000 To Purchase A/c. 5000",
+        "explanation": "When the goods are sold to Ramesh on credit, the entry should have been: Ramesh To Sales A/c. Dr. 5000. Wrong Entry: Purchase A/c. To Ramesh Dr. 5000. So, rectification entry will be: Ramesh To sales A/c. Dr. 10000 To Purchase A/c. 5000"
+    },
+    {
+        "question": "Q5. A cheque for Rs. 10,000/- received from Ramesh & Company was dishonored and debited to Discount Account. Due to rectification of this error, net profit will:",
+        "options": [
+            "Increase by 10,000/-",
+            "Decrease by 10,000/-",
+            "Increase by 20,000/-",
+            "No change"
+        ],
+        "correctOption": "Increase by 10,000/-",
+        "explanation": "Correct Entry for dishonour should be: Ramesh & Company's A/c. Dr. 10,000 To Bank A/c. 10,000. Wrong Entry that has been passed: Discount A/c. Dr. 10,000 To Bank A/c. Rectification Entry will be: Ramesh & Company's A/c To Discount A/c. Dr. 10,000. Since, in rectification entry a nominal account is credited i.e. discount, hence profit will increase by Rs. 10,000/-"
+    },
+    {
+        "question": "Q6. Which of the following is incorrect?",
+        "options": [
+            "Compensating Errors: Errors which compensate each other.",
+            "Errors of Commission: Errors on account of wrong balancing of an accounting, wrong posting, wrong carry forward, wrong totaling, etc.",
+            "Errors of Principle: Errors committed because of failure to make a proper distinction between revenue and capital items.",
+            "All are correct."
+        ],
+        "correctOption": "All are correct.",
+        "explanation": ""
+    },
+    {
+        "question": "Q7. A purchase of Rs. 500 from Ramesh if entered in the Sales Book would affect:",
+        "options": [
+            "Ramesh's Account",
+            "Purchase Returns account",
+            "Sales Account",
+            "Both Purchase Return Account and Sales Account"
+        ],
+        "correctOption": "Both Purchase Return Account and Sales Account",
+        "explanation": "A purchase of Rs. 500 from Ramesh if entered in the Sales Book would affect Both Purchase Return Account and Sales Account."
+    },
+    {
+        "question": "Q8. Rectification entries are first recorded in .",
+        "options": [
+            "Trial Balance",
+            "Journal Proper",
+            "Subsidiary Book",
+            "Ledger"
+        ],
+        "correctOption": "Journal Proper",
+        "explanation": "It is a general rule that errors affecting two accounts can be corrected by a journal entry. In other words, rectification entries are first recorded in Journal Proper."
+    },
+    {
+        "question": "Q9. Salaries paid Rs. 5,000/- is shown in credit side of trial balance. In the total of trial balance, the debit side will be short by .",
+        "options": [
+            "Short by Rs. 5,000/-",
+            "Short by Rs. 10,000/-",
+            "Excess by Rs. 5,000/-",
+            "Excess by Rs. 10,000/-"
+        ],
+        "correctOption": "Short by Rs. 10,000/-",
+        "explanation": "Since salary paid Rs. 5,000/- is an expense and needs to be debited, which caused shortfall of debit side by Rs. 5,000/-, on the other hand, this amount is wrongly credited i.e. credit side of trial balance is increased by Rs. 5000. In total the debit side of trial balance will be short by Rs. 10,000/- (5,000+5,000)"
+    },
+    {
+        "question": "Q10. Rs 50,000/- received from Ramesh, is credited in the account of Suresh. It is an error of:",
+        "options": [
+            "Compensatory",
+            "Omission",
+            "Commission",
+            "Principle"
+        ],
+        "correctOption": "Commission",
+        "explanation": "This is an error of commission. If an amount is posted in the wrong account or it is written on the wrong side or the total are wrong or a wrong balance is struck, it will be a case of 'errors of commission'"
+    },
+    {
+        "question": "Q11. If purchase of goods amounting Rs. 200/- has been wrongly posted to credit side of purchase account. The difference in the Trial Balance would be:",
+        "options": [
+            "400",
+            "200",
+            "100",
+            "800"
+        ],
+        "correctOption": "400",
+        "explanation": ""
+    },
+    {
+        "question": "Q12. Find the incorrect statement:",
+        "options": [
+            "Errors of omission do not affect the agreement of Trial Balance.",
+            "Profit and Loss Adjustment Account is used for rectifying errors when it is intended that rectification of errors should not affect the current year’s profit.",
+            "All errors affect the agreement of Trial Balance.",
+            "Sales to Ram Rs. 550/- posted his account Rs. 505/- would affect Ram's Account."
+        ],
+        "correctOption": "All errors affect the agreement of Trial Balance.",
+        "explanation": "Many errors don't affect the agreement of Trial Balance for Example: 1. Error of complete omission 2. Wrong recording in the books of original entry 3. Error of complete omission from posting to the accounts 4. Errors of posting to the wrong account but on the correct side 5. Compensating Errors 6. Errors of principle"
+    },
+    {
+        "question": "Bank Reconciliation Statements Q1. Mr. Shyam deposited a cheque on 28th March 2017 for a sum of Rs. 10,000. The cheque was collected on 4th April 2017. If the bank balance as per cash book on 31st March 2017 is Rs.1,00,000, balance as per pass book will be:",
+        "options": [
+            "Rs.1,00,000",
+            "Rs. 90,000",
+            "Rs.1,10,000",
+            "None of the above"
+        ],
+        "correctOption": "Rs. 90,000",
+        "explanation": "Balance as per cash book (dr) Rs. 1,00,000 Less: Cheques deposited in the Bank but not cleared Rs. 10,000 Balance as per pass book (cr) Rs. 90,000"
+    },
+    {
+        "question": "Q2. Debit Balance as per cash book of Narayan Enterprises as on 28th February 2017 is Rs. 15,000. Cheques deposited but not cleared Rs. 660 and cheques issued but not presented for payment Rs. 2150. Balance as per pass book should be .",
+        "options": [
+            "Rs. 16,500",
+            "Rs. 16,490",
+            "Rs. 16,000",
+            "Rs. 15,500"
+        ],
+        "correctOption": "Rs. 16,490",
+        "explanation": "Bank reconciliation statement of Narayan Enterprises as on 28th Feb 2010 Balance as per cash book (dr) 15,000 Add: Cheques issued but not presented for payment 2,150 2,150 Less: Cheques deposited but not cleared 660 (660) Balance as per pass book (cr) 16,490"
+    },
+    {
+        "question": "Q3. When preparing a Bank reconciliation statement, if you start with balance as per cash book, then dividends directly collected by bank but not yet entered in cash book within the period are .",
+        "options": [
+            "Added",
+            "Not required to be adjusted",
+            "Deducted",
+            "None of the above"
+        ],
+        "correctOption": "Added",
+        "explanation": "Dividends directly collected by bank will be added in the given case."
+    },
+    {
+        "question": "Q4. Withdrawal column of the Pass Book showed a wrong entry of Rs. 112. When the balance as per Cash Book is the starting point.",
+        "options": [
+            "Rs 112 to be added",
+            "Rs 112 to be Subtracted",
+            "No adjustment is required",
+            "None of these"
+        ],
+        "correctOption": "Rs 112 to be Subtracted",
+        "explanation": "Rs. 112 need to be subtracted while preparing Bank Reconciliation to arrive at the balance as per pass- book."
+    },
+    {
+        "question": "Q5. Balance as per adjusted cash book is Rs. 5,000/-. Cheques issued but not yet presented is Rs. 1,500/-, Cheques deposited but not collected by bank is Rs. 2,500/-. Balance as per Pass Book will be:",
+        "options": [
+            "5000",
+            "6000",
+            "4000",
+            "9000"
+        ],
+        "correctOption": "4000",
+        "explanation": "Balance as per cash book (dr) Rs. 5,000 Add: Cheques issued but not presented for payment Less: Cheques deposited in the Bank but not cleared Rs. 1,500 Rs. 2,500 Balance as per pass book (cr) Rs. 4,000"
+    },
+    {
+        "question": "Q6. Which of the following statements are incorrect?",
+        "options": [
+            "Bank reconciliation statement is a statement reconciling the balance as shown by the bank pass book and the balance as shown by the cash book.",
+            "Pass book is a copy of firm’s account with a bank.",
+            "Favorable balance as per cash book means credit balance in the bank column of the cash book.",
+            "In case the overdraft as per the pass book is taken as the starting point, it should be put in minus column of the BRS."
+        ],
+        "correctOption": "Favorable balance as per cash book means credit balance in the bank column of the cash book.",
+        "explanation": "Favourable balance as per cash book means debit balance in the bank column of the cash book."
+    },
+    {
+        "question": "Q7. The balance as per Cash Book (O/D) is Rs. 2,000/- Cheques for Rs. 500/- were deposited but were not collected. The cheques issued but not presented were Rs. 70/-, Rs. 80/- and Rs. 50/-. OD Balance as per Pass Book is:",
+        "options": [
+            "Rs. 2,000/-",
+            "Rs. 2,500/-",
+            "Rs. 2,200/-",
+            "Rs. 2,300/-"
+        ],
+        "correctOption": "Rs. 2,300/-",
+        "explanation": "Overdraft Balance As per Cash book Rs. 2000 Add: Cheques deposited but not collected Less: Cheques issued but not presented for payment (70+80+50) Rs. 500 Rs. 200 Overdraft Balance as per pass book Rs. 2300"
+    },
+    {
+        "question": "Q8. A BRS is a part of:",
+        "options": [
+            "Part of accounting reports",
+            "Bank Account",
+            "Cash Book",
+            "None of the above"
+        ],
+        "correctOption": "None of the above",
+        "explanation": "A Bank Reconciliation Statement (BRS) is not a part of Bank Account or Cash Book or Accounting reports. It is prepared by the account holder to reconcile his transactions as per Cash book with those entered in the Bank Pass Book."
+    },
+    {
+        "question": "Q9. Bank O/D as per Pass book is Rs. 25,000/-, Cheques recorded in Cash book but not sent to bank for collection Rs. 10,000/-, Payments received from customers directly by bank Rs. 5,000/-, Bills of Rs 3000 (discounted with the bank) dishonored and Noting charges paid by bank is Rs. 500/-. O/D Balance as per Cash book is Rs.",
+        "options": [
+            "25000",
+            "16500",
+            "33500",
+            "35000"
+        ],
+        "correctOption": "16500",
+        "explanation": "Overdraft Balance As per Pass Book Rs. 25,000 Less: Cheques recorded in cash book but not sent to bank for collection Rs. 10,000 Add: Payments received from customers directly by bank Rs. 5,000 Less: Billings discounted with bank dishonoured Rs. 3,000 Less: Noting charges paid by bank Rs. 500 Overdraft Balance as per pass book Rs. 16,500"
+    },
+    {
+        "question": "Q10. Credit Balance as per Cash Book is Rs. 15,000/-, Bank charged interest Rs. 1,000/-, Cheques issued but not presented for payment 5,000/-. Balance as per Pass Book will be:",
+        "options": [
+            "Credit Balance of Rs. 21,000/-",
+            "Debit Balance of Rs. 21,000/-",
+            "Credit Balance of Rs. 11,000/-",
+            "Debit Balance of Rs. 11,000/-"
+        ],
+        "correctOption": "Debit Balance of Rs. 11,000/-",
+        "explanation": "Credit Balance as per Cash Book is treated as Overdraft. Overdraft Balance As per Cash book Rs. 15,000 Add: Interest charged by bank Less: Cheques issued but not presented for payment Rs. 1,000 Rs. 5,000 Overdraft Balance as per pass book Rs. 11,000"
+    },
+    {
+        "question": "Q11. Cheques received but deposited on the next day are recorded in:",
+        "options": [
+            "Bank column of the cash book",
+            "Cash column of the cash book",
+            "Both of these",
+            "None of these"
+        ],
+        "correctOption": "Cash column of the cash book",
+        "explanation": "When a firm receives a cheques it is entered in the bank column on the receipt side if paid into the bank on the same day. If the cheque is not deposited in the bank on the same day then it is entered in the cash column of the cash book when it is received. When the cheques is deposited in the bank a contra entry is passed."
+    },
+    {
+        "question": "Q12. Which of the following statement is incorrect?",
+        "options": [
+            "Bank Reconciliation statement is a statement reconciling the balance as shown by the Bank Pass book and the balance as shown by the cash book.",
+            "Pass book is a copy of the firm's account with a bank.",
+            "Cheques issued but not presented for payment will reduce the balance as per pass book.",
+            "Cheques sent for collection but not yet collected will result in increasing the balance of the Cash Book as compared to the Pass book."
+        ],
+        "correctOption": "Cheques issued but not presented for payment will reduce the balance as per pass book.",
+        "explanation": ""
+    },
+    {
+        "question": "Q13. Balance as per pass book is Rs. 50,000/-. Rs 5,000/- were directly deposited by a customer into the bank. Then the balance as per cash book is:",
+        "options": [
+            "52,000",
+            "55,000",
+            "45,000",
+            "40,000"
+        ],
+        "correctOption": "45,000",
+        "explanation": "When an amount is directly deposited in the Bank, the pass book records such amount but it may have not been recorded in the cash book. So, the cash book shows a reduced balance.\nBalance as per Pass Book: Rs. 50,000/-\nLess: Amount directly deposited in the bank: Rs. 5,000/-\nBalance as per Cash Book: Rs. 45,000/-"
+    },
+    {
+        "question": "Q14. Find the incorrect statement:",
+        "options": [
+            "When money is withdrawn from the bank, the bank debits the account of the customer.",
+            "Cheques sent for collection but not yet collected should be added when favorable balance as per pass book is taken as the starting point.",
+            "The balance as shown by the Bank Pass Book and the balance as shown by the Bank Column of Cash Book are always equal.",
+            "Direct collections received by the Bank on behalf of its customers will increase the balance as per the Bank Pass Book as compared to the balance as per cash book."
+        ],
+        "correctOption": "The balance as shown by the Bank Pass Book and the balance as shown by the Bank Column of Cash Book are always equal.",
+        "explanation": "The balance as shown by the Bank Pass Book and the balance as shown by the Bank Column of Cash Book are not always equal.\nBank Reconciliation Statement is a statement prepared to reconcile the balances of cash book maintained by the concern and pass book maintained by the bank at periodical intervals."
+    },
+    {
+        "question": "Q15. Balance shown by Cash Book: Rs. 20,000/-. Cheques issued but not presented for payment Rs. 5,000/-. Cheques deposited but not yet collected: Rs. 3,000/-. Balance as per Pass Book will be:",
+        "options": [
+            "Rs. 28,000/-",
+            "Rs. 18,000/-",
+            "Rs. 12,000/-",
+            "Rs. 22,000/-"
+        ],
+        "correctOption": "Rs. 22,000/-",
+        "explanation": "Balance Reconciliation Statement as on Date\nBalance as per Cash book (Dr.): Rs. 20,000/-\nAdd: Cheques issued but not presented for payment: Rs. 5,000/-\nLess: Cheques deposited but not collected: Rs. 3,000/-\nBalance as per Pass Book (Cr.): Rs. 22,000/-"
+    },
+    {
+        "question": "Q16. Credit balance in the bank Pass Book represents for the account holder.",
+        "options": [
+            "Liability",
+            "Asset",
+            "Reserve",
+            "Provision"
+        ],
+        "correctOption": "Asset",
+        "explanation": "Credit balance in the bank Pass Book represents Asset for the account holder."
+    },
+    {
+        "question": "Q10. Tangible property to be consumed in production of goods or services or held for sale in the ordinary course of business is defined as:",
+        "options": [
+            "Historical Cost",
+            "Business Assets",
+            "Inventory",
+            "None of the above"
+        ],
+        "correctOption": "Inventory",
+        "explanation": "Inventory is defined as 'Tangible property to be consumed in production of goods or services or held for sale in the ordinary course of business.'"
+    },
+    {
+        "question": "Q11. In the weighted average price method, the new weighted price is to be calculated:",
+        "options": [
+            "At the time of every purchase",
+            "At the time of every issue",
+            "Both at the time of every issue and every purchase",
+            "None of the above"
+        ],
+        "correctOption": "At the time of every purchase",
+        "explanation": "The weighted average method is used to assign the average cost of production to a product. When using the weighted average method, divide the cost of goods available for sale by the number of units available for sale, which yields the weighted-average cost per unit. In this calculation, the cost of goods available for sale is the sum of beginning inventory and net purchases and calculated after every purchase."
+    },
+    {
+        "question": "Q12. The system which gives a continuous information regarding quantum and value of inventory is known as:",
+        "options": [
+            "Continuous stock-taking",
+            "Periodic inventory",
+            "Perpetual inventory",
+            "None of the above"
+        ],
+        "correctOption": "Perpetual inventory",
+        "explanation": "In accounting, perpetual inventory or continuous inventory describes systems of inventory where information on inventory quantity and availability is updated on a continuous basis as a function of doing business."
+    },
+    {
+        "question": "Q13. Inventory is:",
+        "options": [
+            "Included in the category of fixed assets",
+            "An investment",
+            "A part of current assets",
+            "An intangible fixed asset"
+        ],
+        "correctOption": "A part of current assets",
+        "explanation": "Inventory is a part of current assets."
+    },
+    {
+        "question": "Q14. Accounting Standard 2 (Revised) provides the method for computing the cost of inventories.",
+        "options": [
+            "FIFO",
+            "Weighted Average",
+            "Both FIFO & Weighted Average",
+            "None of the above"
+        ],
+        "correctOption": "Both FIFO & Weighted Average",
+        "explanation": "Accounting Standard 2 (Revised) provides FIFO (First in First Out) or Weighted average method for computing the cost of inventories."
+    },
+    {
+        "question": "Q6. Which of the following statements is incorrect?",
+        "options": [
+            "The asset appears always at original cost in case depreciation is credited to Provision for Depreciation Account.",
+            "Depreciation is charged on the book value of the asset each year in case of Diminishing Balance Method.",
+            "Amortization is the process of writing off the intangible assets.",
+            "Depletion: Damage done to a building or other property during the tenancy."
+        ],
+        "correctOption": "Depletion: Damage done to a building or other property during the tenancy.",
+        "explanation": "Dilapidation: Damage done to a building or other property during the tenancy. Depletion: The portion of the cost of natural resources recognised as an expense for each period."
+    },
+    {
+        "question": "Q7. Cost of machine Rs.1,35,000. Residual value Rs. 5,000. Useful life is 10 years. The company charged depreciation for the first 5 years on straight line method. Later on, it reviewed the useful life and decided to take it as useful for another 8 years. Depreciation amount for 6th year will be:",
+        "options": [
+            "Rs. 8,125",
+            "Rs. 8,000",
+            "Rs. 8,200",
+            "None of the three"
+        ],
+        "correctOption": "Rs. 8,125",
+        "explanation": "In case of revaluation, the depreciation is calculated on the total revalued amount over a period of balance useful lives assessed on the date of revaluation. New cost for the purpose of depreciation will be gross cost less accumulated depreciation on the date of revaluation."
+    },
+    {
+        "question": "Q8. Which of the followings is a valuation principal?",
+        "options": [
+            "Historical cost",
+            "Realizable value",
+            "Current cost",
+            "All of the above"
+        ],
+        "correctOption": "All of the above",
+        "explanation": "Current cost, Historical cost and Realizable value all are valuation principles."
+    },
+    {
+        "question": "Q9. In January 2013 a trader purchased furniture for Rs. 1,00,000 Depreciation is charged @ 20% Diminishing balance. At the end of the third year it was sold for Rs. 10,000. Profit or loss as sale will be",
+        "options": [
+            "Loss 10,000/-",
+            "Profit 10,000/-",
+            "Loss 1,200/-",
+            "Profit 1,200/-"
+        ],
+        "correctOption": "Loss 1,200/-",
+        "explanation": "Balance of furniture as on 01.01.2013 = 1,00,000. Loss on sale will be WDV – Sale Proceeds = 51,200– 50,000 = Rs. 1200/-"
+    },
+    {
+        "question": "Q10. Depreciation starts on a machine from the date:",
+        "options": [
+            "It is installed",
+            "It is purchased",
+            "It is put to use",
+            "None of above"
+        ],
+        "correctOption": "It is put to use",
+        "explanation": "Depreciation starts on a machine from the date it is put to use because only when it is put to use revenue will start flowing from the use of machine."
+    },
+    {
+        "question": "Q11. Which of the following factors affects the amount of depreciation?",
+        "options": [
+            "Cost of asset",
+            "Expected Useful Life",
+            "Estimated residual value.",
+            "All of the above"
+        ],
+        "correctOption": "All of the above",
+        "explanation": "Depreciation is a reduction in the value of an asset over time, due to wear and tear. Amount of depreciation depends on Cost of asset, Expected Useful Life and Estimated Residual Value of Asset."
+    },
+    {
+        "question": "Q12. If Written Down Value (WDV) of an asset after two years of depreciation on the reducing balance method @20% p.a. is Rs. 64,000/-. What was the original value?",
+        "options": [
+            "77,440",
+            "110000",
+            "51840",
+            "100000"
+        ],
+        "correctOption": "100000",
+        "explanation": "Written-down value is the value of an asset after accounting for depreciation or amortization, and it is also called book value or net book value."
+    },
+    {
+        "question": "Q13. Which of the following statement is correct?",
+        "options": [
+            "Depreciation is a means of allocating the cost of a material asset over its useful life",
+            "Depletion is used to allocate the cost of extracting natural resources from the Earth and is the actual physical depletion of a natural resource by a company.",
+            "Amortization is the deduction of capital expenses over a specified period, typically the life of an asset.",
+            "All are correct"
+        ],
+        "correctOption": "All are correct",
+        "explanation": "Depreciation, depletion and amortization (DD&A) are noncash expenses used in accrual accounting."
+    },
+    {
+        "question": "Q14. Cost of a machine = Rs. 1,00,000/- Salvage Value = Rs. 10,000/- Useful Life = 5 Years. Depreciation for the last year using the Sum of digits method will be:",
+        "options": [
+            "20000",
+            "10000",
+            "18000",
+            "6000"
+        ],
+        "correctOption": "6000",
+        "explanation": "In sum of year digits (SYD) method the depreciation of any year is calculated by this formula: Depreciation = [{Remaining Life of Asset (including current year} / Sum of all the digits of the life of the assets in years} *(Acquisition Cost – Salvage Value)]"
+    },
+    {
+        "question": "Q15. Find the incorrect statement:",
+        "options": [
+            "In case of Annuity Method, the amount of depreciation is fixed for all the years.",
+            "In the Production Units Method, depreciation is charged by allocating depreciable cost in proportion of the annual output to the probable life-time output.",
+            "The amount of depreciation is debited to the Depreciation Fund Account in the Depreciation Fund Method.",
+            "Profit or Loss on depreciation fund investment is transferred to Depreciation Fund Account."
+        ],
+        "correctOption": "The amount of depreciation is debited to the Depreciation Fund Account in the Depreciation Fund Method.",
+        "explanation": "Incorrect statement: The amount of depreciation is debited to the Depreciation Fund Account in the Depreciation Fund Method."
+    },
+    {
+        "question": "Q1. The expired portion of capital expenditure is shown in the financial statements as:",
+        "options": [
+            "As a liability.",
+            "As an expense.",
+            "As an income.",
+            "As an asset."
+        ],
+        "correctOption": "As an expense.",
+        "explanation": "Expired portion of Capital expenditure is shown as an expense in financial statements."
+    },
+    {
+        "question": "Q2. Mukesh started business on 01.01.2016 with a capital of Rs. 20,000 and he borrowed Rs. 3,000 from a friend. He earned a profit of Rs. 10,000 during the year and withdrew cash Rs. 5,000 for private use. What is his capital at the end of the year?",
+        "options": [
+            "Rs. 27,000",
+            "Rs. 25,000",
+            "Rs. 28,000",
+            "Rs. 30,000"
+        ],
+        "correctOption": "Rs. 25,000",
+        "explanation": "Closing capital = opening capital + profits – drawings = 20,000 + 10,000 – 5,000 = Rs. 25,000"
+    },
+    {
+        "question": "Q3. Goods costing Rs. 1000 supplied to Ramesh at the invoice price of 10% above cost and a Trade Discount for 5%. The amount of Sales will be:",
+        "options": [
+            "Rs. 1060",
+            "Rs. 1050",
+            "Rs. 1045",
+            "Rs. 1100"
+        ],
+        "correctOption": "Rs. 1045",
+        "explanation": "Sales to be recorded = invoice price – trade discount = 1,100 – 55 = Rs. 1,045"
+    },
+    {
+        "question": "Q4. Prepaid insurance given in trial balance is recorded in:",
+        "options": [
+            "Profit & Loss account",
+            "Trading account",
+            "Balance sheet",
+            "None of the three"
+        ],
+        "correctOption": "Balance sheet",
+        "explanation": "Prepaid insurance given in trial balance is recorded in Balance Sheet."
+    },
+    {
+        "question": "Q5. Goods destroyed by fire Rs. 25000 and Insurance company admitted full claim. Claim receivable will be recorded in:",
+        "options": [
+            "Trading A/c",
+            "P/L Account",
+            "Balance Sheet",
+            "P/L Appropriation A/c"
+        ],
+        "correctOption": "Balance Sheet",
+        "explanation": "Claim receivable will be shown as asset in balance sheet."
+    },
+    {
+        "question": "Q6. Gross profit is the difference between:",
+        "options": [
+            "Sales and purchases",
+            "Sales and cost of sales",
+            "Sales and total expenses",
+            "None of the three"
+        ],
+        "correctOption": "Sales and cost of sales",
+        "explanation": "Gross profit is difference between sales and cost of goods sold."
+    },
+    {
+        "question": "Q7. Sales returns appearing in the trial balance are deducted from:",
+        "options": [
+            "Capital",
+            "Sales",
+            "Purchase",
+            "None of three"
+        ],
+        "correctOption": "Sales",
+        "explanation": "Sales return are reduced from sales to arrive at net sales."
+    },
+    {
+        "question": "Q8. Opening inventory Rs. 1,700/-, Purchases Rs. 27,000/-, Closing inventory Rs. 1,500. Cost of goods sold will be:",
+        "options": [
+            "27000",
+            "28700",
+            "30400",
+            "27200"
+        ],
+        "correctOption": "27200",
+        "explanation": "Cost of goods sold (COGS) = Opening Inventory + Purchases – Closing Inventory = 1700 + 27000 – 1500 = Rs. 27,200/-"
+    },
+    {
+        "question": "Q9. Suresh runs a restaurant. He renovates some of the old cabins to increase some space. The amount of Rs. 20,000 was incurred on renovation. The amount to be charged to profit and loss account is",
+        "options": [
+            "NIL",
+            "20000",
+            "10000",
+            "None of the above."
+        ],
+        "correctOption": "NIL",
+        "explanation": "Building improvements are capital events that materially extend the useful life of a building or increase the value of a building, or both. A building improvement should be capitalized as a betterment and recorded as an addition of value to the existing building."
+    },
+    {
+        "question": "Q10. The profits of last three years are Rs. 30,000; Rs. 40,000 and Rs. 50,000. Find out the goodwill at two years purchase:",
+        "options": [
+            "120000",
+            "70000",
+            "80000",
+            "ZERO"
+        ],
+        "correctOption": "80000",
+        "explanation": "Goodwill = Average Profits × Number of years of Purchase = 40,000 × 2 = Rs. 80,000"
+    },
+    {
+        "question": "Q11. Loss leads to a reduction in:",
+        "options": [
+            "Capital.",
+            "Liability.",
+            "Income.",
+            "All of them"
+        ],
+        "correctOption": "Capital.",
+        "explanation": "Loss leads to a reduction in capital."
+    },
+    {
+        "question": "Q12. Ramesh shows a profit of Rs. 5,00,000 for the year ended 31.3.2017. The figure has been arrived at after charging following against revenue: (i) Purchase of Car for use in business Rs. 2,00,000 and treated as vehicle expenses. (ii) Omitting to record unpaid electricity bills for March 2017 of Rs. 50,000. The correct profit for the year ended 31st March 2017 is:",
+        "options": [
+            "Rs. 250000",
+            "Rs. 750000",
+            "Rs. 650000",
+            "Rs. 350000"
+        ],
+        "correctOption": "Rs. 650000",
+        "explanation": "Correct profit will be Rs.6,50,000 (Rs. 5,00,000 + 2,00,000 less Rs. 50,000). [Purchase of car is an asset for a company hence must not be treated as an expense and electricity bill for March 2017 must be recorded as per accrual concept]"
+    },
+    {
+        "question": "Q13. On Jan 1, 2017 the position of V. Mathur was as follows: Inventory in hand Rs. 2400; Bills payable Rs. 400; Cash at Bank Rs. 1800; Plant and machinery Rs. 1000; Debtors Rs. 500; Creditors Rs. 800; Investments 2000; Loan from Raja Ram Rs. 1500. V. Mathur’s capital on the above date will be",
+        "options": [
+            "Rs. 5000",
+            "Rs. 10000",
+            "Rs. 15000",
+            "Rs. 20000"
+        ],
+        "correctOption": "Rs. 5000",
+        "explanation": "Closing Capital = Closing Assets – Closing Liabilities Here Closing Assets = Inventory + Cash at Bank + Plant and Machinery + Debtors + Investments = 2,400 + 1,800 + 1,000 + 500 + 2,000 = 7,700 Closing Liabilities = Bills Payable + Creditors + Loan from Raja Ram = 400 + 800 + 1,500 = 2,700 So Closing Capital = Closing Assets – Closing Liabilities = 7,700 – 2,700 = Rs. 5,000"
+    },
+    {
+        "question": "Q14. Closing entry for transfer of Net profit Rs. 5,000 to capital A/c will be",
+        "options": [
+            "Trading A/c Dr. Rs. 5,000; to P/L A/c Rs. 5,000",
+            "P/L A/c Dr. Rs. 5,000; To Capital A/c Rs. 5,000",
+            "Capital A/c Dr. Rs. 5,000; To P/L A/c Rs. 5,000",
+            "None of the above"
+        ],
+        "correctOption": "P/L A/c Dr. Rs. 5,000; To Capital A/c Rs. 5,000",
+        "explanation": "The journal entry to transfer net income to owner’s equity is a debit to Income Summary, and a credit Capital. The entry will be P/L A/c Dr. Rs. 5,000; To Capital A/c Rs. 5,000"
+    },
+    {
+        "question": "Q15. The trial balance of M/s Ramesh Traders shows closing inventory of Rs. 5,00,000/-. It will be recorded in:",
+        "options": [
+            "Profit and Loss Appropriation A/c",
+            "Profit and Loss Account",
+            "Trading account",
+            "Balance Sheet"
+        ],
+        "correctOption": "Balance Sheet",
+        "explanation": "Closing inventory (if given in Trial balance) will appear only in Balance Sheet and not in Trading A/c."
+    },
+    {
+        "question": "Q16. Which of the followings is correct?",
+        "options": [
+            "Adjustment Entry: A journal entry passed at the end of an accounting period to record the completed portion of an incomplete continuous event.",
+            "Liabilities: The claims of the owners against the firm’s assets.",
+            "Trading Account: An account giving the cost of goods manufactured by the manufacturer during a particular period.",
+            "All are correct."
+        ],
+        "correctOption": "Adjustment Entry: A journal entry passed at the end of an accounting period to record the completed portion of an incomplete continuous event.",
+        "explanation": "Liabilities: The claims of outsiders (other than owners) against the firm’s assets. Manufacturing Account: An account giving the cost of goods manufactured by the manufacturer during a particular period."
+    },
+    {
+        "question": "Q17. Value of opening Stock is Rs. 1,00,000/-, Value of goods available for sales is Rs. 2,50,000/-. Sales is Rs. 3,00,000/- Gross Profit is 20%. The closing stock will be?",
+        "options": [
+            "10000",
+            "20000",
+            "30000",
+            "50000"
+        ],
+        "correctOption": "10000",
+        "explanation": "Trading A/c. To Opening Stock 100000 By Sales A/c. 300000 To Purchases (250000-100000) 150000 By closing Stock A/c. (b/f) 10000 To Gross Profit A/c. (20% of Rs. 3,00,000) 60000 310000 310000"
+    },
+    {
+        "question": "Q18. State how the following must be dealt with in the final accounts of a firm for the year ended 31.03.2017: Petrol expense of Rs. 500/- paid for the car of one of the partners for an official visit, the car not being an asset of the firm.",
+        "options": [
+            "Charge P&L A/c as a travelling expense.",
+            "Prepaid Expense",
+            "Drawings",
+            "None of the above."
+        ],
+        "correctOption": "Charge P&L A/c as a travelling expense.",
+        "explanation": "Petrol expense of Rs. 500/- paid for the car of one of the partners for an official visit will be charged in P&L A/c as a travelling expense as it is for business purpose and not for personal use."
+    },
+    {
+        "question": "Q19. Capital introduced in beginning by Harish is Rs. 1,00,000/-. Further capital introduced during the year is Rs 50,000/-. Drawings Rs. 2,500/- per month and closing capital is Rs. 1,50,000/-. The amount of profit or loss for the year is:",
+        "options": [
+            "0",
+            "30000",
+            "50000",
+            "150000"
+        ],
+        "correctOption": "30000"
+    },
+    {
+        "question": "Q20. Which of the following is a correct statement?",
+        "options": [
+            "A deduction allowed to the buyers from the gross or catalogue price is termed as ‘Trade Discount’",
+            "A deduction allowed to the buyers from the gross catalogue price on making bulk purchases is termed as ‘Quantity Discount’",
+            "A discount allowed to a debtor on prompt payment of cash is termed as ‘Cash Discount’",
+            "All are correct."
+        ],
+        "correctOption": "All are correct.",
+        "explanation": "An allowance or a deduction allowed from an amount due is termed as ‘Discount’. It may be of three types: (i) Trade Discount, (ii) Quantity Discount (iii) Cash Discount."
+    },
+    {
+        "question": "Q21. If profit is 25% as cost price then the profit on sale price will be?",
+        "options": [
+            "20%",
+            "25%",
+            "15%",
+            "33.33%"
+        ],
+        "correctOption": "20%",
+        "explanation": "Let the cost price be Rs. 100. Profit is 25% on cost = 25% of Rs. 100 = 25. That means Sell price = 100 + 25 = Rs. 125. Now Profit on Sell price = (25/125) * 100 = 20%"
+    },
+    {
+        "question": "Q22. Income tax paid by a sole proprietor on his business income should be:",
+        "options": [
+            "Debited to the Trading Account",
+            "Debited to the P&L Account.",
+            "Deducted from the Capital Account in the Balance Sheet.",
+            "None of the above"
+        ],
+        "correctOption": "Deducted from the Capital Account in the Balance Sheet.",
+        "explanation": "Income tax paid by a sole proprietor on his business incomes comes under his drawings (as proprietor’s income tax is his personal expense and not a business expense) hence must be deducted from the Capital Account in the Balance Sheet."
+    },
+    {
+        "question": "Q23. Selling and distribution expenses does not comprise of:",
+        "options": [
+            "Carriage Inward",
+            "Insurance for Stock of Finished Goods",
+            "Bad debts",
+            "Godown Rent."
+        ],
+        "correctOption": "Carriage Inward",
+        "explanation": "Carriage Inward is expense done to bring the raw materials whereas selling & distribution expenses are the expenses incurred to sell the finished goods. Therefore, carriage inward does not form a part of selling & distribution expenses whereas, godown rent, bad debts and insurance for stock of finished goods form a part of it."
+    },
+    {
+        "question": "Q24. What will be the total sales of the year 2016-17 for a company, if we have following information: Cash Sales Rs. 1,00,000/- Cash Collected from debtors Rs. 80,000/- Bad debts during the year Rs. 5,000/- Debtors on 1st April 2016 = Rs. 20,000/- Debtors on 31st March 2017 = Rs. 70,000/-",
+        "options": [
+            "Rs. 2,55,000/-",
+            "Rs. 2,35,000-",
+            "Rs. 1,35,000/-",
+            "Rs. 1,00,000/-"
+        ],
+        "correctOption": "Rs. 2,35,000-",
+        "explanation": "Total Sales = Cash Sales + Credit Sales (cash) collected from debtors + Bed debts during the year – opening debtors + closing debtors Total Sales = 1,00,000+80,000+5,000-20,000+70,000 Total Sales = 2,35,000/-"
+    },
+    {
+        "question": "Q25. Opening stock 200 units at Rs. 4,00,000/-. Purchase 200 units at Rs. 5,00,000/-. Sold 300 units. Find closing stock using weighted average method.",
+        "options": [
+            "250000",
+            "275000",
+            "225000",
+            "200000"
+        ],
+        "correctOption": "225000",
+        "explanation": "Weighted average rate = Total Price / Total Quantity = (400000+500000)/ (200+200) =2250 Units of closing stock =Opening units + units purchased – units sold = 200+200-300 =100 Value of closing stock based on weighted average method = Weighted average rate * units left =2250*100 = 225000"
+    },
+    {
+        "question": "Q26. Outstanding Salaries are shown as:",
+        "options": [
+            "A Liability",
+            "An Expense",
+            "An asset",
+            "None of the above"
+        ],
+        "correctOption": "An Expense",
+        "explanation": "All outstanding expenses are shown as liabilities in the Balance Sheet."
+    },
+    {
+        "question": "Q27. The purpose of preparing final accounts is to ascertain .",
+        "options": [
+            "Profit or loss",
+            "Capital",
+            "The value of assets",
+            "Profit or loss and financial position."
+        ],
+        "correctOption": "Profit or loss and financial position.",
+        "explanation": "The purpose of preparing final accounts is to ascertain Profit or loss and financial position."
+    },
+    {
+        "question": "Q28. Sales = Rs. 50,000/-, G.P. on sales is 10%, Purchases 40,000/-, Opening Stock = 70,000/-, Find the closing stock.",
+        "options": [
+            "55000",
+            "65000",
+            "75000",
+            "170000"
+        ],
+        "correctOption": "65000"
+    },
+    {
+        "question": "Q1. A promissory note is drawn by in favour of _ .",
+        "options": [
+            "Drawer, Drawee.",
+            "Drawer, Payee.",
+            "Maker, Payee.",
+            "Payer, Payee."
+        ],
+        "correctOption": "Maker, Payee.",
+        "explanation": "A promissory note is drawn by maker in favour of payee."
+    },
+    {
+        "question": "Q2. The date of maturity of bill is 10th October 2009. The Government of India suddenly declared 10th October 2009 as the holiday under the Negotiable Instruments Act, then the bill will mature on",
+        "options": [
+            "11th October 2009.",
+            "10th October 2009.",
+            "9th October 2009",
+            "12th October 2009."
+        ],
+        "correctOption": "11th October 2009.",
+        "explanation": "In case of Sudeten declaration of govt. holiday, the bill will mature on the next working day."
+    },
+    {
+        "question": "Q3. On 1st January 2017, Mohan draws upon Sohan a bill of exchange for three months, of Rs. 2,000 for mutual accommodation. On 4th January 2017 Mohan discounts the bill @ 6% per annum and sends half of the proceeds to Sohan. The amount of proceeds sent to Sohan will be:",
+        "options": [
+            "Rs. 1,000",
+            "Rs. 2,000",
+            "Rs.970",
+            "Rs.985"
+        ],
+        "correctOption": "Rs.985",
+        "explanation": "Total bill amount = Rs. 2,000. Less:6% of 2,000 × 3/12 = 30. Amount received from bank by Mohan = 2,000 – 30 = 1,970. Amount sent to Sohan = 1/2 of 1,970 = Rs. 985"
+    },
+    {
+        "question": "Q4. A’s acceptance to B for Rs. 5,000 is discharged by a cash payment of Rs.3000 and a new bill is drawn for the balance plus Rs.100 for interest. The amount of the new bill will be Rs.",
+        "options": [
+            "2000",
+            "1900",
+            "2100",
+            "None of the above."
+        ],
+        "correctOption": "2100",
+        "explanation": "Total amount of the old bill = Rs. 5,000. Amount paid in cash = Rs. 3,000. Amount due = Rs. 2,000. Interest on renewable = Rs. 100. So the amount of the new bill = 2000 + 100 = Rs. 2100"
+    },
+    {
+        "question": "Q5. A bill of exchange matures on 21st November. It is a public holiday. Bill will mature on:",
+        "options": [
+            "20th November",
+            "21st November",
+            "22nd November",
+            "21st November at 9:30 AM"
+        ],
+        "correctOption": "20th November",
+        "explanation": "In case when a bill of exchange matures on a public holiday then the due date will be the preceding business day."
+    },
+    {
+        "question": "Q6. Ramesh draws a bill on Suresh. Ramesh endorsed the bill to Mukesh. The payee of the bill will be:",
+        "options": [
+            "Ramesh",
+            "Suresh",
+            "Mukesh",
+            "None of them."
+        ],
+        "correctOption": "Mukesh",
+        "explanation": "A payee is the party in an exchange who receives payment. In this case Mukesh is the person who will finally receive the payment for this Bill of exchange."
+    },
+    {
+        "question": "Q7. Sunita accepted a 90 days bill of Rs. 20,000/- drawn by Vinita on 05.02.2017. On 13.03.2017 Sunita wished to retire the bill. Vinita offered rebate @ 10% p.a. What is the amount of rebate?",
+        "options": [
+            "300",
+            "312",
+            "325",
+            "374"
+        ],
+        "correctOption": "312",
+        "explanation": "The due date of bill falls on 9th May 2017. The bill is retired on 13.03.2017 i.e. 57 days before the due date. Rebate for this period will be 20000 × (10/100) × (57/365) = 312 (Approx.)"
+    },
+    {
+        "question": "Q8. On 1st April, Ram sold goods worth Rs. 50,000 to Rahim. Rahim drew a bill for 3 months. Ram discounted the bill from the bank at 10% p.a. then the amount received on account of bill will be:",
+        "options": [
+            "45000",
+            "50000",
+            "48750",
+            "47500"
+        ],
+        "correctOption": "48750"
+    },
+    {
+        "question": "Q9. Liability for the drawer for the bill discounted is a:",
+        "options": [
+            "Contingent liability",
+            "Long term liability",
+            "Short term liability",
+            "Current liability"
+        ],
+        "correctOption": "Contingent liability",
+        "explanation": "When a bill is discounted from bank, the drawee becomes liable to the bank. However, on the due date if the drawee is unable to make the payment the bank can recover the amount from drawer. Therefore, when drawer discounts a bill with bank it becomes a contingent liability for the drawer."
+    },
+    {
+        "question": "Q10. Ramesh drew a bill on Suresh. Ramesh endorsed this bill to Mukesh in settlement of his debt amounting Rs. 50,000/- at 4% discount and paid Rs. 10,000/- in cash. What will be the amount of the bill drawn on Suresh.",
+        "options": [
+            "38000",
+            "48000",
+            "50000",
+            "52000"
+        ],
+        "correctOption": "38000",
+        "explanation": "Discount allowed = 4% of 50,000 = 2000 (Be careful here). Total amount payable to Mukesh = 50000 – 2000 = 48000. Out of which Rs. 10,000 has been paid in cash. Hence amount of the bill drawn on Suresh is Rs. 38,000/- (48,000-10,000)"
+    },
+    {
+        "question": "Q11. Find the incorrect statement:",
+        "options": [
+            "Sectional Balancing and Self-balancing are synonymous terms.",
+            "In case of transfer from one ledger to another, three entries will have to made in the case of self-balancing system",
+            "The Sales Ledger Adjustments Account in the General Ledger is just the reverse of the General Ledger Adjustment Account in the Sales Ledger",
+            "All the above statements are correct."
+        ],
+        "correctOption": "Sectional Balancing and Self-balancing are synonymous terms.",
+        "explanation": "Noting charges are paid in the event of Dishonour of a Bill."
+    },
+    {
+        "question": "Q12. On 01.01.2017 Ramesh draws a Bill in Suresh “for 30 days after sight”. The date of acceptance is 05.01.2017. The due date of Bill will be:",
+        "options": [
+            "31.01.2017",
+            "03.02.2017",
+            "04.02.2017",
+            "07.02.2017"
+        ],
+        "correctOption": "07.02.2017",
+        "explanation": "The due date of bills which are “after sight” runs from the date when they are accepted and not from the date when they are drawn. In this case due date of bill accepted on 05.01.2017 will be 07.02.2017 (26 days of January + 4 days of February + 3 days of grace)"
+    },
+
+
+ // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>
