@@ -1,0 +1,67 @@
+ {
+  "name": "GangaTricks",
+  "short_name": "GangaQuiz",
+  "version": "0.0.1",
+  "start_url": "/index.html",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "icon1.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "fonts": [
+    {
+      "family": "Roboto",
+      "variants": ["regular", "bold"],
+      "display": "swap"
+    }
+  ],
+  "description": "A quiz app with elegant design and engaging questions.",
+  "shortcuts": [
+    {
+      "name": "Mental Math",
+      "url": "/facts/speed/speed1.html",
+      "description": "Start playing the quiz"
+    },
+    {
+      "name": "English Practice",
+      "url": "/english/english1.html",
+      "description": "Start playing the quiz"
+    }
+  ],
+   "launch_handler": {
+    "action": "navigate",        
+    "default_url": "/index.html" 
+  },
+  "file_handlers": [
+    {
+      "action": "/handle-file",
+      "accept": {
+        "text/plain": [".txt"],
+        "image/*": [".jpg", ".jpeg", ".png", ".gif"],
+        "application/pdf": [".pdf"]
+      }
+    }
+  ],
+   "navigation": {
+    "initial": "/home",
+    "fallback": "/404.html",
+    "mode": "history"
+  },
+  "serviceworker": {
+    "src": "/service-worker.js",
+    "scope": "/",
+    "type": "module"
+  }
+}

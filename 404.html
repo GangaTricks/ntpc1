@@ -1,0 +1,460 @@
+
+	 <!doctype html>
+<html lang="en hi">
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💻 GangaTricks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="canonical" href="https://amp.dev/documentation/examples/style-layout/tab_panels_with_amp-selector/index.html">
+    <meta name="viewport" content="width=device-width">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <!-- ## Setup -->
+    <!-- Import `amp-selector` component in the header which we'll use to implement the tab switching. -->
+  <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    
+
+<style amp-custom>
+
+
+        body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+width: 100%;
+height: 100%;
+position: fixed;
+top: 100px;
+    background-color: #D5D8DC;; /* Medium green color */
+
+    color: #000; /* Set text color to deep black */
+}
+        :root {
+          --color-primary: #005AF0;
+          --space-1: .5rem;  /* 8px */
+          --space-4: 2rem;   /* 32px */
+        }
+
+        /* Styles for the flex layout based tabs */
+        amp-selector[role=tablist].tabs-with-flex {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        amp-selector[role=tablist].tabs-with-flex [role=tab] {
+            flex-grow: 1;
+            /* custom styling, feel free to change */
+            text-align: center;
+            padding: var(--space-1);
+        }
+        amp-selector[role=tablist].tabs-with-flex [role=tab][selected] {
+            outline: none;
+            /* custom styling, feel free to change */
+            border-bottom: 2px solid var(--color-primary);
+        }
+        amp-selector[role=tablist].tabs-with-flex [role=tabpanel] {
+            display: none;
+            width: 100%;
+            order: 1; /* must be greater than the order of the tab buttons to flex to the next line */
+            /* custom styling, feel free to change */
+            padding: var(--space-4);
+        }
+        amp-selector[role=tablist].tabs-with-flex [role=tab][selected] + [role=tabpanel] {
+            display: block;
+        }
+
+        /* Styles for the selector based tabs */
+        amp-selector[role=tablist].tabs-with-selector {
+            display: flex;
+        }
+        amp-selector[role=tablist].tabs-with-selector [role=tab][selected] {
+            outline: none;
+            /* custom styling, feel free to change */
+            border-bottom: 2px solid var(--color-primary);
+        }
+        amp-selector[role=tablist].tabs-with-selector {
+            display: flex;
+        }
+        amp-selector[role=tablist].tabs-with-selector [role=tab] {
+          /* custom styling, feel free to change */
+          width: 100%;
+          text-align: center;
+          padding: var(--space-1);
+        }
+        amp-selector.tabpanels [role=tabpanel] {
+          display: none;
+          /* custom styling, feel free to change */
+          padding: var(--space-4);
+        }
+        amp-selector.tabpanels [role=tabpanel][selected] {
+          outline: none;
+          display: block;
+        }
+
+:root {
+  --color-primary: #005AF0;
+  --color-text-light: #fff;
+  --color-text-dark: #000;
+  --color-bg-light: #FAFAFC;
+
+  --space-1: .5rem;  /* 8px */
+  --space-2: 1rem;   /* 16px */
+  --space-3: 1.5rem; /* 24px */
+  --space-4: 2rem;   /* 32px */
+  --space-5: 3rem;   /* 48px */
+}
+/* Simple Stepper */
+.stepper.simple .step-dots {
+  user-select: none;
+}
+.stepper.simple .step-dot {
+  display: inline-block;
+  background: #ddd;
+  overflow: hidden;
+  text-indent: -999px;
+  border-radius: 100%;
+  width: 10px;
+  height: 10px;
+  box-shadow: inset 0 1px 1px 0 #999;
+}
+.stepper.simple .step-dot.active {
+  background: linear-gradient(#00CFFF, #1584bc);
+  box-shadow: inset 0 0 1px 1px #087DC0;
+}
+.stepper.simple section {
+  background-color: var(--color-bg-light);
+}
+.stepper.simple .content {
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stepper.simple .top-bar,
+.stepper.simple .bottom-bar {
+  height: var(--space-5);
+  line-height: var(--space-5);
+  background-color: #f2f2f2;
+  color: #4a4a4a;
+}
+.stepper.simple .top-bar {
+  padding: 0 var(--space-3);
+  font-size: var(--space-2);
+}
+.stepper.simple .bottom-bar {
+  height: var(--space-5);
+  line-height: var(--space-5);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stepper.simple .bottom-bar .button-next,
+.stepper.simple .bottom-bar .button-prev {
+  position: absolute;
+  height: 100%;
+  border: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  width: 72px;
+  user-select: none;
+  background: unset;
+}
+.stepper.simple .bottom-bar .button-prev {
+  top: 0;
+  left: 0;
+}
+.stepper.simple .bottom-bar .button-next {
+  top: 0;
+  right: 0;
+}
+.stepper.simple .bottom-bar .button-next:after {
+  padding: var(--space-1);
+  content: ">";
+  font-weight: 500;
+}
+.stepper.simple .bottom-bar .button-prev:before {
+  padding: var(--space-1);
+  content: "<";
+  font-weight: 500;
+}
+
+
+button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: ;
+      color: white;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.about_section .row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about_section .img-box img {
+  width: 100%;
+}
+
+.about_section .detail-box p {
+  margin-top: 25px;
+}
+
+.about_section .detail-box a {
+  display: inline-block;
+  padding: 12px 45px;
+  background-color: #fb1004;
+  color: #ffffff;
+  border-radius: 10px;
+  margin-top: 25px;
+}
+
+.about_section .detail-box a:hover {
+  background-color: #b00b03;
+  color: #ffffff;
+}
+
+/* footer section*/
+.footer_section {
+  background-color: #201f33;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer_section p {
+  border-top: 1px solid #ffffff;
+  width: 60%;
+  color: #ffffff;
+  margin: 0 auto;
+  text-align: Left;
+  padding: 20px 35px;
+}
+
+.footer_section a {
+  color: #ffffff;
+}
+    </style>
+
+</head>
+<body>
+<script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+
+<script>
+// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+	
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+	 function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '/awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '/index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '/examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '/english/english1.html';
+    }
+
+ 
+
+</script>
+
+
+	
+<div class="container">
+  <div class="navbar">
+    <p><button><a class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 20px;"><b style="font-size: 29px;">☰</b></a> </button><img src="/logo.png" width="250" height="50"></p>
+
+  
+  <div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks      <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>        
+<a href="#" onclick="goToWebsite()" style="text-align: left; background: white; border: 2px solid lightblue;">Home 🏠</a>
+    <a href="#" onclick="goToHub()"  style="text-align: left; background: white; border: 2px solid lightblue;">Awareness</a>
+    <a href="/english/english1.html" onclick="goToEnglish()" style="text-align: left; background: white; border: 2px solid lightblue;">English</a>
+    <a href="#" onclick="examQuiz()"  style="text-align: left; background: white; border: 2px solid lightblue;">ExamQuiz</a>
+    <a href="/livemock/livemock.html"  id="popupLink" style="text-align: left; background: white; border: 2px solid lightblue;">Live Mocks</a>
+    <a href="http://www.youtube.com/@gangatricks"><img src="/photo.jpg" width="250" height="200"></a>
+	   <div class="container">
+        <h3 style="text-align: right;">Tools</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+  </div>
+</div>
+
+
+	
+	
+
+<div>
+<h1> You have tried something wrong or the source is not available right now.
+</h1>
+
+<img src="/404.jpg" width="1150" height="350" style="max-width: 100%; max-height: 100%;" alt="Banner Image">
+</div>
+
+
+
+<h1>File Browser</h1>
+    <ul id="fileList">
+        <!-- File list will be populated here -->
+    </ul>
+
+    <script>
+      // Function to fetch the list of files in the facts directory
+function fetchFactsDirectoryContents() {
+    fetch('/') // Replace with the path to your facts directory relative to the public directory
+        .then(response => response.text())
+        .then(data => {
+            // Parse the directory listing
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(data, 'text/html');
+            const links = xmlDoc.querySelectorAll('a');
+            const fileList = document.getElementById('fileList');
+
+            // Populate the file list
+            links.forEach(link => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '/facts/' + link.textContent; // Create a full URL to the file
+                a.textContent = link.textContent;
+                li.appendChild(a);
+                fileList.appendChild(li);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching facts directory contents:', error);
+        });
+}
+
+// Call the fetchFactsDirectoryContents function when the page loads
+window.onload = fetchFactsDirectoryContents;
+
+    </script>
+
+
+</body>
+</html>
