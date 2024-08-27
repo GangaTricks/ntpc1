@@ -1,0 +1,2775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTPC Chemistry 2021</title> 
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Chemistry NTPC 2021 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+function showQuestion() {
+
+correctOptionText = ''; // Initialize correctOptionText
+    // Rest of your existing showQuestion code
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+
+// Copy question and options
+const copyButton = document.querySelector('.btn-copy');
+copyButton.addEventListener('click', () => {
+    const questionText = document.querySelector('#question').textContent;
+    const optionElements = document.querySelectorAll('.form-check-label');
+    
+    let optionsText = '';
+    let correctOptionText = null;
+    let correctOptionIndex = null;
+
+    optionElements.forEach((optionElement, index) => {
+        const optionText = optionElement.textContent.trim();
+        const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+        optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? ' ☑️Correct' : ''}\n`;
+
+        if (isCorrect) {
+            correctOptionText = optionText;
+            correctOptionIndex = index + 1;
+        }
+    });
+
+    let textToCopy = `${questionText}\n\n${optionsText}\n`;
+
+    if (correctOptionText && correctOptionIndex) {
+        textToCopy += `The Correct Option ${correctOptionIndex}: ${correctOptionText}\n                 ☑️Correct  ☑️Correct\n`;
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+
+    // Toggle button text
+    copyButton.textContent = '✅';
+    setTimeout(() => {
+        copyButton.textContent = '📋';
+    }, 2000); // Reset text after 2 seconds
+});
+
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'chemistryntpc2021underntpcfacts';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+    const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+	
+	 // Update correctOptionText for copying
+        correctOptionText = `correctOption ${correctOptionIndex + 1}: ${currentQuestion.correctOption}`;
+		
+	
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+     
+
+
+    {
+        "question": "How many atoms of oxygen are there in one molecule of ozone?",
+        "options": ["3", "1", "2", "4"],
+        "correctOption": "3"
+    },
+    {
+        "question": "Name the element whose electronic configuration is 2, 8, 7.",
+        "options": ["Hydrogen", "helium", "chlorine", "carbon"],
+        "correctOption": "chlorine"
+    },
+    {
+        "question": "Goes to a positively charged ion. Said",
+        "options": ["Anion", "cation", "molecule", "atom"],
+        "correctOption": "cation"
+    },
+    {
+        "question": "Everything in this universe is made of materials which have been named by scientists.",
+        "options": ["solid", "liquid", "substance", "catalyst"],
+        "correctOption": "substance"
+    },
+    {
+        "question": "Covalent bonds are formed by sharing of electrons between two atoms in such a way that both can have completely filled shells.",
+        "options": ["center", "reasonably", "innermost", "outermost"],
+        "correctOption": "outermost"
+    },
+    {
+        "question": "Lactic acid is one.",
+        "options": ["two carbon molecules", "one carbon molecule", "four carbon molecules", "three carbon molecules"],
+        "correctOption": "three carbon molecules"
+    },
+    {
+        "question": "What is the chemical composition of ruby ​​gemstone?",
+        "options": ["Sodium chloride", "Aluminum oxide", "Carbon", "potassium"],
+        "correctOption": "Aluminum oxide"
+    },
+    {
+        "question": "What is the chemical symbol of lead?",
+        "options": ["Pb", "Zn", "Fe", "Mn"],
+        "correctOption": "Pb"
+    },
+    {
+        "question": "valence electrons in graphite atom is the number of",
+        "options": ["three", "four", "two", "five"],
+        "correctOption": "four"
+    },
+    {
+        "question": "How many neutrons are there in protium",
+        "options": ["0", "4", "2", "7"],
+        "correctOption": "0"
+    },
+    {
+        "question": "Name the scientist who proposed that electrons should be placed in the positive region is embedded",
+        "options": ["J J Thomson", "Niels Bohr", "E Rutherford", "Camillo Golgi"],
+        "correctOption": "J J Thomson"
+    },
+    {
+        "question": "Which of the following elements is a versatile element that forms the basis of all living organisms and many things we use?",
+        "options": ["Curium", "Barium", "Antimony", "carbon"],
+        "correctOption": "carbon"
+    },
+    {
+        "question": "Where are valence electrons present?",
+        "options": ["The innermost as well as outermost shell", "Innermost shell of atom", "just outside an atom", "outermost shell of atom"],
+        "correctOption": "outermost shell of atom"
+    },
+    {
+        "question": "What is the atomicity of phosphorus?",
+        "options": ["Tetra-atom", "Monatomic", "multi-atomic", "diatomic"],
+        "correctOption": "Tetra-atom"
+    },
+    {
+        "question": "Which of the following is used as fissionable fuel in nuclear reactor?",
+        "options": ["Gun", "U235", "208", "Pu"],
+        "correctOption": "U235"
+    },
+    {
+        "question": "Which of the following is an allotrope of carbon?",
+        "options": ["Diamond", "graphite", "Fullerenes", "carbon dioxide"],
+        "correctOption": "graphite"
+    },
+    {
+        "question": "The atomic number of an element is the number of atoms in the nucleus of each atom of that element.",
+        "options": ["electron", "Mason", "neutron", "proton"],
+        "correctOption": "proton"
+    },
+    {
+        "question": "What do we call a positively charged ion?",
+        "options": ["molecule", "an ion", "charged ion", "a cation"],
+        "correctOption": "a cation"
+    },
+    {
+        "question": "What is the ozone layer made of?",
+        "options": ["Tri-oxygen", "Di-oxygen", "Tetra-oxygen", "Mono-oxygen"],
+        "correctOption": "Tri-oxygen"
+    },
+    {
+        "question": "The hydrogen atom has three isotopes, protium, deuterium and tritium. The corresponding atomic number and mass number of the isotope tritium are:",
+        "options": ["1,1", "3, 1", "1,2", "1,3"],
+        "correctOption": "1,3"
+    },
+    {
+        "question": "What is the ratio of nitrogen and hydrogen in ammonia on the basis of mass?",
+        "options": ["14:8", "1:8", "3:14", "14:3"],
+        "correctOption": "14:3"
+    },
+    {
+        "question": "A sucrose molecule contains carbon atoms.",
+        "options": ["18", "15", "6", "12"],
+        "correctOption": "12"
+    },
+    {
+        "question": "Fullerene is an allotropic form:",
+        "options": ["Nitrogen", "oxygen", "Hydrogen", "carbon"],
+        "correctOption": "carbon"
+    },
+    {
+        "question": "relative molecular mass of water how much is a?",
+        "options": ["16 u", "18 u", "20 u", "22 u"],
+        "correctOption": "18 u"
+    },
+    {
+        "question": "What is the chemical formula of propane?",
+        "options": ["CH4", "CH5", "CH3", "CH2"],
+        "correctOption": "CH3"
+    },
+    {
+        "question": "What is the atomicity of phosphorus?",
+        "options": ["Monatomic", "Poly-atomic", "diatomic", "Tetra-atom"],
+        "correctOption": "Tetra-atom"
+    },
+    {
+        "question": "Which of the following is a metalloid?",
+        "options": ["glass", "gold", "Silicon", "Bromine"],
+        "correctOption": "Silicon"
+    },
+    {
+        "question": "It is called drawing of metals into thin wires. Capacity",
+        "options": ["tensile", "Solubility", "counter-revolution", "Shock enhancement"],
+        "correctOption": "tensile"
+    },
+    {
+        "question": "What is the alloy of lead and tin called?",
+        "options": ["Rust proof steel", "brass", "solder", "brass"],
+        "correctOption": "solder"
+    },
+    {
+        "question": "are known as electronegative elements because they form negatively charged ions by gain of electrons.",
+        "options": ["non-metal", "compound", "alloy", "mixture"],
+        "correctOption": "non-metal"
+    },
+    {
+        "question": "Which of the following is generally Which is not a property of non-metals?",
+        "options": ["Dirty and dim", "Conductor", "brittle", "light substances"],
+        "correctOption": "Conductor"
+    },
+    {
+        "question": "The process of depositing a layer of a desired metal on another substance through electricity is called",
+        "options": ["Electroplating", "electromagnetic", "electrical conductor", "electrode"],
+        "correctOption": "Electroplating"
+    },
+    {
+        "question": "Which of the following elements is a liquid at room temperature?",
+        "options": ["sodium", "Chromium", "Titanium", "mercury"],
+        "correctOption": "mercury"
+    },
+    {
+        "question": "Which metal is used to make microchips?",
+        "options": ["Silicon", "tungsten", "Duralumin", "steel"],
+        "correctOption": "Silicon"
+    },
+    {
+        "question": "The process of forming a thick layer of aluminum oxide on the surface of aluminum to protect it from corrosion is called",
+        "options": ["fame", "Anodization", "Version", "calcination"],
+        "correctOption": "Anodization"
+    },
+    {
+        "question": "What is the correct order of metallic characteristics of the given elements?",
+        "options": ["Li Na > K > Cs > Rb", "Na K < Li < Rb < Cs", "Li Na K Rb < Cs", "Li > Na > K > Rb > Cs"],
+        "correctOption": "Li Na K Rb < Cs"
+    },
+    {
+        "question": "Which of the following alloys does not contain tin?",
+        "options": ["Gun metal", "brass", "bell metal", "brass"],
+        "correctOption": "brass"
+    },
+    {
+        "question": "With which substances does silver turn black?",
+        "options": ["carbon", "Zinc", "Magnesium", "Sulphur"],
+        "correctOption": "Sulphur"
+    },
+    {
+        "question": "Which metal is used in electroplating to prevent iron from rusting and corrosion?",
+        "options": ["Rhodium", "Zinc", "tin", "Chromium"],
+        "correctOption": "Zinc"
+    },
+    {
+        "question": "Which chemical element is required to harden steel?",
+        "options": ["Manganese", "nickel", "Vanadium", "Chromium"],
+        "correctOption": "Manganese"
+    },
+    {
+        "question": "Which of the following is not a non-ferrous metal mineral?",
+        "options": ["Bauxite", "copper", "Mica", "lad"],
+        "correctOption": "Mica"
+    },
+    {
+        "question": "Which of the following is most commonly used as a semiconductor in solar cells?",
+        "options": ["ZmTe", "GeAS", "ZnSi", "GaAs"],
+        "correctOption": "GaAs"
+    },
+    {
+        "question": "Those elements which have intermediate properties between metals and non-metals are called metalloids. Which of the following is known as metalloid?",
+        "options": ["carbon", "copper", "Germanium", "iodine"],
+        "correctOption": "Germanium"
+    },
+    {
+        "question": "Which is the only non-metal present in liquid state at room temperature?",
+        "options": ["Iodine", "Bromine", "chlorine", "Fluorine"],
+        "correctOption": "Bromine"
+    },
+    {
+        "question": "It is the process of forming a thick layer of oxide on aluminium.",
+        "options": ["Anodizing", "sheeting", "Protection", "coating"],
+        "correctOption": "Anodizing"
+    },
+    {
+        "question": "The brass mixture is:",
+        "options": ["80% zinc and 20% copper", "20% zinc and 80% copper", "70% zinc and 30% copper", "30% zinc and 70% copper"],
+        "correctOption": "30% zinc and 70% copper"
+    },
+    {
+        "question": "Firecrackers get their color from metal salts. Which of the following metal salts exhibits green colored fireworks?",
+        "options": ["gold", "Barium", "Calcium", "sodium"],
+        "correctOption": "Barium"
+    },
+    {
+        "question": "lactic acid one",
+        "options": ["two carbon molecules", "one carbon molecule", "four carbon molecules", "three carbon molecules"],
+        "correctOption": "three carbon molecules"
+    },
+    {
+        "question": "The pH of lemon juice is approximately",
+        "options": ["7", "12", "9", "2"],
+        "correctOption": "2"
+    },
+    {
+        "question": "What is the pH range of human body?",
+        "options": ["2.35-4.45", "8.35-9.45", "5.35-6.45", "7.35-7.45"],
+        "correctOption": "7.35-7.45"
+    },
+    {
+        "question": "Which acid is present in ant sting?",
+        "options": ["Vinegar Acid", "medhanoic acid", "Tartaric acid", "Lactic acid"],
+        "correctOption": "medhanoic acid"
+    },
+    {
+        "question": "Which of the following is a mixture of acid and base?",
+        "options": ["Their pH is less than 7.", "They are bitter.", "The process of mixing acid or base with water is exothermic.", "They are used as preservatives."],
+        "correctOption": "The process of mixing acid or base with water is exothermic."
+    },
+    {
+        "question": "What is litmus solution obtained from?",
+        "options": ["Hydrangea", "Lichen", "Petunia", "cabbage leaves"],
+        "correctOption": "Lichen"
+    },
+    {
+        "question": "What is the scale to measure hydrogen ion concentration in a solution?",
+        "options": ["pH scale", "OH scale", "Hydrogen scale", "dB scale"],
+        "correctOption": "pH scale"
+    },
+    {
+        "question": "Which acid is used in anodizing process?",
+        "options": ["Dilute acetic acid", "Dilute sulfuric acid", "Dilute hydrochloric acid", "Dilute nitric acid"],
+        "correctOption": "Dilute sulfuric acid"
+    },
+    {
+        "question": "If a solution changes the color of blue litmus paper to red, then the color of this solution is",
+        "options": ["less than 7", "14", "more than 7", "7"],
+        "correctOption": "less than 7"
+    },
+    {
+        "question": "Which of the following is amphipathic is oxide?",
+        "options": ["Phosphorus pentoxide", "Zinc oxide", "Magnesium oxide", "Sulfur dioxide"],
+        "correctOption": "Zinc oxide"
+    },
+    {
+        "question": "Which of the following solutions has the highest concentration of hydrogen ions?",
+        "options": ["pH = 10", "pH= 8", "pH=4", "pH=5"],
+        "correctOption": "pH=4"
+    },
+    {
+        "question": "Which of the following can be used to neutralize the effect of formic acid injected with ant bites?",
+        "options": ["Potassium carbonate", "Calcium carbonate", "Sodium bicarbonate", "Sodium carbonate"],
+        "correctOption": "Sodium bicarbonate"
+    },
+    {
+        "question": "Which of the following acid and the substance in which it is found are wrongly matched?",
+        "options": ["Ascorbic acid- Tamarind", "Lactic acid- curd", "Acetic acid- vinegar", "Oxalic acid- Spinach"],
+        "correctOption": "Ascorbic acid- Tamarind"
+    },
+    {
+        "question": "Sulphide ores are converted into oxides by heating them strongly in the presence of excess air. By what name is this process known?",
+        "options": ["ignition", "combustion", "roasting", "heating"],
+        "correctOption": "roasting"
+    },
+    {
+        "question": "The technical term 'to remove from the inside of a shell' is known as nacre.",
+        "options": ["Garnet", "Mukta Seep", "Opal", "Onix"],
+        "correctOption": "Mukta Seep"
+    },
+    {
+        "question": "Diamond can be synthesized by subjecting pure carbon to",
+        "options": ["Very low pressure and low temperature", "very high pressure and high temperature", "Very low pressure and high temperature", "Very high pressure and low temperature"],
+        "correctOption": "very high pressure and high temperature"
+    },
+    {
+        "question": "The compound of metal found in nature is called:",
+        "options": ["flux", "Ore", "Mineral", "Apply"],
+        "correctOption": "Mineral"
+    },
+    {
+        "question": "What is aluminum ore called?",
+        "options": ["Malachite", "Hematite", "Bauxite", "Magnetite"],
+        "correctOption": "Bauxite"
+    },
+    {
+        "question": "Which of the following is an ore of thorium?",
+        "options": ["Carnotite", "Torbonite", "Monazite", "Pitchblende"],
+        "correctOption": "Monazite"
+    },
+    {
+        "question": "Which of the following is a copper ore?",
+        "options": ["Hematite", "Chromite", "Malachite", "Magnetite"],
+        "correctOption": "Malachite"
+    },
+    {
+        "question": "Which of the following is an ore of lead?",
+        "options": ["Bauxite", "Pyrolusite", "Gelena", "Limonite"],
+        "correctOption": "Gelena"
+    },
+    {
+        "question": "Which of the following is an allotrope of carbon?",
+        "options": ["Gypsum", "Chalk", "diamond", "marble"],
+        "correctOption": "diamond"
+    },
+    {
+        "question": "Which type of coal has the highest percentage of carbon?",
+        "options": ["peat", "Anthracite", "Lignite", "Bituminous"],
+        "correctOption": "Anthracite"
+    },
+    {
+        "question": "Name the sodium compound which is used to remove hardness of water permanently?",
+        "options": ["Sodium chloride", "Sodium carbonate", "sodium hydroxide", "Sodium hydrogen carbonate"],
+        "correctOption": "Sodium carbonate"
+    },
+    {
+        "question": "Which of the following is an allotrope form of carbon?",
+        "options": ["Gypsum", "Chalk", "diamond", "marble"],
+        "correctOption": "diamond"
+    },
+    {
+        "question": "Which organic compounds have suffix 'al'?",
+        "options": ["aldehyde", "Alkane", "Alcohol", "Alkyne"],
+        "correctOption": "aldehyde"
+    },
+    {
+        "question": "Isotopes are atoms in which",
+        "options": ["Same atomic mass but different atomic number", "Different atomic numbers and atomic masses", "Same atomic number and atomic mass", "Same atomic number but different atoms"],
+        "correctOption": "Same atomic number but different atoms"
+    },
+    {
+        "question": "Which radiation isotope is used to treat metastatic bone cancer?",
+        "options": ["Phosphorus-32", "Carbon-14", "Strotium-89", "Iodine-131"],
+        "correctOption": "Strotium-89"
+    },
+    {
+        "question": "What is the electronic configuration of rhodium?",
+        "options": [
+            "Is² 2s² 2p 3s²3p 4s 3d",
+            "Is² 2s² 2p 3s 3p 4s² 3d 4p",
+            "Is² 2s² 2p 3s2 3p 3d 4s 4p 4d5s",
+            "Is² 2s² 2p 3s"
+        ],
+        "correctOption": "Is² 2s² 2p 3s2 3p 3d 4s 4p 4d 5s"
+    },
+    {
+        "question": "What is the molecular formula of plaster of paris?",
+        "options": [
+            "CaSO4 H₂O",
+            "CaOClHO",
+            "CaSOHO",
+            "CaSO 2H₂O"
+        ],
+        "correctOption": "CaSO 2H₂O"
+    },
+    {
+        "question": "Match the following gases and their formulas.",
+        "options": [
+            "A-3, B-4, C-2, D-1",
+            "A-1, B-4, C-2, D-3",
+            "A-1, B-2, C-4, D-3",
+            "A-4, B-1, C-3, D-2"
+        ],
+        "correctOption": "A-1, B-4, C-2, D-3"
+    },
+    {
+        "question": "Which of the following units is used to measure the amount of a substance?",
+        "options": [
+            "mole",
+            "Joule",
+            "Tesla",
+            "lux"
+        ],
+        "correctOption": "mole"
+    },
+    {
+        "question": "Which of the following gases is a noble gas?",
+        "options": [
+            "Fluorine",
+            "Nitrogen",
+            "Oxygen",
+            "Argon"
+        ],
+        "correctOption": "Argon"
+    },
+    {
+        "question": "In the modern periodic table, the elements are arranged in how many vertical columns?",
+        "options": [
+            "18",
+            "16",
+            "12",
+            "9"
+        ],
+        "correctOption": "18"
+    },
+    {
+        "question": "What is the symbol used for magnesium?",
+        "options": [
+            "Mg",
+            "Mn",
+            "Ma",
+            "Mo"
+        ],
+        "correctOption": "Mg"
+    },
+    {
+        "question": "Every element has a name and a unique chemical symbol. What does this symbol represent?",
+        "options": [
+            "a specific color",
+            "A specific size",
+            "A specific chemical symbol",
+            "A specific physical symbol"
+        ],
+        "correctOption": "A specific chemical symbol"
+    },
+    {
+        "question": "Name the chemist who proved that the atomic number of an element reflects more fundamental properties than its atomic mass.",
+        "options": [
+            "John Newlands",
+            "Dmitri Ivanovich Mendeleev",
+            "Johann Dobereiner",
+            "Henry Mosley"
+        ],
+        "correctOption": "Henry Mosley"
+    },
+    {
+        "question": "Name the German chemist who grouped the elements into triads in 1817.",
+        "options": [
+            "Dmitri Ivanovich Mendeleev",
+            "John Newlands",
+            "Johann Wolfgang Dobereiner",
+            "Henry Mosley"
+        ],
+        "correctOption": "Johann Wolfgang Dobereiner"
+    },
+    {
+        "question": "The modern periodic table is based on which property of the elements?",
+        "options": [
+            "Equivalent weight",
+            "Valency",
+            "Atomic mass",
+            "Atomic number"
+        ],
+        "correctOption": "Atomic number"
+    },
+    {
+        "question": "Who invented the periodic table?",
+        "options": [
+            "Ernest Rutherford",
+            "Dalton",
+            "Newton",
+            "Dmitri Mendeleev"
+        ],
+        "correctOption": "Dmitri Mendeleev"
+    },
+    {
+        "question": "In the periodic table, as a group goes down, which property does not change?",
+        "options": [
+            "Number of shells",
+            "Metallic characteristics",
+            "Valency",
+            "Atomic size"
+        ],
+        "correctOption": "Valency"
+    },
+    {
+        "question": "Which of the following is not an element?",
+        "options": [
+            "Silica",
+            "Silicon",
+            "Germanium",
+            "Graphite"
+        ],
+        "correctOption": "Silica"
+    },
+    {
+        "question": "Which of the following is the least reactive element?",
+        "options": [
+            "Neon",
+            "Chlorine",
+            "Oxygen",
+            "Hydrogen"
+        ],
+        "correctOption": "Neon"
+    },
+    {
+        "question": "What is the first element of the periodic table?",
+        "options": [
+            "Carbon dioxide",
+            "Nitrogen",
+            "Oxygen",
+            "Hydrogen"
+        ],
+        "correctOption": "Hydrogen"
+    },
+    {
+        "question": "The position of an element in the periodic table is determined by what?",
+        "options": [
+            "Positron",
+            "Proton",
+            "Electron",
+            "Neutron"
+        ],
+        "correctOption": "Proton"
+    },
+    {
+        "question": "What does the word 'isotope' mean?",
+        "options": [
+            "Elements with similar bond structure.",
+            "Elements with different atomic numbers but same mass number",
+            "Elements having same atomic number but different mass number",
+            "Elements with similar physical and chemical properties."
+        ],
+        "correctOption": "Elements having same atomic number but different mass number"
+    },
+    {
+        "question": "What is the densest substance on Earth?",
+        "options": [
+            "Platinum",
+            "Steel",
+            "Osmium",
+            "Copper"
+        ],
+        "correctOption": "Osmium"
+    },
+    {
+        "question": "Who proposed the rule of octaves?",
+        "options": [
+            "Alexander Newlands",
+            "Dmitri Mendeleev",
+            "Lodhar Mayer",
+            "Johann Dobereiner"
+        ],
+        "correctOption": "Alexander Newlands"
+    },
+    {
+        "question": "According to which law is the volume of a gas inversely proportional to the pressure at constant temperature?",
+        "options": [
+            "Graham's Law",
+            "Charles's Law",
+            "Boyle's law",
+            "Gay-Lussac's law"
+        ],
+        "correctOption": "Boyle's law"
+    },
+    {
+        "question": "Which noble gas is radioactive in nature?",
+        "options": [
+            "Neon",
+            "Argon",
+            "Krypton",
+            "Radon"
+        ],
+        "correctOption": "Radon"
+    },
+    {
+        "question": "The rate constant of a reaction doubles with an increase of how many degrees in temperature?",
+        "options": [
+            "40 degrees",
+            "10 degrees",
+            "30 degrees",
+            "20 degrees"
+        ],
+        "correctOption": "10 degrees"
+    },
+    {
+        "question": "Due to the formation of what, does lime water become milky when carbon dioxide gas is passed through it?",
+        "options": [
+            "Ca(HCO₃)₂",
+            "Ca(OH)₂",
+            "CaSO₄",
+            "CaCO₃"
+        ],
+        "correctOption": "CaCO₃"
+    },
+    {
+        "question": "Which of the following is a property of an ionic compound?",
+        "options": [
+            "It is hard and does not break easily",
+            "It has high melting point and boiling point.",
+            "It is soluble in solvents like kerosene and petrol.",
+            "It conducts electricity in solid state"
+        ],
+        "correctOption": "It has high melting point and boiling point."
+    },
+    {
+        "question": "Which element is a greenish-yellow gas with a characteristic odor at room temperature?",
+        "options": [
+            "Iodine",
+            "Chlorine",
+            "Carbon monoxide",
+            "Hydrogen sulphide"
+        ],
+        "correctOption": "Chlorine"
+    },
+    {
+        "question": "What is oxidation?",
+        "options": [
+            "A substance that obtains hydrogen during a chemical reaction",
+            "A substance that receives oxygen during a chemical reaction",
+            "A substance that loses oxygen during a chemical reaction",
+            "A substance that loses both oxygen and hydrogen in a chemical reaction"
+        ],
+        "correctOption": "A substance that receives oxygen during a chemical reaction"
+    },
+    {
+        "question": "Sodium is a reactive metal, which when left exposed reacts with sodium to explode and catch fire. Which gas does it react with?",
+        "options": [
+            "Hydrogen",
+            "Nitrogen",
+            "Oxygen",
+            "Phosphorus"
+        ],
+        "correctOption": "Oxygen"
+    },
+    {
+        "question": "The most common isotopes used in nuclear weapons are:",
+        "options": [
+            "Uranium and Plutonium",
+            "Deuterium and Lithium",
+            "Uranium and Lithium",
+            "Deuterium and plutonium"
+        ],
+        "correctOption": "Uranium and Plutonium"
+    },
+    {
+        "question": "Which of the following is a greenish yellow gas with characteristic odor at room temperature?",
+        "options": [
+            "Carbon monoxide",
+            "Iodine",
+            "Chlorine",
+            "Hydrogen sulphide"
+        ],
+        "correctOption": "Chlorine"
+    },
+    {
+        "question": "An example is the decomposition of calcium carbonate into calcium oxide and carbon dioxide when heated. What type of reaction is this?",
+        "options": [
+            "Electrolytic decomposition reaction",
+            "Photo decomposition reaction",
+            "Exothermic reaction",
+            "Molal decomposition reaction"
+        ],
+        "correctOption": "Molal decomposition reaction"
+    },
+    {
+        "question": "A solution with chalk powder produces a gas which turns lime water milky. What is included in the solution?",
+        "options": [
+            "HCl",
+            "NaCl",
+            "AlCl",
+            "MgCl"
+        ],
+        "correctOption": "HCl"
+    },
+    {
+        "question": "One is a homogeneous mixture. Which one is it?",
+        "options": [
+            "Component",
+            "Solution",
+            "Particle",
+            "Molecule"
+        ],
+        "correctOption": "Solution"
+    },
+    {
+        "question": "Which of the following methods can be used to separate a mixture of NaCl and NH₂CI?",
+        "options": [
+            "Distillation",
+            "Chromatography",
+            "Crystallization",
+            "Centrifugation"
+        ],
+        "correctOption": "Distillation"
+    },
+    {
+        "question": "The deposition of heavy insoluble components of a mixture of water and insoluble substances is called:",
+        "options": [
+            "Disposal",
+            "Evaporation",
+            "Filtration",
+            "Sedimentation"
+        ],
+        "correctOption": "Sedimentation"
+    },
+    {
+        "question": "What is the solution of a weak acid and its salt called?",
+        "options": [
+            "Indifferent solution",
+            "Amphoteric solution",
+            "Highly acidic solution",
+            "Alkaline solution"
+        ],
+        "correctOption": "Amphoteric solution"
+    },
+    {
+        "question": "Power alcohol is a mixture of alcohol. and ethyl",
+        "options": [
+            "Diesel",
+            "Mustard",
+            "Kerosene",
+            "Petrol"
+        ],
+        "correctOption": "Petrol"
+    },
+    {
+        "question": "Which gas is present as a solute in aerated drinks like soda water?",
+        "options": [
+            "Carbon dioxide",
+            "Oxygen",
+            "Nitrogen",
+            "Hydrogen"
+        ],
+        "correctOption": "Carbon dioxide"
+    },
+    {
+        "question": "Syngas is mainly a mixture of",
+        "options": [
+            "Butane and propane",
+            "Carbon dioxide and hydrogen",
+            "Carbon monoxide and hydrogen",
+            "Carbon dioxide and sulfur"
+        ],
+        "correctOption": "Carbon monoxide and hydrogen"
+    },
+    {
+        "question": "Which of the following is not an alkaline solution?",
+        "options": [
+            "Aluminum hydroxide",
+            "Calcium hydroxide",
+            "Sodium hydroxide",
+            "Magnesium hydroxide"
+        ],
+        "correctOption": "Aluminum hydroxide"
+    },
+    {
+        "question": "Which word is used for the spontaneous mixing of particles of two different types of substances?",
+        "options": [
+            "Diffusion",
+            "Transfer",
+            "Confusion",
+            "Change"
+        ],
+        "correctOption": "Diffusion"
+    },
+    {
+        "question": "Write the names of the elements found in baking powder.",
+        "options": [
+            "Hydrogen, Potassium, Sulfur and oxygen",
+            "Sulphur, hydrogen, carbon and oxygen",
+            "Potassium, sulfur and oxygen",
+            "Sodium, hydrogen, carbon and oxygen"
+        ],
+        "correctOption": "Sodium, hydrogen, carbon and oxygen"
+    },
+    {
+        "question": "Which of the following is not a property of colloid?",
+        "options": [
+            "Colloid absorbs the light passing through it. Cannot scatter the ray.",
+            "A colloid is a heterogeneous mixture.",
+            "They are not stable when left without any disturbance.",
+            "Due to their very small size, individual particles cannot be seen with the naked eye."
+        ],
+        "correctOption": "Colloid absorbs the light passing through it. Cannot scatter the ray."
+    },
+    {
+        "question": "A homogeneous mixture of a solute and a solvent is called.",
+        "options": [
+            "Calcium hydroxide",
+            "Solution",
+            "Electrolyte",
+            "Emulsion"
+        ],
+        "correctOption": "Solution"
+    },
+    {
+        "question": "Which of the following solutions has the highest concentration of hydrogen ions?",
+        "options": [
+            "pH = 10",
+            "pH = 5",
+            "pH = 8",
+            "pH = 4"
+        ],
+        "correctOption": "pH = 4"
+    },
+    {
+        "question": "The process of converting sugar into alcohol is called:",
+        "options": [
+            "Disposal",
+            "Condensation",
+            "Sedimentation",
+            "Fermentation"
+        ],
+        "correctOption": "Fermentation"
+    },
+    {
+        "question": "Which of the following mixtures is used to purify gold?",
+        "options": [
+            "Aerosol",
+            "Nestler's reagent",
+            "Acca Regia",
+            "Alcohol ammonia"
+        ],
+        "correctOption": "Acca Regia"
+    },
+    {
+        "question": "Which of the following is used in plastics?",
+        "options": [
+            "Butane",
+            "Ethylene",
+            "Krypton",
+            "Ammonia"
+        ],
+        "correctOption": "Ethylene"
+    },
+    {
+        "question": "Which of the following contains CFC?",
+        "options": [
+            "Aerated drinks",
+            "Roran",
+            "Wall paint",
+            "Coolant"
+        ],
+        "correctOption": "Coolant"
+    },
+    {
+        "question": "Which of the following is the process of converting sugar into alcohol?",
+        "options": [
+            "Pasteurization",
+            "Bleaching",
+            "Fermentation",
+            "Oxidation"
+        ],
+        "correctOption": "Fermentation"
+    },
+    {
+        "question": "Biogas is an excellent fuel as it contains up to 75%.",
+        "options": [
+            "oxygen",
+            "methane",
+            "sulphide",
+            "Hydrogen"
+        ],
+        "correctOption": "methane"
+    },
+    {
+        "question": "Which of the following adds fizz to the Sofi drink?",
+        "options": [
+            "acetic acid",
+            "Carbonic acid",
+            "Citric acid",
+            "Sulfuric acid"
+        ],
+        "correctOption": "Carbonic acid"
+    },
+    {
+        "question": "Which of the following is not true about Plaster of Paris?",
+        "options": [
+            "Plaster of Paris is used to make decorative designs",
+            "Plaster of Paris does not change when wet with water.",
+            "Plaster of Paris is white.",
+            "Plaster of Paris is used to repair broken bones."
+        ],
+        "correctOption": "Plaster of Paris does not change when wet with water."
+    },
+    {
+        "question": "Being light and flammable, the gas is used to fill balloons.",
+        "options": [
+            "chlorine",
+            "Neon",
+            "oxygen",
+            "helium"
+        ],
+        "correctOption": "helium"
+    },
+    {
+        "question": "Silver jewelery turns black after some time when it comes in contact with air because",
+        "options": [
+            "Silver reacts with hydrogen in air to form silver hydride.",
+            "Silver reacts with sulfur in air to form silver sulphide.",
+            "Silver reacts with carbon in air to form silver carbide.",
+            "Silver reacts with nitrogen in air to form silver nitrite."
+        ],
+        "correctOption": "Silver reacts with sulfur in air to form silver sulphide."
+    },
+    {
+        "question": "What is the process of paper turning brown in old books called?",
+        "options": [
+            "leaching",
+            "foxing",
+            "effect of time",
+            "effervescence"
+        ],
+        "correctOption": "foxing"
+    },
+    {
+        "question": "What ingredients are added to bread to make it rise?",
+        "options": [
+            "Tomato Chutney",
+            "Paneer",
+            "yeast",
+            "wheat"
+        ],
+        "correctOption": "yeast"
+    },
+    {
+        "question": "Name the gas which is filled in wick type lighter.",
+        "options": [
+            "butane",
+            "Nitrogen",
+            "methane",
+            "helium"
+        ],
+        "correctOption": "butane"
+    },
+    {
+        "question": "Which of the following causes blackening of silver objects in air (when exposed to air)",
+        "options": [
+            "chlorine",
+            "Sulphur",
+            "carbon",
+            "Nitrogen"
+        ],
+        "correctOption": "Sulphur"
+    },
+    {
+        "question": "Which gas is found in soda water?",
+        "options": [
+            "Hydrogen",
+            "carbon dioxide",
+            "Nitrogen",
+            "freon"
+        ],
+        "correctOption": "carbon dioxide"
+    },
+    {
+        "question": "Which of the following can be used for purification of water?",
+        "options": [
+            "Alum",
+            "Sodium",
+            "Nitrogen",
+            "carbon dioxide"
+        ],
+        "correctOption": "Alum"
+    },
+    {
+        "question": "Which polymer is used for manufacturing water pipes?",
+        "options": [
+            "examination",
+            "a type of plastic",
+            "Glyol",
+            "PVC"
+        ],
+        "correctOption": "PVC"
+    },
+    {
+        "question": "Which of the following is herbicide?",
+        "options": [
+            "BHC",
+            "2,4-D",
+            "DDT",
+            "Aldrin"
+        ],
+        "correctOption": "2,4-D"
+    },
+    {
+        "question": "Bleaching powder is not used for",
+        "options": [
+            "Disinfecting water",
+            "preparing bread",
+            "Oxidation chemical",
+            "bleaching cotton"
+        ],
+        "correctOption": "preparing bread"
+    },
+    {
+        "question": "Cryogenic engine uses which of the following as its fuel?",
+        "options": [
+            "Liquid Oxygen and Liquid Hydrogen",
+            "Oxygen and hydrogen",
+            "liquid hydrogen",
+            "liquid oxygen"
+        ],
+        "correctOption": "Liquid Oxygen and Liquid Hydrogen"
+    },
+    {
+        "question": "Which of the following is not a good preservative for pickles?",
+        "options": [
+            "salt",
+            "Sodium benzoate",
+            "Sodium metabisulphite",
+            "black pepper"
+        ],
+        "correctOption": "black pepper"
+    },
+    {
+        "question": "Formaldehyde is used in which of the following options?",
+        "options": [
+            "Air conditioner",
+            "Perfume",
+            "refrigerator",
+            "fire extinguisher"
+        ],
+        "correctOption": "Perfume"
+    },
+    {
+        "question": "artificial fertilizer for the first time were built during the century.",
+        "options": [
+            "18th",
+            "17th",
+            "16th",
+            "19th"
+        ],
+        "correctOption": "19th"
+    },
+    {
+        "question": "Who provided the basic theory about the nature of matter?",
+        "options": [
+            "Mendel",
+            "John Dalton",
+            "John Milton",
+            "Lavoisier"
+        ],
+        "correctOption": "John Dalton"
+    },
+    {
+        "question": "Which British physicist was awarded the Nobel Prize in Physics in 1906 for his work on the discovery of electrons?",
+        "options": [
+            "James Chadwick",
+            "JJ Thomson",
+            "Niels Bohr",
+            "Ernest Rutherford"
+        ],
+        "correctOption": "JJ Thomson"
+    },
+    {
+        "question": "Which sub-atomic particle was discovered by J Chadwick?",
+        "options": [
+            "Neuron",
+            "neutron",
+            "Proton",
+            "electron"
+        ],
+        "correctOption": "neutron"
+    },
+    {
+        "question": "Name the British chemist who presented the atomic theory on conservation of mass and the law of definite proportions in 1808, which was a turning point in the study of motion.",
+        "options": [
+            "John Dalton",
+            "Lavoisier",
+            "Ernest Rutherford",
+            "Prost"
+        ],
+        "correctOption": "John Dalton"
+    },
+    {
+        "question": "What is Karl Landsteiner known for?",
+        "options": [
+            "For identification of Zika virus",
+            "Discovery of blood group classification",
+            "Isolating DNA",
+            "Study of nervous system"
+        ],
+        "correctOption": "Discovery of blood group classification"
+    },
+    {
+        "question": "IT Gandhinagar students created world's thinnest material using",
+        "options": [
+            "Magnesium diboride",
+            "Calcium diboride",
+            "Lithium diboride",
+            "Sodium diboride"
+        ],
+        "correctOption": "Magnesium diboride"
+    },
+    {
+        "question": "In 1921, Albert Einstein was awarded the Nobel Prize for",
+        "options": [
+            "Photoelectric effect",
+            "Theory of Relativity",
+            "Radioactivity",
+            "Doppler effect"
+        ],
+        "correctOption": "Photoelectric effect"
+    },
+    {
+        "question": "The chemical formula of lime water is.",
+        "options": [
+            "CaCl₂",
+            "CaCO₃",
+            "CaOH",
+            "Ca(OH)₂"
+        ],
+        "correctOption": "Ca(OH)₂"
+    },
+    {
+        "question": "What is the symbol for methane?",
+        "options": [
+            "CH₃",
+            "CH₄",
+            "CH₂",
+            "CH"
+        ],
+        "correctOption": "CH₄"
+    },
+    {
+        "question": "What is another name for calcium oxide?",
+        "options": [
+            "Soda lime",
+            "Limestone",
+            "baking soda",
+            "cement"
+        ],
+        "correctOption": "Limestone"
+    },
+    {
+        "question": "When gypsum is heated at 373 K, it releases water molecules and becomes calcium sulphate hemihydrate. This substance is used for toys, decorations, and to create materials and smooth surfaces. By what name is the substance commonly known?",
+        "options": [
+            "Cement",
+            "Alabaster",
+            "Plaster of Paris",
+            "Clay"
+        ],
+        "correctOption": "Plaster of Paris"
+    },
+    {
+        "question": "Which of the following is an ester?",
+        "options": [
+            "CH₂CO",
+            "CH₃COOH",
+            "CH₃COOC₂H₃",
+            "CH₂RED"
+        ],
+        "correctOption": "CH₃COOC₂H₃"
+    },
+    {
+        "question": "What is the mineral name of rock salt?",
+        "options": [
+            "Limonite",
+            "Hematite",
+            "Halite",
+            "Siderite"
+        ],
+        "correctOption": "Halite"
+    },
+    {
+        "question": "What is the chemical name of Neela Thotha?",
+        "options": [
+            "Aluminum",
+            "Potassium Nitrate",
+            "Copper Sulphate",
+            "Argon"
+        ],
+        "correctOption": "Copper Sulphate"
+    },
+    {
+        "question": "Which of the following air pollutants is known as soot?",
+        "options": [
+            "ozone",
+            "granular element",
+            "lead",
+            "carbon monoxide"
+        ],
+        "correctOption": "granular element"
+    },
+    {
+        "question": "What is the chemical formula of common salt?",
+        "options": [
+            "NaOH",
+            "KOH",
+            "HCl",
+            "NaCl"
+        ],
+        "correctOption": "NaCl"
+    },
+    {
+        "question": "Zinc sulphate heptahydrate (ZnSO.7H2O) is commonly known as",
+        "options": [
+            "White vitriol",
+            "Gypsum",
+            "rock salt",
+            "blue vitriol"
+        ],
+        "correctOption": "White vitriol"
+    },
+    {
+        "question": "What is the common name of mercury?",
+        "options": [
+            "Pearl Ash",
+            "Quick Silver",
+            "White zinc",
+            "white lead"
+        ],
+        "correctOption": "Quick Silver"
+    },
+    {
+        "question": "Which gas is called laughing gas? Also known?",
+        "options": [
+            "Nitrous oxide",
+            "helium",
+            "methane",
+            "carbon dioxide"
+        ],
+        "correctOption": "Nitrous oxide"
+    },
+    {
+        "question": "What is the common name of NaHCO₃?",
+        "options": [
+            "Running soda",
+            "Bleaching powder",
+            "Caustic soda",
+            "baking soda"
+        ],
+        "correctOption": "baking soda"
+    },
+    {
+        "question": "What is the IUPAC name of glycerol?",
+        "options": [
+            "Ethane-1,2 diol",
+            "2-propanol; Propane-1-ol",
+            "Propen-1-ol",
+            "Propane-1,2,3-triol"
+        ],
+        "correctOption": "Propane-1,2,3-triol"
+    },
+    {
+        "question": "What is the common name for E300?",
+        "options": [
+            "Vitamin B",
+            "Vitamin A",
+            "Vitamin D",
+            "Vitamin C"
+        ],
+        "correctOption": "Vitamin C"
+    },
+    {
+        "question": "Muriatic Acid is scientifically known as:",
+        "options": [
+            "Sulfuric acid",
+            "Picloric acid",
+            "Hydrochloric acid",
+            "Picric acid"
+        ],
+        "correctOption": "Hydrochloric acid"
+    },
+    {
+        "question": "The term 'Sericulture' is related to which of the following?",
+        "options": [
+            "Fisheries",
+            "Sericulture",
+            "bird farming",
+            "Beekeeping"
+        ],
+        "correctOption": "Sericulture"
+    },
+    {
+        "question": "Which industry uses limestone as raw material?",
+        "options": [
+            "cement",
+            "plastic",
+            "Automobile",
+            "utensils"
+        ],
+        "correctOption": "cement"
+    },
+    {
+        "question": "Which essential element is used in the synthesis of proteins and other compounds in plants?",
+        "options": [
+            "Potassium",
+            "Nitrogen",
+            "Magnesium",
+            "phosphorus"
+        ],
+        "correctOption": "Nitrogen"
+    },
+    {
+        "question": "A topical gel to protect farmers' skin from pesticides has been developed by:",
+        "options": [
+            "Institute of Stem Cell Science and Regenerative Medicine",
+            "Indian Toxicological Research Institute",
+            "National Botanical Research Institute",
+            "Indian Agricultural Research Institute"
+        ],
+        "correctOption": "Institute of Stem Cell Science and Regenerative Medicine"
+    },
+    {
+        "question": "Which of the following acids is a component of eyewash?",
+        "options": [
+            "Sulfuric acid",
+            "Boric acid",
+            "Acetic acid",
+            "Hydrochloric acid"
+        ],
+        "correctOption": "Boric acid"
+    },
+    {
+        "question": "Which of the following is biodegradable?",
+        "options": [
+            "Polythene",
+            "Aluminum cans",
+            "plants",
+            "glass"
+        ],
+        "correctOption": "plants"
+    },
+    {
+        "question": "The amount of radiation emitted by radioactive material is expressed in conventional units. Measured using",
+        "options": [
+            "Curie",
+            "Pascal",
+            "Way",
+            "Appier"
+        ],
+        "correctOption": "Curie"
+    },
+    {
+        "question": "Which of the following elements is present in chlorophyll?",
+        "options": [
+            "Magnesium",
+            "Calcium",
+            "Aluminum",
+            "iron"
+        ],
+        "correctOption": "Magnesium"
+    },
+    {
+        "question": "Which of the following is not used as a moderator in nuclear reactors?",
+        "options": [
+            "heavy water",
+            "water",
+            "Boron",
+            "graphite"
+        ],
+        "correctOption": "Boron"
+    },
+    {
+        "question": "Which of the following solutions does not conduct electricity?",
+        "options": [
+            "Acid and base",
+            "Glucose and alkali",
+            "Alcohol and glucose",
+            "Alcohol and acid"
+        ],
+        "correctOption": "Alcohol and glucose"
+    },
+    {
+        "question": "'Heavy water' is a word related to which of the following?",
+        "options": [
+            "Hydro Electro Power Plant",
+            "Nuclear power generation plant",
+            "Fertilizer industry",
+            "Pharmaceutical industry"
+        ],
+        "correctOption": "Nuclear power generation plant"
+    },
+    {
+        "question": "Heavy water is called so because",
+        "options": [
+            "It is used in nuclear reactors",
+            "It is used in heavy industries like steel, It is done by chemicals etc.",
+            "Its density is three times that of normal water.",
+            "It uses deuterium, the heavy isotope of hydrogen, instead of protium."
+        ],
+        "correctOption": "It uses deuterium, the heavy isotope of hydrogen, instead of protium."
+    },
+    {
+        "question": "Which of the following is true for 80?",
+        "options": [
+            "It is not soluble in water, ethanol and acetone",
+            "It is a linear electrovalent molecule",
+            "It has white cloudy color and pungent gas like smell.",
+            "The solid form of CO is called dry ice."
+        ],
+        "correctOption": "The solid form of CO is called dry ice."
+    },
+    {
+        "question": "The boiling point of liquid nitrogen is",
+        "options": [
+            "-132°C",
+            "-273°C",
+            "-196°C",
+            "-27°C"
+        ],
+        "correctOption": "-196°C"
+    },
+    {
+        "question": " is included in a carbon credit",
+        "options": [
+            "10 kg carbon dioxide",
+            "100 kg carbon dioxide",
+            "1kg carbon dioxide",
+            "1000 kg carbon dioxide"
+        ],
+        "correctOption": "1000 kg carbon dioxide"
+    },
+    {
+        "question": "Marie Curie won the Nobel Prize for which of the following fields?",
+        "options": [
+            "Chemistry and Biology",
+            "Physics and meteorology",
+            "Physics and Chemistry",
+            "Physics and astronomy"
+        ],
+        "correctOption": "Physics and Chemistry"
+    },
+    {
+        "question": " has three active forms: retinal, retinol and retinoic acid RRB NTPC 22-2-2021 (Morning)",
+        "options": [
+            "Vitamin C",
+            "Vitamin A",
+            "Vitamin B",
+            "Vitamin D"
+        ],
+        "correctOption": "Vitamin A"
+    },
+    {
+        "question": "Which of the following determines that a chemical reaction has not occurred?",
+        "options": [
+            "Change in state",
+            "Change in shape",
+            "change in color",
+            "emergence of gas"
+        ],
+        "correctOption": "Change in shape"
+    },
+    {
+        "question": "What letters indicate NPK on fertilizer packs?",
+        "options": [
+            "Nitrogen, potassium, phosphorus",
+            "Nitrogen, phosphorus, potassium",
+            "Nitric acid, phosphorus, potassium",
+            "Nitrogen, phosphoric acid, potassium"
+        ],
+        "correctOption": "Nitrogen, phosphorus, potassium"
+    },
+    {
+        "question": "Fibers like nylon and polyester, which are made from chemical substances, are called.",
+        "options": [
+            "Natural fiber",
+            "woolen",
+            "Synthetic fiber",
+            "silk"
+        ],
+        "correctOption": "Synthetic fiber"
+    },
+    {
+        "question": "Which of the following products is formed by burning magnesium ribbon with spirit lamp?",
+        "options": [
+            "Magnesium Sulphate",
+            "Magnesium dioxide",
+            "Magnesium oxide",
+            "Magnesium hydroxide"
+        ],
+        "correctOption": "Magnesium oxide"
+    },
+    {
+        "question": " is a sulfur containing amino acid.",
+        "options": [
+            "Tryptophan",
+            "Histidine",
+            "Cysteine",
+            "Serine"
+        ],
+        "correctOption": "Cysteine"
+    },
+    {
+        "question": "Which of the following elements has the maximum density?",
+        "options": [
+            "Mercury",
+            "platinum",
+            "lead",
+            "Osmium"
+        ],
+        "correctOption": "Osmium"
+    },
+    {
+        "question": "-273.15°C temperature is equal to:",
+        "options": [
+            "173 K",
+            "23 K",
+            "100 K",
+            "0 K"
+        ],
+        "correctOption": "0 K"
+    },
+    {
+        "question": "Which of the following substances undergoes sublimation?",
+        "options": [
+            "Nitrogen",
+            "Iodine",
+            "sucrose",
+            "Calcium"
+        ],
+        "correctOption": "Iodine"
+    },
+    {
+        "question": "Who received the Nobel Prize for Physics in 1922 for investigating the structure of atoms and the radiation emanating from them?",
+        "options": [
+            "JJ Thomson",
+            "Robert Hooke",
+            "Niels Bohr",
+            "E Rutherford"
+        ],
+        "correctOption": "Niels Bohr"
+    },
+    {
+        "question": "Which of the following is an example of man-made fibre?",
+        "options": [
+            "rayon",
+            "silk",
+            "Linen",
+            "Jute"
+        ],
+        "correctOption": "rayon"
+    },
+    {
+        "question": "Synthetic fibers catch fire easily, however, fireman's uniforms have a plastic coating that makes them flame resistant.",
+        "options": [
+            "Melamine",
+            "Nylon",
+            "acrylic",
+            "Rayon"
+        ],
+        "correctOption": "Melamine"
+    },
+    {
+        "question": "Plaster of Paris is made of:",
+        "options": [
+            "Gypsum",
+            "quick lime",
+            "Slaked lime",
+            "Limestone"
+        ],
+        "correctOption": "Gypsum"
+    },
+    {
+        "question": "Which of the following is used for cancer treatment?",
+        "options": [
+            "An isotope of uranium",
+            "An isotope of cobalt",
+            "An isotope of copper",
+            "An isotope of iodine"
+        ],
+        "correctOption": "An isotope of cobalt"
+    },
+    {
+        "question": "Which gas can be stabilized in the atmosphere by lightning?",
+        "options": [
+            "carbon dioxide",
+            "Nitrogen",
+            "Argon",
+            "oxygen"
+        ],
+        "correctOption": "Nitrogen"
+    },
+    {
+        "question": "Which of the following activities is not responsible for greenhouse effect?",
+        "options": [
+            "Use of petrol vehicles for transportation",
+            "Emissions from Dharmal Power Plant",
+            "Use of wood as fuel",
+            "Use of solar car for transportation"
+        ],
+        "correctOption": "Use of solar car for transportation"
+    },
+    {
+        "question": "Which of the following is not a form of calcium carbonate?",
+        "options": [
+            "Limestone",
+            "marble",
+            "chalk",
+            "Gypsum"
+        ],
+        "correctOption": "Gypsum"
+    },
+    {
+        "question": "Permanent hardness of water can be removed by adding",
+        "options": [
+            "Washing soda",
+            "Potassium permanganate",
+            "bleaching powder",
+            "chlorine"
+        ],
+        "correctOption": "Washing soda"
+    },
+    {
+        "question": "Argon is a commonly used gas to fill incandescent light bulbs because argon is.",
+        "options": [
+            "in abundance",
+            "lightest",
+            "inactive",
+            "reactive"
+        ],
+        "correctOption": "inactive"
+    },
+    {
+        "question": "Acid rain occurs when the atmosphere is highly polluted:",
+        "options": [
+            "NH3 and SO2",
+            "CO and CO2",
+            "SO2 and NO2",
+            "smoke particles"
+        ],
+        "correctOption": "SO2 and NO2"
+    },
+
+
+
+
+
+	 
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

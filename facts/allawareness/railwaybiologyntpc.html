@@ -1,0 +1,4391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTPC Biology 2021</title> 
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Biology NTPC 2021 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+function showQuestion() {
+
+correctOptionText = ''; // Initialize correctOptionText
+    // Rest of your existing showQuestion code
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+
+// Copy question and options
+const copyButton = document.querySelector('.btn-copy');
+copyButton.addEventListener('click', () => {
+    const questionText = document.querySelector('#question').textContent;
+    const optionElements = document.querySelectorAll('.form-check-label');
+    
+    let optionsText = '';
+    let correctOptionText = null;
+    let correctOptionIndex = null;
+
+    optionElements.forEach((optionElement, index) => {
+        const optionText = optionElement.textContent.trim();
+        const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+        optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? ' ☑️Correct' : ''}\n`;
+
+        if (isCorrect) {
+            correctOptionText = optionText;
+            correctOptionIndex = index + 1;
+        }
+    });
+
+    let textToCopy = `${questionText}\n\n${optionsText}\n`;
+
+    if (correctOptionText && correctOptionIndex) {
+        textToCopy += `The Correct Option ${correctOptionIndex}: ${correctOptionText}\n                 ☑️Correct  ☑️Correct\n`;
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+
+    // Toggle button text
+    copyButton.textContent = '✅';
+    setTimeout(() => {
+        copyButton.textContent = '📋';
+    }, 2000); // Reset text after 2 seconds
+});
+
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'technologyntpc2021underntpcfacts';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+    const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+	
+	 // Update correctOptionText for copying
+        correctOptionText = `correctOption ${correctOptionIndex + 1}: ${currentQuestion.correctOption}`;
+		
+	
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+
+  
+
+  {
+    "question": "What is the botanical name of banyan tree?",
+    "options": [
+      "Ficus benghalensis",
+      "elt ela floam",
+      "Ficus osa",
+      "Azadarchata indica"
+    ],
+    "correctOption": "Ficus benghalensis"
+  },
+  {
+    "question": "What is the zoology of common housefly?",
+    "options": [
+      "Triticum ativum",
+      "Fania",
+      "Homo sapiens",
+      "Musca domestica"
+    ],
+    "correctOption": "Musca domestica"
+  },
+  {
+    "question": "What is the scientific name of Gade plant?",
+    "options": [
+      "Mimosa townsendi",
+      "ert verrucosa",
+      "Mimosa laxensis",
+      "Mimosa pudica"
+    ],
+    "correctOption": "Mimosa pudica"
+  },
+  {
+    "question": "What is the botanical name of common wheat?",
+    "options": [
+      "Brassica campestris",
+      "Hibiscus rosa sinensis",
+      "Triticum aestivum",
+      "lived table"
+    ],
+    "correctOption": "Triticum aestivum"
+  },
+  {
+    "question": "Rana tigrina is a scientist of which animal?",
+    "options": [
+      "leopard",
+      "tiger",
+      "HIs",
+      "Asian frog"
+    ],
+    "correctOption": "Asian frog"
+  },
+  {
+    "question": "Brassica Campestris is of which plant?",
+    "options": [
+      "Mustard field",
+      "Common wheat",
+      "Cereals",
+      "Maize"
+    ],
+    "correctOption": "Mustard field"
+  },
+  {
+    "question": "Butea AA is of which plant?",
+    "options": [
+      "Peepal",
+      "Palash",
+      "Neem",
+      "Shirish"
+    ],
+    "correctOption": "Palash"
+  },
+  {
+    "question": "What is the common name of Vala given to members of the faci species?",
+    "options": [
+      "balsa",
+      "as",
+      "Canine",
+      "Bovine"
+    ],
+    "correctOption": "Feline"
+  },
+  {
+    "question": "What is the scientific name of 'Mango' fruit?",
+    "options": [
+      "Pyrus malus",
+      "Musa",
+      "Solanum tuberosum",
+      "Mangifera Indica"
+    ],
+    "correctOption": "Mangifera Indica"
+  },
+  {
+    "question": "What is the scientific name of mango fruit?",
+    "options": [
+      "Har Indica",
+      "Mangas E",
+      "Mangifera indica",
+      "Mangas indicus"
+    ],
+    "correctOption": "Mangifera indica"
+  },
+  {
+    "question": "The earliest members of the human species, Homo sapiens can be traced back to which continent?",
+    "options": [
+      "Asia",
+      "Antarctica",
+      "Europe",
+      "Africa"
+    ],
+    "correctOption": "Africa"
+  },
+  {
+    "question": "What is the scientific name of green peas?",
+    "options": [
+      "Triticum aestivum",
+      "Pisum",
+      "Zea mays",
+      "Pisum sativum"
+    ],
+    "correctOption": "Pisum"
+  },
+  {
+    "question": "Which of the following is called \"Alfalfa\"?",
+    "options": [
+      "Fish",
+      "Fossil",
+      "Sativa",
+      "Memel"
+    ],
+    "correctOption": "Sativa"
+  },
+  {
+    "question": "What is the scientific name of Indian peacock, the national bird of India?",
+    "options": [
+      "Nelumbo Al Garton",
+      "Prosopis",
+      "Strigiformes",
+      "Pavo cristatus"
+    ],
+    "correctOption": "Pavo cristatus"
+  },
+  {
+    "question": "Scientist of 'Triticum Aestivum'?",
+    "options": [
+      "Monkey",
+      "Wheat",
+      "Mango",
+      "Human"
+    ],
+    "correctOption": "Wheat"
+  },
+  {
+    "question": "The type of nutrition in the body that accepts nutrients in the form of solution from decaying matter?",
+    "options": [
+      "Insectivorous nutrition",
+      "Heterotrophic nutrition",
+      "Autotrophic nutrition",
+      "Saprophytic nutrition"
+    ],
+    "correctOption": "Saprophytic nutrition"
+  },
+  {
+    "question": "Taxol is extracted from which plant?",
+    "options": [
+      "ats",
+      "neem",
+      "cedar",
+      "evergreen"
+    ],
+    "correctOption": "evergreen"
+  },
+  {
+    "question": "Which tissue transports water from the plant's roots to its leaves?",
+    "options": [
+      "zygote",
+      "collenchyma",
+      "Xylem",
+      "Phloem"
+    ],
+    "correctOption": "Xylem"
+  },
+  {
+    "question": "Which gas is required for photosynthesis?",
+    "options": [
+      "carbon dioxide",
+      "carbon monoxide",
+      "oxygen",
+      "Hydrogen"
+    ],
+    "correctOption": "carbon dioxide"
+  },
+  {
+    "question": "Sugarcane plants convert sunlight into chemical energy. What is the most efficient converter?",
+    "options": [
+      "Air",
+      "Juice",
+      "Sunlight",
+      "Water"
+    ],
+    "correctOption": "Sunlight"
+  },
+  {
+    "question": "Four essentials for photosynthesis include:",
+    "options": [
+      "Chemicals, carbohydrates, water, and chlorophyll",
+      "Parasites, food, chlorophyll, and oxygen",
+      "Carbon dioxide, minerals, chlorophyll, and sunlight",
+      "Chlorophyll, sunlight, carbon dioxide, and water"
+    ],
+    "correctOption": "Chlorophyll, sunlight, carbon dioxide, and water"
+  },
+  {
+    "question": "Which types of tissues are parenchyma and collenchyma?",
+    "options": [
+      "Dermal and ground",
+      "Vascular and ground",
+      "Simple permanent",
+      "Complex permanent"
+    ],
+    "correctOption": "Simple permanent"
+  },
+  {
+    "question": "Which of the following does not grow under the soil?",
+    "options": [
+      "Tomato",
+      "Turnip",
+      "Radish",
+      "Potato"
+    ],
+    "correctOption": "Tomato"
+  },
+ 
+  {
+    "question": "Suffering from which of the following diseases can patients donate eyes?",
+    "options": [
+      "Rabies",
+      "Diabetes",
+      "Tetanus",
+      "Cholera"
+    ],
+    "correctOption": "Diabetes"
+  },
+  {
+    "question": "Medicines that prevent microorganisms from growing, are called?",
+    "options": [
+      "Antibody",
+      "Antiseptic",
+      "Antibiotics",
+      "Anesthetics"
+    ],
+    "correctOption": "Antibiotics"
+  },
+  {
+    "question": "Sleep disorders are caused by?",
+    "options": [
+      "Mosquito",
+      "Sand",
+      "Saas",
+      "House fly"
+    ],
+    "correctOption": "Saas"
+  },
+  {
+    "question": "Nearsightedness is also called?",
+    "options": [
+      "Presbyopia",
+      "Myopia",
+      "Hypermetropia",
+      "Heiter"
+    ],
+    "correctOption": "Myopia"
+  },
+  {
+    "question": "Which of the following diseases is not caused by pollution?",
+    "options": [
+      "Cholera",
+      "Diarrhea",
+      "Typhoid",
+      "Plague"
+    ],
+    "correctOption": "Plague"
+  },
+  {
+    "question": "Asthma in the human body is a disorder of which system?",
+    "options": [
+      "Digestive system",
+      "Respiratory system",
+      "Locomotor system",
+      "Circulatory system"
+    ],
+    "correctOption": "Respiratory system"
+  },
+  {
+    "question": "What is the correct order of the four stages of mosquito life cycle?",
+    "options": [
+      "Egg, larva, pupa, integument",
+      "Integument, egg, larva, pupa",
+      "Egg, pupa, larva, integument",
+      "Egg, larva, integument, insect"
+    ],
+    "correctOption": "Egg, larva, pupa, integument"
+  },
+  {
+    "question": "What is a flower pistil?",
+    "options": [
+      "Pucker organ",
+      "A penis",
+      "U",
+      "Female reproductive organ"
+    ],
+    "correctOption": "Female reproductive organ"
+  },
+  {
+    "question": "What is the small bead inside the ovary of UST called?",
+    "options": [
+      "Desert",
+      "Petals",
+      "Stamen",
+      "Spore"
+    ],
+    "correctOption": "Spore"
+  },
+  {
+    "question": "What are crops called that naturally fix nitrogen?",
+    "options": [
+      "Fiber crops",
+      "Horticultural crops",
+      "Cash crops",
+      "Pulse crops"
+    ],
+    "correctOption": "Pulse crops"
+  },
+  {
+    "question": "Which of the following plants has 'hidden reproductive organs'?",
+    "options": [
+      "Marsilea",
+      "Pinus",
+      "Cedar",
+      "Ipomoea"
+    ],
+    "correctOption": "Marsilea"
+  },
+  {
+    "question": "What is the device used to measure growth in plants called?",
+    "options": [
+      "Chronometer",
+      "Cardiograph",
+      "HRP",
+      "Crescograph"
+    ],
+    "correctOption": "Crescograph"
+  },
+  {
+    "question": "In a plant, the seed contains the embryo which conditions as a seedling. This process is called?",
+    "options": [
+      "Pollination",
+      "Germination",
+      "Cross pollination",
+      "Transpiration"
+    ],
+    "correctOption": "Germination"
+  },
+  {
+    "question": "Which plant hormone is responsible for most forms of life capable of independent existence?",
+    "options": [
+      "Ethylene",
+      "Cytokinin",
+      "Gibberellin",
+      "Auxin"
+    ],
+    "correctOption": "Auxin"
+  },
+  {
+    "question": "With the help of entomophilous pollination, pollination happens by?",
+    "options": [
+      "Insects",
+      "Animals",
+      "Water",
+      "Air"
+    ],
+    "correctOption": "Insects"
+  },
+  {
+    "question": "Petiole is a part of?",
+    "options": [
+      "Bird",
+      "Animal",
+      "Tree",
+      "Man"
+    ],
+    "correctOption": "Tree"
+  },
+  {
+    "question": "Which part of the seed is responsible for germination?",
+    "options": [
+      "Heel",
+      "Cotyledon",
+      "Epicotyl",
+      "Radicle"
+    ],
+    "correctOption": "Radicle"
+  },
+  {
+    "question": "Which of the following statements about cells is false?",
+    "options": [
+      "All cells are generally animal cells",
+      "Animal cells do not contain plastids",
+      "Ag cells in plant cells have smaller vacuoles than in animal cells",
+      "Plant cells have cell walls, whereas animal cells do not"
+    ],
+    "correctOption": "Ag cells in plant cells have smaller vacuoles than in animal cells"
+  },
+  {
+    "question": "Fat storage in our body is done by which tissue?",
+    "options": [
+      "Connective tissue",
+      "Adipose tissue",
+      "Vascular tissue",
+      "Epithelial tissue"
+    ],
+    "correctOption": "Adipose tissue"
+  },
+  {
+    "question": "What is the process by which a cell divides itself into two parts called?",
+    "options": [
+      "Single fission",
+      "Multiple fission",
+      "Binary fission",
+      "Binary fragmentation"
+    ],
+    "correctOption": "Binary fission"
+  },
+  {
+    "question": "What is the smallest unit of most forms of life capable of independent existence called?",
+    "options": [
+      "Protoplasm",
+      "Vacuoles",
+      "Cytoplasm",
+      "Cell"
+    ],
+    "correctOption": "Cell"
+  },
+  {
+    "question": "Which type of cell is the waste disposal system, keeping cells clean by digesting damaged cell organelles along with contents?",
+    "options": [
+      "Lysosome",
+      "Plastid",
+      "Mitochondria",
+      "Golgi body"
+    ],
+    "correctOption": "Lysosome"
+  },
+  {
+    "question": "Which is the only plant organelle present in cells?",
+    "options": [
+      "Nucleus",
+      "Golgi body",
+      "Plastid",
+      "Mitochondria"
+    ],
+    "correctOption": "Plastid"
+  },
+ 
+    {
+        "question": "Which of the following statements is correct?",
+        "options": [
+            "Steps in the middle car of a human skeleton is the smallest bone.",
+            "There are 38 vertebrae in the human column.",
+            "Bone marrow red blood in human body Produces cells.",
+            "Appendix is ​​a vestigial organ in the human body."
+        ],
+        "correctOption": "There are 38 vertebrae in the human column."
+    },
+    {
+        "question": "There are 29 bones in the head of a human being. Which of the following classification is correct?",
+        "options": [
+            "Forehead -8, Face -12, Ears -6, -3",
+            "Forehead-8, face-12, ears-8, axilla-1",
+            "Forehead-8, face-14, ears-6, sternum-1",
+            "Forehead-8, face-14, ears-4, sternum-3"
+        ],
+        "correctOption": "Forehead-8, face-14, ears-6, axilla-1"
+    },
+    {
+        "question": "Which is the largest joint in the human body?",
+        "options": [
+            "Shoulder joint",
+            "Neck joint",
+            "Pelvic joint",
+            "Knee joint"
+        ],
+        "correctOption": "Knee joint"
+    },
+    {
+        "question": "Incorrect pair of bones from the given options And select the corresponding part of the human body.",
+        "options": [
+            "HT bone – hand",
+            "Maxilla – jaw",
+            "Carpal bone- neck",
+            "Patella bone- foot"
+        ],
+        "correctOption": "Carpal bone-neck"
+    },
+    {
+        "question": "Which of the following symbiotic relationships it shows?",
+        "options": [
+            "Para",
+            "Lichen",
+            "Marseille",
+            "Ulodhri"
+        ],
+        "correctOption": "Lichen"
+    },
+    {
+        "question": "Which of the following plants belongs to bryophyta?",
+        "options": [
+            "Deodar",
+            "Het",
+            "Marsilea",
+            "Cladophora"
+        ],
+        "correctOption": "Machantia"
+    },
+    {
+        "question": "To plants. Divided into five wR. Which one of the following is not true?",
+        "options": [
+            "Bryophyte",
+            "Pteridophyte",
+            "Protochordata",
+            "Protochordata"
+        ],
+        "correctOption": "Protochordata"
+    },
+    {
+        "question": "In which of the following plant groups have naked seeds",
+        "options": [
+            "Angiosperms",
+            "Gymnosperms",
+            "Pteridophyte",
+            "Aes"
+        ],
+        "correctOption": "Gymnosperm"
+    },
+    {
+        "question": "Which is a plant that grows in the wild grows and has prickly hairs on its leaves which give a painful sting if accidentally touched?",
+        "options": [
+            "Foes booty",
+            "Pigweed",
+            "Kahu of Gap",
+            "Clover"
+        ],
+        "correctOption": "Fagg booty"
+    },
+    {
+        "question": "subject to apheda plant has been grouped",
+        "options": [
+            "Bryophytes",
+            "Gymnosperms",
+            "Pteridophyte",
+            "Angiosperms"
+        ],
+        "correctOption": "Bryophytes"
+    },
+    {
+        "question": "In which of the following group of plants seeds develop inside the ovary which then When it ripens and becomes a fruit?",
+        "options": [
+            "Gymnosperm",
+            "Angiosperm",
+            "Bryophytes",
+            "Pteridophytes"
+        ],
+        "correctOption": "Angiosperm"
+    },
+    {
+        "question": "Which one of the following is saprophytic Is it fungus?",
+        "options": [
+            "Penicillium",
+            "Algae",
+            "Tapeworm",
+            "Ambarbel"
+        ],
+        "correctOption": "Penicillium"
+    },
+    {
+        "question": "Which of the following belongs to the plant kingdom? What is called an amphibian?",
+        "options": [
+            "Gymnosperms",
+            "Thallophytes",
+            "Bryophytes",
+            "Pteridophytes"
+        ],
+        "correctOption": "Bryophytes"
+    },
+    {
+        "question": "Plants are divided into groups. Which of the following is not one of them?",
+        "options": [
+            "Dhalophytes",
+            "Arthropoda",
+            "Gynosperm",
+            "Angiosperm"
+        ],
+        "correctOption": "Arthropoda"
+    },
+    {
+        "question": "In which of the following plant groups Seeds develop inside the ovary which then When it ripens and becomes a fruit?",
+        "options": [
+            "Angiosperms",
+            "Pteridophyta",
+            "Gymnosperms",
+            "Aes"
+        ],
+        "correctOption": "Angiosperm"
+    },
+    {
+        "question": "Not included in invertebrates",
+        "options": [
+            "Shell",
+            "Spider",
+            "Reptiles",
+            "Insects"
+        ],
+        "correctOption": "Reptile"
+    },
+    {
+        "question": "Which of the following is called Animalia? Is classified under species?",
+        "options": [
+            "Protozoa",
+            "Metazoa",
+            "Hates",
+            "Pipians"
+        ],
+        "correctOption": "Metazoa"
+    },
+    {
+        "question": "Which of the following food chain Is at the third trophic level?",
+        "options": [
+            "Primary consumer",
+            "Secondary consumer",
+            "Producer",
+            "Top consumer"
+        ],
+        "correctOption": "Secondary consumer"
+    },
+    {
+        "question": "Which one of the following vertebrate class Not there?",
+        "options": [
+            "Cyclostomata",
+            "Anae",
+            "Pisces",
+            "Reptile"
+        ],
+        "correctOption": "Annelida"
+    },
+    {
+        "question": "Joint venture of which of the following orgs? have legs? no doubt",
+        "options": [
+            "Nematode",
+            "Arthropod",
+            "Echinodermata",
+            "Annelida"
+        ],
+        "correctOption": "Arthropoda"
+    },
+    {
+        "question": "Coral __ class Anthozoa Marine invertebrates within the class are",
+        "options": [
+            "Arthropoda",
+            "Mollusca",
+            "Cnidaria",
+            "Nematoda"
+        ],
+        "correctOption": "Cnidaria"
+},
+{
+"question": "Which of the following animals Comes under the category 'amphibians'?",
+"options": [
+"Cat",
+"POST",
+"Pigeon",
+"Frog"
+],
+"correctOption": "Frog"
+},
+{
+"question": "Which of the following is a part of living organisms? The basic unit of classification is?",
+"options": [
+"Class",
+"Family",
+"Genus",
+"Species"
+],
+"correctOption": "Species"
+},
+    {
+        "question": "Which of the following group of chromosomes a girl child is born from?",
+        "options": [
+            "XY",
+            "XZ",
+            "XX",
+            "YY"
+        ],
+        "correctOption": "XX"
+    },
+    {
+        "question": "SS organs are those organs whose origin Structural design and origin are similar But their functions are different.",
+        "options": [
+            "Isotropic",
+            "Homogeneous",
+            "Heterogeneous",
+            "Homogeneous"
+        ],
+        "correctOption": "Homogeneous"
+    },
+    {
+        "question": "Of the following. which factor Hub does not contribute to caste discrimination Species evolve from existing species?",
+        "options": [
+            "Divergent growth",
+            "Genetic shick drift",
+            "Conversion",
+            "Isolation"
+        ],
+        "correctOption": "Divergent development"
+    },
+    {
+        "question": "Sexually reproducing individuals have genes for similar traits There are copies.",
+        "options": [
+            "Three",
+            "Two",
+            "One",
+            "Four"
+        ],
+        "correctOption": "Two"
+    },
+    {
+        "question": "A complete set of nuclear DNA in an organism Set is called ____.",
+        "options": [
+            "Tissues",
+            "Organelles",
+            "Genome",
+            "Chromosome"
+        ],
+        "correctOption": "Genome"
+    },
+    {
+        "question": "What does dental caries mean?",
+        "options": [
+            "Whitening of teeth",
+            "Tooth decay",
+            "Inflammation of the tooth",
+            "Sticking of food particles to teeth"
+        ],
+        "correctOption": "Tooth decay"
+    },
+    {
+        "question": "Energy requirements of the human body of measurement used to measure What is a unit?",
+        "options": [
+            "Arg",
+            "Joule",
+            "Ohm",
+            "Calorie"
+        ],
+        "correctOption": "Calorie"
+    },
+    {
+        "question": "In the following group of materials, which The group contains only non-biodegradable substances?",
+        "options": [
+            "SPU, cotton, wool",
+            "Plastic, DDT, Bakelite",
+            "Wood, Paper, FAST",
+            "Food scraps, animal waste"
+        ],
+        "correctOption": "Plastic, DDT, Bakelite"
+    },
+    {
+        "question": "Which of the following is named 'Frog'? also know as?",
+        "options": [
+            "Rana Tigrina",
+            "TIS",
+            "Salamandari",
+            "Hyla"
+        ],
+        "correctOption": "Hyla"
+    },
+    {
+        "question": "In glucose carbon molecule as",
+        "options": [
+            "Eight",
+            "Five",
+            "Six",
+            "Ten"
+        ],
+        "correctOption": "Six"
+    },
+    {
+        "question": "Nutrient enrichment of water of a lake ae its natural aging is called",
+        "options": [
+            "Extraction",
+            "Eutrophication",
+            "Eal",
+            "Denutrification"
+        ],
+        "correctOption": "Eutrophication"
+    },
+    {
+        "question": "Which plant is called green gold?",
+        "options": [
+            "Tulsi",
+            "Neem",
+            "Bamboo",
+            "Ginger"
+        ],
+        "correctOption": "Bamboo"
+    },
+    {
+        "question": "Made incorrect statements about AURA identify the.",
+        "options": [
+            "The heart has three wings.",
+            "Give some KHUN sis",
+            "Mammals generally have hair.",
+            "Mammary gland is present to feed babies"
+        ],
+        "correctOption": "The heart has three chambers."
+    },
+    {
+        "question": "World Tuberculosis (TB) Day every year ___….is brought to Komna.",
+        "options": [
+            "24 April",
+            "24 March",
+            "24 September",
+            "24 January"
+        ],
+        "correctOption": "24 March"
+    },
+    {
+        "question": "Pisces are exclusively aquatic animals. Which of the following is not a characteristic of Haq?",
+        "options": [
+            "They swim in water using their gills. Receive dissolved oxygen.",
+            "They are hot blooded.",
+            "Their skin would be covered with Leh",
+            "They are warm blooded."
+        ],
+        "correctOption": "They are warm blooded."
+    },
+    {
+        "question": "Casein is a protein which contains is found:",
+        "options": [
+            "Meat",
+            "Carrot",
+            "Soybean",
+            "El"
+        ],
+        "correctOption": "Soybean"
+    },
+  {
+    "question": "Which of the following is known as starch is stored which is needed by the plant internal energy used when Acts as a repository?",
+    "options": ["Sunlight", "Oxygen", "Water", "Carbohydrate"],
+    "correctOption": "Carbohydrate"
+  },
+  {
+    "question": "Which of the following is true about plant tissues? Which statement is wrong?",
+    "options": ["Xylem and phloem are complex tissues.", "Phloem transports food from leaves to other parts of the plant.", "Xylem transport of water and minerals", "Matter can move in both directions in xylem."],
+    "correctOption": "Matter can move in both directions in xylem."
+  },
+  {
+    "question": "During the process of photosynthesis which gas is produced?",
+    "options": ["Carbon monoxide", "Oxygen", "Hydrogen mass", "Dioxide"],
+    "correctOption": "Oxygen"
+  },
+  {
+    "question": "___ is not a carnivorous plant.",
+    "options": ["ee", "Monkey cap", "Tiger", "Tiger Lily"],
+    "correctOption": "Tiger Lily"
+  },
+  {
+    "question": "Reasons for bamboo to bloom",
+    "options": ["Population of rats", "To become fertile", "Increase in rodents and insects", "Decrease in rainfall"],
+    "correctOption": "Increase in the population of rats"
+  },
+  {
+    "question": "Which part of the plant remains from the roots of the plant? Who is responsible for supplying water to?",
+    "options": ["Collenchyma", "Phloem tissue", "Xylem tissue", "Parenchyma"],
+    "correctOption": "Xylem tissue"
+  },
+  {
+    "question": "Name the pigment that helps plants gives green color.",
+    "options": ["Actin pass", "Chlorophyll", "IHS", "Thiamine"],
+    "correctOption": "Chlorophyll"
+  },
+  {
+    "question": "Plant growth, development, and efficient harvest are conditions for production which one to build the process of covering soil/ground?",
+    "options": ["Mulching", "Shelter belt", "Terrace Farming", "Contour Farming"],
+    "correctOption": "Mulching"
+  },
+  {
+    "question": "Which of the following pigments is found in fruits and to determine the colors of vegetables are responsible?",
+    "options": ["HRA", "Anthocyanin", "Indocyanine", "Merocyanine"],
+    "correctOption": "Anthocyanin"
+  },
+  {
+    "question": "Elements required for photosynthesis write the names of",
+    "options": ["Oxygen, water and light", "Carbon dioxide, water and sun", "Sunlight, Chloroflexi and water", "Water, oxygen and sunlight"],
+    "correctOption": "Carbon dioxide, water and sun"
+  },
+  {
+    "question": "Photosynthesis in the presence of light happens. what color light we least affected rate of photosynthesis does?",
+    "options": ["Red", "Green", "Yellow", "Blue"],
+    "correctOption": "Green"
+  },
+  {
+    "question": "Which of the desert plants like HS Which part performs the process of photosynthesis?",
+    "options": ["Leaves", "Stems", "Roots"],
+    "correctOption": "Stem"
+  },
+  {
+    "question": "What color is the rate of photosynthesis? Is there a maximum in light?",
+    "options": ["Yellow", "Red", "Purple", "Green"],
+    "correctOption": "Red"
+  },
+  {
+    "question": "From the cell wall due to lack of water what do we call the process of contraction of tour cell? Hed is?",
+    "options": ["Plasmolysis", "Photolysis", "Deplasmolysis", "Cytlysis"],
+    "correctOption": "Plasmolysis"
+  },
+  {
+    "question": "Which of the following plant hormones prevents growth and withering of leaves is responsible for?",
+    "options": ["Auxin", "Abscisic acid", "Gibberellin"],
+    "correctOption": "Abscisic acid"
+  },
+  {
+    "question": "Which of the following plant hormones helps in growth of plant stems?",
+    "options": ["Gibberellin", "Cytokinin", "Abscisic acid"],
+    "correctOption": "Gibberellin"
+  },
+  {
+    "question": "What is the function of phloem in plants?",
+    "options": ["It transports water", "It transports sugar", "It transports oxygen", "It transports carbon dioxide"],
+    "correctOption": "It transports sugar"
+  },
+  {
+    "question": "Which one is used to transport water in plants? Is the tissue responsible?",
+    "options": ["Xylem", "Ribosome", "Cytoplasm", "Chloroplast"],
+    "correctOption": "Xylem"
+  },
+  {
+    "question": "In which of the following plants the plant water from one part of the body to a part and specialized tissue for conducting other substances it happens?",
+    "options": ["Moso", "Marseille", "Riccia", "Chara"],
+    "correctOption": "Marseille"
+  },
+  {
+    "question": "Which of the following bacteria is leguminous? The root of Dhon is related to the formation of glands?",
+    "options": ["Salmonella", "Clostridium", "Rhizobium", "Escherichia"],
+    "correctOption": "Rhizobium"
+  },
+  {
+    "question": "Which of the following diseases is caused by virus It happens?",
+    "options": ["Cholera", "Smallpox", "Typhoid", "Tuberculosis"],
+    "correctOption": "Smallpox"
+  },
+  {
+    "question": "By what name is the disease related to apple known? Goes?",
+    "options": ["ROA SAAR", "Red rust disease", "Fire blight", "Tikka disease"],
+    "correctOption": "Fire blight"
+  },
+  {
+    "question": "Beriberi is a disease which due to deficiency.",
+    "options": ["Vitamin A", "Vitamin B1", "Vitamin C", "Vitamin D"],
+    "correctOption": "Vitamin B1"
+  },
+  {
+    "question": "Which of the following human diseases caused by bacteria?",
+    "options": ["Typhoid", "Measles", "Hepatitis A"],
+    "correctOption": "Typhoid"
+  },
+  {
+    "question": "What is the cause of Hepatitis A?",
+    "options": ["Viruses", "Bacteria", "Protozoa", "Mosquito bite"],
+    "correctOption": "Viruses"
+  },
+  {
+    "question": "What is the function of RBC in the human body?",
+    "options": [
+      "Provide oxygen to the cells of the body",
+      "Provide digested food to the cells of the body",
+      "Remove nitrogenous wastes in dissolved form",
+      "Remove carbon dioxide from body cells"
+    ],
+    "correctOption": "Provide oxygen to the cells of the body"
+  },
+  {
+    "question": "Which of the following animal tissue don't have a type?",
+    "options": [
+      "Epithelial tissue",
+      "Differential tissue",
+      "Connective tissue",
+      "Muscular tissue"
+    ],
+    "correctOption": "Differential tissue"
+  },
+  {
+    "question": "Diffusion is a process by which",
+    "options": [
+      "Oxygen can pass through the plasma",
+      "Living beings can breathe",
+      "Organisms can reproduce",
+      "Oxygen can pass across the plasma membrane"
+    ],
+    "correctOption": "Oxygen can pass across the plasma membrane"
+  },
+  {
+    "question": "Which of the following organelles is called cell is suicide called Ach?",
+    "options": [
+      "Te complex",
+      "Endoplasmic reticulum",
+      "Mitochondria",
+      "Lysosome"
+    ],
+    "correctOption": "Lysosome"
+  },
+  {
+    "question": "Between the nucleus and the cell membrane jelly-like substance is called:",
+    "options": [
+      "Chloroplast",
+      "Protoplasm",
+      "Nucleolus",
+      "Cytoplasm"
+    ],
+    "correctOption": "Cytoplasm"
+  },
+  {
+    "question": "Which of the following digestive enzymes is a membrane-bound sac?",
+    "options": [
+      "Met apparatus",
+      "Vacuole",
+      "Lysosome",
+      "Mitochondria"
+    ],
+    "correctOption": "Lysosome"
+  },
+  {
+    "question": "What organelle uses light energy during photosynthesis?",
+    "options": [
+      "Mitochondria",
+      "Chloroplast",
+      "Ribosome",
+      "Tet body"
+    ],
+    "correctOption": "Chloroplast"
+  },
+  {
+    "question": "What is plant cell wall made of?",
+    "options": [
+      "Cellulose",
+      "Cytosol",
+      "Cytoplasm",
+      "Glucose"
+    ],
+    "correctOption": "Cellulose"
+  },
+  {
+    "question": "Which of the following organelles spoiled with foreign matter digesting organelles and keeping the cell clean helps?",
+    "options": [
+      "Endoplasmic reticulum",
+      "TST",
+      "Lysosome",
+      "Tet apparatus"
+    ],
+    "correctOption": "Lysosome"
+  },
+  {
+    "question": "Which of the following organ proteins and transport lipids into aero, modified and who is responsible for the packaging?",
+    "options": [
+      "Golgi apparatus",
+      "Seg endoplasmic reticulum",
+      "Smooth endoplasmic reticulum",
+      "Te equipment"
+    ],
+    "correctOption": "Golgi apparatus"
+  },
+  {
+    "question": "Which wel present on our tongue are there?",
+    "options": [
+      "Olfactory",
+      "Gustatory",
+      "Heat receptor",
+      "Photoreceptor"
+    ],
+    "correctOption": "Gustatory"
+  },
+  {
+    "question": "Which of the following is the function of the human eye? Don't run?",
+    "options": [
+      "Ciliary muscles",
+      "Retina",
+      "Cochlear",
+      "Iris"
+    ],
+    "correctOption": "Ciliary muscles"
+  },
+  {
+    "question": "Rod and cone cells are found.",
+    "options": [
+      "Ear",
+      "Liver",
+      "Brain",
+      "Eye"
+    ],
+    "correctOption": "Eye"
+  },
+  {
+    "question": "Oval point in the human eye The field of best vision is",
+    "options": [
+      "Blue",
+      "White",
+      "Green",
+      "Yellow"
+    ],
+    "correctOption": "Yellow"
+  },
+  {
+    "question": "Which of the following parts allows light to enter the human eye?",
+    "options": [
+      "Cornea",
+      "Iris",
+      "Retina",
+      "Pupil"
+    ],
+    "correctOption": "Cornea"
+  },
+  {
+    "question": "Through what does light enter the eye? does",
+    "options": [
+      "Ciliary muscles",
+      "Cornea",
+      "Retina",
+      "Pupil"
+    ],
+    "correctOption": "Cornea"
+  },
+  {
+    "question": "Which of the following is a part of the communication system not a part?",
+    "options": [
+      "Blood",
+      "Heart",
+      "Large intestine",
+      "Artery"
+    ],
+    "correctOption": "Large intestine"
+  },
+  {
+    "question": "Which is the largest artery of the human body?",
+    "options": [
+      "Aorta",
+      "Great Vein",
+      "Renal",
+      "Pulmonary"
+    ],
+    "correctOption": "Aorta"
+  },
+  {
+    "question": "Blood is a type of tissue.",
+    "options": [
+      "Epithelial",
+      "Muscular",
+      "Connective",
+      "Endocrine"
+    ],
+    "correctOption": "Connective"
+  },
+  {
+    "question": "Which of the following contains oxygen in humans? Have high affinity for?",
+    "options": [
+      "Hemoglobin",
+      "Carbon dioxide",
+      "Red blood cells",
+      "Melanin"
+    ],
+    "correctOption": "Hemoglobin"
+  },
+  {
+    "question": "Which of the following is present in human blood? All that is left from the lungs to the body, carries oxygen in?",
+    "options": [
+      "White blood cells",
+      "Platelets",
+      "Lymph",
+      "Hemoglobin"
+    ],
+    "correctOption": "Hemoglobin"
+  },
+  {
+    "question": "Which of the following statements about fish is not true about?",
+    "options": [
+      "There is double circulation in fishes.",
+      "There are only two chambers in the heart of fishes.",
+      "Oxygenated blood is pumped through the gills of tad fishes and becomes oxygenated",
+      "Blood from the heart of a fish in a circle goes once."
+    ],
+    "correctOption": "There is double circulation in fishes."
+  },
+  {
+    "question": "Which fluid absorbs fat from the intestine? Moves to and from the extra-cellular space, excess fluid flows back into the blood does?",
+    "options": [
+      "Plasma",
+      "Lymph",
+      "Platelets",
+      "Capillary"
+    ],
+    "correctOption": "Lymph"
+  },
+  {
+    "question": "Which of the following statements is incorrect?",
+    "options": [
+      "Blood helps in sensory input",
+      "Blood helps in transferring oxygen from the lungs to other parts of the body",
+      "Blood protects the body from diseases",
+      "Blood carries carbon dioxide to the lungs"
+    ],
+    "correctOption": "Blood helps in sensory input"
+  },
+  {
+    "question": "The heart of which of the following animals is three-chambered?",
+    "options": [
+      "Salamander",
+      "Roh",
+      "Sparrow",
+      "Stingray"
+    ],
+    "correctOption": "Salamander"
+  },
+  {
+    "question": "How many heart chambers do mammals have?",
+    "options": [
+      "4",
+      "3",
+      "1",
+      "2"
+    ],
+    "correctOption": "4"
+  },
+  {
+    "question": "Average weight of an adult human heart approximately how much is it?",
+    "options": [
+      "225 gm",
+      "300 gm",
+      "390 gm",
+      "240 gm"
+    ],
+    "correctOption": "300 gm"
+  },
+  {
+    "question": "Blood pressure is force.",
+    "options": [
+      "Inside the artery during ventricular diastole",
+      "Inside the artery during systole",
+      "Intravenous",
+      "He Yad against the wall of a vessel is applied"
+    ],
+    "correctOption": "He Yad against the wall of a vessel is applied"
+  },
+  {
+    "question": "Which of the following is not present in human blood is found?",
+    "options": [
+      "Monocytes",
+      "Leukocyte",
+      "Lymphocyte",
+      "Chondrocyte"
+    ],
+    "correctOption": "Chondrocyte"
+  },
+  {
+    "question": "The smallest Taare is called:",
+    "options": [
+      "Capillary",
+      "Artery",
+      "Vein",
+      "Vena cava"
+    ],
+    "correctOption": "Capillary"
+  },
+  {
+    "question": "Members of Phylum _______ Special They are free-living marine animals.",
+    "options": [
+      "Arthropoda",
+      "Mollusca",
+      "Echinodermata",
+      "Nematoda"
+    ],
+    "correctOption": "Echinodermata"
+  },
+  {
+    "question": "Leech belongs to which phylum:",
+    "options": [
+      "Protochordata",
+      "Mollusca",
+      "Platyhelminthes",
+      "Annelida"
+    ],
+    "correctOption": "Annelida"
+  },
+  {
+    "question": "Which of the following animals is not an example of Mollusca?",
+    "options": [
+      "Union",
+      "Snail",
+      "Scolopendra",
+      "Scolopendra"
+    ],
+    "correctOption": "Scolopendra"
+  },
+  {
+    "question": "HS organisms carbon dioxide and obtained from inorganic sources such as water Use simple food items. in What are living beings called?",
+    "options": [
+      "Saprophytes",
+      "Autotrophs",
+      "Holozoic",
+      "Heterotroph"
+    ],
+    "correctOption": "Autotrophs"
+  },
+  {
+    "question": "Most common cause of food issues What is?",
+    "options": [
+      "WISH Food",
+      "Microorganisms spoil food",
+      "Eating food with preservatives",
+      "Eating home-cooked food"
+    ],
+    "correctOption": "Microorganisms spoil food"
+  },
+  {
+    "question": "Kritapad fingering on ss have the same extent",
+    "options": [
+      "Paramenium",
+      "Earthworm",
+      "Amoeba",
+      "Hydra"
+    ],
+    "correctOption": "Amoeba"
+  },
+  {
+    "question": "Penicillium is a______",
+    "options": [
+      "Bacteria",
+      "Fungi",
+      "Virus",
+      "Algae"
+    ],
+    "correctOption": "Fungi"
+  },
+  {
+    "question": "Which of the following is malaria parasite?",
+    "options": [
+      "Plasmodium",
+      "E.",
+      "Salmonella",
+      "Mycobacterium"
+    ],
+    "correctOption": "Plasmodium"
+  },
+  {
+    "question": "Asexual reproduction in case of amoeba in which an animal divides into two individuals Reproduces by becoming, is called:",
+    "options": [
+      "Transverse fragmentation",
+      "Sce fess",
+      "Rafasss",
+      "Binary fission"
+    ],
+    "correctOption": "Binary fission"
+  },
+  {
+    "question": "Between the nucleus and the cell membrane It is called jelly like substance.",
+    "options": [
+      "Otic",
+      "Cytoplasm",
+      "Amniotic",
+      "PRPS"
+    ],
+    "correctOption": "Cytoplasm"
+  },
+  {
+    "question": "Is secreted by bile.",
+    "options": [
+      "Pancreas",
+      "Liver",
+      "Stomach",
+      "Gallbladder"
+    ],
+    "correctOption": "Liver"
+  },
+  {
+    "question": "Which organ in the human body is responsible for bile juice? produces?",
+    "options": [
+      "Small intestine",
+      "Pancreas",
+      "Liver",
+      "Stomach"
+    ],
+    "correctOption": "Liver"
+  },
+  {
+    "question": "synthesis of iodine Is necessary for.",
+    "options": [
+      "Cytokinin",
+      "RTI",
+      "Insulin",
+      "Thyroxine"
+    ],
+    "correctOption": "Thyroxine"
+  },
+  {
+    "question": "Suspended from the hypothalamus by a thin sac. oa HT master gland of the human body It is said.",
+    "options": [
+      "Thyroid",
+      "Adrenal",
+      "Pituitary",
+      "Pancreas"
+    ],
+    "correctOption": "Pituitary"
+  },
+  {
+    "question": "Human growth hormone is produced by which gland? Is secreted?",
+    "options": [
+      "Thyroid",
+      "Anterior lobe of pituitary gland",
+      "Pancreas",
+      "Posterior lobe of pituitary gland"
+    ],
+    "correctOption": "Anterior lobe of pituitary gland"
+  },
+  {
+    "question": "Which of the following is an animal hormone?",
+    "options": [
+      "Auxins",
+      "Gibberellins",
+      "Insulin",
+      "Cytokinin"
+    ],
+    "correctOption": "Insulin"
+  },
+  {
+    "question": "Who among the following is a prominent woman sex hormone?",
+    "options": [
+      "Nucleosome",
+      "Testosterone",
+      "Estrogen",
+      "Chromatin"
+    ],
+    "correctOption": "Estrogen"
+  },
+  {
+    "question": "The release of which hormone causes heart disease simultaneous increase in heartbeat and breathing rates ?",
+    "options": [
+      "Serotonin",
+      "Adrenaline",
+      "Estrogen",
+      "Thyroxine"
+    ],
+    "correctOption": "Adrenaline"
+  },
+  {
+    "question": "To convert proteins into peptides Name the enzyme used.",
+    "options": [
+      "Lactase",
+      "Invertase",
+      "Zymase",
+      "Pepsin"
+    ],
+    "correctOption": "Pepsin"
+  },
+  {
+    "question": "What is the function of insulin in the human body?",
+    "options": [
+      "It uses GS body and Regulates glucose and fat stores",
+      "It supplies filter blood to the heart.",
+      "It supplies oxygen to the lungs.",
+      "It controls the flow of blood"
+    ],
+    "correctOption": "It uses GS body and Regulates glucose and fat stores"
+  },
+  {
+    "question": "Which of the following is biological? Is it a catalyst?",
+    "options": [
+      "Mineral substance",
+      "Cause",
+      "Enzymes",
+      "Hormones"
+    ],
+    "correctOption": "Enzymes"
+  },
+  {
+    "question": "Which of these hormones is responsible for the uterus and cervical dilation does?",
+    "options": [
+      "aaa is 4 ornin",
+      "Thyroxine",
+      "Oxytocin",
+      "ADH"
+    ],
+    "correctOption": "Oxytocin"
+  },
+  {
+    "question": "Peal m alpha-ass of the human body There is Ba in.",
+    "options": [
+      "Teeth",
+      "Hair",
+      "Skin",
+      "aR"
+    ],
+    "correctOption": "aR"
+  },
+  {
+    "question": "The concentration of which plant hormone is highest at the top and as you Does it decrease as we get closer to the roots?",
+    "options": [
+      "Cytokinin",
+      "Gibberellin",
+      "Ethylene",
+      "Auxin"
+    ],
+    "correctOption": "Auxin"
+  },
+  {
+    "question": "Which of the following micronutrients Elements for the normal functioning of the thyroid gland Is necessary?",
+    "options": [
+      "Potassium",
+      "Iodine",
+      "Iron",
+      "Iodine"
+    ],
+    "correctOption": "Iodine"
+  },
+  {
+    "question": "Which of the following plant hormones Not there?",
+    "options": [
+      "Ethylene",
+      "Acid",
+      "Gibberellins",
+      "Prolactin"
+    ],
+    "correctOption": "Prolactin"
+  },
+  {
+    "question": "How does intestinal juice convert protein into food? Converts into molecules?",
+    "options": [
+      "Glycerol",
+      "Fatty acid",
+      "Amino acids.",
+      "Sugar"
+    ],
+    "correctOption": "Amino acids."
+  },
+  {
+    "question": "Which glands blood pressure in the human body helps to control",
+    "options": [
+      "Pancreas",
+      "Glands",
+      "Adrenal glands",
+      "Pineal gland"
+    ],
+    "correctOption": "Adrenal glands"
+  },
+  {
+    "question": "Which of the following organs secretes bile juice secretes?",
+    "options": [
+      "Liver",
+      "This",
+      "Kidney",
+      "Brain"
+    ],
+    "correctOption": "Liver"
+  },
+  {
+    "question": "Which hormone regulates blood sugar in the body? controls the level?",
+    "options": [
+      "Testosterone",
+      "Thyroid",
+      "Insulin",
+      "Insulin"
+    ],
+    "correctOption": "Insulin"
+  },
+  {
+    "question": "What are the various diseases related to respiratory system? What types of pollution are caused?",
+    "options": [
+      "Water pollution",
+      "Noise pollution",
+      "Air pollution",
+      "Land pollution"
+    ],
+    "correctOption": "Air pollution"
+  },
+  {
+    "question": "Which of the following non-infectious diseases is there an example?",
+    "options": [
+      "High blood pressure",
+      "Typhoid",
+      "Influenza",
+      "Pneumonia"
+    ],
+    "correctOption": "High blood pressure"
+  },
+  {
+    "question": "Female anopheles mosquito is communicative.",
+    "options": [
+      "Cholera",
+      "Typhoid",
+      "Malaria",
+      "Dengue"
+    ],
+    "correctOption": "Malaria"
+  },
+  {
+    "question": "Who discovered penicillin?",
+    "options": [
+      "Charles Darwin",
+      "Alexander Fleming",
+      "Us UR",
+      "RASA"
+    ],
+    "correctOption": "Alexander Fleming"
+  },
+  {
+    "question": "Aedes mosquito is the carrier of:",
+    "options": [
+      "Malaria",
+      "Typhoid",
+      "Dengue",
+      "Cholera"
+    ],
+    "correctOption": "Dengue"
+  },
+  {
+    "question": "Which vitamin activates essential proteins and calcium?",
+    "options": [
+      "Vitamin A",
+      "Vitamin B1",
+      "Vitamin D",
+      "Vitamin K"
+    ],
+    "correctOption": "Vitamin K"
+  },
+  {
+    "question": "Which of the following causes dwarfism in humans?",
+    "options": [
+      "Pancreas",
+      "Thyroxine",
+      "Pituitary",
+      "Adrenaline"
+    ],
+    "correctOption": "Pituitary"
+  },
+  {
+    "question": "Which of the following is unicellular organism that causes kala-azar?",
+    "options": [
+      "Leishmania",
+      "Ascaris",
+      "Liverworm",
+      "Tapeworm"
+    ],
+    "correctOption": "Leishmania"
+  },
+  {
+    "question": "Which disease occurs due to lack of protein in our body?",
+    "options": [
+      "Kashiorkor",
+      "Scurvy",
+      "Rickets",
+      "Beri Beri"
+    ],
+    "correctOption": "Kashiorkor"
+  },
+  {
+    "question": "Due to which of the following would one have black-eyed?",
+    "options": [
+      "Protozoa",
+      "Virus",
+      "Bacteria",
+      "Fungi"
+    ],
+    "correctOption": "Protozoa"
+  },
+  {
+    "question": "Which of the following diseases caused by virus does not happen?",
+    "options": [
+      "Chicken Pox",
+      "WANT",
+      "Influenza",
+      "Tuberculosis"
+    ],
+    "correctOption": "Tuberculosis"
+  },
+  {
+    "question": "Ringworm is a type of disease generated by which?",
+    "options": [
+      "HLA",
+      "Zea",
+      "Pri",
+      "Fungal"
+    ],
+    "correctOption": "Fungal"
+  },
+  {
+    "question": "About antibiotics, which of the following statements is not correct?",
+    "options": [
+      "Dam in the side effects of antibiotic drugs, Can cause filariasis and diphtheria",
+      "Antibiotics effective against cold and flu",
+      "Antibiotics are not effective against viruses",
+      "Antibiotics are effective against bacterial diseases."
+    ],
+    "correctOption": "Dam in the side effects of antibiotic drugs, Can cause filariasis and diphtheria"
+  },
+  {
+    "question": "Due to lack of blood clotting, what is the reason?",
+    "options": [
+      "Vitamin A",
+      "Vitamin B",
+      "Vitamin C",
+      "Vitamin K"
+    ],
+    "correctOption": "Vitamin K"
+  },
+  {
+    "question": "Which of the following is not correctly matched?",
+    "options": [
+      "Tetanus: Bacteria",
+      "Measles: Bacteria",
+      "Typhoid: Bacteria",
+      "Malaria: Bacteria"
+    ],
+    "correctOption": "Measles: Bacteria"
+  },
+  {
+    "question": "What is the cause of bird flu?",
+    "options": [
+      "HSN1 virus",
+      "Pill mosquito",
+      "Tsetse fly",
+      "HPV virus"
+    ],
+    "correctOption": "HSN1 virus"
+  },
+  {
+    "question": "If untreated, HIV leads to what?",
+    "options": [
+      "Cancer",
+      "Hepatitis",
+      "Plague",
+      "AIDS"
+    ],
+    "correctOption": "AIDS"
+  },
+  {
+    "question": "Which of the following is the cause of fever in the air?",
+    "options": [
+      "Ozone",
+      "Particulate matter",
+      "Pollen",
+      "Carbon monoxide"
+    ],
+    "correctOption": "Pollen"
+  },
+  {
+    "question": "Which is responsible for the synthesis of thyroxine?",
+    "options": [
+      "Zinc",
+      "Iodine",
+      "Iron",
+      "Manganese"
+    ],
+    "correctOption": "Iron"
+  },
+  {
+    "question": "Due to lack of which of the following does color blindness and poor vision occur?",
+    "options": [
+      "Vitamin A",
+      "Vitamin D",
+      "Calcium",
+      "Vitamin K"
+    ],
+    "correctOption": "Vitamin A"
+  },
+  {
+    "question": "Which of the following eyes no condition/disease?",
+    "options": [
+      "Glaucoma",
+      "Chengha",
+      "Cataract",
+      "Dry Eye"
+    ],
+    "correctOption": "Chengha"
+  },
+  {
+    "question": "Name the virus which causes malaria and antitussive drug quinine extracted?",
+    "options": [
+      "Eucalyptus",
+      "Dandelion",
+      "Tulsi",
+      "Quinine"
+    ],
+    "correctOption": "Quinine"
+  },
+  {
+    "question": "Kwashiorkor deficiency is a disorder called?",
+    "options": [
+      "Carbohydrate",
+      "Fat",
+      "Mineral substances",
+      "Protein"
+    ],
+    "correctOption": "Protein"
+  },
+  {
+    "question": "Which of the following diseases and its causative organism is wrong?",
+    "options": [
+      "Cholera- Influenza",
+      "TB- AIDS",
+      "AIDS- HIV",
+      "Malaria- Plasmodium"
+    ],
+    "correctOption": "Cholera- Influenza"
+  },
+  {
+    "question": "What is the cause of puccinia graminis becoming?",
+    "options": [
+      "Late Isls of Potato",
+      "Black Rust in Wheat",
+      "Red rot of sugarcane",
+      "Ringworm in humans"
+    ],
+    "correctOption": "Black Rust in Wheat"
+  },
+  {
+    "question": "The normal systolic pressure of human blood is:",
+    "options": [
+      "18 mmHg",
+      "130 mmHg",
+      "120 mmHg",
+      "110 mmHg"
+    ],
+    "correctOption": "120 mmHg"
+  },
+  {
+    "question": "Crocodiles have a heart.",
+    "options": [
+      "One-chambered",
+      "Four-chambered",
+      "Six-chambered",
+      "Two-chambered"
+    ],
+    "correctOption": "Four-chambered"
+  },
+  {
+    "question": "Large number of filtration in each kidney there are units and the hidden number goes.",
+    "options": [
+      "Nephron",
+      "SR",
+      "Nerve",
+      "Nucleus"
+    ],
+    "correctOption": "Nephron"
+  },
+  {
+    "question": "Treatment of kidney failure from time to time but it is done with kidney machine. to process ____is referred to as.",
+    "options": [
+      "Metabolism",
+      "Circulation",
+      "Hemodialysis",
+      "Defecation"
+    ],
+    "correctOption": "Hemodialysis"
+  },
+  {
+    "question": "In humans, soluble nitrogen compounds as excretory product by kidney AL are removed.",
+    "options": [
+      "Baw",
+      "Nutrition",
+      "Mitochondria",
+      "Nephron"
+    ],
+    "correctOption": "Nephron"
+  },
+  {
+    "question": "Which of the following gap from the heart supplies blood to?",
+    "options": [
+      "Renal vein",
+      "Coronary artery",
+      "Renal artery",
+      "Vena cava"
+    ],
+    "correctOption": "Renal artery"
+  },
+  {
+    "question": "Cockroaches and others among the following which is the excretory organ of insects?",
+    "options": [
+      "Nephridia",
+      "Malpighian tubules",
+      "Trachea",
+      "UR glands"
+    ],
+    "correctOption": "Malpighian tubules"
+  },
+  {
+    "question": "Which of the following is part of the human body? The largest gland is?",
+    "options": [
+      "Liver",
+      "Mammary gland",
+      "Sweat gland",
+      "Esophageal gland"
+    ],
+    "correctOption": "Liver"
+  },
+  {
+    "question": "Transport of salts in the human body by whom is it done?",
+    "options": [
+      "Plasma",
+      "Arteries",
+      "Blood",
+      "Lymph"
+    ],
+    "correctOption": "Blood"
+  },
+  {
+    "question": "Which of the following is not an endocrine gland?",
+    "options": [
+      "Adrenal",
+      "Thyroid",
+      "Pineal",
+      "AR"
+    ],
+    "correctOption": "AR"
+  },
+  {
+    "question": "Which of the following glands is found in human is there an endocrine gland in the body?",
+    "options": [
+      "AR",
+      "Pituitary",
+      "Prostate",
+      "Sweat"
+    ],
+    "correctOption": "Pituitary"
+  },
+  {
+    "question": "In the asa process, complexes such as glucose organic compounds ____. provide energy in the form of to disintegrate.",
+    "options": [
+      "CAL",
+      "NAC",
+      "ATP",
+      "PTA"
+    ],
+    "correctOption": "ATP"
+  },
+  {
+    "question": "Even in the absence of oxygen when respiration occurs, it is called ______ exhalation.",
+    "options": [
+      "Waradta",
+      "Aspirational",
+      "Constriction",
+      "Blood vessel"
+    ],
+    "correctOption": "Anaerobic"
+  },
+  {
+    "question": "Which of the following mechanisms is present in nematodes? Is not found?",
+    "options": [
+      "Reproductive system",
+      "Excretory system",
+      "Respiratory system",
+      "Digestive system"
+    ],
+    "correctOption": "Respiratory system"
+  },
+  {
+    "question": "What is the function of alveoli?",
+    "options": [
+      "To help in digesting food",
+      "To provide a surface where gases are exchanged",
+      "To aid absorption of food",
+      "To purify the blood"
+    ],
+    "correctOption": "To provide a surface where gases exchange takes place"
+  },
+  {
+    "question": "Which of the following is part of the human body? Is not part of the alimentary canal?",
+    "options": [
+      "Rectum",
+      "Respiratory system",
+      "Pharynx",
+      "Esophagus"
+    ],
+    "correctOption": "Respiratory system"
+  },
+  {
+    "question": "When does aspiration respiration occur?",
+    "options": [
+      "Breakdown of glucose using oxygen",
+      "Food without using oxygen",
+      "Food in the cell with release of energy breakdown of",
+      "Glucose without the use of oxygen"
+    ],
+    "correctOption": "Breakdown of glucose using oxygen"
+  },
+  {
+    "question": "Insects breathe",
+    "options": [
+      "Skin",
+      "Lungs",
+      "Skin",
+      "Gills"
+    ],
+    "correctOption": "Skin"
+  },
+  {
+    "question": "Trachea human mrp is a part of the system",
+    "options": [
+      "Excretory",
+      "Cardiac",
+      "Digestion",
+      "Respiration"
+    ],
+    "correctOption": "Respiration"
+  },
+  {
+    "question": "Which of the following human emissions not part of the system",
+    "options": [
+      "Storage afert",
+      "Glomerulus",
+      "Microtrachea",
+      "Bowman's capsule"
+    ],
+    "correctOption": "Microtrachea"
+  },
+  {
+    "question": "Ethanol is formed during _",
+    "options": [
+      "Anaerobic yt in muscles",
+      "Aerobic respiration in muscles",
+      "Pneumatic respiration in Oke",
+      "Anaerobic respiration in yeast"
+    ],
+    "correctOption": "Anaerobic respiration in yeast"
+  },
+  {
+    "question": "Which part of the human body is called 'Adams' 'Apple' is called?",
+    "options": [
+      "Lungs",
+      "Palate",
+      "Larynx",
+      "Tongue"
+    ],
+    "correctOption": "Larynx"
+  },
+  {
+    "question": "Respiration in ac ________ TE It happens.",
+    "options": [
+      "Skin",
+      "Spiracles",
+      "Lung",
+      "Rew"
+    ],
+    "correctOption": "Spiracles"
+  },
+  {
+    "question": "Trachea in which of the following human is it part of the system?",
+    "options": [
+      "Endocrine system",
+      "Circulatory system",
+      "Excretory system",
+      "Respiratory system"
+    ],
+    "correctOption": "Respiratory system"
+  },
+  {
+    "question": "Stomach interior under normal circumstances what protects the layer from the action of acid?",
+    "options": [
+      "Enzymes",
+      "Gastric glands",
+      "Mucus",
+      "Faeett"
+    ],
+    "correctOption": "Mucus"
+  },
+  {
+    "question": "What helps in digestion of food?",
+    "options": [
+      "Oxygen",
+      "Carbon",
+      "Helium",
+      "AR"
+    ],
+    "correctOption": "AR"
+  },
+  {
+    "question": "Many in the inner lining of the small intestine there are finger-like projections called _ It is said.",
+    "options": [
+      "Fact",
+      "Tissue",
+      "Cell",
+      "Enzyme"
+    ],
+    "correctOption": "Villi"
+  },
+  {
+    "question": "Which acid is present in human stomach? arises?",
+    "options": [
+      "Lactic acid",
+      "Arlac",
+      "Citric acid",
+      "Acid"
+    ],
+    "correctOption": "Hydrochloric acid"
+  },
+  {
+    "question": "Which of the following is in the digestive system what is the correct sequence of steps?",
+    "options": [
+      "Ingestion, absorption, excretion, digestion",
+      "Ingestion, digestion, absorption, excretion",
+      "Excretion, ingestion, absorption, digestion",
+      "Absorption, excretion, digestion, ingestion"
+    ],
+    "correctOption": "Ingestion, digestion, absorption, excretion"
+  },
+  {
+    "question": "Humans cannot digest",
+    "options": [
+      "Amino acid",
+      "Cellulose",
+      "Glycogen",
+      "AR"
+    ],
+    "correctOption": "Cellulose"
+  },
+  {
+    "question": "Which of the following is soluble in water? Identify the vitamins.",
+    "options": [
+      "Vitamin A",
+      "Vitamin B1",
+      "Vitamin C",
+      "Vitamin D"
+    ],
+    "correctOption": "Vitamin C"
+  },
+  {
+    "question": "What is the basic function of estrogen?",
+    "options": [
+      "To regulate the menstrual cycle",
+      "To develop male reproductive tissues",
+      "To maintain pregnancy",
+      "To balance the mood"
+    ],
+    "correctOption": "To regulate the menstrual cycle"
+  },
+  {
+    "question": "Which of the following pigments is present in our mainly for hair, skin and eye color is responsible?",
+    "options": [
+      "Myoglobin",
+      "Melatonin",
+      "Xanthophyll",
+      "Melanin"
+    ],
+    "correctOption": "Melanin"
+  },
+  {
+    "question": "Which of the following glands produces insulin? Produces hormones?",
+    "options": [
+      "Adrenal",
+      "Thymus",
+      "Parathyroid",
+      "Pancreas"
+    ],
+    "correctOption": "Pancreas"
+  },
+  {
+    "question": "Who is called the father of taxonomy?",
+    "options": [
+      "Angler",
+      "Eichler",
+      "Bendham and Hooker",
+      "Carl Linnaeus"
+    ],
+    "correctOption": "Carl Linnaeus"
+  },
+  {
+    "question": "Robert Hooke discovered.",
+    "options": [
+      "Protoplasm",
+      "Nucleus",
+      "Cell",
+      "Atom"
+    ],
+    "correctOption": "Cell"
+  },
+  {
+    "question": "Who discovered the cell?",
+    "options": [
+      "Rudolf Virchow",
+      "Theodore",
+      "Madhyas Schleiden",
+      "Robert Hooke"
+    ],
+    "correctOption": "Robert Hooke"
+  },
+  {
+    "question": "Who discovered penicillin?",
+    "options": [
+      "Charles Darwin",
+      "Alexander Fleming",
+      "Louis Pasteur",
+      "Gregor Mendel"
+    ],
+    "correctOption": "Alexander Fleming"
+  },
+  {
+    "question": "Of Theophrastus goes.",
+    "options": [
+      "Chemistry",
+      "Science",
+      "Botany",
+      "Zoology"
+    ],
+    "correctOption": "Botany"
+  },
+  {
+    "question": "Name that famous biologist which is connected to the Galapagos Islands.",
+    "options": [
+      "Johann Gregor Mendel",
+      "Carl Linnaeus",
+      "Ernst Haeckel",
+      "Charles Darwin"
+    ],
+    "correctOption": "Charles Darwin"
+  },
+  {
+    "question": "Who coined the term 'Homo Sapiens'?",
+    "options": [
+      "C Linnaeus",
+      "Darwin",
+      "Mendel",
+      "6 Mendel"
+    ],
+    "correctOption": "C Linnaeus"
+  },
+  {
+    "question": "Cyclone-30, a particle of RH Used in medical application. it Will help patients suffering from __.",
+    "options": [
+      "Heart disease",
+      "Cancer",
+      "Asthma",
+      "Diabetes"
+    ],
+    "correctOption": "Cancer"
+  },
+  {
+    "question": "Genetically modified brinjal The form was developed. what is its purpose Was?",
+    "options": [
+      "To increase its taste",
+      "To make it resistant to pleasure",
+      "To make it coat resistant",
+      "To improve its shelf life"
+    ],
+    "correctOption": "To make it coat resistant"
+  },
+  {
+    "question": "Who invented Badi Mata Ki Tika? did?",
+    "options": [
+      "James Chadwick",
+      "Usas Jenner",
+      "D Rutherford",
+      "Louis Pasteur"
+    ],
+    "correctOption": "Usas Jenner"
+  },
+  {
+    "question": "Binomials of all species of organisms Who is the father of naming?",
+    "options": [
+      "Aed Darwin",
+      "James Watson",
+      "Louis Ug",
+      "Carolus Linnaeus"
+    ],
+    "correctOption": "Carolus Linnaeus"
+  },
+  {
+    "question": "Tell the name of that Indian scientist, who made Sree code ho in 1968 and for physiology Shared the Nobel Prize.",
+    "options": [
+      "Meghnad Sahay",
+      "Har Gobind Khurana",
+      "Visvesvaiah",
+      "Venkatraman Radhakrishnan"
+    ],
+    "correctOption": "Har Gobind Khurana"
+  },
+  {
+    "question": "For his research on the transmission of malaria Who was awarded the Nobel Prize for?",
+    "options": [
+      "ROBERT G. EDWARDS",
+      "WAS ROSS",
+      "Paul Lauterbur",
+      "Karl Landsteiner"
+    ],
+    "correctOption": "WAS ROSS"
+  },
+  {
+    "question": "Which of the following was the son of WR Mendel? Does not come under the rule of inheritance?",
+    "options": [
+      "Al Ka's law",
+      "Rule",
+      "Law of independent assortment",
+      "Law of separation"
+    ],
+    "correctOption": "Law of separation"
+  },
+  {
+    "question": "Who discovered tad group?",
+    "options": [
+      "Karl Landsteiner",
+      "Mendeleev",
+      "Alexander Fleming",
+      "Isaac ACA"
+    ],
+    "correctOption": "Karl Landsteiner"
+  },
+  {
+    "question": "The 'Father of Modern Botany' is:",
+    "options": [
+      "Edward UFR",
+      "GJ Mendel",
+      "Carl Linnaeus",
+      "Louis Pasteur"
+    ],
+    "correctOption": "Carl Linnaeus"
+  },
+  {
+    "question": "Who coined the word protoplasm? Did?",
+    "options": [
+      "Johann Evangelist Purkinje",
+      "Robert",
+      "G.J. aaa",
+      "Charles Darwin"
+    ],
+    "correctOption": "Johann Evangelist Purkinje"
+  },
+  {
+    "question": "How did Hooke discover the cell? ?",
+    "options": [
+      "Cork observation",
+      "By observing tree leaves",
+      "From blood observation",
+      "By looking at onion peel"
+    ],
+    "correctOption": "From cork observation"
+  },
+  {
+    "question": "As the 'Father of Modern Genetics' Who is known in?",
+    "options": [
+      "James Watson",
+      "iS UF",
+      "Gregor Mendel",
+      "Uae Brown"
+    ],
+    "correctOption": "Gregor Mendel"
+  },
+  {
+    "question": "naming scientists The naming system we use today Do, by which of the following scientists Was started?",
+    "options": [
+      "Marie Curie",
+      "Carolus Linnaeus",
+      "Charles Darwin",
+      "George Washington Carver"
+    ],
+    "correctOption": "Carolus Linnaeus"
+  },
+  {
+    "question": "Which of the following is correctly matched? Not there?",
+    "options": [
+      "Smallpox vaccine – Edward Jenner",
+      "Penicillin- Alexander Fleming",
+      "Telephone- John Logie Baird",
+      "Electric bulb- Thomas Edison"
+    ],
+    "correctOption": "Telephone- John Logie Baird"
+  },
+  {
+    "question": "Who coined the term 'Homo Sapiens'?",
+    "options": [
+      "Darwin",
+      "C. Linnaeus",
+      "6 Mendel",
+      "GJ Mendel"
+    ],
+    "correctOption": "C. Linnaeus"
+  },
+  {
+    "question": "System of scientific nomenclature of organisms Started by:",
+    "options": [
+      "Carolus Linnaeus",
+      "George Kelly",
+      "Alexis Carrell",
+      "WT Cabrera"
+    ],
+    "correctOption": "Carolus Linnaeus"
+  },
+  {
+    "question": "What is Karl Landsteiner known for? goes?",
+    "options": [
+      "To identify Zika virus",
+      "Discovery of blood group classification",
+      "Isolating DNA",
+      "Study of nervous system"
+    ],
+    "correctOption": "Discovery of Tad group classification"
+  },
+  {
+    "question": "Which of the following words means animal? best of biological studies of behavior describes?",
+    "options": [
+      "Etiology",
+      "Idhnilose",
+      "Entomology",
+      "Ethology"
+    ],
+    "correctOption": "Ethology"
+  },
+  {
+    "question": "In which of the following genetic Is engineering involved?",
+    "options": [
+      "Gene Revolution",
+      "Teel Revolution",
+      "Green Revolution",
+      "Globalization"
+    ],
+    "correctOption": "Gene Revolution"
+  },
+  {
+    "question": "eyes usually deteriorate with age. The adjustment capacity decreases. this situation Known as?",
+    "options": [
+      "Farsightedness",
+      "Old age foresight",
+      "Color blindness",
+      "Old age myopia"
+    ],
+    "correctOption": "Old age myopia"
+  },
+  {
+    "question": "If a person has to rate distant objects There is difficulty in seeing clearly. that kiss Suffering from the condition and how to cure it could?",
+    "options": [
+      "Myopia, use of concave lens",
+      "Myopia, using convex lenses",
+      "Hypermetropia, using convex lens",
+      "Hypermetropia, use of convex lens"
+    ],
+    "correctOption": "Myopia, use of concave lens"
+  },
+  {
+    "question": "megaloblastic anemia which vitamins Is it caused by deficiency of?",
+    "options": [
+      "Vitamin A",
+      "Vitamin B2",
+      "Vitamin C",
+      "Vitamin B12"
+    ],
+    "correctOption": "Vitamin B12"
+  },
+  {
+    "question": "Which of the following is caused by bacteria? Is the disease going to happen?",
+    "options": [
+      "Smallpox",
+      "WT",
+      "AIDS",
+      "Rabies"
+    ],
+    "correctOption": "WT"
+  },
+  {
+    "question": "Quinine, a common medicine for malaria, OS Hora a Poort Goes",
+    "options": [
+      "Eucalyptus",
+      "RELIEF",
+      "Beech",
+      "Maple"
+    ],
+    "correctOption": "RELIEF"
+  },
+  {
+    "question": "Seedlings on 'bucket' in rice seedlings. Which pathogen causes the disease?",
+    "options": [
+      "SRI Gigante",
+      "Rhizoctonia oryzae",
+      "Gibberella fujikuroi",
+      "Curvularia lunata"
+    ],
+    "correctOption": "Gibberella fujikuroi"
+  },
+  {
+    "question": "For which disease/disorder? SPER is usually administered (Were",
+    "options": [
+      "Cancer",
+      "Diabetes",
+      "Diarrhea",
+      "Diabetes"
+    ],
+    "correctOption": "Diabetes"
+  },
+  {
+    "question": "For the treatment of which of the following Main uses of bark of Arjuna tree Is it done?",
+    "options": [
+      "Skin disease",
+      "Heart disease",
+      "Inflammation",
+      "Heart disease"
+    ],
+    "correctOption": "Heart disease"
+  },
+  {
+    "question": "What is the full form of AIDS?",
+    "options": [
+      "Acquired Immune Deficiency Syndrome",
+      "Acute Immune Deficiency Syndrome",
+      "Acute Immune Deficit Syndrome",
+      "Acquired Immune Deficit Syndrome"
+    ],
+    "correctOption": "Acquired Immune Deficiency Syndrome"
+  },
+  {
+    "question": "What happens due to deficiency of vitamin C?",
+    "options": [
+      "Loss of vision",
+      "Scurvy",
+      "Scurvy",
+      "Loss of vision"
+    ],
+    "correctOption": "Scurvy"
+  },
+  {
+    "question": "Which of the following diseases is caused by bacteria? It happens?",
+    "options": [
+      "Diphtheria",
+      "Chicken UT",
+      "Mumps",
+      "GERI"
+    ],
+    "correctOption": "Diphtheria"
+  },
+  {
+    "question": "Which vitamin is important for our eyes and skin Keeps you healthy?",
+    "options": [
+      "Vitamin B",
+      "Vitamin A",
+      "Vitamin D",
+      "Vitamin E"
+    ],
+    "correctOption": "Vitamin A"
+  },
+  {
+    "question": "Goiter is caused due to deficiency of?",
+    "options": [
+      "Iodine",
+      "Sodium",
+      "Potassium",
+      "Calcium"
+    ],
+    "correctOption": "Iodine"
+  },
+  {
+    "question": "Which of the following fungal diseases of plants",
+    "options": [
+      "Citrus canker",
+      "Damping off seedlings",
+      "Rust of wheat",
+      "Red rot of sugarcane"
+    ],
+    "correctOption": "Citrus canker"
+  },
+  {
+    "question": "The ulcer causing organism is a",
+    "options": [
+      "Bacteria",
+      "Viruses",
+      "Helminth",
+      "Protozoan"
+    ],
+    "correctOption": "Bacteria"
+  },
+  {
+    "question": "What causes tuberculosis?",
+    "options": [
+      "Bacteria",
+      "Viruses",
+      "ap",
+      "Protozoan"
+    ],
+    "correctOption": "Bacteria"
+  },
+  {
+    "question": "Natural host of Nipah virus Who/What are they?",
+    "options": [
+      "Fruit bat",
+      "Bird",
+      "Pig",
+      "Goat"
+    ],
+    "correctOption": "Fruit bat"
+  },
+  {
+    "question": "Which of the following diseases is airborne? Doesn't it spread?",
+    "options": [
+      "Tuberculosis",
+      "Pneumonia",
+      "Cholera",
+      "Common cold"
+    ],
+    "correctOption": "Cholera"
+  },
+  {
+    "question": "Which causative agent of swine flu factors responsible",
+    "options": [
+      "virus",
+      "fungus",
+      "fungus",
+      "virus"
+    ],
+    "correctOption": "virus"
+  },
+  {
+    "question": "Which of the following conditions is caused by virus Is it not caused by?",
+    "options": [
+      "AIDS",
+      "Dengue fever",
+      "Cold",
+      "Cholera"
+    ],
+    "correctOption": "Cold"
+  },
+  {
+    "question": "Cobalt is found in which vitamin?",
+    "options": [
+      "Vitamin B1",
+      "Vitamin B5",
+      "Vitamin B12",
+      "Vitamin B3"
+    ],
+    "correctOption": "Vitamin B12"
+  },
+  {
+    "question": "Which of the following diseases is caused by mosquitoes is borne?",
+    "options": [
+      "Pneumonia",
+      "Goiter",
+      "Filaria",
+      "Cholera"
+    ],
+    "correctOption": "Filaria"
+  },
+  {
+    "question": "Amla is a rich source of which vitamin?",
+    "options": [
+      "Vitamin C",
+      "Vitamin B",
+      "Vitamin D",
+      "Vitamin E"
+    ],
+    "correctOption": "Vitamin C"
+  },
+  {
+    "question": "Citrus canker is a:",
+    "options": [
+      "Bacterial disease",
+      "Fungal disease",
+      "Viral diseases",
+      "Hormonal disorders"
+    ],
+    "correctOption": "Bacterial disease"
+  },
+  {
+    "question": "which vitamin for tad's ua Activates essential proteins and calcium does?",
+    "options": [
+      "Vitamin K",
+      "Vitamin B1",
+      "Vitamin C",
+      "Vitamin B12"
+    ],
+    "correctOption": "Vitamin K"
+  },
+  {
+    "question": "After digestion, protein ss gets converted",
+    "options": [
+      "Carbohydrate",
+      "Amino acid",
+      "Bile globules",
+      "Starch"
+    ],
+    "correctOption": "Amino acid"
+  },
+  {
+    "question": "Where are villi found in the body",
+    "options": [
+      "Small intestine",
+      "Liver",
+      "Large intestine",
+      "Stomach"
+    ],
+    "correctOption": "Small intestine"
+  },
+  {
+    "question": "gastric glands enzymes during digestion produces HA, which digests proteins",
+    "options": [
+      "Pepsin",
+      "Helicase",
+      "Lactase",
+      "Lactase"
+    ],
+    "correctOption": "Pepsin"
+  },
+  {
+    "question": "Carbohydrates, proteins and fats in humans Where does complete digestion take place?",
+    "options": [
+      "stomach",
+      "rectum",
+      "Small intestine",
+      "Large intestine"
+    ],
+    "correctOption": "Small intestine"
+  },
+  {
+    "question": "thousands in the inner walls of small sid There are finger-shaped outgrowths. these It is said:",
+    "options": [
+      "Lump",
+      "Myomas",
+      "state",
+      "Villi"
+    ],
+    "correctOption": "Villi"
+  },
+  {
+    "question": "Which of the following organs of the digestive system Whose shape is similar to the English alphabet 's'?",
+    "options": [
+      "Intestine",
+      "Liver",
+      "Stomach",
+      "Mouth"
+    ],
+    "correctOption": "Stomach"
+  },
+  {
+    "question": "largest stomach of hoofed animals Which of the following is the room?",
+    "options": [
+      "Abomas",
+      "Rumen",
+      "reticulum",
+      "omasum"
+    ],
+    "correctOption": "Rumen"
+  },
+  {
+    "question": "process of digestion of food in humans begins and ends in",
+    "options": [
+      "Intestine",
+      "food pipe",
+      "stomach",
+      "mouth"
+    ],
+    "correctOption": "mouth"
+  },
+  {
+    "question": "The main form of fat digestion in the human body is Would :",
+    "options": [
+      "large intestine",
+      "Lung",
+      "Small intestine",
+      "Small intestine"
+    ],
+    "correctOption": "Small intestine"
+  },
+  {
+    "question": "Which of the following statements is correct Not there?",
+    "options": [
+      "Hydrochloric acid enzyme pepsin An acidic to facilitate creates medium",
+      "Stomach receives secretions of liver and pancreas does",
+      "Gastric glands produce hydrochloric acid in the stomach and release enzymes OR and mucus",
+      "Li destroys the inner lining of the stomach with acid. saves"
+    ],
+    "correctOption": "Stomach receives secretions of liver and pancreas does so"
+  },
+  {
+    "question": "Which of the following is present in our stomach Which acid is produced which helps in digestion?",
+    "options": [
+      "Nitric acid",
+      "Bir Re Ai",
+      "Perchloric acid",
+      "hydrochloric acid"
+    ],
+    "correctOption": "hydrochloric acid"
+  },
+  {
+    "question": "Which of the following nerve fibers which mediates reflex actions and which transmits impulses from the brain ?",
+    "options": [
+      "rib cage",
+      "spinal cord",
+      "muscle",
+      "spinal cord"
+    ],
+    "correctOption": "spinal cord"
+  },
+  {
+    "question": "Which part of the neuron receives information? Tax",
+    "options": [
+      "Guest",
+      "Saot body",
+      "nerve endings",
+      "Dendrite"
+    ],
+    "correctOption": "Dendrite"
+  },
+  {
+    "question": "Found between two hearts at a movable joint What about the outgoing Mew fluid?",
+    "options": [
+      "Synovial sa",
+      "Cerebrospinal fluid",
+      "Interstitial fluid",
+      "Embryonic lining fluid"
+    ],
+    "correctOption": "Synovial fluid"
+  },
+  {
+    "question": "All including blood pressure, AR and vomiting involuntary actions are controlled",
+    "options": [
+      "Limbic system",
+      "Medulla",
+      "Midbrain",
+      "Forebrain"
+    ],
+    "correctOption": "Medulla"
+  },
+  {
+    "question": "Involuntary actions like breathing, AR coming And what are the peristalsis controlled by?",
+    "options": [
+      "Brain",
+      "Cerebral",
+      "Spinal cord",
+      "Hypochondrium"
+    ],
+    "correctOption": "Spinal cord"
+  },
+  {
+    "question": "The synapse is the point where a nerve pass through impulse",
+    "options": [
+      "Up epithelial cell",
+      "Under an endocrine gland",
+      "Cerebral spine",
+      "One AR into another"
+    ],
+    "correctOption": "One AR into another"
+  },
+  {
+    "question": "found between two in movable joint What about the seminal fluid?",
+    "options": [
+      "Mucin Sq",
+      "Deena",
+      "amniotic fluid",
+      "cerebrospinal fluid"
+    ],
+    "correctOption": "mucous fluid"
+  },
+  {
+    "question": "Which of the following is part of the nervous system? The basic structural and functional unit is?",
+    "options": [
+      "Nephric",
+      "Nephron",
+      "RM",
+      "Neuron"
+    ],
+    "correctOption": "Neuron"
+  },
+  {
+    "question": "Pons is a part of human______.",
+    "options": [
+      "Jae",
+      "Heart",
+      "adrenal gland",
+      "brain"
+    ],
+    "correctOption": "brain"
+  },
+  {
+    "question": "How many spinal cords are there in the human body? Are there nerves?",
+    "options": [
+      "30 pairs",
+      "33",
+      "31 pairs",
+      "32 pairs"
+    ],
+    "correctOption": "31 pairs"
+  },
+  {
+    "question": "The branch like structure of ARI is called",
+    "options": [
+      "End bulb",
+      "Dendrite",
+      "Axon",
+      "Cell"
+    ],
+    "correctOption": "Dendrite"
+  },
+  {
+    "question": "Which of the following is a part of ARM? Not there?",
+    "options": [
+      "Dendrite",
+      "Cone",
+      "Cell body",
+      "Angle"
+    ],
+    "correctOption": "Angle"
+  },
+  {
+    "question": "EEG Pigeroencepnergaran) Which of the following organs is tested? Is it done for diagnosis?",
+    "options": [
+      "brain",
+      "stomach",
+      "lungs",
+      "heart"
+    ],
+    "correctOption": "brain"
+  },
+  {
+    "question": "of bones in an adult human body what is the number",
+    "options": [
+      "16",
+      "296",
+      "206",
+      "156"
+    ],
+    "correctOption": "206"
+  },
+  {
+    "question": "Which is the longest SSt of the human body?",
+    "options": [
+      "Antarjadhika",
+      "Janvika",
+      "sternum",
+      "femur"
+    ],
+    "correctOption": "femur"
+  },
+  {
+    "question": "which part of the human body oo Formed by the fusion of ischium and pubis?",
+    "options": [
+      "Jaw",
+      "Hipbone",
+      "skull",
+      "foot"
+    ],
+    "correctOption": "Hipbone"
+  },
+  {
+    "question": "Which part of the muscular system connects the bone Connects to bone?",
+    "options": [
+      "HUST",
+      "MUSCLE",
+      "Cartilage",
+      "Ligament"
+    ],
+    "correctOption": "Ligament"
+  },
+  {
+    "question": "At the time of birth the child's body contains approximately How many bones are there?",
+    "options": [
+      "250 bones",
+      "300 bones",
+      "275 bones",
+      "200 bones"
+    ],
+    "correctOption": "300 bones"
+  },
+  {
+    "question": "the smallest bone in the human body which one is it? D",
+    "options": [
+      "Humerus",
+      "Femur",
+      "Steps",
+      "Steps"
+    ],
+    "correctOption": "Steps"
+  },
+  {
+    "question": "Who came up with the theory of 'Population Growth'?",
+    "options": [
+      "Aristotle",
+      "Darwin",
+      "Plato",
+      "Malthus"
+    ],
+    "correctOption": "Malthus"
+  },
+  {
+    "question": "What is the study of birds called?",
+    "options": [
+      "Reptology",
+      "Ornithology",
+      "Anthropology",
+      "Ophthalmology"
+    ],
+    "correctOption": "Ornithology"
+  },
+  {
+    "question": "of all animals and plants Which is the record keeping Gere?",
+    "options": [
+      "Ecology Survey Book",
+      "animal pie ME book",
+      "Wildlife book",
+      "Red Data Book"
+    ],
+    "correctOption": "Red Data Book"
+  },
+  {
+    "question": "study of cells wl They say",
+    "options": [
+      "Cytology",
+      "Serology",
+      "Cell membrane",
+      "Etiology"
+    ],
+    "correctOption": "Cytology"
+  },
+  {
+    "question": "vegetables, fruits and high like wet cultivated value crops It is said.",
+    "options": [
+      "Gardening",
+      "Farming",
+      "Fishing",
+      "Sericulture"
+    ],
+    "correctOption": "Gardening"
+  },
+  {
+    "question": "ss is which branch of science whose purpose is to improve the genetic quality of human population Quality has to be improved.",
+    "options": [
+      "Biotechnology",
+      "Sa",
+      "Eugenics",
+      "Cytology"
+    ],
+    "correctOption": "Eugenics"
+  },
+  {
+    "question": "to create heart images Using reflection of ultrasound waves The technique is called",
+    "options": [
+      "Echocardiogram",
+      "Echocardiography",
+      "Ultrasonography",
+      "Sonography"
+    ],
+    "correctOption": "Echocardiography"
+  },
+  {
+    "question": "Which of the following tad group People are considered universal recipients?",
+    "options": [
+      "B+",
+      "AB+",
+      "A+",
+      "O+"
+    ],
+    "correctOption": "AB+"
+  },
+  {
+    "question": "fa A to which medicinal plant Can be used to treat blood pressure could?",
+    "options": [
+      "Jamun",
+      "Sarpagandha",
+      "Tulsi",
+      "Acacia"
+    ],
+    "correctOption": "Sarpagandha"
+  },
+  {
+    "question": "Glucose is broken down into molecules.",
+    "options": [
+      "Pyruvic acid",
+      "Lactic acid",
+      "Mitochondria",
+      "Cytoplasm"
+    ],
+    "correctOption": "Pyruvic acid"
+  },
+  {
+    "question": "When our muscle cells When there is a lack of oxygen, pyruvate aes and converted it to the following goes.",
+    "options": [
+      "Lactic Acid and Energy",
+      "carbon dioxide and water",
+      "water and energy",
+      "ethanol and carbon dioxide"
+    ],
+    "correctOption": "Lactic Acid and Energy"
+  },
+  {
+    "question": "Minamata conference in 2013 in Japan Which heavy metal emissions to address? Was organized for?",
+    "options": [
+      "Nickel",
+      "Cobalt",
+      "Zinc",
+      "Mercury"
+    ],
+    "correctOption": "Mercury"
+  },
+  {
+    "question": "for most cellular processes Which of the following is energy currency?",
+    "options": [
+      "ATP",
+      "ADP",
+      "Glucose",
+      "Pyruvate"
+    ],
+    "correctOption": "ATP"
+  },
+  {
+    "question": "To provide sweetness to fruits What type of sugar is responsible?",
+    "options": [
+      "Lactose",
+      "Maltose",
+      "Fructose",
+      "Sucrose"
+    ],
+    "correctOption": "Fructose"
+  },
+  {
+    "question": "Name the only bird which can also fly towards",
+    "options": [
+      "Humming bird",
+      "Sparrow",
+      "Penguin",
+      "Woodpecker"
+    ],
+    "correctOption": "Humming bird"
+  },
+  {
+    "question": "sunflowers facing the sun What is speed called?",
+    "options": [
+      "movement",
+      "Phototropism",
+      "Phototropism",
+      "Phototropism"
+    ],
+    "correctOption": "Phototropism"
+  },
+  {
+    "question": "at the center of the cell on the equatorial plate Alignment of chromosomes occurs during mitosis. Creates a state?",
+    "options": [
+      "Early stage",
+      "Intermediate stage",
+      "Posterior stage",
+      "End stage"
+    ],
+    "correctOption": "Intermediate stage"
+  },
+  {
+    "question": "A child in the womb of its foster mother Through whom does it receive?",
+    "options": [
+      "Uterus",
+      "Hormones",
+      "Gernal",
+      "Fallopian tube"
+    ],
+    "correctOption": "Gernal"
+  },
+  {
+    "question": "chlorofluorocarbons ___ gas is harmful to the ozone layer.",
+    "options": [
+      "Hydrogen mass",
+      "H",
+      "Nitrogen dioxide",
+      "Hydrogen sulphide"
+    ],
+    "correctOption": "H"
+  },
+  {
+    "question": "What are the two main organs in the human body Where is the generated magnetic field important?",
+    "options": [
+      "Ue and intestine",
+      "lungs and liver",
+      "Liver and gallbladder",
+      "heart and brain"
+    ],
+    "correctOption": "heart and brain"
+  },
+  {
+    "question": "Which of the following vitamins is rich in yeast",
+    "options": [
+      "Vitamin A",
+      "Vitamin D",
+      "Vitamin C",
+      "Vitamin B"
+    ],
+    "correctOption": "Vitamin B"
+  },
+  {
+    "question": "Who among the following is the most fay Is it a tall tree species?",
+    "options": [
+      "Fir",
+      "Cedar",
+      "Redwood",
+      "Eucalyptus"
+    ],
+    "correctOption": "Redwood"
+  },
+  {
+    "question": "Which one of the following is present Is it fish?",
+    "options": [
+      "Shark",
+      "Whale",
+      "Salmon",
+      "Tuna"
+    ],
+    "correctOption": "Shark"
+  },
+  {
+    "question": "Which of the following is a part of potato plant? Is it the edible part?",
+    "options": [
+      "Leaf",
+      "Seed",
+      "Stem",
+      "Root"
+    ],
+    "correctOption": "Stem"
+  },
+  {
+    "question": "Which one of the following is beneficial? Not a pest?",
+    "options": [
+      "Silk moth",
+      "Lac moth",
+      "Termites",
+      "Honey Hat"
+    ],
+    "correctOption": "Termites"
+  },
+  {
+    "question": "Animals often protect themselves Blend in with the environment. in the following Who does this?",
+    "options": [
+      "Frog",
+      "Jerboa",
+      "Chameleon",
+      "Puma"
+    ],
+    "correctOption": "Chameleon"
+  },
+  {
+    "question": "distinctive color of seaweed in plastid Depends on the pigment located. 'green' algae What pigment leads to color?",
+    "options": [
+      "Phycocyanin",
+      "Carotene",
+      "Xanthophyll",
+      "Chlorophyll"
+    ],
+    "correctOption": "Chlorophyll"
+  },
+  {
+    "question": "Since 2011, the Supreme Court has On manufacture, sale and use of pesticides which has banned human life as well as harmful effects on the environment puts?",
+    "options": [
+      "Endosulfan",
+      "Chlorpyrifos",
+      "Malathion",
+      "Clotianidin"
+    ],
+    "correctOption": "Endosulfan"
+  },
+  {
+    "question": "red panda eats ____",
+    "options": [
+      "Cedar",
+      "Bamboo",
+      "Hua",
+      "Eucalyptus"
+    ],
+    "correctOption": "Bamboo"
+  },
+  
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

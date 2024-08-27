@@ -1,0 +1,4706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTPC polity 2021</title> 
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Polity NTPC 2021 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+function showQuestion() {
+
+correctOptionText = ''; // Initialize correctOptionText
+    // Rest of your existing showQuestion code
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+
+// Copy question and options
+const copyButton = document.querySelector('.btn-copy');
+copyButton.addEventListener('click', () => {
+    const questionText = document.querySelector('#question').textContent;
+    const optionElements = document.querySelectorAll('.form-check-label');
+    
+    let optionsText = '';
+    let correctOptionText = null;
+    let correctOptionIndex = null;
+
+    optionElements.forEach((optionElement, index) => {
+        const optionText = optionElement.textContent.trim();
+        const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+        optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? ' ☑️Correct' : ''}\n`;
+
+        if (isCorrect) {
+            correctOptionText = optionText;
+            correctOptionIndex = index + 1;
+        }
+    });
+
+    let textToCopy = `${questionText}\n\n${optionsText}\n`;
+
+    if (correctOptionText && correctOptionIndex) {
+        textToCopy += `The Correct Option ${correctOptionIndex}: ${correctOptionText}\n                 ☑️Correct  ☑️Correct\n`;
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+
+    // Toggle button text
+    copyButton.textContent = '✅';
+    setTimeout(() => {
+        copyButton.textContent = '📋';
+    }, 2000); // Reset text after 2 seconds
+});
+
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'polityntpc2021underntpcfacts';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+    const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+	
+	 // Update correctOptionText for copying
+        correctOptionText = `correctOption ${correctOptionIndex + 1}: ${currentQuestion.correctOption}`;
+		
+	
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+
+  
+    {
+        "question": "The idea of ​​the Constituent Assembly of India first Who gave the bar?",
+        "options": [
+            "Dr. Rajendra Prasad",
+            "M.N. Roy",
+            "B N Rao",
+            "B R Ambedkar"
+        ],
+        "correctOption": "M N Roy"
+    },
+    {
+        "question": "On which date is the Constitution Day of India? is celebrated?",
+        "options": [
+            "14 April",
+            "15 August",
+            "26 January",
+            "26 November"
+        ],
+        "correctOption": "26 November"
+    },
+    {
+        "question": "Who is known as the \"Father of the Indian Constitution\"? Is known?",
+        "options": [
+            "Dr. Bhimrao Ambedkar",
+            "Dr. Rajendra Prasad",
+            "Dr. K. M.Munshi",
+            "Shri Sachchidanand Sinha"
+        ],
+        "correctOption": "Dr. Bhimrao Ambedkar"
+    },
+    {
+        "question": "Communal electoral system in India is the most By whom was it first started?",
+        "options": [
+            "Wavell Plan, 1945",
+            "Cripps Mission, 1942",
+            "Rowlatt Act, 1919",
+            "Morley Minto Improvement,1909"
+        ],
+        "correctOption": "Morley Minto Improvement,1909"
+    },
+    {
+        "question": "Cabinet Mission Year oA India Came Was.",
+        "options": [
+            "1940",
+            "1943",
+            "1946",
+            "1941"
+        ],
+        "correctOption": "1946"
+    },
+    {
+        "question": "Where is the first Ga court of India Was established?",
+        "options": [
+            "Punjab",
+            "Kolkata",
+            "Mumbai",
+            "Delhi"
+        ],
+        "correctOption": "Kolkata"
+    },
+    {
+        "question": "Origin during implementation of Indian Constitution The total number of streams formally present in it How much is it?",
+        "options": [
+            "396",
+            "392",
+            "391",
+            "395"
+        ],
+        "correctOption": "395"
+    },
+    {
+        "question": "Features from other countries for the Constitution When criticized for borrowing, Who said the following, \"The fundamentals of the Constitution no one has any veg rights in thoughts Not there.\"",
+        "options": [
+            "Jawaharlal Nehru",
+            "C. Rajagopalachari",
+            "Sardar Vallabhbhai Patel",
+            "Dr. B.R. Ambedkar"
+        ],
+        "correctOption": "Dr. B.R. Ambedkar"
+    },
+    {
+        "question": "Constituent Assembly on 27 August 1947 Who said in the debate, \"I believe that separate ates mandal suicide for minorities \"|",
+        "options": [
+            "Govind Seay Pant",
+            "R.V Dhulekar",
+            "B Poker Bahadur",
+            "Sardar Vallabhbhai Patel"
+        ],
+        "correctOption": "Govind Seay Pant"
+    },
+    {
+        "question": "King George-.. Supreme Court in Madras In which year was it established?",
+        "options": [
+            "1800",
+            "1857",
+            "1774",
+            "1757"
+        ],
+        "correctOption": "1800"
+    },
+    {
+        "question": "Constituent Assembly of India after independence Who was the president of?",
+        "options": [
+            "Acharya Narendra Dev",
+            "Dr. B.R. Ambedkar",
+            "C Rajagopalachari",
+            "Dr. Rajendra Prasad"
+        ],
+        "correctOption": "Dr. Rajendra Prasad"
+    },
+    {
+        "question": "Who was the first Speaker of Lok Sabha?",
+        "options": [
+            "Purushottam Tandon",
+            "GV Mavalankar",
+            "Hukum Singh",
+            "Rajendra Prasad"
+        ],
+        "correctOption": "GV Mavalankar"
+    },
+    {
+        "question": "Who was responsible for making the Constitution of India? Cabinet Mission proposes a Constituent Assembly kept?",
+        "options": [
+            "Cabinet Mission Plan 1946",
+            "Cabinet Mission Plan 1945",
+            "Cabinet Mission Plan 1949",
+            "Cabinet Mission Plan 1936"
+        ],
+        "correctOption": "Cabinet Mission Plan 1946"
+    },
+    {
+        "question": "Constituent Assembly for independent India Who prepared the draft of the Constitution. was established under",
+        "options": [
+            "Indian Independence Act of 1947",
+            "Government of India Act of 1909",
+            "Cabinet Mission Plan of 1946",
+            "Government of India Act of 1919"
+        ],
+        "correctOption": "Cabinet Mission Plan of 1946"
+    },
+    {
+        "question": "In which year did the Constitution of India come into force?",
+        "options": [
+            "1949",
+            "1950",
+            "1948",
+            "1947"
+        ],
+        "correctOption": "1950"
+    },
+    {
+        "question": "Constitution of India both at the Center and in the States Governed as a parliamentary democracy Provides structure.",
+        "options": [
+            "Single system",
+            "Double system",
+            "Semi-federal",
+            "Federal"
+        ],
+        "correctOption": "Semi-federal"
+    },
+    {
+        "question": "Which of the following Acts made India ended the company's trade monopoly in Gave it and all the British except tea opened up to topics",
+        "options": [
+            "Regulating Act, 1773",
+            "Charter Act of 1813",
+            "Indian Council Act, 1861",
+            "Government of India Act, 1935"
+        ],
+        "correctOption": "Charter Act of 1813"
+    },
+    {
+        "question": "Drafting the Constitution of India How much time did it take in total?",
+        "options": [
+            "2 years, 10 months and 17 days",
+            "2 years, 7 months and 17 days",
+            "2 years, 11 months and 17 days",
+            "2 years, 9 months and 10 days"
+        ],
+        "correctOption": "2 years, 7 months and 17 days"
+    },
+    {
+        "question": "Congress Party on 26 January 1930 is celebrated?",
+        "options": [
+            "Republic Day",
+            "Independence Day",
+            "India Day",
+            "Silent Protest Day"
+        ],
+        "correctOption": "Independence Day"
+    },
+    {
+        "question": "Name of the first Speaker of the Indian Parliament Tell me.",
+        "options": [
+            "BR Ambedkar",
+            "KM Munshi",
+            "GV Mavalankar",
+            "Rajendra Prasad"
+        ],
+        "correctOption": "GV Mavalankar"
+    },
+    {
+        "question": "Which British Prime Minister initiated the Cripps Mission? sent to India?",
+        "options": [
+            "Winston Churchill",
+            "Robert AER",
+            "Margaret Thatcher",
+            "Benjamin Disraeli"
+        ],
+        "correctOption": "Winston Churchill"
+    },
+    {
+        "question": "India's Constitution being republican The reason is that it______",
+        "options": [
+            "Provides for an elected Parliament",
+            "Provides adult franchise",
+            "Contains a bill of rights",
+            "There is no hereditary element"
+        ],
+        "correctOption": "Provides for an elected Parliament"
+    },
+    {
+        "question": "When was the Indian Constitution adopted?",
+        "options": [
+            "On 26 November 1949",
+            "On 26 November 1946",
+            "On 26 January 1950",
+            "On 26 January 1947"
+        ],
+        "correctOption": "On 26 November 1949"
+    },
+    {
+        "question": "When did the Constitution of India come into force?",
+        "options": [
+            "1950",
+            "1947",
+            "1949",
+            "1948"
+        ],
+        "correctOption": "1950"
+    },
+    {
+        "question": "Vice President of the Constituent Assembly in the year 1946 Who was selected as?",
+        "options": [
+            "Jaipal Singh",
+            "TT Krishnamachari",
+            "HC Mukherjee",
+            "Rajendra Prasad"
+        ],
+        "correctOption": "HC Mukherjee"
+    },
+    {
+        "question": "Constituent Assembly held on 9 December 1946 Who was the chairman of the first meeting?",
+        "options": [
+            "Manbendra Nath Roy",
+            "Dr. Sachchidanand Sinha",
+            "Dr. Rajendra Prasad",
+            "Jawaharlal Nehru"
+        ],
+        "correctOption": "Dr. Sachchidanand Sinha"
+    },
+    {
+        "question": "Who said that constitutional remedies Rights are the 'heart and soul of the Constitution'?",
+        "options": [
+            "Dr. B.R. Ambedkar",
+            "Netaji Subhash Chandra Bose",
+            "Pandit Jawaharlal Nehru",
+            "Gopal Krishna Gokhale"
+        ],
+        "correctOption": "Dr. B.R. Ambedkar"
+    },
+    {
+        "question": "First meeting of the Constituent Assembly of India When was it organized?",
+        "options": [
+            "9 December 1946",
+            "7 December 1947",
+            "8 March 1945",
+            "26 January 1948"
+        ],
+        "correctOption": "9 December 1946"
+    },
+    {
+        "question": "First Constituent Assembly of Independent India Who was the president?",
+        "options": [
+            "Dr. Sachchidanand Sinha",
+            "Dr. B.R. Ambedkar",
+            "Pandit Jawaharlal Nehru",
+            "Dr. Rajendra Prasad"
+        ],
+        "correctOption": "Dr. Rajendra Prasad"
+    },
+    {
+        "question": "a system of government in which power Central authority and various components of the country is divided between units, Is called:",
+        "options": [
+            "Democracy",
+            "Federalism",
+            "Oligarchy",
+            "Monarchy"
+        ],
+        "correctOption": "Federalism"
+    },
+    {
+        "question": "After how many (approximate) years of debate, When was the Constitution of India signed?",
+        "options": [
+            "5",
+            "4",
+            "2",
+            "3"
+        ],
+        "correctOption": "3"
+    },
+    {
+        "question": "An introductory statement in the Constitution which The reasons and guiding values ​​of the Constitution Tells, it is called:",
+        "options": [
+            "Article",
+            "Fundamental Rights",
+            "Preamble",
+            "Vol"
+        ],
+        "correctOption": "Preamble"
+    },
+    {
+        "question": "Jana Gana Mana officially as the Indian national anthem by the Constituent Assembly When was it adopted?",
+        "options": [
+            "27 December, 1911",
+            "24 January 1950",
+            "26 January, 1949",
+            "26 January, 1950"
+        ],
+        "correctOption": "24 January 1950"
+    },
+    {
+        "question": "Who designed the national flag of India? did?",
+        "options": [
+            "Dr. Magfoor Ahmed Ijaz",
+            "Tatya Tope",
+            "Pingali Venkaiah",
+            "Ram Prasad Bismil"
+        ],
+        "correctOption": "Pingali Venkaiah"
+    },
+    {
+        "question": "Before the framing of the Constitution of India, An 'Objective Resolution' was proposed by ____ in 1946 it was done.",
+        "options": [
+            "Rajendra Prasad",
+            "Jawaharlal Nehru",
+            "Vallabhbhai Patel",
+            "BR Ambedkar"
+        ],
+        "correctOption": "Jawaharlal Nehru"
+    },
+    {
+        "question": "The Constituent Assembly adopted the Constitution of India of the drafting committee to prepare the draft When was it formed?",
+        "options": [
+            "29 August 1947",
+            "29 August 1949",
+            "29 August 1948",
+            "29 August 1950"
+        ],
+        "correctOption": "29 August 1947"
+    },
+    {
+        "question": "British government sent ERI to India in 1946 Members were included in the cabinet mission.",
+        "options": [
+            "Three",
+            "Six",
+            "Four",
+            "Five"
+        ],
+        "correctOption": "Three"
+    },
+    {
+        "question": "Which of the following in the context of federalism Is it wrong?",
+        "options": [
+            "Dual citizenship in case of federal countries There is no scope.",
+            "Federalism accommodates two sets of politics There is an institutional mechanism to do this - a regional AR GENT AT THE NATIONAL LEVEL.",
+            "Every government is autonomous in its own area.",
+            "To prevent conflict between the Center and the State. to settle disputes, an independent There is a judiciary."
+        ],
+        "correctOption": "Dual citizenship in case of federal countries There is no scope."
+    },
+    {
+        "question": "Constitution that writes the Indian Constitution Who was the Vice President of the Assembly?",
+        "options": [
+            "Rajendra Prasad",
+            "Jaipal Singh",
+            "Yes Durgabai Deshmukh",
+            "H C Mukherjee"
+        ],
+        "correctOption": "H C Mukherjee"
+    },
+    {
+        "question": "Which decision laid down the basic structure of the Constitution? laid down the principle of?",
+        "options": [
+            "Golaknath case",
+            "Shankari Prasad case",
+            "Kesavananda Bharti case",
+            "Indra Sawhney case"
+        ],
+        "correctOption": "Kesavananda Bharti case"
+    },
+    {
+        "question": "Quit India Movement Independence of India Was important in the war. which of the following The incident happened after the movement?",
+        "options": [
+            "Labor government in Britain cabinet in India sent a mission",
+            "All India Muslim League in British India was established",
+            "Dandi March",
+            "Roulette bill"
+        ],
+        "correctOption": "Labor government in Britain cabinet in India sent a mission"
+    },
+    {
+        "question": "Liberty and equality in the Indian Constitution And the concepts of fraternity came from which country? Was adopted?",
+        "options": [
+            "Britain",
+            "France",
+            "USSR",
+            "Japan"
+        ],
+        "correctOption": "France"
+    },
+    {
+        "question": "Fundamental Rights in the Indian Constitution From which Constitution is it taken?",
+        "options": [
+            "Britain",
+            "Switzerland",
+            "United States of America",
+            "Soviet Union"
+        ],
+        "correctOption": "United States of America"
+    },
+    {
+        "question": "Indian Constitution adopted the five-year plan from which country? Have you received the features of the scheme?",
+        "options": [
+            "USA",
+            "Ireland",
+            "South Africa",
+            "USSR"
+        ],
+        "correctOption": "USSR"
+    },
+    {
+        "question": "of the federal government adopted by India What is the most important feature?",
+        "options": [
+            "Center is economically dependent on the states",
+            "All governments have equal jurisdiction.",
+            "State Government as compared to Central Government Have more power.",
+            "On cooperation and relations between the state and the centre. Should be based."
+        ],
+        "correctOption": "On cooperation relations between the state and the center Should be based."
+    },
+    {
+        "question": "India's Rajya Sabha members' indirect From which country the constitutional provision of 'election' was introduced? Was adopted?",
+        "options": [
+            "Germany",
+            "South Africa",
+            "America",
+            "England"
+        ],
+        "correctOption": "South Africa"
+    },
+    {
+        "question": "of the 'Rule of Law' of the Indian Constitution Which foreign constitution is the source of 'idea'?",
+        "options": [
+            "America",
+            "Germany",
+            "The then USSR",
+            "United Kingdom"
+        ],
+        "correctOption": "United Kingdom"
+    },
+    {
+        "question": "We past the uke in the Indian Constitution The provision of has been adopted from which Constitution?",
+        "options": [
+            "Ireland",
+            "France",
+            "Britain",
+            "America"
+        ],
+        "correctOption": "Britain"
+    },
+    {
+        "question": "Directive Principles' in the Indian Constitution Where is the concept taken from?",
+        "options": [
+            "America",
+            "Ireland",
+            "Canada",
+            "Great Britain"
+        ],
+        "correctOption": "Ireland"
+    },
+    {
+        "question": "In the Constitution of India, liberty, equality And the principles of dyed were borrowed:",
+        "options": [
+            "French Constitution",
+            "Irish Constitution",
+            "United States Constitution",
+            "British Constitution"
+        ],
+        "correctOption": "French Constitution"
+    },
+    {
+        "question": "With a strong center in the Indian Constitution The concept of association is derived from:",
+        "options": [
+            "Great Britain",
+            "Ireland",
+            "Canada",
+            "USA"
+        ],
+        "correctOption": "Canada"
+    },
+    {
+        "question": "Which of the following Indian Constitution Is not the source of?",
+        "options": [
+            "Constitution of Denmark",
+            "Constitution of France",
+            "Constitution of Ireland",
+            "U. S.A. constitution of"
+        ],
+        "correctOption": "Constitution of Denmark"
+    },
+    {
+        "question": "Which part of the Constitution of India is German? Affected by the Constitution?",
+        "options": [
+            "Amendment of the Constitution",
+            "Fundamental rights during emergency Suspension",
+            "Single citizenship",
+            "Federal system"
+        ],
+        "correctOption": "Fundamental rights during emergency Suspension"
+    },
+    {
+        "question": "Liberty, Equality and Fraternity by India On the Constitution of which country for 'Principles of Has it been considered?",
+        "options": [
+            "Ireland",
+            "France",
+            "Australia",
+            "Britain"
+        ],
+        "correctOption": "France"
+    },
+    {
+        "question": "Semi-federal form of government for India The provision of was adopted:",
+        "options": [
+            "Russia",
+            "Britain",
+            "Canada",
+            "Ireland"
+        ],
+        "correctOption": "Canada"
+    },
+    {
+        "question": "rule of law in the indian constitution The idea was taken from which of the following constitutions Has gone?",
+        "options": [
+            "British",
+            "Canadian",
+            "Wa",
+            "German"
+        ],
+        "correctOption": "British"
+    },
+    {
+        "question": "India is included in which part of the Constitution of India? What are the fundamental rights of the citizens of?",
+        "options": [
+            "Part 1",
+            "Part 2",
+            "Part 3",
+            "Part 4"
+        ],
+        "correctOption": "Part 3"
+    },
+    {
+        "question": "Currently in the Eighth Schedule of the Constitution How many languages ​​are listed?",
+        "options": [
+            "20",
+            "22",
+            "24",
+            "21"
+        ],
+        "correctOption": "22"
+    },
+    {
+        "question": "Which of the following of the Constitution of India In inter-state disputes under which article Formation of an inter-state council to coordinate Has been done?",
+        "options": [
+            "Article 352",
+            "Article 356",
+            "Article 19",
+            "Article 263"
+        ],
+        "correctOption": "Article 263"
+    },
+    {
+        "question": "Which article of the Constitution of India Is it related to the appointment of the Governor?",
+        "options": [
+            "Article 155",
+            "Article 149",
+            "Article 148",
+            "Article 143"
+        ],
+        "correctOption": "Article 155"
+    },
+    {
+        "question": "Which article of the Constitution of India Power of Parliament to amend the Constitution provides?",
+        "options": [
+            "Article 198",
+            "Article 368",
+            "Article 356",
+            "Article 144"
+        ],
+        "correctOption": "Article 368"
+    },
+    {
+        "question": "President of India under which article of the sentence of a person guilty of capital punishment Can grant suspension, exemption, relief or remission of punishment?",
+        "options": [
+            "Article 65",
+            "Article 123",
+            "Article 50",
+            "Article 72"
+        ],
+        "correctOption": "Article 72"
+    },
+    {
+        "question": "Which article of the Indian Constitution 'opportunity' in matters of public employment guarantees equality",
+        "options": [
+            "Article 17",
+            "Article 18",
+            "Article 15",
+            "Article 16"
+        ],
+        "correctOption": "Article 16"
+    },
+    {
+        "question": "Under which article of the Constitution, India Supreme Court of Enforcement of Fundamental Rights Can issue a writ for?",
+        "options": [
+            "Article 30",
+            "Article 139",
+            "Article 44",
+            "Article 32"
+        ],
+        "correctOption": "Article 32"
+    },
+    {
+        "question": "Which of the following of the Constitution of India Which article provides for the establishment of legislative councils in the states? Provides provision for construction?",
+        "options": [
+            "Article 195",
+            "Article 169",
+            "Article 151",
+            "Article 216"
+        ],
+        "correctOption": "Article 169"
+    },
+    {
+        "question": "With reference to the Indian Constitution, the following Which of the following is correctly matched?",
+        "options": [
+            "Part II – Directive Principles of State Policy",
+            "Part II – Fundamental Rights",
+            "Part II – Fundamental Duties",
+            "Part II – Citizenship"
+        ],
+        "correctOption": "Part II Fundamental Rights"
+    },
+    {
+        "question": "Article of the Indian Constitution Hindi declared the official language of the Union under it was done",
+        "options": [
+            "333",
+            "0345",
+            "०334",
+            "343"
+        ],
+        "correctOption": "343"
+    },
+    {
+        "question": "In the Eighth Schedule of the Indian Constitution How many languages ​​are listed?",
+        "options": [
+            "23",
+            "22",
+            "21",
+            "25"
+        ],
+        "correctOption": "22"
+    },
+    {
+        "question": "In the Constitution of India as of October 2020 How many parts are there?",
+        "options": [
+            "23",
+            "24",
+            "022",
+            "25"
+        ],
+        "correctOption": "25"
+    },
+    {
+        "question": "of the Indian Constitution Is related to the protection of interests of minorities.",
+        "options": [
+            "Article 29",
+            "Article 26",
+            "Article 28",
+            "Article 27"
+        ],
+        "correctOption": "Article 29"
+    },
+    {
+        "question": "In the Constitution of India as of October 2020 How many paragraphs are there?",
+        "options": [
+            "448",
+            "395",
+            "398",
+            "495"
+        ],
+        "correctOption": "448"
+    },
+    {
+        "question": "Impeachment of the President of India The process is mentioned in the Constitution of India a Has been done in.",
+        "options": [
+            "Article 61",
+            "Article 30",
+            "Article 77",
+            "Article 66"
+        ],
+        "correctOption": "Article 61"
+    },
+    {
+        "question": "Which article of the Indian Constitution Is it related to financial emergency?",
+        "options": [
+            "Article 160",
+            "Article 360",
+            "Article 460",
+            "Article 260"
+        ],
+        "correctOption": "Article 360"
+    },
+    {
+        "question": "Which Article 368 of the Indian Constitution Is related to?",
+        "options": [
+            "Amendment of the Constitution",
+            "Presidential elections",
+            "National emergency",
+            "Federal characteristic of our country"
+        ],
+        "correctOption": "Amendment of the Constitution"
+    },
+    {
+        "question": "Which schedule of the Indian Constitution of division of powers between the Union and the States Makes provision?",
+        "options": [
+            "Ill",
+            "VI",
+            "VII",
+            "IV"
+        ],
+        "correctOption": "VII"
+    },
+    {
+        "question": "Which of the following languages ​​of India Does not have the status of a scheduled language?",
+        "options": [
+            "Nepali",
+            "Garhwali",
+            "Dogri",
+            "Maithili"
+        ],
+        "correctOption": "Garhwali"
+    },
+    {
+        "question": "Article 354 in the Indian Constitution In which year was it added?",
+        "options": [
+            "1949",
+            "1956",
+            "1950",
+            "1954"
+        ],
+        "correctOption": "1954"
+    },
+    {
+        "question": "Which of the following of the Indian Constitution Which article refers to the Money Bill? defines?",
+        "options": [
+            "Article 115",
+            "Article 113",
+            "Article 110",
+            "Article 109"
+        ],
+        "correctOption": "Article 110"
+    },
+    {
+        "question": "In which articles of the Constitution of India Right to equality is mentioned?",
+        "options": [
+            "Article 14-18",
+            "Article 25-28",
+            "Article 19-22",
+            "Article 23-24"
+        ],
+        "correctOption": "Article 14-18"
+    },
+    {
+        "question": "Which article of the Constitution of India Protecting the natural environment in accordance with every What is the fundamental duty of a citizen?",
+        "options": [
+            "Article 51A",
+            "Article 52",
+            "Article 55",
+            "Article 48A"
+        ],
+        "correctOption": "Article 51A"
+    },
+    {
+        "question": "Which article of the Indian Constitution In some circumstances, Lok Sabha and Rajya Sabha Provides right to joint meeting?",
+        "options": [
+            "Article 100",
+            "Article 156",
+            "Article 108",
+            "Article 75"
+        ],
+        "correctOption": "Article 108"
+    },
+    {
+        "question": "of a Minister for the Union in India contained in the oath",
+        "options": [
+            "Second Schedule",
+            "First Schedule",
+            "Third Schedule",
+            "Fifth Schedule"
+        ],
+        "correctOption": "Third Schedule"
+    },
+    {
+        "question": "Which of the following articles of the Constitution Union Budget as annual financial statement Refers?",
+        "options": [
+            "Article 102",
+            "Article 113",
+            "Article 101",
+            "Article 112"
+        ],
+        "correctOption": "Article 112"
+    },
+    {
+        "question": "In which of the following paragraphs There is a provision that by order of the President a Can an Inter-State Council be formed?",
+        "options": [
+            "Article 261",
+            "Article 263",
+            "Article 262",
+            "Article 264"
+        ],
+        "correctOption": "Article 263"
+    },
+    {
+        "question": "Mention of Directive Principles of State Policy Which of the following parts of the Constitution of India Has been done in?",
+        "options": [
+            "Part 4",
+            "Part 5",
+            "Part 3",
+            "Part 6"
+        ],
+        "correctOption": "Part 4"
+    },
+    {
+        "question": "Which article of the Indian Constitution Ensures abolition of titles?",
+        "options": [
+            "Article 25",
+            "Article 18",
+            "Article 22",
+            "Article 23"
+        ],
+        "correctOption": "Article 18"
+    },
+    {
+        "question": "In which article of the Indian Constitution il and provisions for local governments 2",
+        "options": [
+            "Article 51 A",
+            "Article 21",
+            "Article 270",
+            "Article 243"
+        ],
+        "correctOption": "Article 243"
+    },
+    {
+        "question": "Which article of the Constitution of India Provides universal adult franchise?",
+        "options": [
+            "326",
+            "329A",
+            "327",
+            "325"
+        ],
+        "correctOption": "326"
+    },
+    {
+        "question": "Which article of the Indian Constitution Says, 'In the public services of the State to separate the judiciary from the executive State steps for 'Forum'?",
+        "options": [
+            "Article 25",
+            "Article 55",
+            "Article 50",
+            "Article 35"
+        ],
+        "correctOption": "Article 50"
+    },
+    {
+        "question": "Which of the following articles has similarity The concept of?",
+        "options": [
+            "Article 14",
+            "Article 30",
+            "Article 19",
+            "Article 21"
+        ],
+        "correctOption": "Article 14"
+    },
+    {
+        "question": "In which schedule of the Indian Constitution States and Union Territories and their territories Is there a list of?",
+        "options": [
+            "ays",
+            "1",
+            "5",
+            "12"
+        ],
+        "correctOption": "1"
+    },
+    {
+        "question": "Which two articles of the Constitution of India The power of judicial review is most clearly express?",
+        "options": [
+            "Article 21 and Article 446",
+            "Article 32 and Article 226",
+            "Article 44 and Article 152",
+            "Article 17 and Article 143"
+        ],
+        "correctOption": "Article 32 and Article 226"
+    },
+    {
+        "question": "Which of the following of the Constitution of India Which article governs both the Houses of Parliament? Provides provision for joint sitting?",
+        "options": [
+            "Article 118",
+            "Article 129",
+            "Article 108",
+            "Article 164"
+        ],
+        "correctOption": "Article 108"
+    },
+    {
+        "question": "India should be a secular describes the state as",
+        "options": [
+            "Directive principles of state policy",
+            "Article 44",
+            "Preamble of the Constitution",
+            "Article 475"
+        ],
+        "correctOption": "Preamble of the Constitution"
+    },
+    {
+        "question": "Article 76 of the Indian Constitution Which of the following is related to?",
+        "options": [
+            "Appointment of Attorney General",
+            "Appointment of Auditor General",
+            "Appointment of Auditor General",
+            "Appointment of the President"
+        ],
+        "correctOption": "Appointment of Attorney General"
+    },
+    {
+        "question": "Which of the following of the Constitution of India Which article right against exploitation provides?",
+        "options": [
+            "Article 23",
+            "Article 21",
+            "Article 14",
+            "Article 19"
+        ],
+        "correctOption": "Article 23"
+    },
+    {
+        "question": "Central Government Constitution of India a 'Annual Financial Report Statement' presented as per is bound to",
+        "options": [
+            "Article 110",
+            "Article 112",
+            "Article 113",
+            "Article 111"
+        ],
+        "correctOption": "Article 112"
+    },
+    {
+        "question": "What is Article 2430 related to?",
+        "options": [
+            "Primary for children below 6 years of age STATA Provision of care and education.",
+            "Name the area of ​​the union",
+            "Protection of life and personal liberty",
+            "Structure of Panchayats"
+        ],
+        "correctOption": "Structure of Panchayats"
+    },
+    {
+        "question": "Which of the following is included in the Constitution of India? To grant pardon under Article 161 of the Indian Penal Code Have the right?",
+        "options": [
+            "Chief Justice of India.",
+            "Governor",
+            "President",
+            "Prime Minister"
+        ],
+        "correctOption": "Governor"
+    },
+    {
+        "question": "Article in Part IV of the Constitution of India 43 8 is related to:",
+        "options": [
+            "Rural Trade Center",
+            "Forest Development",
+            "Gram Panchayat",
+            "Cooperative Societies"
+        ],
+        "correctOption": "Cooperative societies"
+    },
+    {
+        "question": "Which of the following of the Constitution of India Which article states that the state village Steps to organize Panchayats will pick up?",
+        "options": [
+            "Article 42",
+            "Article 41",
+            "Article 40",
+            "Article 43"
+        ],
+        "correctOption": "Article 40"
+    },
+    {
+        "question": "constitution of india hb The right to life is guaranteed under.",
+        "options": [
+            "Article 16",
+            "Article 15",
+            "Article 21",
+            "Article 14"
+        ],
+        "correctOption": "Article 21"
+    },
+    {
+        "question": "Which of the following of the Indian Constitution Which article covers work, education in certain cases? and establish the right to public assistance Is directed to?",
+        "options": [
+            "Article 41",
+            "Article 43",
+            "Article 12",
+            "Article 40"
+        ],
+        "correctOption": "Article 41"
+    },
+    {
+        "question": "Which article results from the formation of Finance Commission Is related?",
+        "options": [
+            "Article 282",
+            "Article 279",
+            "Article 280",
+            "Article 281"
+        ],
+        "correctOption": "Article 280"
+    },
+    {
+        "question": "Which of the following of the Indian Constitution Which schedule states or union territories How does Rajya Sabha calculate the allocation of seats?",
+        "options": [
+            "Tenth Schedule",
+            "Fourth Schedule",
+            "First Schedule",
+            "Sixth Schedule"
+        ],
+        "correctOption": "Fourth Schedule"
+    },
+    {
+        "question": "Which article of the Indian Constitution ac or on promoting peace and security lay down the directive principles of state policy does?",
+        "options": [
+            "Article 51",
+            "Article 15",
+            "Article 31",
+            "Article 14"
+        ],
+        "correctOption": "Article 51"
+    },
+    {
+        "question": "Which of the following of the Indian Constitution In which article living wage for workers Instructions have been given to install etc.?",
+        "options": [
+            "Article 41",
+            "Article 43",
+            "Article 40",
+            "Article 42"
+        ],
+        "correctOption": "Article 43"
+    },
+    {
+        "question": "According to Article 348(1) of the Constitution For proceedings in the High Courts of India Which of the following languages ​​was used goes?",
+        "options": [
+            "State (territory) under the jurisdiction of the High Court Official language of.",
+            "English",
+            "regional language",
+            "Hindi"
+        ],
+        "correctOption": "English"
+    },
+    {
+        "question": "In which article of the Constitution of India It is provided that the President shall receive assistance and One with the Prime Minister to advise There will be a Council of Ministers, which will, according to the advice of its will work?",
+        "options": [
+            "Article 72(1)",
+            "Article 73(1)",
+            "Article 74(1)",
+            "Article 79(1)"
+        ],
+        "correctOption": "Article 74(1)"
+    },
+    {
+        "question": "Which article of the Indian Constitution Declares Hindi as the language of the Union?",
+        "options": [
+            "Article 29(1)",
+            "Article 343(2)",
+            "Article 343(1)",
+            "Article 29(2)"
+        ],
+        "correctOption": "Article 343(1)"
+    },
+    {
+        "question": "According to Article 170, every State Number of seats in the Legislative Assembly of Should not exceed.",
+        "options": [
+            "500",
+            "550",
+            "475",
+            "525"
+        ],
+        "correctOption": "500"
+    },
+    {
+        "question": "Article 17 of the Indian Constitution came into force Does:",
+        "options": [
+            "Right to education",
+            "Abolition of the practice of untouchability",
+            "Joint sitting of both the houses in some cases",
+            "Right to freedom of religion"
+        ],
+        "correctOption": "Abolition of the practice of untouchability"
+    },
+    {
+        "question": "Ordinances during recess of Parliament President's power to issue Indian In which article of the Constitution is it given?",
+        "options": [
+            "Article 52",
+            "Article 123",
+            "Article 63",
+            "Article 352"
+        ],
+        "correctOption": "Article 123"
+    },
+    {
+        "question": "From the Second Schedule of the Indian Constitution Is related to:",
+        "options": [
+            "President, Governors, Chief Justices, High Court and Supreme Court judges salary of",
+            "Forms of oath and affirmation",
+            "Allocation of seats in the Council of States",
+            "List of states"
+        ],
+        "correctOption": "President, Governors, Chief Justices, High Court and Supreme Court judges salary of"
+    },
+    {
+        "question": "Article 21 of the Constitution of India Which of the following options is related to?",
+        "options": [
+            "Abolition of untouchability",
+            "Imposition of President's rule in the states",
+            "personal freedom",
+            "Free and compulsory education"
+        ],
+        "correctOption": "personal freedom"
+    },
+    {
+        "question": "Article 371-0 of the Constitution of India Which state is given special status?",
+        "options": [
+            "Assam",
+            "Sikkim",
+            "Arunachal Pradesh",
+            "Nagaland"
+        ],
+        "correctOption": "Nagaland"
+    },
+    {
+        "question": "of India for the formation of a new state In which of the following schedules of the Constitution to be revised?",
+        "options": [
+            "First Schedule",
+            "Fourth Schedule",
+            "Second Schedule",
+            "Third Schedule"
+        ],
+        "correctOption": "First Schedule"
+    },
+    {
+        "question": "Article 72 of the Constitution of India Which of the following is related to?",
+        "options": [
+            "Pardon power of the President",
+            "The composition of the Supreme Court of India and Jurisdiction",
+            "Appointment of Prime Minister",
+            "Right to freedom of speech"
+        ],
+        "correctOption": "Pardon power of the President"
+    },
+    {
+        "question": "In which article of the Constitution of India Does 'right to life' include?",
+        "options": [
+            "Article 21",
+            "Article 34",
+            "Article 32",
+            "Article 20"
+        ],
+        "correctOption": "Article 21"
+    },
+    {
+        "question": "Which of the following of the Constitution of India Which article protects the interests of minorities? Is it related to conservation?",
+        "options": [
+            "Article 24",
+            "Article 20",
+            "Article 21U",
+            "Article 29"
+        ],
+        "correctOption": "Article 29"
+    },
+    {
+        "question": "Which of the following states of India Is not governed by the Sixth Schedule of the Constitution?",
+        "options": [
+            "Arunachal Pradesh",
+            "Assam",
+            "Mizoram",
+            "Tripura"
+        ],
+        "correctOption": "Arunachal Pradesh"
+    },
+    {
+        "question": "22 scheduled in the Constitution of India Apart from languages, which two other languages Recognized by Sahitya Akademi?",
+        "options": [
+            "Rajasthani and English",
+            "English and Pali",
+            "Haryanvi and Punjabi",
+            "Prakrit and Rajasthani"
+        ],
+        "correctOption": "Rajasthani and English"
+    },
+    {
+        "question": "Education is included in which list of the Indian Constitution? Has been kept?",
+        "options": [
+            "Government List",
+            "State List",
+            "Concurrent List",
+            "Union List"
+        ],
+        "correctOption": "Concurrent List"
+    },
+    {
+        "question": "Which of the following of the Indian Constitution Which article provides for the formation, boundaries of the new state? Describes details of changes etc?",
+        "options": [
+            "Article 3",
+            "Article 10",
+            "Article 2",
+            "Article 1"
+        ],
+        "correctOption": "Article 3"
+    },
+    {
+        "question": "Which article of the Indian Constitution Talks about 'right to life'?",
+        "options": [
+            "Article 23",
+            "Article 21",
+            "Article 24",
+            "Article 22"
+        ],
+        "correctOption": "Article 21"
+    },
+    {
+        "question": "Education is included in which list of the Indian Constitution? Has been kept?",
+        "options": [
+            "State List",
+            "Union List",
+            "Concurrent List",
+            "Government List"
+        ],
+        "correctOption": "Concurrent List"
+    },
+    {
+        "question": "Which article of the Indian Parliament caste, race, tribe as scheduled castes Right to include or exclude from the list gives?",
+        "options": [
+            "Article 341",
+            "Article 43",
+            "Article 241",
+            "Article 200"
+        ],
+        "correctOption": "Article 341"
+    },
+    {
+        "question": "Which state under Article 371A Got special status?",
+        "options": [
+            "Puducherry",
+            "Goa",
+            "Nagaland",
+            "Jammu and Kashmir"
+        ],
+        "correctOption": "Nagaland"
+    },
+    {
+        "question": "Which of the following of the Constitution of India In which article it is written that 'India, which There is India, there will be a union of states'?",
+        "options": [
+            "Article 4",
+            "Article 1",
+            "Article 3",
+            "Article 2"
+        ],
+        "correctOption": "Article 1"
+    },
+    {
+        "question": "List 2 of the Seventh Schedule to the Parliament There is no power to make laws on subjects. Which of the following is a part of this general law? Is there an exception?",
+        "options": [
+            "If the Judiciary asks Parliament to do so She says.",
+            "If the Prime Minister asks Parliament to do so They say",
+            "If the Governor of the State requires certify",
+            "If the Rajya Sabha passes a resolution to this effect Does it."
+        ],
+        "correctOption": "If the Rajya Sabha passes a resolution to this effect Does it."
+    },
+    {
+        "question": "Article 344(1) of the Constitution of India And as per 351, in the Eighth Schedule Includes recognition of languages.",
+        "options": [
+            "26",
+            "023...",
+            "20...",
+            "22"
+        ],
+        "correctOption": "22"
+    },
+    {
+        "question": "Which of the following of the Constitution of India Which Article contains Part XX which is part of the Constitution and Parliament to amend its procedures Is it related to the powers of?",
+        "options": [
+            "Article 393",
+            "Article 367",
+            "Article 395",
+            "Article 368"
+        ],
+        "correctOption": "Article 368"
+    },
+    {
+        "question": "Which of the following of the Constitution of India Which article regarding freedom of speech Guarantees the protection of certain rights?",
+        "options": [
+            "Article 14",
+            "Article 21",
+            "Article 19",
+            "Article 22"
+        ],
+        "correctOption": "Article 19"
+    },
+    {
+        "question": "Which of the following states is called India? Special status under Part XXI of the Constitution of India In some states which was not provided On temporary, transitional and special provisions 371 articles are included?",
+        "options": [
+            "Karnataka",
+            "Himachal Pradesh",
+            "Maharashtra",
+            "Andhra Pradesh"
+        ],
+        "correctOption": "Himachal Pradesh"
+    },
+    {
+        "question": "Which of the following of the Indian Constitution Which article deals with the tenure of the President? Is related?",
+        "options": [
+            "Article 56",
+            "Article 53",
+            "Article 54",
+            "Article 55"
+        ],
+        "correctOption": "Article 56"
+    },
+    {
+        "question": "Article 280 of the Constitution of India Is related to.",
+        "options": [
+            "Privacy",
+            "Education",
+            "Equality",
+            "Finance Commission"
+        ],
+        "correctOption": "Finance Commission"
+    },
+    {
+        "question": "First Amendment to the Constitution of India ___Kokiagyatha.",
+        "options": [
+            "1953",
+            "1951",
+            "1952",
+            "1950"
+        ],
+        "correctOption": "1951"
+    },
+    {
+        "question": "Public sector in nuclear power generation To permit joint venture between undertakings of Atomic Energy Amendment by Parliament for When was the bill passed?",
+        "options": [
+            "2014",
+            "2012",
+            "2010",
+            "2015"
+        ],
+        "correctOption": "2015"
+    },
+    {
+        "question": "Which constitutional amendment made the Director Principles given priority over fundamental rights?",
+        "options": [
+            "55th",
+            "42nd",
+            "43rd",
+            "44th"
+        ],
+        "correctOption": "42nd"
+    },
+    {
+        "question": "Which amendment to the Constitution of India Right to property as a fundamental right Is it related to ending in?",
+        "options": [
+            "3741",
+            "42nd",
+            "40th",
+            "44th"
+        ],
+        "correctOption": "44th"
+    },
+    {
+        "question": "Due to which constitutional amendment Sikkim was included in the Indian Union?",
+        "options": [
+            "33rd Amendment",
+            "37th Amendment",
+            "36th Amendment",
+            "34th Amendment"
+        ],
+        "correctOption": "36th Amendment"
+    },
+    {
+        "question": "Kesavananda Bharti case in 1973 Gave rise to the question that preface.",
+        "options": [
+            "Can be modified.",
+            "Cannot be modified.",
+            "can be completely changed.",
+            "Can be divided into classes."
+        ],
+        "correctOption": "Can be modified."
+    },
+    {
+        "question": "The Indian Parliament approved the State Bank of India To merge ss subsidiary banks with State Bank (Repeal and Amendment) Bill, 2017 was passed.",
+        "options": [
+            "six",
+            "IR (bad CB dd",
+            "sixteen",
+            "seven"
+        ],
+        "correctOption": "six"
+    },
+    {
+        "question": "Which of the following will be appointed on July 1, 2017? as the 101st amendment to the Constitution of India Was introduced in?",
+        "options": [
+            "Commodity Ud Service Tax",
+            "Land border between India and Bangladesh agreement",
+            "Changing Orissa from Odisha",
+            "Constitutional status of cooperative societies"
+        ],
+        "correctOption": "Goods and Services Tax"
+    },
+    {
+        "question": "Which of the following was included in the 124th Constitution Is the amendment related to the bill?",
+        "options": [
+            "Free up to the age of fourteen years and right to compulsory education",
+            "National Commission for Backward Classes",
+            "GST Bill",
+            "Economically weaker section in general category 10% reservation to"
+        ],
+        "correctOption": "Economically weaker section in general category 10% reservation to"
+    },
+    {
+        "question": "What is the 69th amendment to the Constitution of India? 2",
+        "options": [
+            "Proposal for Goods and Services Tax",
+            "Bodo, Dogri as official languages included as",
+            "Delhi was made the National Capital Territory and given special status",
+            "Reducing the voting age from 21 to 18 years Went"
+        ],
+        "correctOption": "Delhi was made the National Capital Territory and given special status"
+    },
+    {
+        "question": "By which amendment to the Constitution of India? 'Property rights' are considered fundamental rights. Removed from the list?",
+        "options": [
+            "44th",
+            "48th",
+            "46th",
+            "42nd"
+        ],
+        "correctOption": "44th"
+    },
+    {
+        "question": "Regarding amendment to the Constitution of India Which of the following is not correct?",
+        "options": [
+            "72nd Amendment - Rent. hold to make provision for the establishment of a tribunal For",
+            "102nd Amendment- National Backward Classes Commission to give constitutional status to",
+            "61st Amendment – ​​Voting age from 21 to reduce to 18 years",
+            "101st Amendment - Goods and Services Tax applied to do"
+        ],
+        "correctOption": "72nd Amendment - Rent. hold to make provision for the establishment of a tribunal For"
+    },
+    {
+        "question": "In the Indian Constitution \"Socialist, When were the words \"secular and democratic republic\" Added?",
+        "options": [
+            "In 44d amendment in 1978",
+            "In 42d amendment in 1976",
+            "42d amendment in 1985",
+            "In 35d amendment in 1974"
+        ],
+        "correctOption": "In 42d amendment in 1976"
+    },
+    {
+        "question": "Which of the following is part of the Constitution of India? Is related to 61st amendment of?",
+        "options": [
+            "Economically weaker sections of citizens Development",
+            "Lowering the voting age for elections",
+            "Period of reservation of seats extended",
+            "Union territories of Goa, Daman and DLA include as"
+        ],
+        "correctOption": "Lowered the voting age for elections"
+    },
+    {
+        "question": "Which constitutional amendment was made in 1987 The Act provided Goa with a state assembly. made a complete state with and a center Formation of Daman and Diu as a administered territory. Did?",
+        "options": [
+            "55th",
+            "57th",
+            "56th",
+            "52nd"
+        ],
+        "correctOption": "56th"
+    },
+    {
+        "question": "Which amendment to the Indian Constitution Goods and Services Tax introduced in the Act It is?",
+        "options": [
+            "101",
+            "122",
+            "105",
+            "103"
+        ],
+        "correctOption": "101"
+    },
+    {
+        "question": "Under which amendment, India's Article 75 of the Constitution provides for the Prime Minister in the Council of Ministers. The total number of ministers including ministers in the Lok Sabha from fifteen percent of the total number of members of no more kept",
+        "options": [
+            "Constitution (92nd Amendment) Act, 2003",
+            "Constitution (94th Amendment) Act, 2006",
+            "Constitution (91st Amendment) Act, 2003",
+            "Constitution (93rd Amendment) Act, 2005"
+        ],
+        "correctOption": "Constitution (91st Amendment) Act, 2003"
+    },
+    {
+        "question": "Article 21/ in the Constitution of India Added by which Constitutional Amendment Act? I went?",
+        "options": [
+            "4201 Constitution Amendment",
+            "934i constitutional amendment",
+            "94th Constitutional Amendment",
+            "86th constitutional amendment"
+        ],
+        "correctOption": "86th constitutional amendment"
+    },
+    {
+        "question": "Indians since the 44th Amendment (1978) Which article of the Constitution was affected?",
+        "options": [
+            "301",
+            "300A",
+            "298",
+            "299"
+        ],
+        "correctOption": "300A"
+    },
+    {
+        "question": "Which amendment to the Constitution of India Delhi as a National Capital Territory (901) makes?",
+        "options": [
+            "69th Amendment",
+            "68th Amendment",
+            "65th Amendment",
+            "70th Amendment"
+        ],
+        "correctOption": "69th Amendment"
+    },
+    {
+        "question": "Which constitutional amendment, known as 'Mini Known as 'Constitution', by Swarn Singh Were the committee's recommendations implemented?",
+        "options": [
+            "4101 Constitution Amendment",
+            "4441 constitutional amendments",
+            "42nd constitutional amendment",
+            "43rd constitutional amendment"
+        ],
+        "correctOption": "42nd constitutional amendment"
+    },
+    {
+        "question": "Which of the following amendments Provided financial powers to Panchayats and Helped strengthen local government?",
+        "options": [
+            "74th Amendment",
+            "64th Amendment",
+            "63rd Amendment",
+            "73rd Amendment"
+        ],
+        "correctOption": "73rd amendment"
+    },
+    {
+        "question": "Article 51A containing fundamental duties Was added by which constitutional amendment?",
+        "options": [
+            "44th amendment",
+            "4247th amendment",
+            "74th Amendment",
+            "73rd Amendment"
+        ],
+        "correctOption": "42nd amendment"
+    },
+    {
+        "question": "In which of the following years India The Constitution, through the 86th Amendment, As per the rights of the age group of 6 to 14 years Provide free and compulsory education to all children Article 21-A introduced to?",
+        "options": [
+            "2002",
+            "2008",
+            "2010",
+            "2004"
+        ],
+        "correctOption": "2002"
+    },
+    {
+        "question": "Which amendment under Article 300U Right to property as fundamental right Converted into ordinary legal right?",
+        "options": [
+            "42nd Amendment",
+            "46th Amendment",
+            "40th Amendment",
+            "44th Amendment"
+        ],
+        "correctOption": "44th amendment"
+    },
+    {
+        "question": "Which of the following of the Constitution of India Which part/provisions should not be amended could?",
+        "options": [
+            "Directive Principles of State Policy",
+            "judicial review",
+            "Fundamental rights",
+            "Preamble of the Constitution"
+        ],
+        "correctOption": "judicial review"
+    },
+    {
+        "question": "100th amendment to the Constitution of India (2015) relate:",
+        "options": [
+            "Land border between India and Bangladesh Ratification of the agreement.",
+            "Establishment of National Judicial Appointment Commission.",
+            "For economically weaker sections Maximum 10% reservation",
+            "Introduction of Goods and Services Tax"
+        ],
+        "correctOption": "Land border between India and Bangladesh Ratification of the agreement."
+    },
+    {
+        "question": "Which of the following of the Constitution of India Which amendment made Bodo, Dogri, Maithili and Santali languages ​​as official languages VIII of the Constitution to include in Schedule amended?",
+        "options": [
+            "92nd Amendment Act",
+            "90th Amendment Act",
+            "93rd Amendment Act",
+            "91st Amendment Act"
+        ],
+        "correctOption": "92nd Amendment Act"
+    },
+    {
+        "question": "Which of the following constitutional amendments by the Constitution of India certain fundamental Was the discussion facilitated?",
+        "options": [
+            "42nd Constitutional Amendment Act",
+            "35th Constitutional Amendment Act",
+            "44th Constitutional Amendment Act",
+            "36th Constitutional Amendment Act"
+        ],
+        "correctOption": "42nd Constitutional Amendment Act"
+    },
+    {
+        "question": "Which article of the Indian Constitution equal opportunity in public employment Provides rights?",
+        "options": [
+            "Article 16",
+            "Article 14",
+            "Article 15",
+            "Article 13"
+        ],
+        "correctOption": "Article 16"
+    },
+    {
+        "question": "Name the Re under which The court orders that the arrested person be produced before him or the person arrested may order the release of The method or grounds of arrest are lawful or not satisfactory",
+        "options": [
+            "Quo warranto",
+            "Habeas corpus",
+            "Mandamus",
+            "Writ of certiorari"
+        ],
+        "correctOption": "Habeas corpus"
+    },
+    {
+        "question": "Which of the following is fundamental Not guaranteed by the Constitution of India",
+        "options": [
+            "Right to freedom",
+            "Right to freedom of religion",
+            "Right to equality",
+            "Business Officer"
+        ],
+        "correctOption": "Business Officer"
+    },
+    {
+        "question": "If a group of people in Kerala No permission to open Telugu medium school If given then which fundamental right? Is there a violation?",
+        "options": [
+            "Cultural and educational rights",
+            "Right to freedom of religion",
+            "Right to equality",
+            "Right to freedom"
+        ],
+        "correctOption": "Cultural and educational rights"
+    },
+    {
+        "question": "Sovereignty, unity and integrity of India maintain and protect How",
+        "options": [
+            "Fundamental Rights",
+            "Fundamental Duties",
+            "Military duty",
+            "Legal rights"
+        ],
+        "correctOption": "Fundamental Duties"
+    },
+    {
+        "question": "'Property rights' is one.",
+        "options": [
+            "No rights at all",
+            "Fundamental rights",
+            "Legal rights",
+            "Spiritual rights"
+        ],
+        "correctOption": "Legal rights"
+    },
+    {
+        "question": "How many in the Constitution of India 1950 Were fundamental rights enshrined?",
+        "options": [
+            "Seven",
+            "Six",
+            "Five",
+            "Eight"
+        ],
+        "correctOption": "Six"
+    },
+    {
+        "question": "According to the Constitution of India, arrested Every person arrested and detained of travel from the place of arrest to the court such arrest, except for the time necessary for Nearest within a period of _ hours Will be presented before the magistrate.",
+        "options": [
+            "10",
+            "12",
+            "36",
+            "24"
+        ],
+        "correctOption": "24"
+    },
+    {
+        "question": "Re in the Indian judicial system What is the literal meaning of 'Habeas-Corpus'?",
+        "options": [
+            "(We command that) you have a body",
+            "We command",
+            "What is your right?",
+            "to be certified"
+        ],
+        "correctOption": "(We command that) you have a body"
+    },
+    {
+        "question": "As of December 2020, the Constitution of India How many fundamental duties have been enumerated?",
+        "options": [
+            "8",
+            "9",
+            "11",
+            "7"
+        ],
+        "correctOption": "11"
+    },
+    {
+        "question": "Which of the following by the Government of India Which policy to adopt? Director of State Policy Is not guided by 'principles'?",
+        "options": [
+            "Uniform Civil Code",
+            "Promotion of Gram Panchayats",
+            "Preparation of building bye-laws",
+            "Ban on consumption of intoxicating liquor"
+        ],
+        "correctOption": "Preparation of building bye-laws"
+    },
+    {
+        "question": "Which of the following is from India? Is it not a fundamental right according to the Constitution?",
+        "options": [
+            "Freedom of speech and expression",
+            "Equal justice and free legal aid",
+            "Right to equality",
+            "Right to constitutional remedies"
+        ],
+        "correctOption": "Equal justice and free legal aid"
+    },
+    {
+        "question": "What is Mandamus Re?",
+        "options": [
+            "To present the person in court",
+            "Coming to an agreement",
+            "Call to end the hearing",
+            "To enable the government body to fulfill its duty to order"
+        ],
+        "correctOption": "To enable the government body to fulfill its duty to order"
+    },
+    {
+        "question": "Which of the following Indian Constitution 'is not listed as a fundamental after?",
+        "options": [
+            "Cultural and educational rights",
+            "Right to freedom",
+            "Right to expression",
+            "Right to equality"
+        ],
+        "correctOption": "Right to expression"
+    },
+    {
+        "question": "The following related to the Constitution of India Which of the following statements is true?",
+        "options": [
+            "Fundamental rights, social and economic Democracy determines, while directors Principles establish political democracy.",
+            "Fundamental rights are justifiable, while the state The Directive Principles are non-judicial.",
+            "Fundamental rights, moral and political There are restrictions, but the Directive Principles are legal There are restrictions.",
+            "Fundamental rights to the welfare of the community While promoting directive principles personal Promote well-being."
+        ],
+        "correctOption": "Fundamental rights are justifiable, while the state The Directive Principles are non-judicial."
+    },
+    {
+        "question": "When the right to property became our 'fundamental Changed from 'right' to 'legal right' I went?",
+        "options": [
+            "1978",
+            "1979",
+            "1968",
+            "1976"
+        ],
+        "correctOption": "1978"
+    },
+    {
+        "question": "Which of the following is included in the Constitution of India? Has been described as the soul of?",
+        "options": [
+            "Directive Principles of State Policy",
+            "Rajya Sabha",
+            "Lok Sabha",
+            "Fundamental rights"
+        ],
+        "correctOption": "Fundamental rights"
+    },
+    {
+        "question": "Which section of the Constitution of India States' commitment to international peace and security Discusses responsibility?",
+        "options": [
+            "Directive Principles of State Policy",
+            "Fundamental Duties",
+            "Fundamental rights",
+            "Introduction"
+        ],
+        "correctOption": "Directive Principles of State Policy"
+    },
+    {
+        "question": "MNREGA scheme which of the following Guarantees rights?",
+        "options": [
+            "Right to Information",
+            "Right to freedom",
+            "Right to speech",
+            "Right to work"
+        ],
+        "correctOption": "Right to work"
+    },
+    {
+        "question": "According to the Constitution of India, Which of the following is not a fundamental duty?",
+        "options": [
+            "Prohibition of human traffic and forced labor",
+            "To preserve the rich heritage of culture For",
+            "Promote the spirit of geld and brotherhood To give",
+            "To develop scientific temperament"
+        ],
+        "correctOption": "Prohibition of human traffic and forced labor"
+    },
+    {
+        "question": "Which of the following in India Not related to Centre-State relations?",
+        "options": [
+            "Sarkaria Commission",
+            "UST Commission",
+            "Rajamannar Committee",
+            "Kothari Commission"
+        ],
+        "correctOption": "Kothari Commission"
+    },
+    {
+        "question": "Formation of State Reorganization Commission in India When did it happen?",
+        "options": [
+            "1952",
+            "1953",
+            "1951",
+            "1950"
+        ],
+        "correctOption": "1953"
+    },
+    {
+        "question": "Chief Minister of an Indian state and a Who was the Chairman of the Major Commission?",
+        "options": [
+            "Rajinder Sachar",
+            "Bindheshwari Prasad Mandal",
+            "Bandeshwari Pathak",
+            "Daulat Singh Kothari"
+        ],
+        "correctOption": "Bindheshwari Prasad Mandal"
+    },
+    {
+        "question": "Gandhi-Jitanna on communal problems Communalism in the judicial structure after the breakdown of talks Standing Non-Party Conference to Examine the Question Which committee was formed by the committee in November 1944? Was appointed?",
+        "options": [
+            "Balwantrai Mehta Committee",
+            "Zakir Hussain Committee",
+            "Patel Committee",
+            "Sapru Committee"
+        ],
+        "correctOption": "Sapru Committee"
+    },
+    {
+        "question": "Which of the following Indian Constitution Was not a member of the drafting committee of?",
+        "options": [
+            "N. Gopalaswami Iyengar",
+            "Dr. K. M. Munshi",
+            "A.V. Samy",
+            "Syed Mohammad Saadullah"
+        ],
+        "correctOption": "A.V. Samy"
+    },
+    {
+        "question": "To improve centre-state relations in India Appointed in April 2007 to suggest solutions Who headed the commission?",
+        "options": [
+            "M.M.Poonchi",
+            "K.N Raj",
+            "G. S. Padhi",
+            "R. S. Lodha"
+        ],
+        "correctOption": "M.M.Punchi"
+    },
+    {
+        "question": "Sarkaria Commission established in 1983 For what purpose was it done:",
+        "options": [
+            "Existing by an integrated goods and services tax Investigating the feasibility of changing multiple taxes Do it.",
+            "To tour the back log of cases in the courts To recommend measures.",
+            "Relations between the state and central governments and Check the balance of power and make allegations Give suggestions.",
+            "Regarding reservation in civil services and posts To make recommendations."
+        ],
+        "correctOption": "Relations between the State and Central Governments and Check the balance of power and make allegations Give suggestions."
+    },
+    {
+        "question": "Which of the following is related to Centre-State relations? Was related to?",
+        "options": [
+            "Malimath Committee",
+            "Sri Krishna Commission",
+            "SEHR Commission",
+            "Sarkaria Commission"
+        ],
+        "correctOption": "Sarkaria Commission"
+    },
+    {
+        "question": "Which committee formulates policies for agriculture And was it related to the program?",
+        "options": [
+            "Bhanu Pratap Singh Committee",
+            "Charan Singh Committee",
+            "Ramamurthy Committee",
+            "Yashpal Committee"
+        ],
+        "correctOption": "Bhanu Pratap Singh Committee"
+    },
+    {
+        "question": "Maximum number of Lok Sabha members How much is it?",
+        "options": [
+            "547",
+            "549",
+            "552",
+            "543"
+        ],
+        "correctOption": "552"
+    },
+    {
+        "question": "Joint Lok Sabha and Rajya Sabha Who presides over the meeting?",
+        "options": [
+            "President of India",
+            "Lok Sabha Speaker",
+            "Senior most member of Rajya Sabha",
+            "One member nominated by the President of India"
+        ],
+        "correctOption": "Lok Sabha Speaker"
+    },
+    {
+        "question": "How many members are there in Rajya Sabha?",
+        "options": [
+            "240",
+            "230",
+            "225",
+            "250"
+        ],
+        "correctOption": "250"
+    },
+    {
+        "question": "How many ministers are there in the Union Council of Ministers? Can be included?",
+        "options": [
+            "Until the Prime Minister of India wishes",
+            "Of the total number of members of the Lok Sabha fifteen percent",
+            "Ten of the total number of members of the Lok Sabha to fifteen percent",
+            "Of the total number of members of the Lok Sabha fifty percent"
+        ],
+        "correctOption": "Of the total number of members of the Lok Sabha fifteen percent"
+    },
+    {
+        "question": "Who was the first Chairman of Rajya Sabha?",
+        "options": [
+            "Ganesha Vasudeva",
+            "S.V. Krishnamurthy Rao",
+            "Mrs. Violet Alva",
+            "Dr. Sarvepalli Radhakrishnan"
+        ],
+        "correctOption": "Dr. Sarvepalli Radhakrishnan"
+    },
+    {
+        "question": "QR Supreme Constitutional in India Which office is it?",
+        "options": [
+            "Vice President",
+            "President",
+            "Governor",
+            "Prime Minister"
+        ],
+        "correctOption": "Vice President"
+    },
+    {
+        "question": "According to the Constitution of India, the Union Who has the supreme command of the defense forces?",
+        "options": [
+            "Defense Minister",
+            "Chief of Army Staff",
+            "Prime Minister",
+            "President"
+        ],
+        "correctOption": "President"
+    },
+    {
+        "question": "part of the government that primarily carries out the implementation and administration functions Yes, him. is called",
+        "options": [
+            "Legislature",
+            "Judiciary",
+            "Parliament",
+            "Executive"
+        ],
+        "correctOption": "Executive"
+    },
+    {
+        "question": "In a parliamentary system, the President legislative, judicial and emergency powers On whose advice is it actually used? hand",
+        "options": [
+            "Members of Parliament",
+            "Vice President",
+            "Council of Ministers",
+            "Chief Minister"
+        ],
+        "correctOption": "Council of Ministers"
+    },
+    {
+        "question": "In India, Lok Sabha and Rajya Sabha All bills introduced and passed by both Houses Only after getting the consent of the bill May apply.",
+        "options": [
+            "Supreme Court",
+            "Prime Minister",
+            "President",
+            "Parliament"
+        ],
+        "correctOption": "President"
+    },
+    {
+        "question": "Who was the Speaker of the 16th Lok Sabha?",
+        "options": [
+            "Somnath Chatterjee",
+            "Meera Kumari",
+            "Sumitra Mahajan",
+            "Manohar Joshi"
+        ],
+        "correctOption": "Sumitra Mahajan"
+    },
+    {
+        "question": "Who among the following is a member of the Indian Parliament? Not a part?",
+        "options": [
+            "President",
+            "Rajya Sabha",
+            "Lok Sabha",
+            "State Legislative Bure"
+        ],
+        "correctOption": "State Legislative Bure"
+    },
+    {
+        "question": "In which year Lok Sabha and State Voting age for assembly elections from 21 Had it changed in 18 years?",
+        "options": [
+            "1998",
+            "1988",
+            "2001",
+            "1991"
+        ],
+        "correctOption": "1988"
+    },
+    {
+        "question": "India for the 2019 Lok Sabha elections It was divided into how many constituencies Was?",
+        "options": [
+            "543",
+            "247",
+            "345",
+            "342"
+        ],
+        "correctOption": "543"
+    },
+    {
+        "question": "Deputy Prime Minister of India (since 1977) Till 1979) Who were?",
+        "options": [
+            "Morarji Desai",
+            "Jagjivan Ram",
+            "J. B. Kriplani",
+            "J. C. Shah"
+        ],
+        "correctOption": "Jagjivan Ram"
+    },
+    {
+        "question": "The first woman Speaker of the Lok Sabha Who was appointed as?",
+        "options": [
+            "Smriti Irani",
+            "Meira Kumar",
+            "Sushma Swaraj",
+            "Hema Malini"
+        ],
+        "correctOption": "Meera Kumar"
+    },
+    {
+        "question": "When were the first Lok Sabha elections held",
+        "options": [
+            "1949 -50",
+            "1951-52",
+            "1948-49",
+            "1953-54"
+        ],
+        "correctOption": "1951-52"
+    },
+    {
+        "question": "to any House of the Indian Parliament Who has the power to convene and adjourn the session?",
+        "options": [
+            "President",
+            "Prime Minister",
+            "Vice President",
+            "Chief Election Commissioner"
+        ],
+        "correctOption": "President"
+    },
+    {
+        "question": "First elected parliament of independent India When did it come into existence 2",
+        "options": [
+            "1947",
+            "1952",
+            "1949",
+            "1951"
+        ],
+        "correctOption": "1952"
+    },
+    {
+        "question": "Whose election is the Speaker of Lok Sabha? Done through?",
+        "options": [
+            "All members of Parliament",
+            "President of India",
+            "All members of the Lok Sabha",
+            "Members of the majority party in the Lok Sabha"
+        ],
+        "correctOption": "All members of Lok Sabha"
+    },
+    {
+        "question": "of the executive of the union of india Who is the constitutional head?",
+        "options": [
+            "Lok Sabha Speaker",
+            "Speaker",
+            "Prime Minister",
+            "Chief of Army Staff"
+        ],
+        "correctOption": "Chairman"
+    },
+    {
+        "question": "Which statement is true about Rajya Sabha? a",
+        "options": [
+            "It is directly like the Lok Sabha is an elected body",
+            "The tenure of Rajya Sabha is six years.",
+            "Rajya Sabha can never be dissolved",
+            "Rajya Sabha is the lower house of the Parliament. Rajya Sabha can never be dissolved"
+        ],
+        "correctOption": "Rajya Sabha can never be dissolved"
+    },
+    {
+        "question": "Year of establishment of Planning Commission of India Was it done in?",
+        "options": [
+            "1949",
+            "1951",
+            "1948",
+            "1950"
+        ],
+        "correctOption": "1950"
+    },
+    {
+        "question": "Total number of elected members in Lok Sabha How many are in there?",
+        "options": [
+            "520",
+            "543",
+            "542",
+            "524"
+        ],
+        "correctOption": "543"
+    },
+    {
+        "question": "Recognized as a national party To be eligible, at least three by a political party from different states What percentage of seats to win in Lok Sabha Is necessary?",
+        "options": [
+            "6%",
+            "10%",
+            "2%",
+            "5%"
+        ],
+        "correctOption": "2%"
+    },
+    {
+        "question": "Which of the following about NITI Aayog Which statement is wrong?",
+        "options": [
+            "NITI means National Institution for India is transforming",
+            "It is a platform for cooperative federalism.",
+            "It was established on 1 January 2016.",
+            "It is a major think tank of the Government of India. Works as."
+        ],
+        "correctOption": "It was established on 1 January 2016."
+    },
+    {
+        "question": "Who among the following is a member of the Indian Parliament? Not a part?",
+        "options": [
+            "President",
+            "Legislative Council",
+            "House of the People",
+            "Council of State"
+        ],
+        "correctOption": "Legislative Council"
+    },
+    {
+        "question": "How many ministers are there in the Union Council of Ministers? Can be included?",
+        "options": [
+            "As much as the Prime Minister of India wants",
+            "Of the total number of members of the Lok Sabha fifteen percent",
+            "Of the total number of members of the Lok Sabha fifty percent",
+            "Ten of the total number of members of the Lok Sabha to fifteen percent"
+        ],
+        "correctOption": "Of the total number of members of the Lok Sabha fifteen percent"
+    },
+    {
+        "question": "Who among the following is the full member of Lok Sabha? represents authority?",
+        "options": [
+            "President",
+            "Vice President",
+            "President",
+            "Prime Minister"
+        ],
+        "correctOption": "Vice President"
+    },
+    {
+        "question": "First general election of Lok Sabha in the year happened?",
+        "options": [
+            "1957-1958",
+            "1953 -1954",
+            "1951- 1952",
+            "1949 -1950"
+        ],
+        "correctOption": "1951-1952"
+    },
+    {
+        "question": "What is the term of Rajya Sabha members? Are selected for?",
+        "options": [
+            "5 years",
+            "6years",
+            "3a¥",
+            "say"
+        ],
+        "correctOption": "6 years"
+    },
+    {
+        "question": "Which of the following government bills Can present?",
+        "options": [
+            "Minister in Lok Sabha",
+            "Members of the bench in the Lok Sabha",
+            "Ministers in either House of Parliament",
+            "Member of Parliament who is not a minister"
+        ],
+        "correctOption": "Ministers in either House of Parliament"
+    },
+    {
+        "question": "Which is the upper house of the Indian Parliament? Is?",
+        "options": [
+            "Legislative Assembly",
+            "Rajya Sabha",
+            "Rashtrapati Bhavan",
+            "Lok Sabha"
+        ],
+        "correctOption": "Rajya Sabha"
+    },
+    {
+        "question": "Who was the first Chairman of Rajya Sabha?",
+        "options": [
+            "Dr. Zakir Hussain",
+            "Shri V.V. Giri",
+            "Dr. S. Radhakrishnan",
+            "Shri M Hidayatullah"
+        ],
+        "correctOption": "Dr. S. Radhakrishnan"
+    },
+    {
+        "question": "What is a parliamentary executive?",
+        "options": [
+            "An executive which has a majority in Parliament dependent on support",
+            "Where Parliament acts as the executive does",
+            "An executive with a parliament",
+            "An executive elected by the Parliament"
+        ],
+        "correctOption": "An executive which has a majority in Parliament dependent on support"
+    },
+    {
+        "question": "between two consecutive wals of parliament What is the maximum time interval?",
+        "options": [
+            "1 year",
+            "6 months",
+            "8 months",
+            "3 months"
+        ],
+        "correctOption": "6 months"
+    },
+    {
+        "question": "According to the Constitution of India, if of any member of the Parliament for a period of ___._.._.days. Any member of the House may also, without the permission of the House remains absent from all his meetings without a can declare his seat vacant ।",
+        "options": [
+            "60",
+            "15",
+            "30",
+            "45"
+        ],
+        "correctOption": "60"
+    },
+    {
+        "question": "Which of the following statements is correct?",
+        "options": [
+            "The Council of Ministers of a state collectively Is responsible to the Legislative Assembly of the state.",
+            "The Council of Ministers of a state collectively is responsible to the Council of States",
+            "The Council of Ministers of a state collectively is responsible to the Vice President",
+            "The Council of Ministers of a state collectively Is responsible to the Legislative Council of the state"
+        ],
+        "correctOption": "The Council of Ministers of a state collectively Is responsible to the Legislative Assembly of the state."
+    },
+    {
+        "question": "money to any bill Takes a decision to declare the bill.",
+        "options": [
+            "Lok Sabha Speaker",
+            "Chairman of Rajya Sabha",
+            "Governor of Reserve Bank of India",
+            "President of India"
+        ],
+        "correctOption": "Chairman of Rajya Sabha"
+    },
+    {
+        "question": "To pass money bill in Lok Sabha Later, to the Rajya Sabha Bill. Maximum ___.....back to Lok Sabha within days Can do.",
+        "options": [
+            "22",
+            "14",
+            "28",
+            "112"
+        ],
+        "correctOption": "14"
+    },
+    {
+        "question": "The accounts of the Government of India should be divided into three parts. Let's go. Which of the following is not one of the three Is?",
+        "options": [
+            "Consolidated Fund",
+            "Co-operative Fund",
+            "Public Account",
+            "Contingency Fund"
+        ],
+        "correctOption": "Co-operative Fund"
+    },
+    {
+        "question": "How many years since the beginning of the Indian Constitution English as the associate language of the Union Was accepted?",
+        "options": [
+            "10 years",
+            "5 years",
+            "20 years",
+            "5 years"
+        ],
+        "correctOption": "5 years"
+    },
+    {
+        "question": "Which of the following politicians Who has never been the leader of the House in the Lok Sabha?",
+        "options": [
+            "Shri Narendra Modi",
+            "Shri Atal Bihari Vajpayee",
+            "Shri Manmohan Singh",
+            "Shri Pranab Mukherjee"
+        ],
+        "correctOption": "Shri Manmohan Singh"
+    },
+    {
+        "question": "Establishment of Planning Commission of India In which year was it done?",
+        "options": [
+            "1949",
+            "1947",
+            "1950",
+            "1948"
+        ],
+        "correctOption": "1950"
+    },
+    {
+        "question": "In the Finance Bill passed by the Lok Sabha For how many days can Rajya Sabha delay?",
+        "options": [
+            "14",
+            "15",
+            "25",
+            "20"
+        ],
+        "correctOption": "14"
+    },
+    {
+        "question": "The PRA required in Rajya Sabha is:",
+        "options": [
+            "50",
+            "100",
+            "25",
+            "125"
+        ],
+        "correctOption": "25"
+    },
+    {
+        "question": "Council of Ministers collectively for this Is responsible:",
+        "options": [
+            "Prime Minister",
+            "President",
+            "Rajya Sabha",
+            "Lok Sabha"
+        ],
+        "correctOption": "Lok Sabha"
+    },
+    {
+        "question": "Which anti-defection law in India year was passed?",
+        "options": [
+            "1989",
+            "1976",
+            "1986",
+            "1985"
+        ],
+        "correctOption": "1985"
+    },
+    {
+        "question": "Finance Minister of India_ss Union Present the budget.",
+        "options": [
+            "A joint meeting with the President of India",
+            "Lok Sabha",
+            "State Legislatures",
+            "Rajya Sabha"
+        ],
+        "correctOption": "Lok Sabha"
+    },
+    {
+        "question": "held the first meeting of the newly formed Lok Sabha Who presides?",
+        "options": [
+            "President",
+            "Chairman",
+            "Protem Speaker",
+            "Prime Minister"
+        ],
+        "correctOption": "Protem Speaker"
+    },
+    {
+        "question": "Tenure of Rajya Sabha MP How much is it?",
+        "options": [
+            "Five years",
+            "Four years",
+            "Two years",
+            "Six years"
+        ],
+        "correctOption": "six years"
+    },
+    {
+        "question": "Who among the following gat Lok Sabha Was the president of?",
+        "options": [
+            "K.S. Hegde",
+            "Bal Ram Jakhri",
+            "Bali Ram Bhagat",
+            "M Ananthasayanam Adhyayangari"
+        ],
+        "correctOption": "M Ananthasayanam Ayangari"
+    },
+    {
+        "question": "According to the Constitution of India, Who does not constitute the Council of Ministers?",
+        "options": [
+            "Minister of Local Government",
+            "Ministers who are members of the cabinet",
+            "Deputy Minister",
+            "Minister of State"
+        ],
+        "correctOption": "Minister of Local Government"
+    },
+    {
+        "question": "Different types of bills in Lok Sabha are presented. Which of the following There is/are not one?",
+        "options": [
+            "Revenue Bill",
+            "Financial Bill",
+            "Money Bill",
+            "Ordinary Bill"
+        ],
+        "correctOption": "Revenue Bill"
+    },
+    {
+        "question": "money bill to be introduced Could.",
+        "options": [
+            "Neither by the Lok Sabha nor by the Rajya Sabha",
+            "Only in Rajya Sabha",
+            "By either House of Parliament",
+            "Only in Lok Sabha"
+        ],
+        "correctOption": "Only in Lok Sabha"
+    },
+    {
+        "question": "Which of the following is India's most Was the young president?",
+        "options": [
+            "Shri Neelam Sanjeeva Reddy",
+            "Dr. S. Radhakrishnan",
+            "Dr. Zakir Hussain",
+            "Dr. Rajendra Prasad"
+        ],
+        "correctOption": "Shri Neelam Sanjeeva Reddy"
+    },
+    {
+        "question": "by the President of India in the Lok Sabha How many members from the Anglo-Indian community? Is nominated?",
+        "options": [
+            "3",
+            "6",
+            "2",
+            "4"
+        ],
+        "correctOption": "2"
+    },
+    {
+        "question": "Assumes office as President of India Who was the first woman to do so?",
+        "options": [
+            "Sucheta Kripalani",
+            "Princess Amrit Kaur",
+            "Pratibha Patil",
+            "Sumitra Mahajan"
+        ],
+        "correctOption": "Pratibha Patil"
+    },
+    {
+        "question": "President to two members of which community Can nominate for Lok Sabha?",
+        "options": [
+            "Anglo-Indian",
+            "Parsi",
+            "Scheduled Caste",
+            "Tribal"
+        ],
+        "correctOption": "Anglo-Indian"
+    },
+    {
+        "question": "Who among the following is the President of India? Is not appointed by?",
+        "options": [
+            "Chief Justice of India",
+            "Chief Minister of the state",
+            "Governor of the State",
+            "High Court judge"
+        ],
+        "correctOption": "Chief Minister of the state"
+    },
+    {
+        "question": "Who administers the oath to the President of India? Is?",
+        "options": [
+            "Prime Minister",
+            "Chief Justice of India",
+            "Attorney General of India",
+            "Vice President"
+        ],
+        "correctOption": "Chief Justice of India"
+    },
+    {
+        "question": "In India, from the Office of Impeachment Process Does not apply to ___ for deletion",
+        "options": [
+            "Chief Justice of India",
+            "Chief Election Commissioner",
+            "Prime Minister",
+            "President of India"
+        ],
+        "correctOption": "Prime Minister"
+    },
+    {
+        "question": "Which of the following is true of Article 78? Regarding all decisions of the Council of Ministers under Will inform the President?",
+        "options": [
+            "Home Minister",
+            "Prime Minister",
+            "Vice President",
+            "Foreign Minister"
+        ],
+        "correctOption": "Prime Minister"
+    },
+    {
+        "question": "India before becoming the President of India Who was awarded the Rattra Award?",
+        "options": [
+            "VV Giri",
+            "Pranab Mukherjee",
+            "Rajendra Prasad",
+            "S. Radhakrishnan"
+        ],
+        "correctOption": "S Radhakrishnan"
+    },
+    {
+        "question": "Which of the following is true regarding the President of India? Which of the following is not true?",
+        "options": [
+            "He is the supreme commander of the defense forces.",
+            "He appoints the Prime Minister and the Council of Ministers does",
+            "The President is the first citizen of the country.",
+            "He should not declare national emergency Can."
+        ],
+        "correctOption": "He should not declare national emergency Can."
+    },
+    {
+        "question": "Who serves as the President of India When both the President and the Vice President Are not available?",
+        "options": [
+            "Home Minister",
+            "Cabinet Secretary",
+            "Chief Justice of India",
+            "Lok Sabha Speaker"
+        ],
+        "correctOption": "Chief Justice of India"
+    },
+    {
+        "question": "After India got independence When was the Prime Minister born?",
+        "options": [
+            "Narendra Modi",
+            "Atal Bihari Vajpayee",
+            "IK Gujral",
+            "Manmohan Singh"
+        ],
+        "correctOption": "Narendra Modi"
+    },
+    {
+        "question": "Who among the following has been elected to India twice? Become acting Prime Minister?",
+        "options": [
+            "Indira Gandhi",
+            "Morarji Desai",
+            "Charan Singh",
+            "Gulzarilal Nand"
+        ],
+        "correctOption": "Gulzarilal Nand"
+    },
+    {
+        "question": "Chief Election Commissioner of India and Elections Who appoints the aga?",
+        "options": [
+            "Prime Minister of India",
+            "A husband from India",
+            "India's",
+            "President of India"
+        ],
+        "correctOption": "President of India"
+    },
+    {
+        "question": "President of India in Lok Sabha Nominate two members of the community We do.",
+        "options": [
+            "Indian Jain",
+            "Indian Buddhist",
+            "Anglo-Indian",
+            "Parsi"
+        ],
+        "correctOption": "Anglo-Indian"
+    },
+    {
+        "question": "In India, to remove from office does not apply to the impeachment process Is.",
+        "options": [
+            "President of India",
+            "Supreme Court",
+            "Prime Minister",
+            "Chief Justice of India"
+        ],
+        "correctOption": "Prime Minister"
+    },
+    {
+        "question": "In the absence of the President of India, Who is in charge of the office of the President? Will you handle it?",
+        "options": [
+            "Chief Justice of India",
+            "Ex-officio Chairman of the Rajya Sabha",
+            "Prime Minister",
+            "Chief Justice of India"
+        ],
+        "correctOption": "Ex-officio Chairman of the Rajya Sabha"
+    },
+    {
+        "question": "Who among the following worked for the longest time? ig served as the Prime Minister of India That",
+        "options": [
+            "Narendra Modi",
+            "Jawaharlal Nehru",
+            "Manmohan Singh",
+            "Atal Bihari Vajpayee"
+        ],
+        "correctOption": "Jawaharlal Nehru"
+    },
+    {
+        "question": "Ordinance issued by the President of India What is the maximum validity of ?",
+        "options": [
+            "6 months + 5 weeks",
+            "5 months + 6 weeks",
+            "6 months + 6 weeks",
+            "5 months +5 weeks"
+        ],
+        "correctOption": "6 months + 6 weeks"
+    },
+    {
+        "question": "Who elects the President of India? is done;",
+        "options": [
+            "Members of Parliament",
+            "Direct elections",
+            "Electoral College",
+            "System of universal adult franchise"
+        ],
+        "correctOption": "Electoral College"
+    },
+    {
+        "question": "Who was the fourth President of India?",
+        "options": [
+            "B.D. Jatti",
+            "Giani Zail Singh",
+            "Dr. Zakir Hussain",
+            "Varahgiri Venkata Giri"
+        ],
+        "correctOption": "Varahgiri Venkata Giri"
+    },
+    {
+        "question": "Who was elected as the Vice President of India? Done through:",
+        "options": [
+            "Houses of Parliament and State Assemblies Member.",
+            "Member of Rajya Sabha",
+            "Members of Lok Sabha",
+            "Members of both the Houses of Parliament"
+        ],
+        "correctOption": "Members of both the Houses of Parliament"
+    },
+    {
+        "question": "Chief of the Supreme Court of India Who appoints judges and other judges? does?",
+        "options": [
+            "President",
+            "Chairman",
+            "Prime Minister",
+            "Vice President"
+        ],
+        "correctOption": "President"
+    },
+    {
+        "question": "Which of the following national development Who is the Chairman of the Council (NDC)?",
+        "options": [
+            "Vice President of India",
+            "Prime Minister of India",
+            "Finance Minister of India",
+            "President of India"
+        ],
+        "correctOption": "Prime Minister of India"
+    },
+    {
+        "question": "Who was elected as the Vice President of India? Done through:",
+        "options": [
+            "Houses of Parliament and State Assemblies Member.",
+            "Member of Rajya Sabha",
+            "Members of Lok Sabha",
+            "Members of both the Houses of Parliament"
+        ],
+        "correctOption": "Members of both the Houses of Parliament"
+    },
+    {
+        "question": "According to the Election Commission of India, Political parties during pre-election silence period Manifesto not released can do?",
+        "options": [
+            "24h",
+            "48h",
+            "36h",
+            "60h"
+        ],
+        "correctOption": "48h"
+    },
+    {
+        "question": "'National Human Rights Commission' in India In which year was it established?",
+        "options": [
+            "1857",
+            "1947",
+            "1950",
+            "1993"
+        ],
+        "correctOption": "1993"
+    },
+    {
+        "question": "an anti-corruption institution in India is run by public authorities Received from persons against maladministration Can investigate complaints.",
+        "options": [
+            "STF",
+            "CBI",
+            "Lokpal",
+            "IB"
+        ],
+        "correctOption": "Lokpal"
+    },
+    {
+        "question": "supreme law of government of India Who is the officer?",
+        "options": [
+            "Major General of Gendarmerie",
+            "Comptroller and Auditor General of India",
+            "Advocate General of the State",
+            "Attorney General of India"
+        ],
+        "correctOption": "Attorney General of India"
+    },
+    {
+        "question": "When was the Election Commission of India established? Had happened?",
+        "options": [
+            "25 February, 1950",
+            "26 November 1950",
+            "15 August 1950",
+            "25 January 1950"
+        ],
+        "correctOption": "25 January 1950"
+    },
+    {
+        "question": "National Human Rights Commission my BAT fe",
+        "options": [
+            "A Speaker of the Lok Sabha",
+            "Leader of the opposition",
+            "Prime Minister",
+            "A retired Chief Justice of India"
+        ],
+        "correctOption": "A retired Chief Justice of India"
+    },
+    {
+        "question": "Who was the first Chief Election Commissioner of India?",
+        "options": [
+            "Aris Singh",
+            "GHAR Sen",
+            "RVS Perry Shastri",
+            "TN Seshan"
+        ],
+        "correctOption": "Sukumar Sen"
+    },
+    {
+        "question": "Regarding Election Commission of India Which of the following statements is true?",
+        "options": [
+            "It is formed every four years.",
+            "It is constituted every six years",
+            "It is a permanent constitutional body.",
+            "It is formed every five years."
+        ],
+        "correctOption": "It is a permanent constitutional body."
+    },
+    {
+        "question": "Who from H is a constitutionalist of India? Not a body?",
+        "options": [
+            "Comptroller and Auditor General of India.",
+            "Election Commission of India",
+            "Central Information Commission",
+            "State Public Service Commission"
+        ],
+        "correctOption": "Central Information Commission"
+    },
+    {
+        "question": "Chief Election Commissioner of India What is the tenure?",
+        "options": [
+            "Tenure of four years or age of 60 years Till then, whichever is earlier.",
+            "Tenure of six years or age of 65 years Till then, whichever is earlier.",
+            "Tenure of five years or age of 65 years Till then, whichever is earlier.",
+            "Tenure of six years or age of 70 years Till then, whichever is earlier."
+        ],
+        "correctOption": "Tenure of six years or age of 65 years Till then, whichever is earlier."
+    },
+    {
+        "question": "Which of the following regarding Lokayukta Which is not true?",
+        "options": [
+            "He suffers from injustice and maladministration Complaints of citizens due to hardship Can investigate.",
+            "He supervises the investigation of citizen complaints could",
+            "He is responsible for the misuse of power by public servants. Can ask for investigation of allegations.",
+            "Lokayukta on allegations of misuse of power Can't question the Prime Minister"
+        ],
+        "correctOption": "Lokayukta on charges of misuse of power Can't question the Prime Minister"
+    },
+    {
+        "question": "Regarding Attorney General of India Which of the following is not true?",
+        "options": [
+            "He is not a member of the cabinet",
+            "He has the right to be heard in all the courts of India have the right",
+            "He has the right to vote in the Parliament",
+            "He has the right to speak in the House of Parliament"
+        ],
+        "correctOption": "He has the right to vote in the Parliament."
+    },
+    {
+        "question": "Comptroller and Auditor General of India General tenure of (CAG) ___. It's the year.",
+        "options": [
+            "one",
+            "two",
+            "three",
+            "five"
+        ],
+        "correctOption": "three"
+    },
+    {
+        "question": "As of December 2020, National Backward Classes Who is the chairman of the commission?",
+        "options": [
+            "Bhagwan Lal Sahni",
+            "Anand Mohan",
+            "Pratyush Sharma",
+            "Arvind Sharma"
+        ],
+        "correctOption": "Bhagwan Lal Sahni"
+    },
+    {
+        "question": "World's longest written constitution Which country is it from?",
+        "options": [
+            "India",
+            "China",
+            "America",
+            "Russia"
+        ],
+        "correctOption": "India"
+    },
+    {
+        "question": "The driving force of the European Union (EU) and What is the executive body?",
+        "options": [
+            "European Parliament",
+            "Council of the European Union",
+            "European Commission",
+            "Court of Auditors"
+        ],
+        "correctOption": "European Commission"
+    },
+    {
+        "question": "World's longest written constitution Which country is it from?",
+        "options": [
+            "England",
+            "America",
+            "India",
+            "France"
+        ],
+        "correctOption": "India"
+    },
+    {
+        "question": "In which of the following pair of countries Is it a two-party system?",
+        "options": [
+            "Sri Lanka and Bhutan",
+            "India and Pakistan",
+            "United States and United Kingdom",
+            "China and South Korea"
+        ],
+        "correctOption": "United States and United Kingdom"
+    },
+    {
+        "question": "In which of the following states legislation Is it a council?",
+        "options": [
+            "Assam",
+            "Madhya Pradesh",
+            "SFI State",
+            "Himachal Pradesh"
+        ],
+        "correctOption": "SFI State"
+    },
+    {
+        "question": "In which state Legislative Council (Legislative Council) is not there?",
+        "options": [
+            "Maharashtra",
+            "Kerala",
+            "Telangana",
+            "Karnataka"
+        ],
+        "correctOption": "Kerala."
+    },
+    {
+        "question": "Under Section 3 of the Official Language Act For the official purpose of the Union through The year in which the English language continued to be used Came into force in ____.",
+        "options": [
+            "1963",
+            "1965",
+            "1970",
+            "1960"
+        ],
+        "correctOption": "1965"
+    },
+    {
+        "question": "In India till 31 October 2020 States and ___ are union territories.",
+        "options": [
+            "26 and 6",
+            "29 and 9",
+            "24 and 7",
+            "28 and 8"
+        ],
+        "correctOption": "28 and 8"
+    },
+    {
+        "question": "According to the Constitution of India, Panchayats What is the minimum age to be a member of Needed?",
+        "options": [
+            "18 years",
+            "28 years",
+            "24 years",
+            "21 years"
+        ],
+        "correctOption": "21 years"
+    },
+    {
+        "question": "in the Indian political system There is reservation for women in",
+        "options": [
+            "Rajya Sabha",
+            "Panchayati Raj Institute",
+            "State Assembly",
+            "Lok Sabha"
+        ],
+        "correctOption": "Panchayati Raj Institute"
+    },
+    {
+        "question": "For economically weaker section 10% in government jobs and higher education Which was the first state to implement reservation Was?",
+        "options": [
+            "OUR State",
+            "Maharashtra",
+            "Madhya Pradesh",
+            "Gujarat"
+        ],
+        "correctOption": "Gujarat"
+    },
+    {
+        "question": "Which of the following is local in India? Not part of the government?",
+        "options": [
+            "District Council",
+            "Municipality",
+            "Development Authority",
+            "Gram Panchayat"
+        ],
+        "correctOption": "Development Authority"
+    },
+    {
+        "question": "For the first time in assembly elections in India None of the above (NOTA) option When was it used?",
+        "options": [
+            "August 1947",
+            "November 2013",
+            "October 2000",
+            "January 1950"
+        ],
+        "correctOption": "November 2013"
+    },
+    {
+        "question": "In which state of India was the first Panchayat Raj institution was established?",
+        "options": [
+            "Rajasthan",
+            "Punjab",
+            "Uttar Pradesh",
+            "Andhra Pradesh"
+        ],
+        "correctOption": "Rajasthan"
+    },
+    {
+        "question": "In which of the following states the Lok Sabha Has more than one seat?",
+        "options": [
+            "Sikkim",
+            "Mizoram",
+            "Meghalaya",
+            "Nagaland"
+        ],
+        "correctOption": "Meghalaya"
+    },
+    {
+        "question": "To become a member of the municipality Minimum age requirement (India) Under Article 243v of the Constitution of India determined)",
+        "options": [
+            "21 years",
+            "18 af",
+            "35 years",
+            "25 years"
+        ],
+        "correctOption": "21 years"
+    },
+    {
+        "question": "Which of the following union territories Is there assembly in?",
+        "options": [
+            "Delhi",
+            "Chandigarh",
+            "Andaman and Nicobar",
+            "Dadra and Nagar Haveli"
+        ],
+        "correctOption": "Delhi"
+    },
+    {
+        "question": "Subjects of local importance in the state list Are included. Which of the following states is included in Comes under?",
+        "options": [
+            "Tax on income other than agricultural income",
+            "Banking and Insurance",
+            "Corporation tax",
+            "Public health and sanitation"
+        ],
+        "correctOption": "Public health and sanitation"
+    },
+    {
+        "question": "31 of which of the following provinces In the Constituent Assembly of India in December 1947 Was there maximum representation?",
+        "options": [
+            "Madras",
+            "Bombay",
+            "United Provinces",
+            "West Bengal"
+        ],
+        "correctOption": "United Provinces"
+    },
+    {
+        "question": "Which of the following 'State and Ger of Assembly MLAs, wrong Is it a combination?",
+        "options": [
+            "Maharashtra-288",
+            "Delhi-50",
+            "Rajasthan-200",
+            "Uttarakhand-70"
+        ],
+        "correctOption": "Delhi-50"
+    },
+    {
+        "question": "For the first time an Indian Chief Minister When was the National Flag Independence Day hosted? Was?",
+        "options": [
+            "15 August 1977",
+            "15 August 1950",
+            "15 August 1947",
+            "15 August 1974"
+        ],
+        "correctOption": "15 August 1974"
+    },
+    {
+        "question": "If the population of a particular area is 3 If it is more than lakh then which Is a committee formed?",
+        "options": [
+            "Metropolitan Committee",
+            "District Planning Committee",
+            "City Committee",
+            "Ward Committee"
+        ],
+        "correctOption": "Metropolitan Committee"
+    },
+    {
+        "question": "Emergency can be imposed in the state If it fails to run constitutionally Is. Who will declare emergency in the state? could?",
+        "options": [
+            "Chief Justice of the High Court",
+            "Attorney General of India",
+            "President of India",
+            "Governor of the state"
+        ],
+        "correctOption": "President of India"
+    },
+    {
+        "question": "Which Indian state has never had a President Has it not come under the purview of governance?",
+        "options": [
+            "Uttarakhand",
+            "Chhattisgarh",
+            "Tamil Nadu",
+            "Jharkhand"
+        ],
+        "correctOption": "Chhattisgarh"
+    },
+    {
+        "question": "Chief Minister in the Council of Ministers of a State The total number of ministers including the Legislative Assembly of that State Out of the total number of members of the House Can't be more.",
+        "options": [
+            "03%",
+            "015",
+            "07%",
+            "10%"
+        ],
+        "correctOption": "15%"
+    },
+    {
+        "question": "Who appoints the State Election Commissioner? does?",
+        "options": [
+            "Chief Election Commissioner",
+            "Chief Minister",
+            "Governor",
+            "President"
+        ],
+        "correctOption": "Governor"
+    },
+    {
+        "question": "India's three-tier Panchayati Raj Which committee's report recommended the arrangement? Was done?",
+        "options": [
+            "Sachar Committee",
+            "Ashok Mehta Committee",
+            "Sada Rai Mehta Committee",
+            "Shah Nawaz Committee"
+        ],
+        "correctOption": "Balwant Rai Mehta Committee"
+    },
+    {
+        "question": "In which of the following elections One-third seats are reserved for women?",
+        "options": [
+            "Lok Sabha",
+            "Panchayati Raj",
+            "Legislative Assembly",
+            "Rajya Sabha"
+        ],
+        "correctOption": "Panchayati Raj"
+    },
+    {
+        "question": "RT! When did the Act come into force?",
+        "options": [
+            "September 2005",
+            "December 2005",
+            "November 2006",
+            "October 2005"
+        ],
+        "correctOption": "October 2005"
+    },
+    {
+        "question": "of free and compulsory education Bill of Rights passed by Parliament was passed.",
+        "options": [
+            "2010",
+            "2006",
+            "2009",
+            "2011"
+        ],
+        "correctOption": "2009"
+    },
+    {
+        "question": "During the India-China war in 1962 Name the minister who resigned?",
+        "options": [
+            "Lal Bahadur Shastri",
+            "Morarji Desai",
+            "VK Krishna Menon",
+            "Sardar Patel"
+        ],
+        "correctOption": "VK Krishna Menon"
+    },
+    {
+        "question": "'Remove poverty' is the name of which political leader? Was the slogan?",
+        "options": [
+            "Indira Gandhi",
+            "K. Kamaraj",
+            "Morarji Desai",
+            "Karpuri Thakur"
+        ],
+        "correctOption": "Indira Gandhi"
+    },
+    {
+        "question": "Section 377 of the Indian Penal Code (IPC) of legal battle to strike at Famous Indian women lawyers who lead Who are they?",
+        "options": [
+            "Karuna Nandi and Vrinda Grover",
+            "Maneka Guruswamy and Arundhati Katju",
+            "Maneka Gandhi and Arundhati Roy",
+            "Maneka Guruswamy and Pinky Anand"
+        ],
+        "correctOption": "Maneka Guruswamy and Arundhati Katju"
+    },
+    {
+        "question": "According to the Flag Code of India 2002, When the Indian flag is placed in a straight line with other countries is displayed with flags, then its The situation should be gar?",
+        "options": [
+            "extreme left",
+            "extreme right",
+            "Anywhere in the line.",
+            "in the middle"
+        ],
+        "correctOption": "far right"
+    },
+    {
+        "question": "Which of the following leaders visited Tashkent Signed the agreement?",
+        "options": [
+            "Jawaharlal ASS and Ayub Khan",
+            "Jawaharlal Nehru and Jitanna",
+            "Lal Bahadur Shastri and Ayub Khan",
+            "Vallabhbhai Patel and Jinnah"
+        ],
+        "correctOption": "Lal Bahadur Shastri and Ayub Khan"
+    },
+    {
+        "question": "Current occupant Chief Justice SA Who among the following was the leader of India before Bobde? Was the Chief Justice?",
+        "options": [
+            "Kapil Sibal",
+            "Salman Khurshid",
+            "Ranjan Gogoi",
+            "Arun Jaitley"
+        ],
+        "correctOption": "Ranjan Gogoi"
+    },
+    {
+        "question": "Supreme Court of India's first Who were the Indian women judges?",
+        "options": [
+            "R. Bhanumati",
+            "Fatima Biwi",
+            "Indira Banerjee",
+            "Indu Malhotra"
+        ],
+        "correctOption": "Fatima Biwi"
+    },
+    {
+        "question": "In unitary states, the government Performs all government work.",
+        "options": [
+            "Central",
+            "State",
+            "International",
+            "Local"
+        ],
+        "correctOption": "Central"
+    },
+    {
+        "question": "Of these provided by the Indian Constitution Which specialty is from the Indian Judiciary? Is related?",
+        "options": [
+            "Every state has its own High Court",
+            "Supremacy of the Judiciary",
+            "Judges of High Courts are elected",
+            "Judicial independence"
+        ],
+        "correctOption": "Judicial independence"
+    },
+    {
+        "question": "Before the present campus, India's From which place did the Supreme Court function?",
+        "options": [
+            "President's residence",
+            "High Court of Delhi",
+            "Parliament House",
+            "Red Fort"
+        ],
+        "correctOption": "Parliament House"
+    },
+    {
+        "question": "Direct control of District and Sessions Judge works in",
+        "options": [
+            "District Collector",
+            "Law Minister of the State",
+            "High Court of the State",
+            "Governor of the state"
+        ],
+        "correctOption": "High Court of the State"
+    },
+    {
+        "question": "Which of the following union and center Constitutional powers in relation to the accounts of the Government And exercises duties?",
+        "options": [
+            "Vice President of India",
+            "Prime Minister of India",
+            "Comptroller and Auditor General of India",
+            "President of India"
+        ],
+        "correctOption": "Comptroller and Auditor General of India"
+    },
+    {
+        "question": "Founder of Mizo National Tea (MNF) who were they?",
+        "options": [
+            "Khuangchera",
+            "Chaweng Bawla",
+            "Laldenga",
+            "Lalnunmawia"
+        ],
+        "correctOption": "Laldenga"
+    },
+    {
+        "question": "Which Indian Defense Division is established by the Home Ministry? expanded the financial powers of the heads of Has gone?",
+        "options": [
+            "Paramilitary",
+            "Air Force",
+            "Central Armed Police Force",
+            "Indian Navy"
+        ],
+        "correctOption": "Central Armed Police Forces"
+    },
+    {
+        "question": "Choose the correct statement from the given options. Please select. In a democracy the press should:",
+        "options": [
+            "To be committed to the policies of the government",
+            "Throw light on the achievements of the government",
+            "Be independent and impartial",
+            "Criticize the policies of the government"
+        ],
+        "correctOption": "Be independent and impartial"
+    },
+    {
+        "question": "of the Code of Criminal Procedure (890) Which section gives an executive magistrate a gathering of more than four persons in the area Gives the right to ban?",
+        "options": [
+            "Section 144",
+            "Section 357",
+            "Section 231",
+            "Section 111"
+        ],
+        "correctOption": "Section 144"
+    },
+    {
+        "question": "universal declaration of human rights (UDHR) is a historical document which was adopted by the United Nations",
+        "options": [
+            "1 January 1948",
+            "1 December 1948",
+            "31 December 1945",
+            "10 December 1948"
+        ],
+        "correctOption": "10 December 1948"
+    },
+    {
+        "question": "Which of the following should a civil servant What is not allowed to happen?",
+        "options": [
+            "Private Secretary to the Union Minister",
+            "Vice Chancellor of a university",
+            "Cabinet Secretary",
+            "Members of Parliament"
+        ],
+        "correctOption": "Members of Parliament"
+    },
+    {
+        "question": "appointed to the Supreme Court of India Who was the first female judge?",
+        "options": [
+            "Gyan Sudha Mishra",
+            "Indira Banerjee",
+            "Fatima Bewick",
+            "R Bhanumathi"
+        ],
+        "correctOption": "Fatima Bewick"
+    },
+    {
+        "question": "Free and compulsory education for children in India In which year the Right to Education Act was introduced it was done?",
+        "options": [
+            "2009",
+            "2011",
+            "2002",
+            "2005"
+        ],
+        "correctOption": "2009"
+    },
+    {
+        "question": "On 25 April 1945, the Ss government met for a conference in San Francisco and Drafting of UN Charter begins Did",
+        "options": [
+            "45",
+            "60",
+            "25",
+            "50"
+        ],
+        "correctOption": "50"
+    },
+    {
+        "question": "Which of the following elections Characteristics of Proportional Representation (PR) Method Not there?",
+        "options": [
+            "Voters vote for the candidate",
+            "The entire country is divided into one constituency",
+            "More than one representative from one constituency can be selected",
+            "The candidate gets majority by winning the election. It happens"
+        ],
+        "correctOption": "Voters vote for the candidate"
+    },
+    {
+        "question": "'At the time of elections, political parties and Followed by the contesting candidates A set of norms and guidelines to be followed' What is called?",
+        "options": [
+            "Manipulation",
+            "Incumbent",
+            "Code of conduct",
+            "Level playing field"
+        ],
+        "correctOption": "Code of conduct"
+    },
+    {
+        "question": "a political party a national party can be recognized as if he In any four general or state assembly elections Gets valid votes in the states and further that any State or States Wins 4 Lok Sabha seats from.",
+        "options": [
+            "9%",
+            "6%",
+            "8%",
+            "7%"
+        ],
+        "correctOption": "6%"
+    },
+    {
+        "question": "Which political party did Kanshi Ram belong to? Was established?",
+        "options": [
+            "Janata Dal (United)",
+            "Bahujan Samaj Party",
+            "Janata Dal",
+            "Samajwadi Party"
+        ],
+        "correctOption": "Bahujan Samaj Party"
+    },
+    {
+        "question": "Which office of Indian Government The governing department of atomic energy is?",
+        "options": [
+            "Office of the Home Minister",
+            "Ministry of Power",
+            "Office of the Defense Minister",
+            "Prime Minister's Office"
+        ],
+        "correctOption": "Prime Minister's Office"
+    },
+    {
+        "question": "Who was the main drafter of Article 370?",
+        "options": [
+            "N. Gopalaswami Ayyangar",
+            "Lal Bahadur Shastri",
+            "Dr. B.R. Ambedkar",
+            "Vallabhbhai Patel"
+        ],
+        "correctOption": "N. Gopalaswami Ayyangar"
+    },
+    {
+        "question": "In which year did Jawaharlal Nehru Foundation stone of National Museum laid in Delhi Was?",
+        "options": [
+            "1965",
+            "1955",
+            "1960",
+            "1950"
+        ],
+        "correctOption": "1955"
+    },
+    {
+        "question": "Under which Indian Act the Central Investigation Bureau to catch wildlife criminals and given the right to prosecute them Has gone?",
+        "options": [
+            "Prevention of Cruelty to Animals Act, 1960",
+            "Indian Forest Act, 1927",
+            "Wild Life (Protection) Act, 1972",
+            "Environmental Protection Act 1986"
+        ],
+        "correctOption": "Wild Life (Protection) Act, 1972"
+    },
+    {
+        "question": "how many judges of international court Are elected for years?",
+        "options": [
+            "7",
+            "8",
+            "6",
+            "9"
+        ],
+        "correctOption": "9"
+    },
+    {
+        "question": "Which of the following United Nations Who was the President of the General Assembly?",
+        "options": [
+            "Mamata Banerjee",
+            "Indira Gandhi",
+            "Sushma Swaraj",
+            "Vijay Lakshmi Pandit"
+        ],
+        "correctOption": "Vijay Lakshmi Pandit"
+    },
+    {
+        "question": "Judge of the Supreme Court of India To be eligible to be appointed as a How long should a person stay in the High Court? Should work as a lawyer?",
+        "options": [
+            "10 years",
+            "11 years",
+            "12 years",
+            "13 years"
+        ],
+        "correctOption": "10 years"
+    },
+    {
+        "question": "Model of Supreme Court of India What is sentence?",
+        "options": [
+            "Equal justice for all",
+            "I carry the safety of yoga",
+            "Satyamev jayate",
+            "Yato dharmasto jaya:"
+        ],
+        "correctOption": "Satyamev jayate"
+    },
+    {
+        "question": "India A National Green Tribunal When was the Act passed?",
+        "options": [
+            "2006",
+            "2010",
+            "2008",
+            "2011"
+        ],
+        "correctOption": "2010"
+    },
+    {
+        "question": "Four names have been given out of which three One is alike and one is different. of odd Choose.",
+        "options": [
+            "Chandra Shekhar Singh.",
+            "P V Narasimha Rao",
+            "HD Deve Gowda",
+            "Chaudhary Devi Lal"
+        ],
+        "correctOption": "Chaudhary Devi Lal"
+    },
+    {
+        "question": "Second five year plan after independence In collaboration with Germany during (1956-61) Steel plant was established?",
+        "options": [
+            "Bokaro Steel Plant",
+            "Rourkela Steel Plant",
+            "Durgapur Steel Plant",
+            "Bhilai Steel Plant"
+        ],
+        "correctOption": "Rourkela Steel Plant"
+    },
+    {
+        "question": "Indian voting alternative to NOTA When introduced as part of the system Was?",
+        "options": [
+            "2019",
+            "2014",
+            "2015",
+            "2013"
+        ],
+        "correctOption": "2013"
+    },
+    {
+        "question": "Which of the following is the Government of India? Who is considered the first law officer?",
+        "options": [
+            "Chief Justice of India",
+            "Solicitor-General",
+            "Attorney-General",
+            "Senior most advocate of the Supreme Court"
+        ],
+        "correctOption": "Attorney General"
+    },
+    {
+        "question": "According to Jawaharlal Nehru, Which is known as 'Temple of Modern India' goes?",
+        "options": [
+            "dam",
+            "Rivers",
+            "Cot",
+            "Ga"
+        ],
+        "correctOption": "dam"
+    },
+    {
+        "question": "Home Ministry of India, is responsible for",
+        "options": [
+            "External security",
+            "Environmental security",
+            "Food security",
+            "Internal security"
+        ],
+        "correctOption": "Internal security"
+    },
+
+
+
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

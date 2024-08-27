@@ -1,0 +1,2447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTPC Technology 2021</title> 
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Technology NTPC 2021 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+function showQuestion() {
+
+correctOptionText = ''; // Initialize correctOptionText
+    // Rest of your existing showQuestion code
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+
+// Copy question and options
+const copyButton = document.querySelector('.btn-copy');
+copyButton.addEventListener('click', () => {
+    const questionText = document.querySelector('#question').textContent;
+    const optionElements = document.querySelectorAll('.form-check-label');
+    
+    let optionsText = '';
+    let correctOptionText = null;
+    let correctOptionIndex = null;
+
+    optionElements.forEach((optionElement, index) => {
+        const optionText = optionElement.textContent.trim();
+        const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+        optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? ' ☑️Correct' : ''}\n`;
+
+        if (isCorrect) {
+            correctOptionText = optionText;
+            correctOptionIndex = index + 1;
+        }
+    });
+
+    let textToCopy = `${questionText}\n\n${optionsText}\n`;
+
+    if (correctOptionText && correctOptionIndex) {
+        textToCopy += `The Correct Option ${correctOptionIndex}: ${correctOptionText}\n                 ☑️Correct  ☑️Correct\n`;
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+
+    // Toggle button text
+    copyButton.textContent = '✅';
+    setTimeout(() => {
+        copyButton.textContent = '📋';
+    }, 2000); // Reset text after 2 seconds
+});
+
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'technologyntpc2021underntpcfacts';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+    const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+	
+	 // Update correctOptionText for copying
+        correctOptionText = `correctOption ${correctOptionIndex + 1}: ${currentQuestion.correctOption}`;
+		
+	
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+
+  
+    {
+        "question": "Which of the following is developed by DRDO? Is a multi-barrel rocket system developed?",
+        "options": ["Trident", "Pinaka", "Earth", "Bow"],
+        "correctOption": "Pinaka"
+    },
+    {
+        "question": "In which year ISRO launched Mars Orbiter Mission (Mangalyaan)?",
+        "options": ["2013", "2015", "2012", "2014"],
+        "correctOption": "2013"
+    },
+    {
+        "question": "Kudankulam Nuclear Power Center is located in which state?",
+        "options": ["Tamil Nadu", "Gujarat", "Rajasthan", "Karnataka"],
+        "correctOption": "Tamil Nadu"
+    },
+    {
+        "question": "Where is Bhabha Atomic Research Center (BARC) situated at?",
+        "options": ["Chennai", "Tarapur", "Hyderabad", "Mumbai"],
+        "correctOption": "Mumbai"
+    },
+    {
+        "question": "Which is the first Indian communication satellite?",
+        "options": ["Aryabhata", "Rohini", "wax", "apple"],
+        "correctOption": "apple"
+    },
+    {
+        "question": "When was India's first nuclear power plant launched?",
+        "options": ["1967", "1969", "1968", "1966"],
+        "correctOption": "1969"
+    },
+    {
+        "question": "Because of the presence of Thamba, it was chosen as the ideal site for rocket launches.",
+        "options": ["Geomagnetic jet", "equatorial electrojet", "Fare", "Electro Harse"],
+        "correctOption": "Magra Jet"
+    },
+    {
+        "question": "What is the full form of ATL, initiated by the central government to create scientific attitude and innovation among Indian students?",
+        "options": ["Atal Tinkering Lab", "Applied Techno Lab", "Alternative Technology Lab", "Atal Technology Lab"],
+        "correctOption": "Atal Tinkering Lab"
+    },
+    {
+        "question": "Which launch vehicle was used to launch Chandrayaan 2?",
+        "options": ["ASLV", "PSLV-C46", "GSLV MK-II", "GSLV MK-III-M1"],
+        "correctOption": "GSLV MK-III-M1"
+    },
+    {
+        "question": "Which one of the following is a supersonic cruise missile?",
+        "options": ["Sky", "Trishul", "Earth", "BrahMos"],
+        "correctOption": "Sky"
+    },
+    {
+        "question": "What is Ueda Corporation Limited, Bengaluru?",
+        "options": ["Electricity distribution company", "film production company", "Marketing branch of ISRO", "Mobile Handset Manufacturers"],
+        "correctOption": "Marketing branch of ISRO"
+    },
+    {
+        "question": "ISRO launched _____ in February, 2017, creating history.",
+        "options": ["100 satellites in a single flight", "103 satellites in a single flight", "101 satellites in a single flight", "104 satellites in a single flight"],
+        "correctOption": "104 satellites in a single flight"
+    },
+    {
+        "question": "Who is the first nuclear reactor made in India?",
+        "options": ["SRT", "Cyrus", "Dhruva", "Kamini"],
+        "correctOption": "Apsara"
+    },
+    {
+        "question": "India's first innovative advanced earth observation satellite launched in 2018 is?",
+        "options": ["APPLE", "GSAT-7", "HysIS", "GSAT-2"],
+        "correctOption": "HysIS"
+    },
+    {
+        "question": "Which of the following satellites is based on the magnification system of India?",
+        "options": ["Sky", "Jatan", "NAG", "Gagan Shakti"],
+        "correctOption": "Sky"
+    },
+    {
+        "question": "What is the scientific mission of India for the observation and study of the solar corona called?",
+        "options": ["Satnav", "Astrostat", "Chandrayaan", "Aditya 1"],
+        "correctOption": "Aditya 1"
+    },
+    {
+        "question": "India's newest nuclear power plant is?",
+        "options": ["Kudankulam", "Kaiga", "Kalpakkam", "ARTUR"],
+        "correctOption": "Kudankulam"
+    },
+    {
+        "question": "When was India's first satellite Aryabhatta launched?",
+        "options": ["19 April 1975", "19 April 1976", "June 1979", "June 1980"],
+        "correctOption": "19 April 1975"
+    },
+    {
+        "question": "When was the Indian National Institute for Space Research committee formed?",
+        "options": ["1962", "1965", "1963", "1961"],
+        "correctOption": "1962"
+    },
+    {
+        "question": "Where was the first nuclear power plant established in India?",
+        "options": ["Kakrapar", "Kaiga", "Tarapur", "Kalpakkam"],
+        "correctOption": "Tarapur"
+    },
+    {
+        "question": "When was INSAT-18 launched?",
+        "options": ["1985", "1983", "1987", "1980"],
+        "correctOption": "1983"
+    },
+    {
+        "question": "What was the code name of Pokhran nuclear test 2?",
+        "options": ["Operation Research", "Laughing Buddha", "Operation Shakti", "Smiling Buddha"],
+        "correctOption": "Operation Shakti"
+    },
+    {
+        "question": "By November 2020, how many nuclear reactors does India have?",
+        "options": ["21", "23", "22", "20"],
+        "correctOption": "22"
+    },
+    {
+        "question": "What is GSAT-31?",
+        "options": ["Navigation satellite", "Polar satellite", "Tourism satellite", "Experimental satellite"],
+        "correctOption": "Tourism satellite"
+    },
+    {
+        "question": "Where was the first telecommunication earth station established in India in 1967?",
+        "options": ["Aurangabad", "Ahmednagar", "Allahabad", "Ahmedabad"],
+        "correctOption": "Ahmedabad"
+    },
+    {
+        "question": "When will India's hundredth space mission start?",
+        "options": ["September, 2012", "September, 2010", "September, 2014", "September, 2009"],
+        "correctOption": "September, 2012"
+    },
+    {
+        "question": "In which year was India's first nuclear reactor inaugurated, formalized by Prime Minister Jawaharlal Nehru?",
+        "options": ["1955", "1957", "1967", "1965"],
+        "correctOption": "1957"
+    },
+    {
+        "question": "What is the name of the satellite launched by ISRO that gives cautionary messages about waves and alerts fishermen in bad weather and high altitudes?",
+        "options": ["IRNSS-I", "IRNSS-II", "IRNSS", "IRNSS-10"],
+        "correctOption": "IRNSS-I"
+    },
+    {
+        "question": "What is the full form of ADSL in the context of telephony?",
+        "options": ["Asymmetrical Digital Subscriber Line", "Asymmetrical Digital Software Line", "Aligned Digital Software Line", "Aligned Digital Subscriber Line"],
+        "correctOption": "Asymmetrical Digital Subscriber Line"
+    },
+    {
+        "question": "Which launch vehicle was used by ISRO for its Chandrayaan-2 mission?",
+        "options": ["PSLV-C 21", "PSLV-D 2", "ASLV-D 4", "GSLV MK-III"],
+        "correctOption": "GSLV MK-III"
+    },
+    {
+        "question": "Who founded India's three-stage nuclear power program?",
+        "options": ["Kasturirangan", "Dr. Homi Bhabha", "A P J Abdul Kalam", "Vikram Sarabhai"],
+        "correctOption": "Dr. Homi Bhabha"
+    },
+    {
+        "question": "Who is known as the Father of India's space program?",
+        "options": ["Anuj Lal", "Aditya Sarabhai", "Vikram Sarabhai", "Vikram Seth"],
+        "correctOption": "Vikram Sarabhai"
+    },
+    {
+        "question": "When did India detonate its first atomic bomb?",
+        "options": ["1969", "1981", "1976", "1974"],
+        "correctOption": "1974"
+    },
+    {
+        "question": "When did the Indian Space Program start with the establishment of INCOSPAR by the Government of India?",
+        "options": ["1968", "1970", "1962", "1960"],
+        "correctOption": "1962"
+    },
+    {
+        "question": "In which place in Haryana is the Government of India developing a nuclear power plant?",
+        "options": ["Gorakhpur", "Palwal", "Ballabhgarh", "Kalka"],
+        "correctOption": "Gorakhpur"
+    },
+    {
+        "question": "Which of the following is a research reactor conducted by the HM Nuclear Research Center?",
+        "options": ["Dhruva", "Shiva", "Vishnu", "Narayan"],
+        "correctOption": "Dhruva"
+    },
+    {
+        "question": "Name the mission launched by ISRO to study the Sun.",
+        "options": ["Exoworld", "Exposat", "sfeaL1", "sun"],
+        "correctOption": "Aditya L1"
+    },
+    {
+        "question": "Which Indian Navy missile-destroyer was retired after 36 years in May 2019?",
+        "options": ["INS Rana", "INS Ranjit", "INS Vikrant", "INS Vikramaditya"],
+        "correctOption": "INS Ranjit"
+    },
+    {
+        "question": "Where were the genetic studies conducted for the first time in India by CSIR & Scientists?",
+        "options": ["Andaman", "Kochi", "Hyderabad", "Lakshadweep"],
+        "correctOption": "Lakshadweep"
+    },
+    {
+        "question": "Name the satellite created by a team of Indian school students and launched by NASA.",
+        "options": ["first", "second", "Kalamsat", "SRM-8c"],
+        "correctOption": "Kalamsat"
+    },
+    {
+        "question": "What is the code name of India's first successful nuclear test?",
+        "options": ["Operation Shakti", "Laughing Buddha", "Operation Vijay", "Smiling Buddha"],
+        "correctOption": "Smiling Buddha"
+    },
+    {
+        "question": "In which year was Information and Communication Technology (ICT), now integrated under RMSA, launched?",
+        "options": ["2009", "2006", "2002", "2004"],
+        "correctOption": "2004"
+    },
+    {
+        "question": "What is the name of India's first manned space flight mission?",
+        "options": ["Airplane", "Pushpak vehicle", "Gagan Viman", "Gaganyaan"],
+        "correctOption": "Gaganyaan"
+    },
+    {
+        "question": "Who was the first Indian-origin woman astronaut in space?",
+        "options": ["Sunita Williams", "Kalpana Chawla", "Nalini Ramarajan", "Shawna Pandya"],
+        "correctOption": "Kalpana Chawla"
+    },
+    {
+        "question": "What is the full form of GSLV?",
+        "options": ["Global Satellite Launch Vehicle", "Geosynchronous Satellite Launching Vehicle", "Global Stationary Launching Vehicle", "Geosynchronous Satellite Launch Vehicle"],
+        "correctOption": "Geosynchronous Satellite Launch Vehicle"
+    },
+    {
+        "question": "When was the Indian National Institute for Space Research committee formed?",
+        "options": ["1955", "1962", "1966", "1952"],
+        "correctOption": "1962"
+    },
+    {
+        "question": "Which of the following is a research counter to research conducted in Kalpakkam?",
+        "options": ["Kiran", "Apsara", "Kamini", "Asur"],
+        "correctOption": "Kamini"
+    },
+    {
+        "question": "Which country developed the FRIENDLY ROCKET'S shirt?",
+        "options": ["Russia", "Pakistan", "India", "America"],
+        "correctOption": "Russia"
+    },
+    {
+        "question": "Which Chinese technology company has been banned from doing business with US government agencies by the Trump administration?",
+        "options": ["Vivo", "Xiaomi", "B48", "Oppo"],
+        "correctOption": "B48"
+    },
+    {
+        "question": "Who is considered the father of the Indian nuclear program?",
+        "options": ["A P J Abdul Kalam", "Dr. Homi Bhabha", "Jawaharlal Nehru", "Raja Ramanna"],
+        "correctOption": "Dr. Homi Bhabha"
+    },
+    {
+        "question": "In which state is Satish Dhawan Space Centre, Sriharikota located?",
+        "options": ["Kerala", "Tamil Nadu", "Karnataka", "Andhra Pradesh"],
+        "correctOption": "Andhra Pradesh"
+    },
+    {
+        "question": "In which year was the International Atomic Energy Agency (IAEA) established?",
+        "options": ["1966", "1957", "1967", "1955"],
+        "correctOption": "1957"
+    },
+    {
+        "question": "What was the name of the nanosatellite designed and developed by the Indian Institute of Technology, Kanpur for data for agriculture and disaster monitoring?",
+        "options": ["Kalamsat", "Firefly", "See", "Anusat"],
+        "correctOption": "Firefly"
+    },
+    {
+        "question": "When was the Atomic Energy Commission established to monitor nuclear energy activities in India?",
+        "options": ["August 1949", "August 1948", "January 1948", "December 1950"],
+        "correctOption": "August 1948"
+    },
+    {
+        "question": "Which of the following websites does not have an e-shopping website?",
+        "options": ["www.pepperfry.com", "www.twitter.com", "www.jabong.com", "www.flipkart.com"],
+        "correctOption": "www.twitter.com"
+    },
+    {
+        "question": "What was the original name of Bhabha Atomic Research Center (BARC)?",
+        "options": ["Indian Nuclear Power Corporation", "Atomic Energy Establishment, Trombay", "Indira Gandhi Atomic Research Center", "Nuclear Power Corporation of India Ltd."],
+        "correctOption": "Atomic Energy Establishment, Trombay"
+    },
+    {
+        "question": "What is the full form of PSLV?",
+        "options": ["Polar Satellite Launch Vehicle", "Partner Satellite Launch Vehicle", "Public Satellite Launch Vehicle", "Private Satellite Launch Vehicle"],
+        "correctOption": "Polar Satellite Launch Vehicle"
+    },
+    {
+        "question": "Which of the following companies stopped making personal computers in 2005?",
+        "options": ["Asus", "IBM", "Sat", "Acer"],
+        "correctOption": "IBM"
+    },
+    {
+        "question": "Which of the following is India's oldest nuclear research reactor?",
+        "options": ["Kamini", "Cyrus", "Apsara", "Dhruva"],
+        "correctOption": "Apsara"
+    },
+    {
+        "question": "Where is the Indian Space Research Organization (ISRO) to get IRS data establishment located?",
+        "options": ["IMGEOS", "NRSC", "AGEOS", "NCAOR"],
+        "correctOption": "AGEOS"
+    },
+    {
+        "question": "What is the main danger of nuclear energy production?",
+        "options": ["need for energy", "limited availability", "RIA", "storage and dispersion"],
+        "correctOption": "storage and dispersion"
+    },
+    {
+        "question": "Which department in India brought all women-centric schemes and programs into the realm of science and technology in 2014?",
+        "options": ["Kiran", "Suman", "Tiefake", "Et"],
+        "correctOption": "Kiran"
+    },
+    {
+        "question": "When was the Human Space Flight Center inaugurated by ISRO?",
+        "options": ["June 2018", "June 2019", "January 2018", "January 2019"],
+        "correctOption": "January 2019"
+    },
+    {
+        "question": "Where is Vikram Sarabhai Space Center located?",
+        "options": ["Bengaluru", "Thiruvananthapuram", "Hyderabad", "Mumbai"],
+        "correctOption": "Thiruvananthapuram"
+    },
+    {
+        "question": "Which organization is responsible for Hyderabad Ase Sensing satellite data acquisition and processing, data dissemination, aerial remote sensing and disaster management decision support?",
+        "options": ["National Informatics Center", "Indian Institute of Science Education and Research (IISER)", "National Remote Sensing Center (NRSC)", "Indian Space Research Organization (ISRO)"],
+        "correctOption": "National Remote Sensing Center (NRSC)"
+    },
+    {
+        "question": "When was the Chandrayaan-1 mission launched by ISRO, specifically to confirm the presence of ice on the Moon?",
+        "options": ["2006", "2009", "2008", "2007"],
+        "correctOption": "2008"
+    },
+    {
+        "question": "What is the E-way bill related to?",
+        "options": ["Prepayment of goods and services", "Supply of goods from one place to another", "Payment after delivery of goods and services", "To pay toll on national highways"],
+        "correctOption": "Supply of goods from one place to another"
+    },
+    {
+        "question": "Who was the astrophysicist who first proposed the theory of the existence of solar wind in 1958 AD and had a NASA spacecraft named after him?",
+        "options": ["Eugene Parker", "Elon Hep", "Johannes Kepler", "Carl Sagan"],
+        "correctOption": "Eugene Parker"
+    },
+    {
+        "question": "Who was the Chairman of ISRO when India launched its first lunar probe mission?",
+        "options": ["Kasturirangan", "A P J Abdul Kalam", "G Madhavan Nair", "A S Kiran Kumar"],
+        "correctOption": "G Madhavan Nair"
+    },
+    {
+        "question": "What was the first vehicle to soft-land safely on the surface of the moon?",
+        "options": ["Luna 9", "Ranger 6", "Sputnik 25", "Apollo 17"],
+        "correctOption": "Luna 9"
+    },
+    {
+        "question": "Which of the following Indian space scientists is not related to the Indian space program?",
+        "options": ["Sasendra Nath Bose", "K Sivan", "A S Kiran Kumar", "Satish Dhawan"],
+        "correctOption": "Sasendra Nath Bose"
+    },
+    {
+        "question": "Which Indian organization related to the development of nuclear energy is located in Kolkata?",
+        "options": ["Bhabha Atomic Research Center (BARC)", "Raja Ramanna Center for Advanced Technology (RRCAT)", "Nuclear Mineral Exploration and Research directorate", "Variable Energy Cyclotron Center"],
+        "correctOption": "Variable Energy Cyclotron Center"
+    },
+    {
+        "question": "What is the nickname given to GSLV-MK II, ISRO's most powerful rocket?",
+        "options": ["Fat Boy", "Naughty Boy", "Naughty Man", "Fat Man"],
+        "correctOption": "Fat Boy"
+    },
+    {
+        "question": "What is the name of the mobile app developed by the Federation of Indian Export Organization for conducting international trade?",
+        "options": ["Export Partner", "Export Hub", "Export Mitra", "Export Service"],
+        "correctOption": "Export Mitra"
+    },
+    {
+        "question": "What is the name of the world's first robot with full citizenship?",
+        "options": ["Rose", "Allen", "Lily", "Sophia"],
+        "correctOption": "Sophia"
+    },
+    {
+        "question": "Which of the following missile systems supplied by Russia was presented as an option to India by the US?",
+        "options": ["Arrow-2", "THAAD and PAC-3", "M-11", "5-300"],
+        "correctOption": "THAAD and PAC-3"
+    },
+    {
+        "question": "Which satellite facility is equipped with a state-of-the-art data acquisition system to receive data from various satellites?",
+        "options": ["SCATSAT-1", "AGEOS", "ISRO", "IMGEOS"],
+        "correctOption": "IMGEOS"
+    },
+    {
+        "question": "When was INSAT-18 launched?",
+        "options": ["1990", "1989", "1987", "1983"],
+        "correctOption": "1983"
+    },
+    {
+        "question": "In which location were nuclear explosive devices tested by India in 1998?",
+        "options": ["WaT", "Sriharikota", "Bangalore", "Pokhran"],
+        "correctOption": "Pokhran"
+    },
+    {
+        "question": "Which organization launched the military communications satellite called GSAT-7A for the Air Force in December 2018?",
+        "options": ["ISRO", "AIMS", "MES", "DST"],
+        "correctOption": "ISRO"
+    },
+    {
+        "question": "Which of the following countries has the largest domestic communications satellite system in the Asia-Pacific region?",
+        "options": ["Nepal", "India", "Sri Lanka", "Bangladesh"],
+        "correctOption": "India"
+    },
+    {
+        "question": "Chandrayaan-2's lander was named after which scientist?",
+        "options": ["Kasturirangan", "K Sivan", "A P J Abdul Kalam", "Vikram Sarabhai"],
+        "correctOption": "Vikram Sarabhai"
+    },
+    {
+        "question": "Which of the following is a voice assistant?",
+        "options": ["Alexa", "Siri", "Cortana", "Caravan"],
+        "correctOption": "Siri"
+    },
+    {
+        "question": "Which Indian scientist, among the following, has no contribution in the nuclear field?",
+        "options": ["C N R Rao", "Shekhar Basu", "Homi J Bhabha", "Raja Ramanrana"],
+        "correctOption": "C N R Rao"
+    },
+    {
+        "question": "Which one of the following launch vehicles does not have technology?",
+        "options": ["ASLV", "PSLV", "GSLV", "MSLV"],
+        "correctOption": "MSLV"
+    },
+    {
+        "question": "Which Indian satellite was launched from French Guiana in early 2019 and is the 40th communication satellite?",
+        "options": ["GSAT – 5P", "GSAT – 6A", "INSAT-4B", "GSAT-31"],
+        "correctOption": "GSAT-31"
+    },
+    {
+        "question": "Which of the following is the intercontinental range ballistic missile developed by India?",
+        "options": ["Bravery", "Fire 4", "Agni 14", "BrahMos"],
+        "correctOption": "Agni 4"
+    },
+    {
+        "question": "In which year was the Government of India's proposal for the first Indian Moon mission, Chandrayaan-1, approved?",
+        "options": ["2003", "2013", "2008", "2001"],
+        "correctOption": "2003"
+    },
+    {
+        "question": "What is the name of the parent company of Google?",
+        "options": ["Alphabet Inc.", "Calico", "Nest Lab", "GV"],
+        "correctOption": "Alphabet Inc."
+    },
+    {
+        "question": "Who was the President of the Atomic Energy Commission of India during India's first nuclear testing in Pokhran in 1974?",
+        "options": ["AP J Abdul Kalam", "Rajagopal Chidambaram", "Homi Sethna", "Raja Ramanna"],
+        "correctOption": "Homi Sethna"
+    },
+    {
+        "question": "What was the name of the first Indian satellite launched into orbit?",
+        "options": ["Bhaskar", "Rohini", "Aryabhata", "Kalpana"],
+        "correctOption": "Aryabhata"
+    },
+    {
+        "question": "India's first pressurized heavy water reactor (PHWR) in 1964 was a collaborative venture between Atomic Energy and NPCIL of India and which country?",
+        "options": ["France", "Soviet Union", "Israel", "Canada"],
+        "correctOption": "Canada"
+    },
+    {
+        "question": "Where was the PSLV-C45 launch carrying EMISAT and 28 other international customer satellites successfully launched from on April 1, 2019?",
+        "options": ["Spaceport in French Guiana", "Satish Dhawan Space Center", "UR Rao Satellite Center", "Center Endemic Guyanais, Kourous"],
+        "correctOption": "Satish Dhawan Space Center"
+    },
+    {
+        "question": "Which satellite projected by the Indian Space Research Organization (ISRO) is a navigation satellite?",
+        "options": ["IRNSS-11", "RESOURCESAT-2A", "SCATSAT-1", "SARAL"],
+        "correctOption": "IRNSS-11"
+    },
+    {
+        "question": "What is the name of the robot developed by DRDO for detecting dangerous objects, handling and destroying them?",
+        "options": ["Rustom", "Chaturobot", "Packbot", "Daksh"],
+        "correctOption": "Daksh"
+    },
+    {
+        "question": "Which is the world's only operating nuclear reactor using U 233 fuel?",
+        "options": ["Kamini", "Hanul", "Dhruva", "Apsara"],
+        "correctOption": "Kamini"
+    },
+    {
+        "question": "Which satellite was launched by ISRO in 2018 to promote communications capabilities of the armed forces?",
+        "options": ["Cartosat-2", "GSAT-29", "EMISAT", "GSAT-7A"],
+        "correctOption": "GSAT-7A"
+    },
+    {
+        "question": "On which date is National Technology Day celebrated in India?",
+        "options": ["2nd May", "1st May", "7th May", "11th May"],
+        "correctOption": "11th May"
+    },
+    {
+        "question": "What is the name of the scheme launched by the Department of Science and Technology to provide a platform for women scientists and technologists to conduct research in applied sciences?",
+        "options": ["Women Scientists Scheme-8 (WOS-B)", "Mobility Plan", "Women Scientists Scheme-& (WOS-A)", "Women Scientists Scheme-0 (WOS-C)"],
+        "correctOption": "Women Scientists Scheme-& (WOS-A)"
+    },
+    {
+        "question": "What is the full form of CSIR?",
+        "options": ["Committee of Science and Iron Research", "Council of Scientific and Industrial Research", "Council of Scientific and Indian Research", "Council of Space and Invention Research"],
+        "correctOption": "Council of Scientific and Industrial Research"
+    },
+    {
+        "question": "What is SAGA-220, developed by the Indian Space Research Organization?",
+        "options": ["Supercomputer", "Missile", "Satellite", "Pacemaker"],
+        "correctOption": "Supercomputer"
+    },
+    {
+        "question": "In which year was the Nano Science and Technology (Nano Mission) initiated?",
+        "options": ["2006", "2007", "2009", "2010"],
+        "correctOption": "2007"
+    },
+    {
+        "question": "Which air-to-air missile was developed by DRDO?",
+        "options": ["Sky", "Earth", "3Ra", "Agari"],
+        "correctOption": "SRA"
+    },
+    {
+        "question": "Which satellite was the first experimental satellite used by ISRO in August 1979?",
+        "options": ["INSAT 3DR", "Rohini", "Himawari 8", "Ree"],
+        "correctOption": "Rohini"
+    },
+    {
+        "question": "Which navigation satellite system does not exist?",
+        "options": ["BDS", "Galileo", "Meo", "Sailor"],
+        "correctOption": "Sailor"
+    },
+    {
+        "question": "Which center in India is used for satellite launches?",
+        "options": ["ISTRAC ground station", "Barren Island", "Wheeler Island", "North Eastern Space Applications Center (NESAC)"],
+        "correctOption": "Wheeler Island"
+    },
+    {
+        "question": "Which country has no nuclear weapons?",
+        "options": ["Russia", "France", "China"],
+        "correctOption": "France"
+    },
+    {
+        "question": "Which rocket was used to launch Chandrayaan-1?",
+        "options": ["GSLV Mk-III", "PSLV-C42", "PSLV-C11", "PSLV-C46"],
+        "correctOption": "PSLV-C11"
+    },
+    {
+        "question": "What is the power generation capacity of Chandrayaan-2 rover-Pragyan?",
+        "options": ["100 W", "25W", "50W", "75W"],
+        "correctOption": "50 W"
+    },
+    {
+        "question": "In which year did India launch the Technology Experiment Satellite (TES)?",
+        "options": ["2001", "1998", "2007", "1988"],
+        "correctOption": "2001"
+    },
+    {
+        "question": "When did India's first mission to the Moon, Chandrayaan-1, suffer damage to its communication with the spacecraft PRU?",
+        "options": ["15 August 2009", "28 July 2009", "5 September 2009", "29 August 2009"],
+        "correctOption": "28 July 2009"
+    },
+    {
+        "question": "According to whose principle does a rocket work?",
+        "options": ["Velocity", "Mass", "Momentum", "Energy"],
+        "correctOption": "Mass"
+    },
+    {
+        "question": "When is river water considered polluted due to acidic wastes?",
+        "options": ["Above 7", "Below 7", "Equal to 7", "Zero"],
+        "correctOption": "Below 7"
+    },
+    {
+        "question": "When will the next appearance of Halley's Comet occur?",
+        "options": ["2055", "2075", "2070", "2061"],
+        "correctOption": "2061"
+    },
+    {
+        "question": "Who has been selected as the external auditor of WHO from 2020 to 2023?",
+        "options": ["IMF", "WHO", "WTO", "UNICEF"],
+        "correctOption": "WHO"
+    },
+    {
+        "question": "Which organization incorporated New Space India Limited (NSIL) for research and development activities in the field of commercial use?",
+        "options": ["DRDO", "CSIR", "NASA", "ISRO"],
+        "correctOption": "ISRO"
+    },
+    {
+        "question": "To which galaxy does our solar system belong?",
+        "options": ["Milky Way", "Bodes", "Triangle", "Andromeda"],
+        "correctOption": "Milky Way"
+    },
+    {
+        "question": "What is a polygraph also known as?",
+        "options": ["Polygraph", "Seismograph", "Barograph", "Polarimeter"],
+        "correctOption": "Polygraph"
+    },
+    {
+        "question": "What does 'M' mean in OMR in Recognition Technology?",
+        "options": ["Mark", "Mirroring", "Manipulator", "Magnetic"],
+        "correctOption": "Mark"
+    },
+    {
+        "question": "Which statement about the International Space Station (ISS) is correct?",
+        "options": ["It is located in the lower orbit of the Earth.", "It is expected to operate by 2050.", "Astronauts from USA and China only are allowed to travel to ISS.", "It is mainly started by USA and China."],
+        "correctOption": "It is located in the lower orbit of the Earth."
+    },
+    {
+        "question": "What is the name of the GSLV Launch Vehicle used by ISRO to launch a geostationary communications satellite designed specifically for the Indian Air Force to enhance its communication abilities?",
+        "options": ["GSAT-8B", "GSAT-7A", "GSAT-7B", "GSAT-6B"],
+        "correctOption": "GSAT-7A"
+    },
+    {
+        "question": "What is RDX?",
+        "options": ["An instrument for measuring current", "Used in the manufacture of pesticides", "An explosive", "An instrument for measuring blood pressure"],
+        "correctOption": "An explosive"
+    },
+    {
+        "question": "Who discovered the rules of succession?",
+        "options": ["Aed Darwin", "Archibald Garrod", "Hugo Day", "Gregor Mendel"],
+        "correctOption": "Gregor Mendel"
+    },
+    {
+        "question": "What is the name of the mission first dedicated to Indian astronomy, with the objective to study astronomical sources in optical and UV spectral bands together?",
+        "options": ["SiifParte", "Wee", "Extrasat", "AstroSat"],
+        "correctOption": "AstroSat"
+    },
+    {
+        "question": "An approach based on the idea that organisms more distantly related store a larger number of differences in the DNA is called?",
+        "options": ["DNA study", "Morphological approach", "Molecular phylogeny", "Metamorphism"],
+        "correctOption": "Molecular phylogeny"
+    },
+    {
+        "question": "Who coined the phrase 'Survival of the Fittest'?",
+        "options": ["Archimedes", "DD Spencer", "Charles Darwin", "Albert Einstein"],
+        "correctOption": "DD Spencer"
+    },
+    {
+        "question": "What is G-7?",
+        "options": ["7 sister states of India", "7 seas of the world", "7 continents of the world", "7 IMF- of advanced economies in the world"],
+        "correctOption": "7 IMF- of advanced economies in the world"
+    },
+    {
+        "question": "What is the name of the world's smallest spacecraft launched by India?",
+        "options": ["Sparkle", "Fit", "Sprite", "Star"],
+        "correctOption": "Sprite"
+    },
+    {
+        "question": "Which of the following is a form of renewable energy?",
+        "options": ["Potential energy", "Solar energy", "Electrical energy", "Chemical energy"],
+        "correctOption": "Solar energy"
+    },
+    {
+        "question": "When and where was GSAT-6A launched?",
+        "options": ["29 June 2017, Guiana Space Center (RI)", "29 March 2018, Satish Dhawan Space Center (Sriharikota)", "6 October 2016, Guiana Space Center (Kourou)", "12 January 2018, Satish Dhawan Space Center (Sriharikota)"],
+        "correctOption": "29 March 2018, Satish Dhawan Space Center (Sriharikota)"
+    },
+    {
+        "question": "Which of the following was discovered by Henry Becquerel?",
+        "options": ["Infrared radiation", "Ultraviolet light", "X-ray", "Radioactivity"],
+        "correctOption": "Radioactivity"
+    },
+    {
+        "question": "Which satellite was launched by PSLV-C17 from Sriharikota?",
+        "options": ["Pico", "Meteorological", "Communication", "Nano"],
+        "correctOption": "Communication"
+    },
+    {
+        "question": "What is the main source of electricity production in India?",
+        "options": ["Solar energy", "Nuclear energy", "Thermal energy", "Hydropower"],
+        "correctOption": "Thermal energy"
+    },
+    {
+        "question": "What device is used to view two different photographs of the same object together?",
+        "options": ["Stereoscope", "Stroboscope", "Stethoscope", "Spectroscope"],
+        "correctOption": "Stereoscope"
+    },
+    {
+        "question": "Under which department does the Atomic Energy Department operate?",
+        "options": ["Ministry of Science and Technology", "Prime Minister's Office", "Cabinet Secretariat", "Ministry of Power"],
+        "correctOption": "Prime Minister's Office"
+    },
+    {
+        "question": "Which Indian organization developed an artificial leaf to produce fuel from sunlight?",
+        "options": ["DRDO", "CSIR", "IIT Hag", "BITS Pilani"],
+        "correctOption": "CSIR"
+    },
+    {
+        "question": "Who was the first chairman of ISRO?",
+        "options": ["Prof. Satish Dhawan", "Dr. K. SERA", "Dr. Vikram Sarabhai", "Prof U R Rao"],
+        "correctOption": "Dr. Vikram Sarabhai"
+    },
+    {
+        "question": "In which city is the Teaching and Research in Ayurveda Institute (ITRA) located?",
+        "options": ["New Delhi", "Jamnagar", "Dehradun", "Haridwar"],
+        "correctOption": "Jamnagar"
+    },
+    {
+        "question": "From which insect is silk obtained?",
+        "options": ["Musca START «=", "Bombyx mori", "Butterfly", "FRI"],
+        "correctOption": "Bombyx mori"
+    },
+    {
+        "question": "Which unit of measurement is Newton?",
+        "options": ["Pressure", "Resistance", "Force", "Power"],
+        "correctOption": "Force"
+    },
+    {
+        "question": "What synthetic fiber was created first by AAT ERI?",
+        "options": ["Silicon", "Nylon", "Spandex", "Acrylic"],
+        "correctOption": "Nylon"
+    },
+    {
+        "question": "What is Yat?",
+        "options": ["A small satellite launched by ISRO to promote tourism education in India", "A space turbine developed by India.", "Moon impact tie given for Chandrayaan-2", "ISRO's one with 3D imaging capabilities geo portal"],
+        "correctOption": "ISRO's one with 3D imaging capabilities geo portal"
+    },
+    {
+        "question": "When was DRDO established?",
+        "options": ["1947", "1991", "1958", "1950"],
+        "correctOption": "1958"
+    },
+    {
+        "question": "When was the Indian National Science Academy (NSA) established?",
+        "options": ["October 1950", "December 1960", "January 1935", "July 1947"],
+        "correctOption": "January 1935"
+    },
+    {
+        "question": "Which supersonic missile is named after the Indian river Brahmaputra and Russia's Mokva river?",
+        "options": ["Mosputra", "Mosbrahma", "Putramos", "Brahmos"],
+        "correctOption": "Brahmos"
+    },
+    {
+        "question": "When was the first acoustic rocket, Nike-Apache, launched by India?",
+        "options": ["1990", "1950", "1963", "2000"],
+        "correctOption": "1963"
+    },
+    {
+        "question": "Which organization is responsible for ensuring safe, efficient air traffic in the region and providing aeronautical communication services?",
+        "options": ["Indian airports and aeronautics authority", "Aeronautical Authority of India", "Airports Association of India", "Airports Authority of India"],
+        "correctOption": "Airports Authority of India"
+    },
+    {
+        "question": "After the Mars Mission, which interplanetary mission is India eyeing?",
+        "options": ["Mercury", "Venus", "Saturn", "Sun"],
+        "correctOption": "Venus"
+    },
+    {
+        "question": "How many times does a GPS satellite orbit the Earth?",
+        "options": ["Once every 48 hours", "Once every 2 hours", "Once every 24 hours", "Once every 12 hours"],
+        "correctOption": "Once every 12 hours"
+    },
+    {
+        "question": "What is the name of the spacecraft in which Indian-American astronaut Kalpana Chawla died in 2003?",
+        "options": ["Invention", "Claimant", "Atlantis", "Colombia"],
+        "correctOption": "Colombia"
+    },
+    {
+        "question": "India's first interplanetary space mission was?",
+        "options": ["GSAT - 31", "MOM", "Chandrayaan - 1", "Gee"],
+        "correctOption": "MOM"
+    },
+    {
+        "question": "Which of the following nuclear plants has the highest capacity?",
+        "options": ["Rajasthan Atomic Power Plant", "Kudankulam Nuclear Power Plant", "Tarapur Nuclear Reactor", "Kalpakkam Nuclear Power Plant"],
+        "correctOption": "Kudankulam Nuclear Power Plant"
+    },
+    {
+        "question": "What is nomophobia?",
+        "options": ["Fear of being out of cellular phone contact", "Fear of contact outside the home", "Fear of being out of touch with the computer", "Fear of being out of touch with television"],
+        "correctOption": "Fear of being out of cellular phone contact"
+    },
+    {
+        "question": "Which mission by NASA was used to study the deep interior of Mars?",
+        "options": ["Insight Mission", "Mission Duster", "Mission Mangal", "Mission Sampark"],
+        "correctOption": "Insight Mission"
+    },
+    {
+        "question": "Who is the founding director of BARC Mumbai?",
+        "options": ["Homi Jahangir Bhabha", "Satish Dhawan", "Vikram Sarabhai", "Raja Ramanna"],
+        "correctOption": "Homi Jahangir Bhabha"
+    },
+    {
+        "question": "What is a feature of the Indian missile Prithvi-II, launched in October 2018?",
+        "options": ["It is beyond visual range Air-to-air kill missile", "It's a nuclear capable long range ballistic missile", "It is an anti-tank guided missile", "It is a ballistic missile"],
+        "correctOption": "It is a ballistic missile"
+    },
+    {
+        "question": "Which is the center of BARC known for research?",
+        "options": ["Kamini", "Damini", "Zerlina", "Apsara"],
+        "correctOption": "Damini"
+    },
+    {
+        "question": "What is 'EyeROV Tuna'?",
+        "options": ["Heliport", "Missile", "Underwater drone", "FARA"],
+        "correctOption": "Underwater drone"
+    },
+    {
+        "question": "Who among the following was the first to be dedicated as educational satellite?",
+        "options": ["GSAT-3", "INSAT- 4A", "Hamsat", "Cartosat-1"],
+        "correctOption": "GSAT-3"
+    },
+    {
+        "question": "What type of satellite is APPLE?",
+        "options": ["Meteorological satellite", "Remote sensing satellite", "Earth observation satellite", "Communication satellite"],
+        "correctOption": "Communication satellite"
+    },
+    {
+        "question": "In 2018, BARC announced its first nuclear reactor compared to which version?",
+        "options": ["Sif", "BrahMos", "HRI", "ARRT"],
+        "correctOption": "ARRT"
+    },
+    {
+        "question": "What is the full form of REDD?",
+        "options": ["Recycling Energy from Deforestation and Forest Degradation", "Reducing Emission from Deforestation and Forest Degradation", "Reducing Emission from Disintegration and Forest Degradation", "Renewable – Energy from Disintegration and Forest Degradation"],
+        "correctOption": "Reducing Emission from Deforestation and Forest Degradation"
+    },
+    {
+        "question": "What is the range of the supersonic Akash missile?",
+        "options": ["About 25 Km", "About 20 Km", "About 35 km", "About 30 km"],
+        "correctOption": "About 25 Km"
+    },
+    {
+        "question": "What is IRNSS - IG?",
+        "options": ["Third navigation satellite", "Seventh navigation satellite", "Tenth navigation satellite", "First navigation satellite"],
+        "correctOption": "Seventh navigation satellite"
+    },
+    {
+        "question": "Which of the following is not an Indian Research Centre found in Antarctica?",
+        "options": ["South Gangotri", "Himalaya", "Bharti", "Maitri"],
+        "correctOption": "Himalaya"
+    },
+    {
+        "question": "What is the specialty of ISRO Propulsion Complex (IPRC)?",
+        "options": ["It is used to launch sounding rockets", "It is space technology like geodesy, satellite practical uses of gear based etc.", "It is for the management of natural resources applies remote sensing technology.", "It is used for testing liquid propulsion control packages, handles composition and integration."],
+        "correctOption": "It is used for testing liquid propulsion control packages, handles composition and integration."
+    },
+    {
+        "question": "Which is India's heaviest and largest powerful communication satellite?",
+        "options": ["GSAT-6", "GSAT-11", "IRNSS-1D", "Kalpana-1"],
+        "correctOption": "GSAT-11"
+    },
+    {
+        "question": "Which nuclear energy submarine is INS Arihant?",
+        "options": ["INS Sindhuveer", "INS Shalki", "INS Kalwari", "INS Arihant"],
+        "correctOption": "INS Arihant"
+    },
+    {
+        "question": "What type of satellite is Pedal-1?",
+        "options": ["Military", "Weather", "Navigation", "Communication"],
+        "correctOption": "Weather"
+    },
+    {
+        "question": "What is the capability of ISRO's communication satellite GSAT-29 FH?",
+        "options": ["Earth Protector", "Earth Eye", "Third eye", "Earth vision"],
+        "correctOption": "Earth eye"
+    },
+    {
+        "question": "Which country helped India to launch its first artificial satellite in 1975?",
+        "options": ["Soviet Union", "France", "America", "England"],
+        "correctOption": "Soviet Union"
+    },
+    {
+        "question": "Who led India's first expedition to Antarctica in 1982?",
+        "options": ["Dr. A.P.J. Abdul Kalam", "Dr. Paramjit Singh", "Dr. Jahar Qasim", "Dr. Sz Qasim"],
+        "correctOption": "Dr. Sz Qasim"
+    },
+    {
+        "question": "Which company owns robotics (industrial robots) KUKA?",
+        "options": ["Paslin yy, America", "Kion Group, China", "Hokoma Group, Switzerland", "Media Group, China"],
+        "correctOption": "Media Group, China"
+    },
+    {
+        "question": "What is India's first indigenous satellite launch vehicle?",
+        "options": ["GSLV", "PSLV", "SLV-3", "ASLV"],
+        "correctOption": "SLV-3"
+    },
+    {
+        "question": "By which space shuttle mission was Chandrayaan-1, India's first word to the moon, successfully launched?",
+        "options": ["GSLV MkIII", "PSLV-C11", "RLV-TD", "GSLV"],
+        "correctOption": "PSLV-C11"
+    },
+  {
+    "question": "India's first indigenously manufactured aircraft carrier was called?",
+    "options": ["INS Vijay", "INS Vikrant", "INS Shakti", "INS Garuda"],
+    "correctOption": "INS Vikrant"
+  },
+  {
+    "question": "Under whose chairmanship was the nuclear program development authorized during Indian independence from the British Empire?",
+    "options": ["S Chandrashekhar", "Vikram Sarabhai", "S.N. Bose", "Homi J Bhabha"],
+    "correctOption": "Vikram Sarabhai"
+  },
+  {
+    "question": "In which year was the Private Nuclear Power Generation Act enacted?",
+    "options": ["1961", "1962", "1963", "1964"],
+    "correctOption": "1962"
+  },
+  {
+    "question": "When did electricity production using nuclear energy in India start?",
+    "options": ["October 1969", "November 1969", "October 1968", "November 1970"],
+    "correctOption": "October 1969"
+  },
+  {
+    "question": "Which one of the following files doesn't have a sharing app?",
+    "options": ["Airdroid", "Surffly", "Pushbullet", "Superbeam"],
+    "correctOption": "Surffly"
+  },
+  {
+    "question": "What is the motto of DRDO (Defence Research and Development Organisation)?",
+    "options": ["SIDBI", "NCERT", "BARC", "DRDO"],
+    "correctOption": "DRDO"
+  },
+  {
+    "question": "Which Indian satellite collects data for oceanography, coastal, and atmospheric applications?",
+    "options": ["INSAT-4D", "GSAT-4", "IRS-P4", "INSAT-3B"],
+    "correctOption": "IRS-P4"
+  },
+  {
+    "question": "Which Indian reactor uses (-233) as fuel?",
+    "options": ["Purnima-I", "Kamini", "Purnima-II", "Yes"],
+    "correctOption": "Kamini"
+  },
+  {
+    "question": "Which one of the following is a land-based ballistic missile?",
+    "options": ["Sun", "Sagittarius", "SF", "Earth"],
+    "correctOption": "Sagittarius"
+  },
+  {
+    "question": "What is the use of an electrostatic precipitator?",
+    "options": ["Noise pollution control", "Air pollution control", "Visual pollution control", "Water pollution control"],
+    "correctOption": "Air pollution control"
+  },
+  {
+    "question": "What type of signals does VGA-I pass?",
+    "options": ["Only digital video signals", "Neither digital nor analog video signals", "Both digital and analog video signals", "Only analog video signals"],
+    "correctOption": "Both digital and analog video signals"
+  },
+  {
+    "question": "Which of the following is not a major defect of nuclear energy production?",
+    "options": ["Storage and disposal of used fuel", "High establishment cost of nuclear power plants", "Electricity generation", "Accidental leakage of nuclear radiation risk"],
+    "correctOption": "Electricity generation"
+  },
+  {
+    "question": "What does RSLV-TD stand for in ISRO's context?",
+    "options": ["Reusable Satellite Long Vehicle-Technology Demonstrator", "Refillable Satellite Long Vehicle-Technology Demonstrator", "Reusable Satellite Launch Vehicle Technology Demonstrator", "Relaunchable Satellite Long Vehicle Technology Demonstrator"],
+    "correctOption": "Reusable Satellite Launch Vehicle Technology Demonstrator"
+  },
+  {
+    "question": "What does L1 mean in the context of Aditya-L1 for studying the Sun?",
+    "options": ["Line point 1", "Lagrangian Point 1", "Laboratory point 1", "Lower point 1"],
+    "correctOption": "Lagrangian Point 1"
+  },
+  {
+    "question": "Where is the 5 Space Science and Engineering in Asia-Pacific Education Center (CSSTEAP) located?",
+    "options": ["Bangalore", "Dehradun", "Mumbai", "Jaipur"],
+    "correctOption": "Dehradun"
+  },
+  {
+    "question": "Who is the Founder Director of ISRO Human Space Flight Center (HSFC)?",
+    "options": ["Dr. S. Unnikrishnan Nayyar", "R Hutton", "Dr. K Sivan", "Dr. K Kasturirangan"],
+    "correctOption": "Dr. S. Unnikrishnan Nayyar"
+  },
+  {
+    "question": "In which year was the special educational satellite ADSAT (GSAT-3) launched by ISRO?",
+    "options": ["2007", "2004", "2010", "2015"],
+    "correctOption": "2004"
+  },
+  {
+    "question": "What is the name of the vehicle developed by DRDO for locating and destroying bombs?",
+    "options": ["Efficient", "A", "Attack", "Protector"],
+    "correctOption": "Efficient"
+  },
+  {
+    "question": "How far above the earth does the Global Positioning System (GPS) network of satellites revolve?",
+    "options": ["25,000 km", "30,000 km", "15,000 km", "20,000 km"],
+    "correctOption": "20,000 km"
+  },
+  {
+    "question": "Which institute is responsible for nuclear and accelerator research in India known as Janani?",
+    "options": ["Indira Gandhi Atomic Research Center", "Raja Ramanna Center for Advanced Technology", "Variable Energy Cyclotron Center", "Bhabha Atomic Research Center"],
+    "correctOption": "Bhabha Atomic Research Center"
+  },
+  {
+    "question": "Which transport aircraft of the Indian Air Force is certified to fly on mixed aviation fuel?",
+    "options": ["AN-32", "Mirage 2000", "MiG-29", "Sukhoi Su-30"],
+    "correctOption": "AN-32"
+  },
+  {
+    "question": "What type of satellite is EMISAT launched by ISRO?",
+    "options": ["Navigation satellite", "Communication satellite", "Intelligence satellite", "Remote sensing satellite"],
+    "correctOption": "Intelligence satellite"
+  },
+  {
+    "question": "Which satellite uses X-band synthetic aperture radar?",
+    "options": ["GSAT-12", "INSAT-4B", "CARTOSAT-2B", "RISAT-2B"],
+    "correctOption": "RISAT-2B"
+  },
+  {
+    "question": "Which of the following is an anti-tank guided missile?",
+    "options": ["Sky", "Trishul", "Earth", "Snake"],
+    "correctOption": "Snake"
+  },
+  {
+    "question": "Where is Kakrapar Atomic Power Station situated?",
+    "options": ["Gujarat", "Tamil Nadu", "Karnataka", "Kerala"],
+    "correctOption": "Gujarat"
+  },
+  {
+    "question": "Which was India's first satellite completely designed and manufactured in India?",
+    "options": ["Apple", "Aryabhata", "Bhaskar", "Rohini"],
+    "correctOption": "Aryabhata"
+  },
+  {
+    "question": "Which statement is correct about Indian National Satellite System (INSAT)?",
+    "options": ["They were started in 1979.", "They were designed for communication purposes.", "European launch vehicles for the Sate series have been used.", "They are for weather forecasting purposes."],
+    "correctOption": "They were started in 1979"
+  },
+  {
+    "question": "With which country did India jointly develop Barak-8 missile?",
+    "options": ["Iran", "Iraq", "Russia", "Israel"],
+    "correctOption": "Israel"
+  },
+  {
+    "question": "Which ISRO satellite is an experimental satellite?",
+    "options": ["YOUTHSAT", "RESOURCESAT-I", "SCATSAT-I", "RISAT-I"],
+    "correctOption": "YOUTHSAT"
+  },
+  {
+    "question": "Where is India's prototype fast breeder reactor located?",
+    "options": ["Kalpakkam", "Kaiga", "Tarapur", "Kudankulam"],
+    "correctOption": "Kalpakkam"
+  },
+  {
+    "question": "What type of missile is Akash Mk-IS developed by DRDO?",
+    "options": ["Surface to air", "Surface to surface", "Surface to underwater", "Air from the surface"],
+    "correctOption": "Surface to air"
+  },
+  {
+    "question": "Where is the Nuclear Fuel Complex located?",
+    "options": ["Hyderabad", "Mumbai", "Thumba", "Kalpakkam"],
+    "correctOption": "Hyderabad"
+  },
+  {
+    "question": "For what is National Technology Day celebrated?",
+    "options": ["Operation Haga", "Operation Blue Star", "Mangalyaan", "Pokhran II"],
+    "correctOption": "Pokhran II"
+  },
+  {
+    "question": "What is the device called that uses ultrasonic waves to measure distance, direction, and speed of underwater objects?",
+    "options": ["WAR", "TSR", "CRO", "ARR"],
+    "correctOption": "WAR"
+  },
+  {
+    "question": "Where is the Naval SSAA Museum of India located?",
+    "options": ["Odisha", "Gujarat", "Andhra Pradesh", "Goa"],
+    "correctOption": "Gujarat"
+  },
+  {
+    "question": "Where is the nuclear reactor in Gujarat located?",
+    "options": ["Narora", "Kakrapari", "Rana Pratap Sagar", "Tarapur"],
+    "correctOption": "Kakrapari"
+  },
+  {
+    "question": "Which of the following techniques is used by China for its 'artificial sun'?",
+    "options": ["Electromagnetic induction", "Nuclear fission", "Gravitational force", "Nuclear fusion"],
+    "correctOption": "Nuclear fusion"
+  },
+  {
+    "question": "Which one of the following is an 'Earth Observation' satellite?",
+    "options": ["SARAL", "INS-1A", "Youthsat", "APPLE"],
+    "correctOption": "SARAL"
+  },
+  {
+    "question": "The famous award 'Kalinga' is given by which organization to popularize science?",
+    "options": ["UNESCO", "UNICEF", "WHO", "UGC INDIA"],
+    "correctOption": "UNESCO"
+  },
+  {
+    "question": "Mission Shakti is related to:",
+    "options": ["Indian missile development program", "India's anti-satellite missile test", "India's anti-nuclear defense system", "India's quest for nuclear self-reliance"],
+    "correctOption": "India's anti-satellite missile test"
+  },
+  {
+    "question": "Who is considered the 'Father of Modern Science'?",
+    "options": ["Galileo Galilei", "Stephen Hawking", "CV Raman", "Vikram Sarabhai"],
+    "correctOption": "Galileo Galilei"
+  },
+  {
+    "question": "'The Origin of Species' was written by:",
+    "options": ["SRE", "Confucius", "Plato", "Charles Darwin"],
+    "correctOption": "Charles Darwin"
+  },
+  {
+    "question": "What is the source of energy in the Sun or other stars?",
+    "options": ["Burning of helium gas", "Nuclear fission", "Nuclear fusion", "Burning of hydrogen gas"],
+    "correctOption": "Nuclear fusion"
+  },
+  {
+    "question": "Which of the following is a fossil fuel?",
+    "options": ["Wind energy", "Coal", "Hydropower", "Nuclear energy"],
+    "correctOption": "Coal"
+  },
+  {
+    "question": "Which spacecraft orbited Venus from 1990 to 1994?",
+    "options": ["HICH spacecraft", "Hayabusa", "Atlantis spacecraft", "Magellan spacecraft"],
+    "correctOption": "Magellan spacecraft"
+  },
+  {
+    "question": "What is the other name for 'COVAXIN', India's indigenous COVID-19 vaccine?",
+    "options": ["SIS: Indian Medicines Pharmaceutical Corporation", "Bharat Biotech and National Drug Price Housing Authority", "ICMR and Indian Medicine Pharmaceutical Corporation Limited", "Bharat Biotech and ICMR – National Institute of Virology"],
+    "correctOption": "Bharat Biotech and ICMR – National Institute of Virology"
+  },
+  {
+    "question": "Which of the following was India's first indigenously designed and ballistic missile submarine (SSBN)?",
+    "options": ["INS Vagir", "INS Arihant", "INS Kalvari", "INS Chakra"],
+    "correctOption": "INS Arihant"
+  },
+  {
+    "question": "Which organization developed 'SAGA-220', a supercomputer?",
+    "options": ["Pacemaker", "Satellite", "Supercomputer", "Missile"],
+    "correctOption": "Supercomputer"
+  },
+  {
+    "question": "A dialyzer, a machine used to clean patient's blood, is also known as artificial what?",
+    "options": ["Lungs", "Intestines", "Heart", "Kidney"],
+    "correctOption": "Kidney"
+  },
+  {
+    "question": "Which interplanetary spacecraft reached Jupiter in July 2016?",
+    "options": ["Voyager 2", "Juno", "Dawn", "Rosetta"],
+    "correctOption": "Juno"
+  },
+  {
+    "question": "'Navik' is its other name for what?",
+    "options": ["India's Polar Satellite Launch Vehicle", "Independent regional navigation developed by India satellite system", "A scheme by the Central Government for fishermen development", "A training program for Indian Marine pilots"],
+    "correctOption": "Independent regional navigation developed by India satellite system"
+  },
+  {
+    "question": "When was Mangalyaan, launched by ISRO, successfully placed in the orbit of Mars?",
+    "options": ["24 November 2014", "5 September 2013", "24 September 2014", "5 November 2013"],
+    "correctOption": "24 September 2014"
+  },
+  {
+    "question": "Which of the following regarding TIFAC (Technology Information, Forecasting and Assessment Council) is wrong?",
+    "options": [
+      "Recovery in manufacturing and construction.",
+      "For the country in various emerging technology sectors, the major task of formulating a technology vision.",
+      "To develop technology-fueled public distribution system (PDS).",
+      "The economy after the COVID-19 pandemic to resuscitate"
+    ],
+    "correctOption": "Recovery in manufacturing and construction."
+  },
+  {
+    "question": "When was Chandrayaan-1, India's first moon mission, successfully launched?",
+    "options": ["October 2008", "November 2009", "October 2010", "November 2011"],
+    "correctOption": "October 2008"
+  },
+  {
+    "question": "India's first synthetic medicine was developed by which organization?",
+    "options": ["Ergopiol", "Laudanum", "Norodin", "Methaqualone"],
+    "correctOption": "Methaqualone"
+  },
+  {
+    "question": "Who among the following invented RISAT (Radar Imaging Satellite) launched?",
+    "options": ["PSLV-C43", "PSLV-C48", "PSLV-C37", "PSLV-C46"],
+    "correctOption": "PSLV-C48"
+  },
+  {
+    "question": "Who among the following was the first Chairman of India's nuclear reactor?",
+    "options": ["Dhruva", "Apsara", "Zerlina", "Cyrus"],
+    "correctOption": "Apsara"
+  },
+  {
+    "question": "India's first beam weapon KALI-5000 was developed by which organizations?",
+    "options": ["DRDO & BARC", "ISRO & DRDO", "BEL & ISRO", "CDAC"],
+    "correctOption": "DRDO & BARC"
+  },
+  {
+    "question": "India's longest mark capacity ballistic missile is:",
+    "options": ["Nag Missile", "Akash II", "Agni-4", "BrahMos"],
+    "correctOption": "Agni-4"
+  },
+  {
+    "question": "What is Mission Shakti related to?",
+    "options": [
+      "India's first anti-satellite weapon tests",
+      "Socially backward people vocational training",
+      "Empowerment of farmers",
+      "Empowerment protection"
+    ],
+    "correctOption": "India's first anti-satellite weapon tests"
+  },
+  {
+    "question": "Who was the Chairman of ISRO when Chandrayaan-1 was launched?",
+    "options": ["Abdul Kalam", "G Madhavan Nair", "Suresh Pathak", "R Umamaheswaran"],
+    "correctOption": "G Madhavan Nair"
+  },
+  {
+    "question": "BrahMos supersonic missile is a joint venture between which countries?",
+    "options": ["India and China", "India and Russia", "India and UK", "India and USA"],
+    "correctOption": "India and Russia"
+  },
+  {
+    "question": "Which of the following is not connected to India's space program?",
+    "options": ["Sriperumbudur", "Thumba", "Abdul Kalam Island", "Sriharikota"],
+    "correctOption": "Sriperumbudur"
+  },
+  {
+    "question": "Where is Indian Space Research Organization's major centre, Satish Dhawan Space Center located?",
+    "options": ["Maharashtra", "Rajasthan", "Karnataka", "Andhra Pradesh"],
+    "correctOption": "Andhra Pradesh"
+  },
+  {
+    "question": "How many nuclear detonations were carried out by India in Pokhran in May 1998?",
+    "options": ["Two", "One", "Five"],
+    "correctOption": "Five"
+  },
+  {
+    "question": "Who predicted that 'nuclear technology not only in electrical field but also in life other social uses for dent is going to be very necessary?",
+    "options": ["Homi J Bhabha", "JC Bose", "A P J Abdul Kalam", "Sir CV Raman"],
+    "correctOption": "Homi J Bhabha"
+  },
+  {
+    "question": "India's space program was launched by whom?",
+    "options": ["Vijay Sarabhai", "Rahul Kumar", "Vikram Sarabhai", "Vivek Sarabhai"],
+    "correctOption": "Vikram Sarabhai"
+  },
+  {
+    "question": "Where is Nuclear Power Plant Specs - II situated at?",
+    "options": ["Mahabaleshwar", "ARTUR", "Aurangabad", "Tarapur"],
+    "correctOption": "Tarapur"
+  },
+  {
+    "question": "Where is the Radio Astronomy Center of India situated at?",
+    "options": ["Trombay", "Thiruvananthapuram", "Yat", "Udhamandalam"],
+    "correctOption": "Udhamandalam"
+  },
+  {
+    "question": "India's first unmanned lunar probe Chandrayaan-1 was launched at:",
+    "options": ["Wheeler Island", "Thiruvananthapuram", "Balasore", "Sriharikota"],
+    "correctOption": "Sriharikota"
+  },
+  {
+    "question": "What was the first space landing vehicle on the moon?",
+    "options": ["Apollo 14", "Luna 18", "Apollo 11", "Luna 16"],
+    "correctOption": "Apollo 11"
+  },
+  {
+    "question": "Who is known as the 'Missile Man of India'?",
+    "options": ["Siwan", "Dr. APJ Abdul Kalam", "Bhisham Sahni", "CV Raman"],
+    "correctOption": "Dr. APJ Abdul Kalam"
+  },
+  {
+    "question": "Where is the Physical Research Laboratory (PRL), a national institute for space and allied sciences, located?",
+    "options": ["Bangalore", "Thiruvananthapuram", "Ahmedabad", "Hyderabad"],
+    "correctOption": "Ahmedabad"
+  },
+  {
+    "question": "Where is India's first international Arctic research base located?",
+    "options": ["South Gangotri", "Himadri", "Friendship", "Bharti"],
+    "correctOption": "Himadri"
+  },
+  {
+    "question": "Where is Narora Atomic Power Station located?",
+    "options": ["Maharashtra", "Haryana", "Madhya Pradesh", "Uttar Pradesh"],
+    "correctOption": "Uttar Pradesh"
+  },
+  {
+    "question": "What is the main function of IAEA (International Atomic Energy Agency)?",
+    "options": [
+      "It promotes arbitrary implementation of nuclear energy throughout the world.",
+      "It promotes the source of petroleum energy worldwide and monitors its use.",
+      "It promotes coal energy worldwide and monitors its use.",
+      "It promotes peaceful use of nuclear energy throughout the world."
+    ],
+    "correctOption": "It promotes peaceful use of nuclear energy throughout the world."
+  },
+  {
+    "question": "Where is the Space Applications Center located?",
+    "options": ["Ahmedabad", "Sriharikota", "Bengaluru", "Thiruvananthapuram"],
+    "correctOption": "Ahmedabad"
+  },
+  {
+    "question": "India's oldest nuclear reactor, which was restarted in 2018, is named as?",
+    "options": ["Pole", "Bow", "Bhaskar", "Apsara"],
+    "correctOption": "Apsara"
+  },
+  {
+    "question": "Which institute is responsible for nuclear and accelerator research and is known as Janani?",
+    "options": [
+      "Indira Gandhi Atomic Research Center",
+      "Raja Ramanna Center for Advanced Technology",
+      "Variable Energy Cyclotron Center",
+      "Bhabha Atomic Research Center"
+    ],
+    "correctOption": "Raja Ramanna Center for Advanced Technology"
+  },
+  {
+    "question": "Where did India install the CIRUS reactor?",
+    "options": ["Trombay, Mumbai", "Jadugora, Jharkhand", "Indore, Madhya Pradesh", "Kalpakkam, Tamil Nadu"],
+    "correctOption": "Trombay, Mumbai"
+  },
+  {
+    "question": "Where is the headquarters of the Atomic Energy Commission of India located?",
+    "options": ["Mumbai", "Bengaluru", "Thiruvananthapuram", "Hyderabad"],
+    "correctOption": "Mumbai"
+  },
+  {
+    "question": "Which was the first artificial satellite launched by the Soviet Union in 1957?",
+    "options": ["Bhaskar", "Cartosat-2", "RISAT-1", "Sputnik-1"],
+    "correctOption": "Sputnik-1"
+  },
+  {
+    "question": "Where is the Physical Research Laboratory (PRL), a national research institute for space and allied sciences, located?",
+    "options": ["Thiruvananthapuram", "Hyderabad", "Bangalore", "Ahmedabad"],
+    "correctOption": "Ahmedabad"
+  },
+  {
+    "question": "From which country was the construction help obtained for Rajasthan Atomic Power Station?",
+    "options": ["Japan", "Canada", "Australia", "Germany"],
+    "correctOption": "Canada"
+  },
+  {
+    "question": "Who was the Chairman of ISRO during the Chandrayaan-2 mission?",
+    "options": ["G Madhavan Nair", "K Radhakrishnan", "Kiran Kumar", "K Sivan"],
+    "correctOption": "K Sivan"
+  },
+
+
+
+
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

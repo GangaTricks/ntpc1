@@ -1,0 +1,3779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTPC Economics 2021</title> 
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Economics NTPC 2021 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+function showQuestion() {
+
+correctOptionText = ''; // Initialize correctOptionText
+    // Rest of your existing showQuestion code
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+
+// Copy question and options
+const copyButton = document.querySelector('.btn-copy');
+copyButton.addEventListener('click', () => {
+    const questionText = document.querySelector('#question').textContent;
+    const optionElements = document.querySelectorAll('.form-check-label');
+    
+    let optionsText = '';
+    let correctOptionText = null;
+    let correctOptionIndex = null;
+
+    optionElements.forEach((optionElement, index) => {
+        const optionText = optionElement.textContent.trim();
+        const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+        optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? ' ☑️Correct' : ''}\n`;
+
+        if (isCorrect) {
+            correctOptionText = optionText;
+            correctOptionIndex = index + 1;
+        }
+    });
+
+    let textToCopy = `${questionText}\n\n${optionsText}\n`;
+
+    if (correctOptionText && correctOptionIndex) {
+        textToCopy += `The Correct Option ${correctOptionIndex}: ${correctOptionText}\n                 ☑️Correct  ☑️Correct\n`;
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+
+    // Toggle button text
+    copyButton.textContent = '✅';
+    setTimeout(() => {
+        copyButton.textContent = '📋';
+    }, 2000); // Reset text after 2 seconds
+});
+
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'technologyntpc2021underntpcfacts';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+    const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+	
+	 // Update correctOptionText for copying
+        correctOptionText = `correctOption ${correctOptionIndex + 1}: ${currentQuestion.correctOption}`;
+		
+	
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+
+  
+    
+  {
+    "question": "Services like food, clothing, and FAR, which are consumed by end consumers, are called?",
+    "options": ["Consumption goods", "Intermediate goods", "Capital goods", "Final goods"],
+    "correctOption": "Consumption goods"
+  },
+  {
+    "question": "What is the full form of SLR in economics?",
+    "options": ["Stocks Liquidity Ratio", "Statutory Liquidity Ratio", "Sterilization Liquidity Ratio", "State Liquidity Ratio"],
+    "correctOption": "Statutory Liquidity Ratio"
+  },
+  {
+    "question": "A group of accounts with a balance that summarizes a country's transactions is known as?",
+    "options": ["Capital investment", "Balance of payments", "Budget", "Budget balance"],
+    "correctOption": "Balance of payments"
+  },
+  {
+    "question": "If people are used as resources and can't be done without them, they naturally appear as what in the economy?",
+    "options": ["Liability", "An asset", "Indispensable", "Important"],
+    "correctOption": "Liability"
+  },
+  {
+    "question": "The privatization of public sector enterprises by selling shares of equity of public sector undertakings is known as?",
+    "options": ["Commercialization", "Modernization", "Disinvestment", "Outsourcing"],
+    "correctOption": "Disinvestment"
+  },
+  {
+    "question": "When people are financed through the budget and a public good is made available free of cost through direct payment, it is referred to as?",
+    "options": ["Stabilization", "Public provision", "Allocation Function", "Public Production"],
+    "correctOption": "Public provision"
+  },
+  {
+    "question": "What is it called when the gross investment value is adjusted for regular fluctuations of capital?",
+    "options": ["Debt", "Deficit", "New investment", "Depreciation"],
+    "correctOption": "Depreciation"
+  },
+  {
+    "question": "Factors that influence a person's place of origin to be less attractive due to reasons like unemployment, poor living conditions, and an unpleasant climate are called?",
+    "options": ["Climate", "Strain", "Shock", "Negative"],
+    "correctOption": "Negative"
+  },
+  {
+    "question": "What is a group of highly qualified, skilled, and mental workers called?",
+    "options": ["White collar workers", "Artisans", "Farmer", "Plumber"],
+    "correctOption": "White collar workers"
+  },
+  {
+    "question": "After the retirement of the employee, the time paid for services rendered is called?",
+    "options": ["Pension", "Provident Fund", "Surplus", "Satisfactory"],
+    "correctOption": "Gratuitous"
+  },
+  {
+    "question": "Without the use of tokens, credits, or money for direct exchange of goods or services, which word is used?",
+    "options": ["Commodity currency", "Commodity-exchange", "Accounts", "Trade currency"],
+    "correctOption": "Barter"
+  },
+  {
+    "question": "Which of the following types of factors of production in the economy are individually owned?",
+    "options": ["Socialist", "Communist", "Mixed", "Capitalist"],
+    "correctOption": "Capitalist"
+  },
+  {
+    "question": "Which of the following is not part of infrastructure?",
+    "options": ["Entertainment", "Feces", "Transportation", "Electricity"],
+    "correctOption": "Entertainment"
+  },
+  {
+    "question": "What is the decrease in the value of the domestic currency called?",
+    "options": ["Increase in purchasing power", "Economic development", "Devaluation of currency", "Reduction in inflation"],
+    "correctOption": "Devaluation of currency"
+  },
+  {
+    "question": "What does the term 'bank at' mean?",
+    "options": ["By a scheduled commercial bank, rate of interest on orders", "By a central bank to a commercial bank, rate of interest charged on BU", "By a commercial bank, rate of interest on BY", "By a non-scheduled bank, rate of interest on BUT"],
+    "correctOption": "By a central bank to a commercial bank, rate of interest charged on BU"
+  },
+  {
+    "question": "Which of the following describes 'Financial Inclusion'?",
+    "options": ["Use of mobile phones for financial transactions", "Free money transfer facility", "Financial services to the poor at affordable prices", "Implementation of KYC criteria"],
+    "correctOption": "Financial services to the poor at affordable prices"
+  },
+  {
+    "question": "Who is formally held responsible for popularizing the law of comparative advantage?",
+    "options": ["Adam Smith", "Bertil Ohlin", "David Ricardo", "Eli Hecksher"],
+    "correctOption": "David Ricardo"
+  },
+  {
+    "question": "In the banking sector, what does SLR mean?",
+    "options": ["Simple leading rate", "Statutory Lending Rate", "State liquidity ratio", "Statutory liquidity ratio"],
+    "correctOption": "Statutory liquidity ratio"
+  },
+  {
+    "question": "A company sources regular services from outside hires, mostly from other countries, which were first provided internally or from within the country. What is this business practice known as?",
+    "options": ["Liberalization", "Privatization", "Outsourcing", "Globalization"],
+    "correctOption": "Outsourcing"
+  },
+  {
+    "question": "The equipment required for production, such as machines and buildings, are called?",
+    "options": ["Fixed capital", "Working capital", "Physical Capital", "Human Capital"],
+    "correctOption": "Fixed capital"
+  },
+  {
+    "question": "What is the approach called that links economic development with ecological responsibility?",
+    "options": ["Sustainable Development", "Human Development", "Economic Development", "Social Development"],
+    "correctOption": "Sustainable Development"
+  },
+  {
+    "question": "Under Economy, the decision of how much to produce, what to produce, and at what price to sell is a personal decision taken by the market by enterprises, in which the state has no economic role. What is this called?",
+    "options": ["State", "Capitalism", "Mixed", "World"],
+    "correctOption": "Capitalism"
+  },
+  {
+    "question": "What does the infant mortality rate (IMR) indicate?",
+    "options": ["1000 living children born in that year before six months of age", "1000 living children born in that year before one year of age", "1000 living children born in that year before two years of age", "Children dying before three months of age"],
+    "correctOption": "1000 living children born in that year before one year of age"
+  },
+  {
+    "question": "What is the bank rate, in the context of the interest rate at which a commercial bank borrows from the central bank?",
+    "options": ["A commercial bank lends money to the central bank", "Government borrows from the central bank", "The central bank borrows from the government", "Central banks lend money to commercial banks"],
+    "correctOption": "Government borrows from the central bank"
+  },
+  {
+    "question": "Where is the headquarters of the Reserve Bank of India located?",
+    "options": ["Chennai", "Mumbai", "Kolkata", "New Delhi"],
+    "correctOption": "Mumbai"
+  },
+  {
+    "question": "In which year was the Export-Import Bank of India (EXIM) established?",
+    "options": ["1998", "1982", "2004", "1984"],
+    "correctOption": "1982"
+  },
+  {
+    "question": "On which road is the Bombay Stock Exchange situated?",
+    "options": ["Dalal Street", "Elphinstone Road", "Kaidal Road", "Peddar Road"],
+    "correctOption": "Dalal Street"
+  },
+  {
+    "question": "Which system has the Reserve Bank of India adopted for issuing notes?",
+    "options": ["Minimum reserve system", "Fixed fiduciary system", "Proportional Reserve System", "Gold reserve system"],
+    "correctOption": "Minimum reserve system"
+  },
+  {
+    "question": "How many major banks were nationalized by the government in 1969?",
+    "options": ["17", "14", "11", "20"],
+    "correctOption": "14"
+  },
+  {
+    "question": "In which year was the Industrial Development Bank of India (IDBI) established?",
+    "options": ["1955", "1982", "1980", "1964"],
+    "correctOption": "1964"
+  },
+  {
+    "question": "What is the full form of EDD in the banking sector?",
+    "options": ["Extended Due Diligence", "Enhanced Deposit Diligence", "Extended Deposit Diligence", "Enhanced Due Diligence"],
+    "correctOption": "Enhanced Due Diligence"
+  },
+  {
+    "question": "Where is the headquarters of the National Stock Exchange of India (NSE) located?",
+    "options": ["New Delhi", "Pune", "Chennai", "Mumbai"],
+    "correctOption": "Mumbai"
+  },
+  {
+    "question": "Which committee was established in 1991 by the government to head tax reforms?",
+    "options": ["Vijay Kelkar", "Raja J. Chelia", "Narasimha Rao", "Raghuram Rajan"],
+    "correctOption": "Raja J. Chelia"
+  },
+  {
+    "question": "Who was the first Indian Governor of the Reserve Bank of India?",
+    "options": ["Manmohan Singh", "IG Patel", "CD Deshmukh", "Raghuram Rajan"],
+    "correctOption": "CD Deshmukh"
+  },
+  {
+    "question": "In which year was the State Bank of India (SBI) originated?",
+    "options": ["1806", "1951", "1948", "1851"],
+    "correctOption": "1806"
+  },
+  {
+    "question": "Which statement regarding banks in India is not correct?",
+    "options": ["Mobile ATM was introduced first by the bank", "Allahabad Bank is the oldest public sector bank in India", "There are 58 banks all over India", "Reserve Bank of India is a private bank"],
+    "correctOption": "Reserve Bank of India is a private bank"
+  },
+  {
+    "question": "In which year was the National Bank for Agriculture and Rural Development (NABARD) established?",
+    "options": ["1982", "1947", "1992", "1977"],
+    "correctOption": "1982"
+  },
+  {
+    "question": "Which component of the Indian economy was investigated by the Kumar Mangalam Birla Committee?",
+    "options": ["Governance system related to corporations", "Customer services in banks", "Corporate cause", "Financial inclusion"],
+    "correctOption": "Governance system related to corporations"
+  },
+  {
+    "question": "Who is the regulator of money supply in India?",
+    "options": ["SBI", "IRDA", "RBI", "SEBI"],
+    "correctOption": "RBI"
+  },
+  {
+    "question": "What is the symbol of the RBI?",
+    "options": ["Pyramid and an eagle", "Capital of Ashoka Pillar", "Bengal tiger in front of a tree", "Bengal tiger in front of a palm tree"],
+    "correctOption": "Bengal tiger in front of a palm tree"
+  },
+  {
+    "question": "Which of the following is not an instrument of monetary policy of the Reserve Bank of India?",
+    "options": ["Goods and Services Tax (GST)", "Statutory Liquidity Ratio (SLR)", "Bank rate", "Cash Reserve Ratio (CRR)"],
+    "correctOption": "Goods and Services Tax (GST)"
+  },
+  {
+    "question": "Which is the biggest commercial bank in India?",
+    "options": ["State Bank of India", "ICICI", "Punjab National Bank", "Axis Bank"],
+    "correctOption": "State Bank of India"
+  },
+  {
+    "question": "Which committee was formed to reform the banking sector?",
+    "options": ["Chelia Committee", "Kelkar Committee", "Narasimham Committee", "Malhotra Committee"],
+    "correctOption": "Narasimham Committee"
+  },
+  {
+    "question": "Which of the following is not the work of the Reserve Bank of India (RBI)?",
+    "options": ["Banker for the public", "Banker to the government", "Bank of currency issue", "Lender of last resort"],
+    "correctOption": "Banker for the public"
+  },
+  {
+    "question": "Which committee is related to recommendations on Indian Banking Supervision?",
+    "options": ["S. Padmanabhan Committee", "RH Khan Committee", "Abid Hussain Committee", "Ajit Kumar Committee"],
+    "correctOption": "S. Padmanabhan Committee"
+  },
+  {
+    "question": "Which statement about payment banks is wrong?",
+    "options": ["They can accept demand deposits", "They can issue debit cards", "They cannot issue loans", "They can issue credit cards"],
+    "correctOption": "They can issue credit cards"
+  },
+  {
+    "question": "Which body was established as an apex to coordinate the activities of institutions related to rural financing?",
+    "options": ["Poor Women's Bank", "Co-operative Societies", "Cooperative Bank", "NABARD"],
+    "correctOption": "NABARD"
+  },
+  {
+    "question": "Who was the architect of the Second Five Year Plan?",
+    "options": ["KN Raj", "PC Mahalanobis", "JC Kumarappa", "K Kamaraj"],
+    "correctOption": "PC Mahalanobis"
+  },
+  {
+    "question": "During which period was the Indian government's economy-focused First Five Year Plan aimed at lifting the country out of poverty?",
+    "options": ["1955-1960", "1961-1965", "1951-1956", "1947-1952"],
+    "correctOption": "1951-1956"
+  },
+  {
+    "question": "Who were the economists involved in drafting the First Five Year Plan (1951-1956)?",
+    "options": ["Swaran Singh", "PC Mahalanobis", "KN Raj", "B.V. Keskar"],
+    "correctOption": "KN Raj"
+  },
+  {
+    "question": "When did the main thrust of the first Five Year Plan aimed at improving the condition of agriculture in India start?",
+    "options": ["1951", "1931", "1950", "1961"],
+    "correctOption": "1951"
+  },
+  {
+    "question": "On which five year plan in India is the P.C. Mahalanobis model based?",
+    "options": ["Third Five Year Plan", "Second Five Year Plan", "Fourth Five Year Plan", "Fifth Five Year Plan"],
+    "correctOption": "Second Five Year Plan"
+  },
+  {
+    "question": "What was the main objective of India's first Five Year Plan?",
+    "options": ["Space-related research and development progress", "Development of the primary sector with a focus on agriculture", "Development of information technology", "Rapid development of heavy industries"],
+    "correctOption": "Development of the primary sector with a focus on agriculture"
+  },
+  {
+    "question": "On which model was the first Five Year Plan based?",
+    "options": ["Harrod-Domra", "Gadgil Scheme", "John W. Miller", "PC Mahalanobis model"],
+    "correctOption": "Harrod-Domra"
+  },
+  {
+    "question": "Which sector was supported by the 'Eleventh Five Year Plan' for marketing assistance and service to the concerned artisans?",
+    "options": ["Handloom", "Handicraft", "Leather goods", "Jewelry and jewelry"],
+    "correctOption": "Handicraft"
+  },
+  {
+    "question": "Under which plan for the first time was the private sector given priority over the public sector?",
+    "options": ["Seventh Five Year Plan", "Sixth Five Year Plan", "Tenth Five Year Plan", "Second Five Year Plan"],
+    "correctOption": "Seventh Five Year Plan"
+  },
+  {
+    "question": "Under which scheme did the Integrated Tribal Development Project (ITDP) come into existence as a part of a five year plan?",
+    "options": ["Fifth", "Sixth", "First", "Bor"],
+    "correctOption": "Fifth"
+  },
+  {
+    "question": "Which five year plan completed its tenure in March 2017?",
+    "options": ["12th", "10th", "11th", "13th"],
+    "correctOption": "12th"
+  },
+  {
+    "question": "During which five year plan period was the 'Drought Potential Area Program' initiated?",
+    "options": ["Fifth Five Year Plan", "Sixth Five Year Plan", "Fourth Five Year Plan", "Seventh Five Year Plan"],
+    "correctOption": "Fourth Five Year Plan"
+  },
+  {
+    "question": "On what was the first Five Year Plan of the Government of India based?",
+    "options": ["Harrod – SER Model", "PARA IS/LM Model", "PC Mahalanobis model", "Gadgil Model"],
+    "correctOption": "Harrod – SER Model"
+  },
+  {
+    "question": "Who is known as the 'architect of Indian planning'?",
+    "options": ["PC Mahalanobis", "Kshitij ds Niyogi", "Meghnad le", "Mokshagundam Visvesvaraya"],
+    "correctOption": "PC Mahalanobis"
+  },
+  {
+    "question": "In which year was India's first Five Year Plan presented?",
+    "options": ["1956", "1954", "1952", "1951"],
+    "correctOption": "1951"
+  },
+  {
+    "question": "How many categories was the Second Five Year Plan divided into based on the Niti Sankalp model in 1954?",
+    "options": ["5", "4", "3", "2"],
+    "correctOption": "3"
+  },
+  {
+    "question": "For what was the 'Indradhanush' Framework, an initiative of the Government of India?",
+    "options": ["Resource storage", "Capacity building in private sector banks", "Reform of public sector banks", "Reform of private sector banks"],
+    "correctOption": "Reform of public sector banks"
+  },
+  {
+    "question": "Who initiated the 'Beti Bachao Beti Padhao' campaign and the Sukanya Samriddhi bank account for the girl child?",
+    "options": ["Lal Bahadur Shastri", "Jawaharlal Nehru", "Sardar Vallabhbhai Patel", "Mahatma Gandhi"],
+    "correctOption": "Mahatma Gandhi"
+  },
+  {
+    "question": "Who launched the Pradhan Mantri Jan Dhan Yojana?",
+    "options": ["Narendra Modi", "Manmohan Singh", "Rajiv Gandhi", "Atal Bihari Vajpayee"],
+    "correctOption": "Narendra Modi"
+  },
+  {
+    "question": "What is the age range under the Sarva Shiksha Mission program of the Government of India providing compulsory education?",
+    "options": ["6-14 years", "5-14 years", "8-14 years", "7-14 years"],
+    "correctOption": "6-14 years"
+  },
+  {
+    "question": "During which financial year was the 'Jal Kranti Abhiyan' initiated by the Government of India?",
+    "options": ["2003-2004", "2018-19", "2017-18", "2015-16"],
+    "correctOption": "2015-16"
+  },
+  {
+    "question": "Who is the father of modern economics?",
+    "options": ["Amartya Sen", "John Maynard Keynes", "Adam Smith", "Manmohan Singh"],
+    "correctOption": "Adam Smith"
+  },
+  {
+    "question": "Samastha as a separate discipline, who is known as the founder of economics?",
+    "options": ["Adam Smith", "Amartya Sen", "John Bates Keynes", "Karl Marx"],
+    "correctOption": "Adam Smith"
+  },
+  {
+    "question": "Name the area where the Great Depression of 1929 had begun:",
+    "options": ["South America", "North America", "Asia", "Europe"],
+    "correctOption": "North America"
+  },
+  {
+    "question": "Gandhiji as a social reformer believed that Indians should be freed from social evils. Which of the following is not a social evil?",
+    "options": ["Child marriage", "Untouchability", "Illiteracy", "Inflation"],
+    "correctOption": "Inflation"
+  },
+  {
+    "question": "Who coined the concept of 'human development'?",
+    "options": ["Charles Darwin", "Dalai Lama", "Mehboob-ul-Haq", "Amartya Sen"],
+    "correctOption": "Mehboob-ul-Haq"
+  },
+  {
+    "question": "Which of the following is responsible for human development but not considered a pillar?",
+    "options": ["Jurisdiction", "Justice", "Equity", "Stability"],
+    "correctOption": "Justice"
+  },
+  {
+    "question": "Who among the following contributed to the Human Development Index (HDI) that was made in 1990 to measure achievements holistic in social and economic dimensions?",
+    "options": ["Mehboob ul-Haq", "Gary Baker", "Amartya Sen", "Paul Samuelson"],
+    "correctOption": "Mehboob ul-Haq"
+  },
+  {
+    "question": "Our biggest industrialists came together to establish a planned economy and drafted a joint resolution. In which year did this happen?",
+    "options": ["1941", "1940", "1944", "1936"],
+    "correctOption": "1944"
+  },
+  {
+    "question": "Employees' State Insurance Corporation (ESIC) does not provide social security benefits in respect of which of the following?",
+    "options": ["Private sector", "Public Sector Undertakings", "Multinational Corporations", "Government sector"],
+    "correctOption": "Multinational Corporations"
+  },
+  {
+    "question": "Who said the following words: 'The creation of the United Nations was designed not to take humanity to heaven but to save it from hell'?",
+    "options": ["Kurt Waldheim", "Yu Thant", "Dag Hammarskjöld", "Trygve Lie"],
+    "correctOption": "Dag Hammarskjöld"
+  },
+  {
+    "question": "Who said: 'Indian Railways brought people across cultures together'?",
+    "options": ["Mahatma Gandhi", "John Mathai", "Jawaharlal Nehru", "Subhash Chandra Bose"],
+    "correctOption": "Mahatma Gandhi"
+  },
+  {
+    "question": "Of the 10 digits in the UPC barcode pattern, the first 5 digits identify:",
+    "options": ["Manufacturer or supplier", "Product", "Place", "Color"],
+    "correctOption": "Manufacturer or supplier"
+  },
+  {
+    "question": "India's first metro railway was inaugurated by former Prime Minister of India Indira Gandhi. Which metro was it?",
+    "options": ["Jaipur Metro", "Mumbai Metro", "Delhi Metro", "Kolkata Metro"],
+    "correctOption": "Kolkata Metro"
+  },
+  {
+    "question": "Who was the author of the book 'General Theory of Employment, Interest, and Money' that laid the foundation of macroeconomics?",
+    "options": ["John Maynard Keynes", "Dr. Keynes Allen", "Adam Smith", "Dr. Philip Kotler"],
+    "correctOption": "John Maynard Keynes"
+  },
+  {
+    "question": "Which of the following is not related to Sustainable Development Goals (SDGs)?",
+    "options": ["Reduction in death rate", "No poverty", "Clean water and sanitation", "Good health and well-being"],
+    "correctOption": "Reduction in death rate"
+  },
+    {
+        "question": "A Giffen good is made up of which of the following?",
+        "options": [
+            "Income effect is stronger than substitution effect",
+            "Substitution effect exceeds income effect.",
+            "Any substitution effect of income effect",
+            "Income effect is equal to substitution effect"
+        ],
+        "correctOption": "Income effect is stronger than substitution effect"
+    },
+    {
+        "question": "In which area of ​​our country is the demand for water and consumption is highest?",
+        "options": [
+            "Domestic",
+            "Hotel",
+            "Industrial",
+            "Agriculture"
+        ],
+        "correctOption": "Agriculture"
+    },
+    {
+        "question": "In which year did the disinvestment process start?",
+        "options": [
+            "2000",
+            "1991",
+            "2018",
+            "1990"
+        ],
+        "correctOption": "1991"
+    },
+    {
+        "question": "Service a of an economy ___ is a part of….",
+        "options": [
+            "Primary sector",
+            "Tertiary sector",
+            "Public Sector",
+            "Secondary Sector"
+        ],
+        "correctOption": "Tertiary sector"
+    },
+    {
+        "question": "What is called the balance of exports and imports of goods?",
+        "options": [
+            "Current account deficit",
+            "Trade balance",
+            "Current Account Balance",
+            "Current Account"
+        ],
+        "correctOption": "Trade balance"
+    },
+    {
+        "question": "Increase in capital stock in an economy measured by net investment or new capital formation goes. which is expressed as",
+        "options": [
+            "Net investment – ​​Gross investment + depreciation",
+            "Depreciation = Net Investment + Government Investment",
+            "Net investment – ​​Gross investment – ​​Depreciation",
+            "Government investment = Net investment – ​​Depreciation"
+        ],
+        "correctOption": "Net investment – ​​Gross investment – ​​Depreciation"
+    },
+    {
+        "question": "Total cost per unit of production is called ______.",
+        "options": [
+            "Average product",
+            "Average cost",
+            "Average variable cost",
+            "Average fixed cost"
+        ],
+        "correctOption": "Average cost"
+    },
+    {
+        "question": "Under Prime Minister Crop Insurance Scheme for annual commercial/horticultural crops as a percentage of sum assured/actuarial rate how much premium is payable?",
+        "options": [
+            "6%",
+            "7%",
+            "1%",
+            "5%"
+        ],
+        "correctOption": "5%"
+    },
+    {
+        "question": "What is the sum of total fixed costs and total variable costs known as?",
+        "options": [
+            "Total Revenue",
+            "Total Expenditure",
+            "Total product.",
+            "Total cost"
+        ],
+        "correctOption": "Total cost"
+    },
+    {
+        "question": "Those that are of immediate interest to the consumer but not to meet the need are brought in for the production of other goods, Are called _______.",
+        "options": [
+            "Capital goods",
+            "Consumer goods",
+            "Consumption goods",
+            "Final goods"
+        ],
+        "correctOption": "Capital goods"
+    },
+    {
+        "question": "HM Services Service Sector are a part of the activities",
+        "options": [
+            "Transportation",
+            "Primary",
+            "Tertiary",
+            "Quaternary"
+        ],
+        "correctOption": "Tertiary"
+    },
+    {
+        "question": "Select the industry in which Goods are produced in the producer's home.",
+        "options": [
+            "Large scale industry",
+            "Cottage industry",
+            "Secondary Industry",
+            "Quaternary Industry"
+        ],
+        "correctOption": "Cottage industry"
+    },
+    {
+        "question": "Expensive currency refers to money that Because it is difficult to obtain.",
+        "options": [
+            "Inflation",
+            "High interest rates",
+            "Heel",
+            "Low interest rate"
+        ],
+        "correctOption": "High interest rates"
+    },
+    {
+        "question": "What is the percentage of share capital held by the Central Government or any State Government or partly by the Central Governments and partly in public sector undertakings held by one or more State Governments?",
+        "options": [
+            "50% or less",
+            "60% or more",
+            "70% or more",
+            "51% or more"
+        ],
+        "correctOption": "51% or more"
+    },
+    {
+        "question": "Mahindra & Mahindra announced its 2019 A To explore electric vehicle deployment Cooperated with the help of ______.",
+        "options": [
+            "Ola",
+            "Ride",
+            "Uber",
+            "AS"
+        ],
+        "correctOption": "Uber"
+    },
+    {
+        "question": "Raw materials and production on hand Money is classified under:",
+        "options": [
+            "Physical Us",
+            "Human Capital",
+            "Fixed capital",
+            "Working capital"
+        ],
+        "correctOption": "Working capital"
+    },
+    {
+        "question": "What does the issue price indicate in the Public Distribution System (PDS)?",
+        "options": [
+            "Price below market price",
+            "Price higher than market price",
+            "Market price of issue price",
+            "Price equal to market price"
+        ],
+        "correctOption": "Price below market price"
+    },
+    {
+        "question": "Which company will earn Rs 6 lakh crore in 2018 Treasuries crossing market value of Rs. Become an Indian firm?",
+        "options": [
+            "Wipro Limited",
+            "Reliance Industries",
+            "HDFC Bank",
+            "TCS"
+        ],
+        "correctOption": "TCS"
+    },
+    {
+        "question": "According to the law of diminishing marginal utility, as the quantity of the good consumed increases, the marginal utility of that ag Tends towards.",
+        "options": [
+            "Stable",
+            "Less",
+            "First reduce and then improve",
+            "Improvement"
+        ],
+        "correctOption": "Less"
+    },
+    {
+        "question": "Regarding Wholesale Trading The first Indian platform has been introduced:",
+        "options": [
+            "feet",
+            "Paper currency",
+            "Plastic currency",
+            "free"
+        ],
+        "correctOption": "Plastic currency"
+    },
+    {
+        "question": "Which of the following is an unorganized sector? Is there an example?",
+        "options": [
+            "Bank",
+            "Farming",
+            "Police",
+            "Government Jobs"
+        ],
+        "correctOption": "Farming"
+    },
+    {
+        "question": "The short form of MSP is:",
+        "options": [
+            "Minimum Stock Price",
+            "Minimum Support Price",
+            "Maximum Sale Price",
+            "Maximum Support Price"
+        ],
+        "correctOption": "Minimum Support Price"
+    },
+    {
+        "question": "Reduce barriers to UR & to and through international trade It is a process of increasing participation in the economy.",
+        "options": [
+            "Business Turn",
+            "Business Efficiency",
+            "Business Integration",
+            "Business Creation"
+        ],
+        "correctOption": "Business Integration"
+    },
+    {
+        "question": "Let us estimate the Gross Domestic Gala At the time of posting only on the value of final goods Consider",
+        "options": [
+            "It increases costs.",
+            "Intermediates already added to the value of final goods The value of the goods is included.",
+            "It regulates the production process in the economy Promotes.",
+            "The value of intermediate goods increases in the value of final goods. Price included."
+        ],
+        "correctOption": "Intermediates already added to the value of final goods The value of the goods is included."
+    },
+    {
+        "question": "To calculate national income in india By whom was the first attempt made?",
+        "options": [
+            "V.K.R.V. Rao",
+            "S.D. Tendulkar",
+            "PC Mahalanobis",
+            "Dadabhai Naoroji"
+        ],
+        "correctOption": "Dadabhai Naoroji"
+    },
+    {
+        "question": "Subsidy for PMAY (Urban) Which of the following is used for channelizing? Central nodal agency has been identified?",
+        "options": [
+            "SCB",
+            "NHB",
+            "CNA",
+            "NABARD"
+        ],
+        "correctOption": "NHB"
+    },
+    {
+        "question": "By the Central Government of India in the year 1980 How many banks were nationalized?",
+        "options": [
+            "ten",
+            "nine",
+            "three",
+            "six"
+        ],
+        "correctOption": "six"
+    },
+    {
+        "question": "Which organization is sick or Takes care of failing industries?",
+        "options": [
+            "Industrial Development Bank of India",
+            "Reserve Bank of India",
+            "Housing Development and Finance Corporation",
+            "Board of Industrial and Financial Reconstruction"
+        ],
+        "correctOption": "Board of Industrial and Financial Reconstruction"
+    },
+    {
+        "question": "Which of the following public Don't have a bank in your area?",
+        "options": [
+            "Corporation Bank",
+            "Indian Overseas Bank",
+            "UCO Bank",
+            "South Indian Bank"
+        ],
+        "correctOption": "South Indian Bank"
+    },
+    {
+        "question": "When was the Reserve Bank of India established?",
+        "options": [
+            "1 April 1935",
+            "21 April 1930",
+            "1 April 1925",
+            "1 April 1945"
+        ],
+        "correctOption": "1 April 1935"
+    },
+    {
+        "question": "Governor of the Reserve Bank of India Where is the office?",
+        "options": [
+            "Noida",
+            "Kolkata",
+            "Mumbai",
+            "Delhi"
+        ],
+        "correctOption": "Mumbai"
+    },
+    {
+        "question": "NABARD came into existence:",
+        "options": [
+            "1990",
+            "1982",
+            "1977",
+            "2001"
+        ],
+        "correctOption": "1982"
+    },
+    {
+        "question": "monetary policy of india Is prepared.",
+        "options": [
+            "Industrial Finance Corporation of India",
+            "Reserve Bank of India",
+            "Industrial Development Bank of India",
+            "Central Committee"
+        ],
+        "correctOption": "Reserve Bank of India"
+    },
+    {
+        "question": "What are 'white label' ATMs?",
+        "options": [
+            "ATMs of established and non-banking institutions are owned but operated by banks",
+            "Established, owned and operated by banks ATM",
+            "established, owned and operated by non-banks operated atm",
+            "ATMs installed and owned by banks, but operated by non-banks"
+        ],
+        "correctOption": "Established, owned and operated by non-banks Operating ATM"
+    },
+    {
+        "question": "RBI's 'Payment Us Settlement System' Which is the vision document titled 'India'?",
+        "options": [
+            "Vision 2019 -2021",
+            "Vision 2019 - 2022",
+            "Vision 2019 - 2023",
+            "Vision 2019 - 2024"
+        ],
+        "correctOption": "Vision 2019 -2021"
+    },
+    {
+        "question": "When was the first nationalization of banks in India happened?",
+        "options": [
+            "1978",
+            "1890",
+            "1949",
+            "1967"
+        ],
+        "correctOption": "1949"
+    },
+    {
+        "question": "What is the dimension of Rs 2,000 bank note? Is?",
+        "options": [
+            "65 mmx 165mm",
+            "60 mm x 180 mm",
+            "66 mm x 166 mm",
+            "66 mm x 146 mm"
+        ],
+        "correctOption": "66 mm x 166 mm"
+    },
+    {
+        "question": "Reserve Bank of India was established:",
+        "options": [
+            "1935",
+            "1947",
+            "1950",
+            "1919"
+        ],
+        "correctOption": "1935"
+    },
+    {
+        "question": "In India, which of the following Which organization monitors the money supply?",
+        "options": [
+            "Finance Commission",
+            "Reserve Bank of India",
+            "State Bank of India",
+            "Planning Commission"
+        ],
+        "correctOption": "Reserve Bank of India"
+    },
+    {
+        "question": "In which of the following years the regional When were rural banks established?",
+        "options": [
+            "1960",
+            "1972",
+            "1980",
+            "1975"
+        ],
+        "correctOption": "1975"
+    },
+    {
+        "question": "Against reduction in banking services Indian for redressal of customer complaints As an officer appointed by the Reserve Bank Is known:",
+        "options": [
+            "Banking Commissioner",
+            "Banking Lokayukta",
+            "Banking Ombudsman",
+            "Central Vigilance Officer"
+        ],
+        "correctOption": "Banking Ombudsman"
+    },
+    {
+        "question": "Final five year plans in India Approval is done by:",
+        "options": [
+            "National Development Council",
+            "Ministry of Finance",
+            "Reserve Bank of India",
+            "Planning Commission"
+        ],
+        "correctOption": "National Development Council"
+    },
+    {
+        "question": "Securities and Exchange Board of India Was established in __..",
+        "options": [
+            "1940",
+            "1999",
+            "1992",
+            "1966"
+        ],
+        "correctOption": "1992"
+    },
+    {
+        "question": "Bank of Madras, Bank of Calcutta And which bank after the merger of Bank of Bombay was formed?",
+        "options": [
+            "Canara Bank",
+            "Imperial Bank of India",
+            "Central Bank of India",
+            "India Bank"
+        ],
+        "correctOption": "Imperial Bank of India"
+    },
+    {
+        "question": "Which of the following is the integer of 51081? form?",
+        "options": [
+            "Small Industries Development Bank of India",
+            "Small Industries and Domestic Bank of India",
+            "Small Inter Development Bank of India",
+            "Small Indian Development Bank for Industry"
+        ],
+        "correctOption": "Small Industries Development Bank of India"
+    },
+    {
+        "question": "Which Arvind is from the following A? Is it related to Subramaniam Committee?",
+        "options": [
+            "Rural oT",
+            "Taxation of e-commerce",
+            "GST",
+            "Mining Policy"
+        ],
+        "correctOption": "GST"
+    },
+    {
+        "question": "Planning Commission of India When was it dissolved by the Central Government?",
+        "options": [
+            "2002",
+            "2014",
+            "2015",
+            "2010"
+        ],
+        "correctOption": "2015"
+    },
+    {
+        "question": "Which of the following plans of India Has been replaced by the Commission?",
+        "options": [
+            "Knowledge Commission",
+            "NITI Aayog",
+            "UPSC",
+            "Commission for Agricultural Costs and Prices"
+        ],
+        "correctOption": "UPSC"
+    },
+    {
+        "question": "year of establishment of reserve bank of india It took place in.",
+        "options": [
+            "1935",
+            "1947",
+            "1951",
+            "1960"
+        ],
+        "correctOption": "1935"
+    },
+    {
+        "question": "Which of the following Maharashtra Central Is it in the list of public sector seats?",
+        "options": [
+            "India Tourism Development Corporation",
+            "Central Coal Field Limited",
+            "Indian Coal Limited",
+            "Cochin Shipyard"
+        ],
+        "correctOption": "Indian Coal Limited"
+    },
+    {
+        "question": "Which one of the following Maharatra PSU Is?",
+        "options": [
+            "BSNL",
+            "BHEL",
+            "HAL",
+            "BCCL"
+        ],
+        "correctOption": "BHEL"
+    },
+    {
+        "question": "Which of the following programs The objective is to create self-employment opportunities?",
+        "options": [
+            "SSA",
+            "NRHM",
+            "ICDS",
+            "PMRY"
+        ],
+        "correctOption": "PMRY"
+    },
+    {
+        "question": "Financial services, bank accounts, credit, insurance, To provide affordable access to pension etc. Which scheme was launched in 2014?",
+        "options": [
+            "MGNREGA",
+            "Pradhan Mantri Bima Suraksha Yojana",
+            "JNNURM",
+            "Pradhan Mantri Jan Dhan Yojana"
+        ],
+        "correctOption": "Pradhan Mantri Jan Dhan Yojana"
+    },
+    {
+        "question": "Unskilled done by an adult Each financial year for physical work At least 100 days guaranteed to the family Government of India to provide wage employment Which major program aims at?",
+        "options": [
+            "PMKVY",
+            "MGNREGA",
+            "NRHM",
+            "JNNURM"
+        ],
+        "correctOption": "MGNREGA"
+    },
+    {
+        "question": "Which scheme of the Government of India reduces poverty? of 1126 cylinders in below the line (BPL) families. Does it offer delivery?",
+        "options": [
+            "Ayushman",
+            "National Health Mission",
+            "National Social Assistance Program",
+            "bright"
+        ],
+        "correctOption": "bright"
+    },
+    {
+        "question": "Under which Ministry of Rural Development Major programs aimed at rural poor Women self-help groups and their their own like associations, producers, collectives etc. to organize into institutions and their financial ensure inclusion and livelihood support To do?",
+        "options": [
+            "National Social Assistance Program (NSAP)",
+            "National Agricultural Development Scheme",
+            "Mahatma Gandhi National Rural Employment Guarantee Program (MGNREGA)",
+            "Deendayal Antyodaya Yojana-National Rural Livelihood Mission (DAY-NRLM)"
+        ],
+        "correctOption": "Deendayal Antyodaya Yojana-National Rural Livelihood Mission (DAY-NRLM)"
+    },
+    {
+        "question": "Which of the following Prime Minister Mudra Correct statement for adolescent category under the scheme Is?",
+        "options": [
+            "25 thousand to 5 lakh to small businessmen loan up to",
+            "Small business from Rs 75 thousand to Rs 15 lakh काBU",
+            "Small business from Rs 35 thousand to Rs 7.5 lakh काBU",
+            "50 thousand to 5 lakh to small businessmen loan up to"
+        ],
+        "correctOption": "50 thousand to 5 lakh to small businessmen loan up to"
+    },
+    {
+        "question": "to community health centers Financial assistance of Rs. will be given so that they Sanitation, Hygiene under “Swachh Swasthya Uda” and to meet infection control standards To be strengthened.",
+        "options": [
+            "20 lakh",
+            "12 lakh",
+            "15 lakh",
+            "10 lakh"
+        ],
+        "correctOption": "10 lakhs"
+    },
+    {
+        "question": "Which of the following government's Plan. Government of India's target of 100 days In rural areas by guaranteeing wages and employment. To increase people's livelihood security?",
+        "options": [
+            "PMGSY",
+            "Skilled India Scheme",
+            "MGNREGA",
+            "PMJDY"
+        ],
+        "correctOption": "MGNREGA"
+    },
+    {
+        "question": "Which scheme of Government of India Per bank to set up greenfield ventures At least one Scheduled Caste in the branch/ Scheduled Tribe borrowers and at least Rs 10 lakh to Rs 1 to a female borrower Providing bank loan facility between Rs. Crore does?",
+        "options": [
+            "Pradhan Mantri Suraksha Bima Yojana",
+            "Prime Minister Jeevan Jyoti Insurance Scheme",
+            "Pradhan Mantri Jan Dhan Yojana",
+            "Stand Up India Scheme"
+        ],
+        "correctOption": "Stand Up India Scheme"
+    },
+    {
+        "question": "For rural landless families Launched by Government Administered by LIC Which of the following is the Gaya Insurance Scheme?",
+        "options": [
+            "Aam Aadmi Bima Yojana",
+            "National Health Insurance Scheme",
+            "Jeevan Umang Insurance Scheme",
+            "Janashree Bima Yojana"
+        ],
+        "correctOption": "Aam Aadmi Bima Yojana"
+    },
+    {
+        "question": "Allowed under Atal Pension Yojana What is the minimum amount of monthly pension?",
+        "options": [
+            "Rs.2,000",
+            "Rs.1,000",
+            "Rs.1,500",
+            "Rs.500"
+        ],
+        "correctOption": "Rs.1,000"
+    },
+    {
+        "question": "National Rural Employment Guarantee Act Provides at least employment to every household.",
+        "options": [
+            "100 days",
+            "150 days",
+            "125 days",
+            "120 days"
+        ],
+        "correctOption": "100 days"
+    },
+    {
+        "question": "Which of the following creates employment? Don't have plans?",
+        "options": [
+            "Prime Minister Employment Scheme",
+            "Swarna Jayanti Gram Swarojgar Yojana",
+            "Pradhan Mantri Jan Dhan Yojana",
+            "Golden Jayanti Urban Employment Scheme"
+        ],
+        "correctOption": "Pradhan Mantri Jan Dhan Yojana"
+    },
+    {
+        "question": "Deen Dayal Upadhyay Rural Skills The scheme covers:",
+        "options": [
+            "National Rural Health Mission",
+            "Atal Innovation Mission",
+            "National e-Governance Mission",
+            "National Rural Livelihood Mission"
+        ],
+        "correctOption": "National Rural Livelihood Mission"
+    },
+    {
+        "question": "Government of India direct benefit When was DBT launched?",
+        "options": [
+            "1 January 2013",
+            "1 January 2016",
+            "1 January 2014",
+            "1 January 2015"
+        ],
+        "correctOption": "1 January 2013"
+    },
+    {
+        "question": "Which of the following schemes interest i Micro finance scheme for exempted women",
+        "options": [
+            "Mahila Samridhi Yojana",
+            "National Maternity Benefit Scheme",
+            "Social Security Pilot Scheme",
+            "Rajarajeshwari Mahila Kalyan Yojana"
+        ],
+        "correctOption": "Mahila Samridhi Yojana"
+    },
+    {
+        "question": "Kolkata Metro Rail Was opened for commercial services.",
+        "options": [
+            "2004",
+            "1980",
+            "1984",
+            "1992"
+        ],
+        "correctOption": "1984"
+    },
+    {
+        "question": "Shreyas oy's process Was started to accelerate.",
+        "options": [
+            "To provide industry-specific apprenticeship opportunities.",
+            "Increasing literacy",
+            "To provide sports facilities.",
+            "Making students politically active"
+        ],
+        "correctOption": "To provide industry-specific apprenticeship opportunities."
+    },
+    {
+        "question": "Integrated Child Development Services in India (ICDS) was launched in which year?",
+        "options": [
+            "1976",
+            "1974",
+            "1977",
+            "1975"
+        ],
+        "correctOption": "1975"
+    },
+    {
+        "question": "Education for all campaign was launched.",
+        "options": [
+            "Prime Minister PV Narasimha Rao",
+            "Prime Minister Manmohan Singh",
+            "Prime Minister Narendra Modi",
+            "Prime Minister Atal Bihari Vajpayee"
+        ],
+        "correctOption": "Prime Minister Atal Bihari Vajpayee"
+    },
+    {
+        "question": "Government of India has launched a national scheme for farmers. Policy (NPF) approved:",
+        "options": [
+            "2010",
+            "2018",
+            "2007",
+            "2001"
+        ],
+        "correctOption": "2007"
+    },
+    {
+        "question": "For educated unemployed youth Principal for creating self-employment opportunities In which year was the Ministerial Employment Scheme (PMRY) implemented? Went?",
+        "options": [
+            "1995",
+            "1993",
+            "1992",
+            "1994"
+        ],
+        "correctOption": "1993"
+    },
+    {
+        "question": "Liberalized exchange rate management in India System (LERMS) was established in which year? Went?",
+        "options": [
+            "1986",
+            "1992",
+            "2001",
+            "2005"
+        ],
+        "correctOption": "1992"
+    },
+    {
+        "question": "Pradhan Mantri Kisan Sampada Yojana Investment The major programs to promote are:",
+        "options": [
+            "Education",
+            "Swachh Bharat Mission",
+            "Food Processing",
+            "Infrastructure"
+        ],
+        "correctOption": "Food Processing"
+    },
+    {
+        "question": "Prime Minister went in January 2021 About the phase of skill development scheme Which of the following statements is incorrect?",
+        "options": [
+            "It has a planning period from 2020 to 2030. I oversaw the training of eight lakh candidates.",
+            "Its skill development and entrepreneurship The ministry was copied. More than 200 under Skill India industrial training institutes oe 3.0 to build a stronger pool Started training.",
+            "It was launched in 600 districts across the country Was.",
+            "It has a planning period from 2020 to 2030. Oversaw the training of eight lakh candidates."
+        ],
+        "correctOption": "It was launched in 600 districts across the country Was."
+    },
+  {
+    "question": "What is Net National Product (NNP)?",
+    "options": [
+      "NNP = GNP – Depreciation",
+      "NNP = GDP + Income from abroad",
+      "NNP = GDP – Income from abroad",
+      "NNP = GNP + Depreciation"
+    ],
+    "correctOption": "NNP = GNP – Depreciation"
+  },
+  {
+    "question": "What type of tax is GST?",
+    "options": [
+      "Indirect Tax… (7) Value Added Tax",
+      "Income Tax (0) Direct Tax",
+      "Indirect tax",
+      "Goods and Services Tax..."
+    ],
+    "correctOption": "Indirect tax"
+  },
+  {
+    "question": "GST is a tax imposed in India. The full form of GST is?",
+    "options": [
+      "Commodity Ud Service Tax",
+      "General Service Tax",
+      "General structure of tax",
+      "Goods and Services Tax..."
+    ],
+    "correctOption": "Goods and Services Tax..."
+  },
+  {
+    "question": "Which of the following body crops Minimum Support Price Recommendation for?",
+    "options": [
+      "NITI Aayog",
+      "FCI",
+      "NABARD",
+      "CACP"
+    ],
+    "correctOption": "CACP"
+  },
+  {
+    "question": "Which of the following is not a part of capital gains?",
+    "options": [
+      "disinvestment",
+      "donation",
+      "Recovery of BU",
+      "Tax"
+    ],
+    "correctOption": "Tax"
+  },
+  {
+    "question": "When was Goods and Services Tax (GST) in India implemented?",
+    "options": [
+      "1 April 2018",
+      "1 July 2017",
+      "1 July 2018",
+      "1 April 2017"
+    ],
+    "correctOption": "1 July 2017"
+  },
+  {
+    "question": "Which ministry of the Government of India published Goods and Services Tax (GST) Act 2017?",
+    "options": [
+      "Ministry of Corporate Affairs",
+      "Prime Minister's Office",
+      "Ministry of Law and Justice",
+      "Finance Ministry"
+    ],
+    "correctOption": "Ministry of Law and Justice"
+  },
+  {
+    "question": "A good indicator of economic growth has continuous growth. What is it?",
+    "options": [
+      "VAT",
+      "GDP",
+      "STC",
+      "GST"
+    ],
+    "correctOption": "GDP"
+  },
+  {
+    "question": "What is the upper limit imposed by the government on the price of goods or services?",
+    "options": [
+      "Price floor",
+      "Price elasticity of demand",
+      "Bottom line",
+      "Price range"
+    ],
+    "correctOption": "Price range"
+  },
+  {
+    "question": "The difference between total government expenditure and borrowing and its total receipts excluding is called what?",
+    "options": [
+      "Fiscal deficit",
+      "Trade deficit",
+      "Primary deficit",
+      "Revenue deficit"
+    ],
+    "correctOption": "Fiscal deficit"
+  },
+  {
+    "question": "General Agreement on Tariffs and Trade came into existence in the year?",
+    "options": [
+      "1950",
+      "1995",
+      "1948",
+      "1945"
+    ],
+    "correctOption": "1948"
+  },
+  {
+    "question": "Which of the following committees in India is related to reforms?",
+    "options": [
+      "Meera Seth Committee",
+      "Anand Sinha Committee",
+      "Ghosh Committee",
+      "Raja Chelia Committee"
+    ],
+    "correctOption": "Raja Chelia Committee"
+  },
+  {
+    "question": "GSTUp___@",
+    "options": [
+      "Indirect tax… (7) Gold tax",
+      "Travel Tax (0) Direct Tax",
+      "Gold tax",
+      "Indirect tax"
+    ],
+    "correctOption": "Indirect tax"
+  },
+  {
+    "question": "According to DPIIT, the Indian economy received the highest inflow of Foreign Direct Investment (FDI) in which sector in 2019-2020?",
+    "options": [
+      "Manufacturing Sector",
+      "Computer Services",
+      "Financial services",
+      "Service sector"
+    ],
+    "correctOption": "Service sector"
+  },
+  {
+    "question": "Taxes by State Government in India are imposed on?",
+    "options": [
+      "Customs",
+      "Corporation",
+      "Excise duty on liquor",
+      "Capital gain"
+    ],
+    "correctOption": "Excise duty on liquor"
+  },
+  {
+    "question": "Which of the following taxes/fees does not come under GST?",
+    "options": [
+      "VAT",
+      "Hele Product Yow",
+      "Stamp duty",
+      "FARA tax"
+    ],
+    "correctOption": "Stamp duty"
+  },
+  {
+    "question": "Which statement is not true regarding GST?",
+    "options": [
+      "France is the first country to implement GST.",
+      "India chose Canada's dual GST structure.",
+      "State Government can collect GST.",
+      "Central Excise and Customs celebrated 1st July as GST day."
+    ],
+    "correctOption": "State Government can collect GST."
+  },
+  {
+    "question": "Which tax is not collected by the government?",
+    "options": [
+      "Property fee",
+      "Profession tax and stamp duty",
+      "Customs",
+      "Product Yew"
+    ],
+    "correctOption": "Profession tax and stamp duty"
+  },
+  {
+    "question": "What are the four taxes under GST in India?",
+    "options": [
+      "3%, 6%, 18% and 28%",
+      "5%, 12%, 18% and 28%",
+      "6%, 12%, 17% and 28%",
+      "6%, 9%, 18% and 28%"
+    ],
+    "correctOption": "5%, 12%, 18% and 28%"
+  },
+  {
+    "question": "In the context of GST framework, what is the full form of SGST?",
+    "options": [
+      "State Goods Ud Service Tax",
+      "Statutory Goods and Services Tax",
+      "Special Goods and Services Tax",
+      "Systemic Goods and Services Tax"
+    ],
+    "correctOption": "State Goods and Services Tax"
+  },
+  {
+    "question": "According to the eleventh five year plan, what is the targeted annual average growth rate in GDP?",
+    "options": [
+      "9%",
+      "8%",
+      "7%",
+      "6%"
+    ],
+    "correctOption": "9%"
+  },
+  {
+    "question": "Depreciation from gross national product is known as?",
+    "options": [
+      "Gross National Product",
+      "Gross Domestic Product",
+      "National Income",
+      "Corporate tax"
+    ],
+    "correctOption": "Gross National Product"
+  },
+  {
+    "question": "In the context of inflation, what does CPI mean?",
+    "options": [
+      "Customer Price Index",
+      "Consumer Price Index",
+      "Charit Price Index",
+      "Capital Price Index"
+    ],
+    "correctOption": "Consumer Price Index"
+  },
+  {
+    "question": "Whose budget in India is blackened? Where was the budget?",
+    "options": [
+      "1973-74",
+      "2004-05",
+      "1970-71",
+      "2013-14"
+    ],
+    "correctOption": "1973-74"
+  },
+  {
+    "question": "ONGC is involved in which of the following sectors?",
+    "options": [
+      "Energy",
+      "Education",
+      "Health",
+      "Agriculture"
+    ],
+    "correctOption": "Energy"
+  },
+  {
+    "question": "Where is the headquarters of NSE (National Stock Exchange of India)?",
+    "options": [
+      "Mumbai",
+      "New Delhi",
+      "Pune",
+      "Chennai"
+    ],
+    "correctOption": "Mumbai"
+  },
+  {
+    "question": "Bharat Heavy Electricals Limited (BHEL) is located in which state?",
+    "options": [
+      "Navratra",
+      "AY Ratra",
+      "Maharatra",
+      "Rajaratra"
+    ],
+    "correctOption": "Maharatra"
+  },
+  {
+    "question": "Which of the following companies is not listed under Maharatra?",
+    "options": [
+      "Indian Oil Corporation",
+      "Shipping Corporation of India",
+      "National Thermal Power Corporation",
+      "Coal India Limited"
+    ],
+    "correctOption": "Shipping Corporation of India"
+  },
+  {
+    "question": "As of January 2020, which of the following companies is not a Mahartra company?",
+    "options": [
+      "Hindustan Newsprint Limited (HNL)",
+      "Gas Authority of India Limited (GAIL)",
+      "Bharat Heavy Electrical Limited (BHEL)",
+      "Indian Oil Corporation Limited (IOCL)"
+    ],
+    "correctOption": "Hindustan Newsprint Limited (HNL)"
+  },
+  {
+    "question": "What is the full form of BHEL?",
+    "options": [
+      "Bharat Heavy Equipment Limited",
+      "Bhagalpur Heavy Electricals Limited",
+      "Bharatpur Heavy Engineering Limited",
+      "Bharat Heavy Electricals Limited"
+    ],
+    "correctOption": "Bharat Heavy Electricals Limited"
+  },
+  {
+    "question": "What criteria must be considered to attain Maharatra status?",
+    "options": [
+      "Net worth from positive net profit ratio",
+      "Significant global presence/International due to operation",
+      "Inter-regional demonstration",
+      "Miniratra category- I attain the status of"
+    ],
+    "correctOption": "Significant global presence/International due to operation"
+  },
+  {
+    "question": "Which of the following is a joint venture of a public sector enterprise?",
+    "options": [
+      "ONGC",
+      "CIL",
+      "NTPC",
+      "SAIL"
+    ],
+    "correctOption": "ONGC"
+  },
+  {
+    "question": "Which of the following is not a PSU?",
+    "options": [
+      "GAIL",
+      "BSNL",
+      "SAIL",
+      "ONGC"
+    ],
+    "correctOption": "BSNL"
+  },
+  {
+    "question": "Which of the following public sector undertakings and their year of establishment is not correct in context?",
+    "options": [
+      "Balmer Lawrie Us Company Limited in 1867",
+      "Damodar Valley Corporation in 1958",
+      "Oil and Natural Gas Corporation in 1956",
+      "Airports Authority of India in 1995"
+    ],
+    "correctOption": "Damodar Valley Corporation in 1958"
+  },
+  {
+    "question": "Which of the following is not classified as a public sector enterprise?",
+    "options": [
+      "Macro Rat",
+      "Mini Rat",
+      "Maharatra",
+      "Navratra"
+    ],
+    "correctOption": "Macro Rat"
+  },
+  {
+    "question": "Which of the following is a Navratra company?",
+    "options": [
+      "Engineers India Limited",
+      "Oil India Limited",
+      "Airports Authority of India",
+      "Bharat Electronics Limited"
+    ],
+    "correctOption": "Airports Authority of India"
+  },
+  {
+    "question": "When was the National Highway Authority of India (NHAI) established?",
+    "options": [
+      "2002",
+      "2014",
+      "1952",
+      "1988"
+    ],
+    "correctOption": "1988"
+  },
+  {
+    "question": "Which one of the following is a Maharatra company?",
+    "options": [
+      "Oil India Limited",
+      "Bharat Petroleum Corporation Limited",
+      "Bharat Electronics Limited (BEL)",
+      "Hindustan Aeronautics Limited"
+    ],
+    "correctOption": "Bharat Petroleum Corporation Limited"
+  },
+  {
+    "question": "Where is the headquarters of Bharat Electronics Limited located?",
+    "options": [
+      "Chennai",
+      "Bengaluru",
+      "Mumbai",
+      "New Delhi"
+    ],
+    "correctOption": "Bengaluru"
+  },
+  {
+    "question": "Under which ministry in India does NSSO work?",
+    "options": [
+      "Ministry of Statistics and Program Implementation",
+      "Ministry of Commerce and Industry",
+      "Ministry of Planning",
+      "Ministry of Labor and Employment"
+    ],
+    "correctOption": "Ministry of Statistics and Program Implementation"
+  },
+  {
+    "question": "Who launched smart trash bins made of stainless steel in 2019?",
+    "options": [
+      "Hindustan Petroleum",
+      "Indian Oil Corporation",
+      "Steel Authority of India Limited",
+      "Bharat Heavy Electrical Limited"
+    ],
+    "correctOption": "Steel Authority of India Limited"
+  },
+  {
+    "question": "The first nuclear research reactor in India was built with the help of which country?",
+    "options": [
+      "Russia",
+      "United Kingdom",
+      "France",
+      "Germany"
+    ],
+    "correctOption": "United Kingdom"
+  },
+  {
+    "question": "Which function cannot be performed by NBFCs?",
+    "options": [
+      "Providing BU",
+      "Investing",
+      "Accepting demand deposits",
+      "Acquisition of shares"
+    ],
+    "correctOption": "Accepting demand deposits"
+  },
+  {
+    "question": "Which fact about BIS is wrong?",
+    "options": [
+      "The headquarters of BIS is in New Delhi.",
+      "BIS stands for Bureau of Indian Standards.",
+      "BIS was established in the year 2010.",
+      "BIS has five regional offices."
+    ],
+    "correctOption": "BIS was established in the year 2010."
+  },
+  {
+    "question": "Which of the following central public sector enterprises does not have Maharatra status (as of January 2021)?",
+    "options": [
+      "GAIL (India) Limited",
+      "Coal India Limited",
+      "Oil India Limited",
+      "Steel Authority of India Limited"
+    ],
+    "correctOption": "Oil India Limited"
+  },
+  {
+    "question": "As of March 2021, which company is not a public sector undertaking?",
+    "options": [
+      "Imperial Tobacco Company of India Ltd.",
+      "Container Corporation of India",
+      "Madras Rubber Factory",
+      "Indian Transport Corporation"
+    ],
+    "correctOption": "Container Corporation of India"
+  },
+  {
+    "question": "Which company in India is not in the list of Mahartra companies?",
+    "options": [
+      "Bharat Petroleum Corporation Limited",
+      "Coal India Limited",
+      "Cement Corporation of India",
+      "Bharat Heavy Electricals Limited"
+    ],
+    "correctOption": "Cement Corporation of India"
+  },
+  {
+    "question": "What is the full form of GATT?",
+    "options": [
+      "Gradual Aggregate of Tariffs and Trade",
+      "General Agreement on Tariffs and Trade",
+      "General Aggregate on Tariffs and Trade",
+      "Gradual Agreement of Tariffs and Trade"
+    ],
+    "correctOption": "General Agreement on Tariffs and Trade"
+  },
+  {
+    "question": "Which of the following is not a part of the Prime Minister Garib Kalyan Rozgar Campaign 2020?",
+    "options": [
+      "Many projects involving migrant workers",
+      "It initially remained in mission mode in 11 districts",
+      "Migrants who went back to their home states to facilitate employment of workers",
+      "Building rural infrastructure through participation of migrant workers"
+    ],
+    "correctOption": "It initially remained in mission mode in 11 districts"
+  },
+  {
+    "question": "Which regulatory body regulates the 'National Pension Scheme' (NPS)?",
+    "options": [
+      "IRDA",
+      "PFRDA",
+      "PCRADA",
+      "NPDA"
+    ],
+    "correctOption": "PFRDA"
+  },
+  {
+    "question": "What is 'Green wif' related to?",
+    "options": [
+      "Milk production",
+      "Food and grain production",
+      "Fish production",
+      "Oil and seed production"
+    ],
+    "correctOption": "Food and grain production"
+  },
+  {
+    "question": "According to the World Development Report, countries with a per capita income of over US$12,000 per year are called _____?",
+    "options": [
+      "Low income countries",
+      "Lower middle income countries",
+      "Rich countries",
+      "Poor countries"
+    ],
+    "correctOption": "Rich countries"
+  },
+  {
+    "question": "Who is considered the father of the White Revolution in India?",
+    "options": [
+      "Arun Pate",
+      "Verghese Kurien",
+      "Indira Gandhi",
+      "M.S. Swaminathan"
+    ],
+    "correctOption": "Verghese Kurien"
+  },
+  {
+    "question": "What is the primary reason for the migration of workers?",
+    "options": [
+      "Poverty",
+      "Environment",
+      "Population",
+      "Pollution"
+    ],
+    "correctOption": "Poverty"
+  },
+  {
+    "question": "What does the demographic transition describe?",
+    "options": [
+      "A stage in which the population of the country increases to zero",
+      "A process where the birth rate declines",
+      "Change in population of society over time",
+      "A process where the death rate falls"
+    ],
+    "correctOption": "Change in population of society over time"
+  },
+  {
+    "question": "In 1944, big Indian industrialists together in a planned country to establish a joint economy prepared a proposal, which was followed to achieve independence. What was it called?",
+    "options": [
+      "Delhi Proposal",
+      "Bombay Proposal",
+      "Madras Proposal",
+      "Calcutta Proposal"
+    ],
+    "correctOption": "Bombay Proposal"
+  },
+  {
+    "question": "In which state did the SAA of India Hl Ad Revolution happen?",
+    "options": [
+      "Maharashtra",
+      "Gujarat",
+      "Orissa",
+      "Uttar Pradesh"
+    ],
+    "correctOption": "Gujarat"
+  },
+  {
+    "question": "When did Prime Minister Narendra Modi announce demonetization?",
+    "options": [
+      "8 October 2016",
+      "8 November 2016",
+      "8 December 2016",
+      "8 September 2016"
+    ],
+    "correctOption": "8 November 2016"
+  },
+  {
+    "question": "What is the correct full form of 'MRTP' in the MRTP Act 1969?",
+    "options": [
+      "Monopolies Reservation Trade Practices Act",
+      "Monopolies and Restrictive Trade Practices Act",
+      "Money Reservation Trade Practices Act",
+      "Money Reservation Trade Policy Act"
+    ],
+    "correctOption": "Monopolies and Restrictive Trade Practices Act"
+  },
+  {
+    "question": "When was NITI Aayog formed by replacing the Planning Commission of India?",
+    "options": [
+      "1 February",
+      "2 March",
+      "2 April",
+      "1 January"
+    ],
+    "correctOption": "1 January"
+  },
+  {
+    "question": "Which bank in India was established in Calcutta under European management in 1770?",
+    "options": [
+      "Bank of India",
+      "Indus Bank of India",
+      "National Bank of India",
+      "Bank of Hindustan"
+    ],
+    "correctOption": "Bank of Hindustan"
+  },
+  {
+    "question": "Who is credited with the successful implementation of the Green Revolution in India?",
+    "options": [
+      "M.S. Swaminathan",
+      "Harishnandra",
+      "Was IS boss",
+      "Subramaniam Chandrashekhar"
+    ],
+    "correctOption": "M.S. Swaminathan"
+  },
+  {
+    "question": "In what year was the new currency symbol of the Indian Rupee officially adopted?",
+    "options": [
+      "1995",
+      "2000",
+      "2018",
+      "2010"
+    ],
+    "correctOption": "2010"
+  },
+  {
+    "question": "Who prepared the 'People's Plan' (an economic plan) in India?",
+    "options": [
+      "Jai Prakash Narayan",
+      "MN Roy",
+      "Sardar Vallabhbhai Patel",
+      "C.D. Deshmukh"
+    ],
+    "correctOption": "MN Roy"
+  },
+  {
+    "question": "What did NITI Aayog replace in the Government of India?",
+    "options": [
+      "Finance Commission of India",
+      "Election Commission of India",
+      "National Development Council",
+      "Planning Commission of India"
+    ],
+    "correctOption": "Planning Commission of India"
+  },
+  {
+    "question": "Which of the following is not related to the desert revolution in India?",
+    "options": [
+      "Norman Borlaug",
+      "Amul",
+      "Anand",
+      "Dr. Verghese Kurien"
+    ],
+    "correctOption": "Norman Borlaug"
+  },
+  {
+    "question": "Who is not the Finance Minister of India among the following?",
+    "options": [
+      "T.T. Krishnamachari",
+      "Yashwant Sinha",
+      "Arun Jaitley",
+      "V.K. Krishna Menon"
+    ],
+    "correctOption": "V.K. Krishna Menon"
+  },
+  {
+    "question": "What type of economy is the Indian economy?",
+    "options": [
+      "Directed economy",
+      "Mixed economy",
+      "Conventional economy",
+      "Market economy"
+    ],
+    "correctOption": "Mixed economy"
+  },
+  {
+    "question": "Which of the following does not support rural development?",
+    "options": [
+      "Urban loan",
+      "Development of marketing",
+      "Development of human resources",
+      "Promotion of organic farming"
+    ],
+    "correctOption": "Urban loan"
+  },
+  {
+    "question": "According to the Ministry of Statistics and Program Implementation, which state had the highest per capita income for 2018-19?",
+    "options": [
+      "Karnataka",
+      "Kerala",
+      "Goa",
+      "Haryana"
+    ],
+    "correctOption": "Goa"
+  },
+  {
+    "question": "Which Indian scheme has a 0.5% cess levied on all taxable products from November 2015?",
+    "options": [
+      "Stand Up India Scheme",
+      "Swachh Bharat Abhiyan",
+      "Kisan Vikas Patra",
+      "Make in India"
+    ],
+    "correctOption": "Swachh Bharat Abhiyan"
+  },
+  {
+    "question": "How does most of India's foreign trade happen?",
+    "options": [
+      "Through land and sea routes",
+      "Through sea and air routes",
+      "Through land and air routes",
+      "Equally by land, air, and sea routes"
+    ],
+    "correctOption": "Through sea and air routes"
+  },
+  {
+    "question": "According to the 2001 census report, from which country do most migrants come to India?",
+    "options": [
+      "Pakistan",
+      "Bangladesh",
+      "China",
+      "Nepal"
+    ],
+    "correctOption": "Bangladesh"
+  },
+    {
+        "question": "Which is not a component of finance budget?",
+        "options": [
+            "Receipts Budget",
+            "Appropriation Bill",
+            "Finance Bill",
+            "Memorandum Removal Grant"
+        ],
+        "correctOption": "Memorandum Removal Grant"
+    },
+    {
+        "question": "Goods and Services Tax (GST) on whom is applied",
+        "options": [
+            "The source where the goods or services are produced goes",
+            "the destination where the goods or services are purchased She goes",
+            "In every State where the goods or services Are in transit mode.",
+            "The destination where the goods or services are delivered is consumed"
+        ],
+        "correctOption": "The destination where the goods or services are delivered is consumed"
+    },
+    {
+        "question": "Which of the following is GST in India? No rate slab?",
+        "options": [
+            "5%",
+            "18%",
+            "10%",
+            "28%"
+        ],
+        "correctOption": "10%"
+    },
+    {
+        "question": "Which of the following is NNP (Net National Wrong about the product)?",
+        "options": [
+            "NNP = GNP – Depreciation",
+            "NNP is the purest form of income of a nation divided by the total population of a nation NNP is equal to the per capita income of that country",
+            "NNP = GDP – Income from abroad – Depreciation",
+            "NNP = GNP - Income from abroad - Depreciation"
+        ],
+        "correctOption": "NNP = GDP - Income from abroad - Depreciation"
+    },
+    {
+        "question": "In which year did you first serve in India? Was imposed?",
+        "options": [
+            "2002",
+            "1995",
+            "1998",
+            "1994"
+        ],
+        "correctOption": "1994"
+    },
+    {
+        "question": "Total HI' of GDP:",
+        "options": [
+            "All produced during a particular year intermediate goods and services",
+            "All produced during a particular year Goods and Services",
+            "All produced during a particular year Intermediate and final goods and services",
+            "All produced during a particular year final goods and services"
+        ],
+        "correctOption": "All produced during a particular year final goods and services"
+    },
+    {
+        "question": "transferred to others are not done and those who pay them Taxed on the income or profits of the individual.",
+        "options": [
+            "Indirect Tax",
+            "Sales Tax",
+            "Direct Tax",
+            "Goods and Services Tax"
+        ],
+        "correctOption": "Direct Tax"
+    },
+    {
+        "question": "Demonetized on 8 November 2016 Governor of the Reserve Bank of India at the time of the announcement who were they?",
+        "options": [
+            "Raghuram Rajan.",
+            "Shaktikanta Das",
+            "D Subbarao",
+            "Urjit Patel"
+        ],
+        "correctOption": "Urjit Patel"
+    },
+    {
+        "question": "When was the Reserve Bank of India established? Was?",
+        "options": [
+            "April 1936",
+            "April 1948",
+            "April 1945",
+            "April 1935"
+        ],
+        "correctOption": "April 1935"
+    },
+    {
+        "question": "Recent news of Dena Bank and Vijaya Bank Merged into.",
+        "options": [
+            "Bank of Baroda",
+            "National Bank",
+            "State Bank of India",
+            "Bank of India"
+        ],
+        "correctOption": "Bank of Baroda"
+    },
+    {
+        "question": "India's largest public sector Which bank is it?",
+        "options": [
+            "Bank of Baroda",
+            "State Bank of India",
+            "Central Bank of India",
+            "Bank of India"
+        ],
+        "correctOption": "State Bank of India"
+    },
+    {
+        "question": "Loans with Commercial Banks in India and in disbursement of associated activities There is more stake.",
+        "options": [
+            "Micro finance",
+            "Co-operation",
+            "Agriculture",
+            "PSUs"
+        ],
+        "correctOption": "Agriculture"
+    },
+    {
+        "question": "A protected and secure e-payment In an effort to provide an alternative, eel Has been launched.",
+        "options": [
+            "Vision 2022",
+            "Vision 2021",
+            "Vision 2020",
+            "Vision 2019"
+        ],
+        "correctOption": "Vision 2021"
+    },
+    {
+        "question": "Who was the first chairman of NITI Aayog?",
+        "options": [
+            "Amitabh Hid",
+            "Arun Jaitley",
+            "Narendra Modi",
+            "Arvind Panagariya"
+        ],
+        "correctOption": "Arvind Panagariya"
+    },
+    {
+        "question": "Which government organization is Indian of all players active in the securities market Is the main regulator?",
+        "options": [
+            "IRDAI",
+            "NABARD",
+            "SEBI",
+            "RBI"
+        ],
+        "correctOption": "SEBI"
+    },
+    {
+        "question": "in the year after nationalization Changed name of Imperial Bank of India State Bank of India was made.",
+        "options": [
+            "1953",
+            "1950",
+            "1954",
+            "1955"
+        ],
+        "correctOption": "1955"
+    },
+    {
+        "question": "Systematic development of insurance industry in India to regulate, promote and ensure Which body is responsible for doing?",
+        "options": [
+            "RBI",
+            "IRDAI",
+            "CRISIL",
+            "ICICI"
+        ],
+        "correctOption": "IRDAI"
+    },
+    {
+        "question": "Reserve Bank of India established on 1 April __________ with a share capital of Rs 5 crore Was done together.",
+        "options": [
+            "1940",
+            "1930",
+            "1945",
+            "1935"
+        ],
+        "correctOption": "1935"
+    },
+    {
+        "question": "How many banks were there in India in the year 1969? Was it nationalized?",
+        "options": [
+            "8",
+            "10",
+            "14",
+            "15"
+        ],
+        "correctOption": "14"
+    },
+    {
+        "question": "SS was the first bank established in India. Was established in 1770.",
+        "options": [
+            "Bank of India",
+            "State Bank of India",
+            "Indian Bank",
+            "Bank of Baroda"
+        ],
+        "correctOption": "Bank of Hindustan"
+    },
+    {
+        "question": "____ Completely managed by Indians Was the first bank to be formed?",
+        "options": [
+            "Dena Bank",
+            "Bank of India",
+            "Allahabad Bank",
+            "Punjab National Bank"
+        ],
+        "correctOption": "Punjab National Bank"
+    },
+    {
+        "question": "Which of the following banks in the year 1955 State Bank of India became State Bank of India after nationalization in And it has the most branches in the world?",
+        "options": [
+            "Bank of India",
+            "Indus Bank of India",
+            "Imperial Bank of India",
+            "National Bank of India"
+        ],
+        "correctOption": "Imperial Bank of India"
+    },
+    {
+        "question": "Europe was devastated by the devastation of World War II. International to help recover Bank for Reconstruction and Development (IBRD), also known as the World The bank, known as, was established in year was it made?",
+        "options": [
+            "1945",
+            "1947",
+            "1944",
+            "1946"
+        ],
+        "correctOption": "1944"
+    },
+    {
+        "question": "Which of the following is the function of RBI Not there?",
+        "options": [
+            "It issues currency notes",
+            "It is the cash reserve of commercial banks Is a guardian.",
+            "It manages the banking needs of the government does",
+            "It promotes the development of securities market gives"
+        ],
+        "correctOption": "It promotes the development of securities market gives"
+    },
+    {
+        "question": "Available on savings bank account in India The interest rate is decided by:",
+        "options": [
+            "Reserve Bank of India",
+            "Bank Association",
+            "Ministry of Finance",
+            "Concerned Bank"
+        ],
+        "correctOption": "Concerned Bank"
+    },
+    {
+        "question": "Which UN Sustainable Development Goals Is it related to responsible consumption and production?",
+        "options": [
+            "SDG 12",
+            "SDG 13",
+            "SDG 10",
+            "SDG 17"
+        ],
+        "correctOption": "SDG 12"
+    },
+    {
+        "question": "Name the country which is in South Member of Asian Free Trade Association (SAFTA) Not there.",
+        "options": [
+            "Pakistan",
+            "Maldives",
+            "Singapore",
+            "Afghanistan"
+        ],
+        "correctOption": "Singapore"
+    },
+    {
+        "question": "Where is the headquarters of the World Bank located?",
+        "options": [
+            "London, UK",
+            "Paris, France",
+            "Washington D.C., USA",
+            "The Hague, Netherlands"
+        ],
+        "correctOption": "Washington D.C., USA"
+    },
+    {
+        "question": "IBRD and IDA are a part. International Monetary Fund",
+        "options": [
+            "United Nations",
+            "World Bank",
+            "International Labor Organization"
+        ],
+        "correctOption": "World Bank"
+    },
+    {
+        "question": "Whose World Trade Organization (WTO) it promotes?",
+        "options": [
+            "Financial assistance",
+            "Multilateral trade",
+            "Global peace",
+            "One-sided trade"
+        ],
+        "correctOption": "Multilateral trade"
+    },
+    {
+        "question": "When was the World Bank established?",
+        "options": [
+            "Before the first Fay War",
+            "During the First World War",
+            "After World War II",
+            "During the Second World War"
+        ],
+        "correctOption": "During the Second World War"
+    },
+    {
+        "question": "Establishment of International Labor Organization (ILO) In which year did it happen?",
+        "options": [
+            "1919",
+            "1921",
+            "1931",
+            "1909"
+        ],
+        "correctOption": "1919"
+    },
+    {
+        "question": "For reconstruction and development Siac Ya Bank commonly known as go",
+        "options": [
+            "State Bank of India",
+            "World Bank",
+            "Reserve Bank of India"
+        ],
+        "correctOption": "World Bank."
+    },
+    {
+        "question": "Kofi Annan, former Secretary General of UNO African countries belong to ___.",
+        "options": [
+            "Namibia",
+            "Egypt",
+            "UAT",
+            "PI"
+        ],
+        "correctOption": "VAT"
+    },
+    {
+        "question": "Which of the following is part of BIMSTEC Is a member?",
+        "options": [
+            "Sri Lanka",
+            "Vietnam",
+            "Laos",
+            "Cambodia"
+        ],
+        "correctOption": "Sri Lanka"
+    },
+    {
+        "question": "of the United Nations Security Council (UNSC) For how many years are temporary members elected?",
+        "options": [
+            "5",
+            "4",
+            "2",
+            "3"
+        ],
+        "correctOption": "2"
+    },
+    {
+        "question": "Which of the following is not correctly matched Is (United Nations Organization-Headquarters)?",
+        "options": [
+            "UNICEF – New York",
+            "UNEP – Geneva",
+            "UNITAR - Fetal",
+            "UNESCO - Paris"
+        ],
+        "correctOption": "UNEP – Geneva"
+    },
+    {
+        "question": "SAARC Development established by SAARC countries Where is the headquarter of Fund (SDF)?",
+        "options": [
+            "Kathmandu, Nepal",
+            "Dhaka, Bangladesh",
+            "Thimphu, Bhutan",
+            "Mumbai, India"
+        ],
+        "correctOption": "Thimphu, Bhutan"
+    },
+    {
+        "question": "The United Nations in ____ 'Charter of Economic Rights and Duties' Adopted.",
+        "options": [
+            "December 1974",
+            "December 1976",
+            "December 1980",
+            "December 1977"
+        ],
+        "correctOption": "December 1974"
+    },
+    {
+        "question": "International Committee of the Red Cross Where is the headquarters located?",
+        "options": [
+            "Prague",
+            "Geneva",
+            "New Delhi",
+            "New York"
+        ],
+        "correctOption": "Geneva"
+    },
+    {
+        "question": "Select the option which Correct matching of the organization and its headquarters Shows.",
+        "options": [
+            "Interpol – Washington D.C.",
+            "WHO - Paris",
+            "ESRO – FACT",
+            "GATT – Geneva"
+        ],
+        "correctOption": "Te – Geneva 7"
+    },
+    {
+        "question": "Bank for International Settlements Where is the headquarters located?",
+        "options": [
+            "Berlin",
+            "Barcelona",
+            "Bangkok",
+            "Basel"
+        ],
+        "correctOption": "Basel"
+    },
+    {
+        "question": "Which of the following is a member of BRICS 2?",
+        "options": [
+            "Indonesia",
+            "Bhutan",
+            "Canada",
+            "Brazil"
+        ],
+        "correctOption": "Brazil"
+    },
+    {
+        "question": "Which of the following organizations belongs to the elite classes? The best example of an agreement between?",
+        "options": [
+            "OPEC",
+            "ONE",
+            "UNESCO",
+            "WHO"
+        ],
+        "correctOption": "OPEC"
+    },
+    {
+        "question": "ea Association of Asian Nations (ASEAN) Joe Rae Ber eee ?",
+        "options": [
+            "It started with three original member countries.",
+            "It will include one of ten member states by 2019",
+            "Group included.",
+            "Have to accelerate."
+        ],
+        "correctOption": "It started with three original member countries."
+    },
+    {
+        "question": "World Trade Organization is a fay organization. Which of the following about fay business organization Which statement is wrong?",
+        "options": [
+            "Its full form is fay transport organization.",
+            "It deals with the rules of trade between nations",
+            "Ngozi Okonjo – ae Iweala of Syria He is the seventh Director General of the organization.",
+            "Hee Lak is its top decision making body j is the conference."
+        ],
+        "correctOption": "Its full form is World Transport Organization."
+    },
+    {
+        "question": "Main focus of the first five year plan Who was it on?",
+        "options": [
+            "Service sector",
+            "Agricultural sector",
+            "Agricultural and industrial sectors",
+            "Industrial area"
+        ],
+        "correctOption": "Agricultural sector"
+    },
+    {
+        "question": "During which five year plan did India Chose mixed economy?",
+        "options": [
+            "Second Five Year Plan",
+            "Fourth Five Year Plan",
+            "First Five Year Plan",
+            "Third Five Year Plan"
+        ],
+        "correctOption": "Second Five Year Plan"
+    },
+    {
+        "question": "Second five year plan after independence In collaboration with Germany during (1956-61) Steel plant was established?",
+        "options": [
+            "Durgapur Steel Plant",
+            "Bokaro Steel Plant",
+            "Bhilai Steel Plant",
+            "Rourkela Steel Plant"
+        ],
+        "correctOption": "Rourkela Steel Plant"
+    },
+    {
+        "question": "Which public sector enterprise Has Maharatra status?",
+        "options": [
+            "Indian Railway Catering and Tourism Corporation",
+            "Indian Oil Corporation Limited",
+            "Airport Authority of India",
+            "Hindustan Aeronautics Limited"
+        ],
+        "correctOption": "Indian Oil Corporation Limited"
+    },
+    {
+        "question": "Whose first livestock census in India Was it done during?",
+        "options": [
+            "2017-2018",
+            "1919-1920",
+            "1992-1993",
+            "1950-1951"
+        ],
+        "correctOption": "1919 - 1920"
+    },
+    {
+        "question": "Which committee to identify poverty based on cost of living Adopted?",
+        "options": [
+            "Tendulkar Committee",
+            "Lakdawala Committee",
+            "YK Alagh Committee",
+            "Shah Committee"
+        ],
+        "correctOption": "Tendulkar Committee"
+    },
+    {
+        "question": "Which of the following statements is correct Not there?",
+        "options": [
+            "SUR state is the largest sugarcane producing state in India.",
+            "Assam is the largest producer of tea in India.",
+            "Punjab is the largest producer of wheat in India.",
+            "Kerala is the largest producer of rubber in India."
+        ],
+        "correctOption": "Punjab is the largest producer of wheat in India."
+    },
+    {
+        "question": "Who gave the word 'Hindr Vikas'? which is characterized by low growth rate in the Indian economy called period?",
+        "options": [
+            "Kaushik TY",
+            "Raj Krishna",
+            "Jagdish Bhagwati",
+            "Amartya Sen"
+        ],
+        "correctOption": "Raj Krishna."
+    },
+    {
+        "question": "Added to Food Security by Amarvya Sen What is a new dimension?",
+        "options": [
+            "eligibility",
+            "strength",
+            "Availability of food",
+            "availability of food"
+        ],
+        "correctOption": "eligibility"
+    },
+    {
+        "question": "Which of the following regions is in India hid contributes the most to domestic product 2",
+        "options": [
+            "Third sector",
+            "Secondary sector",
+            "Primary sector",
+            "Unorganized sector"
+        ],
+        "correctOption": "Third sector"
+    },
+    {
+        "question": "Which of the following in Indian economy Which sector is also known as service sector ?",
+        "options": [
+            "Unorganized sector",
+            "Secondary sector",
+            "Primary sector",
+            "Third Sector"
+        ],
+        "correctOption": "Third sector"
+    },
+    {
+        "question": "Second largest in India after agriculture The employer is in ____sector.",
+        "options": [
+            "chemical",
+            "digging",
+            "Textile",
+            "Telecommunication"
+        ],
+        "correctOption": "cloth"
+    },
+    {
+        "question": "Regarding National Poverty Line in India According to the 2014 Rangarajan Committee, which of the following Which statement is correct?",
+        "options": [
+            "Up person whose monthly per capita Consumption expenditure is less than Rs. 1,272, rural areas The person living in should be considered poor.",
+            "A person whose monthly per capita Consumption expenditure is less than Rs. 2,407, in urban areas The occupant should be considered poor.",
+            "A person whose monthly per capita consumption The expenditure is less than Rs. 872, living in rural areas One should be considered poor.",
+            "A person whose monthly per capita Consumption expenditure is less than Rs. 1,407, in urban areas The occupant should be considered poor."
+        ],
+        "correctOption": "A person whose monthly per capita Consumption expenditure is less than Rs. 1,407, in urban areas The occupant should be considered poor."
+    },
+    {
+        "question": "Which of the following belongs to the concurrent list? Comes under?",
+        "options": [
+            "Defense",
+            "Forest",
+            "Police",
+            "Business"
+        ],
+        "correctOption": "Forest"
+    },
+    {
+        "question": "The topic 'Marriage' is related to:",
+        "options": [
+            "State list",
+            "Concurrent list",
+            "Union List",
+            "Residuary subjects"
+        ],
+        "correctOption": "Concurrent List"
+    },
+    {
+        "question": "During the 11th five year plan period How many cities and towns have been designated as 'solar cities'? Is it proposed to provide support for development?",
+        "options": [
+            "61",
+            "60",
+            "59",
+            "58"
+        ],
+        "correctOption": "60"
+    },
+    {
+        "question": "Government to increase prices in India For calculation of dearness allowance to employees Which of the following is used?",
+        "options": [
+            "Statutory Liquidity Ratio (SLR)",
+            "internet rate",
+            "Bank rate",
+            "Consumer prices for industrial workers Index Number (CPI-IW)"
+        ],
+        "correctOption": "Consumer prices for industrial workers Index Number (CPI-IW)"
+    },
+    {
+        "question": "Who among the following in India 'Economic Survey' published?",
+        "options": [
+            "NITI Aayog",
+            "Ministry of Finance",
+            "Central Statistical Organization",
+            "Reserve Bank of India"
+        ],
+        "correctOption": "Ministry of Finance"
+    },
+    {
+        "question": "Which ministry of the Government of India and Services Tax (GST) Act, 2017 published Have done?",
+        "options": [
+            "Ministry of Law and Justice",
+            "Prime Minister's Office",
+            "Ministry of Corporate Affairs",
+            "Ministry of Finance"
+        ],
+        "correctOption": "Ministry of Finance"
+    },
+    {
+        "question": "purchasing goods electronically or What is selling called?",
+        "options": [
+            "Multimedia",
+            "eCommerce",
+            "Money Control",
+            "Finance"
+        ],
+        "correctOption": "eCommerce"
+    },
+    {
+        "question": "At current exchange rates and prices purchase of one currency against another currency wafer",
+        "options": [
+            "real exchange rate",
+            "Payment of amount",
+            "Nominal exchange rate",
+            "purchasing power parity"
+        ],
+        "correctOption": "Real exchange rate"
+    },
+    {
+        "question": "A location-based F2S (Farm to Shop) trading platform which is available in Indian Farmers can send their produce directly to consumers helps in selling, thus eliminating the middlemen Concludes.",
+        "options": [
+            "crop",
+            "ray",
+            "Successful",
+            "Mandi Trades"
+        ],
+        "correctOption": "Mandi Trades"
+    },
+    {
+        "question": "Sensex top of Bombay Stock Exchange is an index of ua.",
+        "options": [
+            "30",
+            "40",
+            "100",
+            "50"
+        ],
+        "correctOption": "30"
+    },
+    {
+        "question": "Investment by foreign multinationals The money made is known as",
+        "options": [
+            "Foreign currency investment",
+            "Direct investment",
+            "Foreign Direct Investment",
+            "Foreign Collateral"
+        ],
+        "correctOption": "Foreign Direct Investment"
+    },
+    {
+        "question": "An asset that is owned by the borrower and until the loan is repaid Uses it as a guarantee to the lender Yes, what is it called?",
+        "options": [
+            "Collateral",
+            "Interest",
+            "Debit",
+            "Credit"
+        ],
+        "correctOption": "Collateral"
+    },
+    {
+        "question": "Buffer created by Government of India Whose stock is the stock?",
+        "options": [
+            "Wood",
+            "Meat",
+            "Food grains",
+            "Plastic"
+        ],
+        "correctOption": "Food grains"
+    },
+    {
+        "question": "Which color is related to fertilizer revolution ?",
+        "options": [
+            "Brown",
+            "Black",
+            "Golden",
+            "Pink"
+        ],
+        "correctOption": "Brown"
+    },
+    {
+        "question": "Club of Rome's 'The Limits to Growth' 'When was it published?",
+        "options": [
+            "1973",
+            "1974",
+            "1975",
+            "1972"
+        ],
+        "correctOption": "1972"
+    },
+    {
+        "question": "Author of 'Economy of Permanence' Who are they?",
+        "options": [
+            "BorRe",
+            "PC Mahalanobis",
+            "K.N. Ut",
+            "JC Kumarappa"
+        ],
+        "correctOption": "J.C. Kumarappa"
+    },
+
+
+
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

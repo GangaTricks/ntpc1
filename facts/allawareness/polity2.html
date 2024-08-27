@@ -1,0 +1,3929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polity Part 2 QUIZ APP</title> 
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Polity Gati Part 1 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'polity2';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+    const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+	
+	 
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+ 
+ 
+  {
+    "question": "As per the Constitution of India, Panchayats at the intermediate level may NOT be constituted in a State having a population not exceeding:",
+    "options": ["Thirty Lakhs", "Forty Lakhs", "Ten Lakhs", "Twenty Lakhs"],
+    "correctOption": "Twenty Lakhs"
+  },
+  {
+    "question": "The First Health Minister of Independent India was?",
+    "options": ["Maulana Abdul Kalam Azad", "Sardar Vallabhbhai Patel", "Vijayalakshmi Pandit", "Rajkumari Amrit Kaur"],
+    "correctOption": "Rajkumari Amrit Kaur"
+  },
+  {
+    "question": "The inaugural session of the Supreme Court of India took place on____.",
+    "options": ["28th January 1950", "29th January 1950", "31st January 1950", "26th January 1950"],
+    "correctOption": "28th January 1950"
+  },
+  {
+    "question": "Who was appointed as Assembly’s Constitutional Adviser in 1946 during the framing of Indian Constitution?",
+    "options": ["B. N. Rau", "B. R. Ammi Ayengar", "K.M. Munbedkar", "Gopalswashi"],
+    "correctOption": "B. N. Rau"
+  },
+  {
+    "question": "Which of the following is NOT a Constitutional body?",
+    "options": ["Finance Commission", "NITI Aayog", "National Commission for Scheduled Tribes", "Election Commission"],
+    "correctOption": "NITI Aayog"
+  },
+  {
+    "question": "Which of the following adjectives is NOT a part of the Preamble?",
+    "options": ["Liberty", "Tolerant", "Sovereign", "Secular"],
+    "correctOption": "Tolerant"
+  },
+  {
+    "question": "How many members were there in the drafting committee of the Indian Constitution?",
+    "options": ["5", "7", "3", "10"],
+    "correctOption": "7"
+  },
+  {
+    "question": "Who had headed the drafting committee of the constitution?",
+    "options": ["Dr. B.R. Ambedkar", "Jawaharlal Nehru", "V. P. Menon", "Sardar Vallabhbhai Patel"],
+    "correctOption": "Dr. B.R. Ambedkar"
+  },
+  {
+    "question": "Who headed the Provincial Constitution Committee?",
+    "options": ["Dr. Rajendra Prasad", "Sardar Vallabhbhai Patel", "V.P. Menon", "Jawaharlal Nehru"],
+    "correctOption": "Sardar Vallabhbhai Patel"
+  },
+  {
+    "question": "Which type of Citizenship is provided by the Constitution of India?",
+    "options": ["Single citizenship", "Regional citizenship", "Dual citizenship", "Temporary citizenship"],
+    "correctOption": "Single citizenship"
+  },
+  {
+    "question": "When did the Constituent Assembly adopt the Constitution of India?",
+    "options": ["26th November 1949", "26th January 1950", "26th November 1947", "26th January 1947"],
+    "correctOption": "26th November 1949"
+  },
+  {
+    "question": "In 1967, which of the following languages was included in the list of state languages of the Indian Constitution?",
+    "options": ["Bengali", "Sindhi", "Telugu", "Tamil"],
+    "correctOption": "Sindhi"
+  },
+  {
+    "question": "Who is considered as the father of the Indian Constitution?",
+    "options": ["Rajendra Prashad", "Bal Gangadhar Tilak", "Jawaharlal Nehru", "Bhim Rao Ambedkar"],
+    "correctOption": "Bhim Rao Ambedkar"
+  },
+  {
+    "question": "Who among the following was not a part of the Constituent Assembly responsible for drafting the constitution?",
+    "options": ["Mahatma Gandhi", "Sardar Vallabhbhai Patel", "Jawaharlal Nehru", "Dr. B.R. Ambedkar"],
+    "correctOption": "Mahatma Gandhi"
+  },
+  {
+    "question": "Who was the Chairman of the Drafting Committee of the Constituent Assembly of India?",
+    "options": ["Rajendra Prasad", "Sardar Vallabhbhai Patel", "Jawaharlal Nehru", "BR Ambedkar"],
+    "correctOption": "BR Ambedkar"
+  },
+  {
+    "question": "On which day is Constitution Day celebrated every year in India?",
+    "options": ["30 November", "15 October", "26 November", "2 October"],
+    "correctOption": "26 November"
+  },
+  {
+    "question": "Who was the chairman of the drafting committee of the Constitution of India?",
+    "options": ["Mohammad Saadullah", "B.R. Ambedkar", "Sardar Vallabhbhai Patel", "K.M. Munshi"],
+    "correctOption": "B.R. Ambedkar"
+  },
+  {
+    "question": "Who described the preamble of the Indian Constitution as the 'Political horoscope of the Indian Constitution'?",
+    "options": ["NA Palkhiwala", "Kanhaiyalal Maniklal Munshi", "Thakurdas Bhargav", "Bhimrao Ramji Ambedkar"],
+    "correctOption": "Kanhaiyalal Maniklal Munshi"
+  },
+  {
+    "question": "When was the first Constituent Assembly election held in India?",
+    "options": ["1947", "1946", "1949", "1948"],
+    "correctOption": "1946"
+  },
+  {
+    "question": "For which crop, fair and remunerative price is announced instead of minimum support price?",
+    "options": ["Rice", "Sugarcane", "Pulses", "Wheat"],
+    "correctOption": "Sugarcane"
+  },
+  {
+    "question": "The period of the second five-year plan in India was:",
+    "options": ["1961-66", "1969-74", "1956-61", "1951-56"],
+    "correctOption": "1956-61"
+  },
+  {
+    "question": "In 1946, who among the following was made the interim president of the Indian Constituent Assembly?",
+    "options": ["Sarojini Naidu", "Sachchidananda Sinha", "S Subramaniya Iyer", "Sachindra Nath Sanyal"],
+    "correctOption": "Sachchidananda Sinha"
+  },
+  {
+    "question": "The total membership of the Constituent Assembly was 389, of which ______ were representatives of princely states.",
+    "options": ["84", "102", "109", "93"],
+    "correctOption": "93"
+  },
+  {
+    "question": "The members of the Constituent Assembly signed the Constitution of India on ______.",
+    "options": ["26 November 1948", "24 January 1950", "26 November 1949", "24 January 1952"],
+    "correctOption": "24 January 1950"
+  },
+  {
+    "question": "In which of the following years did the Indian National Congress make the demand for a Constituent Assembly?",
+    "options": ["1939", "1919", "1928", "1934"],
+    "correctOption": "1934"
+  },
+  {
+    "question": "_______ helps in presenting a set of rules and principles on which all the people of the country can agree as the basis for the way in which they want the country to be governed.",
+    "options": ["Constitution", "Preamble", "Document", "Contract"],
+    "correctOption": "Constitution"
+  },
+  {
+    "question": "The Constitution of India was hand-written by ______.",
+    "options": ["Kanaiyalal Maneklal Munshi", "Balasaheb Gangadhar Kher", "Prem Behari Narain Raizada", "Shyama Prasad Mukherjee"],
+    "correctOption": "Prem Behari Narain Raizada"
+  },
+  {
+    "question": "When did the first meeting of the Constituent Assembly take place?",
+    "options": ["December 1946", "August 1945", "January 1950", "July 1948"],
+    "correctOption": "December 1946"
+  },
+  {
+    "question": "What is the minimum age prescribed by the Constitution of India for appointment as Governor of a State?",
+    "options": ["35 years", "21 years", "25 years", "30 years"],
+    "correctOption": "35 years"
+  },
+   {
+    "question": "The Constitution of India adopted many institutional details and procedures from which act?",
+    "options": [
+      "Government of India Act, 1935",
+      "Indian Partnership Act, 1932",
+      "Indian Registration Act, 1930",
+      "Indian Companies Act, 1930"
+    ],
+    "correctOption": "Government of India Act, 1935"
+  },
+  {
+    "question": "The idea of residual powers in the Indian constitution has been taken from the constitution of which country?",
+    "options": ["South Africa", "Canada", "Japan", "USA"],
+    "correctOption": "Canada"
+  },
+  {
+    "question": "Which feature of the Indian constitution was taken from the Soviet Socialist Republic?",
+    "options": ["Fundamental Rights", "Five-year plans", "Preamble", "Concurrent list"],
+    "correctOption": "Five-year plans"
+  },
+  {
+    "question": "The power of judicial review in the Indian constitution and the provision of independence of judiciary is taken from which country?",
+    "options": ["Australia", "Germany", "Japan", "America"],
+    "correctOption": "America"
+  },
+  {
+    "question": "In the Indian Constitution, the Principle of Liberty is borrowed from which of the following countries?",
+    "options": ["UK", "Japan", "France", "Germany"],
+    "correctOption": "France"
+  },
+  {
+    "question": "The makers of the Indian constitution took the principle of freedom, equality, and fraternity from which constitution?",
+    "options": ["French Constitution", "Canada’s Constitution", "British Constitution", "Ireland’s Constitution"],
+    "correctOption": "French Constitution"
+  },
+  {
+    "question": "Financial Emergency provisions of Indian Constitution have been borrowed from which country?",
+    "options": ["Canadian Constitution", "American Constitution", "Irish Constitution", "German Constitution"],
+    "correctOption": "German Constitution"
+  },
+  {
+    "question": "Which of the following provisions and the constitutions are incorrectly paired in the Constitution of India?",
+    "options": [
+      "The idea of the rule of law - British Constitution",
+      "Charter of Fundamental rights - United States Constitution",
+      "Directive Principles of State Policy - Irish Constitution",
+      "Principles of Liberty, Equality and Fraternity - Canadian Constitution"
+    ],
+    "correctOption": "Principles of Liberty, Equality and Fraternity - Canadian Constitution"
+  },
+  {
+    "question": "The procedure for the nomination of members to the Rajya Sabha in the Constitution of India is borrowed from which country's constitutions?",
+    "options": ["Russia", "Germany", "Ireland", "The US"],
+    "correctOption": "Ireland"
+  },
+  {
+    "question": "The 'Procedure for Amendment of the Constitution' in the Indian Constitution is borrowed from which country's constitutions?",
+    "options": ["Russia", "Germany", "South Africa", "Canada"],
+    "correctOption": "South Africa"
+  },
+  {
+    "question": "Which Article of the Constitution of India deals with the Uniform Civil Code?",
+    "options": ["Article 43", "Article 44", "Article 45", "Article 46"],
+    "correctOption": "Article 44"
+  },
+  {
+    "question": "In which part of the Indian Constitution are center-state relations mentioned?",
+    "options": [
+      "Part IV (Article 227 to 234)",
+      "Part XI (Article 245 to 255)",
+      "Part X (Article 234 to 240)",
+      "Part XII (Article 265 to 277)"
+    ],
+    "correctOption": "Part XI (Article 245 to 255)"
+  },
+  {
+    "question": "The right to move freely throughout the territory of India is a fundamental right under which Article of the Constitution of India?",
+    "options": ["Article 24", "Article 21", "Article 14", "Article 19"],
+    "correctOption": "Article 19"
+  },
+  {
+    "question": "Which of the following articles promotes equal justice and free legal aid for all citizens?",
+    "options": ["Article 39A", "Article 32A", "Article 43A", "Article 48A"],
+    "correctOption": "Article 39A"
+  },
+  {
+    "question": "Article ________ of the Constitution of India gives the Election Commission the power to supervise elections to the Parliament and state legislatures.",
+    "options": ["Article 314", "Article 342", "Article 324", "Article 341"],
+    "correctOption": "Article 324"
+  },
+  {
+    "question": "Which Article of the Constitution of India provides for the impeachment of the President of India?",
+    "options": ["Article 51", "Article 61", "Article 54", "Article 63"],
+    "correctOption": "Article 61"
+  },
+  {
+    "question": "Which article of the Constitution of India provides that each Indian state will have a governor?",
+    "options": ["Article 152", "Article 153", "Article 151", "Article 154"],
+    "correctOption": "Article 153"
+  },
+  {
+    "question": "______ of the Constitution of India deals with emergency due to war, external aggression or armed rebellion.",
+    "options": ["Article 350", "Article 352", "Article 347", "Article 269"],
+    "correctOption": "Article 352"
+  },
+  {
+    "question": "The powers, privileges and immunities of either the House of Parliament and of its Committees and Members have mainly been laid down in article _______ of the Constitution of India.",
+    "options": ["Article 115", "Article 107", "Article 105", "Article 102"],
+    "correctOption": "Article 105"
+  },
+  {
+    "question": "Which article of the Constitution of India provisions for reservations of seats for scheduled castes and scheduled tribes in the House of People?",
+    "options": ["Article 325", "Article 321", "Article 330", "Article 335"],
+    "correctOption": "Article 330"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India is associated with the election of the President of India?",
+    "options": ["Article 103", "Article 78", "Article 74", "Article 54"],
+    "correctOption": "Article 54"
+  },
+  {
+    "question": "Which article of the Indian Constitution provides for the appointment of a Finance Commission?",
+    "options": ["Article 300", "Article 290", "Article 320", "Article 280"],
+    "correctOption": "Article 280"
+  },
+  {
+    "question": "Which of the following articles of the Constitution of India is related to the system of election of the President?",
+    "options": ["Article 55", "Article 61", "Article 65", "Article 51"],
+    "correctOption": "Article 55"
+  },
+  {
+    "question": "Under Article___ of the Constitution of India, the quorum to constitute a sitting of the House is one-tenth of the total number of Members of the House.",
+    "options": ["Article 100", "Article 101", "Article 102", "Article 103"],
+    "correctOption": "Article 100"
+  },
+  {
+    "question": "The Judges of the Supreme Court are appointed by the President under Article_____of the Constitution of India.",
+    "options": ["Article 217", "Article 124(2)", "Article 224(1)", "Article 21"],
+    "correctOption": "Article 124(2)"
+  },
+  {
+    "question": "Which article of Indian Constitution deals with discrimination against any Indian citizens on various grounds?",
+    "options": ["Article 11", "Article 19", "Article 13", "Article 15"],
+    "correctOption": "Article 15"
+  },
+  {
+    "question": "How many Schedules are there in the Indian Constitution?",
+    "options": ["14", "12", "11", "13"],
+    "correctOption": "12"
+  },
+  {
+    "question": "In which article of the Indian Constitution, the eradication of untouchability has been mentioned?",
+    "options": ["Article 16", "Article 21", "Article 25", "Article 17"],
+    "correctOption": "Article 17"
+  },
+  {
+    "question": "Which of the following Articles is related to Jammu & Kashmir state of India?",
+    "options": ["Article 378", "Article 374", "Article 370", "Article 366"],
+    "correctOption": "Article 370"
+  },
+  {
+    "question": "Which article in the Indian Constitution states about Fundamental Duties?",
+    "options": ["Article 31 C", "Article 21 A", "Article 15", "Article 51 A"],
+    "correctOption": "Article 51 A"
+  },
+  {
+    "question": "The Subject of Sports comes under which list of Indian Constitution?",
+    "options": ["Union list", "State list", "Residuary list", "Concurrent list"],
+    "correctOption": "State list"
+  },
+  {
+    "question": "Which Schedule of the Indian Constitution contains the provisions on Panchayat Raj Institutions?",
+    "options": ["Tenth Schedule", "Eleventh Schedule", "Ninth Schedule", "Twelfth Schedule"],
+    "correctOption": "Eleventh Schedule"
+  },
+  {
+    "question": "Which of the following articles is related to Right to Freedom of Religion in the Indian Constitution?",
+    "options": ["Article 20", "Article 30", "Article 15", "Article 25"],
+    "correctOption": "Article 25"
+  },
+  {
+    "question": "The Sixth Schedule of the Indian Constitution does NOT exercise its control to the tribal areas of which of the following states?",
+    "options": ["Manipur", "Tripura", "Assam", "Meghalaya"],
+    "correctOption": "Manipur"
+  },
+  {
+    "question": "Which part of the Indian Constitution contains the provisions on the Union Territories?",
+    "options": ["Part VIII", "Part VII", "Part IX", "Part IXB"],
+    "correctOption": "Part VIII"
+  },
+  {
+    "question": "Which Article of the Indian Constitution tells about the election of the President?",
+    "options": ["Article 51 A", "Article 54", "Article 51", "Article 53"],
+    "correctOption": "Article 54"
+  },
+  {
+    "question": "Which article of the Indian Constitution gives guarantees for the protection of life and individual freedom?",
+    "options": ["Article 21 A", "Article 20", "Article 21", "Article 22"],
+    "correctOption": "Article 21"
+  },
+  {
+    "question": "Which part was added in the Indian Constitution by the 73rd constitutional act?",
+    "options": ["Part IX", "Part IX-B", "Part IX-A", "Part X"],
+    "correctOption": "Part IX"
+  },
+  {
+    "question": "Under which article, every citizen of India has been given the right to health?",
+    "options": ["Article 19", "Article 20", "Article 21-A", "Article 21"],
+    "correctOption": "Article 21"
+  },
+  {
+    "question": "Which part of the Indian Constitution enlists the Fundamental Rights?",
+    "options": ["Part-IV", "Part-V", "Part-III", "Part-II"],
+    "correctOption": "Part-III"
+  },
+  {
+    "question": "Agriculture as a subject is included in which list of the Constitution?",
+    "options": ["Residuary Powers", "Union list", "State list", "Concurrent list"],
+    "correctOption": "State list"
+  },
+  {
+    "question": "According to which article of the Indian Constitution, the president rule is implemented in a state?",
+    "options": ["Article 368", "Article 356", "Article 350", "Article 325"],
+    "correctOption": "Article 356"
+  },
+  {
+    "question": "Originally, how many articles were in the Indian Constitution?",
+    "options": ["440", "395", "310", "442"],
+    "correctOption": "395"
+  },
+  {
+    "question": "Which article of the Indian Constitution states that the ‘Law declared by the Supreme Court is to be binding on all courts’ within the territory of India?",
+    "options": ["Article 137", "Article 121", "Article 144", "Article 157"],
+    "correctOption": "Article 144"
+  },
+  {
+    "question": "As per the Constitution of India, the subject of ‘Livestock and animal husbandry’ is included in the:",
+    "options": ["Residuary list", "State list", "Union list", "Concurrent list"],
+    "correctOption": "State list"
+  },
+  {
+    "question": "Article 17 of the Constitution of India deals with the abolition of _____.",
+    "options": ["Sati", "Untouchability", "Titles", "Slavery"],
+    "correctOption": "Untouchability"
+  },
+  {
+    "question": "Which Article of the Indian Constitution prohibits discrimination on the grounds of religion, race, caste, sex and place of birth?",
+    "options": ["Article 23", "Article 25", "Article 19", "Article 15"],
+    "correctOption": "Article 15"
+  },
+  {
+    "question": "Part VIII of the Constitution of India deals with ______.",
+    "options": ["Panchayats", "Union Territories", "Municipalities", "States"],
+    "correctOption": "Union Territories"
+  },
+  {
+    "question": "The National Commission for Backward Classes (NCBC) was formed by insertion of Article ______ in the Constitution of India.",
+    "options": ["338B", "338A", "328B", "328A"],
+    "correctOption": "338B"
+  },
+  {
+    "question": "Under which Article of the Indian Constitution are special provisions provided to language spoken in a section of the population?",
+    "options": ["Article 337", "Article 357", "Article 347", "Article 374"],
+    "correctOption": "Article 347"
+  },
+   {
+    "question": "Under which Article can the Parliament amend the Constitution?",
+    "options": ["Article 374", "Article 74", "Article 269", "Article 368"],
+    "correctOption": "Article 368"
+  },
+  {
+    "question": "Which of the following Articles is related to the Ancillary powers of the Supreme Court?",
+    "options": ["Article 150", "Article 143", "Article 138", "Article 140"],
+    "correctOption": "Article 140"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India guarantees the Right to Freedom of Religion?",
+    "options": ["Articles 14-18", "Articles 19-22", "Articles 23-24", "Articles 25-28"],
+    "correctOption": "Articles 25-28"
+  },
+  {
+    "question": "Which of the following is one of the Articles of the Constitution of India that mentions the Comptroller and Auditor General of India?",
+    "options": ["Article 156", "Article 352", "Article 280", "Article 148"],
+    "correctOption": "Article 148"
+  },
+  {
+    "question": "Which of the following schedules of the Constitution of India has been INCORRECTLY matched with its content?",
+    "options": ["Second-Schedule-Languages", "First Schedule-The states and the union territories", "Third Schedule-Forms of oath or affirmations", "Fourth Schedule-Allocation of seats in the council of state"],
+    "correctOption": "Second-Schedule-Languages"
+  },
+  {
+    "question": "Article_______of the Constitution of India deals with provisions related to the administration and control of Scheduled Areas and Scheduled Tribes",
+    "options": ["Article 222(1)", "Article 244(1)", "Article 222(2)", "Article 244(2)"],
+    "correctOption": "Article 244(1)"
+  },
+  {
+    "question": "Which of the following states is included in the sixth schedule of the Constitution of India?",
+    "options": ["Nagaland", "Manipur", "Mizoram", "Arunachal Pradesh"],
+    "correctOption": "Mizoram"
+  },
+  {
+    "question": "Under which Article of the Indian Constitution are Indian citizens guaranteed the right to six fundamental freedoms?",
+    "options": ["Article 1", "Article 31", "Article 26", "Article 19"],
+    "correctOption": "Article 19"
+  },
+  {
+    "question": "Which article of the Indian Constitution prohibits trafficking in human beings and forced Labour?",
+    "options": ["Article 25", "Article 23", "Article 13", "Article 5"],
+    "correctOption": "Article 23"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India deals with the right to free and compulsory education of all children in the age group of 6-14 years?",
+    "options": ["Article 74", "Article 21A", "Article 101", "Article 31A"],
+    "correctOption": "Article 21A"
+  },
+  {
+    "question": "The State is obligated to protect every monument, place and object of national importance and historic interest under Article ______ of the Constitution of India.",
+    "options": ["Article 46", "Article 48", "Article 49", "Article 47"],
+    "correctOption": "Article 49"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India ensures to provide free and compulsory education to all children in the age group of six to fourteen years as a Fundamental Right to Education?",
+    "options": ["Article 20A", "Article 14", "Article 18A", "Article 21A"],
+    "correctOption": "Article 21A"
+  },
+  {
+    "question": "Which Article of the Constitution of India provides constitutional remedies for the enforcement of fundamental rights?",
+    "options": ["Article 40", "Article 36", "Article 38", "Article 32"],
+    "correctOption": "Article 32"
+  },
+   {
+    "question": "Which of the following Articles of the Constitution of India prohibits employment of children in factories etc.?",
+    "options": [
+      "24",
+      "21",
+      "17",
+      "31"
+    ],
+    "correctOption": "24"
+  },
+  {
+    "question": "Part IV of the Indian Constitution contains the provisions on:",
+    "options": [
+      "Fundamental Rights",
+      "Directive Principles of State Policy",
+      "Elections",
+      "Citizenship"
+    ],
+    "correctOption": "Directive Principles of State Policy"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India states that there will be a Vice-President of India?",
+    "options": [
+      "45",
+      "56",
+      "75",
+      "63"
+    ],
+    "correctOption": "63"
+  },
+  {
+    "question": "Which of the following Acts introduced federal features and provincial autonomy in the legislature and also made provisions for the distribution of legislative powers between the Centre and the provinces?",
+    "options": [
+      "The Government of India Act, 1858",
+      "The Government of India Act, 1935",
+      "The Government of India Act, 1919",
+      "Indian Councils Act, 1909"
+    ],
+    "correctOption": "The Government of India Act, 1935"
+  },
+  {
+    "question": "The concept of Reservation of seats for Scheduled Castes and Scheduled Tribes in The House of the People is highlighted in Article ______ of the Constitution of India.",
+    "options": [
+      "361",
+      "345",
+      "330",
+      "326"
+    ],
+    "correctOption": "330"
+  },
+  {
+    "question": "Which of the following articles of the constitution of India provides for the creation of a GST Council?",
+    "options": [
+      "Article 246A",
+      "Article 279A",
+      "Article 269A",
+      "Article 323A"
+    ],
+    "correctOption": "Article 279A"
+  },
+  {
+    "question": "Article 21A of the Constitution of India provides Right to ______.",
+    "options": [
+      "Education",
+      "Privacy",
+      "Equality",
+      "Work"
+    ],
+    "correctOption": "Education"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India adopted Hindi in Devanagari script as the official language of the Union?",
+    "options": [
+      "Article 343(1)",
+      "Article 231",
+      "Article 108",
+      "Article 123"
+    ],
+    "correctOption": "Article 343(1)"
+  },
+  {
+    "question": "Which Article of the Constitution of India deals with the 'Pardoning Power of the Governor'?",
+    "options": [
+      "Article 150",
+      "Article 173",
+      "Article 189",
+      "Article 161"
+    ],
+    "correctOption": "Article 161"
+  },
+  {
+    "question": "According to which of the following Articles of the Constitution of India shall a Money Bill NOT be introduced in the Council of States?",
+    "options": [
+      "Article 109",
+      "Article 354",
+      "Article 298",
+      "Article 193"
+    ],
+    "correctOption": "Article 109"
+  },
+  {
+    "question": "As per Article ______ of the Constitution of India, English is the official language for all the high courts in the country.",
+    "options": [
+      "329(1)",
+      "336(1)",
+      "315(1)",
+      "348(1)"
+    ],
+    "correctOption": "348(1)"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India defines a separate secretarial staff for each House of the Parliament?",
+    "options": [
+      "Article 98",
+      "Article 123",
+      "Article 155",
+      "Article 34"
+    ],
+    "correctOption": "Article 98"
+  },
+  {
+    "question": "Which Schedule of the Indian Constitution demarcates the powers of the Union and the States, that is Union List, State List and Concurrent List?",
+    "options": [
+      "Fourth Schedule",
+      "First Schedule",
+      "Seventh Schedule",
+      "Third Schedule"
+    ],
+    "correctOption": "Seventh Schedule"
+  },
+  {
+    "question": "According to which of the following Articles of the Constitution shall a Money Bill not be introduced in a Legislative Council?",
+    "options": [
+      "Article 333",
+      "Article 198",
+      "Article 451",
+      "Article 189"
+    ],
+    "correctOption": "Article 198"
+  },
+  {
+    "question": "According to which of the following Articles of the Constitution of India can the Parliament amend the Constitution?",
+    "options": [
+      "Article 368",
+      "Article 103",
+      "Article 129",
+      "Article 234"
+    ],
+    "correctOption": "Article 368"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India states that there would be no tax levied or collected EXCEPT by the authority of law?",
+    "options": [
+      "Article 107",
+      "Article 123",
+      "Article 265",
+      "Article 301"
+    ],
+    "correctOption": "Article 265"
+  },
+  {
+    "question": "Which Article of the Constitution of India affirms the right to move the Supreme Court by appropriate proceedings for the enforcement of the rights conferred in Part III of the Constitution?",
+    "options": [
+      "Article 46",
+      "Article 32",
+      "Article 37",
+      "Article 21"
+    ],
+    "correctOption": "Article 32"
+  },
+  {
+    "question": "In 1959, the Central Government of India undertook the governance in Kerala under______ of the Constitution of India.",
+    "options": [
+      "Article 356",
+      "Article 352",
+      "Article 360",
+      "Article 349"
+    ],
+    "correctOption": "Article 356"
+  },
+  {
+    "question": "In which of the following Articles of the Constitution of India is the right to property mentioned?",
+    "options": [
+      "Article 301 B",
+      "Article 300 B",
+      "Article 300 A",
+      "Article 301 A"
+    ],
+    "correctOption": "Article 300 A"
+  },
+  {
+    "question": "Part ______ of the Constitution of India deals with amendment of the Constitution.",
+    "options": [
+      "18",
+      "13",
+      "20",
+      "10"
+    ],
+    "correctOption": "20"
+  },
+  {
+    "question": "Under which Article can the Parliament amend the Constitution?",
+    "options": ["Article 374", "Article 74", "Article 269", "Article 368"],
+    "correctOption": "Article 368"
+  },
+  {
+    "question": "Which of the following Articles is related to the Ancillary powers of the Supreme Court?",
+    "options": ["Article 150", "Article 143", "Article 138", "Article 140"],
+    "correctOption": "Article 140"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India guarantees the Right to Freedom of Religion?",
+    "options": ["Articles 14-18", "Articles 19-22", "Articles 23-24", "Articles 25-28"],
+    "correctOption": "Articles 25-28"
+  },
+  {
+    "question": "Which of the following is one of the Articles of the Constitution of India that mentions the Comptroller and Auditor General of India?",
+    "options": ["Article 156", "Article 352", "Article 280", "Article 148"],
+    "correctOption": "Article 148"
+  },
+  {
+    "question": "Which of the following schedules of the Constitution of India has been INCORRECTLY matched with its content?",
+    "options": ["Second-Schedule-Languages", "First Schedule-The states and the union territories", "Third Schedule-Forms of oath or affirmations", "Fourth Schedule-Allocation of seats in the council of state"],
+    "correctOption": "Second-Schedule-Languages"
+  },
+  {
+    "question": "Article_______of the Constitution of India deals with provisions related to the administration and control of Scheduled Areas and Scheduled Tribes",
+    "options": ["Article 222(1)", "Article 244(1)", "Article 222(2)", "Article 244(2)"],
+    "correctOption": "Article 244(1)"
+  },
+  {
+    "question": "Which of the following states is included in the sixth schedule of the Constitution of India?",
+    "options": ["Nagaland", "Manipur", "Mizoram", "Arunachal Pradesh"],
+    "correctOption": "Mizoram"
+  },
+  {
+    "question": "Under which Article of the Indian Constitution are Indian citizens guaranteed the right to six fundamental freedoms?",
+    "options": ["Article 1", "Article 31", "Article 26", "Article 19"],
+    "correctOption": "Article 19"
+  },
+  {
+    "question": "Which article of the Constitution of India states that no citizen can be discriminated against on the basis of his/her religion, race, caste, sex or place of birth?",
+    "options": ["Article 15", "Article 45", "Article 23", "Article 39"],
+    "correctOption": "Article 15"
+  },
+  {
+    "question": "Which article of the Indian Constitution prohibits trafficking in human beings and forced Labour?",
+    "options": ["Article 25", "Article 23", "Article 13", "Article 5"],
+    "correctOption": "Article 23"
+  },
+  {
+    "question": "Which Article of the Constitution of India provides constitutional remedies for the enforcement of fundamental rights?",
+    "options": ["Article 40", "Article 36", "Article 38", "Article 32"],
+    "correctOption": "Article 32"
+  },
+  {
+    "question": "As per Article 80 of the Constitution of India, what can be the maximum strength of Rajya Sabha?",
+    "options": ["245", "250", "235", "240"],
+    "correctOption": "250"
+  },
+  {
+    "question": "Which Article of the Constitution of India provides that there shall be a Council of Ministers with the Prime Minister as its head?",
+    "options": ["Article 74(1)", "Article 34", "Article 44", "Article 21(1)"],
+    "correctOption": "Article 74(1)"
+  },
+  {
+    "question": "The Constitution under Article ______ mandates the Election Commission, to conduct elections to the Parliament and the State Legislatures.",
+    "options": ["312", "324", "330", "298"],
+    "correctOption": "324"
+  },
+  {
+    "question": "Which article of the Constitution of India empowers the President of India to promulgate ordinances when the Parliament is in recess?",
+    "options": ["Article 232", "Article 312", "Article 123", "Article 213"],
+    "correctOption": "Article 123"
+  },
+  {
+    "question": "How many fundamental duties are set out in Part IV-A (Article 51A) of the Constitution of India?",
+    "options": ["9", "11", "10", "12"],
+    "correctOption": "11"
+  },
+  {
+    "question": "As per the eighth Schedule of the Constitution of India, how many languages are referred to as scheduled languages?",
+    "options": ["14", "20", "22", "18"],
+    "correctOption": "22"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India ensures to provide free and compulsory education to all children in the age group of six to fourteen years as a Fundamental Right to Education?",
+    "options": ["Article 20A", "Article 14", "Article 18A", "Article 21A"],
+    "correctOption": "Article 21A"
+  },
+  {
+    "question": "Which Article of the Constitution of India states the directive principles of state policy on 'promotion of international peace and security'?",
+    "options": ["Article 49", "Article 51", "Article 69", "Article 62"],
+    "correctOption": "Article 51"
+  },
+  {
+    "question": "Which Article of the Constitution deals with the right to free and compulsory education of all children in the age group of 6-14 years?",
+    "options": ["Article 74", "Article 21A", "Article 101", "Article 31A"],
+    "correctOption": "Article 21A"
+  },
+  {
+    "question": "Who among the following drafted Article 370 of the Constitution of India?",
+    "options": ["Jawaharlal Nehru", "Bhim Rao Ambedkar", "Gopalaswami Ayyangar", "Raghubar Das"],
+    "correctOption": "Gopalaswami Ayyangar"
+  },
+  {
+    "question": "The definition of 'money bills' is given in which article of the Constitution of India?",
+    "options": ["Article 44", "Article 110", "Article 33", "Article 93"],
+    "correctOption": "Article 110"
+  },
+  {
+    "question": "Under which Article of the Indian Constitution are Indian citizens guaranteed the right to six fundamental freedoms?",
+    "options": ["Article 1", "Article 31", "Article 26", "Article 19"],
+    "correctOption": "Article 19"
+  },
+  {
+    "question": "Which article of the Constitution of India states that no citizen can be discriminated against on the basis of his/her religion, race, caste, sex or place of birth?",
+    "options": ["Article 15", "Article 45", "Article 23", "Article 39"],
+    "correctOption": "Article 15"
+  },
+  {
+    "question": "Which article of the Indian Constitution prohibits trafficking in human beings and forced Labour?",
+    "options": ["Article 25", "Article 23", "Article 13", "Article 5"],
+    "correctOption": "Article 23"
+  },
+  {
+    "question": "Which among the following Articles of the Constitution of India deals with the right to free and compulsory education of all children in the age group of 6-14 years?",
+    "options": ["Article 74", "Article 21A", "Article 101", "Article 31A"],
+    "correctOption": "Article 21A"
+  },
+  {
+    "question": "The State is obligated to protect every monument, place and object of national importance and historic interest under Article ______ of the Constitution of India.",
+    "options": ["Article 46", "Article 48", "Article 49", "Article 47"],
+    "correctOption": "Article 49"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India abolishes untouchability?",
+    "options": ["Article 19", "Article 20", "Article 17", "Article 18"],
+    "correctOption": "Article 17"
+  },
+  {
+    "question": "Which of the following subjects is covered in the Eleventh Schedule of the Constitution of India?",
+    "options": ["Major forest produce", "Health and sanitation", "Large scale industries", "Police and public order"],
+    "correctOption": "Health and sanitation"
+  },
+   {
+    "question": "The Subject of Sports comes under which list of Indian Constitution?",
+    "options": ["Union list", "State list", "Residuary list", "Concurrent list"],
+    "correctOption": "State list"
+  },
+  {
+    "question": "Which Schedule of the Indian Constitution contains the provisions on Panchayat Raj Institutions?",
+    "options": ["Tenth Schedule", "Eleventh Schedule", "Ninth Schedule", "Twelfth Schedule"],
+    "correctOption": "Eleventh Schedule"
+  },
+  {
+    "question": "Which of the following articles is related to Right to Freedom of Religion in the Indian Constitution?",
+    "options": ["Article 20", "Article 30", "Article 15", "Article 25"],
+    "correctOption": "Article 25"
+  },
+  {
+    "question": "The Sixth Schedule of the Indian Constitution does NOT exercise its control to the tribal areas of which of the following states?",
+    "options": ["Manipur", "Tripura", "Assam", "Meghalaya"],
+    "correctOption": "Manipur"
+  },
+  {
+    "question": "Which part of the Indian Constitution contains the provisions on the Union Territories?",
+    "options": ["Part VIII", "Part VII", "Part IX", "Part IXB"],
+    "correctOption": "Part VIII"
+  },
+  {
+    "question": "Which Article of the Indian Constitution tells about the election of the President?",
+    "options": ["Article 51 A", "Article 54", "Article 51", "Article 53"],
+    "correctOption": "Article 54"
+  },
+  {
+    "question": "Which article of the Indian Constitution gives guarantees for the protection of life and individual freedom?",
+    "options": ["Article 21 A", "Article 20", "Article 21", "Article 22"],
+    "correctOption": "Article 21"
+  },
+  {
+    "question": "Which part was added in the Indian Constitution by the 73rd constitutional act?",
+    "options": ["Part IX", "Part IX-B", "Part IX-A", "Part X"],
+    "correctOption": "Part IX"
+  },
+  {
+    "question": "Under which article, every citizen of India has been given the right to health?",
+    "options": ["Article 19", "Article 20", "Article 21-A", "Article 21"],
+    "correctOption": "Article 21"
+  },
+  {
+    "question": "Which part of the Indian Constitution enlists the Fundamental Rights?",
+    "options": ["Part-IV", "Part-V", "Part-III", "Part-II"],
+    "correctOption": "Part-III"
+  },
+  {
+    "question": "Agriculture as a subject is included in which list of the Constitution?",
+    "options": ["Residuary Powers", "Union list", "State list", "Concurrent list"],
+    "correctOption": "State list"
+  },
+  {
+    "question": "According to which article of the Indian Constitution, the president rule is implemented in a state?",
+    "options": ["Article 368", "Article 356", "Article 350", "Article 325"],
+    "correctOption": "Article 356"
+  },
+  {
+    "question": "Originally, how many articles were in the Indian Constitution?",
+    "options": ["440", "395", "310", "442"],
+    "correctOption": "395"
+  },
+  {
+    "question": "Which article of the Indian Constitution states that the ‘Law declared by the Supreme Court is to be binding on all courts’ within the territory of India?",
+    "options": ["Article 127", "Article 133", "Article 147", "Article 141"],
+    "correctOption": "Article 141"
+  },
+  {
+    "question": "Under which article of the constitution of India can members of the Anglo Indian community be nominated to the Lok Sabha by the President?",
+    "options": ["Article 326", "Article 330", "Article 342", "Article 331"],
+    "correctOption": "Article 331"
+  },
+  {
+    "question": "In India, which of the following articles of the Constitution of India provides for the formation of a new state?",
+    "options": ["Article 1", "Article 3", "Article 2", "Article 9"],
+    "correctOption": "Article 3"
+  },
+  {
+    "question": "The powers, privileges and immunities of either House Parliament and of its Committees and Members have mainly been laid down in article",
+    "options": ["115", "107", "105", "102"],
+    "correctOption": "105"
+  },
+  {
+    "question": "Matters, which are not points of order, can be raised by way of Special Mentions under Rule _______ of Lok Sabha.",
+    "options": ["377", "302", "223", "214"],
+    "correctOption": "377"
+  },
+  {
+    "question": "Which article of the Constitution of India provisions for reservations of seats for scheduled castes and scheduled tribes in the House of People?",
+    "options": ["Article 325", "Article 321", "Article 330", "Article 335"],
+    "correctOption": "Article 330"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India is associated with the election of the President of India?",
+    "options": ["Article 103", "Article 78", "Article 74", "Article 54"],
+    "correctOption": "Article 54"
+  },
+  {
+    "question": "Which of the following articles of the Indian Constitution provides for the appointment of a Finance Commission?",
+    "options": ["Article 300", "Article 290", "Article 320", "Article 280"],
+    "correctOption": "Article 280"
+  },
+  {
+    "question": "Which of the following schedules of the Constitution of India contains the format of oaths to be taken by different constitutional functionaries?",
+    "options": ["4th schedule", "5th schedule", "3rd schedule", "2nd schedule"],
+    "correctOption": "3rd schedule"
+  },
+  {
+    "question": "According to which article of the constitution of India shall the council of ministers be collectively responsible to the Lok Sabha?",
+    "options": ["Article 29", "Article 75", "Article 35", "Article 302"],
+    "correctOption": "Article 75"
+  },
+  {
+    "question": "Which Article of the Constitution of India states that ‘all authorities, civil and judicial, in the territory of India shall act in aid of the Supreme Court’?",
+    "options": ["Article 137", "Article 121", "Article 144", "Article 157"],
+    "correctOption": "Article 144"
+  },
+  {
+    "question": "As per the Constitution of India , the subject of ‘Livestock and animal husbandry’ is included in the:",
+    "options": ["Residuary list", "State list", "Union list", "Concurrent list"],
+    "correctOption": "State list"
+  },
+  {
+    "question": "Article 17 of the Constitution of India deals with the abolition of _____.",
+    "options": ["sati", "untouchability", "titles", "slavery"],
+    "correctOption": "untouchability"
+  },
+  {
+    "question": "Which Article of the Indian Constitution prohibits discrimination on the grounds of religion, race, caste, sex and place of birth?",
+    "options": ["Article 23", "Article 25", "Article 19", "Article 15"],
+    "correctOption": "Article 15"
+  },
+  {
+    "question": "Part VIII of the Constitution of India deals with ______.",
+    "options": ["Panchayats", "Union Territories", "Municipalities", "States"],
+    "correctOption": "Union Territories"
+  },
+  {
+    "question": "The National Commission for Backward Classes (NCBC) was formed by insertion of Article ______ in the Constitution of India.",
+    "options": ["338B", "338A", "328B", "328A"],
+    "correctOption": "338B"
+  },
+  {
+    "question": "Under which Article of the Indian Constitution are special provisions provided to language spoken in a section of the population?",
+    "options": ["Article 337", "Article 357", "Article 347", "Article 374"],
+    "correctOption": "Article 347"
+  },
+  {
+    "question": "Q.121. Which of the following Articles of the Constitution of India prohibits employment of children in factories etc.?",
+    "options": ["24", "21", "17", "31"],
+    "correctOption": "21"
+  },
+  {
+    "question": "Q.122. Part IV of the Indian Constitution contains the provisions on:",
+    "options": ["Fundamental Rights", "Directive Principles of State Policy", "Elections", "Citizenship"],
+    "correctOption": "Directive Principles of State Policy"
+  },
+  {
+    "question": "Q.123. Which of the following Articles of the Constitution of India states that there will be a Vice-President of India?",
+    "options": ["Article 45", "Article 56", "Article 75", "Article 63"],
+    "correctOption": "Article 63"
+  },
+  {
+    "question": "Q.124. Which of the following Acts introduced federal features and provincial autonomy in the legislature and also made provisions for the distribution of legislative powers between the Centre and the provinces?",
+    "options": ["The Government of India Act, 1858", "The Government of India Act, 1935", "The Government of India Act, 1919", "Indian Councils Act, 1909"],
+    "correctOption": "The Government of India Act, 1935"
+  },
+  {
+    "question": "Q.125. The concept of Reservation of seats for Scheduled Castes and Scheduled Tribes in The House of the People is highlighted in Article ______ of the Constitution of India.",
+    "options": ["361", "345", "330", "326"],
+    "correctOption": "330"
+  },
+  {
+    "question": "Q.126. Which of the following articles of the constitution of India provides for the creation of a GST Council?",
+    "options": ["Article 246A", "Article 279A", "Article 269A", "Article 323A"],
+    "correctOption": "Article 279A"
+  },
+  {
+    "question": "Q.127. Article 21A of the Constitution of India provides Right to ______.",
+    "options": ["Education", "Privacy", "Equality", "Work"],
+    "correctOption": "Education"
+  },
+  {
+    "question": "Q.128. Which of the following Articles of the Constitution of India adopted Hindi in Devanagari script as the official language of the Union?",
+    "options": ["Article 343(1)", "Article 231", "Article 108", "Article 123"],
+    "correctOption": "Article 343(1)"
+  },
+  {
+    "question": "Q.129. Which Article of the Constitution of India deals with the 'Pardoning Power of the Governor'?",
+    "options": ["Article 150", "Article 173", "Article 189", "Article 161"],
+    "correctOption": "Article 161"
+  },
+  {
+    "question": "Q.130. According to which of the following Articles of the Constitution of India shall a Money Bill NOT be introduced in the Council of States?",
+    "options": ["Article 109", "Article 354", "Article 298", "Article 193"],
+    "correctOption": "Article 109"
+  },
+  {
+    "question": "Q.131. As per Article ______ of the Constitution of India, English is the official language for all the high courts in the country.",
+    "options": ["329(1)", "336(1)", "315(1)", "348(1)"],
+    "correctOption": "348(1)"
+  },
+  {
+    "question": "Q.132. Which of the following Articles of the Constitution of India defines for a separate secretarial staff for each House of the Parliament?",
+    "options": ["Article 98", "Article 123", "Article 155", "Article 34"],
+    "correctOption": "Article 98"
+  },
+  {
+    "question": "Q.133. Which Schedule of the Indian Constitution demarcates the powers of the Union and the States, that is Union List, State List and Concurrent List?",
+    "options": ["Fourth Schedule", "First Schedule", "Seventh Schedule", "Third Schedule"],
+    "correctOption": "Seventh Schedule"
+  },
+  {
+    "question": "Q.134. According to which of the following Articles of the Constitution shall a Money Bill not be introduced in a Legislative Council?",
+    "options": ["Article 333", "Article 198", "Article 451", "Article 189"],
+    "correctOption": "Article 198"
+  },
+  {
+    "question": "Q.135. According to which of the following Articles of the Constitution of India can the Parliament amend the Constitution?",
+    "options": ["Article 368", "Article 103", "Article 129", "Article 234"],
+    "correctOption": "Article 368"
+  },
+  {
+    "question": "Q.136. Which of the following Articles of the Constitution of India states that there would be no tax levied or collected EXCEPT by the authority of law?",
+    "options": ["Article 107", "Article 123", "Article 265", "Article 301"],
+    "correctOption": "Article 265"
+  },
+  {
+    "question": "Q.137. Which Article of the Constitution of India affirms the right to move the Supreme Court by appropriate proceedings for the enforcement of the rights conferred in Part III of the Constitution?",
+    "options": ["Article 46", "Article 32", "Article 37", "Article 21"],
+    "correctOption": "Article 32"
+  },
+  {
+    "question": "Q.138. In 1959, the Central Government of India undertook the governance in Kerala under______ of the Constitution of India.",
+    "options": ["Article 356", "Article 352", "Article 360", "Article 349"],
+    "correctOption": "Article 356"
+  },
+  {
+    "question": "Q.139. In which of the following Articles of the Constitution of India is the right to property mentioned?",
+    "options": ["Article 301B", "Article 300B", "Article 300A", "Article 301A"],
+    "correctOption": "Article 300A"
+  },
+  {
+    "question": "Q.140. Which of the following Articles of the Constitution of India states that 'The President, or the Governor or Rajpramukh of a State, shall not be answerable to any court for the exercise and performance of the powers and duties of his office'?",
+    "options": ["Article 396", "Article 361", "Article 384", "Article 352"],
+    "correctOption": "Article 361"
+  },
+  {
+    "question": "Q.141. Which of the given Articles of the Constitution of India mentions the following? 'There shall be a council of Ministers with the Prime Minister at the head to aid and advise the President who shall in the exercise of his functions, act in accordance with such advice.'",
+    "options": ["Article 71(1)", "Article 71(2)", "Article 74(1)", "Article 74(2)"],
+    "correctOption": "Article 74(1)"
+  },
+  {
+    "question": "Q.142. According to which of the following Schedules to the Constitution provides for allocation of seats to the states and union territories in Rajya Sabha?",
+    "options": ["Fourth", "Sixth", "Seventh", "Second"],
+    "correctOption": "Fourth"
+  },
+  {
+    "question": "Q.143. Which of the following Articles of the Constitution of India deals with the organisation of agriculture and animal husbandry?",
+    "options": ["Article 84", "Article 92", "Article 29", "Article 48"],
+    "correctOption": "Article 48"
+  },
+  {
+    "question": "Q.144. According to Article 24 of the Constitution of India, a person below ______ years of age shall not be employed to work in any factory.",
+    "options": ["14", "25", "19", "21"],
+    "correctOption": "14"
+  },
+  {
+    "question": "Q.145. Which of the following Articles of the Constitution of India details 'Prohibition of discrimination on grounds of religion, race, caste, sex or place of birth'?",
+    "options": ["Article 22", "Article 27", "Article 15", "Article 10"],
+    "correctOption": "Article 15"
+  },
+  {
+    "question": "Q.146. Which of the following Articles of the Constitution of India makes provision for protection in respect of conviction for offences?",
+    "options": ["Article 21", "Article 19", "Article 20", "Article 18"],
+    "correctOption": "Article 20"
+  },
+  {
+    "question": "Q.147. Which of the following Articles of the Constitution of India is related to the oath or affirmation by the President?",
+    "options": ["Article 57", "Article 60", "Article 66", "Article 54"],
+    "correctOption": "Article 60"
+  },
+  {
+    "question": "Q.148. Which of the following Articles of the Constitution of India states that the Parliament has exclusive powers to make laws with respect to any of the matters enumerated in the Union List?",
+    "options": ["Article 287", "Article 246", "Article 362", "Article 352"],
+    "correctOption": "Article 246"
+  },
+  {
+    "question": "Q.149. Which Part of the Constitution of India deals with citizenship?",
+    "options": ["Part 6", "Part 3", "Part 2", "Part 5"],
+    "correctOption": "Part 2"
+  },
+  {
+    "question": "Q.150. Part ______ of the Constitution of India deals with amendment of the Constitution.",
+    "options": ["18", "13", "20", "10"],
+    "correctOption": "20"
+  },
+   {
+    "question": "Article 57 of the Constitution of India states that ______.",
+    "options": [
+      "A person who holds, or who has held, office as President shall, subject to the other provisions of this Constitution, be eligible for re-election to that office.",
+      "The executive power of the Union shall be vested in the President and shall be exercised by him either directly or through officers subordinate to him in accordance with this Constitution.",
+      "The President shall hold office for a term of five years from the date on which he enters upon his office.",
+      "The President shall be elected by the members of an electoral college consisting of— (a) the elected members of both Houses of Parliament; and (b) the elected members of the Legislative Assemblies of the States."
+    ],
+    "correctOption": "A person who holds, or who has held, office as President shall, subject to the other provisions of this Constitution, be eligible for re-election to that office."
+  },
+  {
+    "question": "What does Article 360 of the Constitution of India provide with?",
+    "options": [
+      "Right to life",
+      "Financial emergency",
+      "Right to property",
+      "Fundamental duties"
+    ],
+    "correctOption": "Financial emergency"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India empowered the Parliament to provide by law for continued use of English for official purposes even after 25 January 1965?",
+    "options": [
+      "Article 348 (2)",
+      "Article 348 (3)",
+      "Article 343 (3)",
+      "Article 343 (2)"
+    ],
+    "correctOption": "Article 343 (3)"
+  },
+  {
+    "question": "Part ______ of the Constitution of India provides for freedom of trade and commerce within the country.",
+    "options": ["20", "10", "15", "13"],
+    "correctOption": "13"
+  },
+  {
+    "question": "Which of the following articles of the Constitution of India gives us a description of ‘Money Bill’?",
+    "options": ["127", "110", "95", "123"],
+    "correctOption": "110"
+  },
+  {
+    "question": "Which Article of the Constitution of India declares that laws inconsistent with Part III before the commencement of the Constitution of India, 1950, are void?",
+    "options": ["10", "17", "13", "19"],
+    "correctOption": "13"
+  },
+  {
+    "question": "As per Article 80 of the Constitution of India, the total number of members of the Rajya Sabha cannot be more than:",
+    "options": ["260", "250", "235", "240"],
+    "correctOption": "235"
+  },
+  {
+    "question": "Which part of the Constitution of India deals with the relation between the Union and the States?",
+    "options": ["Part VIII", "Part XI", "Part VII", "Part IX"],
+    "correctOption": "Part XI"
+  },
+  {
+    "question": "What does Article 21 of the Indian Constitution deal with?",
+    "options": [
+      "Right to property",
+      "Fundamental duties",
+      "Right to life",
+      "National emergency"
+    ],
+    "correctOption": "Right to life"
+  },
+  {
+    "question": "As of July 2020, how many fundamental duties are meant for a citizen of India?",
+    "options": ["11", "12", "10", "16"],
+    "correctOption": "11"
+  },
+  {
+    "question": "Which schedule of the Constitution of India deals with the allocation of seats in the Council of States?",
+    "options": ["Fifth", "Fourth", "Eighth", "Sixth"],
+    "correctOption": "Fourth"
+  },
+  {
+    "question": "Which Part of the Constitution of India deals with finance, property, contracts and suits?",
+    "options": ["Part XII", "Part IX", "Part X", "Part VIII"],
+    "correctOption": "Part XII"
+  },
+  {
+    "question": "Article ______ of the Constitution of India defines Uniform Civil Code.",
+    "options": ["42", "24", "22", "44"],
+    "correctOption": "44"
+  },
+  {
+    "question": "In which year did the Indian Constituent Assembly adopt Article 370 of the Constitution of India, ensuring special status and internal autonomy for Jammu and Kashmir?",
+    "options": ["1952", "1949", "1961", "1950"],
+    "correctOption": "1949"
+  },
+  {
+    "question": "Which Article of the Constitution of India provides that there will be Governors of States?",
+    "options": ["136", "148", "124", "153"],
+    "correctOption": "153"
+  },
+  {
+    "question": "Which Article of the Constitution of India directs the State to secure a social order for the promotion of welfare of the people?",
+    "options": ["Article 42", "Article 44", "Article 38", "Article 45"],
+    "correctOption": "Article 38"
+  },
+  {
+    "question": "Which Article of the Constitution of India states that there shall be a President of India?",
+    "options": ["Article 54", "Article 52", "Article 58", "Article 55"],
+    "correctOption": "Article 52"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India lays down the duties and functions of the Union and State Public Service Commissions in India?",
+    "options": ["Article 312", "Article 320", "Article 308", "Article 316"],
+    "correctOption": "Article 320"
+  },
+  {
+    "question": "Which one of the following Articles of the Indian Constitution directs the State to ensure the right of citizens to adequate means of livelihood?",
+    "options": ["Article 29", "Article 39", "Article 27", "Article 33"],
+    "correctOption": "Article 39"
+  },
+  {
+    "question": "Which of the following articles of the Constitution of India provides that Hindi in Devanagari script shall be the official language of the Union?",
+    "options": ["Article 343 (2)", "Article 344 (1)", "Article 343 (1)", "Article 343 (3)"],
+    "correctOption": "Article 343 (1)"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India is related to the Uniform Civil Code for the citizens?",
+    "options": ["Article 44", "Article 42", "Article 45", "Article 40"],
+    "correctOption": "Article 44"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India provides the procedure for impeachment of the President?",
+    "options": ["Article 61", "Article 51", "Article 67", "Article 52"],
+    "correctOption": "Article 61"
+  },
+  {
+    "question": "'Police and Public Order' are State subjects under the ______ Schedule of the Constitution of India.",
+    "options": ["5th", "9th", "7th", "12th"],
+    "correctOption": "7th"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India states that Hindi in Devanagari script shall be the official language of the Union?",
+    "options": ["Article 343(2)", "Article 354(2)", "Article 343(1)", "Article 343(3)"],
+    "correctOption": "Article 343(1)"
+  },
+  {
+    "question": "Which Article of the Constitution of India defines the power of the President to grant pardons, etc, and to suspend, remit or commute sentences in certain cases?",
+    "options": ["Article 72", "Article 81", "Article 55", "Article 63"],
+    "correctOption": "Article 72"
+  },
+  {
+    "question": "Article ______ of the Constitution of India deals with 'Proclamation of Emergency'.",
+    "options": ["235", "352", "325", "253"],
+    "correctOption": "352"
+  },
+  {
+    "question": "Which of the following Articles of the Constitution of India deals with the duties and powers of the Comptroller and Auditor-General of India?",
+    "options": ["Article 234", "Article 149", "Article 189", "Article 354"],
+    "correctOption": "Article 149"
+  },
+  {
+    "question": "In 1978, the _______ amendment eliminated the right to acquire, hold and dispose of property as a fundamental right.",
+    "options": ["41st", "43rd", "44th", "42nd"],
+    "correctOption": "44th"
+  },
+  {
+    "question": "_________Constitution Amendment Act, 2002 provided for free and compulsory elementary education to all children.",
+    "options": ["84th", "85th", "86th", "87th"],
+    "correctOption": "86th"
+  },
+  {
+    "question": "Q.181 The Constitution of India was amended for the first time in which year?",
+    "options": ["1951", "1954", "1961", "1960"],
+    "correctOption": "1951"
+  },
+  {
+    "question": "Q.182 The 124th Amendment Bill, 2019 deals with:",
+    "options": ["Triple Talaq", "Privatisation of Air India", "GST", "Economic Reservation"],
+    "correctOption": "Economic Reservation"
+  },
+  {
+    "question": "Q.183 Which part of the constitution is related to the amendments in the constitution?",
+    "options": ["Part XV", "Part X", "Part VIII", "Part XX"],
+    "correctOption": "Part XX"
+  },
+  {
+    "question": "Q.184 When was the first amendment made to the Indian Constitution?",
+    "options": ["1954", "1951", "1953", "1952"],
+    "correctOption": "1951"
+  },
+  {
+    "question": "Q.185 Article 21-A was introduced by which Constitutional Amendment Act?",
+    "options": ["93rd", "85th", "73rd", "86th"],
+    "correctOption": "86th"
+  },
+  {
+    "question": "Q.186 Which Constitutional Amendment Act introduced Anti-Defection Provisions in the Constitution?",
+    "options": ["52nd Constitutional Amendment Act", "44th Constitutional Amendment Act", "86th Constitutional Amendment Act", "43rd Constitutional Amendment Act"],
+    "correctOption": "52nd Constitutional Amendment Act"
+  },
+  {
+    "question": "Q.187 Which amendment of the Constitution is called as the ‘mini constitution of India’ and was brought in during the national emergency in the year 1976?",
+    "options": ["54th", "25th", "24th", "42nd"],
+    "correctOption": "42nd"
+  },
+  {
+    "question": "Q.188 Which part was added in the Indian Constitution by the 74th Amendment Act of 1992?",
+    "options": ["IX A", "IX", "IX C", "IX B"],
+    "correctOption": "IX A"
+  },
+  {
+    "question": "Q.189 Which amendment limited the size of the council of ministers to 15% of the total size of the house?",
+    "options": ["74th", "86th", "91st", "61st"],
+    "correctOption": "91st"
+  },
+  {
+    "question": "Q.190 Which schedule of the Indian Constitution is related to the Municipalities?",
+    "options": ["11th", "10th", "9th", "12th"],
+    "correctOption": "12th"
+  },
+  {
+    "question": "Q.191 Under which constitutional amendment act, the Preamble of the Constitution was amended?",
+    "options": ["52nd", "56th", "44th", "42nd"],
+    "correctOption": "42nd"
+  },
+  {
+    "question": "Q.192 Which amendment made it mandatory for the President to give his assent to the Constitutional Amendment bills?",
+    "options": ["24th", "58th", "44th", "28th"],
+    "correctOption": "24th"
+  },
+  {
+    "question": "Q.193 _________ Constitution Amendment Act, 2002 provided for free and compulsory elementary education to all children.",
+    "options": ["84th", "85th", "86th", "87th"],
+    "correctOption": "86th"
+  },
+  {
+    "question": "Q.194 Under which of the following Amendments to the Constitution of India is defection to another party after election made illegal?",
+    "options": ["92nd", "61st", "52nd", "86th"],
+    "correctOption": "52nd"
+  },
+  {
+    "question": "Q.195 In which year was the first amendment to the Constitution of India made?",
+    "options": ["1950", "1952", "1951", "1953"],
+    "correctOption": "1951"
+  },
+  {
+    "question": "Q.196 When was the 44th Constitutional Amendment Act enacted?",
+    "options": ["1978", "1975", "1976", "1972"],
+    "correctOption": "1978"
+  },
+  {
+    "question": "Q.197 Which of the following words was inserted in the Preamble by the Constitution (42nd Amendment) Act, 1976?",
+    "options": ["Equality", "Liberty", "Justice", "Socialist"],
+    "correctOption": "Socialist"
+  },
+  {
+    "question": "Q.198 Which article of the Constitution of India was invoked by the Kerala government to file a petition against the Citizenship (Amendment) Act (CAA) in the Supreme Court on 14 January 2020?",
+    "options": ["Article 131", "Article 23", "Article 368", "Article 17"],
+    "correctOption": "Article 131"
+  },
+  {
+    "question": "Q.199 As per the Constitution ninety-first amendment act, 2003, the total number of Ministers, including the Chief Minister, in the Council of Ministers in a State cannot exceed ______ of the total number of members of the Legislative Assembly of that State.",
+    "options": ["15%", "10%", "20%", "25%"],
+    "correctOption": "15%"
+  },
+  {
+    "question": "Q.200 As of 30th June 2020, the Preamble to the Indian Constitution was amended ______.",
+    "options": ["twice", "five times", "once", "thrice"],
+    "correctOption": "once"
+  },
+  {
+    "question": "Q.201 The first hour of every parliamentary meeting is for _____.",
+    "options": ["Point of Order", "Discussion on Money bill", "Question hour", "Zero hour"],
+    "correctOption": "Question hour"
+  },
+  {
+    "question": "Q.202 Which of the following Amendment Acts of the Constitution of India conferred statehood to Goa and formed a new union territory comprising of Daman and Diu?",
+    "options": ["23rd Amendment Act", "56th Amendment Act", "67th Amendment Act", "45th Amendment Act"],
+    "correctOption": "56th Amendment Act"
+  },
+  {
+    "question": "Q.203 Through which amendment was the Tenth Schedule added to the Constitution of India?",
+    "options": ["52nd", "53rd", "42nd", "43rd"],
+    "correctOption": "52nd"
+  },
+  {
+    "question": "Q.204 What is the minimum age to be an eligible voter for Lok Sabha elections?",
+    "options": ["17 years", "15 years", "18 years", "16 years"],
+    "correctOption": "18 years"
+  },
+  {
+    "question": "Q.205 By which amendment of the Constitution of India were the terms ‘socialist’ and ‘secular’ added in the preamble?",
+    "options": ["Constitution (Forty-First Amendment) Act, 1976", "Constitution (Forty-Third Amendment) Act, 1977", "Constitution (Forty-Fourth Amendment) Act, 1978", "Constitution (Forty-Second Amendment) Act, 1976"],
+    "correctOption": "Constitution (Forty-Second Amendment) Act, 1976"
+  },
+  {
+    "question": "Q.206 Which amendment of the Constitution of India incorporated Goa, Daman and Diu as the eighth union territory of India, by amending the First Schedule to the Constitution?",
+    "options": ["13th", "10th", "12th", "18th"],
+    "correctOption": "12th"
+  },
+  {
+    "question": "Q.207 In which year did the Government of India pass the Disabilities Act?",
+    "options": ["1995", "1993", "1997", "1992"],
+    "correctOption": "1995"
+  },
+  {
+    "question": "Q.208 As per Section 2 of the Antiquities and Art Treasures Act, 1972, ‘Antiquities’ include 'any manuscript, record or other document which is of scientific, historical, literary or aesthetic value and which has been in existence for not less than ______ years'.",
+    "options": ["125", "150", "50", "75"],
+    "correctOption": "75"
+  },
+  {
+    "question": "Q.209 Which Constitutional Amendment gave constitutional status to the Panchayati Raj Institutions?",
+    "options": ["86th Amendment Act, 2002", "71st Amendment Act, 1992", "73rd Amendment Act, 1992", "92nd Amendment Act, 2003"],
+    "correctOption": "73rd Amendment Act, 1992"
+  },
+  {
+    "question": "Q.210 In which of the following sections of the Punjab Reorganisation Act, 1966 is Chandigarh defined as a Union Territory?",
+    "options": ["Section 3", "Section 6", "Section 4", "Section 1"],
+    "correctOption": "Section 4"
+  },
+   {
+    "question": "Q.211. Which of the following writs provides a remedy for a person who has been unlawfully held in prison?",
+    "options": ["Certiorari", "Habeas Corpus", "Mandamus", "Prohibition"],
+    "correctOption": "Habeas Corpus"
+  },
+  {
+    "question": "Q.212. Which of the following is NOT related to fundamental rights?",
+    "options": ["Right to form association", "Right to education", "Right to life", "Right to property"],
+    "correctOption": "Right to property"
+  },
+  {
+    "question": "Q.213. Forming an association in India is ______.",
+    "options": ["Fundamental Right", "Legal right", "Natural Right", "Constitutional Right"],
+    "correctOption": "Fundamental Right"
+  },
+  {
+    "question": "Q.214. The Right of Children to Free and Compulsory Education (RTE) Act, which gives every child aged 6-14 the fundamental right for education, was assented to in which year?",
+    "options": ["2001", "1975", "2009", "1947"],
+    "correctOption": "2009"
+  },
+  {
+    "question": "Q.215. The Right against exploitation is a ______.",
+    "options": ["Constitutional Right", "Method", "Fundamental Right", "Legal Right"],
+    "correctOption": "Fundamental Right"
+  },
+  {
+    "question": "Q.216. When was the right to property removed from the list of fundamental rights?",
+    "options": ["1975", "1980", "1978", "1977"],
+    "correctOption": "1978"
+  },
+  {
+    "question": "Q.217. India is called a secular country because citizens have the fundamental right to:",
+    "options": ["Freedom of speech and expression", "Move freely throughout India", "Live with human dignity", "Freedom to profess religion of one's choice"],
+    "correctOption": "Freedom to profess religion of one's choice"
+  },
+  {
+    "question": "Q.218. In which year were the Fundamental Duties of citizens added to the Constitution of India by the 42nd Amendment?",
+    "options": ["1950", "1976", "1982", "1964"],
+    "correctOption": "1976"
+  },
+  {
+    "question": "Q.219. Features of Fundamental Rights in the Indian Constitution partly derives its inspiration from the Bill of Rights, enshrined in the Constitution of ______.",
+    "options": ["United States of America", "Canada", "Australia", "Ireland"],
+    "correctOption": "United States of America"
+  },
+  {
+    "question": "Q.220. ______ is a draft of a legislative proposal before the House.",
+    "options": ["A bill", "A revocation", "A provision", "An act"],
+    "correctOption": "A bill"
+  },
+  {
+    "question": "Q.221. The total number of fundamental duties provided by the Constitution of India is:",
+    "options": ["29", "11", "32", "19"],
+    "correctOption": "11"
+  },
+  {
+    "question": "Q.222. Which of the following writs is a challenge to the legality of a prisoner's detention?",
+    "options": ["Mandamus", "Quo Warranto", "Habeas corpus", "Prohibition"],
+    "correctOption": "Habeas corpus"
+  },
+  {
+    "question": "Q.223. According to the fundamental rights provided by the Constitution of India, the state is bound to provide free and compulsory education to all children from the age of:",
+    "options": ["4 to 15 years", "6 to 14 years", "4 to 18 years", "3 to 18 years"],
+    "correctOption": "6 to 14 years"
+  },
+  {
+    "question": "Q.224. Which part of the Constitution of India deals with the duties of citizens?",
+    "options": ["Part IVA", "Part II", "Part X", "Part III"],
+    "correctOption": "Part IVA"
+  },
+  {
+    "question": "Q.225. What does Article 32 of the Indian Constitution deal with?",
+    "options": ["Right to Life", "Right to Property", "Right to Constitutional Remedies", "Financial Emergency"],
+    "correctOption": "Right to Constitutional Remedies"
+  },
+  {
+    "question": "Q.226. Article ______ of the Constitution of India deals with freedom to manage religious affairs.",
+    "options": ["21", "26", "51", "56"],
+    "correctOption": "26"
+  },
+  {
+    "question": "Q.227. Fundamental Duties of citizens were added to the Constitution of India in the year ______.",
+    "options": ["1976", "1983", "1967", "1951"],
+    "correctOption": "1976"
+  },
+  {
+    "question": "Q.228. The Malimath Committee Report deals with:",
+    "options": ["Judicial delays", "Textile sector reforms", "Criminal justice system reforms", "Stock market reforms"],
+    "correctOption": "Criminal justice system reforms"
+  },
+  {
+    "question": "Q.229. Which panel set up by the Government of India suggested total decontrol of the sugar industry?",
+    "options": ["RamSevak Panel", "Rangarajan Panel", "RadheShyam Panel", "Sri Krishna Panel"],
+    "correctOption": "Rangarajan Panel"
+  },
+  {
+    "question": "Q.230. The _____________ was a group of seven Members of Parliament from the United Kingdom, constituted to suggest constitutional reforms for British India.",
+    "options": ["Fraser Commission", "Hunter Commission", "Sargent Commission", "Simon Commission"],
+    "correctOption": "Simon Commission"
+  },
+  {
+    "question": "Q.231. Which of the following committees recommended inclusion of fundamental duties?",
+    "options": ["Tarapore Committee", "Radha Krishnan Committee", "Swaran Singh Committee", "Balwantrai Mehta Committee"],
+    "correctOption": "Swaran Singh Committee"
+  },
+  {
+    "question": "Q.232. The Inter-State Council was set up by the recommendations of which committee?",
+    "options": ["Sarkaria committee", "Y V Reddy Committee", "TSR Subramanian committee", "Chandrababu Naidu committee"],
+    "correctOption": "Sarkaria committee"
+  },
+  {
+    "question": "Q.233. The Vijay Kelkar Committee was formed to study and evaluate _______.",
+    "options": ["Public-Private participation model", "The state of sugar mills", "Privatisation of Air India", "Poverty in India"],
+    "correctOption": "Public-Private participation model"
+  },
+  {
+    "question": "Q.234. Second Backward Classes Commission is also known as _______.",
+    "options": ["Mandal Commission", "Tendulkar Commission", "Nehru Commission", "Ambedkar Commission"],
+    "correctOption": "Mandal Commission"
+  },
+  {
+    "question": "Q.235. ______ are the guidelines laid down by the Supreme Court for specific requirements and procedures, which the police have to follow to arrest, detain and interrogate any person.",
+    "options": ["K.C Roberto Guidelines", "D. K Basu Guidelines", "Menka Guidelines", "Vishakha Guidelines"],
+    "correctOption": "D. K Basu Guidelines"
+  },
+  {
+    "question": "Q.236. When did the Sarkaria Commission submit its report?",
+    "options": ["1986", "1984", "1985", "1988"],
+    "correctOption": "1988"
+  },
+  {
+    "question": "Q.237. Who among the following is NOT a part of the committee, which is constructed to provide suggestions to the Prime Minister regarding the appointment of a chief commissioner of the Central Information Commission?",
+    "options": ["Speaker of the Lok Sabha", "A Union Cabinet Minister appointed by Prime Minister", "Leader of Opposition in Lok Sabha", "Prime Minister"],
+    "correctOption": "Speaker of the Lok Sabha"
+  },
+  {
+    "question": "Q.238. Which of the following persons was NOT a part of the Committee of Administrators (CoA) appointed by the Supreme Court of India in 2017, to oversee the implementation of the Lodha reforms in the Board of Control for Cricket in India (BCCI)?",
+    "options": ["Vinod Rai", "Mahim Verma", "Vikram Limaye", "Ramachandra Guha"],
+    "correctOption": "Mahim Verma"
+  },
+  {
+    "question": "Q.239. Which Commission recommended 27% reservation for OBC candidates in all levels of government services?",
+    "options": ["Sarkaria Commission", "Mandal Commission", "Balwant Commission", "Kothari Commission"],
+    "correctOption": "Mandal Commission"
+  },
+  {
+    "question": "Q.240. The ‘Second Backward Classes Commission’ in 1979 was headed by:",
+    "options": ["Jai Prakash Narayan", "BP Mandal", "VK Sahni", "BR Ambedkar"],
+    "correctOption": "BP Mandal"
+  },
+   {
+    "question": "Q.241. In 1990, the Dinesh Goswami Committee was formed to make recommendations on:",
+    "options": ["centre-state relations", "police reforms", "electoral reforms", "fundamental duties"],
+    "correctOption": "electoral reforms"
+  },
+  {
+    "question": "Q.242. Name the first-ever judge of the Supreme Court against whom the motion of impeachment was introduced into Parliament in Independent India.",
+    "options": ["Justice Viraswami", "Justice Ramaswami", "Justice Mahajan", "Justice Subba Rao"],
+    "correctOption": "Justice Ramaswami"
+  },
+  {
+    "question": "Q.243. In case of the death of the President and the Vice President of India, the _________ will act as the President of India.",
+    "options": ["Parliament chosen candidate", "Prime Minister of India", "Chief Justice of India", "Attorney General of India"],
+    "correctOption": "Chief Justice of India"
+  },
+  {
+    "question": "Q.244. In case the President of India wants to resign, he would address his resignation to the ____________.",
+    "options": ["Chief Justice of India", "Vice President of India", "Chief Election Commissioner of India", "Prime Minister of India"],
+    "correctOption": "Vice President of India"
+  },
+  {
+    "question": "Q.245. Who was the prime minister of India during 'the Emergency' between the years 1975 to 1977?",
+    "options": ["Indira Gandhi", "Rajiv Gandhi", "Morarji Desai", "Charan Singh"],
+    "correctOption": "Indira Gandhi"
+  },
+  {
+    "question": "Q.246. The maximum number of nominated members to Lok Sabha is:",
+    "options": ["4", "3", "1", "2"],
+    "correctOption": "2"
+  },
+  {
+    "question": "Q.247. The power to summon the Houses of Parliament is vested with the _______.",
+    "options": ["Prime Minister", "Speaker", "Vice President", "President"],
+    "correctOption": "President"
+  },
+  {
+    "question": "Q.248. The Parliament of India consists of __________.",
+    "options": ["President, House of the People and Council of States", "House of the People", "House of the People and Council of States", "Council of States"],
+    "correctOption": "President, House of the People and Council of States"
+  },
+  {
+    "question": "Q.249. Which of the following is called the 'popular chamber'?",
+    "options": ["State Assembly", "Rajya Sabha", "Lok Sabha", "Gram Sabha"],
+    "correctOption": "Lok Sabha"
+  },
+  {
+    "question": "Q.250. The power to enquire into and decide all the doubts and disputes arising out of the election of the president is vested in:",
+    "options": ["The Chairman of Rajya Sabha", "The Prime Minister of India", "The Supreme Court", "The Election Commission"],
+    "correctOption": "The Supreme Court"
+  },
+  {
+    "question": "Q.251. Who presides over the joint sitting of the two Houses of Parliament?",
+    "options": ["Prime Minister", "The Speaker of the Lok Sabha", "The Vice President", "President"],
+    "correctOption": "The Speaker of the Lok Sabha"
+  },
+  {
+    "question": "Q.252. The quorum to constitute a sitting of the Lok Sabha is_____of the total number of Members of the House under article 100(3) of the Constitution of India.",
+    "options": ["one-tenth", "one-fifth", "one-third", "half"],
+    "correctOption": "one-tenth"
+  },
+  {
+    "question": "Q.253. The first session of the first Lok Sabha commenced on ________.",
+    "options": ["26th January 1950", "15th August 1947", "15th August 1951", "13th May 1952"],
+    "correctOption": "13th May 1952"
+  },
+  {
+    "question": "Q.254. Who decides the admissibility of Questions in Lok Sabha?",
+    "options": ["Speaker", "Prime Minister", "Deputy Speaker", "Vice President"],
+    "correctOption": "Speaker"
+  },
+  {
+    "question": "Q.255. In Parliamentary proceedings, how many matters per day as per their priority in the ballot are allowed to be raised during 'Zero Hour'?",
+    "options": ["21", "18", "19", "20"],
+    "correctOption": "20"
+  },
+  {
+    "question": "Q.256. Matters, which are not points of order, can be raised by way of Special Mentions under Rule ________ of Lok Sabha.",
+    "options": ["377", "302", "223", "214"],
+    "correctOption": "377"
+  },
+  {
+    "question": "Q.257. After 1994, how many sessions of the Rajya Sabha are usually held in a year?",
+    "options": ["four", "two", "three", "six"],
+    "correctOption": "three"
+  },
+  {
+    "question": "Q.258. ____was the Chief Justice of India from January 1950 to November 1951.",
+    "options": ["Bijan Kumar Mukherjea", "Harilal Jekisundas Kania", "Mehr Chand Mahajan", "Bhuvaneshwar Prasad Sinha"],
+    "correctOption": "Harilal Jekisundas Kania"
+  },
+  {
+    "question": "Q.259. Who appoints the chief justice of India?",
+    "options": ["Prime Minister", "Loksabha Speaker", "Vice-President", "President"],
+    "correctOption": "President"
+  },
+  {
+    "question": "Q.260. Who among the following became the country’s Vice President twice?",
+    "options": ["Bhairon Singh Shekhawat", "Mohammad Hidayatullah", "Sarvepalli Radhakrishnan", "K R Narayanan"],
+    "correctOption": "Sarvepalli Radhakrishnan"
+  },
+  {
+    "question": "Q.261. Which of the following statements regarding the Lok Sabha is NOT correct?",
+    "options": [
+      "Central council of ministers is collectively responsible to the Lok Sabha",
+      "Whether the bill is a money bill or not, the final decision will be taken by the leader of the opposition.",
+      "Money bill can be presented only in the Lok Sabha",
+      "The No-confidence motion against the council of ministers can be presented only in the Lok Sabha"
+    ],
+    "correctOption": "Whether the bill is a money bill or not, the final decision will be taken by the leader of the opposition."
+  },
+  {
+    "question": "Q.262. When was the first Lok Sabha constituted?",
+    "options": ["1950", "1948", "1952", "1951"],
+    "correctOption": "1952"
+  },
+  {
+    "question": "Q.263. Who among the following has the power to promulgate an ordinance?",
+    "options": ["Prime Minister", "President", "Chief Justice of the Supreme Court", "Defence Minister"],
+    "correctOption": "President"
+  },
+  {
+    "question": "Q.264. As per Article 274 of the constitution, whose prior recommendation is required for the Bills affecting taxation?",
+    "options": ["Chairman of Rajya Sabha", "Union Finance Minister", "President", "Prime Minister"],
+    "correctOption": "President"
+  },
+  {
+    "question": "Q.265. Who among the following takes part in the election of the President of India?",
+    "options": ["Elected Members of both the houses of Parliament and Legislative Assemblies of the states.", "Elected and nominated members of both the houses of Parliament.", "Elected members of both the houses of Parliament only.", "Elected and nominated members of both the houses of Parliament and Legislative Assemblies of the states."],
+    "correctOption": "Elected Members of both the houses of Parliament and Legislative Assemblies of the states."
+  },
+  {
+    "question": "Q.266. The Upper House of the Indian Parliament is also known as _____.",
+    "options": ["Lok Sabha", "Rajya Sabha", "Vidhan Parishad", "Vidhan Sabha"],
+    "correctOption": "Rajya Sabha"
+  },
+  {
+    "question": "Q.267. Who has to resign when the No-Confidence Motion is passed in the Lok Sabha?",
+    "options": ["Lok Sabha Speaker", "The leader of Opposition", "Council of Ministers", "President"],
+    "correctOption": "Council of Ministers"
+  },
+  {
+    "question": "Q.268. Any act passed by the parliament becomes a law only after the approval of _______.",
+    "options": ["Law Minister", "President", "Supreme Court", "Prime Minister"],
+    "correctOption": "President"
+  },
+  {
+    "question": "Q.269. Who among the following does NOT take part in the election of the President of India?",
+    "options": ["Elected Members of State Assembly", "Elected Members of the Lok Sabha", "Elected Member of Rajya Sabha", "Nominated Members of Parliament"],
+    "correctOption": "Nominated Members of Parliament"
+  },
+  {
+    "question": "Q.270. Who presides over the joint sitting of Lok Sabha and the Rajya Sabha?",
+    "options": ["Speaker of Lok Sabha", "Deputy Speaker of Lok Sabha", "Prime Minister", "Vice President"],
+    "correctOption": "Speaker of Lok Sabha"
+  },
+   {
+    "question": "Q.271. Rule ____ (of the Rules of Procedure and conduct of business in Lok Sabha) does NOT involve formal motion before the Parliament House, hence no voting.",
+    "options": ["158", "186", "149", "193"],
+    "correctOption": "193"
+  },
+  {
+    "question": "Q.272. In Parliament, who takes the final decision on whether a Bill is a Money Bill or not?",
+    "options": ["Vice President", "Speaker", "Finance Minister", "Prime Minister"],
+    "correctOption": "Speaker"
+  },
+  {
+    "question": "Q.273. In the context of the Indian parliament what is 'Zero Hour'?",
+    "options": [
+      "Time immediately after Question Hour",
+      "Time in the last half of the parliamentary proceeding",
+      "Time before Question Hour",
+      "Time in the first half of the parliamentary proceeding"
+    ],
+    "correctOption": "Time immediately after Question Hour"
+  },
+  {
+    "question": "Q.274. How many sessions of the Lok Sabha are normally held in a year?",
+    "options": ["7", "5", "3", "2"],
+    "correctOption": "3"
+  },
+  {
+    "question": "Q.275. The first session of the Lok Sabha commenced on______.",
+    "options": [
+      "26th January 1950",
+      "15th August 1947",
+      "15th August 1951",
+      "13th May 1952"
+    ],
+    "correctOption": "13th May 1952"
+  },
+  {
+    "question": "Q.276. Who decides the admissibility of Questions in Lok Sabha?",
+    "options": [
+      "Speaker",
+      "Prime Minister",
+      "Deputy Speaker",
+      "Vice President"
+    ],
+    "correctOption": "Speaker"
+  },
+  {
+    "question": "Q.277. In Parliamentary proceedings, how many matters per day as per their priority in the ballot are allowed to be raised during ‘Zero Hour’?",
+    "options": ["21", "18", "19", "20"],
+    "correctOption": "20"
+  },
+  {
+    "question": "Q.278. Which of the following Parliamentary Committee does NOT draw any members from Rajya Sabha?",
+    "options": [
+      "Committee on Estimates",
+      "Committee on Petitions",
+      "Committee on Public Undertakings",
+      "Committee on Public Accounts"
+    ],
+    "correctOption": "Committee on Estimates"
+  },
+  {
+    "question": "Q.279. On any issue pertaining to the disqualification of any member of Lok Sabha under the 10th Schedule of Indian Constitution, the final decision is taken by_______.",
+    "options": [
+      "Speaker, Lok Sabha",
+      "Vice-President of India",
+      "President of India",
+      "Election Commission of India"
+    ],
+    "correctOption": "Speaker, Lok Sabha"
+  },
+  {
+    "question": "Q.280. Who appoints the Advocate General of states?",
+    "options": [
+      "Governor of the state",
+      "Chief Minister of the state",
+      "Chief Justice of the high court",
+      "President of India"
+    ],
+    "correctOption": "Governor of the state"
+  },
+  {
+    "question": "Q.281. Which of the following statements is correct?",
+    "options": [
+      "The Governor has no power to grant pardon in respect of punishment or sentence inflicted by Court Martial.",
+      "The President has no power to grant pardon in respect of punishment or sentence inflicted by Court Martial.",
+      "The Governor has power to grant pardon in case of a death sentence.",
+      "The Governor has no power to suspend, remit or commute a sentence of death."
+    ],
+    "correctOption": "The President has no power to grant pardon in respect of punishment or sentence inflicted by Court Martial."
+  },
+  {
+    "question": "Q.282. The process of impeachment of the President of India can be initiated in:",
+    "options": [
+      "Rajya Sabha but not in Lok Sabha",
+      "Either house of the parliament",
+      "Lok Sabha but not in Rajya Sabha",
+      "Lok Sabha, Rajya Sabha or any state legislative assembly"
+    ],
+    "correctOption": "Either house of the parliament"
+  },
+  {
+    "question": "Q.283. Who acts as the President during a casual vacancy that arises due to the death of the President?",
+    "options": [
+      "Nominated Lok Sabha member",
+      "Vice-President",
+      "Lok Sabha Speaker",
+      "Chief Justice of India"
+    ],
+    "correctOption": "Vice-President"
+  },
+  {
+    "question": "Q.284. Who among the following can be removed by the process of impeachment?",
+    "options": [
+      "The Governor of India",
+      "The Prime Minister of India",
+      "The Chief Minister of India",
+      "The President of India"
+    ],
+    "correctOption": "The President of India"
+  },
+  {
+    "question": "Q.285. How many members of the Rajya Sabha can be nominated by the President of India?",
+    "options": ["14", "10", "16", "12"],
+    "correctOption": "12"
+  },
+  {
+    "question": "Q.286. Which of the following statements is correct?",
+    "options": [
+      "The President submits his resignation to the Speaker of the Lok Sabha.",
+      "The President submits his resignation to the Vice-President.",
+      "The President submits his resignation to the Chief Justice of India.",
+      "The President submits his resignation to the Prime Minister."
+    ],
+    "correctOption": "The President submits his resignation to the Vice-President."
+  },
+  {
+    "question": "Q.287. Which of the following statements is correct?",
+    "options": [
+      "The Vice-President can dissolve the Legislative Council of a State.",
+      "The Governor can dissolve the Legislative Assembly of a State.",
+      "The Speaker of the Lok Sabha can dissolve the Lok Sabha.",
+      "The President can dissolve the Rajya Sabha."
+    ],
+    "correctOption": "The Governor can dissolve the Legislative Assembly of a State."
+  },
+  {
+    "question": "Q.288. Which of the following statements is NOT correct about Rajya Sabha?",
+    "options": [
+      "It has powers that protect the rights of states against the union.",
+      "It can amend a money bill.",
+      "Twelve of its members are nominated by the President.",
+      "It is the upper house of the Parliament of India."
+    ],
+    "correctOption": "It can amend a money bill."
+  },
+  {
+    "question": "Q.289. The President of India can hold office for a term of ______ year/s.",
+    "options": ["5", "3", "1", "10"],
+    "correctOption": "5"
+  },
+  {
+    "question": "Q.290. In which year did the first Elected Parliament with two houses come into being in India?",
+    "options": ["1952", "1953", "1954", "1955"],
+    "correctOption": "1952"
+  },
+  {
+    "question": "Q.291. Who was elected as the protem Speaker of the 17th Lok Sabha?",
+    "options": ["Somnath Chatterjee", "Om Birla", "Virendra Kumar", "Sumitra Mahajan"],
+    "correctOption": "Virendra Kumar"
+  },
+  {
+    "question": "Q.292. Of the 552 members of the Lok Sabha, ______ members represent the states.",
+    "options": ["550", "530", "520", "540"],
+    "correctOption": "530"
+  },
+  {
+    "question": "Q.293. In which of the following years was the Rajya Sabha first constituted?",
+    "options": ["1952", "1947", "1950", "1948"],
+    "correctOption": "1952"
+  },
+  {
+    "question": "Q.294. Who among the following appoints the Speaker 'Pro tem' of the Lok Sabha?",
+    "options": [
+      "Prime Minister",
+      "Chief Justice of Supreme Court",
+      "President",
+      "Chief Election Commissioner"
+    ],
+    "correctOption": "President"
+  },
+  {
+    "question": "Q.295. How many members are nominated by the President in the Rajya Sabha?",
+    "options": ["12", "14", "7", "9"],
+    "correctOption": "12"
+  },
+  {
+    "question": "Q.296. In which of the following years was the Council of States (Rajya Sabha) first constituted?",
+    "options": ["1949", "1954", "1950", "1952"],
+    "correctOption": "1952"
+  },
+  {
+    "question": "Q.297. Which of the following statements regarding the functioning of Rajya Sabha is correct?",
+    "options": [
+      "Rajya Sabha is dissolved every second year.",
+      "Rajya Sabha is dissolved after the dissolution of the Lok Sabha.",
+      "Rajya Sabha is dissolved after the assent of the President of India.",
+      "Rajya Sabha is not subject to dissolution."
+    ],
+    "correctOption": "Rajya Sabha is not subject to dissolution."
+  },
+  {
+    "question": "Q.298. ______ is a draft of a legislative proposal before the House.",
+    "options": ["A bill", "A revocation", "A provision", "An act"],
+    "correctOption": "A bill"
+  },
+  {
+    "question": "Q.299. Who among the following is the ex-officio Chairman of Rajya Sabha?",
+    "options": [
+      "President of India",
+      "Vice-President of India",
+      "Speaker of the Parliament",
+      "Prime Minister"
+    ],
+    "correctOption": "Vice-President of India"
+  },
+  {
+    "question": "Q.300. How many Rajya Sabha seats come from the state of Assam?",
+    "options": ["7", "15", "9", "18"],
+    "correctOption": "7"
+  },
+  
+   {
+    "question": "Q.301. ______ holds office from the date of his/her election till immediately before the first meeting of the Lok Sabha after the dissolution of the one to which he/she was elected.",
+    "options": [
+      "Speaker",
+      "Minister of Parliamentary Affairs",
+      "Minister of Information and Broadcasting",
+      "Vice President"
+    ],
+    "correctOption": "Speaker"
+  },
+  {
+    "question": "Q.302. The normal term of every Lok Sabha is ______ years.",
+    "options": ["12", "5", "10", "7"],
+    "correctOption": "5"
+  },
+  {
+    "question": "Q.303. According to which article of the Indian Constitution, a person shall not be qualified to be chosen to fill a seat in the Parliament unless he is a citizen of India?",
+    "options": ["Article 76", "Article 84", "Article 61", "Article 52"],
+    "correctOption": "Article 84"
+  },
+  {
+    "question": "Q.304. Who among the following presides over the joint sitting of both the Houses of Parliament?",
+    "options": [
+      "Union Minister of Parliamentary Affairs",
+      "Speaker of the Lok Sabha",
+      "Deputy Chairman of Rajya Sabha",
+      "Chairman of Rajya Sabha"
+    ],
+    "correctOption": "Speaker of the Lok Sabha"
+  },
+  {
+    "question": "Q.305. The Indian Parliament passed the Citizenship (Amendment) Bill in the year ______.",
+    "options": ["2017", "2019", "2015", "2016"],
+    "correctOption": "2019"
+  },
+  {
+    "question": "Q.306. Which of the following statements is correct?",
+    "options": [
+      "Twelve members of the Rajya Sabha are nominated by the Chairman of the Rajya Sabha.",
+      "Twelve members of the Rajya Sabha are nominated by the President.",
+      "Fifteen members of the Rajya Sabha are nominated by the Prime Minister.",
+      "Fifteen members of the Rajya Sabha are nominated by the President."
+    ],
+    "correctOption": "Twelve members of the Rajya Sabha are nominated by the President."
+  },
+  {
+    "question": "Q.307. The Speaker of the House of the People may submit his resignation to the:",
+    "options": [
+      "Deputy Speaker of the House of the People",
+      "President",
+      "Prime Minister",
+      "Vice-President"
+    ],
+    "correctOption": "Deputy Speaker of the House of the People"
+  },
+  {
+    "question": "Q.308. Which of the following States has a Legislative Council?",
+    "options": ["Tamil Nadu", "Uttar Pradesh", "Gujarat", "West Bengal"],
+    "correctOption": "Uttar Pradesh"
+  },
+  {
+    "question": "Q.309. In the year 2009, who among the following was appointed as the Leader of Opposition in the 15th Lok Sabha?",
+    "options": ["Arun Jaitley", "Sushma Swaraj", "Anantha Kumar", "Smriti Irani"],
+    "correctOption": "Sushma Swaraj"
+  },
+  {
+    "question": "Q.310. Who is the chairperson of the Rajya Sabha?",
+    "options": [
+      "The President of India",
+      "The Governor of India",
+      "The Vice-President of India",
+      "The Chief Justice of India"
+    ],
+    "correctOption": "The Vice-President of India"
+  },
+  {
+    "question": "Q.311. As per the Constitution of India, the total number of members in the Lok Sabha CANNOT be more than:",
+    "options": ["552", "540", "640", "652"],
+    "correctOption": "552"
+  },
+  {
+    "question": "Q.312. In the Lok Sabha, discussion under which rule of the Constitution of India does not involve a formal motion before the House?",
+    "options": ["Rule 123", "Rule 193", "Rule 146", "Rule 157"],
+    "correctOption": "Rule 193"
+  },
+  {
+    "question": "Q.313. What is the total number of female Members of Parliament in the 17th Lok Sabha?",
+    "options": ["56", "64", "78", "81"],
+    "correctOption": "78"
+  },
+  {
+    "question": "Q.314. The minimum age criteria for appointment as the Vice President of India is____.",
+    "options": ["30", "21", "35", "25"],
+    "correctOption": "35"
+  },
+  {
+    "question": "Q.315. Former President Pranab Mukherjee won the first Lok Sabha Election in the year ______.",
+    "options": ["1980", "1991", "2004", "1998"],
+    "correctOption": "2004"
+  },
+  {
+    "question": "Q.316. Who appoints Governor of the state in India ?",
+    "options": ["PMO", "Prime Minister", "President", "Cabinet Committee on Appointments"],
+    "correctOption": "President"
+  },
+  {
+    "question": "Q.317. Who was the President of India during the emergency of 1975-1977?",
+    "options": ["R Venkataraman", "Varahagiri Venkatagiri", "Fakhruddin Ali Ahmed", "Giani Zail Singh"],
+    "correctOption": "Fakhruddin Ali Ahmed"
+  },
+  {
+    "question": "Q.318. Who became the acting prime minister of India after the death of Jawaharlal Nehru in 1964?",
+    "options": ["V P Singh", "Morarji Desai", "Gulzarilal Nanda", "Charan Singh"],
+    "correctOption": "Gulzarilal Nanda"
+  },
+  {
+    "question": "Q.319. Who among the following is the longest serving President of India?",
+    "options": ["Neelam Sanjiva Reddy", "Shankar Dayal Sharma", "Rajendra Prasad", "R Venkataraman"],
+    "correctOption": "Rajendra Prasad"
+  },
+  {
+    "question": "Q.320. Who is the Supreme Commander of the defence forces of India ?",
+    "options": ["President", "Chief of Defence", "Prime Minister", "Defence Minister"],
+    "correctOption": "President"
+  },
+  {
+    "question": "Q.321. In which of the following countries, the Presidential System of Government does not exist?",
+    "options": ["USA", "Russia", "Turkey", "India"],
+    "correctOption": "India"
+  },
+  {
+    "question": "Q.322. The President of India has the same powers and functions as ______.",
+    "options": ["President of USA", "President of China", "President of Turkey", "Queen of Britain"],
+    "correctOption": "Queen of Britain"
+  },
+  {
+    "question": "Q.323. Who is the head of the State and is the highest formal authority in India ?",
+    "options": ["Prime Minister", "President", "Parliament", "Vice-President"],
+    "correctOption": "President"
+  },
+  {
+    "question": "Q.324. Who appoints the Comptroller and Auditor General of India ?",
+    "options": ["Prime Minister", "President", "Chief Justice of India", "Supreme Court"],
+    "correctOption": "President"
+  },
+  {
+    "question": "Q.325. Which of the following Prime Ministers has served a term of 13 days ?",
+    "options": ["Atal Bihari Vajpayee", "Morarji Desai", "Charan Singh", "Jawaharlal Nehru"],
+    "correctOption": "Atal Bihari Vajpayee"
+  },
+  {
+    "question": "Q.326. Who hoists the national flag at the Red Fort on Independence Day?",
+    "options": ["Governor", "Chief Justice", "Prime Minister", "President"],
+    "correctOption": "Prime Minister"
+  },
+  {
+    "question": "Q.327. Who among the following replaced Morarji Desai as the Prime Minister of India in 1979?",
+    "options": ["Chandrasekhar", "Devi Lal", "Jagjivan Ram", "Charan Singh"],
+    "correctOption": "Charan Singh"
+  },
+  {
+    "question": "Q.328. Which of the following Articles of the Constitution of India provides power to the President for promulgating ordinances?",
+    "options": ["Article 77", "Article 143", "Article 123", "Article 111"],
+    "correctOption": "Article 123"
+  },
+  {
+    "question": "Q.329. Who among the following never became the Vice President of India?",
+    "options": ["Gulzarilal Nanda", "VV Giri", "Zakir Husain", "BD Jatti"],
+    "correctOption": "Gulzarilal Nanda"
+  },
+  {
+    "question": "Q.330. Who among the following was the first Vice President of India?",
+    "options": ["Sarvepalli Radhakrishnan", "Varahagiri Venkata Giri", "Gopal Swarup Pathak", "Zakir Hussain"],
+    "correctOption": "Sarvepalli Radhakrishnan"
+  },
+   {
+    "question": "Q.331 Which Indian president used the pocket veto for the Indian Post Office (Amendment) Bill, 1986?",
+    "options": ["APJ Abdul Kalam", "KR Narayanan", "Giani Zail Singh", "Dr Rajendra Prasad"],
+    "correctOption": "Giani Zail Singh"
+  },
+  {
+    "question": "Q.332 According to the Constitution of India, a Judge of the Supreme Court cannot be removed from the office except by an order of the ______.",
+    "options": ["Vice President", "Attorney General", "Prime Minister", "President"],
+    "correctOption": "President"
+  },
+  {
+    "question": "Q.333 What does Article 61 of the Indian Constitution deal with?",
+    "options": ["Fundamental Duties", "Impeachment of the President", "Financial Emergency", "National Emergency"],
+    "correctOption": "Impeachment of the President"
+  },
+  {
+    "question": "Q.334 Who among the following is the 'Visitor' to all central universities of India?",
+    "options": ["President of India", "Chairman, University Grants Commission", "Union Minister of Human Resources Development", "Vice-President of India"],
+    "correctOption": "President of India"
+  },
+  {
+    "question": "Q.335 Which of the following government authorities can appoint the Chief Election Commissioner of India?",
+    "options": ["The Prime Minister", "The President", "The Vice President", "Chief Justice of Supreme Court"],
+    "correctOption": "The President"
+  },
+  {
+    "question": "Q.336 Who among the following was the president of the Constituent Assembly?",
+    "options": ["Jagjivan Ram", "Sardar Vallabhbhai Patel", "Jawaharlal Nehru", "Dr. Rajendra Prasad"],
+    "correctOption": "Dr. Rajendra Prasad"
+  },
+  {
+    "question": "Q.337 The National Board for Micro, Small and Medium Enterprises meets once every _________ month in a year.",
+    "options": ["2", "6", "3", "9"],
+    "correctOption": "6"
+  },
+  {
+    "question": "Q.338 What is the term of the elected representatives of a Gram Panchayat?",
+    "options": ["5 years", "3 years", "2 years", "4 years"],
+    "correctOption": "5 years"
+  },
+  {
+    "question": "Q.339 What is the tenure of a Panchayat as per the 73rd constitutional amendment act?",
+    "options": ["4 years", "3 years", "6 years", "5 years"],
+    "correctOption": "5 years"
+  },
+  {
+    "question": "Q.340 Elections to Panchayats in a State are conducted by _____.",
+    "options": ["Election Commission of India", "Joint Public Service Commission", "State Election Commission", "Gram Sabha"],
+    "correctOption": "State Election Commission"
+  },
+  {
+    "question": "Q.341 On which date did the NITI Aayog replace the Planning Commission?",
+    "options": ["1st of January 2017", "1st of January 2014", "1st of January 2016", "1st of January 2015"],
+    "correctOption": "1st of January 2015"
+  },
+  {
+    "question": "Q.342 How many tiers are there in a Panchayati Raj structure?",
+    "options": ["Three", "Four", "Five", "Two"],
+    "correctOption": "Three"
+  },
+  {
+    "question": "Q.343 Which of the following authorities launched PPRTMS (Political Parties Registration Tracking Management System)?",
+    "options": ["The Union Public Service Commission", "National Human Rights Commission", "Election Commission of India", "The Supreme Court"],
+    "correctOption": "Election Commission of India"
+  },
+  {
+    "question": "Q.344 Who was the first president of Independent India?",
+    "options": ["Sarvapalli Radhakrishnan", "Rajendra Prasad", "Ram Nath Kovind", "Pranab Mukherjee"],
+    "correctOption": "Rajendra Prasad"
+  },
+  {
+    "question": "Q.345 The Supreme Court has declared access to the internet a fundamental right under Article ________ of the Indian Constitution.",
+    "options": ["17", "21", "14", "19"],
+    "correctOption": "19"
+  },
+  {
+    "question": "Q.346 What is the tenure of the Chief Election Commissioner of India?",
+    "options": ["6 years or up to the age of 65 years, whichever is earlier", "4 years or up to the age of 65 years, whichever is earlier", "5 Years or up to the age of 65 years, whichever is earlier", "3 years or up to the age of 65 years, whichever is earlier"],
+    "correctOption": "6 years or up to the age of 65 years, whichever is earlier"
+  },
+  {
+    "question": "Q.347 How many agro-climatic zones (ACZ) are characterized by the Planning Commission of India?",
+    "options": ["30", "15", "10", "20"],
+    "correctOption": "15"
+  },
+  {
+    "question": "Q.348 When was the Backward and Minority Communities Employees Federation (BAMCEF) established in India?",
+    "options": ["1979", "1980", "1978", "1989"],
+    "correctOption": "1978"
+  },
+  {
+    "question": "Q.349 The election to constitute a Panchayat should be completed before the expiration of a period of ______ from the date of its dissolution.",
+    "options": ["eight months", "one year", "six months", "two months"],
+    "correctOption": "six months"
+  },
+  {
+    "question": "Q.350 Union Legislature alone can make laws on matters related to ______.",
+    "options": ["public health", "police", "railways", "local self-government"],
+    "correctOption": "railways"
+  },
+  {
+    "question": "Q.351 Who implements Model Code of Conduct for elections in India ?",
+    "options": ["Parliament", "Supreme Court", "Returning Officer", "Election Commission"],
+    "correctOption": "Election Commission"
+  },
+  {
+    "question": "Q.352 Who among the following is the Chairman of Planning Commission and National Integration Council of India?",
+    "options": ["The Attorney General", "The Vice President", "The Prime Minister", "The President"],
+    "correctOption": "The Prime Minister"
+  },
+  {
+    "question": "Q.353 What is the tenure of the chairman of the State Public Service Commission?",
+    "options": ["5 years or the age of 65 years, whichever is earlier", "6 years or the age of 62 years, whichever is earlier", "5 years or the age of 60 years, whichever is earlier", "6 years or the age of 60 years, whichever is earlier"],
+    "correctOption": "6 years or the age of 62 years, whichever is earlier"
+  },
+  {
+    "question": "Q.354 As per the Constitution of India, a member of Union Public Service Commission holds office for a period of six years or till he/she attains the age of ______ years.",
+    "options": ["60", "62", "65", "68"],
+    "correctOption": "65"
+  },
+  {
+    "question": "Q.355 The Finance Commission of India is constituted by the ______ under Article 280 of the Constitution.",
+    "options": ["Supreme Court", "Vice-President", "President", "High Court"],
+    "correctOption": "President"
+  },
+  {
+    "question": "Q.356 The Planning Commission was established by an executive decision of Government of India in ______.",
+    "options": ["1955", "1945", "1960", "1950"],
+    "correctOption": "1950"
+  },
+  {
+    "question": "Q.357 The 15th Finance Commission has been constituted by the President of India for a period of ______ years.",
+    "options": ["three", "six", "four", "five"],
+    "correctOption": "five"
+  },
+  {
+    "question": "Q.358 When was the five-year plan started in India ?",
+    "options": ["1958", "1951", "1955", "1947"],
+    "correctOption": "1951"
+  },
+  {
+    "question": "Q.359 The Mahalanobis Plan of development was adopted during which Five Year Plan?",
+    "options": ["Third", "Fourth", "First", "Second"],
+    "correctOption": "Second"
+  },
+  {
+    "question": "Q.360 How many members are present in the Sri Lankan Parliament?",
+    "options": ["210", "215", "232", "225"],
+    "correctOption": "225"
+  },
+   {
+    "question": "Q.361. Who among the following was the first President of Pakistan?",
+    "options": ["Zulfikar Ali Bhutto", "Yahya Khan", "Iskander Mirza", "Ayub Khan"],
+    "correctOption": "Iskander Mirza"
+  },
+  {
+    "question": "Q.362. Which of the following countries has the largest parliament in the world?",
+    "options": ["UK", "India", "China", "Japan"],
+    "correctOption": "China"
+  },
+  {
+    "question": "Q.363. The maximum strength of the Bangladeshi parliament is _____ .",
+    "options": ["350", "340", "322", "363"],
+    "correctOption": "350"
+  },
+  {
+    "question": "Q.364. When was the constitution of Pakistan enforced?",
+    "options": ["1973", "1947", "1965", "1952"],
+    "correctOption": "1956"
+  },
+  {
+    "question": "Q.365. Who among the following is/was the longest serving Prime Minister of Bangladesh?",
+    "options": ["Khalida Zia", "Sheikh Mujibur Rahman", "Shah Azizur Rahman", "Sheikh Hasina"],
+    "correctOption": "Sheikh Hasina"
+  },
+  {
+    "question": "Q.366. How many provinces is the country of Nepal divided into?",
+    "options": ["5", "7", "4", "6"],
+    "correctOption": "7"
+  },
+  {
+    "question": "Q.367. To which neighbouring country was the Indian Peace Keeping Force (IPKF) sent in the year 1987?",
+    "options": ["Nepal", "Sri Lanka", "Bhutan", "Burma"],
+    "correctOption": "Sri Lanka"
+  },
+  {
+    "question": "Q.368. In which year was a new Constitution adopted in Sri Lanka creating the 'Democratic The Socialist Republic of Sri Lanka'?",
+    "options": ["1978", "1965", "1982", "1980"],
+    "correctOption": "1978"
+  },
+  {
+    "question": "Q.369. In which year did Nepal adopt its first democratic constitution?",
+    "options": ["2010", "2015", "2013", "2017"],
+    "correctOption": "2015"
+  },
+  {
+    "question": "Q.370. Who among the following is/was the longest serving governor of an Indian state?",
+    "options": ["Lakshmi Kant Jha", "Padmaja Naidu", "N D Tiwari", "Sarojini Naidu"],
+    "correctOption": "Padmaja Naidu"
+  },
+  {
+    "question": "Q.371. Which one of the following Union Territories has been granted with partial statehood?",
+    "options": ["Puducherry", "Daman and Diu", "Dadra and Nagar Haveli", "Lakshadweep"],
+    "correctOption": "Puducherry"
+  },
+  {
+    "question": "Q.372. The Lok Sabha elected after the 2019 elections is the ________ Lok Sabha.",
+    "options": ["18th", "16th", "15th", "17th"],
+    "correctOption": "17th"
+  },
+  {
+    "question": "Q.373. Who was the first woman to become the governor of an Indian state?",
+    "options": ["Sarojini Naidu", "Aruna Asaf Ali", "Vijay Laxmi Pandit", "Krishna Hutheesing"],
+    "correctOption": "Sarojini Naidu"
+  },
+  {
+    "question": "Q.374. The first defence minister of independent India was:",
+    "options": ["C Rajagopalachari", "Baldev Singh", "Shri Jagjivan Ram", "Sardar Vallabhbhai Patel"],
+    "correctOption": "Baldev Singh"
+  },
+  {
+    "question": "Q.375. Which party government announced the formation of a second backward classes commission in 1978?",
+    "options": ["Indian National Congress Party", "Bharatiya Janata Party", "Janata Party", "United Democratic Party"],
+    "correctOption": "Janata Party"
+  },
+  {
+    "question": "Q.376. In which year was the Communist Party formed in India?",
+    "options": ["1925", "1922", "1927", "1930"],
+    "correctOption": "1925"
+  },
+  {
+    "question": "Q.377. How many times has the National Emergency been declared by the President in the country?",
+    "options": ["3", "4", "2", "1"],
+    "correctOption": "3"
+  },
+  {
+    "question": "Q.378. Our National Anthem ‘Jan Gan Man’ is adopted from which language?",
+    "options": ["Hindi", "Marathi", "Assamese", "Bangla"],
+    "correctOption": "Bangla"
+  },
+  {
+    "question": "Q.379. In which year the National Food Security Act was passed in India?",
+    "options": ["2011", "2013", "2012", "2014"],
+    "correctOption": "2013"
+  },
+  {
+    "question": "Q.380. The High Court of Kerala and Lakshadweep is situated at:",
+    "options": ["Ernakulam", "Thrissur", "Kochi", "Kannur"],
+    "correctOption": "Kochi"
+  },
+  {
+    "question": "Q.381. Which of the following countries was the earliest to give women the right to vote?",
+    "options": ["Australia", "France", "UK", "USA"],
+    "correctOption": "Australia"
+  },
+  {
+    "question": "Q.382. Andaman and Nicobar jurisdiction comes under which High Court?",
+    "options": ["Andhra Pradesh", "Calcutta", "Madras", "Odisha"],
+    "correctOption": "Calcutta"
+  },
+  {
+    "question": "Q.383. In which year were the Union and Railway budgets merged?",
+    "options": ["2017", "2016", "2018", "2015"],
+    "correctOption": "2016"
+  },
+  {
+    "question": "Q.384. The decisions given by the Supreme Court of India are to _____.",
+    "options": ["Any region of a state", "All states and union territories except Jammu and Kashmir", "Only district courts", "All Indian courts"],
+    "correctOption": "All Indian courts"
+  },
+  {
+    "question": "Q.385. Which one is the largest appellate court of India?",
+    "options": ["High Court", "District Court", "Supreme Court", "Consumer Court"],
+    "correctOption": "Supreme Court"
+  },
+  {
+    "question": "Q.386. Who was the first Chief Justice of Independent India?",
+    "options": ["B.K. Mukherjee", "S.R. Das", "M. Patanjali Sastri", "Harilal J. Kania"],
+    "correctOption": "Harilal J. Kania"
+  },
+  {
+    "question": "Q.387. Who conducts the elections of Lok Sabha in India?",
+    "options": ["Election Commission", "Union Public Service Commission", "Parliament", "Delimitation Commission"],
+    "correctOption": "Election Commission"
+  },
+  {
+    "question": "Q.388. Which of the following is NOT a Federal country?",
+    "options": ["Canada", "Brazil", "China", "Australia"],
+    "correctOption": "China"
+  },
+  {
+    "question": "Q.389. Who among the following presented the Union budget of India for the maximum times?",
+    "options": ["RK Shanmukham Chetty", "Pranab Mukherjee", "Morarji Desai", "P. Chidambaram"],
+    "correctOption": "Morarji Desai"
+  },
+  {
+    "question": "Q.390. Who presided over the 15th Finance Commission?",
+    "options": ["Y.V Reddy", "N.K Singh", "Amitabh Kant", "Urjit Patel"],
+    "correctOption": "N.K Singh"
+  },
+  {
+    "question": "Q.391. Which of the following is NOT a scheduled language of India?",
+    "options": ["Rajasthani", "Sindhi", "Manipuri", "Bodo"],
+    "correctOption": "Rajasthani"
+  },
+  {
+    "question": "Q.392. When was the Nationalist Congress Party formed?",
+    "options": ["1999", "1992", "1980", "1984"],
+    "correctOption": "1999"
+  },
+  {
+    "question": "Q.393. Which of the following Articles of the Constitution of India mentions 'Continuance of the rights of citizenship'?",
+    "options": ["Article 12", "Article 10", "Article 9", "Article 11"],
+    "correctOption": "Article 10"
+  },
+  {
+    "question": "Q.394. In which of the following states is there a bicameral legislature?",
+    "options": ["Punjab", "Goa", "Bihar", "Sikkim"],
+    "correctOption": "Bihar"
+  },
+  {
+    "question": "Q.395. Who was the first National Security Advisor of India?",
+    "options": ["Pankaj Singh", "Manmohan Singh", "Prof. Rajinder Khanna", "Brajesh Mishra"],
+    "correctOption": "Brajesh Mishra"
+  },
+  {
+    "question": "Q.396. In which year did the first Gender Budget Statement appear in the Union Budget of India?",
+    "options": ["2001-02", "2005-06", "2010-11", "2007-08"],
+    "correctOption": "2005-06"
+  },
+  {
+    "question": "Q.397. What is the election called in a political parliamentary/assembly constituency to fill the vacancy arising during the tenure of the government?",
+    "options": ["Bypolls", "Council Elections", "Mini Elections", "Tri-Elections"],
+    "correctOption": "Bypolls"
+  },
+  {
+    "question": "Q.398. Who was the first full-time female Finance Minister of India?",
+    "options": ["Sarojini Naidu", "Maneka Gandhi", "Nirmala Sitharaman", "Indira Gandhi"],
+    "correctOption": "Nirmala Sitharaman"
+  },
+  {
+    "question": "Q.399. When was the Citizenship Act passed?",
+    "options": ["1952", "1955", "1960", "1965"],
+    "correctOption": "1955"
+  },
+  {
+    "question": "Q.400. When was the Representation of the People Act passed?",
+    "options": ["1951", "1949", "1955", "1945"],
+    "correctOption": "1951"
+  },
+  {
+    "question": "Q.401. Under Article 21 of the constitution, the right to livelihood as part of the right to life was retained due to which case?",
+    "options": ["Shankari Prasad Case", "Olga Tellis vs Bombay Municipal Corporation", "Maneka Gandhi vs VOI case", "N Nagaraj Vs VOI case"],
+    "correctOption": "Olga Tellis vs Bombay Municipal Corporation"
+  },
+  {
+    "question": "Q.402. In which form of government are rulers directly elected by the people of the country?",
+    "options": ["Democracy", "Dictatorship", "Autocracy", "Republic"],
+    "correctOption": "Democracy"
+  },
+  {
+    "question": "Q.403. Who was appointed as the first Deputy Speaker of the Lok Sabha?",
+    "options": ["M. Ananthasayanam Ayyangar", "G V Mavalankar", "Vithalbhai J Patel", "V Narahari Rao"],
+    "correctOption": "M. Ananthasayanam Ayyangar"
+  },
+  {
+    "question": "Q.404. As per the Table of Precedence, who among the following enjoys the highest ceremonial protocol?",
+    "options": ["Holders of Bharat Ratna", "Judges of the Supreme Court of India", "Cabinet ministers of the Union", "Deputy Chairman of Rajya Sabha"],
+    "correctOption": "Cabinet ministers of the Union"
+  },
+  {
+    "question": "Q.405. Ram Vilas Paswan is the president of which party?",
+    "options": ["Bahujan Samaj Party", "Republican Party of India", "Samajwadi Party", "Lok Janshakti Party"],
+    "correctOption": "Lok Janshakti Party"
+  },
+  {
+    "question": "Q.406. In which year was the first-ever motion to remove a Supreme court justice signed by 108 members of Parliament?",
+    "options": ["1984", "1991", "1978", "1996"],
+    "correctOption": "1991"
+  },
+  {
+    "question": "Q.407. How many policies does the Institutional Mechanism of Federalism accommodate?",
+    "options": ["Two", "One", "Four", "Three"],
+    "correctOption": "Two"
+  },
+  {
+    "question": "Q.408. As of Feb 2020, how many members represent the state of Uttar Pradesh in Lok Sabha?",
+    "options": ["48", "80", "62", "39"],
+    "correctOption": "80"
+  },
+  {
+    "question": "Q.409. Which of the following states has the highest representation in the Lok Sabha?",
+    "options": ["Rajasthan", "Andhra Pradesh", "Tamil Nadu", "Uttar Pradesh"],
+    "correctOption": "Uttar Pradesh"
+  },
+  {
+    "question": "Q.410. How many Lok Sabha constituencies are there in Rajasthan?",
+    "options": ["28", "20", "25", "30"],
+    "correctOption": "25"
+  },
+  {
+    "question": "Q.411. Who appoints the Chief Justice of India?",
+    "options": ["President of India in consultation with senior judges of Supreme Court and High Court", "President of India in consultation with senior judges of Supreme Court", "President of India", "Judges of Supreme Court and High Court"],
+    "correctOption": "President of India in consultation with senior judges of Supreme Court"
+  },
+  {
+    "question": "Q.412. Bangladesh was a part of Pakistan from ______ to ______.",
+    "options": ["1947; 1962", "1947; 1971", "1947; 1958", "1947; 1989"],
+    "correctOption": "1947; 1971"
+  },
+  {
+    "question": "Q.413. On the night of ______ 1975, Indira Gandhi recommended the imposition of Emergency to President Fakhruddin Ali Ahmed.",
+    "options": ["1st June", "22nd May", "25th June", "1st July"],
+    "correctOption": "25th June"
+  },
+  {
+    "question": "Q.414. What does the writ of 'Mandamus' mean?",
+    "options": ["By what Warrants", "We Command", "To be Certified", "You May Have the Body"],
+    "correctOption": "We Command"
+  },
+  {
+    "question": "Q.415. In which of the following years was the origin and enactment of the Indian Age of Consent Act passed?",
+    "options": ["1834", "1901", "1891", "1889"],
+    "correctOption": "1891"
+  },
+  {
+    "question": "Q.416. Who is the ex-officio President of the Indian Parliamentary Group (IPG), set up in 1949, which functions as the national group of the Inter-Parliamentary Union (IPU) and the main branch of the Commonwealth Parliamentary Association (CPA) in India?",
+    "options": ["Prime Minister", "Vice President", "President", "Speaker of the Lok Sabha"],
+    "correctOption": "Speaker of the Lok Sabha"
+  },
+  {
+    "question": "Q.417. In 1977, who became the President of the Janata Party, which formed a coalition government at the center with Morarji Desai as the Prime Minister?",
+    "options": ["Charan Singh", "George Fernandes", "Chandra Shekhar", "Madhu Dandavate"],
+    "correctOption": "Chandra Shekhar"
+  },
+  {
+    "question": "Q.418. In which of the following states does the Governor have a special responsibility under Article 371H of the Constitution with respect to law and order and in discharge of his functions in relation thereto?",
+    "options": ["Nagaland", "Sikkim", "Mizoram", "Arunachal Pradesh"],
+    "correctOption": "Arunachal Pradesh"
+  },
+  {
+    "question": "Q.419. What is the expanded form of the abbreviation 'Rep.' used in the text of the Constitution of India?",
+    "options": ["Repealed", "Republic", "Report", "Representative"],
+    "correctOption": "Repealed"
+  },
+  {
+    "question": "Q.420. The Indian Forest Act 1927 was enacted after repealing which of the following Indian forest acts?",
+    "options": ["Indian Forest Act, 1882", "Indian Forest Act, 1922", "Indian Forest Act, 1865", "Indian Forest Act, 1878"],
+    "correctOption": "Indian Forest Act, 1878"
+  },
+  {
+    "question": "Q.421. Who has the power to recommend the dismissal of the state government and suspension or dissolution of the state assembly?",
+    "options": ["Chief Minister", "Prime Minister", "Governor", "Speaker of the legislative assembly"],
+    "correctOption": "Governor"
+  },
+  {
+    "question": "Q.422. When was the State Reorganisation Act passed by the Government of India?",
+    "options": ["1962", "1947", "1969", "1956"],
+    "correctOption": "1956"
+  },
+  {
+    "question": "Q.423. The polity of a country is designed according to its ______ and any change to the polity is possible only when an amendment is made.",
+    "options": ["Constitution", "People", "Government", "Preamble"],
+    "correctOption": "Constitution"
+  },
+  {
+    "question": "Q.424. In which of the following years did the Supreme Court of India come into existence after Independence?",
+    "options": ["1955", "1948", "1950", "1952"],
+    "correctOption": "1950"
+  },
+  {
+    "question": "Q.425. ______ is a set of norms and guidelines to be followed by the political parties and contesting candidates during election time.",
+    "options": ["Constitutional Norms", "Constitutional Rules", "Code of Conduct", "Rigging"],
+    "correctOption": "Code of Conduct"
+  },
+  {
+    "question": "Q.426. In which of the following years did Telangana become the 29th state of India after the reorganisation of the state of Andhra Pradesh?",
+    "options": ["2014", "1994", "2010", "1998"],
+    "correctOption": "2014"
+  },
+  {
+    "question": "Q.427. In which year did the Central Government of India appoint the States Reorganisation Commission?",
+    "options": ["1958", "1953", "1950", "1951"],
+    "correctOption": "1953"
+  },
+  {
+    "question": "Q.428. One-third of the members of the Vidhan Parishad retire every ______ year/s.",
+    "options": ["four", "one", "three", "two"],
+    "correctOption": "two"
+  },
+  {
+    "question": "Q.429. Which was the first part of India to hold an election based on universal adult franchise?",
+    "options": ["Assam", "Tripura", "Manipur", "Bihar"],
+    "correctOption": "Manipur"
+  },
+  {
+    "question": "Q.430. What is the minimum age requirement for appointment as a Governor?",
+    "options": ["26 years", "35 years", "25 years", "42 years"],
+    "correctOption": "35 years"
+  },
+  {
+    "question": "Q.431. Which of the following does the Special Marriage Act 1954 NOT support?",
+    "options": ["Inter-caste marriage", "Strict endogamy", "Inter-faith marriage", "Communal harmony"],
+    "correctOption": "Strict endogamy"
+  },
+  {
+    "question": "Q.432. The monthly maintenance amount of ₹ ______ payable by children to parents, set by the Maintenance and Welfare of Parents and Senior Citizens Bill, 2007, was removed by the Maintenance and Welfare of Parents and Senior Citizens (Amendment) Bill, 2019.",
+    "options": ["10,000", "5,000", "12,000", "8,000"],
+    "correctOption": "10,000"
+  },
+  {
+    "question": "Q.433. We celebrate 'Samvidhan Divas' on ______ every year, to commemorate the adoption of the Constitution of India.",
+    "options": ["26th January", "26th November", "15th September", "15th August"],
+    "correctOption": "26th November"
+  },
+  {
+    "question": "Q.434. Which of the following statements about the Constitution of India is NOT true?",
+    "options": ["It prevents the State from making any law in matters of religion.", "Its makers chose the model of a secular state.", "It provides all individuals and communities the freedom to profess, practice and propagate any religion.", "It prohibits discrimination on grounds of religion."],
+    "correctOption": "It prevents the State from making any law in matters of religion."
+  },
+  {
+    "question": "Q.435. How many seats are allocated to Bihar in the Lok Sabha as per the statewise list of the 17th Lok Sabha?",
+    "options": ["60", "40", "78", "48"],
+    "correctOption": "40"
+  },
+  {
+    "question": "Q.436. Which of the following Union Ministries organizes All India Whips’ Conference to establish suitable links among the whips of various political parties at the centre and the states/union territories who are concerned with the practical working of the legislatures?",
+    "options": ["Ministry of Home Affairs", "Ministry of Information and Broadcasting", "Ministry of Parliamentary Affairs", "Ministry of Human Resource Development"],
+    "correctOption": "Ministry of Parliamentary Affairs"
+  },
+  {
+    "question": "Q.437. As per the Constitution of India, what is the maximum number of states for which the same person can be appointed as Governor?",
+    "options": ["There is no limit", "One state", "Two states", "Three states"],
+    "correctOption": "There is no limit"
+  },
+  {
+    "question": "Q.438. Which of the following was NOT included in the definition of 'children' by the Maintenance and Welfare of Parents and Senior Citizens Act, 2007?",
+    "options": ["Adult son", "Adult daughter", "Minor son", "Adult grandson"],
+    "correctOption": "Minor son"
+  },
+  {
+    "question": "Q.439. Which Prime Minister among the following had signed the Assam Accord with the All Assam Gana Sangram Parishad in 1985?",
+    "options": ["PV Narasimha Rao", "Rajiv Gandhi", "IK Gujral", "VP Singh"],
+    "correctOption": "Rajiv Gandhi"
+  },
+  {
+    "question": "Q.440. According to the Motor Vehicles Act, 1988, no person under the age of ______ years shall be granted a learner’s license to drive a motorcycle without gear except with the consent in writing of the person having the care of the person desiring the learner’s license.",
+    "options": ["twenty", "eighteen", "seventeen", "twenty-one"],
+    "correctOption": "eighteen"
+  },
+  {
+    "question": "Q.441. Which of the following Acts was passed by the Government of India to inquire into allegations of corruption against certain public functionaries?",
+    "options": ["Delimitation Act", "Prevention of Money Laundering Act", "Central Vigilance Commission Act", "The Lokpal and Lokayukta Act"],
+    "correctOption": "The Lokpal and Lokayukta Act"
+  },
+  {
+    "question": "Q.442. Who among the following was the President of India when a national emergency was declared in 1975?",
+    "options": ["Zakir Husain", "Varahagiri Venkata Giri", "Neelam Sanjiva Reddy", "Fakhruddin Ali Ahmed"],
+    "correctOption": "Fakhruddin Ali Ahmed"
+  },
+  {
+    "question": "Q.443. Who was the Pro-tem speaker of the 16th Lok Sabha?",
+    "options": ["Meira Kumar", "M Thambidurai", "Kamal Nath", "Manohar Parrikar"],
+    "correctOption": "Kamal Nath"
+  },
+  {
+    "question": "Q.444. As per the Consumer Protection Act, 1986, a complaint can be filed in the District Consumer Disputes Redressal Forum if the value of the claim is up to:",
+    "options": ["₹5 lakh", "₹15 lakh", "₹20 lakh", "₹10 lakh"],
+    "correctOption": "₹20 lakh"
+  },
+  {
+    "question": "Q.445. Which of the following states has the highest number of Legislative Assembly (Vidhan Sabha) Constituencies?",
+    "options": ["Rajasthan", "Maharashtra", "Uttar Pradesh", "Madhya Pradesh"],
+    "correctOption": "Uttar Pradesh"
+  },
+  {
+    "question": "Q.446. The ______ states that no woman shall be arrested after sunset and before sunrise except under exceptional circumstances.",
+    "options": ["Probation of Offenders Act", "Indian Penal Code", "Police Act", "Code of Criminal Procedure"],
+    "correctOption": "Code of Criminal Procedure"
+  },
+  {
+    "question": "Q.447. A Panchayat continues for ______ from the date appointed for its first meeting.",
+    "options": ["14 years", "11 years", "5 years", "9 years"],
+    "correctOption": "5 years"
+  },
+  {
+    "question": "Q.448. In which year was the Communist Party of India - Marxist (CPI-M) formed?",
+    "options": ["1951", "1964", "1962", "1972"],
+    "correctOption": "1964"
+  },
+  {
+    "question": "Q.449. Which of the following union territories has representation in the Council of States?",
+    "options": ["Chandigarh", "Lakshadweep", "Andaman and Nicobar Islands", "Puducherry"],
+    "correctOption": "Puducherry"
+  },
+  {
+    "question": "Q.450. The Supreme Court of India was established on:",
+    "options": ["25 January 1954", "30 January 1950", "15 January 1952", "26 January 1950"],
+    "correctOption": "26 January 1950"
+  },
+  
+   {
+    "question": "Q.451. An official enumeration of population done periodically is known as:",
+    "options": [
+      "national register of citizens",
+      "demographic count",
+      "census",
+      "national population register"
+    ],
+    "correctOption": "census"
+  },
+  {
+    "question": "Q.452. Electoral roll is commonly known as:",
+    "options": [
+      "election count",
+      "voter's list",
+      "election list",
+      "serial list"
+    ],
+    "correctOption": "voter's list"
+  },
+  {
+    "question": "Q.453. National Commission for Scheduled Tribes came into existence as a separate commission in which of the following year?",
+    "options": ["2000", "2006", "2004", "2002"],
+    "correctOption": "2004"
+  },
+  {
+    "question": "Q.454. Who among the following has the power to nominate some members in the Legislative Council of a state?",
+    "options": [
+      "The Governor of the concerned state",
+      "The Prime Minister of India",
+      "The Chief Minister of the concerned state",
+      "The Chairman of the Legislative Council of the concerned state"
+    ],
+    "correctOption": "The Governor of the concerned state"
+  },
+  {
+    "question": "Q.455. Which of the following statements is correct?",
+    "options": [
+      "The minimum age requirement for appointment as Governor is 30 years.",
+      "The Governor holds office during the pleasure of the Chief Minister.",
+      "The Governor submits his resignation to the Prime Minister.",
+      "The Governor is appointed by the President."
+    ],
+    "correctOption": "The Governor is appointed by the President."
+  },
+  {
+    "question": "Q.456. In which of the following years did the Congress Party led by Indira Gandhi give the slogan of ‘Garibi Hatao’ in the Lok Sabha elections?",
+    "options": ["1957", "1962", "1977", "1971"],
+    "correctOption": "1971"
+  },
+  {
+    "question": "Q.457. Which of the following is a consumer right?",
+    "options": [
+      "Right to Move or Settle",
+      "Right to Manufacture Goods",
+      "Right to Seek Redressal",
+      "Right to Constitutional Remedies"
+    ],
+    "correctOption": "Right to Seek Redressal"
+  },
+  {
+    "question": "Q.458. Which country has veto power in the United Nations?",
+    "options": ["India", "Bhutan", "China", "Bangladesh"],
+    "correctOption": "China"
+  },
+  {
+    "question": "Q.459. As per the Constitution of India, every person who is arrested and detained in custody shall be produced before the nearest magistrate within a period of ______ hours of such arrest excluding the time necessary for the journey from the place of arrest to the court of the magistrate.",
+    "options": ["six", "thirty-six", "twenty-four", "twelve"],
+    "correctOption": "twenty-four"
+  },
+  
+  
+  
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

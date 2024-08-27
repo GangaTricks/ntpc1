@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTPC Physics 2021</title> 
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Physics NTPC 2021 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+function showQuestion() {
+
+correctOptionText = ''; // Initialize correctOptionText
+    // Rest of your existing showQuestion code
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+
+// Copy question and options
+const copyButton = document.querySelector('.btn-copy');
+copyButton.addEventListener('click', () => {
+    const questionText = document.querySelector('#question').textContent;
+    const optionElements = document.querySelectorAll('.form-check-label');
+    
+    let optionsText = '';
+    let correctOptionText = null;
+    let correctOptionIndex = null;
+
+    optionElements.forEach((optionElement, index) => {
+        const optionText = optionElement.textContent.trim();
+        const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+        optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? ' ☑️Correct' : ''}\n`;
+
+        if (isCorrect) {
+            correctOptionText = optionText;
+            correctOptionIndex = index + 1;
+        }
+    });
+
+    let textToCopy = `${questionText}\n\n${optionsText}\n`;
+
+    if (correctOptionText && correctOptionIndex) {
+        textToCopy += `The Correct Option ${correctOptionIndex}: ${correctOptionText}\n                 ☑️Correct  ☑️Correct\n`;
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+
+    // Toggle button text
+    copyButton.textContent = '✅';
+    setTimeout(() => {
+        copyButton.textContent = '📋';
+    }, 2000); // Reset text after 2 seconds
+});
+
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'physicsntpc2021underntpcfacts';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+    const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+	
+	 // Update correctOptionText for copying
+        correctOptionText = `correctOption ${correctOptionIndex + 1}: ${currentQuestion.correctOption}`;
+		
+	
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+     
+
+
+    
+    {
+        "question": "Excessive curvature of the eye lens leads to. of",
+        "options": ["Hypermetropia", "cataract", "color blindness", "myopia"],
+        "correctOption": "myopia"
+    },
+    {
+        "question": "What type of lens is required to correct the vision of a person who is nearsighted?",
+        "options": ["converging lens", "Bifocal lens", "Cylindrical lens", "diverging lens"],
+        "correctOption": "diverging lens"
+    },
+    {
+        "question": "Which of the two colors of the spectrum is extreme?",
+        "options": ["Purple and red", "yellow and orange", "Deer craving", "blue and green"],
+        "correctOption": "Purple and red"
+    },
+    {
+        "question": "Why do the stars twinkle in the sky at night?",
+        "options": ["Due to scattering of light", "Due to atmospheric refraction of starlight", "Due to increase in light", "Due to hot air"],
+        "correctOption": "Due to atmospheric refraction of starlight"
+    },
+    {
+        "question": "The ability of the eye to focus on both near and distant objects, by adjusting its focal length.",
+        "options": ["adjustment", "Applicability", "adjustment", "refractivity"],
+        "correctOption": "adjustment"
+    },
+    {
+        "question": "Travelers in the desert often have the optical illusion of a sheet of water where none actually exists. what is it called?",
+        "options": ["scattering", "Purple and red", "Deer craving", "red and orange"],
+        "correctOption": "scattering"
+    },
+    {
+        "question": "The ability of a medium to refract light is also expressed in terms of",
+        "options": ["Optical volume", "optical density", "optical mass", "optical illusion"],
+        "correctOption": "optical density"
+    },
+    {
+        "question": "What is the center point of the reflecting surface of a spherical mirror called?",
+        "options": ["main axis", "center of curvature", "Dhruv", "focus"],
+        "correctOption": "main axis"
+    },
+    {
+        "question": "An area where all light coming from a source is blocked is called?",
+        "options": ["Penumbra", "Reflection", "Antambara", "Shadow"],
+        "correctOption": "Shadow"
+    },
+    {
+        "question": "What is myopia called in humans?",
+        "options": ["cataract", "Presbyopia", "Myopia", "hypermetropia"],
+        "correctOption": "Myopia"
+    },
+    {
+        "question": "Which of the following is responsible for refraction of light? Is not an example of?",
+        "options": ["Twinkling of stars", "Image formation by human eye", "Red color of sunset", "Creation of rainbow"],
+        "correctOption": "Red color of sunset"
+    },
+    {
+        "question": "The lens which is thin in the middle and thin at the periphery is called. Is thick.",
+        "options": ["Concave lens", "convex lens", "Cylindrical lens", "Parallel lenses"],
+        "correctOption": "Concave lens"
+    },
+    {
+        "question": "What type of mirror do dentists use to see larger images of patients' teeth?",
+        "options": ["convex mirror", "Concave mirror", "Spherical mirror", "Spherical and convex mirrors"],
+        "correctOption": "Concave mirror"
+    },
+    {
+        "question": "What causes the blue color of the sky?",
+        "options": ["Dispersion of light", "scattering of light", "Refraction of light", "Diffraction of light"],
+        "correctOption": "scattering of light"
+    },
+    {
+        "question": "Which color deviates the least when light passes through a prism?",
+        "options": ["purple", "red", "blue", "green"],
+        "correctOption": "red"
+    },
+    {
+        "question": "The discovery of the phenomenon of dispersion of light into its seven constituent colors in 1666 Did.",
+        "options": ["Archimedes", "Isaac Newton", "Henry Mosley", "Mendeleev"],
+        "correctOption": "Isaac Newton"
+    },
+    {
+        "question": "If the focal length of a lens is 25 cm, what will be the power of that lens?",
+        "options": ["4D", "2D", "1D", "6D"],
+        "correctOption": "4D"
+    },
+    {
+        "question": "Who was the first person to obtain a spectrum by passing light through a prism?",
+        "options": ["Pierre Curie", "Paul Willard", "Benjamin Franklin", "Isaac Newton"],
+        "correctOption": "Isaac Newton"
+    },
+    {
+        "question": "What is the full form of LASER?",
+        "options": ["Lower Application of System Emission of Radioactivity", "Learning to Amplify and Stimulated Emission of Radiation", "Light Addition to Systematic Electromagnetic Radiation", "Light Amplification by Stimulated Emission of Radiation"],
+        "correctOption": "Light Amplification by Stimulated Emission of Radiation"
+    },
+    {
+        "question": "What type of mirrors are commonly used in torches, searchlights and vehicle headlights to obtain powerful collimated beams of light?",
+        "options": ["convex", "concave", "cylindrical", "Diphoxy"],
+        "correctOption": "concave"
+    },
+    {
+        "question": "Who discovered visible radiation?",
+        "options": ["Henri Becquerel", "Guglielmo Marconi", "Isaac Newton", "Wilhelm Centzen"],
+        "correctOption": "Isaac Newton"
+    },
+    {
+        "question": "hypermetropia can be fixed by",
+        "options": ["Bi-focus lens", "Trifocus lens", "Convex lens", "Concave lens"],
+        "correctOption": "Convex lens"
+    },
+    {
+        "question": "Which type of mirror is used as rear view wing mirror in vehicles?",
+        "options": ["concave", "flat", "concave and convex", "convex"],
+        "correctOption": "convex"
+    },
+    {
+        "question": "For a person with hypermetropia, or far-sightedness, the near point is farther away than the normal near point.",
+        "options": ["27 cm", "24 cm", "25 cm", "26 cm"],
+        "correctOption": "25 cm"
+    },
+    {
+        "question": "The substances through which objects can be seen but cannot be seen clearly are called substances.",
+        "options": ["translucent", "opaque", "transparent", "shine"],
+        "correctOption": "translucent"
+    },
+    {
+        "question": "Which of the following can produce a virtual image larger than the object?",
+        "options": ["convex mirror", "Concave lens", "plane mirror", "concave mirror"],
+        "correctOption": "concave mirror"
+    },
+    {
+        "question": "light travels",
+        "options": ["vertical line", "horizontal line", "straight line", "Curved line"],
+        "correctOption": "straight line"
+    },
+    {
+        "question": "Which lens is suitable for a myopic person?",
+        "options": ["spectacles", "Compound lens", "concave lens", "convex lens"],
+        "correctOption": "concave lens"
+    },
+    {
+        "question": "Rainbow is a natural phenomenon that represents:",
+        "options": ["Refraction", "Direction", "reaction", "spread"],
+        "correctOption": "spread"
+    },
+    {
+        "question": "What does LED mean in semiconductor electronics?",
+        "options": ["Light evocative diode", "low emitting diode", "Light emitting diode", "Laser emitting diode"],
+        "correctOption": "Light emitting diode"
+    },
+    {
+        "question": "Which mirror is used for shaving?",
+        "options": ["convex", "opaque", "concave", "transparent"],
+        "correctOption": "concave"
+    },
+    {
+        "question": "Which of the following is an example of scattering of light?",
+        "options": ["Twinkling of stars", "White light through a glass prism", "blue color of the sky", "Rainbow"],
+        "correctOption": "blue color of the sky"
+    },
+    {
+        "question": "What is the freezing point of water on the Kelvin scale?",
+        "options": ["173.15 K", "373.15 K", "473.15 K", "273.15 K"],
+        "correctOption": "273.15 K"
+    },
+    {
+        "question": "Which of the following instruments is used to measure the relatively high temperatures that are found in furnaces?",
+        "options": ["ammeter", "flux meter", "Pyrometer", "Bolometer"],
+        "correctOption": "Pyrometer"
+    },
+    {
+        "question": "The flame is made up of three parts: the innermost part, the middle part and the outer part. Why is the innermost part black?",
+        "options": ["Due to complete combustion of fuel", "Due to the presence of burnt carbon particles", "Due to incomplete combustion of fuel", "Due to presence of oxygen"],
+        "correctOption": "Due to the presence of burnt carbon particles"
+    },
+    {
+        "question": "What is the normal temperature of human body?",
+        "options": ["40 °C", "98.6 °C", "37 °F", "98.6 °F"],
+        "correctOption": "98.6 °F"
+    },
+    {
+        "question": "At what temperature is the density of water maximum?",
+        "options": ["244 K", "247 K", "273 K", "277 K"],
+        "correctOption": "277 K"
+    },
+    {
+        "question": "What will happen if we cover a burning candle with a glass jar?",
+        "options": ["the flame will slow down", "will keep burning", "It will stop burning", "The flame will be higher"],
+        "correctOption": "It will stop burning"
+    },
+    {
+        "question": "Which branch of physics rest state is related to the properties of liquids?",
+        "options": ["Thermodynamics", "optics", "Hydrostatics", "Astrophysics"],
+        "correctOption": "Hydrostatics"
+    },
+    {
+        "question": "What causes kerosene oil to rise in the wick of a lantern?",
+        "options": ["Osmosis", "capillarity", "diffusion", "Gravity"],
+        "correctOption": "capillarity"
+    },
+    {
+        "question": "The maximum resistance can be created by using four resistors of 1/4\" each in series.",
+        "options": ["10", "140", "0", "40"],
+        "correctOption": "10"
+    },
+    {
+        "question": "Among the various electrical safety devices is based on the thermal effect of electric current.",
+        "options": ["fuse", "circuit breaker", "Protective relay", "Growth protector"],
+        "correctOption": "fuse"
+    },
+    {
+        "question": "The modern electric generator works on the principle.",
+        "options": ["electrical induction", "electrical energy", "Electrical induction", "magnetic induction"],
+        "correctOption": "Electrical induction"
+    },
+    {
+        "question": "Which of the following principles is related to solar energy systems?",
+        "options": ["Photovoltaic effect", "Photoelectric effect", "photodynamic effect", "Photosynthesis effect"],
+        "correctOption": "Photovoltaic effect"
+    },
+    {
+        "question": "Which of the following devices is based on the phenomenon of electromagnetic induction?",
+        "options": ["ammeter", "generator", "Galvanometer", "bulb"],
+        "correctOption": "generator"
+    },
+    {
+        "question": "In 1752, which American scientist showed that lightning and the electricity coming off your clothes are essentially the same phenomenon?",
+        "options": ["Archimedes", "Galileo Galilei", "Benjamin Franklin", "Thomas Edison"],
+        "correctOption": "Benjamin Franklin"
+    },
+    {
+        "question": "Which of the following is not an example of thermal effect of current?",
+        "options": ["bulb", "running of a fan", "Electric iron", "electric kettle"],
+        "correctOption": "running of a fan"
+    },
+    {
+        "question": "The instrument used to measure current is called",
+        "options": ["ammeter", "battery", "voltmeter", "meter"],
+        "correctOption": "ammeter"
+    },
+    {
+        "question": "Voltmeter is an instrument which can detect the presence of",
+        "options": ["Potential difference", "heat", "Vibration", "Magnetic field"],
+        "correctOption": "Potential difference"
+    },
+    {
+        "question": "Which instrument is used to show the direction of flow of current in a circuit?",
+        "options": ["voltmeter", "ammeter", "Galvanometer", "rheostat"],
+        "correctOption": "Galvanometer"
+    },
+    {
+        "question": "Which of the following devices is used to convert alternating current into direct current?",
+        "options": ["Calorimeter", "capacitor", "rheostat", "Rectifier"],
+        "correctOption": "Rectifier"
+    },
+    {
+        "question": "A freely suspended magnet is always aligned in the direction?",
+        "options": ["East West", "North East", "North-South", "South West"],
+        "correctOption": "North-South"
+    },
+    {
+        "question": "An integrated circuit is known as?",
+        "options": ["resistor", "plate", "chip", "transistor"],
+        "correctOption": "chip"
+    },
+    {
+        "question": "Three wires of resistance 3 Ohm, 6 Ohm, and 9 Ohm are connected in parallel. What will be the total resistance of the circuit?",
+        "options": ["11 ohms", "18 ohms", "11 ohm", "18 ohm"],
+        "correctOption": "18 ohm"
+    },
+    {
+        "question": "Which device is used to convert mechanical energy into electrical energy?",
+        "options": ["battery", "photo cell", "electric motor", "dynamo"],
+        "correctOption": "dynamo"
+    },
+    {
+        "question": "Generator is a device which converts?",
+        "options": ["Electrical energy from mechanical energy", "Mechanical energy from electrical energy", "Thermal energy to mechanical energy", "Electrical energy to thermal energy"],
+        "correctOption": "Mechanical energy from electrical energy"
+    },
+    {
+        "question": "Which instrument is used to identify the presence of electric charge on an object?",
+        "options": ["ampere meter", "Electroscope", "multimeter", "Ohmmeter"],
+        "correctOption": "Electroscope"
+    },
+    {
+        "question": "What is the full form of MCB?",
+        "options": ["Miniature Current breaker", "Mini Circuit Breaker", "Miniature circuit Board", "Miniature Circuit Breaker"],
+        "correctOption": "Miniature Circuit Breaker"
+    },
+    {
+        "question": "A generator is a device that converts:",
+        "options": ["Thermal energy to mechanical energy", "Mechanical energy to electrical energy", "mechanical energy from electrical energy", "Thermal energy from electrical energy"],
+        "correctOption": "Mechanical energy to electrical energy"
+    },
+    {
+        "question": "Which electrical device is not based on Joule's law of heating?",
+        "options": ["Fuse used in electrical circuit", "Electric iron", "Electric kettle", "electrical plugs and switches"],
+        "correctOption": "electrical plugs and switches"
+    },
+    {
+        "question": "The unit of 'magnetic flux' is?",
+        "options": ["Pascal", "Farado", "Henry", "Weber"],
+        "correctOption": "Weber"
+    },
+    {
+        "question": "Which of the following is a property of metalloids?",
+        "options": ["condemnable", "ductile", "Semiconductor", "Sweet"],
+        "correctOption": "Semiconductor"
+    },
+    {
+        "question": "Who among the following observed the deflection of the compass needle every time current flows through the wire?",
+        "options": ["CV Raman", "Willen Sturgeon", "Thomas Alva Edison", "Hans Christian Oersted"],
+        "correctOption": "Hans Christian Oersted"
+    },
+    {
+        "question": "What is the other name of Newton's first law of motion?",
+        "options": ["Law of inertia", "Law of oscillation", "Law of momentum", "Law of displacement"],
+        "correctOption": "Law of inertia"
+    },
+    {
+        "question": "What will be the momentum of an object moving with mass 'm' and velocity 'v'?",
+        "options": ["mv", "mv^2", "1/2mv", "mv^2"],
+        "correctOption": "mv"
+    },
+    {
+        "question": "Who proposed the three laws of motion?",
+        "options": ["Newton", "Galileo", "Edison", "Aristotle"],
+        "correctOption": "Newton"
+    },
+    {
+        "question": "What will be the momentum of an object with mass 14 kg and velocity 28 m/s?",
+        "options": ["392 kg-m/s", "1/392 kg-m/s", "0.5 kg-m/s", "2 kg-m/s"],
+        "correctOption": "392 kg-m/s"
+    },
+    {
+        "question": "Which of the following statements about Coriolis force is incorrect?",
+        "options": ["It is caused by difference in atmospheric pressure", "It is absent at the equator", "It is directly proportional to the angle of latitude", "It is maximum at the poles"],
+        "correctOption": "It is caused by difference in atmospheric pressure"
+    },
+    {
+        "question": "What do we call the force that affects the direction of the wind and causes the rotation of the Earth on its axis?",
+        "options": ["friction force", "pressure gradient force", "Gravitational force", "Coriolis force"],
+        "correctOption": "Coriolis force"
+    },
+    {
+        "question": "The force of attraction between molecules of the same substance is called?",
+        "options": ["capillarity", "surface tension", "cohesive force", "adhesive force"],
+        "correctOption": "cohesive force"
+    },
+    {
+        "question": "What is the equation of Newton's second law of motion?",
+        "options": ["F= mc²", "F=ma", "F= AP", "F=mv"],
+        "correctOption": "F=ma"
+    },
+    {
+        "question": "Which of the following has the lowest friction force?",
+        "options": ["Sliding", "Fluid", "Static", "Rolling"],
+        "correctOption": "Rolling"
+    },
+    {
+        "question": "A constant force acts on an object of mass 10 kg for a period of 2 seconds. This increases the velocity of the object from 5 m/s to 10 m/s. Find the magnitude of the applied force. Now, if the force is applied for a period of 5 seconds, what will be the final velocity of the object?",
+        "options": ["Applied force = 20 N, final velocity 7.5 m/s", "applied force meter/second", "Applied force meter/second 20 N, final velocity 17.5", "Applied force 25 N, final velocity 17.5 m/s"],
+        "correctOption": "Applied force 25 N, final velocity 17.5 m/s"
+    },
+    {
+        "question": "The weakest force among the following is:",
+        "options": ["electric force", "Gravitational force", "Buoyant force", "Nuclear force"],
+        "correctOption": "Gravitational force"
+    },
+    {
+        "question": "How many laws of motion did Isaac Newton give?",
+        "options": ["four", "two", "three", "five"],
+        "correctOption": "three"
+    },
+    {
+        "question": "Which of the following is not based on Archimedes' principle?",
+        "options": ["Designing of airplane wings", "Designing of ships and submarines", "Hydrometer", "Lactometer"],
+        "correctOption": "Designing of airplane wings"
+    },
+    {
+        "question": "Friction in fluids is called:",
+        "options": ["sickness", "Viscosity", "bad smell", "hardness"],
+        "correctOption": "Viscosity"
+    },
+    {
+        "question": "Speed ​​is related to 'odometer' in the same way as 'pressure' is related to '.",
+        "options": ["hygrometer", "Thermometer", "ammeter", "Barometer"],
+        "correctOption": "Barometer"
+    },
+    {
+        "question": "Sound cannot travel through which of the following mediums?",
+        "options": ["steel", "air", "vacuum", "milk"],
+        "correctOption": "vacuum"
+    },
+    {
+        "question": "Continuity of sound in an auditorium is the result of repeated reflection of sound and is called",
+        "options": ["intensity", "straight line", "vibration", "reverberation"],
+        "correctOption": "reverberation"
+    },
+    {
+        "question": "What is the full form of SONAR?",
+        "options": ["Sound Navigation and Ranging", "Sound Notification and Ranging", "Sound Observation Navigation and Ranging", "Sound Navigation and Rating"],
+        "correctOption": "Sound Navigation and Ranging"
+    },
+    {
+        "question": "Which of the following is used to detect holes and cracks in metal blocks?",
+        "options": ["reverberation", "ultrasound", "echo", "Sound navigation and ranging (SONAR)"],
+        "correctOption": "ultrasound"
+    },
+    {
+        "question": "A microphone changes",
+        "options": ["Sound energy into electrical energy", "Sound energy into mechanical energy", "mechanical energy into sound energy", "electrical energy into sound energy"],
+        "correctOption": "Sound energy into electrical energy"
+    },
+    {
+        "question": "The speed of sound increases when it passes from solid to gaseous medium.",
+        "options": ["ups and downs", "does not change", "increasing", "decreases"],
+        "correctOption": "decreases"
+    },
+    {
+        "question": "Which of the following units is used to measure the intensity of sound?",
+        "options": ["decibel", "Curie", "Pascal", "Joule"],
+        "correctOption": "decibel"
+    },
+    {
+        "question": "We hear others talking to us from adjacent rooms because of sound waves",
+        "options": ["resonance", "Diffraction", "Reflection", "Refraction"],
+        "correctOption": "Diffraction"
+    },
+    {
+        "question": "To communicate, elephants can make noises up to 103 decibels but they often use lower frequency sounds, some of which is transmitted through the ground. What are these sounds called?",
+        "options": ["Ultrasonic sound", "infrasound", "ultrasound", "plosives"],
+        "correctOption": "infrasound"
+    },
+    {
+        "question": "Sonar technology is used to determine what?",
+        "options": ["aerial distance", "depth of the sea", "distance to land surface", "height of mountain"],
+        "correctOption": "depth of the sea"
+    },
+    {
+        "question": "To humans, audible waves are those which",
+        "options": ["Frequency is less than 20 Hz", "Frequency is above 2000 Hz", "The frequency range is between 20 Hz to 2000 Hz", "Frequency range between 20 Hz to 20000 Hz"],
+        "correctOption": "Frequency range between 20 Hz to 20000 Hz"
+    },
+    {
+        "question": "What is the speed of sound in air?",
+        "options": ["343 m/s", "373 m/s", "434 m/s", "383 m/s"],
+        "correctOption": "343 m/s"
+    },
+    {
+        "question": "Repeated reflections result in long persistence of sound. called",
+        "options": ["reverberation", "sonic boom", "echo", "reflection"],
+        "correctOption": "reverberation"
+    },
+    {
+        "question": "Sonar is a device that uses ultrasonic waves to measure the distance, direction, and speed of objects.",
+        "options": ["on land", "in the air", "in space", "under water"],
+        "correctOption": "under water"
+    },
+    {
+        "question": "What is the lowest frequency of sound that can be heard by humans?",
+        "options": ["50 Hz", "20 Hz", "500 Hz", "10 Hz"],
+        "correctOption": "20 Hz"
+    },
+    {
+        "question": "The way the brain interprets the frequency of the emitted sound is called",
+        "options": ["dimension", "sound", "pitch", "wave"],
+        "correctOption": "pitch"
+    },
+    {
+        "question": "If the mass of a person is 60 kg on the surface of the Earth, then what will be the mass of the same person on the surface of the Moon?",
+        "options": ["0 kg", "360 kg", "60 kg", "10 kg"],
+        "correctOption": "60 kg"
+    },
+    {
+        "question": "The theory of relativity is related to?",
+        "options": ["Newton", "Kelvin", "WC Centzen", "Albert Einstein"],
+        "correctOption": "Albert Einstein"
+    },
+    {
+        "question": "Name the world famous scientist who is known for his theory of relativity.",
+        "options": ["Thomas Alva Edison", "Christian Bernard", "Albert Einstein", "John Dalton"],
+        "correctOption": "Albert Einstein"
+    },
+    {
+        "question": "Who propounded the law of planetary motion?",
+        "options": ["Isaac Newton", "Roger Bacon", "Galileo", "Johannes Kepler"],
+        "correctOption": "Johannes Kepler"
+    },
+    {
+        "question": "In 1921, Albert Einstein was awarded the Nobel Prize for",
+        "options": ["Photoelectric effect", "Theory of Relativity", "Radioactivity", "Doppler effect"],
+        "correctOption": "Photoelectric effect"
+    },
+  {
+    "question": "By whom was the law of gravitation given?",
+    "options": ["Isaac Newton", "Charles Darwin", "Albert Einstein", "Galileo Galilei"],
+    "correctOption": "Isaac Newton"
+  },
+  {
+    "question": "The value of 'g' (gravity) is different from the value of 'R' (radius). Minimum 'g' will be observed on a student",
+    "options": ["Equator", "Tropic of Cancer", "Tropic of Capricorn", "Pole"],
+    "correctOption": "Equator"
+  },
+  {
+    "question": "The value of 'g' is maximum:",
+    "options": ["Tropic of Cancer", "Equator", "Tropic of Capricorn", "Pole"],
+    "correctOption": "Pole"
+  },
+  {
+    "question": "Who discovered the law of planetary motion?",
+    "options": ["Newton", "Einstein", "Kepler", "Galileo"],
+    "correctOption": "Kepler"
+  },
+  {
+    "question": "The following statement applies to which law among the given options?\nThe line joining any planet to the Sun travels over equal areas in equal time intervals.",
+    "options": ["Law of Periods", "Law of Areas", "Law of Motion", "Law of Orbits"],
+    "correctOption": "Law of Areas"
+  },
+  {
+    "question": "Which one of the following is not a unit of work?",
+    "options": ["Kgm²/Sec²", "Kgm/ Kec²", "Newton meter", "Joule"],
+    "correctOption": "Kgm/ Kec²"
+  },
+  {
+    "question": "What are transverse waves?",
+    "options": [
+      "These are longitudinal mechanical waves",
+      "Transmission of particle waves of the medium in these waves vibrate in a direction parallel to",
+      "These are the waves which need medium for propagation.",
+      "In these waves, the particles of the medium vibrate perpendicular to the direction of propagation of the waves."
+    ],
+    "correctOption": "In these waves, the particles of the medium vibrate perpendicular to the direction of propagation of the waves."
+  },
+  {
+    "question": "Who discovered long radio waves?",
+    "options": ["Heinrich Hertz", "Guglielmo Marconi", "Isaac Newton", "W Rotgen"],
+    "correctOption": "Guglielmo Marconi"
+  },
+  {
+    "question": "Which is an incorrect statement regarding ultrasound waves?",
+    "options": [
+      "High frequency waves are",
+      "They are used in industries and for medical purposes.",
+      "well even in the presence of obstacles",
+      "Ultrasound cannot be reflected back from defective sites"
+    ],
+    "correctOption": "Ultrasound cannot be reflected back from defective sites"
+  },
+  {
+    "question": "Which of the following is not an electromagnetic wave?",
+    "options": ["Radio", "Microwave", "Ultrasound", "Infra red"],
+    "correctOption": "Ultrasound"
+  },
+  {
+    "question": "Which of the following are electromagnetic waves?",
+    "options": ["Audio waves", "X-ray", "Alpha rays", "Beta rays"],
+    "correctOption": "X-ray"
+  },
+  {
+    "question": "Which of the following types of light transmits the signal from a television remote to the device it controls?",
+    "options": ["Ultraviolet", "X-ray", "Polarization", "Infrared"],
+    "correctOption": "Infrared"
+  },
+  {
+    "question": "Who is known as the 'Father of Nuclear Physics'?",
+    "options": ["Neil Bohr", "J Chadwick", "E. Rutherford", "J. J. Thomson"],
+    "correctOption": "E. Rutherford"
+  },
+  {
+    "question": "Nuclear fusion is the process of combining two or more light nuclei. What is the temperature (approximately) required for nuclear fusion?",
+    "options": ["100 million Kelvin", "812 million Kelvin", "10 million Kelvin", "810 million Kelvin"],
+    "correctOption": "100 million Kelvin"
+  },
+  {
+    "question": "Who invented the modern mercury thermometer with standardized scale?",
+    "options": ["Galileo Galilei", "Grand Duke", "Daniel Gabriel Fahrenheit", "Anders Celsius"],
+    "correctOption": "Daniel Gabriel Fahrenheit"
+  },
+  {
+    "question": "X-ray was discovered by",
+    "options": ["Newton", "W Roentgen", "Henri Becquerel", "Marconi"],
+    "correctOption": "W Roentgen"
+  },
+  {
+    "question": "What is the SI unit of force?",
+    "options": ["Pascal", "Newton", "Dyne", "funnel"],
+    "correctOption": "Newton"
+  },
+  {
+    "question": "What is the SI unit of power of lens called?",
+    "options": ["Foresight defects", "myopia", "diopter", "Longsightedness defect"],
+    "correctOption": "diopter"
+  },
+  {
+    "question": "The SI unit of sound was named in honor of which physicist?",
+    "options": ["Jesse Maxwell", "Werner Carl Heisenberg", "Heinrich Rudolf Hertz", "Albert Einstein"],
+    "correctOption": "Heinrich Rudolf Hertz"
+  },
+  {
+    "question": "What is the SI unit of resistance?",
+    "options": ["Siemens", "Mo", "Ohm", "Coulomb"],
+    "correctOption": "Ohm"
+  },
+  {
+    "question": "A light year is a unit of",
+    "options": ["distance", "Light intensity", "mass", "time"],
+    "correctOption": "distance"
+  },
+  {
+    "question": "What is the SI unit of magnetic flux?",
+    "options": ["Henry", "Pascal", "Weber", "Faraday"],
+    "correctOption": "Weber"
+  },
+  {
+    "question": "Which of the following is not a vector quantity?",
+    "options": ["acceleration", "torque", "power", "displacement"],
+    "correctOption": "power"
+  },
+  {
+    "question": "What is the unit of force?",
+    "options": ["gms^-1", "Kgms^-2", "gms", "Kgms^-2"],
+    "correctOption": "Kgms^-2"
+  },
+  {
+    "question": "What is the SI unit of radioactivity?",
+    "options": ["Becquerel", "Curie", "Faraday", "Rutherford"],
+    "correctOption": "Becquerel"
+  },
+  {
+    "question": "What is the SI unit of pressure?",
+    "options": ["Radian", "Pascal", "steradian", "ampere"],
+    "correctOption": "Pascal"
+  },
+  {
+    "question": "Which of the following is not a scalar quantity?",
+    "options": ["time", "speed", "distance", "force"],
+    "correctOption": "force"
+  },
+  {
+    "question": "Automobiles are fitted with an instrument which shows the distance travelled. Select this.",
+    "options": ["Odometer", "RPM meter", "Autometer", "Speedometer"],
+    "correctOption": "Odometer"
+  },
+  {
+    "question": "Which of the following instruments is used to measure wind speed?",
+    "options": ["Eudometer", "Anemometer", "ammeter", "hygrometer"],
+    "correctOption": "Anemometer"
+  },
+  {
+    "question": "What does a hygrometer measure?",
+    "options": ["humidity", "radiation", "heat", "force"],
+    "correctOption": "humidity"
+  },
+  {
+    "question": "Who gave the equation of E = mc²?",
+    "options": ["Marie Curie", "Stephen Hawking", "Albert Einstein", "Isaac Newton"],
+    "correctOption": "Albert Einstein"
+  },
+  {
+    "question": "Who said the following statement? “We are greatly indebted to the Indians, who taught us to count, without which no meaningful scientific discovery could have been made!”",
+    "options": ["Galileo", "Frederick Herzberg", "Newton", "Albert Einstein"],
+    "correctOption": "Albert Einstein"
+  },
+  {
+    "question": "India's three-stage nuclear power program",
+    "options": ["Homi Jahangir Bhabha", "Raja Ramanna", "Shivram Bhoj", "Vikram Sarabhai"],
+    "correctOption": "Homi Jahangir Bhabha"
+  },
+  {
+    "question": "Where did you get the inspiration to build a temperature controlled green home at IIT Kanpur in 2012?",
+    "options": ["Use of thermal insulation technology", "Thermal mass of rock", "hydronic system", "cocoon structure"],
+    "correctOption": "cocoon structure"
+  },
+  {
+    "question": "Which of the following is not matched?",
+    "options": ["Compass – used for navigation and indicates north-south directions", "Cyclotron – measures small magnitude cyclones.", "Actinometer – measures the intensity of radiation", "Electroscope – detects the presence of electric charge"],
+    "correctOption": "Cyclotron – measures small magnitude cyclones."
+  },
+  {
+    "question": "tungsten filament used in bulbs\nWhat is melting point?",
+    "options": ["300 °C", "3422 °C", "30 °C", "1000 °C"],
+    "correctOption": "3422 °C"
+  },
+  {
+    "question": "Which of the following is a lie detector machine?",
+    "options": ["Binoculars", "Tachometer", "Photometer", "Polygraph"],
+    "correctOption": "Polygraph"
+  },
+  {
+    "question": "Spring balance is a device commonly used to perform work on an object. \nThe one is used to measure.",
+    "options": ["Force", "Speed", "Velocity", "weight"],
+    "correctOption": "Force"
+  },
+  {
+    "question": "What is the full form of GEO?",
+    "options": ["Geography Earth's orbit", "Geographic Earth orbit", "Geostationary Earth orbit", "Geostructural element orbit"],
+    "correctOption": "Geostationary Earth orbit"
+  },
+  {
+    "question": "Anemometer is an instrument used to measure:",
+    "options": ["air pressure", "speed of wind", "quality of water", "cloud height"],
+    "correctOption": "speed of wind"
+  },
+  {
+    "question": "Give me a place to stand and I'll rock the world. Which famous scientist said these words?",
+    "options": ["Isaac Newton", "Galileo Galilei", "Albert Einstein", "Archimedes"],
+    "correctOption": "Archimedes"
+  },
+  {
+    "question": "There is no example of an insulator",
+    "options": ["Diamond", "rubber", "human body", "glass"],
+    "correctOption": "human body"
+  },
+  {
+    "question": "Which of the following equipment is mainly used in military submarines?",
+    "options": ["Perspective", "endoscope", "microscope", "telescope"],
+    "correctOption": "Perspective"
+  },
+
+
+
+
+
+
+
+
+
+	 
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

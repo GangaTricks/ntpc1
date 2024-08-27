@@ -1,0 +1,5004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Delhi Constable QUIZ APP</title>
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Computer Gati Part 1 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'computer2';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+    const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`.replace(/\n/g, '<br>');
+    optionsElement.appendChild(explanation);
+	 
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+<script>
+const questions = [
+
+{
+    "question": "Which of the following operations is done using shortcut key Ctrl + Shift + > in MS Word 365?",
+    "options": [
+      "Left Alignment of text",
+      "Decrease the font size",
+      "Right Alignment of text",
+      "Increase the font size"
+    ],
+    "correctOption": "Right Alignment of text"
+  },
+  {
+    "question": "An attachment in an E-mail can be:",
+    "options": [
+      "Digital photos",
+      "Documents",
+      "Only (1)",
+      "Both (1) and (2)"
+    ],
+    "correctOption": "Both (1) and (2)"
+  },
+  {
+    "question": "Which formatting feature in MS Word 365 is used to emphasize text by making it bold, italic, or underlined in documents?",
+    "options": [
+      "Hyperlinking",
+      "Text wrapping",
+      "Page margins",
+      "Font styling"
+    ],
+    "correctOption": "Font styling"
+  },
+  {
+    "question": "Which of the following is NOT a layer of the Internet Protocol Suite (TCP/IP)?",
+    "options": [
+      "Transport layer",
+      "Physical layer",
+      "Application layer",
+      "Network layer"
+    ],
+    "correctOption": "Physical layer"
+  },
+  {
+    "question": "In MS Excel 365, you are working on an Excel worksheet and need to select an entire row above the current row. Which keyboard shortcut combination should you use?",
+    "options": [
+      "Alt+ Spacebar",
+      "Ctrl + +",
+      "Shift + Spacebar",
+      "Ctrl + Spacebar"
+    ],
+    "correctOption": "Shift + Spacebar"
+  },
+  {
+    "question": "In MS Word 365, what happens when you select text and then press the ‘Backspace’ key?",
+    "options": [
+      "The text is copied to the clipboard",
+      "The text is moved to the end of the document",
+      "The text is formatted with a bold style",
+      "The text is deleted to the left of the cursor"
+    ],
+    "correctOption": "The text is deleted to the left of the cursor"
+  },
+  {
+    "question": "What is the default print range in Microsoft Excel 365 when printing an entire worksheet?",
+    "options": [
+      "Selected Range",
+      "Entire Workbook",
+      "All Sheets",
+      "Active Sheet"
+    ],
+    "correctOption": "Active Sheet"
+  },
+  {
+    "question": "In MS-Word 2010, the Page number option comes under which of the following menus?",
+    "options": [
+      "Pages",
+      "Header and Footer",
+      "Home Tab",
+      "Page layout"
+    ],
+    "correctOption": "Header and Footer"
+  },
+  {
+    "question": "Which option allows you to adjust the line spacing between lines of text in a paragraph in MS-Word 365?",
+    "options": [
+      "Paragraph Alignment",
+      "Line Spacing",
+      "Paragraph Border",
+      "Text Indentation"
+    ],
+    "correctOption": "Line Spacing"
+  },
+  {
+    "question": "In MS Excel 365, when entering data into an MS Excel 365 spreadsheet, which data type is most suitable for a person's first name?",
+    "options": [
+      "Text",
+      "Date",
+      "Currency",
+      "Number"
+    ],
+    "correctOption": "Text"
+  },
+  {
+    "question": "Which of the following is an example of a table style in Microsoft Word 365?",
+    "options": [
+      "Chicago Manual of Style",
+      "Plain Grid",
+      "APA (American Psychological Association)",
+      "MLA (Modern Language Association)"
+    ],
+    "correctOption": "Plain Grid"
+  },
+  {
+    "question": "Which of the following functions in MS Excel 365 removes irregular spacing, leaving one space between each value?",
+    "options": [
+      "VLOOKUP",
+      "AVERAGE",
+      "TRIM",
+      "SUM"
+    ],
+    "correctOption": "TRIM"
+  },
+  {
+    "question": "Which of the following is the foundation of data communication on the web, enabling the transfer of web page content?",
+    "options": [
+      "Uniform Resource Locator",
+      "Hypertext Transfer Protocol",
+      "World Wide Web",
+      "Domain Name Server"
+    ],
+    "correctOption": "Hypertext Transfer Protocol"
+  },
+  {
+    "question": "In MS Word 365, which of the following options is correct?",
+    "options": [
+      "Ctrl + X is used for copying the document",
+      "Ctrl + V is used for moving the document",
+      "Neither (1) nor (2)",
+      "Both (1) and (2)"
+    ],
+    "correctOption": "Neither (1) nor (2)"
+  },
+  {
+    "question": "Which of the following shortcut keys is used in MS Excel 365 to make the cell in edit mode, allowing you to make changes?",
+    "options": [
+      "Ctrl + F1",
+      "F1",
+      "F2",
+      "Ctrl + F2"
+    ],
+    "correctOption": "F2"
+  },
+  {
+    "question": "In MS Word 365, what is the primary purpose of using bullets and numbering in document formatting?",
+    "options": [
+      "To highlight text with a different font or color",
+      "To organize information into lists or sequences",
+      "To adjust the margins and spacing of the document",
+      "To indicate the importance of specific text"
+    ],
+    "correctOption": "To organize information into lists or sequences"
+  },
+  {
+    "question": "In MS Excel 365, what is the term for the area that contains specific and formatted data in MS Excel for printing?",
+    "options": [
+      "Print area",
+      "Print margin",
+      "View",
+      "Print preview"
+    ],
+    "correctOption": "Print area"
+  },
+  {
+    "question": "Which of the following is a computer-based application for the exchange of messages between users?",
+    "options": [
+      "Mozilla",
+      "Bing",
+      "Chrome",
+      "Email"
+    ],
+    "correctOption": "Email"
+  },
+  {
+    "question": "Which of the following is used to create a New Blank Document?",
+    "options": [
+      "MS-Word",
+      "MS Outlook",
+      "MS-PowerPoint",
+      "MS-Excel"
+    ],
+    "correctOption": "MS-Word"
+  },
+  {
+    "question": "In MS-Word 365, which of the following options allows you to change the font size of selected text to the next larger size available in the font size list?",
+    "options": [
+      "Italics",
+      "Bold",
+      "Decrease Font Size",
+      "Increase Font Size"
+    ],
+    "correctOption": "Increase Font Size"
+  },
+  {
+    "question": "Which of the following groups within the Insert tab will help us create a table in Microsoft Word 365?",
+    "options": [
+      "Tables",
+      "Illustrations",
+      "Pages",
+      "Links"
+    ],
+    "correctOption": "Tables"
+  },
+  {
+    "question": "What is the main purpose of a search engine?",
+    "options": [
+      "Playing online games",
+      "Sending emails",
+      "Finding information on the internet",
+      "Editing news articles"
+    ],
+    "correctOption": "Finding information on the internet"
+  },
+  {
+    "question": "How do we move the cursor to the beginning of a Microsoft Word 365 document?",
+    "options": [
+      "By pressing ‘Ctrl + Home’",
+      "By pressing ‘Ctrl + PgDn’",
+      "By pressing ‘Ctrl + End’",
+      "By pressing ‘Ctrl + PgUp’"
+    ],
+    "correctOption": "By pressing ‘Ctrl + Home’"
+  },
+  {
+    "question": "‘In Microsoft Excel 365, which option should be selected if you want to save a workbook as a macro-enabled workbook with a different file name and location?",
+    "options": [
+      "Save As",
+      "Save Excel",
+      "Save a Copy",
+      "Save Workspace"
+    ],
+    "correctOption": "Save As"
+  },
+  {
+    "question": "What are the icons below the menu bar in a word processing application called?",
+    "options": [
+      "Toolbar icons",
+      "Format icons",
+      "Shortcut icons",
+      "Tool icons"
+    ],
+    "correctOption": "Toolbar icons"
+  },
+  {
+    "question": "Which of the following is used in MS Word 365 to change the case in a reverse way?",
+    "options": [
+      "Alter case",
+      "Toggle case",
+      "Reverse case",
+      "Change case"
+    ],
+    "correctOption": "Toggle case"
+  },
+  {
+    "question": "‘In MS Excel 365, which of the following keyboard shortcut keys is used to insert a new row in MS-Excel 365?",
+    "options": [
+      "Ctrl+shift+n",
+      "Ctrl + shift + + (plus key)",
+      "Ctrl + Alt + + (plus key)",
+      "Ctrl +Alt+n"
+    ],
+    "correctOption": "Ctrl + shift + + (plus key)"
+  },
+  {
+    "question": "What icon is used for attaching a file or document to an email message?",
+    "options": [
+      "Paper clip icon",
+      "Pen icon",
+      "Smiley icon",
+      "Trash can icon"
+    ],
+    "correctOption": "Paper clip icon"
+  },
+  {
+    "question": "Which icon is commonly used to undo the last action performed in MS Word 365?",
+    "options": [
+      "A trash can",
+      "A curved arrow pointing to the left",
+      "A pencil",
+      "A pair of scissors"
+    ],
+    "correctOption": "A curved arrow pointing to the left"
+  },
+  {
+    "question": "In MS Excel 365, Which of the following is NOT a type of chart in MS Excel?",
+    "options": [
+      "Pie chart",
+      "Line chart",
+      "Bar chart",
+      "Space chart"
+    ],
+    "correctOption": "Space chart"
+  },
+  {
+    "question": "In Microsoft Excel 365, which tool should we use for creating or editing formulas in a worksheet?",
+    "options": [
+      "Auditing toolbar",
+      "Formula bar",
+      "Precedents",
+      "Watch window"
+    ],
+    "correctOption": "Formula bar"
+  },
+  {
+    "question": "What does the following icon resemble in MS Word 365?",
+    "options": [
+      "Right alignment",
+      "Left alignment",
+      "Justifying",
+      "Center of text"
+    ],
+    "correctOption": "Right alignment"
+  },
+  {
+    "question": "What action should be taken to add a new row or column in a spreadsheet?",
+    "options": [
+      "Select a row or column, press the ‘Ctrl+X’ keyboard shortcut to cut it, and then press ‘Ctrl+V’ to paste it in the desired location.",
+      "Highlight a range of cells, right-click, and choose ‘Delete’ from the context menu to create space for the new row or column.",
+      "Use the ‘Find and Replace’ function to search for a specific cell, and then insert a new row or column using the results.",
+      "Right-click on an existing row or column and select ‘Insert’ from the context menu."
+    ],
+    "correctOption": "Right-click on an existing row or column and select ‘Insert’ from the context menu."
+  },
+  {
+    "question": "In which of the following tabs in MS Word 365 is Bullets and Numbering present?",
+    "options": [
+      "Edit",
+      "Home",
+      "File",
+      "Page layout"
+    ],
+    "correctOption": "Home"
+  },
+  {
+    "question": "What does the ‘Orientation’ option in the Page Setup menu in Microsoft Word 365 allow you to change?",
+    "options": [
+      "Font style",
+      "Text alignment",
+      "Page layout (portrait or landscape)",
+      "Page size"
+    ],
+    "correctOption": "Page layout (portrait or landscape)"
+  },
+  {
+    "question": "What is the purpose of the CC field in an email?",
+    "options": [
+      "To include additional recipients who should be kept informed",
+      "To request a read receipt from the recipient",
+      "To encrypt the email for added security",
+      "To indicate that the email is of high importance"
+    ],
+    "correctOption": "To include additional recipients who should be kept informed"
+  },
+  {
+    "question": "Which of the following shortcut keys is used to insert a hyperlink in MS Word 365?",
+    "options": [
+      "Ctrl+K",
+      "Shift + K",
+      "Ctrl+H",
+      "Shift+ H"
+    ],
+    "correctOption": "Ctrl+K"
+  },
+   {
+    "question": "Which of the following is a private network that is typically open to external parties, such as business partners, suppliers, and key customers?",
+    "options": ["Telnet", "Intranet", "Internet", "Extranet"],
+    "correctOption": "Extranet"
+  },
+  {
+    "question": "Which text alignment option in Microsoft Word 365 aligns text along the left margin?",
+    "options": ["Right Align", "Left Align", "Justify", "Center Align"],
+    "correctOption": "Left Align"
+  },
+  {
+    "question": "Which of the following is the correct way to sort a range of cells in ascending order in MS Excel 365?",
+    "options": [
+      "Click on the ‘Review’ tab and select ‘Sort’.",
+      "Select the range of cells and press ‘Ctrl + Shift + S’.",
+      "In the ‘Sort’ dialog box, select the ‘Ascending’ option in the ‘Order’ section.",
+      "Click on the ‘OK’ button."
+    ],
+    "correctOption": "In the ‘Sort’ dialog box, select the ‘Ascending’ option in the ‘Order’ section."
+  },
+  {
+    "question": "Which of the following is an address on the world wide web that is used to access specific web resources and is the specific path to a resource?",
+    "options": ["Hyperlink", "Web pages", "Uniform resource locator", "Web server"],
+    "correctOption": "Uniform resource locator"
+  },
+  {
+    "question": "The keyboard shortcut for opening a new document in Microsoft Word 365, while another document is already open, is",
+    "options": ["Ctrl+S", "Ctrl+N", "Ctrl+P", "Ctrl+Y"],
+    "correctOption": "Ctrl+N"
+  },
+  {
+    "question": "Which of the following is NOT used to edit text in MS-Word 365?",
+    "options": [
+      "Changing Font Style",
+      "Making text as Left align",
+      "Changing Font Color",
+      "Making text as Bold/Italic"
+    ],
+    "correctOption": "Making text as Left align"
+  },
+  {
+    "question": "Which of the following document settings can be changed from the layout tab of MS word 365?",
+    "options": ["Macros", "Margins", "Change styles", "Spelling grammar"],
+    "correctOption": "Margins"
+  },
+  {
+    "question": "Which of the following is used to print the document in MS-Word 365?",
+    "options": ["Home->print", "File->print", "View->print", "Design->print"],
+    "correctOption": "File->print"
+  },
+  {
+    "question": "In MS Excel 365, which function from the following list is used to tally the quantity of empty cells within a specified cell range?",
+    "options": ["COUNTA()", "COUNT()", "COUNTB()", "COUNTBLANK()"],
+    "correctOption": "COUNTBLANK()"
+  },
+  {
+    "question": "Which Microsoft Excel 365, function is used to join or concatenate text strings from different cells?",
+    "options": ["ADD", "CONCATENATE", "JOIN", "MERGE"],
+    "correctOption": "CONCATENATE"
+  },
+  {
+    "question": "Which of the following tabs in MS Word 365, allows you to customize the page size in the Page Setup dialog box?",
+    "options": ["Insert", "Edit", "Layout", "File"],
+    "correctOption": "Layout"
+  },
+  {
+    "question": "Which of the following is an effective method to handle SPAM emails?",
+    "options": [
+      "Reply to the sender asking them to stop",
+      "Unsubscribe from all mailing lists",
+      "Mark the email as SPAM or Junk",
+      "Forward the email to all your contacts"
+    ],
+    "correctOption": "Mark the email as SPAM or Junk"
+  },
+  {
+    "question": "Which of the following is an Internet accessing technique where a computer uses its modem to dial a telephone number given to the user by an Internet Service Provider?",
+    "options": [
+      "Digital Subscriber Line",
+      "Integrated Services Digital Network (ISDN) Service",
+      "Dial-up Connection",
+      "Broadband Connection"
+    ],
+    "correctOption": "Dial-up Connection"
+  },
+  {
+    "question": "Where is the position of the menu bar in accordance with the title bar in MS word 365?",
+    "options": [
+      "Menu bar is situated to the right of the title bar.",
+      "Menu bar is situated to the left of the title bar.",
+      "Menu bar is situated below the title bar.",
+      "Menu bar is situated above the title bar."
+    ],
+    "correctOption": "Menu bar is situated below the title bar."
+  },
+  {
+    "question": "In MS Excel 365, what is the Microsoft Excel formula to create an absolute cell reference for cell B2?",
+    "options": ["$B2", "B$2", "B2", "$B$2"],
+    "correctOption": "$B$2"
+  },
+  {
+    "question": "Which of the following statements about autofitting the row height in MS Excel 365 is correct?",
+    "options": [
+      "Double-clicking on the boundary between column headers will automatically adjust the column height to fit the content.",
+      "Single-clicking on the boundary between column headers will automatically adjust the column height to fit the content.",
+      "Double-clicking on the boundary between row headers will automatically adjust the row height to fit the content.",
+      "Single-clicking on the boundary between row headers will automatically adjust the row height to fit the content."
+    ],
+    "correctOption": "Double-clicking on the boundary between row headers will automatically adjust the row height to fit the content."
+  },
+  {
+    "question": "Which option in Page Setup of MS word 365 determines whether the content of the document is displayed vertically or horizontally?",
+    "options": ["Paper Size", "Columns", "Margins", "Orientation"],
+    "correctOption": "Orientation"
+  },
+  {
+    "question": "In MS-Word 365, what is the primary difference between the ‘Save’ and ‘Save As’ commands?",
+    "options": [
+      "Both ‘Save’ and ‘Save As’ perform the same function of saving the document; they are just two different names for the same command.",
+      "‘Save’ is used to save the document for the first time, while ‘Save As’ is used to save the document with a new filename or in a different location.",
+      "‘Save’ is used to save the document in the cloud storage, while ‘Save As’ is used to save the document on the local computer.",
+      "‘Save’ is used to save the document with a new filename or in a different location, while ‘Save As’ is used to save the document for the first time."
+    ],
+    "correctOption": "‘Save’ is used to save the document for the first time, while ‘Save As’ is used to save the document with a new filename or in a different location."
+  },
+  {
+    "question": "In MS-Word 365, which action allows you to replace a specific word or phrase throughout the entire document?",
+    "options": ["Find and Replace", "Paste", "Cut", "Copy"],
+    "correctOption": "Find and Replace"
+  },
+  {
+    "question": "In MS Excel 365 what is the cell address of the cell two columns to the right and three rows down from cell D7?",
+    "options": ["G10", "F10", "F9", "G9"],
+    "correctOption": "F10"
+  },
+  {
+    "question": "Which of the following devices is most commonly used to connect multiple computers within a Local Area Network (LAN) and also efficiently manage data traffic by only sending data to the device it is intended for?",
+    "options": ["Modem", "Switch", "Router", "Gateway"],
+    "correctOption": "Switch"
+  },
+  {
+    "question": "What is the purpose of the ‘Center Align’ text alignment option in Microsoft Word 365?",
+    "options": [
+      "It aligns the text along the right margin",
+      "It aligns the text along the left margin",
+      "It adds extra spacing between words",
+      "It centers the text horizontally between the margins"
+    ],
+    "correctOption": "It centers the text horizontally between the margins"
+  },
+  {
+    "question": "In MS Excel 365, which cell reference type allows the cell reference in the formula to reflect the new location after a formula is copied and pasted to another cell?",
+    "options": [
+      "Absolute cell reference",
+      "Circular cell reference",
+      "Mixed cell reference",
+      "Relative cell reference"
+    ],
+    "correctOption": "Relative cell reference"
+  },
+  {
+    "question": "Which shortcut key is used to open the help tab in the menu bar in MS Word 365?",
+    "options": ["F4", "F2", "F12", "F1"],
+    "correctOption": "F1"
+  },
+  {
+    "question": "How can you delete a row or column in MS-Excel 365?",
+    "options": [
+      "Go to the ‘Insert’ tab on the Excel ribbon and click on ‘Delete’.",
+      "Right-click on the row or column and choose ‘Delete’ from the context menu.",
+      "Use the Ctrl+H keyboard shortcut.",
+      "Use the Ctrl+D keyboard shortcut."
+    ],
+    "correctOption": "Right-click on the row or column and choose ‘Delete’ from the context menu."
+  },
+  {
+    "question": "In MS Word 365 how can you access the spelling and grammar check feature in Microsoft Word?",
+    "options": [
+      "Go to the ‘Home’ tab and click on ‘Spelling & Grammar’",
+      "Go to the ‘Insert’ tab and click on ‘Spelling & Grammar’",
+      "Go to the ‘Review’ tab and click on ‘Spelling & Grammar’",
+      "Go to the ‘View’ tab and click on ‘Spelling & Grammar’"
+    ],
+    "correctOption": "Go to the ‘Review’ tab and click on ‘Spelling & Grammar’"
+  },
+  {
+    "question": "How do you access the ‘Save As’ function in MS Word 365?",
+    "options": [
+      "By clicking on the ‘Save’ icon",
+      "By using the keyboard shortcut ‘Ctrl + S’",
+      "By right-clicking on the document and selecting ‘Save As’",
+      "By going to the File tab and selecting ‘Save As’"
+    ],
+    "correctOption": "By going to the File tab and selecting ‘Save As’"
+  },
+  {
+    "question": "In MS-Excel 365, which option allows you to sort data based on multiple columns simultaneously?",
+    "options": ["Quick Sort", "SortAtoZ", "AutoFilter", "Custom Sort"],
+    "correctOption": "Custom Sort"
+  },
+  {
+    "question": "The symbol which is used to separate the username and email server parts of an email is:",
+    "options": ["#", "@", "%", "$"],
+    "correctOption": "@"
+  },
+  {
+    "question": "Which of the following tabs on the ribbon in MS Word 365 provides options for formatting text, such as font style and size?",
+    "options": ["Insert", "Page Layout", "File", "Home"],
+    "correctOption": "Home"
+  },
+  {
+    "question": "Which of the following is a shortcut key for the Save as option in MS Word 365?",
+    "options": ["F12", "F2", "F11", "F1"],
+    "correctOption": "F12"
+  },
+  {
+    "question": "In MS Excel 365 which of the following statements related to deleting rows in an Excel sheet is correct?",
+    "options": [
+      "If you want to delete multiple rows at once, simply select the rows by clicking and dragging over the row numbers, and then press ‘Ctrl’ and ‘+’.",
+      "If you want to delete multiple rows at once, simply select the rows by clicking and dragging over the row numbers, and then press ‘Ctrl’ and ‘—'.",
+      "If you want to delete multiple rows at once, simply select the rows by clicking and dragging over the row numbers, and then press ‘Ctrl’ and ‘Enter’.",
+      "If you want to delete multiple rows at once, simply select the rows by clicking and dragging over the row numbers, and then press ‘Ctrl’ and ‘space’."
+    ],
+    "correctOption": "If you want to delete multiple rows at once, simply select the rows by clicking and dragging over the row numbers, and then press ‘Ctrl’ and ‘—'."
+  },
+  {
+    "question": "Which of the following shortcut keys is used to copy formatting in MS Word 365?",
+    "options": ["Ctrl + Shift + D", "Ctrl + Shift + V", "Ctrl + Shift + C", "Ctrl + Shift + A"],
+    "correctOption": "Ctrl + Shift + C"
+  },
+    {
+    "question": "What is the purpose of the ‘Font Color’ option in Microsoft Word 365?",
+    "options": [
+      "Changing the colour of the text",
+      "Changing the font size",
+      "Applying a background colour to text",
+      "Changing the font style"
+    ],
+    "correctOption": "Changing the colour of the text"
+  },
+  {
+    "question": "What information is typically required to sign in to an email client?",
+    "options": [
+      "Full name and date of birth",
+      "Social media account details",
+      "Phone number and address",
+      "Email address and password"
+    ],
+    "correctOption": "Email address and password"
+  },
+  {
+    "question": "Which of the following services allows users to buy and sell products online?",
+    "options": [
+      "Video conferencing",
+      "Instant messaging",
+      "Streaming",
+      "E-commerce"
+    ],
+    "correctOption": "E-commerce"
+  },
+  {
+    "question": "In MS Excel 365, which of the following is the correct sequence for deleting a column in MS-Excel spreadsheet?",
+    "options": [
+      "Select the cell << Left click << Delete << Entire Column",
+      "Select the cell << Right click << Delete << Entire Column",
+      "Select the cell << Left click << Delete << Entire Row",
+      "Select the cell << Right click << Delete << Entire Row"
+    ],
+    "correctOption": "Select the cell << Right click << Delete << Entire Column"
+  },
+  {
+    "question": "Which of the following is a common element in an MS Word 365 document's header or footer?",
+    "options": [
+      "Font colour",
+      "Page number",
+      "Document title",
+      "Bullet points"
+    ],
+    "correctOption": "Page number"
+  },
+  {
+    "question": "In MS Excel 365, which of the following is NOT a method to open a spreadsheet in MS-Excel?",
+    "options": [
+      "Ctrl+N",
+      "Shift + Ctrl + N",
+      "Alt+F + O",
+      "File -> Open"
+    ],
+    "correctOption": "Shift + Ctrl + N"
+  },
+  {
+    "question": "In MS Excel 365, which alignment option in Microsoft Excel is used to align the text to both the left and right sides of the cell, creating a neat and justified appearance?",
+    "options": [
+      "Justify",
+      "Right Align",
+      "Centre Align",
+      "Left Align"
+    ],
+    "correctOption": "Justify"
+  },
+  {
+    "question": "Which of the following fields tells the recipient what the message is about?",
+    "options": [
+      "To",
+      "Signature",
+      "Subject",
+      "Date"
+    ],
+    "correctOption": "Subject"
+  },
+  {
+    "question": "The term 'ISP' stands for, in the context of internet architecture.",
+    "options": [
+      "Internet Service Protocol",
+      "Internet Service Provider",
+      "International Service Provider",
+      "Intranet Service Provider"
+    ],
+    "correctOption": "Internet Service Provider"
+  },
+  {
+    "question": "Which of the following options can be used when we need to retype the same text as it reduces time and effort in MS Word 365?",
+    "options": [
+      "Cut",
+      "Find",
+      "Replace",
+      "Copy"
+    ],
+    "correctOption": "Copy"
+  },
+  {
+    "question": "In MS Excel 365 what does the ‘Save As’ option allow you to do that the regular ‘Save’ option does not?",
+    "options": [
+      "Save the workbook without any changes",
+      "Save the workbook with the same name",
+      "Save the workbook without confirmation",
+      "Save the workbook with a new name or location"
+    ],
+    "correctOption": "Save the workbook with a new name or location"
+  },
+  {
+    "question": "Which of the following is NOT a text alignment in MS-Word 365?",
+    "options": [
+      "Align Text Justify",
+      "Align Text Right",
+      "Align Text Middle",
+      "Align Text Center"
+    ],
+    "correctOption": "Align Text Middle"
+  },
+  {
+    "question": "In MS word 365, What does the ‘Number of Copies’ option in the Print Settings dialog allow you to do?",
+    "options": [
+      "Adjust the font size",
+      "Specify the number of pages to print",
+      "Specify how many copies of the document to print",
+      "Choose the paper size"
+    ],
+    "correctOption": "Specify how many copies of the document to print"
+  },
+  {
+    "question": "Which of the following is the correct combination of a column letter and a row number that identifies a cell on a worksheet in MS Excel?",
+    "options": [
+      "A3",
+      "B3",
+      "C4",
+      "D4"
+    ],
+    "correctOption": "A3"
+  },
+  {
+    "question": "In MS word 365, what is the keyboard shortcut to copy selected text in most applications?",
+    "options": [
+      "Ctrl+X",
+      "Ctrl+C",
+      "Ctrl+Z",
+      "Ctrl+V"
+    ],
+    "correctOption": "Ctrl+C"
+  },
+  {
+    "question": "In the Page Setup group, which of the following is used to force the text after the break to start on a new page or document in MS word 365?",
+    "options": [
+      "Orientation",
+      "Page Margins",
+      "Page Size",
+      "Page Break"
+    ],
+    "correctOption": "Page Break"
+  },
+  {
+    "question": "Which of the following shortcut keys is used to modify selected text as Italic in MS-Word 365?",
+    "options": [
+      "Ctrl+O",
+      "Ctrl+!",
+      "Ctrl+U",
+      "Ctrl+B"
+    ],
+    "correctOption": "Ctrl+!"
+  },
+  {
+    "question": "Which of the following statements is INCORRECT related to sorting emails in Gmail?",
+    "options": [
+      "Sorting mail cannot help us remove unwanted emails from our inboxes and more easily unsubscribe from mailings we don’t need.",
+      "Sorting mail can help us remove unwanted emails from your inbox and more easily unsubscribe from mailings we don’t need.",
+      "We can sort emails by a variety of factors, like the topic, sender, size, or age of the message.",
+      "Depending on what we use your email address for, sorting emails can also help you keep track of trends and correspondence by looking at messages sorted by specific criteria."
+    ],
+    "correctOption": "Sorting mail cannot help us remove unwanted emails from our inboxes and more easily unsubscribe from mailings we don't need."
+  },
+  {
+    "question": "In MS Excel 365, which file type used in MS Excel produces a comma-delimited text file that can be read by almost all spreadsheet applications on any operating system?",
+    "options": [
+      "xlsx",
+      "docx",
+      "pdf",
+      "csv"
+    ],
+    "correctOption": "csv"
+  },
+  {
+    "question": "Tethering involves using a smartphone's data connection to provide internet access to other devices such as laptops or tablets.",
+    "options": [
+      "Wi-Fi",
+      "Tethering",
+      "Dial up",
+      "Satellite"
+    ],
+    "correctOption": "Tethering"
+  },
+  {
+    "question": "Which Microsoft Excel 365 function calculates the average of a range of numbers?",
+    "options": [
+      "MEDIAN",
+      "MEAN",
+      "AVERAGE",
+      "AVG"
+    ],
+    "correctOption": "AVERAGE"
+  },
+  {
+    "question": "In Microsoft Word 365, which option is used to save an existing document with a new name or in a different location?",
+    "options": [
+      "Save",
+      "Print",
+      "Save As",
+      "Copy"
+    ],
+    "correctOption": "Save As"
+  },
+  {
+    "question": "Suppose you have a worksheet in MS Excel 365 containing sales data for different months. You need to update the sales figure for May, as there was an error in the initial entry. What steps should you follow to edit the sales data for the month of May?",
+    "options": [
+      "Click on the cell containing the May sales data -> Press F1 to enter edit mode -> Make the necessary changes -> Press Enter to confirm the edit",
+      "Click on the cell containing the May sales data -> Press F2 to enter edit mode -> Make the necessary changes -> Press Enter to confirm the edit",
+      "Click on the cell containing the May sales data -> Press F6 to enter edit mode -> Make the necessary changes -> Press Enter to confirm the edit",
+      "Click on the cell containing the May sales data -> Press F7 to enter edit mode -> Make the necessary changes -> Press Enter to confirm the edit"
+    ],
+    "correctOption": "Click on the cell containing the May sales data -> Press F2 to enter edit mode -> Make the necessary changes -> Press Enter to confirm the edit"
+  },
+  {
+    "question": "What does the ‘Paste’ command do in Microsoft Word 365?",
+    "options": [
+      "Removes the selected text",
+      "Deletes the content of the clipboard",
+      "Copies the selected text to the clipboard",
+      "Inserts the content from the clipboard into the document"
+    ],
+    "correctOption": "Inserts the content from the clipboard into the document"
+  },
+  {
+    "question": "Which option allows you to select multiple documents while opening them in Microsoft Word 365?",
+    "options": [
+      "Hold down the Tab key while clicking on the documents.",
+      "Hold down the Alt key while clicking on the documents.",
+      "Hold down the Windows key while clicking on the documents.",
+      "Hold down the Shift key while clicking on the documents."
+    ],
+    "correctOption": "Hold down the Shift key while clicking on the documents."
+  },
+  {
+    "question": "Which option in MS-Word 365 allows you to align the text in a paragraph to both the left and right margins, creating a visually appealing document?",
+    "options": [
+      "Paragraph Alignment",
+      "Justification",
+      "Text Indentation",
+      "Line Spacing"
+    ],
+    "correctOption": "Justification"
+  },
+  {
+    "question": "Which of the following is used to move text from one location to another in a word document of MS-Word 365?",
+    "options": [
+      "Cut and paste the text at desired location",
+      "Copy the selected text",
+      "Copy and paste the text at desired location",
+      "Select and cut the selected text"
+    ],
+    "correctOption": "Cut and paste the text at desired location"
+  },
+  {
+    "question": "How do you print a Microsoft Word 365 document?",
+    "options": [
+      "Select the Ready Printer command",
+      "Select the Print command and then select ‘Ok’",
+      "Select the Print command",
+      "Select the Ready Printer command and then select ‘Ok’"
+    ],
+    "correctOption": "Select the Print command and then select ‘Ok’"
+  },
+  {
+    "question": "In MS Excel 365, which of the following keyboard shortcuts in MS Excel will allow us to open a new spreadsheet?",
+    "options": [
+      "Shift + N",
+      "Alt + O",
+      "Ctrl + 0",
+      "Ctrl + N"
+    ],
+    "correctOption": "Ctrl + N"
+  },
+  {
+    "question": "Which of the following statements related to MS Word 365 is/are correct?\n1) ‘Save’ allows you to update a previously saved file with new content.\n2) ‘Save As’ allows you to save a new file or an existing file to a new place with the same name or a different name.",
+    "options": [
+      "Both (1) and (2)",
+      "Only (2)",
+      "Neither (1) nor (2)",
+      "Only (1)"
+    ],
+    "correctOption": "Both (1) and (2)"
+  },
+  {
+    "question": "In MS Excel 365, which of the following is NOT a benefit of creating a table in Microsoft Excel?",
+    "options": [
+      "Increased data integrity and accuracy",
+      "Enhanced visual appeal and formatting",
+      "Automatic filtering and sorting options",
+      "Improved calculation capabilities"
+    ],
+    "correctOption": "Increased data integrity and accuracy"
+  },
+  {
+    "question": "A global network of interconnected computers and devices is called",
+    "options": [
+      "Ethernet",
+      "Internet",
+      "Manet",
+      "Intranet"
+    ],
+    "correctOption": "Internet"
+  },
+  {
+    "question": "In MS Excel 365, to insert a new row above the selected row in Microsoft Excel 365, which command should you use?",
+    "options": [
+      "Delete Row",
+      "Insert Column",
+      "Insert Row",
+      "Delete Column"
+    ],
+    "correctOption": "Insert Row"
+  },
+  {
+    "question": "Which of the following is the correct option to convert text into superscript?",
+    "options": [
+      "Shift + S",
+      "Ctrl + Shift + U",
+      "Ctrl + Shift + S",
+      "Ctrl + Shift + +"
+    ],
+    "correctOption": "Ctrl + Shift + +"
+  },
+  {
+    "question": "Which of the following is the correct structure of an email address?",
+    "options": [
+      "name@domain.com",
+      "name_domain.com",
+      "name.com",
+      "name@com_domain"
+    ],
+    "correctOption": "name@domain.com"
+  },
+  {
+    "question": "In MS Word 365 If you want to print pages 1, 3, and 5 of a document, which of the following page ranges should you select?",
+    "options": [
+      "1, 3-5",
+      "1, 3, 5",
+      "1-5",
+      "1-3, 5"
+    ],
+    "correctOption": "1, 3, 5"
+  },
+  {
+    "question": "Which of the following options will allow you to set text within a paragraph at different margins in MS Word 365?",
+    "options": [
+      "Page breaks",
+      "Indenting",
+      "Border",
+      "Line spacing"
+    ],
+    "correctOption": "Indenting"
+  },
+  {
+    "question": "Which layer of the internet architecture model is responsible for routing packets between networks?",
+    "options": [
+      "Transport layer",
+      "Network layer",
+      "Data link layer",
+      "Application layer"
+    ],
+    "correctOption": "Network layer"
+  },
+  {
+    "question": "In MS word 365 To change the formatting of the text to match the formatting of other text in a document, which of the following tools can be used?",
+    "options": [
+      "Paragraph alignment",
+      "SmartArt",
+      "Format painter",
+      "Change styles"
+    ],
+    "correctOption": "Format painter"
+  },
+   {
+        "question": "Which of the following is the correct option to draw a line through the middle of text in MS Word 365?",
+        "options": [
+            "Line",
+            "Strikethrough",
+            "Dash",
+            "Underline"
+        ],
+        "correctOption": "Strikethrough"
+    },
+    {
+        "question": "In MS Excel 365, which of the following keyboard shortcuts is used to save a workbook in MS-Excel?",
+        "options": [
+            "Ctrl + Shift+S",
+            "Shift+S",
+            "Ctrl+S",
+            "Ctrl+Alt+S"
+        ],
+        "correctOption": "Ctrl+S"
+    },
+    {
+        "question": "In Microsoft Word 2019, which option is common in both the ‘Indents & Spacing’ and 'Line & Page Breaks' tabs of the ‘Paragraph’ dialog box?",
+        "options": [
+            "General",
+            "Preview",
+            "Indentation",
+            "Textbox options"
+        ],
+        "correctOption": "Preview"
+    },
+    {
+        "question": "In MS Excel 2007, which option is used for opening a new or existing spreadsheet?",
+        "options": [
+            "Office button",
+            "Format",
+            "Insert",
+            "Home"
+        ],
+        "correctOption": "Office button"
+    },
+    {
+        "question": "Which of the following best describes the difference between Save and Save As?",
+        "options": [
+            "‘Save’ is used to save file in compressed manner, while ‘Save As’ is used to save it as it is.",
+            "‘Save’ is used to save file in a local computer, while ‘Save As’ is used to save it on cloud.",
+            "‘Save’ is used to save file as read only file, while ‘Save As’ is used to save it as editable file.",
+            "‘Save’ is used to save the document for the first time, while ‘Save As’ is used to save the document with a new name or different file format."
+        ],
+        "correctOption": "‘Save’ is used to save the document for the first time, while ‘Save As’ is used to save the document with a new name or different file format."
+    },
+    {
+        "question": "In MS Excel 365, when you right-click on a cell and select 'Filter,' which of the following options is NOT visible?",
+        "options": [
+            "Filter by selected cell font",
+            "Filter by selected cell colour",
+            "Filter by selected cell height",
+            "Filter by selected cell values"
+        ],
+        "correctOption": "Filter by selected cell height"
+    },
+    {
+        "question": "When replying to an email, what is the key difference between ‘Reply’ and ‘Reply all’?",
+        "options": [
+            "‘Reply’ allows you to edit the original email’s content before sending the response, while ‘Reply all’ automatically includes the entire original email’s content in the response.",
+            "‘Reply’ forwards email to specific contacts, while ‘Reply all’ forwards the original email to all contacts in the address book.",
+            "‘Reply’ sends the response only to the original sender, while ‘Reply all’ sends the response to all recipients of the original email.",
+            "‘Reply’ attaches any files from the original email, while ‘Reply all’ includes any attachments along with the entire original email’s content in response."
+        ],
+        "correctOption": "‘Reply’ sends the response only to the original sender, while ‘Reply all’ sends the response to all recipients of the original email."
+    },
+    {
+        "question": "Which social networking platform is known for its character limit on posts and real-time updates?",
+        "options": [
+            "Linkedin",
+            "Facebook",
+            "Twitter",
+            "Instagram"
+        ],
+        "correctOption": "Twitter"
+    },
+    {
+        "question": "When editing data in an MS Excel 365 worksheet, which of the following actions will allow you to reverse your recent changes?",
+        "options": [
+            "Copy",
+            "Paste",
+            "Save",
+            "Undo"
+        ],
+        "correctOption": "Undo"
+    },
+    {
+        "question": "In Microsoft Word 2019, which of the following settings is NOT found in the ‘Indents and Spacing’ tab of the ‘Paragraph’ dialog box?",
+        "options": [
+            "Indentation",
+            "Pagination",
+            "Spacing",
+            "General"
+        ],
+        "correctOption": "Pagination"
+    },
+    {
+        "question": "What is the full form of NetBIOS?",
+        "options": [
+            "Networking Binary Input / Output System",
+            "Net Binary In / Out System",
+            "Network Basic Input / Output System",
+            "Network Based Input / Output System"
+        ],
+        "correctOption": "Network Basic Input / Output System"
+    },
+    {
+        "question": "In MS Excel 365, What is the main purpose of using a chart in MS Excel?",
+        "options": [
+            "To store data",
+            "To format text",
+            "To visually represent data",
+            "To perform calculations"
+        ],
+        "correctOption": "To visually represent data"
+    },
+    {
+        "question": "Which of the following shortcut keys is used to get context sensitive Help in MS Word 365?",
+        "options": [
+            "Press F6",
+            "Press F10",
+            "Press F1",
+            "Press F7"
+        ],
+        "correctOption": "Press F1"
+    },
+    {
+        "question": "What is the category of software that enables word processing, database management, graphic manipulation and spreadsheet creation?",
+        "options": [
+            "Structure",
+            "Application",
+            "Framework",
+            "System"
+        ],
+        "correctOption": "Application"
+    },
+    {
+        "question": "Which of the following keyboard shortcut keys is used to pick a new font for the selected text in MS-Word 365?",
+        "options": [
+            "Ctrl+F",
+            "Ctrl + Shift + F",
+            "Shift+F",
+            "Ctrl +alt+F"
+        ],
+        "correctOption": "Ctrl + Shift + F"
+    },
+    {
+        "question": "Which keyboard shortcut allows you to edit the content of a selected cell directly in the cell itself in Microsoft Excel 365?",
+        "options": [
+            "Ctrl+E",
+            "Ctrl+C",
+            "F12",
+            "F2"
+        ],
+        "correctOption": "F2"
+    },
+    {
+        "question": "What is the shortcut command in MS-Word 365 for selecting all the words from the file?",
+        "options": [
+            "Ctrl+A",
+            "Ctrl+C",
+            "Ctrl+X",
+            "Ctrl+Z"
+        ],
+        "correctOption": "Ctrl+A"
+    },
+    {
+        "question": "In MS Excel 365, which of the following is the shortcut key to print a spread sheet?",
+        "options": [
+            "Ctrl + P",
+            "Ctrl +1",
+            "Alt+!",
+            "Alt+P"
+        ],
+        "correctOption": "Ctrl + P"
+    },
+    {
+        "question": "In MS Excel 365, in which of the following Ribbon tabs does the add rows option reside in MS Excel 365?",
+        "options": [
+            "Home — File",
+            "Home — Format",
+            "Home => Edit",
+            "Home — Insert"
+        ],
+        "correctOption": "Home — Insert"
+    },
+    {
+        "question": "Which technology is commonly used for sending and receiving electronic mail?",
+        "options": [
+            "Telephony",
+            "Internet and email protocols",
+            "Postal services",
+            "Fax machines"
+        ],
+        "correctOption": "Internet and email protocols"
+    },
+    {
+        "question": "What is the full form of NetBIOS?",
+        "options": [
+            "Networking Binary Input / Output System",
+            "Net Binary In / Out System",
+            "Network Basic Input / Output System",
+            "Network Based Input / Output System"
+        ],
+        "correctOption": "Network Basic Input / Output System"
+    },
+    {
+        "question": "In MS Excel 365, Which of the following shortcut keys is used to save a workbook in MS Excel?",
+        "options": [
+            "F1",
+            "Ctrl+A",
+            "F6",
+            "Ctrl+S"
+        ],
+        "correctOption": "Ctrl+S"
+    },
+    {
+        "question": "Which of the following is a commonly used word processing package?",
+        "options": [
+            "Microsoft Word",
+            "Microsoft Excel",
+            "Adobe Photoshop",
+            "Google Chrome"
+        ],
+        "correctOption": "Microsoft Word"
+    },
+    {
+        "question": "‘The group of buttons or icons below the menu bar in a word processing software are called:",
+        "options": [
+            "toolbars",
+            "dialog boxes",
+            "menus",
+            "status bars"
+        ],
+        "correctOption": "toolbars"
+    },
+    {
+        "question": "Which of the following CANNOT be the default font size in the font-menu dropdown list in MS Word 365 in Windows 10?",
+        "options": [
+            "9",
+            "10",
+            "13",
+            "11"
+        ],
+        "correctOption": "13"
+    },
+    {
+        "question": "Which of the following is the correct shortcut key used to increase paragraph indention in MS Word 365?",
+        "options": [
+            "Ctrl+M",
+            "Ctrl + Tab",
+            "Ctrl +b",
+            "Ctr +1"
+        ],
+        "correctOption": "Ctrl+M"
+    },
+    {
+        "question": "Which of the following is/are parts of the standard Structure of Electronic mail?",
+        "options": [
+            "Both Header and Body",
+            "Neither Header nor Body",
+            "Only Header",
+            "Only Body"
+        ],
+        "correctOption": "Both Header and Body"
+    },
+    {
+        "question": "What is the primary purpose of a word processing package like Microsoft Word 365?",
+        "options": [
+            "Creating spreadsheets",
+            "Designing presentations",
+            "Sending emails",
+            "Creating and editing documents"
+        ],
+        "correctOption": "Creating and editing documents"
+    },
+    {
+        "question": "Which of the following shortcut keys is used to get the Help Menu in MS-Word 365?",
+        "options": [
+            "Ctrl+F1",
+            "Shift + F1",
+            "F1",
+            "Alt+F1"
+        ],
+        "correctOption": "F1"
+    },
+    {
+        "question": "By default, what number of emails in Gmail can be sorted that a user recently received.",
+        "options": [
+            "50",
+            "75",
+            "25",
+            "100"
+        ],
+        "correctOption": "50"
+    },
+    {
+        "question": "In MS Excel have a dollar sign ($) in front of the row number and/or column letter.",
+        "options": [
+            "Only absolute reference",
+            "Only relative reference",
+            "Only mixed reference",
+            "Both absolute reference and mixed reference"
+        ],
+        "correctOption": "Both absolute reference and mixed reference"
+    },
+    {
+        "question": "Which of the following symbols is used to begin a formula in MS Excel 365?",
+        "options": [
+            "$",
+            "°",
+            "=",
+            "="
+        ],
+        "correctOption": "="
+    },
+    {
+        "question": "Which of the following is the full form of GPRS?",
+        "options": [
+            "General Packet Radio Service",
+            "General Protocol Radio Service",
+            "General Packet Release Service",
+            "Group Packet Radio Service"
+        ],
+        "correctOption": "General Packet Radio Service"
+    },
+    {
+        "question": "Which of the following shortcut keys is used to justify the text in MS Word 365?",
+        "options": [
+            "Ctrl+B",
+            "Ctrl+U",
+            "Ctrl+J",
+            "Ctrl +1"
+        ],
+        "correctOption": "Ctrl+J"
+    },
+    {
+        "question": "When pasting text in Microsoft Word 365, what is the default behaviour if the destination already contains text?",
+        "options": [
+            "Prompt the user to choose between overwriting or merging the text.",
+            "Merge the pasted text with the existing text.",
+            "Create a new document with the pasted text.",
+            "Overwrite the existing text."
+        ],
+        "correctOption": "Merge the pasted text with the existing text."
+    },
+	 {
+    "question": "Which of the following functions in MS Excel 365 generates a real number greater than 0 and is traditionally used for statistical analysis, cryptography, gaming, gambling, and probability theory?",
+    "options": [
+      "VLOOKUP",
+      "RAND",
+      "SUM",
+      "AVERAGE"
+    ],
+    "correctOption": "RAND"
+  },
+  {
+    "question": "In Microsoft Word 365, on which page is the header or the footer displayed by default?",
+    "options": [
+      "On first page",
+      "On middle page",
+      "On last page",
+      "On every page"
+    ],
+    "correctOption": "On every page"
+  },
+  {
+    "question": "In MS Excel 365, which of the following is the shortcut key to open a spreadsheet that is already existing?",
+    "options": [
+      "Alt+N",
+      "Ctrl+O",
+      "Ctrl+N",
+      "Alt+O"
+    ],
+    "correctOption": "Ctrl+O"
+  },
+  {
+    "question": "What is the purpose of attaching files to an email?",
+    "options": [
+      "To add decorative elements to the email",
+      "To share documents, images or other files with the recipient",
+      "To increase the size of the email",
+      "To format the email text"
+    ],
+    "correctOption": "To share documents, images or other files with the recipient"
+  },
+  {
+    "question": "In MS Excel 365, the shortcut key to open the custom sort is:",
+    "options": [
+      "Shift+A+S",
+      "Ctrl+Alt+S",
+      "Windows Key+A+S",
+      "Alt+A+S"
+    ],
+    "correctOption": "Alt+A+S"
+  },
+  {
+    "question": "In MS Word 365, how can you select a paragraph in Microsoft Word?",
+    "options": [
+      "Triple-click anywhere within the paragraph.",
+      "Right-click anywhere within the paragraph and choose ‘Select Paragraph’.",
+      "Press Ctrl+B to select the entire paragraph.",
+      "Double-click anywhere within the paragraph."
+    ],
+    "correctOption": "Triple-click anywhere within the paragraph."
+  },
+  {
+    "question": "Bullets and numbering are commonly used in Microsoft Word 365 to:",
+    "options": [
+      "Add borders around paragraphs",
+      "Format text as headings",
+      "Create lists for better organization",
+      "Italicize the text"
+    ],
+    "correctOption": "Create lists for better organization"
+  },
+  {
+    "question": "In MS Excel 365, by default, the spreadsheet will be saved in which of the following formats?",
+    "options": [
+      ".docx",
+      ".xls",
+      ".xlsx",
+      ".doc"
+    ],
+    "correctOption": ".xlsx"
+  },
+  {
+    "question": "In Microsoft Word 365, how can we apply different page formatting within the same document by separating areas with different formats?",
+    "options": [
+      "By Section Break",
+      "By Insert",
+      "By Page Layout",
+      "By Page Break"
+    ],
+    "correctOption": "By Section Break"
+  },
+  {
+    "question": "Which of the following is the function of an IP address?",
+    "options": [
+      "Creating secure connections",
+      "Identifying devices on a network",
+      "Managing email communication",
+      "Formatting web pages"
+    ],
+    "correctOption": "Identifying devices on a network"
+  },
+  {
+    "question": "Which of the following groups in the Home tab of MS Word 365 consists of Bullets and Numbering?",
+    "options": [
+      "Clipboard",
+      "Font",
+      "Editing",
+      "Paragraph"
+    ],
+    "correctOption": "Paragraph"
+  },
+  {
+    "question": "Which of the following bars provides a shortcut to menu commands represented in the form of icons?",
+    "options": [
+      "Menu bar",
+      "Tool Bar",
+      "Space Bar",
+      "Vertical Bar"
+    ],
+    "correctOption": "Tool Bar"
+  },
+  {
+    "question": "What is the purpose of a URL (Uniform Resource Locator)?",
+    "options": [
+      "To provide the address of a web resource",
+      "To create animations on websites",
+      "To format text on websites",
+      "To manage user accounts on websites"
+    ],
+    "correctOption": "To provide the address of a web resource"
+  },
+  {
+    "question": "In MS Excel 365, which of the following shortcut keys is used to select the entire workbook?",
+    "options": [
+      "Ctrl+S",
+      "F1",
+      "Ctrl+A",
+      "F6"
+    ],
+    "correctOption": "Ctrl+A"
+  },
+  {
+    "question": "In MS Excel 365, which tab on the Microsoft Excel ribbon allows you to access options related to opening and saving files?",
+    "options": [
+      "Home",
+      "Insert",
+      "File",
+      "View"
+    ],
+    "correctOption": "File"
+  },
+  {
+    "question": "The keyboard shortcut key used to print preview in MS-Word 365 is:",
+    "options": [
+      "Ctrl+F1",
+      "Shift + F2",
+      "Shift + F1",
+      "Ctrl + F2"
+    ],
+    "correctOption": "Ctrl + F2"
+  },
+  {
+    "question": "In MS Excel 365, which of the following is one of the options to edit cells?",
+    "options": [
+      "Formula bar",
+      "Edit bar",
+      "Ribbon",
+      "Space bar"
+    ],
+    "correctOption": "Formula bar"
+  },
+  {
+    "question": "In most word processors, which of the following keyboard shortcuts is used to bold, italicize, and underline the text?",
+    "options": [
+      "Ctrl +B, Ctrl +I, Ctrl +U",
+      "Ctrl + P, Ctrl + V, Ctrl +U",
+      "Ctrl+ B, Ctrl +X, Ctrl+V",
+      "Ctrl +A, Ctrl +B, Ctrl+C"
+    ],
+    "correctOption": "Ctrl+ B, Ctrl+I, Ctrl+U"
+  },
+  {
+    "question": "Which of the following statements related to Assigning a Label to an email is INCORRECT?",
+    "options": [
+      "We cannot use label in email to sort our inbox.",
+      "We can use labels in email to sort our inbox.",
+      "Assigning a label to an email is the equivalent of moving it into a specific folder.",
+      "We can apply multiple labels to a single email."
+    ],
+    "correctOption": "We cannot use label in email to sort our inbox."
+  },
+  {
+    "question": "Which of the following options is used while printing documents in MS Word 365 if you want to print only specific pages like 7th, 8th, 9th, and 10th?",
+    "options": [
+      "Print one sided",
+      "Collated",
+      "Print Custom Range",
+      "Orientation"
+    ],
+    "correctOption": "Print Custom Range"
+  },
+  {
+    "question": "In MS-Word 365, which of the following actions is a part of the document creation process?",
+    "options": [
+      "Inserting a table of contents",
+      "Printing the document",
+      "Saving the document with a new name",
+      "Applying formatting to the text"
+    ],
+    "correctOption": "Saving the document with a new name"
+  },
+  {
+    "question": "Which option allows you to increase the size of selected text in Microsoft Word 365?",
+    "options": [
+      "Underline",
+      "Bold",
+      "Italic",
+      "Font Size"
+    ],
+    "correctOption": "Font Size"
+  },
+  {
+    "question": "In MS Excel 365, which menu or tab is used to access the ‘Save’ or ‘Save as’ options?",
+    "options": [
+      "File",
+      "Edit",
+      "Insert",
+      "Home"
+    ],
+    "correctOption": "File"
+  },
+  {
+    "question": "What is the maximum number of columns existing in MS-Excel 2010?",
+    "options": [
+      "8,382 columns",
+      "32,386 columns",
+      "16,384 columns",
+      "2,048 columns"
+    ],
+    "correctOption": "16,384 columns"
+  },
+  {
+    "question": "When we open MS-Word 365, what could be found?",
+    "options": [
+      "Blank page without any default name",
+      "Blank page with a default name “Document1”",
+      "Blank page with a default name “page 1”",
+      "Blank page with a default name “Doc 1”"
+    ],
+    "correctOption": "Blank page with a default name “Document1”"
+  },
+  {
+    "question": "Which of the following is an example of a web browser?",
+    "options": [
+      "Mozilla Firefox",
+      "Google Search",
+      "Yahoo mail",
+      "Outlook 365"
+    ],
+    "correctOption": "Mozilla Firefox"
+  },
+  {
+    "question": "What does the ‘Grammar Check’ feature in MS-Word 365 do?",
+    "options": [
+      "It formats the text based on predefined style rules.",
+      "It identifies and provides suggestions to correct grammatical errors in the text.",
+      "It provides suggestions to improve the document's structure.",
+      "It highlights correct spelling and offers suggestions."
+    ],
+    "correctOption": "It identifies and provides suggestions to correct grammatical errors in the text."
+  },
+  {
+    "question": "Which of the following is NOT used to modify selected text in MS-Word 365?",
+    "options": [
+      "Ctrl+B",
+      "Ctrl+I",
+      "Ctrl+U",
+      "Ctrl+O"
+    ],
+    "correctOption": "Ctrl+O"
+  },
+  {
+    "question": "In Print Preview mode in Microsoft Word 365, what can you review and modify before printing the document?",
+    "options": [
+      "Document content and editing options",
+      "Page layout",
+      "Font styles and sizes",
+      "Printer connectivity and network settings"
+    ],
+    "correctOption": "Page layout"
+  },
+  {
+    "question": "Which of the following tabs on the MS Excel 365 ribbon has the ‘Sort & Filter’ group?",
+    "options": [
+      "Formula",
+      "Review",
+      "Edit",
+      "Data"
+    ],
+    "correctOption": "Data"
+  },
+  {
+    "question": "Which protocol is commonly used for sending emails from a client to a server?",
+    "options": [
+      "Internet Messaging Access Protocol (IMAP)",
+      "Simple Mail Transfer Protocol (SMTP)",
+      "Post office Protocol (POP3)",
+      "Hypertext Transfer Protocol (HTTP)"
+    ],
+    "correctOption": "Simple Mail Transfer Protocol (SMTP)"
+  },
+  {
+    "question": "What is the function of the ‘Superscript’ feature in Microsoft Word 365?",
+    "options": [
+      "Makes the text larger and below the baseline",
+      "Adds a line under the text",
+      "Makes the text bold and italic",
+      "Makes the text smaller and above the baseline"
+    ],
+    "correctOption": "Makes the text smaller and above the baseline"
+  },
+  {
+    "question": "Which of the following keyboard shortcuts is used to increase the size of the selected text in MS-Word 365?",
+    "options": [
+      "Ctrl+<",
+      "Ctrl+]",
+      "Ctrl+?",
+      "Ctrl++"
+    ],
+    "correctOption": "Ctrl+]"
+  },
+  {
+    "question": "In MS word 365, which of the following keyboard shortcut keys is used to open new blank documents?",
+    "options": [
+      "Ctrl+O",
+      "Alt+O",
+      "Ctrl+N",
+      "Shift+O"
+    ],
+    "correctOption": "Ctrl+N"
+  },
+  {
+    "question": "In MS Excel, what is the correct cell address of the second column and third row?",
+    "options": [
+      "A3",
+      "B3",
+      "3A",
+      "38"
+    ],
+    "correctOption": "B3"
+  },
+  {
+    "question": "What does the cell address ‘C10’ represent in an electronic spreadsheet?",
+    "options": [
+      "The cell in the twelfth column and the third row",
+      "The cell in the tenth column and the third row",
+      "The cell in the third column and the tenth row",
+      "The cell in the third column and the twelfth row"
+    ],
+    "correctOption": "The cell in the third column and the tenth row"
+  },
+  {
+    "question": "Which of the following is an option present in Paragraph Formatting in MS Word 365?",
+    "options": [
+      "Replace",
+      "Line spacing",
+      "Find",
+      "Save"
+    ],
+    "correctOption": "Line spacing"
+  },
+  {
+    "question": "Which of the following is a type of internet connection that uses a telephone line for data transmission?",
+    "options": [
+      "Broadband",
+      "Fibre optic",
+      "Satellite",
+      "Dial up"
+    ],
+    "correctOption": "Dial up"
+  },
+  {
+    "question": "Which of the following alignments will give your text straight edges on both sides of the paragraph and extends each line of your text to the left and right margins in MS Word 365?",
+    "options": [
+      "Right alignment",
+      "Left alignment",
+      "Center",
+      "Justify"
+    ],
+    "correctOption": "Justify"
+  },
+  {
+    "question": "Among the following, under which tab will you find the Start Mail Merge in Microsoft Office Professional Plus 2016?",
+    "options": [
+      "Insert",
+      "Home",
+      "References",
+      "Mailings"
+    ],
+    "correctOption": "Mailings"
+  },
+  {
+    "question": "What is a secret string of characters used to verify the identity of a user during the authentication process?",
+    "options": [
+      "Website",
+      "Domain name",
+      "Username",
+      "Password"
+    ],
+    "correctOption": "Password"
+  },
+   {
+    "question": "Which of the following statements is correct about the row height of the cell in a spreadsheet in MS-Excel 2010?",
+    "options": [
+      "Upper and lower bounds for row heights are 409 and 0, respectively.",
+      "Upper and lower bounds for row heights are 609 and 0, respectively.",
+      "Upper and lower bounds for row heights are 709 and 0, respectively.",
+      "Upper and lower bounds for row heights are 509 and 0, respectively."
+    ],
+    "correctOption": "Upper and lower bounds for row heights are 409 and 0, respectively."
+  },
+  {
+    "question": "In MS Word 365, What do you mean by hamburger menu?",
+    "options": [
+      "It saves the document in the file.",
+      "It prints the document in the file.",
+      "It deletes the document in the file.",
+      "It hides the traditional file menu."
+    ],
+    "correctOption": "It hides the traditional file menu."
+  },
+  {
+    "question": "Which of the following is the purpose of the ‘Cell Padding’ property in a table in MS Word?",
+    "options": [
+      "It adds a border around each cell.",
+      "It adjusts the spacing between cells and their content.",
+      "It merges adjacent cells.",
+      "It changes the font size within the cells."
+    ],
+    "correctOption": "It adjusts the spacing between cells and their content."
+  },
+  {
+    "question": "What is the primary purpose of an email client?",
+    "options": [
+      "To edit photos.",
+      "To create spreadsheets.",
+      "To play video games.",
+      "To read and send emails."
+    ],
+    "correctOption": "To read and send emails."
+  },
+  {
+    "question": "Which of the following internet services is a secure connection over the internet that allows users to connect to a private network from a remote location?",
+    "options": [
+      "VoIP",
+      "Web browsing",
+      "Email",
+      "VPN"
+    ],
+    "correctOption": "VPN"
+  },
+  {
+    "question": "In spreadsheet software, which formula can be used to find the largest value in a range of cells?",
+    "options": [
+      "MIN()",
+      "MAX()",
+      "COUNT()",
+      "SUM()"
+    ],
+    "correctOption": "MAX()"
+  },
+  {
+    "question": "Which of the following does the ‘Bold’ formatting option typically do to text in an MS Word 365 document?",
+    "options": [
+      "Make the text larger.",
+      "Change the font style to italics.",
+      "Change the text color.",
+      "Make the text darker and thicker."
+    ],
+    "correctOption": "Make the text darker and thicker."
+  },
+  {
+    "question": "The ‘Sort & Filter’ group is available under which of the following tabs in MS Excel 365?",
+    "options": [
+      "Insert",
+      "Home",
+      "Data",
+      "View"
+    ],
+    "correctOption": "Data"
+  },
+  {
+    "question": "In MS Word 365, which group within the Home tab contains the alignment options?",
+    "options": [
+      "Styles",
+      "Paragraph",
+      "Font",
+      "Editing"
+    ],
+    "correctOption": "Paragraph"
+  },
+  {
+    "question": "Which of the following is a function in MS Excel 365 that returns the sum of the values in a range of cells?",
+    "options": [
+      "AVERAGE",
+      "SUM",
+      "MAX",
+      "COUNT"
+    ],
+    "correctOption": "SUM"
+  },
+  {
+    "question": "What is the purpose of the ‘Print Preview’ feature in Microsoft Word 365?",
+    "options": [
+      "It provides suggestions for improving grammar and spelling.",
+      "It provides a preview of how the document will look when printed.",
+      "It allows you to insert images and graphics.",
+      "It allows you to edit text and formatting."
+    ],
+    "correctOption": "It provides a preview of how the document will look when printed."
+  },
+  {
+    "question": "In MS Word 365, You can change how MS Word 365 corrects and formats your text for spelling and grammatical errors by going to File -> Options -> and:",
+    "options": [
+      "Proofing",
+      "Page layout settings",
+      "Font settings",
+      "Page size settings"
+    ],
+    "correctOption": "Proofing"
+  },
+  {
+    "question": "Autocorrect function may be used in MS Word 365, for grammar and spell-check and it is available through:",
+    "options": [
+      "File>Options>Display",
+      "File>Options>Language",
+      "File>Options> Proofing",
+      "File>Options >General"
+    ],
+    "correctOption": "File>Options> Proofing"
+  },
+  {
+    "question": "In MS Excel 365, which of the following is a shortcut key to open a new spreadsheet?",
+    "options": [
+      "Alt+N",
+      "Ctrl+O",
+      "Alt+O",
+      "Ctrl+N"
+    ],
+    "correctOption": "Ctrl+N"
+  },
+  {
+    "question": "Which of the following functions is executed if shortcut key Ctrl + I is used in MS Word 365?",
+    "options": [
+      "Underline the text",
+      "Bold the text",
+      "Strike through the text",
+      "Make the text italic"
+    ],
+    "correctOption": "Make the text italic"
+  },
+  {
+    "question": "In MS Excel 365, which of the following is the correct formula to calculate the average of the values in cells A1 to A10?",
+    "options": [
+      "=SUM(A1:A10)/10",
+      "=SUM(A1:A10)/100",
+      "=AVERAGE(10*A1)",
+      "=AVERAGE(A1:A10)"
+    ],
+    "correctOption": "=AVERAGE(A1:A10)"
+  },
+  {
+    "question": "Which of the following is a type of network that allows users from outside to access the Intranet of an organization?",
+    "options": [
+      "Extranet",
+      "Double Intranet",
+      "Externet",
+      "Internet"
+    ],
+    "correctOption": "Extranet"
+  },
+  {
+    "question": "What is the primary purpose of creating a table in a word processing document?",
+    "options": [
+      "To organize and present information in a structured and easy-to-read format.",
+      "To add decorative elements and enhance the visual appeal of the document.",
+      "To apply different fonts and colors to the text within the table.",
+      "To change the page orientation and adjust the margins of the document."
+    ],
+    "correctOption": "To organize and present information in a structured and easy-to-read format."
+  },
+  {
+    "question": "What does ‘CC’ stand for in the context of email?",
+    "options": [
+      "Carbon Copy",
+      "Centralized Communication",
+      "Compose Check",
+      "Confidential Content"
+    ],
+    "correctOption": "Carbon Copy"
+  },
+  {
+    "question": "In MS Excel 365, which of the following will be used to print a spreadsheet?",
+    "options": [
+      "Home -> open",
+      "File -> print",
+      "View -> print",
+      "Layout -> print"
+    ],
+    "correctOption": "File -> print"
+  },
+  {
+    "question": "Which of the following shortcut keys is used to switch to print preview in MS Word 2016?",
+    "options": [
+      "Page Down",
+      "Page UP",
+      "Ctrl+Alt+!",
+      "Ctrl+P"
+    ],
+    "correctOption": "Ctrl+Alt+!"
+  },
+  {
+    "question": "Which of the following can be done by using the Spelling and Grammar tool in MS Word 365?",
+    "options": [
+      "Indicate grammatical errors",
+      "Correct spelling errors as you type",
+      "Identify words with capitalization problems",
+      "All of the above"
+    ],
+    "correctOption": "All of the above"
+  },
+  {
+    "question": "In MS Excel 365, Which of the following is the correct way to save a duplicate MS Excel workbook with the same name as the original workbook, but in a different folder?",
+    "options": [
+      "Press ‘Ctrl+D’",
+      "Press Ctrl +V",
+      "Click on the ‘Insert’ menu and select ‘Save’.",
+      "Select the desired folder in the ‘Save in’ field of the ‘Save As’ dialog box and click on the ‘Save’ button."
+    ],
+    "correctOption": "Select the desired folder in the ‘Save in’ field of the ‘Save As’ dialog box and click on the ‘Save’ button."
+  },
+  {
+    "question": "Which option in Microsoft Excel allows you to create a custom bullet style for a bulleted list?",
+    "options": [
+      "Define New Bullet",
+      "Text Box",
+      "Styles",
+      "Format Cells"
+    ],
+    "correctOption": "Define New Bullet"
+  },
+  {
+    "question": "What is the purpose of the ‘Track Changes’ feature in Microsoft Word 365?",
+    "options": [
+      "To highlight spelling and grammar errors in a document.",
+      "To create a backup copy of the document.",
+      "To automatically save changes made to a document.",
+      "To keep a record of edits made to a document by different authors."
+    ],
+    "correctOption": "To keep a record of edits made to a document by different authors."
+  },
+  {
+    "question": "Which of the following keyboard shortcuts can be used to paste cut text after moving it?",
+    "options": [
+      "Ctrl+V",
+      "Ctrl +X",
+      "Ctr+P",
+      "Ctrl+C"
+    ],
+    "correctOption": "Ctrl+V"
+  },
+  {
+    "question": "Which of the following signs appears when you drag the fill handle while creating text, number and data series in MS Excel 365?",
+    "options": [
+      "$",
+      "*",
+      "+",
+      "/"
+    ],
+    "correctOption": "+"
+  },
+   {
+    "question": "Which tab in Microsoft Word 365 contains the ‘Open’ option to open an existing document?",
+    "options": [
+      "File",
+      "View",
+      "Insert",
+      "Home"
+    ],
+    "correctOption": "File"
+  },
+  {
+    "question": "Which of the following is used to select an entire line or paragraph from the cursor place in MS-Word 365?",
+    "options": [
+      "Both single and double mouse click",
+      "Triple mouse click",
+      "Single mouse click",
+      "Double mouse click"
+    ],
+    "correctOption": "Both single and double mouse click"
+  },
+  {
+    "question": "‘Contact Us’ is present in which of the following sections in MS Word 365?",
+    "options": [
+      "Help",
+      "References",
+      "Review",
+      "Mailings"
+    ],
+    "correctOption": "Mailings"
+  },
+  {
+    "question": "In MS Excel 365, the title bar in Microsoft Excel is used for:",
+    "options": [
+      "displaying the title of a sheet",
+      "displaying the title of a workbook",
+      "displaying the title of a column",
+      "displaying the title of a row"
+    ],
+    "correctOption": "displaying the title of a workbook"
+  },
+  {
+    "question": "In MS Word 365, which of the following shortcut is used to centre align the selected text?",
+    "options": [
+      "Ctrl+C",
+      "Ctir+E",
+      "Ctrl + Shift+E",
+      "Ctrl + Shift +C"
+    ],
+    "correctOption": "Ctir+E"
+  },
+  {
+    "question": "You have created a new document in MS Word 365 and you have made some changes to it. You want to save the document, but you also want to create a copy of it with a different name. Which of the following commands should you use?",
+    "options": [
+      "Open",
+      "Close",
+      "Save As",
+      "Save"
+    ],
+    "correctOption": "Save As"
+  },
+  {
+    "question": "Which of the following keyboard shortcuts is/are used to open the Find and Replace dialog box in MS Word 365?",
+    "options": [
+      "Only (a)",
+      "Both (a) and (b)",
+      "Only (b)",
+      "Neither (a) nor (b)"
+    ],
+    "correctOption": "Both (a) and (b)"
+  },
+  {
+    "question": "Which of the following is a simple function in MS Excel 365, that raises a given number to an exponent?",
+    "options": [
+      "MEDIAN",
+      "AVERAGE",
+      "RAND",
+      "POWER"
+    ],
+    "correctOption": "POWER"
+  },
+  {
+    "question": "In Microsoft Excel, letters of the alphabet are used to define which of the following?",
+    "options": [
+      "Row",
+      "Table",
+      "Column",
+      "Sheet"
+    ],
+    "correctOption": "Column"
+  },
+  {
+    "question": "What action is performed by pressing the ‘Delete’ key on the keyboard in Microsoft Word 365?",
+    "options": [
+      "Removes the selected text",
+      "Cuts the selected text",
+      "Undo the last action",
+      "Copies the selected text"
+    ],
+    "correctOption": "Removes the selected text"
+  },
+  {
+    "question": "Which architecture connects individual devices directly, with equal responsibilities and powers, and without a central authority?",
+    "options": [
+      "Peer-to-Peer architecture",
+      "Client-Server architecture",
+      "Centralised architecture",
+      "Distributed architecture"
+    ],
+    "correctOption": "Peer-to-Peer architecture"
+  },
+  {
+    "question": "Which method can help detect spelling and grammatical errors in Microsoft Word 365?",
+    "options": [
+      "Pressing ‘F7’",
+      "Pressing ‘F8’",
+      "Pressing ‘Alt+ F7’",
+      "Pressing ‘Alt+ F8’"
+    ],
+    "correctOption": "Pressing ‘F7’"
+  },
+  {
+    "question": "Any message you are writing until you send it or trash it, is called:",
+    "options": [
+      "Starred Mail",
+      "Draft Mail",
+      "Sent Mail",
+      "Received Mail"
+    ],
+    "correctOption": "Draft Mail"
+  },
+  {
+    "question": "Which internet protocol is responsible for assigning unique IP addresses to devices on a network and ensuring they can communicate with each other?",
+    "options": [
+      "DNS (Domain Name System)",
+      "DHCP (Dynamic Host Configuration Protocol)",
+      "HTTP (Hypertext Transfer Protocol)",
+      "TCP (Transmission Control Protocol)"
+    ],
+    "correctOption": "DHCP (Dynamic Host Configuration Protocol)"
+  },
+  {
+    "question": "Which of the following is the correct syntax to enter a Date in MS-Excel 365?",
+    "options": [
+      "=DATE(year,month,day)",
+      "=DATE(month,day, year)",
+      "=DATE(year,day,month)",
+      "=DATE(day,year,month)"
+    ],
+    "correctOption": "=DATE(year,month,day)"
+  },
+  {
+    "question": "Which of the following is NOT a component of an email message?",
+    "options": [
+      "Cc",
+      "To",
+      "Nec",
+      "Subject"
+    ],
+    "correctOption": "Nec"
+  },
+  {
+    "question": "In Microsoft Word 365, in which layout mode can we see how text and graphics will appear on the printed page?",
+    "options": [
+      "Normal Layout",
+      "Web Layout",
+      "Print Layout",
+      "Quick Layout"
+    ],
+    "correctOption": "Print Layout"
+  },
+  {
+    "question": "If you are currently in Cell D4 in Microsoft Excel and you press the Enter key, to which cell will you move?",
+    "options": [
+      "You will go to Cell D5",
+      "You will go to Cell D3",
+      "You will go to Cell C4",
+      "You will go to Cell E4"
+    ],
+    "correctOption": "You will go to Cell D5"
+  },
+  {
+    "question": "Which pair of keyboard shortcuts is used for copying and pasting words in MS word 365?",
+    "options": [
+      "Ctrl+C andCtri+A",
+      "Ctrl+C and Ctrl+S",
+      "Ctrl + C and Ctri+Z",
+      "Ctrl + C and Ctrl+V"
+    ],
+    "correctOption": "Ctrl + C and Ctrl+V"
+  },
+  {
+    "question": "Which of the following methods is used to open word Processing package?",
+    "options": [
+      "Start->All Programs->Word Processor",
+      "Start->All Programs->Microsoft Word",
+      "File-> All Programs->Microsoft Word",
+      "File-> All Programs->Word Processor"
+    ],
+    "correctOption": "Start->All Programs->Microsoft Word"
+  },
+  {
+    "question": "What is the shortcut key for opening the documents in MS-Word 365?",
+    "options": [
+      "Ctrl+O",
+      "Ctrl+W",
+      "Ctrl+V",
+      "Ctr+B"
+    ],
+    "correctOption": "Ctrl+O"
+  },
+  {
+    "question": "In MS-Word 365, which feature allows you to track and review changes made to a document, such as additions, deletions, and formatting modifications?",
+    "options": [
+      "AutoSave",
+      "Track Changes",
+      "Spelling and Grammar Check",
+      "Version History"
+    ],
+    "correctOption": "Track Changes"
+  },
+  {
+    "question": "Which of the following is an absolute cell reference in an MS Excel spreadsheet?",
+    "options": [
+      "$A1",
+      "$A$1",
+      "A$1",
+      "A1"
+    ],
+    "correctOption": "$A$1"
+  },
+  {
+    "question": "Which of the following shortcut keys is used to perform right alignment in MS Word 365?",
+    "options": [
+      "Ctri+L",
+      "Ctrl+R",
+      "Ctrl + Shift + >",
+      "Ctrl + Shift + <"
+    ],
+    "correctOption": "Ctrl+R"
+  },
+  {
+    "question": "In MS word 365. Which of the following menus has icons to Add Text, Update A Table, Insert Footnote, and Index in the Word Processing Package?",
+    "options": [
+      "Design",
+      "Page Layout",
+      "References",
+      "Mailings"
+    ],
+    "correctOption": "References"
+  },
+  {
+    "question": "Which of the following in communication of internet is a process of transferring real-time messages between users that facilitates private chat room atmosphere?",
+    "options": [
+      "Collaboration",
+      "Instant messaging",
+      "Remote access",
+      "File sharing"
+    ],
+    "correctOption": "Instant messaging"
+  },
+  {
+    "question": "In MS Excel 365, how can a full name in MS-Excel 365 be split into separate first name and last name columns?",
+    "options": [
+      "Using the CONCATENATE function",
+      "Using the Data Validation feature",
+      "Using the Text to Columns feature",
+      "Using the TEXT function"
+    ],
+    "correctOption": "Using the Text to Columns feature"
+  },
+  {
+    "question": "In Microsoft Word 365, what does paragraph formatting primarily control?",
+    "options": [
+      "Font style and colour",
+      "Document headers and footers",
+      "Page layout and margins",
+      "Line spacing and alignment"
+    ],
+    "correctOption": "Line spacing and alignment"
+  },
+  {
+    "question": "‘In MS Excel 365 , which of the following keyboard shortcuts will open the ‘Open’ dialog box, where you can navigate to the location of a spreadsheet file and open it?",
+    "options": [
+      "Ctrl + Shift+ O",
+      "Alt+O",
+      "Shift + Alt +O",
+      "Ctr +0"
+    ],
+    "correctOption": "Ctrl + Shift+ O"
+  },
+  {
+    "question": "Which of the following is an email client offered by Microsoft?",
+    "options": [
+      "Outlook",
+      "Gmail",
+      "Thunderbird",
+      "Apple"
+    ],
+    "correctOption": "Outlook"
+  },
+  {
+    "question": "Which of the following signs is always the first part of the formula followed by an expression that calculates a value in MSExcel 365?",
+    "options": [
+      "= (Equal to)",
+      "- (Subtraction)",
+      "/ (Division)",
+      "+ (Addition)"
+    ],
+    "correctOption": "= (Equal to)"
+  },
+  {
+    "question": "Which button in the Home tab of Microsoft Word 365 can be used to cut selected text?",
+    "options": [
+      "Scissors icon",
+      "Clipboard icon",
+      "Double sheets of paper icon",
+      "Arrow pointing down icon"
+    ],
+    "correctOption": "Scissors icon"
+  },
+  {
+    "question": "How can we combine names and addresses with a standard document in Microsoft Word 365?",
+    "options": [
+      "Mail Formatting",
+      "Mail Merge",
+      "Document Formatting",
+      "Document Merge"
+    ],
+    "correctOption": "Mail Merge"
+  },
+  {
+    "question": "Which of the following is used to move a selected text from one place to another in MS word 365?",
+    "options": [
+      "Cut-Copy",
+      "Copy-Copy",
+      "Cut-Paste",
+      "Copy-Paste"
+    ],
+    "correctOption": "Cut-Paste"
+  },
+  {
+    "question": "Where is the Help button located in MS-Word 2010?",
+    "options": [
+      "Top left corner",
+      "Top right corner",
+      "Lower right corner",
+      "Lower left corner"
+    ],
+    "correctOption": "Top right corner"
+  },
+  {
+    "question": "In MS Excel 365, which option in Microsoft Excel allows you to move the selected text or cells to a different worksheet or workbook?",
+    "options": [
+      "Print",
+      "Copy",
+      "Move",
+      "Cut"
+    ],
+    "correctOption": "Cut"
+  },
+  {
+    "question": "Which of the following tabs in the MS Word 365, ribbon has the Spelling and Grammar option?",
+    "options": [
+      "Layout",
+      "Edit",
+      "Review",
+      "Insert"
+    ],
+    "correctOption": "Review"
+  },
+  {
+    "question": "Which Internet access technique uses the existing cable television infrastructure to provide high-speed Internet access to users?",
+    "options": [
+      "DSL (Digital Subscriber Line)",
+      "Dial-up",
+      "Fiber-optic",
+      "Cable Internet"
+    ],
+    "correctOption": "Cable Internet"
+  },
+  {
+    "question": "What is used to describe the page direction in which the contents of the page are to be displayed or printed in MS Word 365?",
+    "options": [
+      "Page orientation",
+      "Page size",
+      "Columns",
+      "Page margin"
+    ],
+    "correctOption": "Page orientation"
+  },
+  {
+    "question": "In MS Excel 365, what is the shortcut to move to the last cell on a worksheet, to the lowest used row of the rightmost used column?",
+    "options": [
+      "Ctrl + Home",
+      "Ctrl + End",
+      "Shift + End",
+      "Shift + Home"
+    ],
+    "correctOption": "Ctrl + End"
+  },
+   {
+    "question": "In MS Excel 365, how can you quickly delete a row without using the context menu or ribbon options?",
+    "options": [
+      "Select the row and press the Delete key.",
+      "Select the row and press Ctrl and the — (minus) key.",
+      "Select the row and press Shift+Delete.",
+      "Select the row and press Alt+Delete."
+    ],
+    "correctOption": "Select the row and press Ctrl and the — (minus) key."
+  },
+  {
+    "question": "Which option in Microsoft Word 365 allows you to search for a specific word or phrase in the document and replace it with another?",
+    "options": [
+      "Cut and Paste",
+      "Font Formatting",
+      "Find and Replace",
+      "Spelling & Grammar"
+    ],
+    "correctOption": "Find and Replace"
+  },
+  {
+    "question": "What does the ‘Search’ or ‘Find’ allow you to do in MS Word 365?",
+    "options": [
+      "Print the current document",
+      "Open a new document",
+      "Change the document's font",
+      "Locate specific words or topics in the Help content"
+    ],
+    "correctOption": "Locate specific words or topics in the Help content"
+  },
+  {
+    "question": "Which of the following charts is used in MS Excel 365 to display data as a series of points connected by straight lines and is used for showing trends over time?",
+    "options": [
+      "Line chart",
+      "Bar chart",
+      "Pie chart",
+      "Column chart"
+    ],
+    "correctOption": "Line chart"
+  },
+  {
+    "question": "In MS-Word 365, which option allows you to manually review and correct spelling and grammar errors in your document by providing suggestions and explanations for each flagged item?",
+    "options": [
+      "Word Count",
+      "Thesaurus",
+      "AutoCorrect",
+      "Spelling and Grammar Check"
+    ],
+    "correctOption": "Spelling and Grammar Check"
+  },
+  {
+    "question": "Which option allows you to create a table in MS-Word 365?",
+    "options": [
+      "Table Layout",
+      "Table Insertion",
+      "Table Design",
+      "Table Creation"
+    ],
+    "correctOption": "Table Insertion"
+  },
+  {
+    "question": "In Microsoft Excel 365, which keyboard shortcut is used to copy the selected text or cells for pasting them to a new location within the same worksheet?",
+    "options": [
+      "Ctrl+V",
+      "Ctrl+D",
+      "Ctrl+X",
+      "Ctrl+C"
+    ],
+    "correctOption": "Ctrl+C"
+  },
+  {
+    "question": "What is the purpose of the CC field in an email?",
+    "options": [
+      "It stands for ‘Carbon Copy’ and is used to include additional recipients who should be informed about the email.",
+      "It stands for ‘Copy Contents’ and is used to copy and paste text into the email.",
+      "It stands for ‘Courtesy Copy’ and is used to send a polite message along with the email.",
+      "It stands for ‘Closed Captioning’ and is used to add subtitles to the email."
+    ],
+    "correctOption": "It stands for ‘Carbon Copy’ and is used to include additional recipients who should be informed about the email."
+  },
+  {
+    "question": "What is one of the purposes of ‘Print Preview’ in formatting MS Word 365 documents?",
+    "options": [
+      "To adjust page layout and formatting before printing",
+      "To create a digital backup of the document",
+      "To automatically correct spelling and grammar errors",
+      "To convert the document to a different file format"
+    ],
+    "correctOption": "To adjust page layout and formatting before printing"
+  },
+  {
+    "question": "Which of the following is the correct full form of VOIP?",
+    "options": [
+      "Voice of intranet protocol",
+      "Voice over intranet protocol",
+      "Voice over internet protocol",
+      "Volume over internet protocol"
+    ],
+    "correctOption": "Voice over internet protocol"
+  },
+  {
+    "question": "Which of the following folders has unsolicited and unwanted junk email sent out in bulk to an indiscriminate recipient list?",
+    "options": [
+      "Outbox",
+      "Spam folder",
+      "Inbox",
+      "Draft"
+    ],
+    "correctOption": "Spam folder"
+  },
+  {
+    "question": "Which of the following shortcut keys can be used to ‘align right’ the selected text in MS-Word 365?",
+    "options": [
+      "Ctrl+R",
+      "Ctrl+U",
+      "Ctrl+J",
+      "Ctrl+&"
+    ],
+    "correctOption": "Ctrl+R"
+  },
+  {
+    "question": "The shortcut key used to save the document in MS-Word 365 is:",
+    "options": [
+      "Ctrl+X",
+      "Ctrl+A",
+      "Ctrl+S",
+      "Ctrl+V"
+    ],
+    "correctOption": "Ctrl+S"
+  },
+  {
+    "question": "Which function is used to display the current date in MS-excel 365?",
+    "options": [
+      "MONTH()",
+      "DATE()",
+      "DAY()",
+      "TODAY()"
+    ],
+    "correctOption": "TODAY()"
+  },
+  {
+    "question": "In MS Word 365, what does the ‘Header’ section in the ‘Page Setup’ dialog box allow you to do?",
+    "options": [
+      "Change the line spacing of the document",
+      "Adjust the page margins",
+      "Change the page orientation",
+      "Add a header with text or page numbers to the top of each page"
+    ],
+    "correctOption": "Add a header with text or page numbers to the top of each page"
+  },
+  {
+    "question": "Which of the following protocols is commonly used for sending and receiving emails between servers?",
+    "options": [
+      "Transmission Control Protocol (TCP)",
+      "Simple Mail Transfer Protocol (SMTP)",
+      "File Transfer Protocol (FTP)",
+      "Hyper Text Transfer Protocol (HTTP)"
+    ],
+    "correctOption": "Simple Mail Transfer Protocol (SMTP)"
+  },
+  {
+    "question": "Which of the following keyboard shortcuts is used to apply bullets in MS Word 365?",
+    "options": [
+      "Ctrl + Shift + C",
+      "Ctrl + Shift + L",
+      "Ctrl + Shift + |",
+      "Ctrl + Shift + B"
+    ],
+    "correctOption": "Ctrl + Shift + L"
+  },
+  {
+    "question": "In Microsoft Excel 365, which of the following is NOT done by Conditional Formatting?",
+    "options": [
+      "We can set condition to look for bold and apply italics on them.",
+      "We can apply font border and pattern formats that meet the specified conditions.",
+      "We can add more than one condition to format.",
+      "We can delete condition if it is not required."
+    ],
+    "correctOption": "We can delete condition if it is not required."
+  },
+  {
+    "question": "What does the ‘Grammar’ check in Microsoft Word 365 primarily focus on?",
+    "options": [
+      "Both I and II",
+      "Only I",
+      "Neither I nor II",
+      "Only II"
+    ],
+    "correctOption": "Both I and II"
+  },
+  {
+    "question": "In MS Excel 365, the basic syntax or symbol required to execute a function is:",
+    "options": [
+      "$",
+      ":",
+      "+",
+      "="
+    ],
+    "correctOption": "="
+  },
+   {
+    "question": "In MS Excel 365, what is the shortcut to move to the last cell on a worksheet, to the lowest used row of the rightmost used column?",
+    "options": ["Ctrl + Home", "Ctrl + End", "Shift + End", "Shift + Home"],
+    "correctOption": "Ctrl + End"
+  },
+  {
+    "question": "What is the primary purpose of creating a table in Microsoft Word 365?",
+    "options": [
+      "For enhancing the page layout and margins",
+      "For organising and presenting information in rows and columns",
+      "For adding decorative elements to the document",
+      "For applying font styles and colours to text"
+    ],
+    "correctOption": "For organising and presenting information in rows and columns"
+  },
+  {
+    "question": "Which is the correct syntax for writing SUMIF() function in MS Excel?",
+    "options": [
+      "SUMIF(range)",
+      "SUMIF(range, criteria)",
+      "SUMIF(range, criteria, [sum_range])",
+      "SUMIF (criteria)"
+    ],
+    "correctOption": "SUMIF(range, criteria, [sum_range])"
+  },
+  {
+    "question": "Which of the following is a unique identifier for each user, typically in the format of name@domain.com?",
+    "options": ["Email client", "Email server", "Email address", "Password"],
+    "correctOption": "Email address"
+  },
+  {
+    "question": "Which of the following is NOT a Change Case option in MS word 365?",
+    "options": ["Uppercase", "Toggle case", "Sentence case", "Page case"],
+    "correctOption": "Page case"
+  },
+  {
+    "question": "What is the primary differentiating factor between broadband and dialup connections offered by ISPs?",
+    "options": [
+      "Dialup connections offer higher security levels than broadband.",
+      "Dialup offers unlimited data usage, unlike broadband.",
+      "Dialup connections are wireless, while broadband requires wired connections.",
+      "Broadband provides faster internet speeds compared to dialup."
+    ],
+    "correctOption": "Broadband provides faster internet speeds compared to dialup."
+  },
+  {
+    "question": "Which of the following options quickly changes the font of the selected text in Microsoft Word 365 without opening the Font dialog box?",
+    "options": [
+      "Right-click and select 'Font'",
+      "Double-click the text",
+      "Press Ctrl + + F",
+      "Use the Font drop-down menu on the Status bar"
+    ],
+    "correctOption": "Right-click and select 'Font'"
+  },
+  {
+    "question": "What is the purpose of the Help feature in Microsoft Word 365?",
+    "options": [
+      "To provide assistance in creating documents",
+      "To provide access to online tutorials and resources",
+      "To allow customisation of the user interface",
+      "To offer grammar and spelling suggestions"
+    ],
+    "correctOption": "To provide assistance in creating documents"
+  },
+  {
+    "question": "How do you change the font style and size of selected text in MS-Excel 365?",
+    "options": [
+      "Apply a new cell style to the selected text.",
+      "Right-click the text and choose ‘Font’.",
+      "Press the ‘Ctrl+F’ shortcut keys together.",
+      "Access the ‘Home’ tab, use the ‘Font’ group."
+    ],
+    "correctOption": "Access the ‘Home’ tab, use the ‘Font’ group."
+  },
+  {
+    "question": "In MS Word 365, Ctrl + E key is pressed to perform which of the following tasks?",
+    "options": [
+      "Right Alignment",
+      "Center Alignment",
+      "Justify",
+      "Left Alignment"
+    ],
+    "correctOption": "Center Alignment"
+  },
+  {
+    "question": "In MS Excel 365 which of the following charts is used when comparing data across a time period and the categories are arranged in the horizontal axis and values with the vertical axis?",
+    "options": ["Bar chart", "Column chart", "Pie chart", "Line chart"],
+    "correctOption": "Column chart"
+  },
+  {
+    "question": "What is the primary purpose of 'sorting and searching emails' when using email services?",
+    "options": [
+      "Sending emails to multiple recipients simultaneously",
+      "Changing the background colour of email messages",
+      "Creating animated GIFs to embed in email content",
+      "Organising emails based on various criteria for easy retrieval"
+    ],
+    "correctOption": "Organising emails based on various criteria for easy retrieval"
+  },
+  {
+    "question": "In Microsoft Excel 365, how can you sort data in ascending or descending order?",
+    "options": [
+      "Data -> Form",
+      "Data -> Sort",
+      "Data -> Select",
+      "Data -> Find"
+    ],
+    "correctOption": "Data -> Sort"
+  },
+  {
+    "question": "Which of the following coloured wavy lines is used to represent spelling errors in an MS Word 365 document?",
+    "options": ["Black line", "Blue line", "Green line", "Red line"],
+    "correctOption": "Red line"
+  },
+  {
+    "question": "Which of the following options in MS Word 365 means the page is oriented vertically?",
+    "options": ["Landscape", "PageSet", "Page Setup", "Portrait"],
+    "correctOption": "Portrait"
+  },
+  {
+    "question": "Which wireless technology allows devices to connect to the internet within the limited range of a wireless router?",
+    "options": ["LTE", "WiFi", "3G", "DSi"],
+    "correctOption": "WiFi"
+  },
+  {
+    "question": "In MS Excel 365, how can we highlight an entire column?",
+    "options": [
+      "By pressing ‘Ctrl + Space bar’",
+      "By pressing ‘Ctrl + Enter’",
+      "By pressing ‘Ctrl + H’",
+      "By pressing ‘Ctrl + F’"
+    ],
+    "correctOption": "By pressing ‘Ctrl + Space bar’"
+  },
+  {
+    "question": "What does the 'Font Size' refer to in Microsoft Word 365?",
+    "options": [
+      "The boldness of the text",
+      "The size of the text characters",
+      "The colour of the text",
+      "The alignment of the text"
+    ],
+    "correctOption": "The size of the text characters"
+  },
+  {
+    "question": "Which formatting option in MS-Word 365 allows you to slant or tilt the selected text to the right, commonly used for indicating emphasis or to differentiate titles from the main text?",
+    "options": ["Bold", "Italics", "Underline", "Text Colour"],
+    "correctOption": "Italics"
+  },
+  {
+    "question": "In MS Word 365, what is the shortcut key Ctrl + V used for?",
+    "options": [
+      "Copy the data",
+      "Cut the data",
+      "Select all the data",
+      "Paste the data"
+    ],
+    "correctOption": "Paste the data"
+  },
+  {
+    "question": "Which of the following chart types is best suited for showing trends over time?",
+    "options": ["Scatter plot", "Line chart", "Pie chart", "Bar chart"],
+    "correctOption": "Line chart"
+  },
+  {
+    "question": "The symbol used to separate the username and domain name within an email address is:",
+    "options": ["@", ".", "$", "%"],
+    "correctOption": "@"
+  },
+  {
+    "question": "Which area in MS-Word 365 contains icons for common tasks and actions, providing quick access to frequently used commands?",
+    "options": ["Status Bar", "Navigation Pane", "Ribbon", "Quick Access Toolbar"],
+    "correctOption": "Quick Access Toolbar"
+  },
+  {
+    "question": "In MS Excel 365, how can we change page orientation in Print Preview?",
+    "options": [
+      "By using Show Margins",
+      "By using Zoom",
+      "By using Print dialog box",
+      "By using Page Setup dialog box"
+    ],
+    "correctOption": "By using Page Setup dialog box"
+  },
+  {
+    "question": "Which of the following parts of the email contains the address of the sender and recipient?",
+    "options": ["Footer", "Header", "Complimentary close", "Body"],
+    "correctOption": "Header"
+  },
+  {
+    "question": "What is the shortcut key to initiate a spelling check in Microsoft Word 365?",
+    "options": ["F8", "F7", "F6", "F5"],
+    "correctOption": "F7"
+  },
+  {
+    "question": "Which folder in an email client is used to store received emails?",
+    "options": ["Inbox", "Sent Items", "Drafts", "Outbox"],
+    "correctOption": "Inbox"
+  },
+   {
+    "question": "What does the menu bar do in MS-Word 365?",
+    "options": [
+      "It moves the window moving area upside",
+      "Displays the title of the software",
+      "Displays the current page number of the document",
+      "Finds program essential functions"
+    ],
+    "correctOption": "Displays the title of the software"
+  },
+  {
+    "question": "In Microsoft Excel 365, which of the following keyboard shortcuts enables you to save a workbook?",
+    "options": [
+      "Ctrl+G",
+      "Ctrl+A",
+      "Ctrl+F",
+      "Ctrl+S"
+    ],
+    "correctOption": "Ctrl+S"
+  },
+  {
+    "question": "Which operation can be used to move the text in a document of MS Word 365?",
+    "options": [
+      "Move-paste",
+      "Cut-copy-paste",
+      "Copy-paste",
+      "Cut-paste"
+    ],
+    "correctOption": "Cut-paste"
+  },
+  {
+    "question": "In MS Excel 365, which of the following functions can be used to display the formula applied to a specific cell?",
+    "options": [
+      "=FORMULATEXT(Cell_Reference)",
+      "=RETFORMULA(Cell_Reference)",
+      "=TEXTFORMULA(Cell_Reference)",
+      "=CALLFORMULA(Cell_Reference)"
+    ],
+    "correctOption": "=FORMULATEXT(Cell_Reference)"
+  },
+  {
+    "question": "What is the primary function of FTP (File Transfer Protocol)?",
+    "options": [
+      "Sending emails",
+      "Video streaming",
+      "Browsing websites",
+      "Transferring files between computers"
+    ],
+    "correctOption": "Transferring files between computers"
+  },
+  {
+    "question": "Which of the following options is NOT used to set page margins in MS Word 365?",
+    "options": [
+      "Left",
+      "Header",
+      "Bottom",
+      "Right"
+    ],
+    "correctOption": "Header"
+  },
+  {
+    "question": "In MS-word 365, the keyboard shortcut Shift + F3 can be used to change the text document as:",
+    "options": [
+      "Size of Font",
+      "Bold Font",
+      "Capitalize Each Word",
+      "Highlight Text color"
+    ],
+    "correctOption": "Capitalize Each Word"
+  },
+  {
+    "question": "What is the shortcut key for closing the documents in MS-Word 365?",
+    "options": [
+      "Ctrl+W",
+      "Ctrl+C",
+      "Ctrl+Alt+S",
+      "Ctrl+B"
+    ],
+    "correctOption": "Ctrl+W"
+  },
+  {
+    "question": "In MS Excel 365, to enable the edit mode in MS-Excel worksheet, we should follow:",
+    "options": [
+      "File > Advanced > Editing options > Options",
+      "File > Options > Advanced > Editing options",
+      "File > Advanced > Editing options",
+      "File > Options > Editing options"
+    ],
+    "correctOption": "File > Options > Advanced > Editing options"
+  },
+  {
+    "question": "Which of the following is NOT a characteristic of communication on the internet?",
+    "options": [
+      "It is interactive.",
+      "It is global.",
+      "It is asynchronous.",
+      "It is always private."
+    ],
+    "correctOption": "It is always private."
+  },
+  {
+    "question": "In MS Excel 365, if you set a row height to 0 (zero), what happens to the row?",
+    "options": [
+      "It returns to the last entered value.",
+      "It asks for a new value.",
+      "It sets the default height.",
+      "It hides the row."
+    ],
+    "correctOption": "It hides the row."
+  },
+  {
+    "question": "Which action in MS-Word 365 allows you to remove selected text from its original location and place it on the clipboard?",
+    "options": [
+      "Select All",
+      "Copy",
+      "Cut",
+      "Paste"
+    ],
+    "correctOption": "Cut"
+  },
+  {
+    "question": "Which of the following is the shortcut key to Paste text in MS Word 365?",
+    "options": [
+      "Shift+V",
+      "Ctrl+V",
+      "Ctrl+Shift+V",
+      "Ctrl+C"
+    ],
+    "correctOption": "Ctrl+V"
+  },
+  {
+    "question": "Which of the following statements related to attaching a file to an email is correct?",
+    "options": [
+      "We can't use CC field while sending an attachment.",
+      "Writing a subject field is mandatory while sending an attachment.",
+      "In Gmail, If your file is greater than 25 MB, Gmail automatically adds a Google Drive link in the email instead of including it as an attachment.",
+      "We can’t attach an audio file in an email attachment."
+    ],
+    "correctOption": "In Gmail, If your file is greater than 25 MB, Gmail automatically adds a Google Drive link in the email instead of including it as an attachment."
+  },
+  {
+    "question": "In Microsoft Excel 365, which of the following functions is used for displaying the current date?",
+    "options": [
+      "Today()",
+      "Now()",
+      "Day()",
+      "Time()"
+    ],
+    "correctOption": "Today()"
+  },
+  {
+    "question": "When we press the control key with the letter E, what happens to the text in the MS-Word 365?",
+    "options": [
+      "Left aligns the contents on the page.",
+      "Right aligns the contents on the page.",
+      "Centers the contents on the page.",
+      "It selects the whole content on the file."
+    ],
+    "correctOption": "Centers the contents on the page."
+  },
+  {
+    "question": "In MS-Word 365, which option allows you to customize various aspects of a document's layout, such as paper size, margins, orientation, and page numbering?",
+    "options": [
+      "Document Inspector",
+      "Navigation Pane",
+      "Page Setup",
+      "Print Layout View"
+    ],
+    "correctOption": "Page Setup"
+  },
+  {
+    "question": "In MS Excel 365, what is the keyboard shortcut to automatically adjust the width of a column to fit the content in Excel?",
+    "options": [
+      "ALT +H then O and then |",
+      "Ctrl + Spacebar",
+      "Ctrl+W",
+      "Ctrl+A"
+    ],
+    "correctOption": "ALT +H then O and then |"
+  },
+  {
+    "question": "Which of the following is NOT a common method of opening a document in a web-based document editor like Google Docs?",
+    "options": [
+      "Creating a new document from a template",
+      "Uploading the document from your computer",
+      "Typing the entire document from scratch",
+      "Importing a document from a web link"
+    ],
+    "correctOption": "Typing the entire document from scratch"
+  },
+  {
+    "question": "Which of the following defines the ‘Clipboard’ in Microsoft Word 365?",
+    "options": [
+      "Accessing the internet",
+      "Creating hyperlinks",
+      "Changing font settings",
+      "Storing and managing copied or cut text and objects"
+    ],
+    "correctOption": "Storing and managing copied or cut text and objects"
+  },
+  {
+    "question": "In MS Excel 365, Which of the following is used to open a save dialog box in MS-Excel?",
+    "options": [
+      "View -> save",
+      "File -> save",
+      "Home -> save",
+      "Data -> save"
+    ],
+    "correctOption": "File -> save"
+  },
+  {
+    "question": "Which type of networking is used to connect all the computers within a school or within an office?",
+    "options": [
+      "Local Area Network",
+      "Metropolitan Area Network",
+      "Wide Area Network",
+      "Personal Area Network"
+    ],
+    "correctOption": "Local Area Network"
+  },
+  {
+    "question": "What is the full form of email?",
+    "options": [
+      "Electro mail",
+      "Express mail",
+      "Electronic mail",
+      "Efficient mail"
+    ],
+    "correctOption": "Electronic mail"
+  },
+  {
+    "question": "In Microsoft Excel 365, which type of sorting places values from smallest to largest?",
+    "options": [
+      "Ascending order",
+      "Descending order",
+      "Random order",
+      "Alphanumeric order"
+    ],
+    "correctOption": "Ascending order"
+  },
+  {
+    "question": "Which of the following is used to select the entire paragraph in MS-Word 365?",
+    "options": [
+      "Double-click",
+      "Scroll",
+      "Single-click",
+      "Triple-click"
+    ],
+    "correctOption": "Triple-click"
+  },
+  {
+    "question": "The keyboard shortcut is used to create bullets in MS Word 2010.",
+    "options": [
+      "Ctrl+Alt+B",
+      "Ctrl+Alt+L",
+      "Ctrl+Shift+B",
+      "Ctrl+Shift+L"
+    ],
+    "correctOption": "Ctrl+Shift+L"
+  },
+  {
+    "question": "In MS Excel 365, Which option is typically used to save a new spreadsheet for the first time?",
+    "options": [
+      "Save and New",
+      "Save and Print",
+      "Close",
+      "Save As"
+    ],
+    "correctOption": "Save As"
+  },
+  {
+    "question": "The thesaurus tool in MS word 365 is used for",
+    "options": [
+      "Finding similar words in the document",
+      "Checking for synonyms and antonyms",
+      "Finding repeated words in the document",
+      "Checking for nouns and verbs"
+    ],
+    "correctOption": "Checking for synonyms and antonyms"
+  },
+  {
+    "question": "Which of the following shortcut keys is used to convert the selected font to subscript in MS Word 365?",
+    "options": [
+      "Shift++",
+      "Ctrl+=",
+      "Ctrl++",
+      "Shift + ="
+    ],
+    "correctOption": "Ctrl+="
+  },
+  {
+    "question": "In Microsoft Word 365, what does the ‘B’ icon usually represent?",
+    "options": [
+      "Bullet points",
+      "Page break",
+      "Bold formatting",
+      "Italic formatting"
+    ],
+    "correctOption": "Bold formatting"
+  },
+  {
+    "question": "In the process of composing a new email, where is the usual location for entering the primary recipient's email address?",
+    "options": [
+      "Subject line",
+      "‘To’ field",
+      "‘CC’ field",
+      "Body of the email"
+    ],
+    "correctOption": "‘To’ field"
+  },
+  {
+    "question": "In Microsoft Word 365, what does the ‘B’ icon usually represent?",
+    "options": [
+      "Bullet points",
+      "Page break",
+      "Bold formatting",
+      "Italic formatting"
+    ],
+    "correctOption": "Bold formatting"
+  },
+  {
+    "question": "In the process of composing a new email, where is the usual location for entering the primary recipient's email address?",
+    "options": [
+      "Subject line",
+      "‘To’ field",
+      "‘CC’ field",
+      "Body of the email"
+    ],
+    "correctOption": "‘To’ field"
+  },
+  {
+    "question": "In MS Excel 365, which of the following is the correct shortcut key used to paste data in MS Excel?",
+    "options": [
+      "Ctrl+V",
+      "Alt+V",
+      "Shift +V",
+      "Ctrl+C"
+    ],
+    "correctOption": "Ctrl+V"
+  },
+  {
+    "question": "Which of the following icons are a part of the Design menu in MS Word 365?",
+    "options": [
+      "Icons to change themes, colours, fonts, effects and page borders",
+      "Icons for spelling and grammar check, thesaurus and word count",
+      "Icons for zooming in and out, print layout, switching windows and splitting windows",
+      "Icons to change font size, style, alignment and borders"
+    ],
+    "correctOption": "Icons to change themes, colours, fonts, effects and page borders"
+  },
+  {
+    "question": "Among the following, under which tab will you find the Bullets and Numbering in MS-Word 365?",
+    "options": [
+      "Page Layout",
+      "Insert",
+      "References",
+      "Home"
+    ],
+    "correctOption": "Home"
+  },
+  {
+    "question": "What is the purpose of sorting data in Microsoft Excel 365?",
+    "options": [
+      "To apply formatting to the cells only",
+      "To calculate averages of the data",
+      "To organise data in a specific order based on values",
+      "To create charts and graphs"
+    ],
+    "correctOption": "To organise data in a specific order based on values"
+  },
+  {
+    "question": "Which keyboard shortcut is commonly used to create a new blank document in MS Word 365?",
+    "options": [
+      "Ctrl+C",
+      "Ctrl+N",
+      "Ctrl+S",
+      "Ctrl+O"
+    ],
+    "correctOption": "Ctrl+N"
+  },
+   {
+    "question": "Which function is used to display the current date in MS-Excel 365?",
+    "options": [
+      "DATE()",
+      "DAY()",
+      "TODAY()",
+      "MONTH()"
+    ],
+    "correctOption": "TODAY()"
+  },
+  {
+    "question": "Which of the following protocols is commonly used for sending and receiving emails between servers?",
+    "options": [
+      "Transmission Control Protocol (TCP)",
+      "Simple Mail Transfer Protocol (SMTP)",
+      "Hypertext Transfer Protocol (HTTP)",
+      "File Transfer Protocol (FTP)"
+    ],
+    "correctOption": "Simple Mail Transfer Protocol (SMTP)"
+  },
+  {
+    "question": "Which of the following shortcut keys can be used to ‘align right’ the selected text in MS-Word 365?",
+    "options": [
+      "Ctrl+U",
+      "Ctrl+E",
+      "Ctrl+J",
+      "Ctrl+R"
+    ],
+    "correctOption": "Ctrl+R"
+  },
+  {
+    "question": "Which of the following keyboard shortcuts is used to apply bullets in MS Word 365?",
+    "options": [
+      "Ctrl + Shift + |",
+      "Ctrl + Shift + C",
+      "Ctrl + Shift + B",
+      "Ctrl + Shift + L"
+    ],
+    "correctOption": "Ctrl + Shift + L"
+  },
+  {
+    "question": "Which of the following folders has an unsolicited and unwanted junk email sent out in bulk to an indiscriminate recipient list?",
+    "options": [
+      "Draft",
+      "Spam folder",
+      "Outbox",
+      "Inbox"
+    ],
+    "correctOption": "Spam folder"
+  },
+  {
+    "question": "What is the purpose of the ‘Help’ feature in Microsoft Word 365?",
+    "options": [
+      "It allows you to print the current document.",
+      "It provides assistance and information about using Microsoft Word.",
+      "It opens a new blank document.",
+      "It creates a backup copy of the document."
+    ],
+    "correctOption": "It provides assistance and information about using Microsoft Word."
+  },
+  {
+    "question": "In Microsoft Excel 365, what is the cell address of the intersection between column L and row 26?",
+    "options": [
+      "126",
+      "125",
+      "26L",
+      "1125"
+    ],
+    "correctOption": "126"
+  },
+  {
+    "question": "In MS Excel 365, which of the following is the correct way to address the cell located in the third row and fifth column?",
+    "options": [
+      "5A",
+      "35",
+      "3A",
+      "53"
+    ],
+    "correctOption": "53"
+  },
+  {
+    "question": "In MS Excel 365, which of the following keyboard shortcuts opens the Print option?",
+    "options": [
+      "Ctrl+Alt+P",
+      "Shift+P",
+      "Ctrl+P",
+      "Alt+P"
+    ],
+    "correctOption": "Ctrl+P"
+  },
+  {
+    "question": "Which of the following options can be used in MS Word 365 if you want to save your document in another location with the same or different name?",
+    "options": [
+      "Print",
+      "Open",
+      "New",
+      "Save As"
+    ],
+    "correctOption": "Save As"
+  },
+  {
+    "question": "Under which of the following tabs of the MS Word 365 ribbon are the Bullets and Numbering options present?",
+    "options": [
+      "Home",
+      "File",
+      "Mailings",
+      "Insert"
+    ],
+    "correctOption": "Home"
+  },
+  {
+    "question": "Which organization oversees the development and standardization of technologies for the World Wide Web?",
+    "options": [
+      "IEEE",
+      "WHO",
+      "W3C",
+      "IEIT"
+    ],
+    "correctOption": "W3C"
+  },
+  {
+    "question": "In MS Excel 365, A Contour map is an example of which of the following charts?",
+    "options": [
+      "Surface Chart",
+      "Radar chart",
+      "Scatter chart",
+      "Doughnut chart"
+    ],
+    "correctOption": "Surface Chart"
+  },
+  {
+    "question": "In MS Excel 365, the default row height and the column width, respectively, are:",
+    "options": [
+      "5 and 10.43",
+      "20 and 10.51",
+      "10 and 8.52",
+      "15 and 8.43"
+    ],
+    "correctOption": "15 and 8.43"
+  },
+  {
+    "question": "Files or documents that are included with the email are commonly referred to as",
+    "options": [
+      "Appends",
+      "Supplements",
+      "Add-ons",
+      "Attachments"
+    ],
+    "correctOption": "Attachments"
+  },
+  {
+    "question": "Which of the following shortcut keys is used in MS Word 365 to move by one preview page when zoomed out?",
+    "options": [
+      "Ctrl+D",
+      "Page UP or Page Down",
+      "Ctrl+P",
+      "Ctrl+Alt+!"
+    ],
+    "correctOption": "Page UP or Page Down"
+  },
+  {
+    "question": "In Microsoft Excel 365, what is a function?",
+    "options": [
+      "A method to create animations in spreadsheets",
+      "A predefined formula that performs calculations using values in a specific order",
+      "A design tool for creating charts and graphs",
+      "A text formatting option for cells"
+    ],
+    "correctOption": "A predefined formula that performs calculations using values in a specific order"
+  },
+  {
+    "question": "Which of the following features can you use if you are having problems or want to find out how to do something in MS Word 365?",
+    "options": [
+      "Insert",
+      "Help",
+      "Edit",
+      "Review"
+    ],
+    "correctOption": "Help"
+  },
+  {
+    "question": "Which of the following is a shortcut key to open the Font dialog box in MS Word 365?",
+    "options": [
+      "Alt+F",
+      "Ctrl+F",
+      "Ctrl+Alt+F",
+      "Ctrl+Shift+F"
+    ],
+    "correctOption": "Ctrl+Shift+F"
+  },
+  {
+    "question": "What is the default page orientation in Microsoft Word 365?",
+    "options": [
+      "Landscape",
+      "Portrait",
+      "Pentagon",
+      "Square"
+    ],
+    "correctOption": "Portrait"
+  },
+  {
+    "question": "What is the default alignment for text entered in Microsoft Excel 365 cells?",
+    "options": [
+      "Right aligned",
+      "Center aligned",
+      "Left aligned",
+      "Justified"
+    ],
+    "correctOption": "Left aligned"
+  },
+  {
+    "question": "What is the keyboard shortcut for changing text alignment to the left in MS Word 365?",
+    "options": [
+      "Ctrl+L",
+      "Ctrl+R",
+      "Ctrl+C",
+      "Ctrl+J"
+    ],
+    "correctOption": "Ctrl+L"
+  },
+  {
+    "question": "Which of the following is NOT a word processing package?",
+    "options": [
+      "Apple Pages",
+      "Google Docs",
+      "Adobe Photoshop",
+      "Microsoft Word"
+    ],
+    "correctOption": "Adobe Photoshop"
+  },
+  {
+    "question": "F1 is the shortcut key used by almost every Windows program to display which of the following menus?",
+    "options": [
+      "Rename",
+      "Edit",
+      "Refresh",
+      "Help"
+    ],
+    "correctOption": "Help"
+  },
+  {
+    "question": "Which of the following is NOT an example of Instant Messaging on the Internet?",
+    "options": [
+      "Email",
+      "WhatsApp",
+      "Telegram",
+      "Discord"
+    ],
+    "correctOption": "Email"
+  },
+  {
+    "question": "What is the purpose of spellcheck in email composition?",
+    "options": [
+      "To format the email text",
+      "To check for and correct spelling errors",
+      "To add attachments to the email",
+      "To translate the email into another language"
+    ],
+    "correctOption": "To check for and correct spelling errors"
+  },
+  {
+    "question": "In MS Excel 365, how can you set a specific print area?",
+    "options": [
+      "By adjusting the page margins in the print settings",
+      "By changing the font size and style in the spreadsheet",
+      "By applying conditional formatting to the data",
+      "By selecting the cells to be printed and defining the print area"
+    ],
+    "correctOption": "By selecting the cells to be printed and defining the print area"
+  },
+  {
+    "question": "In MS Word 365, in word-processing software, what is the key difference between copying of text and cutting of text?",
+    "options": [
+      "Copying requires the use of a keyboard shortcut, while cutting is performed by using the mouse.",
+      "Copying is reversible, while cutting is irreversible.",
+      "Copying removes the text from the original location, while cutting retains the text in the original location.",
+      "Copying duplicates the text to a new location, while cutting moves the text to a new location."
+    ],
+    "correctOption": "Copying duplicates the text to a new location, while cutting moves the text to a new location."
+  },
+  {
+    "question": "Which of the following is the correct software used for word processing?",
+    "options": [
+      "MS Access",
+      "MS PowerPoint",
+      "MS Excel",
+      "MS Word"
+    ],
+    "correctOption": "MS Word"
+  },
+  {
+    "question": "If the custom format of a number is XX,XX,XXX then how will 4482023 be displayed in Microsoft Excel 365?",
+    "options": [
+      "44,82,023",
+      "448,20,23",
+      "4,48,2023",
+      "4482, 02,3"
+    ],
+    "correctOption": "44,82,023"
+  },
+  {
+    "question": "Which of the following methods is used in unguided transmission media?",
+    "options": [
+      "Infrared",
+      "Twisted pair cable",
+      "Coaxial cable",
+      "Optical fiber cable"
+    ],
+    "correctOption": "Infrared"
+  },
+  {
+    "question": "In MS Word 365, what is the default font style and size in the Font style and size dropdown list when a new document is opened in Windows 10?",
+    "options": [
+      "Calibri, 11",
+      "Times New Roman, 11",
+      "Aharoni, 11",
+      "Arial, 11"
+    ],
+    "correctOption": "Calibri, 11"
+  },
+   {
+        "question": "Which of the following keyboard shortcuts helps you copy data in MS Excel 365?",
+        "options": [
+            "Ctrl+C",
+            "Ctrl+Z",
+            "Ctrl+X",
+            "Ctrl+Y"
+        ],
+        "correctOption": "Ctrl+C"
+    },
+    {
+        "question": "Which option in the context menu allows you to paste the copied text with formatting removed in Microsoft Word 365?",
+        "options": [
+            "Paste",
+            "Paste as Plain Text",
+            "Paste Special",
+            "Paste as Unformatted Text"
+        ],
+        "correctOption": "Paste as Plain Text"
+    },
+    {
+        "question": "What does ‘ISP’ stand for in the context of internet access?",
+        "options": [
+            "Internet Service Provider",
+            "International Security Protocol",
+            "Internet System Protocol",
+            "Internet Security Program"
+        ],
+        "correctOption": "Internet Service Provider"
+    },
+    {
+        "question": "In MS Excel 365, Which of the following keyboard shortcuts is used to auto fit row height manually in MS Excel?",
+        "options": [
+            "Alt+O+C+N",
+            "Alt+H+O+H",
+            "Alt+H+O+A",
+            "Alt+O+C+W"
+        ],
+        "correctOption": "Alt+H+O+H"
+    },
+    {
+        "question": "In MS-Word 365, which text alignment option is commonly used for legal documents, as it aligns the text along both the left and right margins, leaving a jagged edge on the right side?",
+        "options": [
+            "Right Align",
+            "Center Align",
+            "Justify",
+            "Left Align"
+        ],
+        "correctOption": "Justify"
+    },
+    {
+        "question": "Which protocol allows users to make real-time voice and video calls over the internet?",
+        "options": [
+            "DNS",
+            "FTP",
+            "Email",
+            "VoIP"
+        ],
+        "correctOption": "VoIP"
+    },
+    {
+        "question": "Which of the following shortcut keys is used to make Centre-aligned text in MS-Word 365?",
+        "options": [
+            "Ctrl+R",
+            "Ctrl+C",
+            "Ctrl+J",
+            "Ctrl+E"
+        ],
+        "correctOption": "Ctrl+E"
+    },
+    {
+        "question": "When you ‘reply’ to an email, what does it mean?",
+        "options": [
+            "You're sending the email to a different recipient.",
+            "You're sending the same email back to the original sender.",
+            "You're deleting the email.",
+            "You're sending a new email to the same recipient."
+        ],
+        "correctOption": "You're sending a new email to the same recipient."
+    },
+    {
+        "question": "In MS Word 365 which of the following menus is used to open a word document?",
+        "options": [
+            "Power",
+            "Control panel",
+            "Start",
+            "Mozilla"
+        ],
+        "correctOption": "Start"
+    },
+    {
+        "question": "In Microsoft Word 365, the AutoCorrect feature is used for .",
+        "options": [
+            "formulas",
+            "short repetitive text",
+            "outside margin text",
+            "misspelled text"
+        ],
+        "correctOption": "misspelled text"
+    },
+    {
+        "question": "Which of the following tabs is used in MS Word 365 if we want to delete a table?",
+        "options": [
+            "File tab",
+            "Layout tab",
+            "Edit tab",
+            "Insert tab"
+        ],
+        "correctOption": "Layout tab"
+    },
+    {
+        "question": "In MS Excel 365, which of the following is the correct shortcut key to open an existing spreadsheet in MS Excel?",
+        "options": [
+            "Press Alternate (Alt) + O",
+            "Press Control (Ctrl) + O",
+            "Press Control (Ctrl) + N",
+            "Press Alternate (Alt) + N"
+        ],
+        "correctOption": "Press Control (Ctrl) + O"
+    },
+    {
+        "question": "In MS Excel 365, which of the following groups contains the Insert and Delete command in the Home tab of the ribbon in MSExcel 365?",
+        "options": [
+            "Editing",
+            "Cells",
+            "Font",
+            "Alignment"
+        ],
+        "correctOption": "Cells"
+    },
+    {
+        "question": "Which of the following is an example of internet service provider?",
+        "options": [
+            "Airtel",
+            "Google",
+            "Outlook",
+            "Mozilla"
+        ],
+        "correctOption": "Airtel"
+    },
+    {
+        "question": "Which of the following statements is FALSE regarding attaching a file in an email?",
+        "options": [
+            "Multiple files can be attached in an email message.",
+            "You can remove or change attachments before sending the email.",
+            "The size of the attachment is unlimited.",
+            "Attachments can be previewed within the email composition window."
+        ],
+        "correctOption": "The size of the attachment is unlimited."
+    },
+    {
+        "question": "In MS word 365, While working with the text the thesaurus tool is used for:",
+        "options": [
+            "corrects misspelling word",
+            "correct the format of the text",
+            "check for synonyms and antonyms",
+            "finding repeated words in the document"
+        ],
+        "correctOption": "check for synonyms and antonyms"
+    },
+    {
+        "question": "What is the purpose of the ‘Zoom’ icon in Microsoft Word 365?",
+        "options": [
+            "To change the document's page layout",
+            "To delete the current page",
+            "To increase the font size",
+            "To adjust the visual appearance of our document to suit our reading or editing needs"
+        ],
+        "correctOption": "To adjust the visual appearance of our document to suit our reading or editing needs"
+    },
+    {
+        "question": "In MS Excel 365, Which of the following charts in MS Excel shows the change of magnitude over a period of time?",
+        "options": [
+            "Area chart",
+            "Bar chart",
+            "Line chart",
+            "Pie chart"
+        ],
+        "correctOption": "Area chart"
+    },
+    {
+        "question": "Which of the following keyboard shortcut keys is used to copy the selected text in MS-Word 365?",
+        "options": [
+            "Ctrl+C",
+            "Ctrl+X",
+            "Ctrl+V",
+            "Ctrl+P"
+        ],
+        "correctOption": "Ctrl+C"
+    },
+    {
+        "question": "What feature in Microsoft Word 365 allows you to create a numbered list with different levels of indentation?",
+        "options": [
+            "Multi-spaced numbering",
+            "Multi-indenting numbering",
+            "Multi-hierarchy numbering",
+            "Multilevel numbering"
+        ],
+        "correctOption": "Multilevel numbering"
+    },
+    {
+        "question": "In MS Excel 365, the VLOOKUP function in Microsoft Excel is primarily used for:",
+        "options": [
+            "calculating percentages",
+            "creating pivot tables",
+            "finding the total of a range",
+            "searching for a value in a table and returning a corresponding value"
+        ],
+        "correctOption": "searching for a value in a table and returning a corresponding value"
+    },
+    {
+        "question": "In MS Excel 365, how can you add a specific number of days to a date in Excel?",
+        "options": [
+            "Using the EDATE function",
+            "Using the WORKDAY function",
+            "Using the DATE function",
+            "Using the DAY function"
+        ],
+        "correctOption": "Using the DATE function"
+    },
+    {
+        "question": "Which of the following options allows you to change page orientation in MS Word 365?",
+        "options": [
+            "Page break",
+            "Page layout",
+            "Paragraph alignment",
+            "Margins"
+        ],
+        "correctOption": "Page layout"
+    },
+    {
+        "question": "Which of the following is the advantage of using an Electronic mail?",
+        "options": [
+            "It is convenient and fast communication with individuals or groups globally.",
+            "It can lead to decreased face-to-face communication and loss of personal touch.",
+            "Vulnerability to spam and phishing threats.",
+            "An overwhelming number of emails can lead to information overload."
+        ],
+        "correctOption": "It is convenient and fast communication with individuals or groups globally."
+    },
+    {
+        "question": "What is the purpose of the ‘Undo’ command in Microsoft Excel?",
+        "options": [
+            "It saves the current workbook.",
+            "It copies selected cells.",
+            "It reverses the last action performed.",
+            "It inserts a new worksheet."
+        ],
+        "correctOption": "It reverses the last action performed."
+    },
+    {
+        "question": "In MS-Word 365, which feature allows you to create a new document quickly without having to start from scratch, using a predefined layout and formatting?",
+        "options": [
+            "Spelling and Grammar Check",
+            "AutoSave",
+            "Print Layout View",
+            "Document Template"
+        ],
+        "correctOption": "Document Template"
+    },
+    {
+        "question": "Which of the following is NOT a type of communication on the internet?",
+        "options": [
+            "Video conferencing",
+            "Telepathy",
+            "Chat",
+            "Email"
+        ],
+        "correctOption": "Telepathy"
+    },
+    {
+        "question": "How do we move a piece of text from one place to another in Microsoft Word 365?",
+        "options": [
+            "Cut and Paste",
+            "Copy and Paste",
+            "Copy and Insert",
+            "Cut and Insert"
+        ],
+        "correctOption": "Cut and Paste"
+    },
+    {
+        "question": "Which of the following Tabs is used to locate Bullets and Numbering icons of MS-Word 2010?",
+        "options": [
+            "View Tab",
+            "Home Tab",
+            "Insert Tab",
+            "Design Tab"
+        ],
+        "correctOption": "Home Tab"
+    },
+    {
+        "question": "What is the shortcut command in MS-Word 365 for cutting the text?",
+        "options": [
+            "Ctrl+Z",
+            "Ctrl+V",
+            "Ctrl+X",
+            "Ctrl+C"
+        ],
+        "correctOption": "Ctrl+X"
+    },
+    {
+        "question": "What is the purpose of the ‘Drag-and-Drop’ method in Microsoft Word 365?",
+        "options": [
+            "To format text",
+            "To print text",
+            "To copy or move text by dragging it to a new location",
+            "To select text"
+        ],
+        "correctOption": "To copy or move text by dragging it to a new location"
+    },
+    {
+        "question": "In MS Excel 365, to open an existing spreadsheet, which of the following shortcut keys is used?",
+        "options": [
+            "Ctrl+O",
+            "Ctrl+I",
+            "Ctrl+N",
+            "Ctrl+£"
+        ],
+        "correctOption": "Ctrl+O"
+    },
+    {
+        "question": "In MS Excel 365, which of the following options in MS Excel will arrange data in descending order based on the selected column(s)?",
+        "options": [
+            "Click the filter button",
+            "Click on ‘Find & Select’",
+            "Click the ‘Sort Z to A’ button",
+            "Click ‘Sort A to Z’"
+        ],
+        "correctOption": "Click the ‘Sort Z to A’ button"
+    },
+    {
+        "question": "What is the full form of PROM?",
+        "options": [
+            "Program read-only memory",
+            "Primary read-only memory",
+            "Programmable read-only memory",
+            "Program read-output memory"
+        ],
+        "correctOption": "Programmable read-only memory"
+    },
+    {
+        "question": "What does the ‘Grammar’ check in Microsoft Word 365 primarily focus on?",
+        "options": [
+            "Both I and II",
+            "Only I",
+            "Neither I nor II",
+            "Only II"
+        ],
+        "correctOption": "Both I and II"
+    },
+    {
+        "question": "In MS word 365 What does the ‘Header’ section in the ‘Page Setup’ dialog box allow you to do?",
+        "options": [
+            "Change the line spacing of the document",
+            "Add a header with text or page numbers to the top of each page",
+            "Adjust the page margins",
+            "Change the page orientation"
+        ],
+        "correctOption": "Add a header with text or page numbers to the top of each page"
+    },
+    {
+        "question": "The shortcut key used to save the document in MS-Word 365 is:",
+        "options": [
+            "Ctrl+X",
+            "Ctrl+S",
+            "Ctrl+A",
+            "Ctrl+V"
+        ],
+        "correctOption": "Ctrl+S"
+    },
+	
+
+
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

@@ -1,0 +1,5869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economics QUIZ APP</title>
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Economics Samay Part 1 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'economics1';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+    const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`.replace(/\n/g, '<br>');
+    optionsElement.appendChild(explanation);
+	
+	 
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+<script>
+const questions = [
+{
+        "question": "1. Other name of Net National Product at market price",
+        "options": [
+            "a. National Income",
+            "b. Gross Domestic Production",
+            "c. Personal Income",
+            "d. Per capita Income"
+        ],
+        "correctOption": "c. Personal Income"
+    },
+    {
+        "question": "2. Net National Product (NNP) of a country is:",
+        "options": [
+            "a. GDP minus depreciation allowances",
+            "b. GDP plus net income from abroad",
+            "c. GNP minus net income from abroad",
+            "d. GNP minus depreciation allowances"
+        ],
+        "correctOption": "d. GNP minus depreciation allowances"
+    },
+    {
+        "question": "3. Which of the following can be called as a part of the Service Sector?",
+        "options": [
+            "a. Textile Mills",
+            "b. Banking",
+            "c. Coal Mines",
+            "d. Agriculture"
+        ],
+        "correctOption": "b. Banking"
+    },
+ {
+        "question": "5. Which sector of Indian Economy Contributes largest to the Gross National Product?",
+        "options": [
+            "a. Primary Sector",
+            "b. Secondary Sector",
+            "c. Tertiary Sector",
+            "d. Public Sector"
+        ],
+        "correctOption": "c. Tertiary Sector"
+    },
+    {
+        "question": "6. Per Capita Income of a country derived from:",
+        "options": [
+            "a. National Income",
+            "b. Population",
+            "c. National Income and Population both",
+            "d. None of these"
+        ],
+        "correctOption": "c. National Income and Population both"
+    },
+    {
+        "question": "7. In India, Hindu Rate of Growth is associated with which of the following?",
+        "options": [
+            "a. Birth Rate",
+            "b. Population",
+            "c. Per capita Income",
+            "d. National Income"
+        ],
+        "correctOption": "d. National Income"
+    },
+    {
+        "question": "8. In India, Tertiary Sector includes:",
+        "options": [
+            "I. Trade and Transport",
+            "II. Finance and Real Estate",
+            "III. Forestry and Fishing",
+            "Choose the correct answer from the codes given below: Codes: a. I only b. I and II only c. II and III only d. III only"
+        ],
+        "correctOption": "b. I and II only"
+    },
+    {
+        "question": "9. Who wrote a book describing the theory of economic drain of India during British rule?",
+        "options": [
+            "a. Late Lajpat Rai",
+            "b. Mahatma Gandhi",
+            "c. Jawaharlal Nehru",
+            "d. Dadabhai Naoroji"
+        ],
+        "correctOption": "d. Dadabhai Naoroji"
+    },
+    {
+        "question": "11. The most appropriate measure of a country's economic growth is its:",
+        "options": [
+            "a. Gross Domestic Product",
+            "b. Net Domestic Product",
+            "c. Net National Product",
+            "d. Per Capita Real Income"
+        ],
+        "correctOption": "a. Gross Domestic Product"
+    },
+    {
+        "question": "13. Which one of the following is the correct sequence in the decreasing order of contribution of different sources to the Gross Domestic Product of India?",
+        "options": [
+            "a. Service-Industry-Agriculture",
+            "b. Service-Agriculture-Industry",
+            "c. Industry-Service-Agriculture",
+            "d. Industry-Agriculture-Service"
+        ],
+        "correctOption": "a. Service-Industry-Agriculture"
+    },
+    {
+        "question": "15. The Expenditure on advertisement and public relation by an enterprise is a part of its:",
+        "options": [
+            "a. Consumption of fixed capital",
+            "b. Final consumption Expenditure",
+            "c. Intermediate Consumption",
+            "d. Fined Capital"
+        ],
+        "correctOption": "c. Intermediate Consumption"
+    },
+    {
+        "question": "17. Depreciation is equal to:",
+        "options": [
+            "a. GNP-NNP",
+            "b. NNP-GNP",
+            "c. GNP-Personal Income",
+            "d. Personal Income- Personal Income"
+        ],
+        "correctOption": "a. GNP-NNP"
+    },
+    {
+        "question": "18. A rising per capital Income will indicate a better welfare if it is accompanied by:",
+        "options": [
+            "a. Unchanged Income distribution overall",
+            "b. Changed income distribution in favour of rich",
+            "c. Change income distribution in Favour of poor",
+            "d. Changed Income distribution in favour of Industrial Labour"
+        ],
+        "correctOption": "c. Change income distribution in Favour of poor"
+    },
+    {
+        "question": "19. Which one of the following is not a method of measurement of National Income?",
+        "options": [
+            "a. Value added method",
+            "b. Income method",
+            "c. Investment method",
+            "d. Expenditure method"
+        ],
+        "correctOption": "c. Investment method"
+    },
+    {
+        "question": "20. Which one of the following is the most appropriate reason for inequalities in income?",
+        "options": [
+            "a. Racial factors",
+            "b. Lack of opportunities",
+            "c. Inheritance from family environment",
+            "d. Differences in ability"
+        ],
+        "correctOption": "b. Lack of opportunities"
+    },
+{
+        "question": "21. National Income includes",
+        "options": [
+            "a. Financial help to earthquake victims",
+            "b. Pocket money of a child",
+            "c. Winning of lottery prize",
+            "d. Construction of a new house"
+        ],
+        "correctOption": "d. Construction of a new house"
+    },
+    {
+        "question": "22. The National Income of a country is",
+        "options": [
+            "a. Government annual revenue",
+            "b. Total productive income",
+            "c. Surplus of the public sector enterprise",
+            "d. Export and Import"
+        ],
+        "correctOption": "b. Total productive income"
+    },
+    {
+        "question": "23. Aggregate net value of the output in 1 year is",
+        "options": [
+            "a. National Income at Factor cost",
+            "b. Gross Domestic Product at market prices",
+            "c. Net National Product at market prices",
+            "d. Gross National Product at market prices"
+        ],
+        "correctOption": "c. Net National Product at market prices"
+    },
+ {
+        "question": "24. In a highly developed country, the relative contribution of agriculture to GDP is",
+        "options": [
+            "a. Relatively high",
+            "b. Relatively low",
+            "c. Same as that of other sectors",
+            "d. Zero"
+        ],
+        "correctOption": "b. Relatively low"
+    },
+    {
+        "question": "25. India's biggest nationalized enterprise today is",
+        "options": [
+            "a. The Indian Railways",
+            "b. The Indian Commercial Banking System",
+            "c. The Indian Power Sector",
+            "d. The Indian Telecommunication System"
+        ],
+        "correctOption": "a. The Indian Railways"
+    },
+    {
+        "question": "26. Gross Domestic Product is defined as the value of all",
+        "options": [
+            "a. Goods Produced in an economy in a year",
+            "b. Goods and services produced in an economy in a year",
+            "c. Final goods produced in an economy in a year",
+            "d. Final goods and services produced in an economy in a year"
+        ],
+        "correctOption": "d. Final goods and services produced in an economy in a year"
+    },
+  {
+        "question": "27. Which of the following is not a part of national income",
+        "options": [
+            "a. Wages and Salaries",
+            "b. Profits",
+            "c. Rent",
+            "d. Interest on national debt"
+        ],
+        "correctOption": "d. Interest on national debt"
+    },
+    {
+        "question": "28. Who first estimated National Income in India?",
+        "options": [
+            "a. V.K.R.V. Rao",
+            "b. Dadabhai Naoroji",
+            "c. R.C. Dutt",
+            "d. D.R. Gadgil"
+        ],
+        "correctOption": "b. Dadabhai Naoroji"
+    },
+    {
+        "question": "29. Which one of the following is not included while estimating national income through the income method?",
+        "options": [
+            "a. Rent",
+            "b. Mixed incomes",
+            "c. Pension",
+            "d. Undistributed profits"
+        ],
+        "correctOption": "c. Pension"
+    },
+ {
+        "question": "30. Which of the following methods is not used in determining the National income of a country?",
+        "options": [
+            "a. Income Method",
+            "b. Product Method",
+            "c. Expenditure Method",
+            "d. Investment Method"
+        ],
+        "correctOption": "d. Investment Method"
+    },
+    {
+        "question": "82. Commercial paper is a source of credit for which one of the following?",
+        "options": [
+            "a. Corporate Industry",
+            "b. Small Scale Industry",
+            "c. Commercial Banks",
+            "d. Foreign Banks"
+        ],
+        "correctOption": "a. Corporate Industry"
+    },
+{
+        "question": "82. Commercial paper is a source of credit for which one of the following?",
+        "options": [
+            "a. Corporate Industry",
+            "b. Small Scale Industry",
+            "c. Commercial Banks",
+            "d. Foreign Banks"
+        ],
+        "correctOption": "a. Corporate Industry"
+    },
+    {
+        "question": "83. A labour-intensive industry is one that:",
+        "options": [
+            "a. Requires hard manual labour",
+            "b. Pays adequate wages to the labour",
+            "c. Employs more hands",
+            "d. Provides facilities to labour"
+        ],
+        "correctOption": "c. Employs more hands"
+    },
+{
+        "question": "84. Since when disinvestment started in public enterprises?",
+        "options": [
+            "a. 1990-91",
+            "b. 1991-92",
+            "c. 1992-93",
+            "d. 1993-94"
+        ],
+        "correctOption": "b. 1991-92"
+    },
+    {
+        "question": "85. National Renewal Fund was constituted for the purpose of:",
+        "options": [
+            "a. Providing Pension for retiring employees",
+            "b. Social security",
+            "c. Rural reconstruction",
+            "d. Restructuring and modernization of industries"
+        ],
+        "correctOption": "d. Restructuring and modernization of industries"
+    },
+    {
+        "question": "86. ........ is the most Industrially advanced State in India?",
+        "options": [
+            "a. Maharashtra",
+            "b. Punjab",
+            "c. Gujarat",
+            "d. Jewellery"
+        ],
+        "correctOption": "a. Maharashtra"
+    },
+    {
+        "question": "89. Which of the following programme is launched to develop basic infrastructure in the Country?",
+        "options": [
+            "a. Bharat Nirman Programme",
+            "b. Technical Mission",
+            "c. Special Economic Zones",
+            "d. National Rural Employment Guarantee Act",
+            "e. None of these"
+        ],
+        "correctOption": "a. Bharat Nirman Programme"
+    },
+    {
+        "question": "90. Which of the following is NOT one of the core areas identified under the Bharat Nirman Programme?",
+        "options": [
+            "a. Irrigation",
+            "b. Rural electrification",
+            "c. Drinking water supply",
+            "d. Computer education of schools",
+            "e. None of these"
+        ],
+        "correctOption": "d. Computer education of schools"
+    },
+    {
+        "question": "91. 'Samjhauta Express' runs between which of the following two station?",
+        "options": [
+            "a. New Delhi-Lahore",
+            "b. New Delhi-Wagah",
+            "c. Amritsar-Wagah",
+            "d. Amritsar-Lahore",
+            "e. New Delhi-Islamabad"
+        ],
+        "correctOption": "a. New Delhi-Lahore"
+    },
+{
+        "question": "92. The facility which allows mobile subscribers to switch from one service provider to another without changing their mobile number is known as Mobile Number?",
+        "options": [
+            "a. Promatability",
+            "b. Protectability",
+            "c. Portability",
+            "d. Permeability",
+            "e. None of these"
+        ],
+        "correctOption": "c. Portability"
+    },
+    {
+        "question": "93. The Indian Railways is in the process of purchasing Bullet Train Technology from which of the following nations?",
+        "options": [
+            "a. France",
+            "b. China",
+            "c. Japan",
+            "d. Russia",
+            "e. Spain"
+        ],
+        "correctOption": "c. Japan"
+    },
+    {
+        "question": "94. The first electric train (Deccan Queen) of India was run between:",
+        "options": [
+            "a. Kalyan and Pune",
+            "b. Mumbai and Surat",
+            "c. Howrah and Delhi",
+            "d. Delhi and Chennai",
+            "e. None of these"
+        ],
+        "correctOption": "a. Kalyan and Pune"
+    },
+    {
+        "question": "96. Which of the following is NOT covered under 'Bharat Nirman'?",
+        "options": [
+            "a. Rural Housing",
+            "b. Rural Hospitals",
+            "c. Rural Water Supply",
+            "d. Rural Electrification",
+            "e. None of these"
+        ],
+        "correctOption": "b. Rural Hospitals"
+    },
+{
+        "question": "98. The Oil and Natural Gas Commission (ONGC) was set up in:",
+        "options": [
+            "a. 1956",
+            "b. 1957",
+            "c. 1959",
+            "d. 1961",
+            "e. None of these"
+        ],
+        "correctOption": "a. 1956"
+    },
+    {
+        "question": "99. In the context of the stock market, IPO stands for:",
+        "options": [
+            "a. Immediate Payment Order",
+            "b. Internal Policy Obligation",
+            "c. Initial Public Offer",
+            "d. International Payment Obligation",
+            "e. None of these"
+        ],
+        "correctOption": "c. Initial Public Offer"
+    },
+    {
+        "question": "100. Bull and Bear are related to which commercial activity?",
+        "options": [
+            "a. Banking",
+            "b. E-commerce",
+            "c. International trade",
+            "d. Stock market",
+            "e. None of these"
+        ],
+        "correctOption": "d. Stock market"
+    },
+{
+        "question": "101. Short-term government securities is called:",
+        "options": [
+            "a. Share",
+            "b. Debenture",
+            "c. Mutual Fund",
+            "d. Treasury Bill",
+            "e. None of these"
+        ],
+        "correctOption": "d. Treasury Bill"
+    },
+    {
+        "question": "102. SEBI was set up in:",
+        "options": [
+            "a. 1992",
+            "b. 1998",
+            "c. 1999",
+            "d. 1996",
+            "e. None of these"
+        ],
+        "correctOption": "a. 1992"
+    },
+    {
+        "question": "103. What is meant by 'Capital Gain'?",
+        "options": [
+            "a. Part of Profit added to the Capital",
+            "b. Appreciation in the money value of assets",
+            "c. Additions to the capital invested in a business",
+            "d. None of these",
+            "e. None of these"
+        ],
+        "correctOption": "b. Appreciation in the money value of assets"
+    },
+{
+        "question": "104. Government securities are considered liquid because they are:",
+        "options": [
+            "a. Backed by the Government treasury",
+            "b. Convertible into other types of saving deposits",
+            "c. Quickly and easily marketable",
+            "d. Stable in value",
+            "e. None of these"
+        ],
+        "correctOption": "c. Quickly and easily marketable"
+    },
+    {
+        "question": "105. Long-term funds in the capital market can be raised either by borrowing from certain institutions or through:",
+        "options": [
+            "a. Issue of note",
+            "b. Taking loan from Government",
+            "c. Issue of securities",
+            "d. Taking loan from foreign institutions",
+            "e. None of these"
+        ],
+        "correctOption": "c. Issue of securities"
+    },
+{
+    "question": "SIDO is related to the development ofSIDO -",
+    "options": ["Small Industries", "Steel Industries", "Soap Industry", "Sugar Industry"],
+    "correctOption": "Small Industries"
+  },
+  {
+    "question": "Offloading of government shares to private companies is known as _______.",
+    "options": ["Investment", "Disinvestment", "Centralization", "Decentralization"],
+    "correctOption": "Disinvestment"
+  },
+  {
+    "question": "In a country produces consumer goods only and nothing else, then",
+    "options": [
+      "Standard of living will be highest",
+      "The country have certain amount of good",
+      "The country will soon become poor if external trade will not happen",
+      "The country will gradually become rich if external trade will not happen"
+    ],
+    "correctOption": "The country will soon become poor if external trade will not happen"
+  },
+  {
+    "question": "The census of Indian agriculture is done by        ?",
+    "options": ["Production Method", "Income Method", "Expenditure Method", "Consumption Method"],
+    "correctOption": "Production Method"
+  },
+  {
+    "question": "Income and consumption area. Inversely Related",
+    "options": ["Directly Related", "Partially Related", "Unrelated", "Inverse"],
+    "correctOption": "Directly Related"
+  },
+  {
+    "question": "Per capita income is equal to     -",
+    "options": [
+      "National Income / Population",
+      "National Income + Population",
+      "National Income / Population",
+      "National Income x Population"
+    ],
+    "correctOption": "National Income / Population"
+  },
+  {
+    "question": "Which of the following is not included in the National income?        ?",
+    "options": [
+      "Imputed rent of owner-occupied houses",
+      "Government expenditure on making new bridges",
+      "Winning a lottery",
+      "Commission paid to an agent for sale of house"
+    ],
+    "correctOption": "Winning a lottery"
+  },
+  {
+    "question": "What does National Income mean?        ?",
+    "options": [
+      "The total value of all goods and services produced in the country during a period of 1 year",
+      "The total value of all stocks and shares in the country during a period of 1 year",
+      "The total value of all capital goods produced in the country during a period of 1 year",
+      "The total value of all consumer goods produced in the country during a period of 1 year"
+    ],
+    "correctOption": "The total value of all goods and services produced in the country during a period of 1 year"
+  },
+  {
+    "question": "The method of calculating the National Income by the product method is otherwise known as                  -",
+    "options": ["Income method", "Value added method", "Expenditure method", "None of these"],
+    "correctOption": "None of these"
+  },
+  {
+    "question": "Gross National product is the money measure of       -",
+    "options": [
+      "All tangible goods produced in a country",
+      "Final goods and services produced in the economy",
+      "Services generated annually in the economy",
+      "All tangible goods available in the economy"
+    ],
+    "correctOption": "Final goods and services produced in the economy"
+  },
+  {
+    "question": "National Income accounting is the study of the income and expenditure of the entire            -",
+    "options": ["Family", "State", "Economy", "Organisation"],
+    "correctOption": "Economy"
+  },
+{
+    "question": "To achieve high rates of growth of national government output, the economy has to, -",
+    "options": [
+      "Reduce the rate to growth of population",
+      "Borrow foreign capital",
+      "Step up the rate of savings",
+      "Increase the rate of investment and reduce the capital output ratio"
+    ],
+    "correctOption": "Increase the rate of investment and reduce the capital output ratio"
+  },
+  {
+    "question": "Per capita income is obtained by dividing National income by -",
+    "options": [
+      "Total Population of the country",
+      "Total working population",
+      "Area of the country",
+      "Volume of Capital used"
+    ],
+    "correctOption": "Total Population of the country"
+  },
+  {
+    "question": "The largest share of India's national income originates in the -",
+    "options": [
+      "Primary Sector",
+      "Secondary Sector",
+      "Tertiary Sector",
+      "Any of the above"
+    ],
+    "correctOption": "Tertiary Sector"
+  },
+  {
+    "question": "National Income at factor cost is equal to -",
+    "options": [
+      "Net National Product + Indirect taxes - Subsidies",
+      "Net National Product + Direct taxes - Subsidies",
+      "Gross National Product - Depreciation charges",
+      "Net National Product + Net Income from abroad"
+    ],
+    "correctOption": "Gross National Product - Depreciation charges"
+  },
+  {
+    "question": "While computing national Income estimates, which of the following is required to be observed? -",
+    "options": [
+      "The value of exports to be added and the value of imports to be subtracted",
+      "The value of exports to be subtracted and the value of imports to be added",
+      "The value of both export and imports to be added",
+      "The value of both exports and imports to be subtracted"
+    ],
+    "correctOption": "The value of exports to be added and the value of imports to be subtracted"
+  },
+  {
+    "question": "The largest component of National income in India is -",
+    "options": [
+      "Service Sector",
+      "Agriculture",
+      "Industrial Sector",
+      "Trade Sector"
+    ],
+    "correctOption": "Service Sector"
+  },
+  {
+    "question": "The main difference between Gross Domestic Product (GDP) and Gross National Product (GNP) is (GDP) (GNP) -",
+    "options": [
+      "Transfer payments",
+      "Net foreign income from abroad",
+      "Capital Consumption allowances",
+      "Capital gains"
+    ],
+    "correctOption": "Net foreign income from abroad"
+  },
+  {
+    "question": "The profits of Indian banks operating in foreign countries are a part of -",
+    "options": [
+      "Income from entrepreneurship earned from abroad",
+      "Domestic factor income of India",
+      "Profits of the Enterprises working in domestic territory of India",
+      "Operating Surplus of the banks located in India"
+    ],
+    "correctOption": "Income from entrepreneurship earned from abroad"
+  },
+  {
+    "question": "Which of the following is not required while computing Gross National Product (GNP)? (GNP) -",
+    "options": [
+      "Net Foreign investment",
+      "Private investment",
+      "Per capita income of citizens",
+      "Purchase of goods by government"
+    ],
+    "correctOption": "Per capita income of citizens"
+  },
+  {
+    "question": "The sum total of income received for the service of labour, land or capital in a country is called. -",
+    "options": [
+      "Gross Domestic product",
+      "National Income",
+      "Gross Domestic Income",
+      "Gross national income"
+    ],
+    "correctOption": "Gross Domestic Income"
+  },
+  {
+    "question": "The national income consists of a collection of goods and services reduced of common basis by being measured in term of money\" who says this? \" -",
+    "options": [
+      "Samuleson",
+      "Kunznets",
+      "Hick",
+      "Pigou"
+    ],
+    "correctOption": "Hick"
+  },
+  {
+    "question": "Which of the statement is correct about India's national income? -",
+    "options": [
+      "Percentage share of agriculture is higher than services",
+      "Percentage share of agriculture is higher than agriculture",
+      "Percentage share of services is higher than industry",
+      "Percentage share of services is higher than agriculture and industry put together"
+    ],
+    "correctOption": "Percentage share of services is higher than industry"
+  },
+  {
+    "question": "Net National product of a country is -",
+    "options": [
+      "GDP minus depreciation",
+      "GDP plus net income from abroad",
+      "GDP minus net income from abroad",
+      "GNP minus depreciation allowances"
+    ],
+    "correctOption": "GNP minus depreciation allowances"
+  },
+  {
+    "question": "Which of the following is not a method of estimating National income? -",
+    "options": [
+      "Expenditure method",
+      "Product method",
+      "Matrix method",
+      "Income method"
+    ],
+    "correctOption": "Matrix method"
+  },
+  {
+    "question": "The total value of goods and services produced in a country during a given period is -",
+    "options": [
+      "Disposable income",
+      "National income",
+      "Per capita income",
+      "Net National income"
+    ],
+    "correctOption": "National income"
+  },
+  {
+    "question": "An increase in national income because of an increase in price in called -",
+    "options": [
+      "An increase in National Income in real terms",
+      "An increase in National Income at constant prices",
+      "An increase in money National Income",
+      "An increase at National income in base year prices"
+    ],
+    "correctOption": "An increase at National income in base year prices"
+  },
+  {
+    "question": "The different between GNP and NNP equals -",
+    "options": [
+      "Corporate profits",
+      "Personal taxes",
+      "Transfer payments",
+      "Depreciation"
+    ],
+    "correctOption": "Depreciation"
+  },
+  {
+    "question": "The term 'Green GNP' emphasises -",
+    "options": [
+      "Rapid growth of GNP",
+      "Increase in per capita income",
+      "Economic development",
+      "Sustainable development"
+    ],
+    "correctOption": "Sustainable development"
+  },
+  {
+    "question": "Personal disposable income is",
+    "options": [
+      "Always equal to person income",
+      "Always more than personal income",
+      "Equal to personal income minus indirect taxes",
+      "Equal to personal income minus direct taxes"
+    ],
+    "correctOption": "Equal to personal income minus indirect taxes"
+  },
+  {
+    "question": "An individual's actual standard of living can be assessed by -",
+    "options": [
+      "Gross National Income",
+      "Net National Income",
+      "Per Capita Income",
+      "Disposable Personal Income"
+    ],
+    "correctOption": "Per Capita Income"
+  },
+  {
+    "question": "Net National Product in National Accounting refers to -",
+    "options": [
+      "Gross Domestic Product - depreciation",
+      "Gross Domestic Product - depreciation",
+      "Gross National Product - Depreciation",
+      "Gross National Product + Subsidies"
+    ],
+    "correctOption": "Gross National Product - Depreciation"
+  },
+  {
+    "question": "Transfer payments include:",
+    "options": [
+      "Gift received from a friend",
+      "Rent free accommodation by the employer",
+      "Net factor income from abroad",
+      "Employee's contribution to social security"
+    ],
+    "correctOption": "Gift received from a friend"
+  },
+  {
+    "question": "Which of the following is deducted from GNP to arrive at NNP? -",
+    "options": [
+      "Depreciation",
+      "Interest",
+      "Tax",
+      "Subsidy"
+    ],
+    "correctOption": "Depreciation"
+  },
+  {
+    "question": "Economic progress of a country is determined by -",
+    "options": [
+      "Increase in per capita Income of people of country",
+      "Increase in the price of produced capital goods during in the year",
+      "Increased numbers of Trade Unions",
+      "Fall in the general price level of country"
+    ],
+    "correctOption": "Increase in per capita Income of people of country"
+  },
+  {
+    "question": "Which one of the following represents the savings of the private corporate sector? -",
+    "options": [
+      "Dividends paid to shareholders",
+      "Total profits of a company",
+      "Undistributed profits",
+      "Excess of income over expenditure"
+    ],
+    "correctOption": "Undistributed profits"
+  },
+  {
+    "question": "The value of investment multiplier relates to -",
+    "options": [
+      "Change in income due to change in autonomous investment",
+      "Change in autonomous investment due to change in income",
+      "Change in income due to change in consumption",
+      "Change in the income due to change in induced investment"
+    ],
+    "correctOption": "Change in income due to change in autonomous investment"
+  },
+  {
+    "question": "Gross National Product - Depreciation Allowance = ________",
+    "options": [
+      "National Income",
+      "NDP",
+      "NNP",
+      "GNP"
+    ],
+    "correctOption": "NNP"
+  },
+  {
+    "question": "If exports equal import then, which of the following relations will be true? -",
+    "options": [
+      "GDP = GNP",
+      "GDP > GNP",
+      "GDP < GNP",
+      "None of these"
+    ],
+    "correctOption": "GDP = GNP"
+  },
+  {
+    "question": "National Income is based on the: -",
+    "options": [
+      "total revenue of the state",
+      "production of goods and services",
+      "net profit earned and expenditure made by the State",
+      "the sum of all factions of income"
+    ],
+    "correctOption": "production of goods and services"
+  },
+  {
+    "question": "Many a times we read a term in financial newspapers GDP. What is the full form of the same?",
+    "options": [
+      "Gross Domestic Product",
+      "Global Domestic Ratio",
+      "Gross Depository Revenues",
+      "Global Depository Receipts"
+    ],
+    "correctOption": "Gross Domestic Product"
+  },
+  {
+    "question": "Which of the following is equivalent of national income? -",
+    "options": [
+      "Gross Domestic Product at market price",
+      "Net Domestic Product at factor cost",
+      "Net National Product at market price",
+      "Net National Product at factor cost"
+    ],
+    "correctOption": "Net National Product at factor cost"
+  },
+  {
+    "question": "National Income estimates in India are prepared by: -",
+    "options": [
+      "Planning commission",
+      "Reserve Bank of India",
+      "Central Statistical Organisation",
+      "Indian Statistical Institute"
+    ],
+    "correctOption": "Central Statistical Organisation"
+  },
+  {
+    "question": "The main source of National Income in India is: -",
+    "options": [
+      "Service Sector",
+      "Agriculture",
+      "Industrial Sector",
+      "Trade Sector"
+    ],
+    "correctOption": "Service Sector"
+  },
+  {
+    "question": "Which one of the following is NOT an example of economic overheads? -",
+    "options": [
+      "Schools",
+      "Sanitary Facilities",
+      "Roads and Railways",
+      "Coal Mines"
+    ],
+    "correctOption": "Coal Mines"
+  },
+  {
+    "question": "In 2015, the nominal rate of interest in a country was 5.5% and the inflation rate then was 2.5%. So real rate of Interest in 2015 was -",
+    "options": [
+      "8 percent",
+      "2.2 percent",
+      "3 percent",
+      "13.75 percent"
+    ],
+    "correctOption": "3 percent"
+  },
+  {
+    "question": "Which organisation monitors the banks in actually maintaining cash balance? -",
+    "options": [
+      "State Bank of India",
+      "Reserve Bank of India",
+      "Grameen Bank of India",
+      "None of these"
+    ],
+    "correctOption": "Reserve Bank of India"
+  },
+  {
+    "question": "GNP - depreciation allowances = ________ -",
+    "options": [
+      "National Income",
+      "NDP",
+      "NNP",
+      "GNP"
+    ],
+    "correctOption": "NNP"
+  },
+  {
+    "question": "If exports equal import then, which of the following relations will be true? -",
+    "options": [
+      "GDP = GNP",
+      "GDP > GNP",
+      "GDP < GNP",
+      "None of these"
+    ],
+    "correctOption": "GDP = GNP"
+  },
+  {
+    "question": "National Income is based on the: -",
+    "options": [
+      "total revenue of the state",
+      "production of goods and services",
+      "net profit earned and expenditure made by the State",
+      "the sum of all factions of income"
+    ],
+    "correctOption": "production of goods and services"
+  },
+  {
+    "question": "Many a times we read a term in financial newspapers GDP. What is the full form of the same? -",
+    "options": [
+      "Gross Domestic Product",
+      "Global Domestic Ratio",
+      "Gross Depository Revenues",
+      "Global Depository Receipts"
+    ],
+    "correctOption": "Gross Domestic Product"
+  },
+  {
+    "question": "Which of the following is equivalent of national income? -",
+    "options": [
+      "Gross Domestic Product at market price",
+      "Net Domestic Product at factor cost",
+      "Net National Product at market price",
+      "Net National Product at factor cost"
+    ],
+    "correctOption": "Net National Product at factor cost"
+  },
+  {
+    "question": "National Income estimates in India are prepared by: -",
+    "options": [
+      "Planning commission",
+      "Reserve Bank of India",
+      "Central Statistical Organisation",
+      "Indian Statistical Institute"
+    ],
+    "correctOption": "Central Statistical Organisation"
+  },
+  {
+    "question": "The main source of National Income in India is: -",
+    "options": [
+      "Service Sector",
+      "Agriculture",
+      "Industrial Sector",
+      "Trade Sector"
+    ],
+    "correctOption": "Service Sector"
+  },
+  {
+    "question": "Which one of the following is NOT an example of economic overheads? -",
+    "options": [
+      "Schools",
+      "Sanitary Facilities",
+      "Roads and Railways",
+      "Coal Mines"
+    ],
+    "correctOption": "Coal Mines"
+  },
+  {
+    "question": "In 2015, the nominal rate of interest in a country was 5.5% and the inflation rate then was 2.5%. So real rate of Interest in 2015 was -",
+    "options": [
+      "8 percent",
+      "2.2 percent",
+      "3 percent",
+      "13.75 percent"
+    ],
+    "correctOption": "3 percent"
+  },
+  {
+    "question": "Which organisation monitors the banks in actually maintaining cash balance? -",
+    "options": [
+      "State Bank of India",
+      "Reserve Bank of India",
+      "Grameen Bank of India",
+      "None of these"
+    ],
+    "correctOption": "Reserve Bank of India"
+  },
+  {
+    "question": "GNP - depreciation allowances = ________ -",
+    "options": [
+      "National Income",
+      "NDP",
+      "NNP",
+      "GNP"
+    ],
+    "correctOption": "NNP"
+  },
+  {
+    "question": "If exports equal import then, which of the following relations will be true? -",
+    "options": [
+      "GDP = GNP",
+      "GDP > GNP",
+      "GDP < GNP",
+      "None of these"
+    ],
+    "correctOption": "GDP = GNP"
+  },
+  {
+    "question": "National Income is based on the: -",
+    "options": [
+      "total revenue of the state",
+      "production of goods and services",
+      "net profit earned and expenditure made by the State",
+      "the sum of all factions of income"
+    ],
+    "correctOption": "production of goods and services"
+  },
+  {
+    "question": "Many a times we read a term in financial newspapers GDP. What is the full form of the same? -",
+    "options": [
+      "Gross Domestic Product",
+      "Global Domestic Ratio",
+      "Gross Depository Revenues",
+      "Global Depository Receipts"
+    ],
+    "correctOption": "Gross Domestic Product"
+  },
+  {
+    "question": "Which of the following is equivalent of national income? -",
+    "options": [
+      "Gross Domestic Product at market price",
+      "Net Domestic Product at factor cost",
+      "Net National Product at market price",
+      "Net National Product at factor cost"
+    ],
+    "correctOption": "Net National Product at factor cost"
+  },
+  {
+    "question": "National Income estimates in India are prepared by: -",
+    "options": [
+      "Planning commission",
+      "Reserve Bank of India",
+      "Central Statistical Organisation",
+      "Indian Statistical Institute"
+    ],
+    "correctOption": "Central Statistical Organisation"
+  },
+  {
+    "question": "The main source of National Income in India is: -",
+    "options": [
+      "Service Sector",
+      "Agriculture",
+      "Industrial Sector",
+      "Trade Sector"
+    ],
+    "correctOption": "Service Sector"
+  },
+  {
+    "question": "Which one of the following is NOT an example of economic overheads? -",
+    "options": [
+      "Schools",
+      "Sanitary Facilities",
+      "Roads and Railways",
+      "Coal Mines"
+    ],
+    "correctOption": "Coal Mines"
+  },
+  {
+    "question": "In 2015, the nominal rate of interest in a country was 5.5% and the inflation rate then was 2.5%. So real rate of Interest in 2015 was -",
+    "options": [
+      "8 percent",
+      "2.2 percent",
+      "3 percent",
+      "13.75 percent"
+    ],
+    "correctOption": "3 percent"
+  },
+{
+    "question": "Which organisation monitors the banks in actually maintaining cash balance?",
+    "options": [
+      "State Bank of India",
+      "Reserve Bank of India",
+      "Grameen Bank of India",
+      "None of these"
+    ],
+    "correctOption": "Reserve Bank of India"
+  },
+  {
+    "question": "GNP-depreciation allowances = ________",
+    "options": [
+      "National Income",
+      "NDP",
+      "NNP",
+      "GNP"
+    ],
+    "correctOption": "NNP"
+  },
+  {
+    "question": "If exports equal import then, which of the following relations will be true?",
+    "options": [
+      "GDP=GNP",
+      "GDP>GNP",
+      "GDP<GNP",
+      "None of these"
+    ],
+    "correctOption": "GDP=GNP"
+  },
+  {
+    "question": "National Income is based on the:",
+    "options": [
+      "Total revenue of the state",
+      "Production of goods and services",
+      "Net profit earned and expenditure made by the State",
+      "The sum of all factions of income"
+    ],
+    "correctOption": "Production of goods and services"
+  },
+  {
+    "question": "Many times we read a term in financial newspapers GDP. What is the full form of the same?",
+    "options": [
+      "Gross Domestic Product",
+      "Global Domestic Ratio",
+      "Gross Depository Revenues",
+      "Global Depository Receipts"
+    ],
+    "correctOption": "Gross Domestic Product"
+  },
+  {
+    "question": "Which of the following is equivalent of national income?",
+    "options": [
+      "Gross Domestic Product at market price",
+      "Net Domestic Product at factor cost",
+      "Net National Product at market price",
+      "Net National Product at factor cost"
+    ],
+    "correctOption": "Net National Product at factor cost"
+  },
+  {
+    "question": "National Income estimates in India are prepared by:",
+    "options": [
+      "Planning commission",
+      "Reserve Bank of India",
+      "Central Statistical Organisation",
+      "Indian Statistical Institute"
+    ],
+    "correctOption": "Central Statistical Organisation"
+  },
+  {
+    "question": "The main source of National Income in India is:",
+    "options": [
+      "Service Sector",
+      "Agriculture",
+      "Industrial Sector",
+      "Trade Sector"
+    ],
+    "correctOption": "Service Sector"
+  },
+  {
+    "question": "Which one of the following is NOT an example of economic overheads?",
+    "options": [
+      "Schools",
+      "Sanitary Facilities",
+      "Roads and Railways",
+      "Coal Mines"
+    ],
+    "correctOption": "Coal Mines"
+  },
+  {
+    "question": "Hindu Rate of Growth refers to the rate of growth of:",
+    "options": [
+      "GDP",
+      "Population",
+      "Foodgrains",
+      "Per Capita Income"
+    ],
+    "correctOption": "GDP"
+  },
+  {
+    "question": "As the economy develops, the share of the tertiary sector in the GDP:",
+    "options": [
+      "Decreases",
+      "Decreases then increases",
+      "Increases",
+      "Remains constant"
+    ],
+    "correctOption": "Increases"
+  },
+  {
+    "question": "The per Capita Income in India was Rs. 20 in 1867-68 was ascertained for the first time by:",
+    "options": [
+      "Dadabhai Naoroji",
+      "R.C. Dutta",
+      "M.G. Ranade",
+      "W.Hunter"
+    ],
+    "correctOption": "Dadabhai Naoroji"
+  },
+  {
+    "question": "The term National Income represents:",
+    "options": [
+      "Gross National Product at market price minus depreciation",
+      "Gross National Product at market price minus depreciation plus net factor income from abroad",
+      "Gross National Product at Market price minus deprecations and indirect taxes plus subsidies",
+      "Gross National Product at market prices minus Net factor income from abroad"
+    ],
+    "correctOption": "Gross National Product at market price minus depreciation"
+  },
+{
+    "question": "Which of the following relations always holds true?",
+    "options": [
+      "Income=Consumption +Investment",
+      "Income=Consumption + saving",
+      "Saving = Investment",
+      "Income =Consumption +Saving"
+    ],
+    "correctOption": "Income=Consumption + saving and Income =Consumption +Saving"
+  },
+  {
+    "question": "Saving rate is relatively low in developed economies because of",
+    "options": [
+      "Low per Capital Income",
+      "Welfare programmes",
+      "Liquidity/Borrowing constraint",
+      "High interest rate"
+    ],
+    "correctOption": "Welfare programmes"
+  },
+  {
+    "question": "The hypothesis that rapid growth of per capita income will be associated with a reduction in poverty is called",
+    "options": [
+      "Trickle down Hypothesis",
+      "Trickle up hypothesis",
+      "U shaped hypothesis",
+      "Poverty estimation hypothesis"
+    ],
+    "correctOption": "Trickle down Hypothesis"
+  },
+  {
+    "question": "Sectoral distribution of GDP index measures",
+    "options": [
+      "Agricultural development of a country",
+      "Economic development of country",
+      "Social Development of a country",
+      "Socio-economic development of a country"
+    ],
+    "correctOption": "Economic development of country"
+  },
+  {
+    "question": "Capital Formation in an economy depends on",
+    "options": [
+      "Total Income",
+      "Total demand",
+      "Total saving",
+      "Total production"
+    ],
+    "correctOption": "Total saving"
+  },
+  {
+    "question": "Saving is that portion of money income that is",
+    "options": [
+      "Spent for development of industries",
+      "Not spent on consumption",
+      "Spent on health and education",
+      "Spent for consumer durable"
+    ],
+    "correctOption": "Not spent on consumption"
+  },
+  {
+    "question": "An indifference curve measures the same level of",
+    "options": [
+      "Output from two factors",
+      "Satisfaction from two commodities",
+      "Satisfaction from Income and Capital",
+      "Satisfaction from expenditure and savings"
+    ],
+    "correctOption": "Satisfaction from two commodities"
+  },
+  {
+    "question": "What is the Disposable Personal Income?",
+    "options": [
+      "Personal Income +Subsidies",
+      "Personal Income Subsidies",
+      "Personal Income- Direct Taxes",
+      "Personal Income Indirect Taxes"
+    ],
+    "correctOption": "Personal Income- Direct Taxes"
+  },
+  {
+    "question": "From which of the following is the GDP of a country not derived from?",
+    "options": [
+      "Agricultural Sector",
+      "Industrial Sector",
+      "International Sector",
+      "Service Sector"
+    ],
+    "correctOption": "International Sector"
+  },
+  {
+    "question": "What is the full form of GNI?",
+    "options": [
+      "Gross National Interest",
+      "Gross National Income",
+      "Gross Net Interest",
+      "Gross Net Income"
+    ],
+    "correctOption": "Gross National Income"
+  },
+  {
+    "question": "What is the full form of NNP?",
+    "options": [
+      "Normal Net Production",
+      "Net National Product",
+      "Normal National Produce",
+      "Net Normal Produce"
+    ],
+    "correctOption": "Net National Product"
+  },
+  {
+    "question": "Which of the following is definitely a major indication of the State of the economy of a country?",
+    "options": [
+      "Rate of GDP growth",
+      "Rate of inflation",
+      "Number of Banks in a country",
+      "Stock of foodgrains in a country"
+    ],
+    "correctOption": "Rate of GDP growth"
+  },
+  {
+    "question": "In terms of economics, the total value of the output (goods and services) produced and income received in a year by a domestic resident of a country put together is called",
+    "options": [
+      "Net National Product",
+      "Gross National Product",
+      "Gross National Income",
+      "National Income"
+    ],
+    "correctOption": "Gross National Product"
+  },
+  {
+    "question": "Assertion (A): Per capita Income of India does not give a complete picture of the economic growth of the country",
+    "options": [
+      "Both A and R are true and R is the correct explanation of A",
+      "Both A and R are true but R is not a correct explanation of A",
+      "A is true but R is false",
+      "A is false but R is true"
+    ],
+    "correctOption": "Both A and R are true but R is not a correct explanation of A"
+  },
+  {
+    "question": "In India, the service sector includes:",
+    "options": [
+      "Mining and Quarrying",
+      "Transport and Communication",
+      "Hotels",
+      "Forestry and Fishing"
+    ],
+    "correctOption": "Transport and Communication, Hotels"
+  },
+  {
+    "question": "Who had estimated National Income in India First?",
+    "options": [
+      "Dadabhai Naoroji",
+      "R.C. Dutt",
+      "V.K.R.V. Rao",
+      "D.R. Gadgil"
+    ],
+    "correctOption": "Dadabhai Naoroji"
+  },
+  {
+    "question": "The National Income of a country is:",
+    "options": [
+      "The annual revenue of the Government",
+      "Sum total of factor incomes",
+      "Surplus of Public Sector Undertaking",
+      "Exports minus Import"
+    ],
+    "correctOption": "Sum total of factor incomes"
+  },
+  {
+    "question": "The growth rate of Per Capita Income at current prices is higher than that of Per Capita Income at constant prices because the latter takes into account the rate of:",
+    "options": [
+      "Growth of population",
+      "Increase in price level",
+      "Growth in money supply",
+      "Increase in the wage rate"
+    ],
+    "correctOption": "Increase in price level"
+  },
+{
+    "question": "The first Income Committee was established in",
+    "options": [
+      "1948",
+      "1949",
+      "1950",
+      "1951"
+    ],
+    "correctOption": "1949"
+  },
+  {
+    "question": "Gross Profit means",
+    "options": [
+      "Total investment over total saving",
+      "Changes in methods of production",
+      "Changes in the form of business organization",
+      "Total receipts over total expenditure"
+    ],
+    "correctOption": "Total receipts over total expenditure"
+  },
+  {
+    "question": "The difference between the GNP and the NNP is equal to the",
+    "options": [
+      "Consumer expenditure on durable goods",
+      "Direct tax revenue",
+      "Indirect tax",
+      "Capital depreciation"
+    ],
+    "correctOption": "Capital depreciation"
+  },
+  {
+    "question": "While estimating National Income which of the following is not taken into account?",
+    "options": [
+      "Services of a teacher",
+      "Services of a doctor",
+      "Services of a housewife",
+      "Services of maid servant"
+    ],
+    "correctOption": "Services of a housewife"
+  },
+  {
+    "question": "Fish catch by Indian fisher-men in the international waters are part of the GDP of",
+    "options": [
+      "Sri Lanka",
+      "India and Sri Lanka",
+      "India",
+      "India and Indonesia"
+    ],
+    "correctOption": "India"
+  },
+  {
+    "question": "A firm new shares worth Rs. 1000 directly to individuals. This transaction will cause",
+    "options": [
+      "Gross National product to rise by Rs. 100",
+      "Gross National product to rise by Rs. 1000",
+      "National Income to rise by Rs. 1000",
+      "No impact on Gross National product"
+    ],
+    "correctOption": "No impact on Gross National product"
+  },
+  {
+    "question": "What is the main function of Central Statistical Organization (CSO)",
+    "options": [
+      "Determination of Money supply",
+      "Collection of estimates of national income",
+      "Collection of details data regarding employment",
+      "Price Determination"
+    ],
+    "correctOption": "Collection of estimates of national income"
+  },
+  {
+    "question": "GDP at Factor Cost is",
+    "options": [
+      "GDP minus indirect taxes plus subsidies",
+      "GDP minus depreciation allowances",
+      "NNP plus depreciation allowances",
+      "GDP minus subsidies plus indirect taxes"
+    ],
+    "correctOption": "GDP minus indirect taxes plus subsidies"
+  },
+  {
+    "question": "The preparation of National Income Estimates is the responsibility of the",
+    "options": [
+      "Planning Commission",
+      "National Development Council",
+      "National Sample Survey Organisation",
+      "Central Statistical Organisation"
+    ],
+    "correctOption": "Central Statistical Organisation"
+  },
+  {
+    "question": "Who among the following Indian Economist has done pioneering work on National Income?",
+    "options": [
+      "Jagdish Bhagwati",
+      "M.L. Seth",
+      "Amartya Sen",
+      "V.K.R.V. Rao"
+    ],
+    "correctOption": "V.K.R.V. Rao"
+  },
+  {
+    "question": "Which of the following is deducted from NNP to arrive at NI?",
+    "options": [
+      "Indirect Tax",
+      "Capital Consumption allowance",
+      "Subsidy",
+      "Interest"
+    ],
+    "correctOption": "Indirect Tax"
+  },
+  {
+    "question": "Gross domestic product is a measure of",
+    "options": [
+      "A country international economic activities",
+      "A country's domestic economic activities",
+      "A country's financial position",
+      "A country's industrial output"
+    ],
+    "correctOption": "A country's domestic economic activities"
+  },
+  {
+    "question": "National income can be calculated in all except one of the following ways",
+    "options": [
+      "Sum of all expenditure",
+      "Sum of all outputs",
+      "Sum of all savings",
+      "Sum of all income"
+    ],
+    "correctOption": "Sum of all savings"
+  },
+  {
+    "question": "The method of calculating the national income by the product method is otherwise known as",
+    "options": [
+      "Income method",
+      "Value added method",
+      "Expenditure method",
+      "None of these"
+    ],
+    "correctOption": "Value added method"
+  },
+  {
+    "question": "In calculating National income which of the following is included?",
+    "options": [
+      "Services of housewives",
+      "Pensions",
+      "Income of smugglers",
+      "Income of watchmen"
+    ],
+    "correctOption": "Income of watchmen"
+  },
+  {
+    "question": "Which of the following is a better measurement of economic Development?",
+    "options": [
+      "GNP",
+      "Disposable income",
+      "NNP",
+      "Per capita income"
+    ],
+    "correctOption": "Per capita income"
+  },
+  {
+    "question": "Which of the following is not included in the National Income?",
+    "options": [
+      "Imputed rent of owner-occupied houses",
+      "Government expenditure on making new bridges",
+      "Winning a lottery",
+      "Commission paid to an agent for sale of house"
+    ],
+    "correctOption": "Winning a lottery"
+  },
+ {
+    "question": "National income is the",
+    "options": [
+      "Net National Product at market price",
+      "Net National product at factor cost",
+      "Net Domestic Product at factor cost",
+      "Net Domestic Product at Factor cost"
+    ],
+    "correctOption": "Net National product at factor cost"
+  },
+  {
+    "question": "A very high rise in National income at current market prices and a low rise at constant prices reveals",
+    "options": [
+      "The high rate of growth in the economy at the current period",
+      "The increased production in the current period",
+      "The improper growth of the country",
+      "The high rate of inflation prevailing in the economy"
+    ],
+    "correctOption": "The high rate of inflation prevailing in the economy"
+  },
+  {
+    "question": "Transfer payments mean",
+    "options": [
+      "Old age pension",
+      "Unemployment compensations",
+      "Social Security payment",
+      "All of above"
+    ],
+    "correctOption": "All of above"
+  },
+  {
+    "question": "Which of the following is not an investment expenditure in goods in services?",
+    "options": [
+      "Expansion of the main plant of a company",
+      "Purchase of a house",
+      "Purchase of machinery",
+      "An increase in business inventories"
+    ],
+    "correctOption": "Purchase of a house"
+  },
+  {
+    "question": "The relationship between the rate of interest and level of consumption was first visualized by",
+    "options": [
+      "Amartya K. Sen",
+      "Milton Friedman",
+      "Irving Fisher",
+      "James Duesenberry"
+    ],
+    "correctOption": "Irving Fisher"
+  },
+  {
+    "question": "Which of the following best indicates economic growth of a Nation?",
+    "options": [
+      "Agriculture income",
+      "Per capita income",
+      "Gross Industrial production",
+      "Inflation"
+    ],
+    "correctOption": "Per capita income"
+  },
+  {
+    "question": "Value of total goods and Services produced in a country is its ______.",
+    "options": [
+      "Gross Domestic product",
+      "Gross Revenue Income",
+      "Total goods Revenue",
+      "Total Income"
+    ],
+    "correctOption": "Gross Domestic product"
+  },
+  {
+    "question": "Which of the following measures will not increase a nation's wealth?",
+    "options": [
+      "Investing in new companies",
+      "Increasing efficiency of factories",
+      "Converting grasslands into orchards",
+      "By redistributing taxes a subsidies"
+    ],
+    "correctOption": "By redistributing taxes a subsidies"
+  },
+  {
+    "question": "Which of the following is called GDP deflation?",
+    "options": [
+      "Ratio of nominal to real GDP",
+      "Ratio of nominal to real GNP",
+      "Ratio of nominal to real CPI",
+      "Ration of real to nominal GNP"
+    ],
+    "correctOption": "Ratio of nominal to real GNP"
+  },
+  {
+    "question": "GDP-Indirect taxes+ Subsidies=",
+    "options": [
+      "NNP at factor cost",
+      "GDP at factor cost",
+      "GNP",
+      "Personal Income"
+    ],
+    "correctOption": "GDP at factor cost"
+  },
+  {
+    "question": "Which of organisation measurement Gross Domestic Product in India?",
+    "options": [
+      "Reserve Bank of India",
+      "NITI Aayog",
+      "State Bank of India",
+      "Central Statistics Office"
+    ],
+    "correctOption": "Central Statistics Office"
+  },
+  {
+    "question": "Which of the following is NOT the part of the structure of the financial system in India?",
+    "options": [
+      "Industrial Finance",
+      "Agriculture Finance",
+      "Government Finance",
+      "Development Finance",
+      "Personal Finance"
+    ],
+    "correctOption": "Personal Finance"
+  },
+  {
+    "question": "Service Tax was Introduced in India for the fist time in the year:",
+    "options": [
+      "1980-81",
+      "1990-91",
+      "1991-92",
+      "1994-95",
+      "2000-01"
+    ],
+    "correctOption": "1994-95"
+  },
+  {
+    "question": "Which among the following is the exclusive jurisdiction of the State Government?",
+    "options": [
+      "Corporation Tax",
+      "Custom Duty",
+      "Sales Tax",
+      "Income Tax"
+    ],
+    "correctOption": "Sales Tax"
+  },
+  {
+    "question": "MODVAT is related to:",
+    "options": [
+      "Sales tax",
+      "Wealth tax",
+      "Income tax",
+      "Excise tax"
+    ],
+    "correctOption": "Excise tax"
+  },
+  {
+    "question": "Which one of the following is NOT related with income from corporate sector in India?",
+    "options": [
+      "Fringe benefit tax",
+      "Tax on company profit",
+      "Minimum alternative tax",
+      "Capital tax"
+    ],
+    "correctOption": "Capital tax"
+  },
+  {
+    "question": "As compared to revenue deficit, fiscal deficit will always remain:",
+    "options": [
+      "Higher",
+      "Lower",
+      "Same",
+      "All of there"
+    ],
+    "correctOption": "Higher"
+  },
+  {
+    "question": "When was the Wealth tax first introduced in India?",
+    "options": [
+      "1948",
+      "1957",
+      "1976",
+      "1991"
+    ],
+    "correctOption": "1957"
+  },
+{
+    "question": "Which of the following taxes/duties is NOT under the jurisdiction of the Central Government?",
+    "options": [
+      "Land Revenue",
+      "Personal Income Tax",
+      "Corporate Income tax",
+      "Custom Duties"
+    ],
+    "correctOption": "Land Revenue"
+  },
+  {
+    "question": "Which of the following committees examined and suggested Financial sector Reforms?",
+    "options": [
+      "Abid Hussain Committee",
+      "Bhagwati Committee",
+      "Chelliah Committee",
+      "Narsimhan Committee"
+    ],
+    "correctOption": "Narsimhan Committee"
+  },
+  {
+    "question": "The amount of which of the following reflects the overall budgetary position of the Government of India at a given time.",
+    "options": [
+      "Revenue Deficit",
+      "Total Amount of Income tax collected",
+      "Capital Deficit",
+      "Fiscal Deficit",
+      "None of these"
+    ],
+    "correctOption": "Fiscal Deficit"
+  },
+  {
+    "question": "Fiscal deficit is:",
+    "options": [
+      "Total income less Government borrowing",
+      "total payment less total receipts",
+      "total payments less capital receipts",
+      "total expenditure less total deficit excluding borrowing",
+      "none of these"
+    ],
+    "correctOption": "total expenditure less total deficit excluding borrowing"
+  },
+  {
+    "question": "As we all know, Government of India pays special emphasis on the management of Fiscal Deficit. What Fiscal Deficit?",
+    "options": [
+      "The gap between projected or estimated GDP and Actual GDP",
+      "The gap between the total number and value of the currency notes issued by the RBI uptill now over the number and value of those which are in actual circulation RBI",
+      "The gap between the actual borrowing of the Government of India and the expected expenditure for which provision is made in the budget",
+      "Excess of Government's disbursement comprising current and capital expenditure over tis current receipts (Tax/Non-tax receipts)",
+      "None of these"
+    ],
+    "correctOption": "Excess of Government's disbursement comprising current and capital expenditure over tis current receipts (Tax/Non-tax receipts)"
+  },
+  {
+    "question": "Which one of the following is the most important item of expenditure of the Government of India on revenue account?",
+    "options": [
+      "Defence",
+      "Subsidies",
+      "Pensions",
+      "Interest Payments"
+    ],
+    "correctOption": "Interest Payments"
+  },
+  {
+    "question": "The recommendations of the Sarkaria Commission relate to:",
+    "options": [
+      "Distribution of Revenue",
+      "Powers and functions of the President of India",
+      "Membership of Parliament",
+      "Centre-State relations"
+    ],
+    "correctOption": "Centre-State relations"
+  },
+  {
+    "question": "Which one of the following is NOT a function of Finance Commission in India?",
+    "options": [
+      "Devolution of Income Tax",
+      "Devolution of Excise Duty",
+      "Award of grants-in-aid",
+      "Devolution of Trade Tax"
+    ],
+    "correctOption": "Devolution of Trade Tax"
+  },
+  {
+    "question": "Which one of the following is NOT an objective of fiscal policy of Indian Government?",
+    "options": [
+      "Full employment",
+      "Price Stability",
+      "Equitable distribution of wealth income",
+      "Regulation of Inter-state trade"
+    ],
+    "correctOption": "Regulation of Inter-state trade"
+  },
+  {
+    "question": "VAT is imposed:",
+    "options": [
+      "Directly on consumer",
+      "On final stage of the production",
+      "On first stage of the production",
+      "On all stages between production and final sale"
+    ],
+    "correctOption": "On all stages between production and final sale"
+  },
+  {
+    "question": "If interest payments are subtracted from Gross Fiscal Deficit, the residuary will be:",
+    "options": [
+      "Gross Primary Deficit",
+      "Budgetary Deficit",
+      "Monetarized Deficit",
+      "Revenue Deficit"
+    ],
+    "correctOption": "Gross Primary Deficit"
+  },
+  {
+    "question": "In interest payment is added to primary deficit, it is equivalent to:",
+    "options": [
+      "Budget deficit",
+      "Fiscal deficit",
+      "Revenue deficit",
+      "Deficit Financing"
+    ],
+    "correctOption": "Fiscal deficit"
+  },
+  {
+    "question": "Which of the following deficit gives major contribution to total deficit of Government of India?",
+    "options": [
+      "Revenue Deficit",
+      "Budgetary Deficit",
+      "Fiscal Deficit",
+      "Primary Deficit"
+    ],
+    "correctOption": "Fiscal Deficit"
+  },
+  {
+    "question": "Which of the following commission set up by the President of India decides the distribution of tax incomes between the Central and State Government",
+    "options": [
+      "Central Law Commission",
+      "Pays Commission for Government",
+      "Administrative Reforms Commission",
+      "Planning Commission",
+      "Finance Commission"
+    ],
+    "correctOption": "Finance Commission"
+  },
+  {
+    "question": "The Indian Income Tax is:",
+    "options": [
+      "Direct and Proportional",
+      "Indirect and proportional",
+      "Direct and progressive",
+      "Indirect and progressive"
+    ],
+    "correctOption": "Direct and progressive"
+  },
+  {
+    "question": "Recommendations to the President of India on the specific Union-State fiscal relations are made by the:",
+    "options": [
+      "Finance Minister",
+      "Reserve Bank of India",
+      "Planning Commission",
+      "Finance Commission"
+    ],
+    "correctOption": "Finance Commission"
+  },
+  {
+    "question": "Economic Planning is:",
+    "options": [
+      "Union List",
+      "State List",
+      "Concurrent List",
+      "Not any specific List"
+    ],
+    "correctOption": "Concurrent List"
+  },
+ {
+    "question": "Fiscal Deficit is:",
+    "options": [
+      "Total Expenditure-Total Receipt",
+      "Revenue Expenditure- Revenue Receipt",
+      "Capital Expenditure- Capital receipt-Borrowings",
+      "Sum of budget deficit and Government's market borrowing and liability"
+    ],
+    "correctOption": "Total Expenditure-Total Receipt"
+  },
+  {
+    "question": "Which one of the following form the largest share of deficit in Government of India budget:",
+    "options": [
+      "Primary deficit",
+      "Revenue deficit",
+      "Budgetary deficit",
+      "Fiscal deficit"
+    ],
+    "correctOption": "Fiscal deficit"
+  },
+  {
+    "question": "The largest item of expenditure in the current accounts of the Central Government Budget is:",
+    "options": [
+      "Defence Expenditure",
+      "Subsidies",
+      "Interest payments",
+      "Expenditure on social services"
+    ],
+    "correctOption": "Interest payments"
+  },
+  {
+    "question": "13th Finance Commission has been constituted under the Chairmanship of:",
+    "options": [
+      "Y.S.P. Throat",
+      "Montek Singh Ahluwalia",
+      "C. Rangrajan",
+      "Vijay L. Kelkar"
+    ],
+    "correctOption": "Vijay L. Kelkar"
+  },
+  {
+    "question": "Which one of the following sets of source of revenue belongs to the Union Government alone?",
+    "options": [
+      "Gift tax, Holding tax",
+      "Sales tax, Income tax",
+      "Wealth tax, Land revenue",
+      "Custom Duties, Corporation tax"
+    ],
+    "correctOption": "Custom Duties, Corporation tax"
+  },
+  {
+    "question": "A large part of the fiscal deficit in the Union Budget is filled by:",
+    "options": [
+      "Tax revenue",
+      "Domestic borrowing",
+      "Foreign borrowing",
+      "Printing paper currency"
+    ],
+    "correctOption": "Domestic borrowing"
+  },
+  {
+    "question": "The tax on import and export is known as:",
+    "options": [
+      "Income tax",
+      "Trade tax",
+      "Custom Duty",
+      "Excise duty"
+    ],
+    "correctOption": "Custom Duty"
+  },
+  {
+    "question": "With what subject is Raghuram Rajan Committee connected?",
+    "options": [
+      "Austerity in Government Expenditure",
+      "Financial Sector Reforms",
+      "Export-Import Balance",
+      "Rising Prices"
+    ],
+    "correctOption": "Financial Sector Reforms"
+  },
+  {
+    "question": "Who had suggested an imposition of expenditure tax in India for first time?",
+    "options": [
+      "Kalechi",
+      "Kaldor",
+      "R.J. Chelliah",
+      "Gautam Mathur"
+    ],
+    "correctOption": "Kaldor"
+  },
+  {
+    "question": "The recommendations of Kelkar Task Force is associated with:",
+    "options": [
+      "Banking",
+      "Taxes",
+      "Foreign Investment",
+      "Business"
+    ],
+    "correctOption": "Taxes"
+  },
+  {
+    "question": "Fiscal Responsibility and budget Management Act (FRBMA) concerns:",
+    "options": [
+      "Fiscal deficit only",
+      "Revenue deficit only",
+      "both fiscal deficit and revenue deficit",
+      "Neither fiscal deficit nor revenue deficit"
+    ],
+    "correctOption": "both fiscal deficit and revenue deficit"
+  },
+  {
+    "question": "Which one of the following is NOT a feature of 'Value Added Tax' (VAT)?",
+    "options": [
+      "It is a multi-point destination-based system of taxation",
+      "It is a tax levied on value addition at each stage of transaction in the production-distribution chain",
+      "It is a tax on the final consumption of goods or services and must ultimately be borne by the consumer",
+      "It is basically a subject of the Central Government and the State Government are only a facilitator for its successful implementation."
+    ],
+    "correctOption": "It is basically a subject of the Central Government and the State Government are only a facilitator for its successful implementation."
+  },
+  {
+    "question": "Which of the following tax is imposed by state govt.",
+    "options": [
+      "Entertainment Tax",
+      "Property Tax",
+      "Income Tax",
+      "Corporate Tax"
+    ],
+    "correctOption": "Entertainment Tax"
+  },
+  {
+    "question": "Which of the following tax systems will help to reduce economic inequalities in India?",
+    "options": [
+      "Regressive Tax",
+      "Progressive Tax",
+      "Flat rate tax",
+      "None of these"
+    ],
+    "correctOption": "Progressive Tax"
+  },
+{
+    "question": "Which among the following is direct tax?",
+    "options": [
+      "Sales Tax",
+      "Excise Tax",
+      "Wealth Tax",
+      "Entertainment Tax"
+    ],
+    "correctOption": "Wealth Tax"
+  },
+  {
+    "question": "Taxes are called as Regressive when",
+    "options": [
+      "More burden on poor compared to rich",
+      "It causes the same burden on rich and poor",
+      "Less burden on poor as compared to rich",
+      "None of these"
+    ],
+    "correctOption": "More burden on poor compared to rich"
+  },
+  {
+    "question": "Who was the Chairman of 13th Finance Commission?",
+    "options": [
+      "Dr. Vijay L Kelkar",
+      "Dr. C. Rangranjan",
+      "Dr. A.M. Khusro",
+      "Dr. C. Subbarao"
+    ],
+    "correctOption": "Dr. Vijay L Kelkar"
+  },
+  {
+    "question": "VAT was firstly implemented in",
+    "options": [
+      "Germany",
+      "Spain",
+      "France",
+      "Russia"
+    ],
+    "correctOption": "France"
+  },
+  {
+    "question": "In centre- State financial relation in India, Gadgil formula is used in",
+    "options": [
+      "Division of tax revenue",
+      "Formulation of the policy for fresh borrowings",
+      "Writing off state's indebtedness to the centre",
+      "Allocating Central Plan Assistance between states"
+    ],
+    "correctOption": "Allocating Central Plan Assistance between states"
+  },
+  {
+    "question": "Indirect taxes by nature are",
+    "options": [
+      "Digressive",
+      "Regressive",
+      "Progressive",
+      "Proportional"
+    ],
+    "correctOption": "Regressive"
+  },
+  {
+    "question": "The Report of Vijay Kelkar Committee relates to",
+    "options": [
+      "Trade reforms",
+      "Centre-state financial relations",
+      "Disinvestment in public sector enterprises",
+      "Tax reforms"
+    ],
+    "correctOption": "Tax reforms"
+  },
+  {
+    "question": "Excise duty on a commodity is payable with reference to its",
+    "options": [
+      "Production",
+      "Production and Sale",
+      "Production and Transportation",
+      "Production, Transportation and Sale"
+    ],
+    "correctOption": "Production"
+  },
+  {
+    "question": "Which of the following sets belongs to Central tax?",
+    "options": [
+      "Excise Duty, Sales Tax and Customs Duty",
+      "Excise Duty, Customs Duty and Income Duty",
+      "Income Tax, Customs Duty and House Tax",
+      "Customs Duty, Entertainment tax and Income Tax"
+    ],
+    "correctOption": "Excise Duty, Customs Duty and Income Duty"
+  },
+  {
+    "question": "Which of the following taxes is such which does not cause a rise in price?",
+    "options": [
+      "Import Duty",
+      "Income Tax",
+      "Octoroi",
+      "Sales Tax"
+    ],
+    "correctOption": "Income Tax"
+  },
+  {
+    "question": "Corporation tax is a tax imposed on",
+    "options": [
+      "The net incomes of the companies",
+      "The corporate properties",
+      "The utilities provided by the corporation",
+      "Tax imposed by the corporation on individual properties"
+    ],
+    "correctOption": "The net incomes of the companies"
+  },
+  {
+    "question": "Parallel economy emerges due to",
+    "options": [
+      "Tax avoidance",
+      "Tax Evasion",
+      "Tax Compliance",
+      "Tax Estimation"
+    ],
+    "correctOption": "Tax Evasion"
+  },
+  {
+    "question": "Which authority recommends the principles governing the grants in aid of the revenues of the states out of the Consolidated Fund of India?",
+    "options": [
+      "Public Accounts Committee",
+      "Union Ministry of Finance",
+      "Finance Commission",
+      "Inter-State Council"
+    ],
+    "correctOption": "Finance Commission"
+  },
+  {
+    "question": "Which one of the following is not an Example of Indirect Tax?",
+    "options": [
+      "Sales Tax",
+      "Excise Tax",
+      "Custom Tax",
+      "Expenditure Tax"
+    ],
+    "correctOption": "Expenditure Tax"
+  },
+  {
+    "question": "Which is the biggest tax-paying sector in India?",
+    "options": [
+      "Agriculture sector",
+      "Industrial sector",
+      "Transport sector",
+      "Banking sector"
+    ],
+    "correctOption": "Industrial sector"
+  },
+  {
+    "question": "Which amongst the following taxes collected by the Union is NOT mandated to be assigned to the States?",
+    "options": [
+      "Terminal taxes on goods or passengers carried by railway, sea or air",
+      "Taxes on railway fares and freights",
+      "Taxes on consignment of goods",
+      "Service tax"
+    ],
+    "correctOption": "Service tax"
+  },
+  {
+    "question": "The 'Canon to Taxation' was propounded by-",
+    "options": [
+      "Edwin Canon",
+      "Adam Smith",
+      "J.M. Keynes",
+      "Dalton"
+    ],
+    "correctOption": "Adam Smith"
+  },
+  {
+    "question": "Custom duty is an instrument of",
+    "options": [
+      "Monetary Policy",
+      "Foreign Policy",
+      "Industrial Policy",
+      "Fiscal Policy"
+    ],
+    "correctOption": "Foreign Policy"
+  },
+  {
+    "question": "A part of National Debt known as External Debt is the amount",
+    "options": [
+      "Borrowed by its citizens from abroad",
+      "Lent by its citizens to foreign government",
+      "Borrowed by its government from abroad",
+      "Lent by its government to foreign government"
+    ],
+    "correctOption": "Borrowed by its government from abroad"
+  },
+  {
+    "question": "Which among the following is not a non-customs duty obstacle to world trade?",
+    "options": [
+      "Quantity restriction",
+      "Establishment of Standard",
+      "Determination of import duty uniformly",
+      "Restrictions on goods quality"
+    ],
+    "correctOption": "Establishment of Standard"
+  },
+  {
+    "question": "Which of the following taxes are levied and collected by the centre but their net proceeds are wholly transferred to states?",
+    "options": [
+      "Expenditure Tax and Gift tax",
+      "Additional Duties of Excise in lieu of Sales Tax",
+      "Stamps and Registration",
+      "Taxes on Advertisement"
+    ],
+    "correctOption": "Taxes on Advertisement"
+  },
+  {
+    "question": "Tax on inheritance is called ____",
+    "options": [
+      "Excise Duty",
+      "Estate Duty",
+      "Gift Duty",
+      "Sales Duty"
+    ],
+    "correctOption": "Estate Duty"
+  },
+  {
+    "question": "Which state government has abolished 'agriculture income tax' in 2016?",
+    "options": [
+      "Karnataka",
+      "Rajasthan",
+      "Bihar",
+      "Assam"
+    ],
+    "correctOption": "Karnataka"
+  },
+{
+    "question": "The main effect of Direct Taxes is on",
+    "options": [
+      "Food prices",
+      "Consumer goods",
+      "Capital goods",
+      "Income"
+    ],
+    "correctOption": "Income"
+  },
+  {
+    "question": "Which among the following is not a direct tax?",
+    "options": [
+      "Income tax",
+      "Wealth tax",
+      "Corporate tax",
+      "None of these"
+    ],
+    "correctOption": "None of these"
+  },
+  {
+    "question": "Which among the following is an example of progressive tax?",
+    "options": [
+      "Excise duty",
+      "Octroi",
+      "Income tax",
+      "House tax"
+    ],
+    "correctOption": "Income tax"
+  },
+  {
+    "question": "Fiscal policy is related to",
+    "options": [
+      "Monetary policy",
+      "Banking system",
+      "Economic Progress Planning",
+      "Receiving and Expenditure of Govt."
+    ],
+    "correctOption": "Receiving and Expenditure of Govt."
+  },
+  {
+    "question": "The Economic Survey of India is published by",
+    "options": [
+      "Statistical Department",
+      "CSO",
+      "Ministry of Finance",
+      "Department of Economic Affairs"
+    ],
+    "correctOption": "Ministry of Finance"
+  },
+  {
+    "question": "Which one of the following is a development expenditure?",
+    "options": [
+      "Irrigation Expenditure",
+      "Civil Administrative",
+      "Debt Services",
+      "Grant-in-Aid"
+    ],
+    "correctOption": "Irrigation Expenditure"
+  },
+  {
+    "question": "Which one of the following is not an objective is Fiscal Policy in India?",
+    "options": [
+      "Full Employment",
+      "Price Stability",
+      "Equitable distribution of wealth and incomes",
+      "Regulation of international trade"
+    ],
+    "correctOption": "Regulation of international trade"
+  },
+  {
+    "question": "In the budget figures of the Government of India, fiscal deficit is",
+    "options": [
+      "Total Expenditure Total Receipts",
+      "Revenue Expenditure Revenue Receipts",
+      "Capital Expenditure-Capital Receipts + Market Borrowings",
+      "Sum of budget deficit and government's market borrowings and liabilities"
+    ],
+    "correctOption": "Revenue Expenditure Revenue Receipts"
+  },
+  {
+    "question": "Fiscal Policy is concerned with",
+    "options": [
+      "Public Revenue",
+      "Public Expenditure and debt",
+      "Bank rate policy",
+      "Both (1) and (2)"
+    ],
+    "correctOption": "Both (1) and (2)"
+  },
+  {
+    "question": "Beyond a certain point deficit financing will certainly lead to",
+    "options": [
+      "Inflation",
+      "Deflation",
+      "Recession",
+      "Economic stagnation"
+    ],
+    "correctOption": "Inflation"
+  },
+  {
+    "question": "The Sale proceeds of Government Bonds come under the budget head of",
+    "options": [
+      "Revenue Receipts",
+      "Current Expenditure",
+      "Capital Outlay",
+      "Capital Receipts"
+    ],
+    "correctOption": "Capital Receipts"
+  },
+  {
+    "question": "The Industry having the largest investment in Indian Economy is?",
+    "options": [
+      "Tea",
+      "Cement",
+      "Steel",
+      "Jute"
+    ],
+    "correctOption": "Steel"
+  },
+  {
+    "question": "'Capital gains' refers to goods which",
+    "options": [
+      "Serve as a source of raising further capital",
+      "Help in the further production on goods",
+      "Directly go into the satisfaction of human wants",
+      "Find multiple uses"
+    ],
+    "correctOption": "Serve as a source of raising further capital"
+  },
+  {
+    "question": "Who generally presents the Finance Budget in the Indian Parliament?",
+    "options": [
+      "RBI Governor/RBI",
+      "Budget Ministry",
+      "Finance Minister",
+      "Finance Secretary"
+    ],
+    "correctOption": "Finance Minister"
+  },
+  {
+    "question": "What is the difference of Revenue expenditure and Revenue receipts called as?",
+    "options": [
+      "Revenue",
+      "Total Expenditure",
+      "Revenue Deficit",
+      "Total Revenue"
+    ],
+    "correctOption": "Revenue Deficit"
+  },
+  {
+    "question": "In case of direct tax, the impact of tax and incidence of tax is",
+    "options": [
+      "On two different person",
+      "On the same person",
+      "On any other person",
+      "On that department which called tax"
+    ],
+    "correctOption": "On the same person"
+  },
+  {
+    "question": "Who was the Chairman of Tenth Finance Commission?",
+    "options": [
+      "Manmohan Singh",
+      "Vasant Sathe",
+      "Shiv Shankar",
+      "K.C. Pant"
+    ],
+    "correctOption": "K.C. Pant"
+  },
+ {
+    "question": "Taxation is a tool of",
+    "options": [
+      "Monetary Policy",
+      "Fiscal Policy",
+      "Price Policy",
+      "Wage Policy"
+    ],
+    "correctOption": "Fiscal Policy"
+  },
+  {
+    "question": "The Fringe benefit tax was introduced in the budget of",
+    "options": [
+      "2003-04",
+      "2004-05",
+      "2005-06",
+      "2006-07"
+    ],
+    "correctOption": "2005-06"
+  },
+  {
+    "question": "Who among the following has suggested tax on expenditure?",
+    "options": [
+      "Dalton",
+      "Kaldor",
+      "Musgrave",
+      "Gautam Mathur"
+    ],
+    "correctOption": "Kaldor"
+  },
+  {
+    "question": "The receipt of which of the following taxes duties are not shared with the states?",
+    "options": [
+      "Tax on income except agriculture",
+      "Corporation tax",
+      "Surcharge on Income tax",
+      "Capital gain tax"
+    ],
+    "correctOption": "Tax on income except agriculture"
+  },
+  {
+    "question": "Buoyancy of a tax is defined as",
+    "options": [
+      "Percentage increase in tax revenue/percentage increase in tax base",
+      "Increase in tax revenue/percentage increase in tax coverage",
+      "Increase in tax revenue/increase in tax base",
+      "Percentage increase in tax revenue/increase in tax coverage"
+    ],
+    "correctOption": "Percentage increase in tax revenue/percentage increase in tax base"
+  },
+  {
+    "question": "The incidence of tax refers to",
+    "options": [
+      "Who pays the tax",
+      "Who bears the burden of tax",
+      "How taxes can be shifted",
+      "Who transfers the tax burden"
+    ],
+    "correctOption": "Who bears the burden of tax"
+  },
+  {
+    "question": "Ad Valorem tax is levied",
+    "options": [
+      "According to value added by the government",
+      "According to value addition to a commodity",
+      "According to value given by producers",
+      "According to value added by the Finance ministry"
+    ],
+    "correctOption": "According to value addition to a commodity"
+  },
+  {
+    "question": "The tax levied on gross sales revenue from business transaction is called?",
+    "options": [
+      "Turnover Tax",
+      "Sales Tax",
+      "Capital gains Tax",
+      "Corporation Tax"
+    ],
+    "correctOption": "Turnover Tax"
+  },
+  {
+    "question": "Taxes on professional can be levied by",
+    "options": [
+      "State Government only",
+      "Both by state and union government",
+      "By Panchayat only",
+      "Union Government Only"
+    ],
+    "correctOption": "State Government only"
+  },
+  {
+    "question": "The non-expenditure costs which arise when the producing firm itself owns and supplies certain factors of production are",
+    "options": [
+      "Explicit costs",
+      "Original costs",
+      "Implicit costs",
+      "Replacement costs"
+    ],
+    "correctOption": "Implicit costs"
+  },
+  {
+    "question": "Excise duty is levied on",
+    "options": [
+      "Sale of goods",
+      "Production of goods",
+      "Imports of goods",
+      "Export of goods"
+    ],
+    "correctOption": "Production of goods"
+  },
+  {
+    "question": "CENVAT is related to which of the following?",
+    "options": [
+      "Sales Tax",
+      "Excise Duty",
+      "Custom Duty",
+      "Service Tax"
+    ],
+    "correctOption": "Excise Duty"
+  },
+  {
+    "question": "The term 'Dumping' refers to",
+    "options": [
+      "The sale of a sub-standard commodity",
+      "Sale in a foreign market of a commodity at a price below marginal cost",
+      "Sale in the foreign market of a commodity just at marginal cost with too much of profit",
+      "Smuggling of goods without paying any customs duty"
+    ],
+    "correctOption": "Sale in a foreign market of a commodity at a price below marginal cost"
+  },
+  {
+    "question": "Which of the following is a direct tax?",
+    "options": [
+      "Excise Duty",
+      "Customs Duty",
+      "Service Tax",
+      "Wealth Tax"
+    ],
+    "correctOption": "Wealth Tax"
+  },
+  {
+    "question": "Subsidy by government of India is given to",
+    "options": [
+      "Consumer Unit",
+      "Productive Unit",
+      "Banking Unit",
+      "Government Unit"
+    ],
+    "correctOption": "Productive Unit"
+  },
+  {
+    "question": "For which fund can the unanticipated expenditure be met without the prior approval of the parliament?",
+    "options": [
+      "Consolidated Fund of India",
+      "Contingency Fund of India",
+      "Vote on Account",
+      "From the Treasury"
+    ],
+    "correctOption": "Contingency Fund of India"
+  },
+  {
+    "question": "Disinvestment is",
+    "options": [
+      "Offloading of share of private companies to government",
+      "Offloading of government shares to private companies",
+      "Increase in investment",
+      "Closing down to business concerns"
+    ],
+    "correctOption": "Offloading of government shares to private companies"
+  },
+  {
+    "question": "The Single largest item of expenditure of the Central Government in India in recent years is",
+    "options": [
+      "Defence",
+      "Subsidies",
+      "Interest Payment",
+      "General services"
+    ],
+    "correctOption": "Interest Payment"
+  },
+{
+    "question": "Social accounting system in India is classified into",
+    "options": [
+      "Income, product and expenditure",
+      "Enterprise household and government",
+      "Assets, liabilities and debt position",
+      "Public sector, Private Sector and Joint Sector"
+    ],
+    "correctOption": "Income, product and expenditure"
+  },
+  {
+    "question": "Which of the following is not viewed as national debt?",
+    "options": [
+      "Life Insurance Policies",
+      "Long-term Government Bonds",
+      "National Saving Certificates",
+      "Provident Fund"
+    ],
+    "correctOption": "National Saving Certificates"
+  },
+  {
+    "question": "What situation would result if Government expenditure exceeds the Government revenue on Current Account?",
+    "options": [
+      "Deficit Budgeting",
+      "Zero-based Budgeting",
+      "Performance based budgeting",
+      "Surplus budgeting"
+    ],
+    "correctOption": "Deficit Budgeting"
+  },
+  {
+    "question": "Which of the following does not count the development expenditure of government?",
+    "options": [
+      "Expenditure on economic service",
+      "Expenditure on social service",
+      "Grant to states",
+      "Defence expenditure"
+    ],
+    "correctOption": "Defence expenditure"
+  },
+  {
+    "question": "Which among of the following is not direct tax?",
+    "options": [
+      "Income tax",
+      "Property tax",
+      "Gift tax",
+      "Sales tax"
+    ],
+    "correctOption": "Sales tax"
+  },
+  {
+    "question": "Which among of the following is not a 'canon of taxation' according to Adam Smith?",
+    "options": [
+      "Canon of certainty",
+      "Canon of simplicity",
+      "Canon of convenience",
+      "Canon of economy inefficiency"
+    ],
+    "correctOption": "Canon of simplicity"
+  },
+  {
+    "question": "Which authority decides about the states' share in central taxes?",
+    "options": [
+      "Finance Commission",
+      "Planning Commission",
+      "Election Commission",
+      "Finance Ministry"
+    ],
+    "correctOption": "Finance Commission"
+  },
+  {
+    "question": "Which of the following is not the source of the revenue of Central Government?",
+    "options": [
+      "Income Tax",
+      "Corporate Tax",
+      "Agriculture Tax",
+      "Excise Duty"
+    ],
+    "correctOption": "Agriculture Tax"
+  },
+  {
+    "question": "If the tax rate increases with the higher level of income, it shall be called",
+    "options": [
+      "Proportional Tax",
+      "Progressive Tax",
+      "Lump sum Tax",
+      "Regressive Tax"
+    ],
+    "correctOption": "Progressive Tax"
+  },
+  {
+    "question": "The proceeds of Income tax go to",
+    "options": [
+      "Central Government",
+      "State Government",
+      "Centre and States",
+      "Corporation Authorities"
+    ],
+    "correctOption": "Centre and States"
+  },
+  {
+    "question": "The duties levied on alcoholic liquors, narcotic drugs and opium come under",
+    "options": [
+      "Central Excise Duty",
+      "Land Revenue",
+      "State Excise Duty",
+      "General Sales Tax"
+    ],
+    "correctOption": "State Excise Duty"
+  },
+  {
+    "question": "'Quota' is",
+    "options": [
+      "Tax levied on imports",
+      "Imports of capital goods",
+      "Limit on the quantity of imports",
+      "Limit on the quantity of exports"
+    ],
+    "correctOption": "Limit on the quantity of imports"
+  },
+  {
+    "question": "For which tax, was constitutional status given much later after its introduction in a small way in 1994-1995?",
+    "options": [
+      "Customs Duty",
+      "Corporation Tax",
+      "Taxes on Services",
+      "Income Tax"
+    ],
+    "correctOption": "Taxes on Services"
+  },
+  {
+    "question": "The incidence of sales tax falls on",
+    "options": [
+      "Consumers",
+      "Wholesale dealers",
+      "Retail dealers",
+      "Producers"
+    ],
+    "correctOption": "Consumers"
+  },
+  {
+    "question": "Value-added means value of",
+    "options": [
+      "Output at factor cost",
+      "Output at market prices",
+      "Goods and Services less depreciation",
+      "Goods and service less cost of intermediate goods and service"
+    ],
+    "correctOption": "Goods and service less cost of intermediate goods and service"
+  },
+  {
+    "question": "Taxes are as certain as the death, because",
+    "options": [
+      "The constitute the major source of government revenue",
+      "Government have no other source of revenue",
+      "Most PSUs are run inefficiently",
+      "Government has its own budget constraints"
+    ],
+    "correctOption": "The constitute the major source of government revenue"
+  },
+  {
+    "question": "What is an octroi?",
+    "options": [
+      "Tax",
+      "Tax collection center",
+      "Tax processing center",
+      "Tax information center"
+    ],
+    "correctOption": "Tax"
+  },
+  {
+    "question": "This tax is entirely borne by the entity it is levied upon and cannot be passed",
+    "options": [
+      "Direct tax",
+      "Indirect tax",
+      "Straight tax",
+      "Advance tax"
+    ],
+    "correctOption": "Direct tax"
+  },
+  {
+    "question": "Which tax causes a burden on the poorer section of the society",
+    "options": [
+      "Direct Tax",
+      "Indirect Tax",
+      "Both Direct and Indirect Tax",
+      "None of these"
+    ],
+    "correctOption": "Indirect Tax"
+  },
+{
+    "question": "Disinvestment in Public sector is called",
+    "options": [
+      "Liberalization",
+      "Globalization",
+      "Industrialization",
+      "Privatization"
+    ],
+    "correctOption": "Privatization"
+  },
+  {
+    "question": "In the budget figures of the Government of India, Interest payments, subsidies, pensions, social service and the like are parts of the",
+    "options": [
+      "Plan Expenditure",
+      "State Government Expenditure",
+      "Public Debt in the form of capital expenditure",
+      "Non-plan Expenditure"
+    ],
+    "correctOption": "Non-plan Expenditure"
+  },
+  {
+    "question": "In the budget figures of the Government of India, the difference between total expenditure and total receipt is called",
+    "options": [
+      "Fiscal Deficit",
+      "Budget Deficit",
+      "Revenue Deficit",
+      "Current Deficit"
+    ],
+    "correctOption": "Budget Deficit"
+  },
+  {
+    "question": "In estimating the budget deficit, the official approach in India is to exclude",
+    "options": [
+      "Long-term borrowing from the market",
+      "Borrowing from the Reserve Bank of India",
+      "Drawing down of the cash balance",
+      "Borrowing from Reserve Bank in the form of ways and means advance"
+    ],
+    "correctOption": "Drawing down of the cash balance"
+  },
+  {
+    "question": "In public budgets, zero-based budgeting was first introduced in",
+    "options": [
+      "USA",
+      "UK",
+      "France",
+      "Sweden"
+    ],
+    "correctOption": "USA"
+  },
+  {
+    "question": "Which one is not the main objective of fiscal policy in India?",
+    "options": [
+      "To increase liquidity in the economy",
+      "To promote price stability",
+      "To minimize the inequalities of income and wealth",
+      "To promote employment opportunity"
+    ],
+    "correctOption": "To increase liquidity in the economy"
+  },
+  {
+    "question": "The system of budget was introduced in India during the Viceroyalty of",
+    "options": [
+      "Canning",
+      "Dalhousie",
+      "Ripon",
+      "Elgin"
+    ],
+    "correctOption": "Canning"
+  },
+  {
+    "question": "Which sector has the highest number working in India?",
+    "options": [
+      "Manufacturing",
+      "Agriculture",
+      "IT",
+      "Service"
+    ],
+    "correctOption": "Agriculture"
+  },
+  {
+    "question": "Omkar Goswami Committee was set up by the Government for examining the issue of:",
+    "options": [
+      "Industrial relation",
+      "Industrial sickness",
+      "Growth of small-scale industries",
+      "Reforms in the Banking sector"
+    ],
+    "correctOption": "Industrial sickness"
+  },
+  {
+    "question": "Which is NOT a source of Industrial Finance in India?",
+    "options": [
+      "Industrial Finance Corporation of India",
+      "State Finance Corporation",
+      "Unit Trust of India",
+      "NABARD"
+    ],
+    "correctOption": "NABARD"
+  },
+  {
+    "question": "SIDBI has been established to:",
+    "options": [
+      "Finance cottage industries",
+      "Finance small-scale industries",
+      "Finance large-scale Industries",
+      "Finance public sector undertaking"
+    ],
+    "correctOption": "Finance small-scale industries"
+  },
+  {
+    "question": "The licensing policy for the industries drew strength from:",
+    "options": [
+      "Industrial Policy Resolution 1948",
+      "Industrial Policy Resolution 1956",
+      "Congress Party Resolution of Establishing socialistic pattern of society",
+      "Industrial Act, 1951"
+    ],
+    "correctOption": "Industrial Act, 1951"
+  },
+  {
+    "question": "Abid Hussain Committee was related to:",
+    "options": [
+      "Export promotion",
+      "Small and medium development",
+      "Agricultural development",
+      "Energy sector reforms"
+    ],
+    "correctOption": "Small and medium development"
+  },
+  {
+    "question": "In India, liberal Industrial Policy was adopted in the year:",
+    "options": [
+      "1948",
+      "1956",
+      "1985",
+      "1991"
+    ],
+    "correctOption": "1991"
+  },
+  {
+    "question": "Which one of the following pairs is NOT properly matched?",
+    "options": [
+      "Reliance / Mukesh Ambani",
+      "Wipro / R. Krishnamurthy",
+      "Airtel / Bharati Mittal",
+      "Nano Car / Ratan Tata"
+    ],
+    "correctOption": "Wipro / R. Krishnamurthy"
+  },
+  {
+    "question": "Industrial licensing was finally abolished (with a few exceptions) in the:",
+    "options": [
+      "Industrial Policy, 1970",
+      "Industrial Policy, 1980",
+      "Industrial Policy, 1991",
+      "Industrial Policy, 1995"
+    ],
+    "correctOption": "Industrial Policy, 1991"
+  },
+  {
+    "question": "Raurkela Steel Plant was set up with the assistance from:",
+    "options": [
+      "USSR",
+      "UK",
+      "USA",
+      "West Germany"
+    ],
+    "correctOption": "West Germany"
+  },
+  {
+    "question": "Many times we read in financial newspapers about the performance of the Core Sectors in the Economy. Which of the following is NOT included in the core Sector of the same?",
+    "options": [
+      "Coal",
+      "Cement",
+      "Steel",
+      "Oil and petroleum sector"
+    ],
+    "correctOption": "Oil and petroleum sector"
+  },
+  {
+    "question": "The Government of India recently decided to create a 'Specific Financing Window' for its 'Mega Bharat Nirman Programme'. This specific financing window will operate through:",
+    "options": [
+      "SIDBI",
+      "NABARD",
+      "SBI",
+      "A group of selected Co-operative Banks"
+    ],
+    "correctOption": "NABARD"
+  },
+ {
+    "question": "TRAI, the name which we read very often in the newspapers, is a regulatory body associated with which of the following sectors?",
+    "options": [
+      "Transport",
+      "Travel and Tourism",
+      "Technical Education",
+      "Telecom",
+      "None of these"
+    ],
+    "correctOption": "Telecom"
+  },
+  {
+    "question": "Bharat Nirman Programme does not cover which of the following areas?",
+    "options": [
+      "Rural housing",
+      "Rural water supply",
+      "Irrigation Facilities",
+      "Rural Employment"
+    ],
+    "correctOption": "Rural Employment"
+  },
+  {
+    "question": "Which is NOT the Economic Infrastructure?",
+    "options": [
+      "Roads",
+      "Railways",
+      "Education",
+      "Power"
+    ],
+    "correctOption": "Education"
+  },
+  {
+    "question": "The rural Infrastructure Fund set up in 1995-96, is maintained by the:",
+    "options": [
+      "Reserve Bank of India",
+      "State Bank of India",
+      "National Bank for Agriculture and Rural Development",
+      "Regional Rural Bank"
+    ],
+    "correctOption": "National Bank for Agriculture and Rural Development"
+  },
+  {
+    "question": "Bharat Nirman Programme envisages the creation of:",
+    "options": [
+      "10 million additional job during 2008-09",
+      "10 million hectares of additional irrigation during 2005-09",
+      "1 lakh kilometers of rural roads during 11th Plan",
+      "I.T. Park in all districts of the country during 11th Plan"
+    ],
+    "correctOption": "10 million hectares of additional irrigation during 2005-09"
+  },
+  {
+    "question": "Among other things, which one of the following was the purpose for which the Deepal Parekh Committee was constituted?",
+    "options": [
+      "To study the current socio-economic conditions of certain minority communities",
+      "To suggest measures for financing the development of infrastructure",
+      "To frame a policy on the production of genetically modified organisms",
+      "To suggest measures to reduce the fiscal deficit in the Union Budget"
+    ],
+    "correctOption": "To suggest measures for financing the development of infrastructure"
+  },
+  {
+    "question": "Capital market regulator is-",
+    "options": [
+      "NSE",
+      "RBI",
+      "SEBI",
+      "IRDA"
+    ],
+    "correctOption": "SEBI"
+  },
+  {
+    "question": "New Capital issue is placed in -",
+    "options": [
+      "Secondary market",
+      "Grey Market",
+      "Primary market",
+      "Black market"
+    ],
+    "correctOption": "Primary market"
+  },
+  {
+    "question": "The First state-owned company from India to be listed on the New York Stock Exchange is",
+    "options": [
+      "Videsh Sanchar Nigam Limited",
+      "Mahanagar Telephone Nigam Limited",
+      "Tata Iron and Steel Company",
+      "Wipro"
+    ],
+    "correctOption": "Videsh Sanchar Nigam Limited"
+  },
+  {
+    "question": "A speculator who sells stocks, in order to buy back when price falls, for gain is a",
+    "options": [
+      "Bull",
+      "Bear",
+      "Boar",
+      "Bison"
+    ],
+    "correctOption": "Bear"
+  },
+  {
+    "question": "A speculator who enters into a purchase transaction with a view to sell in the near future, when the price would have risen is called a",
+    "options": [
+      "Bear",
+      "Bull",
+      "Bison",
+      "Boar"
+    ],
+    "correctOption": "Bull"
+  },
+  {
+    "question": "Which is the first Indian Company to be listed in NASDAQ?",
+    "options": [
+      "Reliance",
+      "TCS",
+      "HCL",
+      "Infosys"
+    ],
+    "correctOption": "Infosys"
+  },
+  {
+    "question": "The business in stock markets and other securities markets is regulated by",
+    "options": [
+      "Securities and Exchange Board of India",
+      "Sole Trade and Exchange Bank of India",
+      "State and Exchange Bank of India",
+      "Stock and Exchange Bank of India"
+    ],
+    "correctOption": "Securities and Exchange Board of India"
+  },
+  {
+    "question": "Under-writing refers to",
+    "options": [
+      "Under estimation",
+      "Under selling",
+      "Winding up the business",
+      "An act of insuring risk"
+    ],
+    "correctOption": "An act of insuring risk"
+  },
+  {
+    "question": "Capital market deals with",
+    "options": [
+      "Short term fund",
+      "Long term fund",
+      "Cash",
+      "Both Long and short term funds"
+    ],
+    "correctOption": "Long term fund"
+  },
+  {
+    "question": "'Wall Street' is the name of the",
+    "options": [
+      "Stock Exchange of New York",
+      "Indian Township in Washington",
+      "Supermarket in Mumbai",
+      "Stock Exchange of Kolkata"
+    ],
+    "correctOption": "Stock Exchange of New York"
+  },
+  {
+    "question": "Insider trading is related to",
+    "options": [
+      "Trade Sector",
+      "Share market",
+      "Credit market",
+      "Horse market"
+    ],
+    "correctOption": "Share market"
+  },
+  {
+    "question": "BSE SENSEX Constitutes _______ number of companies",
+    "options": [
+      "30",
+      "40",
+      "50",
+      "60"
+    ],
+    "correctOption": "30"
+  },
+  {
+    "question": "What is the full form of NSDL?",
+    "options": [
+      "National Society Development Limited",
+      "National Securities Depository Limited",
+      "National Social Development Limited",
+      "National Safety Development Limited"
+    ],
+    "correctOption": "National Securities Depository Limited"
+  },
+  {
+    "question": "Which among the following comes under the tertiary sector of the Indian Economy?",
+    "options": [
+      "Cloth Industry",
+      "Transport of goods",
+      "Dairy",
+      "Sugar Industry"
+    ],
+    "correctOption": "Transport of goods"
+  },
+  {
+    "question": "Who amongst the following is NOT an auto company?",
+    "options": [
+      "Hyundai",
+      "General Motors",
+      "Maruti",
+      "Tata",
+      "Tripex"
+    ],
+    "correctOption": "Tripex"
+  },
+  {
+    "question": "What are the 'Core Industries' in India?",
+    "options": [
+      "Electricity",
+      "Coal",
+      "Petroleum Products",
+      "All of these"
+    ],
+    "correctOption": "All of these"
+  },
+{
+    "question": "Encouraging more multinational companies in India is to promote the policy of:",
+    "options": [
+      "Globalization",
+      "Liberalization",
+      "Privatization",
+      "All of these"
+    ],
+    "correctOption": "All of these"
+  },
+  {
+    "question": "Which one of the following committees recommended the abolition of reservation of items for the small-scale sector in Industry?",
+    "options": [
+      "Abid Hussain Committee",
+      "Narasimhan Committee",
+      "Nayak Committee",
+      "Rakesh Mohan Committee"
+    ],
+    "correctOption": "Narasimhan Committee"
+  },
+  {
+    "question": "Bhilai Steel Plant is a collaborative project of the Indian Government and which country?",
+    "options": [
+      "Soviet Union",
+      "Britain",
+      "Germany",
+      "Poland"
+    ],
+    "correctOption": "Soviet Union"
+  },
+  {
+    "question": "The first Industrial Policy of free India was announced in the year:",
+    "options": [
+      "1947",
+      "1948",
+      "1951",
+      "1956"
+    ],
+    "correctOption": "1948"
+  },
+  {
+    "question": "Which of the following sectors is NOT considered an 'Infrastructure Sector'?",
+    "options": [
+      "Software",
+      "Cement",
+      "Petroleum",
+      "Power generation"
+    ],
+    "correctOption": "Software"
+  },
+  {
+    "question": "The Finance Minister of India recently made a mention that infrastructure development in India should be done on PPP mode only. What is the full form of PPP?",
+    "options": [
+      "Public Private Partnership",
+      "Purchasing Power Parity",
+      "Purchase Produce Provide",
+      "People's Programme and Priority"
+    ],
+    "correctOption": "Public Private Partnership"
+  },
+  {
+    "question": "As per the news reports, MTNL recently launched its 3G services and became the first telecom operator to launch the same in India. What is the full form of 'G' in 3G?",
+    "options": [
+      "Global",
+      "Generation",
+      "Growth",
+      "Gravity"
+    ],
+    "correctOption": "Generation"
+  },
+  {
+    "question": "Which one of the following was the Chairman of the Committee on Pricing and Taxation of Petroleum Products?",
+    "options": [
+      "Raja J. Chelliah",
+      "C. Rangarajan",
+      "Y.V. Reddy",
+      "Abid Hussain"
+    ],
+    "correctOption": "C. Rangarajan"
+  },
+  {
+    "question": "Bharat Nirman Scheme of the UPA Government does NOT include:",
+    "options": [
+      "Rural water Supply Project",
+      "Irrigation Benefit Programme",
+      "Rural Electrification",
+      "Sarva Siksha Abhiyan"
+    ],
+    "correctOption": "Sarva Siksha Abhiyan"
+  },
+  {
+    "question": "Which of the following is NOT a component of the Bharat Nirman Programme?",
+    "options": [
+      "Agro-based Industries",
+      "Rural electrification",
+      "Rural housing",
+      "Rural telephony"
+    ],
+    "correctOption": "Agro-based Industries"
+  },
+  {
+    "question": "The nodal agency for implementing the 'Rural Infrastructure Development Funds Programmes' is:",
+    "options": [
+      "NABARD",
+      "State Bank of India",
+      "State Co-operative Bank",
+      "Reserve Bank of India"
+    ],
+    "correctOption": "NABARD"
+  },
+  {
+    "question": "Bharat Nirman Yojana is related to:",
+    "options": [
+      "Infrastructure development",
+      "Foodgrain production self-sufficiency",
+      "Family Welfare programme",
+      "None of these"
+    ],
+    "correctOption": "Infrastructure development"
+  },
+  {
+    "question": "Bharat Nirman Plan is associated with the development of:",
+    "options": [
+      "Urban infrastructure",
+      "Rural Infrastructure",
+      "Information Technology",
+      "Bridges and Roads"
+    ],
+    "correctOption": "Rural Infrastructure"
+  },
+  {
+    "question": "A short-term government security paper is called:",
+    "options": [
+      "Share",
+      "Debenture",
+      "Mutual Fund",
+      "Treasury Bill"
+    ],
+    "correctOption": "Treasury Bill"
+  },
+  {
+    "question": "NIFTY is associated with:",
+    "options": [
+      "Cloth Market Price Index",
+      "Consumer Price Index",
+      "BSE Index",
+      "NSE Index"
+    ],
+    "correctOption": "NSE Index"
+  },
+  {
+    "question": "For channelizing the unaccounted money for productive purposes, the government introduced the scheme of:",
+    "options": [
+      "Special bearer Bonds",
+      "Resurgent India Bonds",
+      "Provident Funds",
+      "Market Loans"
+    ],
+    "correctOption": "Special bearer Bonds"
+  },
+  {
+    "question": "What is the purpose of the India Brand Equity Foundation?",
+    "options": [
+      "To promote in-bound tourism",
+      "To make 'Made in India' a label of quality",
+      "To organise trade fairs",
+      "To provide venture capital to the IT sector"
+    ],
+    "correctOption": "To make 'Made in India' a label of quality"
+  },
+  {
+    "question": "Insurance sector in India is regulated by:",
+    "options": [
+      "MRBI",
+      "CII",
+      "IRDA",
+      "SEBI"
+    ],
+    "correctOption": "IRDA"
+  },
+ {
+    "question": "The abbreviation 'SEBI' stands for:",
+    "options": [
+      "Savings and Exchange Bank of India",
+      "Securities and Exchange Bank of India",
+      "Survey of essential business in India",
+      "Securities and Exchange Board of India"
+    ],
+    "correctOption": "Securities and Exchange Board of India"
+  },
+  {
+    "question": "Liquidity Preference means:",
+    "options": [
+      "Holding assets in the form of bonds and shares",
+      "Holding assets in the form of cash",
+      "Creation of immovable property",
+      "Assets in the form of jewelry"
+    ],
+    "correctOption": "Holding assets in the form of cash"
+  },
+  {
+    "question": "A financial instrument is called a 'primary security' if it represents the liability of:",
+    "options": [
+      "Some ultimate borrower",
+      "The Government of India",
+      "A Primary cooperative bank",
+      "A Commercial Bank"
+    ],
+    "correctOption": "Some ultimate borrower"
+  },
+  {
+    "question": "Debenture holders of a company are its:",
+    "options": [
+      "Shareholders",
+      "Creditors",
+      "Debtors",
+      "Directors"
+    ],
+    "correctOption": "Creditors"
+  },
+  {
+    "question": "Securities and Exchange Board of India is a:",
+    "options": [
+      "Quasi Judicial body",
+      "Regulatory Body",
+      "Advisory Body",
+      "Constitutional Body"
+    ],
+    "correctOption": "Quasi Judicial body"
+  },
+  {
+    "question": "Which of the following is done at a Stock Exchange?",
+    "options": [
+      "Commodities are bought and sold at wholesale price",
+      "Commodities are bought and sold at retail price",
+      "Securities are bought and sold",
+      "None of these"
+    ],
+    "correctOption": "Securities are bought and sold"
+  },
+  {
+    "question": "Banking comes under which of the following sectors?",
+    "options": [
+      "Primary sector",
+      "Secondary sector",
+      "Tertiary sector",
+      "Both Secondary and Tertiary sectors"
+    ],
+    "correctOption": "Tertiary sector"
+  },
+  {
+    "question": "Which among the following comes under the secondary sector of the Indian Economy?",
+    "options": [
+      "Sugar Industry",
+      "Fishing",
+      "Insurance",
+      "Transport of goods"
+    ],
+    "correctOption": "Sugar Industry"
+  },
+  {
+    "question": "Which of the following car companies has launched a small cheaper car 'Nano'?",
+    "options": [
+      "Maruti Suzuki Udyog Ltd.",
+      "Hyundai Motor India Ltd.",
+      "Hindustan Motor Ltd.",
+      "Tata Motor Ltd.",
+      "None of these"
+    ],
+    "correctOption": "Tata Motor Ltd."
+  },
+  {
+    "question": "Urbanization and Industrialization are determined to:",
+    "options": [
+      "Sustainable development",
+      "Environmental and ecology",
+      "Preservation of biodiversity",
+      "All of these"
+    ],
+    "correctOption": "All of these"
+  },
+  {
+    "question": "A favorable Balance of Trade of a country implies that:",
+    "options": [
+      "Imports are greater than exports",
+      "Exports are greater than imports",
+      "Both Imports and Exports are equal",
+      "Rising Imports and Falling Exports"
+    ],
+    "correctOption": "Exports are greater than imports"
+  },
+  {
+    "question": "In the balance of payments account, unrequited receipts and payments are also regarded as:",
+    "options": [
+      "Bilateral transfers",
+      "Unilateral transfers",
+      "Capital accounts transfer",
+      "Invisible transfer"
+    ],
+    "correctOption": "Unilateral transfers"
+  },
+  {
+    "question": "Lowering the value of currency relative to a foreign reference currency is called:",
+    "options": [
+      "Devaluation",
+      "Revaluation",
+      "Down valuation",
+      "Negative valuation"
+    ],
+    "correctOption": "Devaluation"
+  },
+{
+    "question": "Many a time we come across a term in the financial newspaper 'Balance of Payments'. What does it really reflect?",
+    "options": [
+      "It is the statement of receipts from foreign countries and payments made to foreign countries",
+      "It is the statement of the total value of GDP and share of imports in it in terms of the percentage of GDP",
+      "It is the statement of the total receipt of the Government and its share in total GDP in terms of percentage",
+      "Both a and b"
+    ],
+    "correctOption": "It is the statement of receipts from foreign countries and payments made to foreign countries"
+  },
+  {
+    "question": "Specially developed economic zones in India where some of the economic laws and restrictions of the land are relaxed with the purpose of giving incentives to investors are commonly known as:",
+    "options": [
+      "Special Economic Zone",
+      "Preferential Zones",
+      "Industrial Parks",
+      "Economic corridors",
+      "None of these"
+    ],
+    "correctOption": "Special Economic Zone"
+  },
+  {
+    "question": "In which one of the following places was Asia's first Export Processing Zone (EPZ) set up?",
+    "options": [
+      "Kandla",
+      "Cochin",
+      "Surat",
+      "Santa Cruz"
+    ],
+    "correctOption": "Kandla"
+  },
+  {
+    "question": "Which is known as the third pillar in International economic relations?",
+    "options": [
+      "IMF",
+      "World Bank",
+      "WTO",
+      "GATT"
+    ],
+    "correctOption": "WTO"
+  },
+  {
+    "question": "The headquarters of the World Trade Organization (WTO) are at:",
+    "options": [
+      "New York",
+      "Geneva",
+      "Rome",
+      "Doha"
+    ],
+    "correctOption": "Geneva"
+  },
+  {
+    "question": "Balance of payment includes:",
+    "options": [
+      "Visible Trade",
+      "Invisible Trade",
+      "Debts",
+      "All of these"
+    ],
+    "correctOption": "All of these"
+  },
+  {
+    "question": "Special Economic Zone (SEZ) Act became effective in:",
+    "options": [
+      "2004",
+      "2005",
+      "2006",
+      "2007"
+    ],
+    "correctOption": "2006"
+  },
+  {
+    "question": "The earlier name of the WTO is:",
+    "options": [
+      "UNCTAD",
+      "GATT",
+      "UNIDO",
+      "OECD"
+    ],
+    "correctOption": "GATT"
+  },
+  {
+    "question": "A part of National Debt known as External Debt is the amount:",
+    "options": [
+      "Borrowed by its citizen from abroad",
+      "Lent by its citizens to foreign governments",
+      "Borrowed by its government from abroad",
+      "Lent by its government to foreign government"
+    ],
+    "correctOption": "Borrowed by its government from abroad"
+  },
+  {
+    "question": "''Full convertibility of a rupee'' means:",
+    "options": [
+      "Payment for imports in terms of rupees",
+      "Repayment of loans in terms of rupees",
+      "Repayment of loans in terms of rupees",
+      "Determination of the rate of exchange between rupee and foreign currencies freely by the market forces of demand and supply"
+    ],
+    "correctOption": "Determination of the rate of exchange between rupee and foreign currencies freely by the market forces of demand and supply"
+  },
+  {
+    "question": "Private Investment is otherwise called as:",
+    "options": [
+      "Autonomous investment",
+      "Foreign Institutional Investment",
+      "Foreign Direct Investment",
+      "Induced Investment"
+    ],
+    "correctOption": "Autonomous investment"
+  },
+  {
+    "question": "Which one of the following items is not included in the current account of India's balance of payments?",
+    "options": [
+      "Short-term commercial Borrowings",
+      "Non-Monetary Gold Movements",
+      "Investment Income",
+      "Transfer Payments"
+    ],
+    "correctOption": "Short-term commercial Borrowings"
+  },
+  {
+    "question": "The Government resorts to devaluation of its currency in order to promote:",
+    "options": [
+      "National Income",
+      "International Goodwill",
+      "Exports",
+      "Savings"
+    ],
+    "correctOption": "Exports"
+  },
+  {
+    "question": "When did the rupee become a freely convertible currency on the Current Account in India?",
+    "options": [
+      "2000",
+      "2001",
+      "1994",
+      "1999"
+    ],
+    "correctOption": "1994"
+  },
+{
+    "question": "Floating exchange rate is also referred to as:",
+    "options": [
+      "Flexible exchange rate",
+      "Fixed Exchange Rate",
+      "Real Exchange Rate",
+      "Controlled Exchange Rate"
+    ],
+    "correctOption": "Flexible exchange rate"
+  },
+  {
+    "question": "A trade policy consists of:",
+    "options": [
+      "Export-Import Policy",
+      "Licensing Policy",
+      "Foreign Exchange Policy",
+      "Balance of Payment Policy"
+    ],
+    "correctOption": "Export-Import Policy"
+  },
+  {
+    "question": "The difference between visible exports and visible imports is defined as:",
+    "options": [
+      "Balance Trade",
+      "Balance of Payment",
+      "Balance Terms of Trade",
+      "Gains from Trade"
+    ],
+    "correctOption": "Balance Trade"
+  },
+  {
+    "question": "FERA in India has been replaced by FERA:",
+    "options": [
+      "FEPA",
+      "FEMA",
+      "FENA",
+      "FETA"
+    ],
+    "correctOption": "FEMA"
+  },
+  {
+    "question": "How is the interest level of a country affected by FDI?",
+    "options": [
+      "Increase",
+      "Decrease",
+      "Remain unaffected",
+      "There is an increase and decrease"
+    ],
+    "correctOption": "Decrease"
+  },
+  {
+    "question": "Devaluation of currency leads to:",
+    "options": [
+      "Expansion of export trade",
+      "Contraction of import trade",
+      "Expansion of import trade",
+      "All of the above"
+    ],
+    "correctOption": "Expansion of export trade"
+  },
+  {
+    "question": "Under the flexible exchange rate system, the exchange rate is determined by:",
+    "options": [
+      "The Central Bank of the country",
+      "The forces of demand and supply in the foreign exchange market",
+      "The price of gold",
+      "The purchasing power of currency"
+    ],
+    "correctOption": "The forces of demand and supply in the foreign exchange market"
+  },
+  {
+    "question": "Funds which flow into a country to take advantage of favorable rates of interest in that country are called:",
+    "options": [
+      "Cold Money",
+      "Black Money",
+      "Hot Money",
+      "White Money"
+    ],
+    "correctOption": "Hot Money"
+  },
+  {
+    "question": "Pegging up of a currency means fixing the value of a currency:",
+    "options": [
+      "At a constant level",
+      "At a lower level",
+      "At a higher level",
+      "Leaving at market forces"
+    ],
+    "correctOption": "At a constant level"
+  },
+  {
+    "question": "The balance of payments of a country is in equilibrium when the:",
+    "options": [
+      "Demand as well as supply of the domestic currency are the highest",
+      "Demand for the domestic currency is equal to its supply",
+      "Demand for the domestic currency is the highest",
+      "Demand for the domestic currency is the lowest"
+    ],
+    "correctOption": "Demand for the domestic currency is equal to its supply"
+  },
+  {
+    "question": "Which type of foreign investment is considered as unsafe?",
+    "options": [
+      "Foreign Direct Investment (FDI)",
+      "Portfolio Investment",
+      "NRI Deposit",
+      "External commercial borrowing"
+    ],
+    "correctOption": "Portfolio Investment"
+  },
+  {
+    "question": "Excise duty is levied on:",
+    "options": [
+      "Sale of goods",
+      "Production of goods",
+      "Import of goods",
+      "Exports of goods"
+    ],
+    "correctOption": "Production of goods"
+  },
+  {
+    "question": "Which among the following is not an account under Balance of Payment?",
+    "options": [
+      "Current Account",
+      "Capital Account",
+      "Official Reserve Account",
+      "Unilateral Payment Account"
+    ],
+    "correctOption": "Official Reserve Account"
+  },
+  {
+    "question": "What is the full form of FDI?",
+    "options": [
+      "Foreign Direct Input",
+      "Foreign Direct Investment",
+      "Fiscal Direct Investment",
+      "Fiscal Direct Input"
+    ],
+    "correctOption": "Foreign Direct Investment"
+  },
+  {
+    "question": "Foreign Investment is known by which name in India?",
+    "options": [
+      "SME (Small and medium-sized enterprises)",
+      "MDI (Management Development Institute)",
+      "FDI (Foreign Direct Investment)",
+      "CII (Confederation of Indian Industry)"
+    ],
+    "correctOption": "FDI (Foreign Direct Investment)"
+  },
+  {
+    "question": "Community Development Programme was initiated primarily to:",
+    "options": [
+      "To bring development among people by raising the literacy level",
+      "Bring about overall development of the village through self-help",
+      "Increasing the control of the masses over the locally available resources",
+      "Increase agricultural production through mechanized farming"
+    ],
+    "correctOption": "Bring about overall development of the village through self-help"
+  },
+  {
+    "question": "The principle objective of the Sarva Shiksha Abhiyan of the Ministry of Human Resource Development is to provide:",
+    "options": [
+      "Elementary education to all",
+      "Elementary education to all the girls",
+      "Elementary education to all the minority groups",
+      "Elementary education to all in the North-Eastern States of the country"
+    ],
+    "correctOption": "Elementary education to all"
+  },
+{
+    "question": "Which of the following schemes was launched to promote basic education in India and attract children in school-going age to attend classes?",
+    "options": [
+      "Pulse Polio Abhiyan",
+      "Operation Flood",
+      "Mid-Day Meal Scheme",
+      "Operation Black Board",
+      "None of these"
+    ],
+    "correctOption": "Mid-Day Meal Scheme"
+  },
+  {
+    "question": "Which of the following schemes was launched to provide cooked food to school-going children in India so that they are motivated to come to school regularly?",
+    "options": [
+      "Right to Education",
+      "Food for Work Scheme",
+      "Mid-Day Meal Scheme",
+      "Annapurna Scheme",
+      "None of these"
+    ],
+    "correctOption": "Mid-Day Meal Scheme"
+  },
+  {
+    "question": "STEP is the abbreviated name of the welfare programme to help:",
+    "options": [
+      "Children",
+      "Women",
+      "Farmers",
+      "Senior Citizens",
+      "Ex-Servicemen"
+    ],
+    "correctOption": "Women"
+  },
+  {
+    "question": "Which of the following is a project to develop watersheds in India?",
+    "options": [
+      "DRDO",
+      "CARE",
+      "AVARD",
+      "NWDPRA",
+      "None of these"
+    ],
+    "correctOption": "NWDPRA"
+  },
+  {
+    "question": "Many times we see in newspapers that some projects are launched by the government authorities on 'PPP' basis. What is the full form of 'PPP'?",
+    "options": [
+      "Preferential Payment Plan",
+      "Public Private Partnership",
+      "Partial Payment Project",
+      "Popular Private Project",
+      "Public Private Plan"
+    ],
+    "correctOption": "Public Private Partnership"
+  },
+  {
+    "question": "'Food for Work Programme' was introduced during which one of the following Five-Year Plans?",
+    "options": [
+      "I",
+      "II",
+      "V",
+      "IX"
+    ],
+    "correctOption": "V"
+  },
+  {
+    "question": "What is Vande Mataram Scheme?",
+    "options": [
+      "A scheme to encourage youth to join the defence force",
+      "An initiative in public-private partnership to reduce maternal mortality",
+      "A new strategy included in the revised family planning programme to put emphasis on saving pregnant women from HIV/AIDS",
+      "A scheme sponsored by the Union Government to provide old age homes to the destitute and poor old women"
+    ],
+    "correctOption": "An initiative in public-private partnership to reduce maternal mortality"
+  },
+  {
+    "question": "Main objective of IRDP is:",
+    "options": [
+      "Export Promotion",
+      "Banking Reforms",
+      "Rural Development",
+      "Sound Fiscal Management"
+    ],
+    "correctOption": "Rural Development"
+  },
+  {
+    "question": "Which one is NOT a component of the Pradhan Mantri Gramodaya Yojana?",
+    "options": [
+      "Elementary Education",
+      "Primary Education",
+      "Rural Road",
+      "Nutrition"
+    ],
+    "correctOption": "Nutrition"
+  },
+  {
+    "question": "Intake of less than under-noted average daily calories per person has been defined as the 'Poverty Line' in urban areas by the Planning Commission of India:",
+    "options": [
+      "2100",
+      "2400",
+      "2700",
+      "3000"
+    ],
+    "correctOption": "2100"
+  },
+  {
+    "question": "The Prime Minister Gramodaya Yojana does NOT include:",
+    "options": [
+      "Basic Education",
+      "Nutritious food, drinking water, and health",
+      "Rural road and housing",
+      "Small-scale industries"
+    ],
+    "correctOption": "Small scale industries"
+  },
+  {
+    "question": "Disguised employment refers to:",
+    "options": [
+      "A person with no job",
+      "Unemployment among housewives",
+      "Unemployment among people above 60 years of age",
+      "Employment of more persons in a job which a lesser number of persons can accomplish"
+    ],
+    "correctOption": "Employment of more persons in a job which a lesser number of persons can accomplish"
+  },
+  {
+    "question": "Under the National Rural Employment Guarantee Scheme, the number of days for which employment guarantee during one year has been given is:",
+    "options": [
+      "90 days",
+      "100 days",
+      "120 days",
+      "180 days"
+    ],
+    "correctOption": "100 days"
+  },
+{
+    "question": "Select the one which is NOT the responsibility of Gram Sabha under the Rural Employment Guarantee Act, 2005:",
+    "options": [
+      "To recommend projects to the Gram Panchayat and prepare a list of possible works",
+      "To receive applications for work and issue a receipt",
+      "To monitor the execution of work within the Gram Panchayat",
+      "To conduct regular social audits of all projects taken up within the Gram Panchayat"
+    ],
+    "correctOption": "To receive applications for work and issue a receipt"
+  },
+  {
+    "question": "Who among the following developed the concept of Human Development Index?",
+    "options": [
+      "Amartya Sen",
+      "A.S. Kadir",
+      "Alva Myrdal",
+      "Mehboob-ul-Haq"
+    ],
+    "correctOption": "Mehboob-ul-Haq"
+  },
+  {
+    "question": "Mid-Day Meal Scheme was launched in 1995 to promote:",
+    "options": [
+      "Adult literacy",
+      "Secondary education",
+      "Universalization of primary education",
+      "None of these"
+    ],
+    "correctOption": "Universalization of primary education"
+  },
+  {
+    "question": "Swarnjayanti Gram Swarojgar Yojana was started in the year:",
+    "options": [
+      "1999",
+      "2000",
+      "2001",
+      "2004"
+    ],
+    "correctOption": "1999"
+  },
+  {
+    "question": "National Rural Health Mission (NRHM) was launched in the year:",
+    "options": [
+      "2003",
+      "2004",
+      "2005",
+      "2006"
+    ],
+    "correctOption": "2005"
+  },
+  {
+    "question": "Which of the following is NOT included in Human Development Index (HDI)?",
+    "options": [
+      "Life Expectancy",
+      "Real Per Capita Income",
+      "Social Inequality",
+      "Adult Literacy"
+    ],
+    "correctOption": "Social Inequality"
+  },
+  {
+    "question": "The programme announced by the Prime Minister for the minorities in India is called:",
+    "options": [
+      "Antyodaya Programme",
+      "20 Point Programme",
+      "15 Point Programme",
+      "Prime Minister Rojgar Yojana"
+    ],
+    "correctOption": "15 Point Programme"
+  },
+  {
+    "question": "In terms of Human Development Index, India falls under the following category:",
+    "options": [
+      "High",
+      "Medium",
+      "Very low",
+      "Low"
+    ],
+    "correctOption": "Very low"
+  },
+  {
+    "question": "On which of the following bases has the Planning Commission defined 'Poverty Line' in rural areas in India?",
+    "options": [
+      "1800 k cal",
+      "2400 k cal",
+      "2500 k cal",
+      "2600 k cal"
+    ],
+    "correctOption": "2400 k cal"
+  },
+  {
+    "question": "The prices at which the government purchases food grains for maintaining the public distribution system (PDS) and for building up buffer stock is known as:",
+    "options": [
+      "Minimum support prices",
+      "Procurement prices",
+      "Issue prices",
+      "Ceiling prices"
+    ],
+    "correctOption": "Minimum support prices"
+  },
+  {
+    "question": "Among the following, who are eligible to benefit from Mahatma Gandhi National Rural Employment Guarantee Act(MGNREGA)?",
+    "options": [
+      "Adult members of only the Scheduled Caste and Scheduled Tribe Households",
+      "Adult members of below poverty line (BPL) household",
+      "Adult members of households of all Backward Communities",
+      "Adult members of Any households"
+    ],
+    "correctOption": "Adult members of Any households"
+  },
+  {
+    "question": "Oilseeds production programme (OPP) was started in:",
+    "options": [
+      "1986",
+      "1987",
+      "1988",
+      "1990"
+    ],
+    "correctOption": "1986"
+  },
+  {
+    "question": "Government of India has decided to integrate with recently launched Pradhan Mantri Krishi Sinchayee Yojana:",
+    "options": [
+      "Mahatma Gandhi National Rural Employment Guarantee Act",
+      "National Rural Livelihood Mission",
+      "Haryali",
+      "Accelerated Irrigation Benefit Programme"
+    ],
+    "correctOption": "Accelerated Irrigation Benefit Programme"
+  },
+  {
+    "question": "HRIDAY scheme launched by Urban Development Ministry aims at:",
+    "options": [
+      "Education of girl child",
+      "Development of smart cities",
+      "Urban sewage treatment",
+      "Development of Heritage Sites"
+    ],
+    "correctOption": "Development of Heritage Sites"
+  },
+  {
+    "question": "Kutir Jyoti Scheme is associated with:",
+    "options": [
+      "Promoting cottage industry",
+      "Promoting employment among unemployed youth",
+      "Providing electricity to rural families living below the poverty line",
+      "All of these"
+    ],
+    "correctOption": "Providing electricity to rural families living below the poverty line"
+  },
+  {
+    "question": "'Stand up India' scheme launched by the Prime Minister recently is related with:",
+    "options": [
+      "Promotion of entrepreneurship among SC, ST, and Women",
+      "Promotion of rights of Divyangs",
+      "Promotion of compulsory education for women",
+      "Promotion of Indian exports in western countries"
+    ],
+    "correctOption": "Promotion of entrepreneurship among SC, ST, and Women"
+  },
+  {
+    "question": "Pradhan Mantri Mudra Yojana was announced under the leadership of:",
+    "options": [
+      "Jawaharlal Nehru",
+      "Indira Gandhi",
+      "Narendra Modi",
+      "Manmohan Singh"
+    ],
+    "correctOption": "Narendra Modi"
+  },
+  {
+    "question": "What is the name of the app launched by the Union Ministry of Power to provide real-time information sharing on power supply?",
+    "options": [
+      "URJAMITRA",
+      "BHIM",
+      "URJA",
+      "UMANG"
+    ],
+    "correctOption": "URJAMITRA"
+  },
+ {
+    "question": "What is the Full form of PMGSY?",
+    "options": [
+      "Pradhan Mantri Greh Sadak Yojana",
+      "Pradhan Mantri Gaon Sadak Yojana",
+      "Pradhan Mantri Guarantee Sadak Yojana",
+      "Pradhan Mantri Gram Sadak Yojana"
+    ],
+    "correctOption": "Pradhan Mantri Gram Sadak Yojana"
+  },
+  {
+    "question": "Which one of the following is NOT a constituent of Human Development Index (HDI)?",
+    "options": [
+      "Per Capita Income",
+      "Life Expectancy at Birth",
+      "Gross Enrollment Rate",
+      "Health and Nutrition"
+    ],
+    "correctOption": "Gross Enrollment Rate"
+  },
+  {
+    "question": "In India, the Community Development Programme was started on:",
+    "options": [
+      "October 2, 1952",
+      "October 2, 1957",
+      "October 2, 1959",
+      "October 2, 1961"
+    ],
+    "correctOption": "October 2, 1952"
+  },
+  {
+    "question": "Mid-Day is a scheme to provide nutritious food to:",
+    "options": [
+      "Those taking treatment in hospitals",
+      "School-going children",
+      "Daily wage employees labor",
+      "Labors engaged in jobs in unorganized sectors",
+      "Girls who are residing in girls/youth hostels"
+    ],
+    "correctOption": "School-going children"
+  },
+  {
+    "question": "Which of the following represents 'I' in the abbreviation IRDP?",
+    "options": [
+      "Integrated",
+      "Indian",
+      "Insurance",
+      "Important",
+      "Internal"
+    ],
+    "correctOption": "Integrated"
+  },
+  {
+    "question": "Which of the following indexes is developed to measure life expectancy, the level of literacy, education, and the standard of living of people in a country?",
+    "options": [
+      "Inflation",
+      "Sensex",
+      "SLR",
+      "Human Development Index (HDI)",
+      "None of these"
+    ],
+    "correctOption": "Human Development Index (HDI)"
+  },
+  {
+    "question": "Which of the following schemes launched by the Government of India provides a guaranteed 100 days employment to rural employment-seekers in India?",
+    "options": [
+      "Bharat Nirman",
+      "Swarnajayanti Grameen Rojgar Yojana",
+      "National Rural employment Guarantee Act",
+      "National Food for Work Programme",
+      "None of these"
+    ],
+    "correctOption": "National Rural employment Guarantee Act"
+  },
+  {
+    "question": "Which of the following ministries has launched the integrated wastelands development Programme (IWDP)?",
+    "options": [
+      "Ministry of Rural Development",
+      "Ministry of Agriculture",
+      "Ministry of Chemical and Fertilizers",
+      "Ministry of Health and family Welfare",
+      "None of these"
+    ],
+    "correctOption": "Ministry of Rural Development"
+  },
+  {
+    "question": "Which of the following is NOT a social sector programme of the Government of India?",
+    "options": [
+      "Mid Day Meal Scheme",
+      "Sarva Siksha Abhiyan",
+      "National Rural Health Mission",
+      "Integrated Child Development Services",
+      "Look East Policy"
+    ],
+    "correctOption": "Look East Policy"
+  },
+  {
+    "question": "Which of the following schemes is NOT a part of the national social Assistance Programme?",
+    "options": [
+      "Only 1",
+      "Only 2",
+      "Both 1 and 2",
+      "Both 2 and 3",
+      "None of these"
+    ],
+    "correctOption": "None of these"
+  },
+  {
+    "question": "Which of the following is the name of the organization created to provide full employment and self-reliance to the women folk in India?",
+    "options": [
+      "OECD",
+      "ROSCA",
+      "SVP",
+      "USO",
+      "SEWA"
+    ],
+    "correctOption": "SEWA"
+  },
+  {
+    "question": "Which of the following organization/agencies is specifically set up to boost overall rural development in India?",
+    "options": [
+      "RBI",
+      "SIDBI",
+      "SEBI",
+      "None of these"
+    ],
+    "correctOption": "None of these"
+  },
+  {
+    "question": "Annapurna Scheme launched by the Government of India from April 2000 was meant to provide food security to the:",
+    "options": [
+      "Rural poor living below the poverty line",
+      "Urban slum-dwellers living below the poverty line",
+      "Senior citizen not covered under National old age Pension Scheme",
+      "Victims of natural calamities who are forced to migrate to other areas"
+    ],
+    "correctOption": "Senior citizen not covered under National old age Pension Scheme"
+  },
+  {
+    "question": "The major thrust of Jawahar Rojgar Yojana (JRY) is on:",
+    "options": [
+      "Providing training to rural youth for self-employment",
+      "Creating additional wage employment opportunities in rural areas",
+      "Creating employment opportunities in urban areas",
+      "Removal of poverty among the Scheduled Castes in rural areas"
+    ],
+    "correctOption": "Creating additional wage employment opportunities in rural areas"
+  },
+  {
+    "question": "Which one is NOT a component to construct Human Development Index in India under UNDP (United Nation Development Programme)?",
+    "options": [
+      "Real GDP per capita in US Dollar",
+      "Literacy Rate",
+      "Life Expectancy at Birth",
+      "Infant Mortality Rate"
+    ],
+    "correctOption": "Real GDP per capita in US Dollar"
+  },
+  {
+    "question": "Swarnjayanti Gram Swarojgar Yojana came into being in:",
+    "options": [
+      "April, 1995",
+      "April 1997",
+      "April, 1999",
+      "July, 2001"
+    ],
+    "correctOption": "April, 1999"
+  },
+  {
+    "question": "District Primary Education Programme was initiated in the year:",
+    "options": [
+      "1991",
+      "1994",
+      "1996",
+      "1999"
+    ],
+    "correctOption": "1994"
+  },
+  {
+    "question": "Consider the following statements and select the correct answer using the code given below:\n\nAssertion (A): Educated unemployment increases with a high rate of economic growth\nReason (R): It happens only when there is a lack of professional education\n\nCodes:",
+    "options": [
+      "Both A and R are true and R is the correct explanation of A",
+      "Both A and R are true but R is not a correct explanation of A",
+      "A is true but R is false",
+      "A is false but R is true"
+    ],
+    "correctOption": "Both A and R are true and R is the correct explanation of A"
+  },
+  {
+    "question": "The National Rural Employment Scheme was launched throughout the country from:",
+    "options": [
+      "01.04.2007",
+      "02.10.2007",
+      "14.11.2007",
+      "01.04.2008"
+    ],
+    "correctOption": "01.04.2008"
+  },
+  {
+    "question": "National Rural Employment Guarantee Scheme was launched initially in:",
+    "options": [
+      "100 Districts",
+      "200 Districts",
+      "300 Districts",
+      "All the districts"
+    ],
+    "correctOption": "200 Districts"
+  },
+  {
+    "question": "Mid-Day Meal Scheme was started in the year:",
+    "options": [
+      "1995",
+      "1996",
+      "1997",
+      "1998"
+    ],
+    "correctOption": "1995"
+  },
+  {
+    "question": "Scheme of Mid-Day Meal is NOT connected with:",
+    "options": [
+      "Educational Advancement",
+      "Social equity",
+      "Right to food",
+      "Child nutrition"
+    ],
+    "correctOption": "Right to food"
+  },
+  {
+    "question": "When was the concept of the Human Development Index (HDI) introduced by the United Nations Development Programme?",
+    "options": [
+      "1990",
+      "1991",
+      "1993",
+      "1995"
+    ],
+    "correctOption": "1990"
+  },
+  {
+    "question": "Which is not the objective of Public Procurement and Distribution system followed by the Indian Government?",
+    "options": [
+      "Maintain price stability through creation of buffer stock",
+      "Protect the interest of both consumers and poor farmer",
+      "Control the production of food grains",
+      "Reduce personal and regional inequity in the distribution"
+    ],
+    "correctOption": "Control the production of food grains"
+  },
+  {
+    "question": "The Swarna Jayanti Shahari Rojgar Yojna (SJSRY) mainly aims at creating employment opportunities for:",
+    "options": [
+      "Both self-employment and wage employment in urban areas",
+      "Self-employment in urban areas only",
+      "Wage employment in urban areas only",
+      "None of these"
+    ],
+    "correctOption": "Both self-employment and wage employment in urban areas"
+  },
+  {
+    "question": "Who takes the decision regarding the saving and loan activities in a self-help group (SHG)?",
+    "options": [
+      "Private Bank",
+      "Reserve Bank of India",
+      "Members of the group",
+      "Non-Government Organizations"
+    ],
+    "correctOption": "Members of the group"
+  },
+{
+    "question": "Under 'Geo Mahatma Gandhi NREGA' initiative, MNREGA has reached a milestone by Geo tagging how many assets created under it?",
+    "options": [
+      "30 Lakh",
+      "1 crore",
+      "2.8 crore",
+      "3 crore"
+    ],
+    "correctOption": "1 crore"
+  },
+  {
+    "question": "'Trade Gap' means:",
+    "options": [
+      "Gap between total imports and total exports",
+      "Gap between total GDP and total consumption",
+      "Gap between available liquidity and expected demand",
+      "Gap between budgeted revenue collection and actual collection of the same"
+    ],
+    "correctOption": "Gap between total imports and total exports"
+  },
+  {
+    "question": "In which of the following year was General Agreement on Tariffs and Trade (GATT) absorbed into the World Trade Organization (WTO)?",
+    "options": [
+      "1991",
+      "1995",
+      "2000",
+      "2005"
+    ],
+    "correctOption": "1995"
+  },
+  {
+    "question": "Invisible export means export of:",
+    "options": [
+      "Services",
+      "Prohibited goods",
+      "Unrecorded goods",
+      "Goods through smuggling"
+    ],
+    "correctOption": "Services"
+  },
+  {
+    "question": "SEZ act was passed by the Parliament in the year:",
+    "options": [
+      "2004",
+      "2005",
+      "2006",
+      "None of these"
+    ],
+    "correctOption": "2005"
+  },
+  {
+    "question": "Which of the following organization is involved in providing the insurance against various risks to the exporter?",
+    "options": [
+      "Reserve Bank of India (RBI)",
+      "State Trading Corporation of India (STCI)",
+      "EXIM bank",
+      "Export Credit and Guarantee Corporation (ECGC)"
+    ],
+    "correctOption": "Export Credit and Guarantee Corporation (ECGC)"
+  },
+  {
+    "question": "Assertion (A): The rate of growth of India's exports has shown an appreciable increase after 1991 (A): 1991\nReason(R): The Government of India has resorted to devaluation. (R):\nCodes:",
+    "options": [
+      "Both A and R are true and R is the correct explanation of A",
+      "Both A and R are true but R is not a correct explanation of A",
+      "A is true but R is false",
+      "A is false but R is true"
+    ],
+    "correctOption": "Both A and R are true and R is the correct explanation of A"
+  },
+  {
+    "question": "NAMA- 11 group of countries frequently appears in the news in the context of the affairs of which of the following?",
+    "options": [
+      "Nuclear Supplier Group",
+      "World Bank",
+      "World Economic Forum",
+      "World Trade Organization"
+    ],
+    "correctOption": "World Trade Organization"
+  },
+  {
+    "question": "The full form of SDR is:",
+    "options": [
+      "Special Dollar Rights",
+      "Special Drawing Rights",
+      "State Drawing Rights",
+      "Specific Dollar Right"
+    ],
+    "correctOption": "Special Drawing Rights"
+  },
+  {
+    "question": "India's Balance of Payment can be corrected through:",
+    "options": [
+      "Devaluation of currency",
+      "Vigorous export promotion",
+      "Import substitution",
+      "All of the above"
+    ],
+    "correctOption": "All of the above"
+  },
+  {
+    "question": "Which one of the following does not deal with export promotion?",
+    "options": [
+      "Trade Development Authority",
+      "Minerals and Metals Trading Corporation",
+      "Cooperative Marketing Societies",
+      "State Trading Corporation of India"
+    ],
+    "correctOption": "Cooperative Marketing Societies"
+  },
+  {
+    "question": "Canalised list of items in foreign trade in India refers to:",
+    "options": [
+      "The item to be imported by the private agencies",
+      "List of items to be subsidized",
+      "List of items to be granted duty concession",
+      "Items to be imported only by the State-owned undertaking"
+    ],
+    "correctOption": "Items to be imported only by the State-owned undertaking"
+  },
+  {
+    "question": "Which of the following does not form a part of the foreign exchange reserves of India?",
+    "options": [
+      "Gold",
+      "SDRs",
+      "Foreign Currency Assets",
+      "Foreign currency and securities held by the banks and corporate bodies"
+    ],
+    "correctOption": "Foreign currency and securities held by the banks and corporate bodies"
+  },
+  {
+    "question": "The purpose of devaluation is to:",
+    "options": [
+      "Belittle foreign currencies",
+      "Encourage export",
+      "Discourage export",
+      "Encourage import"
+    ],
+    "correctOption": "Encourage export"
+  },
+  {
+    "question": "Countries that depend mainly on the export of primary products for their income are prone to:",
+    "options": [
+      "Inflation",
+      "Economic instability",
+      "Increasing unemployment",
+      "Stable economic growth"
+    ],
+    "correctOption": "Increasing unemployment"
+  },
+  {
+    "question": "As a result of higher rate of inflation in India, the U.S. dollar will:",
+    "options": [
+      "Depreciate",
+      "Remain constant",
+      "Have a negligible change",
+      "Appreciate"
+    ],
+    "correctOption": "Appreciate"
+  },
+  {
+    "question": "Balance of Trade is the difference between:",
+    "options": [
+      "Country's income and expenses",
+      "Country's exports and imports",
+      "Country's tax revenue and expenses",
+      "Country's capital inflow and outflow"
+    ],
+    "correctOption": "Country's exports and imports"
+  },
+  {
+    "question": "'MFN Clause' is one of the main pillars on which:",
+    "options": [
+      "WTO is based",
+      "IMF is based",
+      "IBRD is based",
+      "IDA is based"
+    ],
+    "correctOption": "WTO is based"
+  },
+  {
+    "question": "Which one of the following institutions is related to export financing and insurance?",
+    "options": [
+      "ECGC",
+      "GAIL",
+      "CBDT",
+      "IDBI"
+    ],
+    "correctOption": "ECGC"
+  },
+  {
+    "question": "Free Trade zone is one:",
+    "options": [
+      "Where trade is done without restriction",
+      "Where any entrepreneur is free to start industries",
+      "Where infrastructural facilities were provided free to entrepreneurs by the Government",
+      "Where industries are free from excise duties and products from exports"
+    ],
+    "correctOption": "Where infrastructural facilities were provided free to entrepreneurs by the Government"
+  },
+  {
+    "question": "A 'Letter of Credit' is produced by:",
+    "options": [
+      "An exporter",
+      "An importer",
+      "Both by exporter and importer",
+      "Shipping company"
+    ],
+    "correctOption": "An importer"
+  },
+  {
+    "question": "Which one of the following statements is correct with reference to FEMA in India?",
+    "options": [
+      "The Foreign Exchange Regulating Act (FERA) was replaced by Foreign Exchange Management Act (FEMA) in the year 2001?",
+      "FERA was given a sunset clause of one year till 31st May, 2002 to enable Enforcement Directorate to complete the investigation of pending issues",
+      "Under FEMA, violation of foreign exchange rules has ceased to be a criminal offence",
+      "As per the new dispensation, Enforcement Directorate can arrest and prosecute the people for the violation of foreign exchange rule"
+    ],
+    "correctOption": "Under FEMA, violation of foreign exchange rules has ceased to be a criminal offence"
+  },
+{
+    "question": "Assertion (A): Balance of payment represents a better picture of a country's economic transactions with the rest of the world than balance of trade\nReason (R): Balance of payment takes into account the exchange of both visible and invisible items whereas balance of trade does not.\nCodes:",
+    "options": [
+      "Both A and R are true and R is correct explanation of A",
+      "Both A and R are true but R is not a correct explanation of A",
+      "A is true but R is false",
+      "A is false but R is true"
+    ],
+    "correctOption": "Both A and R are true and R is correct explanation of A"
+  },
+  {
+    "question": "The practice of selling goods in a foreign country at a price below their domestic selling price is called:",
+    "options": [
+      "Diplomacy",
+      "Discriminator",
+      "Dumping",
+      "Double pricing"
+    ],
+    "correctOption": "Dumping"
+  },
+  {
+    "question": "The annual record for all the monetary transactions of a country with other countries of the world is known as:",
+    "options": [
+      "Balance of Trade",
+      "Balance of Monetary Receipts",
+      "Balance of Payment",
+      "Balance Sheet"
+    ],
+    "correctOption": "Balance of Payment"
+  },
+  {
+    "question": "Devaluation usually causes the internal prices to:",
+    "options": [
+      "Fall",
+      "Rise",
+      "Remain unchanged",
+      "None of the above"
+    ],
+    "correctOption": "Remain unchanged"
+  },
+  {
+    "question": "Theoretically trade between two countries takes place on account of:",
+    "options": [
+      "Difference in costs",
+      "Scarcity of Goods",
+      "Comparative Differences in costs",
+      "Need for Exports"
+    ],
+    "correctOption": "Comparative Differences in costs"
+  },
+  {
+    "question": "One of the main factors that led to the rapid expansion of Indian exports is:",
+    "options": [
+      "Imposition of import duties",
+      "Liberalisation of the economy",
+      "Recession in other countries",
+      "Diversification of exports"
+    ],
+    "correctOption": "Liberalisation of the economy"
+  },
+  {
+    "question": "Disinvestment is:",
+    "options": [
+      "Offloading of shares of private companies to the government",
+      "Offloading of government shares to private companies",
+      "Increase in investment",
+      "Closing down of business concerns"
+    ],
+    "correctOption": "Offloading of government shares to private companies"
+  },
+
+
+
+
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

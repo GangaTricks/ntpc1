@@ -1,0 +1,3562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTPC Computer 2021</title> 
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Computer NTPC 2021 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+function showQuestion() {
+
+correctOptionText = ''; // Initialize correctOptionText
+    // Rest of your existing showQuestion code
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+
+// Copy question and options
+const copyButton = document.querySelector('.btn-copy');
+copyButton.addEventListener('click', () => {
+    const questionText = document.querySelector('#question').textContent;
+    const optionElements = document.querySelectorAll('.form-check-label');
+    
+    let optionsText = '';
+    let correctOptionText = null;
+    let correctOptionIndex = null;
+
+    optionElements.forEach((optionElement, index) => {
+        const optionText = optionElement.textContent.trim();
+        const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+        optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? ' ☑️Correct' : ''}\n`;
+
+        if (isCorrect) {
+            correctOptionText = optionText;
+            correctOptionIndex = index + 1;
+        }
+    });
+
+    let textToCopy = `${questionText}\n\n${optionsText}\n`;
+
+    if (correctOptionText && correctOptionIndex) {
+        textToCopy += `The Correct Option ${correctOptionIndex}: ${correctOptionText}\n                 ☑️Correct  ☑️Correct\n`;
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+
+    // Toggle button text
+    copyButton.textContent = '✅';
+    setTimeout(() => {
+        copyButton.textContent = '📋';
+    }, 2000); // Reset text after 2 seconds
+});
+
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'computerntpc2021underntpcfacts';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+    const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+	
+	 // Update correctOptionText for copying
+        correctOptionText = `correctOption ${correctOptionIndex + 1}: ${currentQuestion.correctOption}`;
+		
+	
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+     {
+    "question": "What is UBUNTU?",
+    "options": ["operating system", "Malware", "external hard drive", "web browser"],
+    "correctOption": "operating system"
+  },
+  {
+    "question": "Which part of a computer is called its brain?",
+    "options": ["monitor", "CPU", "hard disk", "ROOM"],
+    "correctOption": "CPU"
+  },
+  {
+    "question": "What is the full form of URL in the field of computers and internet?",
+    "options": ["Unique Resource Location", "Unique Revoked Location", "Uniform Resource Locator", "Universal Resource Locator"],
+    "correctOption": "Uniform Resource Locator"
+  },
+  {
+    "question": "The process of retrieving stored results from the physical memory of a computer is called?",
+    "options": ["Input process", "Processing", "Programming", "output process"],
+    "correctOption": "output process"
+  },
+  {
+    "question": "Which of the following is not a part of auxiliary memory in a computer system?",
+    "options": ["floppy", "magnetic tape", "PROM", "CD-ROM"],
+    "correctOption": "PROM"
+  },
+  {
+    "question": "What does NIU stand for in information technology?",
+    "options": ["Network Interface Unit", "Network Internal Unit", "National Information Usage", "Nominal Internal Unit"],
+    "correctOption": "Network Interface Unit"
+  },
+  {
+    "question": "Which of the following is an example of a footloose industry?",
+    "options": ["Jute", "sugar", "Computer chip", "tea"],
+    "correctOption": "Computer chip"
+  },
+  {
+    "question": "Which is India's first supercomputer?",
+    "options": ["Param biochrome", "Param Yuva", "Param Padma", "Param 8000"],
+    "correctOption": "Param 8000"
+  },
+  {
+    "question": "Which of the following is not a web browser?",
+    "options": ["Google", "Safari", "Mozilla Firefox", "Opera"],
+    "correctOption": "Google"
+  },
+  {
+    "question": "What is the full form of HTTP?",
+    "options": ["Hypertext Transfer Protocol", "Hyper test Transfer Protocol", "Hyper Text Test Protocol", "Hyper Text Tool Protocol"],
+    "correctOption": "Hypertext Transfer Protocol"
+  },
+  {
+    "question": "Intel Core 19. a kind of _",
+    "options": ["motherboard", "processor", "hard disk", "Antivirus"],
+    "correctOption": "processor"
+  },
+  {
+    "question": "It is Python.",
+    "options": ["Malware", "Programming languages", "web browser", "operating system"],
+    "correctOption": "Programming languages"
+  },
+  {
+    "question": "ASCII is a code for representing English characters as numbers. What is its short form?",
+    "options": ["Australian Standard Code for Information interchange.", "American Secure Code for Information Interchange", "American Standard Code for Information Interchange", "Australian Secure Code for Information Interchange"],
+    "correctOption": "American Standard Code for Information Interchange"
+  },
+  {
+    "question": "In computer terms, a tracker ball is a device.",
+    "options": ["storage", "Processing", "input", "output"],
+    "correctOption": "input"
+  },
+  {
+    "question": "It is one kilobyte. equivalent to byte",
+    "options": ["256", "1024", "2048", "512"],
+    "correctOption": "1024"
+  },
+  {
+    "question": "What is the full form of DHCP in networking system?",
+    "options": ["Dynamic Host Configuration Protocol", "Data Host Control Panel", "Dynamic Host Control Point", "Display House Control Protocol"],
+    "correctOption": "Dynamic Host Configuration Protocol"
+  },
+  {
+    "question": "What is the abbreviation of OLE in computer field?",
+    "options": ["Object Linking and Embedding", "Object Linking and Enabling", "Object Linking Extension", "Object Location Enabling"],
+    "correctOption": "Object Linking and Embedding"
+  },
+  {
+    "question": "The programming language Java was developed. By",
+    "options": ["Paul Allen", "Jaap Hartsen", "James Gosling", "Charles Simonyi"],
+    "correctOption": "James Gosling"
+  },
+  {
+    "question": "What is the full form of URL?",
+    "options": ["Uniform Resource Locator", "Universal Remote Land", "Uniform Remote Locator", "Universal Resource Locator"],
+    "correctOption": "Uniform Resource Locator"
+  },
+  {
+    "question": "In what form is data stored in the computer?",
+    "options": ["binary", "magnetic", "picture", "letter"],
+    "correctOption": "binary"
+  },
+  {
+    "question": "By default, how many worksheets are present in an Excel MS Office 2010 workbook?",
+    "options": ["2", "1", "3", "4"],
+    "correctOption": "3"
+  },
+  {
+    "question": "What does ISP mean in telecommunication sector?",
+    "options": ["Internet Speed Provider", "Internet Speed Protocol", "Internet Service Protocol", "Internet Service Provider"],
+    "correctOption": "Internet Service Provider"
+  },
+  {
+    "question": "Which of the following is not a computer feature?",
+    "options": ["IQ", "speed", "data storage", "purity"],
+    "correctOption": "IQ"
+  },
+  {
+    "question": "Which of the following is not an input device?",
+    "options": ["touch screen", "Plotter", "Light pen", "track ball"],
+    "correctOption": "Plotter"
+  },
+  {
+    "question": "What does LIFO mean in computer field?",
+    "options": ["Last-In-First-Out", "Left-In-First-Out", "Last-In-Finish-Out", "Lost-In-First-Out"],
+    "correctOption": "Last-In-First-Out"
+  },
+  {
+    "question": "Which of the following is required to use the Internet?",
+    "options": ["Unique IP address", "Email", "TV", "hacker"],
+    "correctOption": "Unique IP address"
+  },
+  {
+    "question": "Which of the following is antivirus software?",
+    "options": ["Google", "XML", "Norton", "Microsoft"],
+    "correctOption": "Norton"
+  },
+  {
+    "question": "What is the feature of remote login on computer?",
+    "options": ["HTTP", "Telnet", "FTP", "RTP"],
+    "correctOption": "Telnet"
+  },
+  {
+    "question": "How many output ports are there in peripheral input/output?",
+    "options": ["256", "24", "264", "512"],
+    "correctOption": "256"
+  },
+  {
+    "question": "Which of the following is not a computer component?",
+    "options": ["memory", "paper", "CPU", "ALU"],
+    "correctOption": "paper"
+  },
+  {
+    "question": "What is URL?",
+    "options": ["Address of a web page displayed on the Internet", "a web browser", "a computer software", "search engine"],
+    "correctOption": "Address of a web page displayed on the Internet"
+  },
+{
+    "question": "In computer terminology, what is the full form of ALU?",
+    "options": ["Arithmetic Logic Unit", "Active Load Unit", "Air Lock Unit", "Application Logical Unit"],
+    "correctOption": "Arithmetic Logic Unit"
+  },
+  {
+    "question": "The system that converts an IP address into an easy to remember format is called.",
+    "options": ["Domain Numbering System", "domain", "Domain Name System", "Packet-switching domain system"],
+    "correctOption": "Domain Name System"
+  },
+  {
+    "question": "Which of the following is not a component of the Microsoft Office 2019 package?",
+    "options": ["OneNote", "Outlook", "Excel", "Keynote"],
+    "correctOption": "Keynote"
+  },
+  {
+    "question": "Which of the following is not an 'Operating System'?",
+    "options": ["Ubuntu", "Android", "tele", "Mint"],
+    "correctOption": "tele"
+  },
+  {
+    "question": "How many different values ​​can be stored by a 32 bit register?",
+    "options": ["232", "32", "2 X 32", "322"],
+    "correctOption": "232"
+  },
+  {
+    "question": "When was Hotmail launched?",
+    "options": ["1994", "1995", "1993", "1996"],
+    "correctOption": "1996"
+  },
+  {
+    "question": "Which one of the following spreadsheets Don't have a program?",
+    "options": ["Calc", "Visikalka", "Excel", "Ubuntu"],
+    "correctOption": "Ubuntu"
+  },
+  {
+    "question": "Full meaning of EPROM in computer terminology What is form?",
+    "options": ["Erasable Programmable Read-Only Memory", "Electronic Programmable Retrieve Only Memory", "Executable Programme Revise Only Memory", "Extended Programme Rewritable Only Memory"],
+    "correctOption": "Erasable Programmable Read-Only Memory"
+  },
+  {
+    "question": "What are the components of keyboard, monitor and cabinet?",
+    "options": ["Control Unit", "Computer software", "Computer Hardware", "storage unit"],
+    "correctOption": "Computer Hardware"
+  },
+  {
+    "question": "A system program that translates and executes an instruction at the same time is called.",
+    "options": ["aggregator", "Interpreter", "compiler", "operating system"],
+    "correctOption": "aggregator"
+  },
+  {
+    "question": "Which of the following is not a Google product?",
+    "options": ["Gmail", "iTunes", "blogger", "YouTube"],
+    "correctOption": "iTunes"
+  },
+  {
+    "question": "How many special symbols are used in the hexadecimal number system?",
+    "options": ["2", "3", "16", "1"],
+    "correctOption": "16"
+  },
+  {
+    "question": "Which of the following servers converts IP addresses into domain names?",
+    "options": ["Cloud service", "Email", "P2P", "DNS"],
+    "correctOption": "DNS"
+  },
+  {
+    "question": "Which of the following does not affect the general performance of a computer?",
+    "options": ["Size of graphics card", "CPU speed", "RAM size", "hard disk speed"],
+    "correctOption": "Size of graphics card"
+  },
+  {
+    "question": "What does P stand for in HTTP?",
+    "options": ["protocol", "policy", "pattern", "program"],
+    "correctOption": "protocol"
+  },
+  {
+    "question": "What does GUI mean in computer context?",
+    "options": ["Gigabyte Used in Internet", "Group User interface", "Gopher Used Investigation", "Graphical user interface"],
+    "correctOption": "Graphical user interface"
+  },
+  {
+    "question": "1024 megabytes is equal to:",
+    "options": ["1 gigabyte", "1 byte", "1 decabyte", "1 kilobyte"],
+    "correctOption": "1 gigabyte"
+  },
+  {
+    "question": "Which of the following is not a characteristic of ROM (Read Only Memory)?",
+    "options": ["It stores information permanently", "It holds system software such as boot loader", "It is known as volatile memory.", "Information is not lost even when the computer is switched off."],
+    "correctOption": "It is known as volatile memory."
+  },
+  {
+    "question": "What is URL?",
+    "options": ["a web browser", "search engine", "Address of a web page displayed on the Internet", "a computer software"],
+    "correctOption": "Address of a web page displayed on the Internet"
+  },
+  {
+    "question": "Who is the inventor of Bluetooth?",
+    "options": ["Charles Simonyi", "Bill Gates", "Paul Allen", "Jaap Hartsen"],
+    "correctOption": "Jaap Hartsen"
+  },
+  {
+    "question": "What is the location of RAM in computer?",
+    "options": ["output device", "motherboard", "external memory", "input device"],
+    "correctOption": "motherboard"
+  },
+  {
+    "question": "What is the full form of FTP?",
+    "options": ["Fast Transfer Protocol", "Fast Transfer Program", "File Transfer Program", "File Transfer Protocol"],
+    "correctOption": "File Transfer Protocol"
+  },
+  {
+    "question": "Which of the following is a program that translates each instruction of a high level language and executes it before moving on to the next instruction?",
+    "options": ["Assembler", "Multiprocessing", "Interpreter", "Data processing"],
+    "correctOption": "Interpreter"
+  },
+  {
+    "question": "Which of the following systems is designed to prevent unauthorized access to or from a private network?",
+    "options": ["repeater", "packet filter", "bridge", "firewall"],
+    "correctOption": "firewall"
+  },
+  {
+    "question": "A general term that refers to all legal and regulatory aspects of the Internet and the World Wide Web.",
+    "options": ["hacker", "cookie", "equipment", "Cyber ​​law"],
+    "correctOption": "Cyber ​​law"
+  },
+  {
+    "question": "Who is considered the father of modern computer?",
+    "options": ["Charles Babbage", "Alan Turing", "James Gosling", "Gordon E Moore"],
+    "correctOption": "Alan Turing"
+  },
+  {
+    "question": "When did Internet start in India:",
+    "options": ["August 9, 1996", "August 8, 1994", "August 15, 1995", "August 11, 1995"],
+    "correctOption": "August 15, 1995"
+  },
+  {
+    "question": "In Microsoft Excel, a workbook is a collection of",
+    "options": ["chart", "Word book", "photo", "worksheet"],
+    "correctOption": "worksheet"
+  },
+  {
+    "question": "In the computer, a menu contains a list of",
+    "options": ["command", "objects", "data", "report"],
+    "correctOption": "command"
+  },
+  {
+    "question": "Which of the following is not an output device?",
+    "options": ["monitor", "speaker", "scanner", "printer"],
+    "correctOption": "scanner"
+  },
+{
+    "question": "Full form of GPRS is:",
+    "options": ["Guiding Packet Radio Systems", "General Popular Radio Systems", "General Packet Radio Services", "General Payment Radio Services"],
+    "correctOption": "General Packet Radio Services"
+  },
+  {
+    "question": "What is the full form of CDMA?",
+    "options": ["Code Division Maximum Access", "Code Division Multiple Access", "Core Division Multiple Access", "Core Division Maximum Access"],
+    "correctOption": "Code Division Multiple Access"
+  },
+  {
+    "question": "In the context of web pages, what does SEO mean?",
+    "options": ["Search Engine Optimisation", "Search Editing Optimisation", "Slack editing Optimisation", "Slack Engine Optimisation"],
+    "correctOption": "Search Engine Optimisation"
+  },
+  {
+    "question": "A program or piece of code that is loaded on a person's computer without his knowledge and runs against his will is called a type of malware:",
+    "options": ["virus", "Trojan Horse", "spyware", "Zeus"],
+    "correctOption": "virus"
+  },
+  {
+    "question": "What is the full form of ODBC in computing context?",
+    "options": ["Open data base compliance", "Open data base correction", "Open data base connection", "Open data base connectivity"],
+    "correctOption": "Open data base connectivity"
+  },
+  {
+    "question": "Param Shivay, the first supercomputer assembled indigenously, was built in",
+    "options": ["IIT Kharagpur", "IISC, Bengaluru", "IIT BHU", "IISER Pune"],
+    "correctOption": "IIT BHU"
+  },
+  {
+    "question": "Write the name of the supercomputer developed by Tata Group in 2007?",
+    "options": ["Cray 3", "HITAC S-300", "Acres", "PARAM"],
+    "correctOption": "Acres"
+  },
+  {
+    "question": "FORTRAN and COBOL languages ​​were first used in which generation of computers?",
+    "options": [".. generation", ". generation", "V generation", "IV generation"],
+    "correctOption": ".. generation"
+  },
+  {
+    "question": "Generally, a QWERTY keyboard has how many keys?",
+    "options": ["120", "98", "104", "100"],
+    "correctOption": "104"
+  },
+  {
+    "question": "What type of storage is RAM?",
+    "options": ["Tertiary", "secondary", "primary", "offline"],
+    "correctOption": "primary"
+  },
+  {
+    "question": "In Internet technology, what does DNS mean?",
+    "options": ["Domain Name System", "Divided Name System", "Distributed Name System", "Dynamic Name System"],
+    "correctOption": "Domain Name System"
+  },
+  {
+    "question": "How many bytes are equal to 1 kilobyte in binary system?",
+    "options": ["1012 bytes", "1042 bytes", "1024 bytes", "1048 bytes"],
+    "correctOption": "1024 bytes"
+  },
+  {
+    "question": "Which of the following is not a high-level language?",
+    "options": ["C++", "machine language", "Java", "C"],
+    "correctOption": "machine language"
+  },
+  {
+    "question": "What is 1 terabyte equal to?",
+    "options": ["1024 PB", "1024 KB", "1024 MB", "1024 GB"],
+    "correctOption": "1024 GB"
+  },
+  {
+    "question": "What is not involved in data processing?",
+    "options": ["Data estimation", "data calculation", "Information management", "Database installation"],
+    "correctOption": "Database installation"
+  },
+  {
+    "question": "Which of the following is an open-source operating system for managing computer hardware and software?",
+    "options": ["Macintosh", "Microsoft Windows", "Linux", "Apple"],
+    "correctOption": "Linux"
+  },
+  {
+    "question": "What is the full form of WAN in the context of computers and networking?",
+    "options": ["WiFi Amended Network", "World Access Network", "Wide Access Network", "Wide Area Network"],
+    "correctOption": "Wide Area Network"
+  },
+  {
+    "question": "A network of computers and other devices that is limited to a relatively small area is called",
+    "options": ["Local Area Network", "Wide Area Network", "Peer to peer network", "Global network"],
+    "correctOption": "Local Area Network"
+  },
+  {
+    "question": "What is the shortcut key to open the 'Paste Special' dialog box in Microsoft Word?",
+    "options": ["Ctrl+Alt+C", "Alt +E+S", "Ctrl + Alt + P", "Ctrl + V"],
+    "correctOption": "Alt +E +S"
+  },
+  {
+    "question": "How many megabytes are equal to 1 gigabyte?",
+    "options": ["1048", "1024", "1052", "1042"],
+    "correctOption": "1024"
+  },
+  {
+    "question": "Which of the following tools is used in applications like Computer Aided Design (CAD)?",
+    "options": ["scanner", "Plotter", "speaker", "Pantograph"],
+    "correctOption": "Plotter"
+  },
+  {
+    "question": "Which of the following is a first-generation computer?",
+    "options": ["STAR 1000", "SEAC", "ABACUS", "ATLAS"],
+    "correctOption": "SEAC"
+  },
+  {
+    "question": "What does the letter 's' represent in https protocol?",
+    "options": ["scale", "Software", "apple", "secure"],
+    "correctOption": "secure"
+  },
+  {
+    "question": "Who among the following pioneered binary logic and arithmetic in computer programming?",
+    "options": ["Leslie Lamport", "Noam Chomsky", "Claude Shannon", "John Backus"],
+    "correctOption": "Claude Shannon"
+  },
+  {
+    "question": "Which of the following is not used for storage in computer systems?",
+    "options": ["register", "Flip flop", "Adder", "Laitch"],
+    "correctOption": "Adder"
+  },
+  {
+    "question": "What were the second-generation computers based on?",
+    "options": ["transistor", "Silicon chips", "optics", "vacuum tube"],
+    "correctOption": "transistor"
+  },
+  {
+    "question": "Which of the following is not an operating system?",
+    "options": ["Mike", "Linux", "Windows", "Intel"],
+    "correctOption": "Intel"
+  },
+  {
+    "question": "In which of the following groups are only Output devices included?",
+    "options": ["Scanner, printer and monitor", "Keyboard, printer and monitor", "Mouse, printer and monitor", "Plotter, printer and monitor"],
+    "correctOption": "Plotter, printer and monitor"
+  },
+  {
+    "question": "A shared network within an organization to provide connectivity to its employees is called",
+    "options": ["Extranet", "Internet", "Intranet", "Telnet"],
+    "correctOption": "Intranet"
+  },
+  {
+    "question": "There are versions of Ubuntu, Mint, and Fedora.",
+    "options": ["Windows 10", "MS Document", "Apple Mac OS X", "Linux"],
+    "correctOption": "Linux"
+  },
+{
+    "question": "Who coined the term 'Artificial Intelligence'?",
+    "options": ["John Berger", "Charles Bachchan", "John McCarthy", "David Bradley"],
+    "correctOption": "John McCarthy"
+  },
+  {
+    "question": "Which of the following is application software?",
+    "options": ["LINUX", "UNIX", "macOS", "graphics"],
+    "correctOption": "graphics"
+  },
+  {
+    "question": "Who discovered 'www'?",
+    "options": ["Robert E. Kahn", "Charles Babbage", "Vint Cerf", "Team Bairner – Lee"],
+    "correctOption": "Team Bairner – Lee"
+  },
+  {
+    "question": "What is a small text file created by a website that is temporarily stored on a user's computer for that session called?",
+    "options": ["cache", "bug", "Malware", "cookies"],
+    "correctOption": "cookies"
+  },
+  {
+    "question": "In computer field, what is the meaning of FORTRAN?",
+    "options": ["Formula Translation", "Format Transformer", "Forensic Transistor", "Foreign Transmitter"],
+    "correctOption": "Formula Translation"
+  },
+  {
+    "question": "Who is considered the father of computer?",
+    "options": ["Charles Babbage", "Charles Bachchan", "Alan Turing", "John Atanasoff"],
+    "correctOption": "Charles Babbage"
+  },
+  {
+    "question": "What is the full form of COBOL?",
+    "options": ["Compute Basic Operation Language", "Compute Business Oriented Language", "Common Business Organised Language", "Common Business Oriented Language"],
+    "correctOption": "Common Business Oriented Language"
+  },
+  {
+    "question": "Which function key in Excel helps to switch to edit mode?",
+    "options": ["F7", "F2", "F5", "F3"],
+    "correctOption": "F2"
+  },
+  {
+    "question": "____ is a communication protocol.",
+    "options": ["HTTP", "CP", "HTP", "TP"],
+    "correctOption": "HTTP"
+  },
+  {
+    "question": "What is called the brain of any computer system?",
+    "options": ["monitor", "ALUMINUM", "CPU", "UPS"],
+    "correctOption": "CPU"
+  },
+  {
+    "question": "What is the full form of OCR?",
+    "options": ["Optical Computer Recording", "Optimum Colour Recognition", "Optimum Computer Recording", "Optical Character Recognition"],
+    "correctOption": "Optical Character Recognition"
+  },
+  {
+    "question": "How many Bytes make a Kilobyte?",
+    "options": ["960", "1440", "1024", "100"],
+    "correctOption": "1024"
+  },
+  {
+    "question": "Video Graphics Array (VGA) is a system for displaying color graphics. By whom was it developed?",
+    "options": ["IBM", "Macintosh", "Microsoft", "Apple"],
+    "correctOption": "IBM"
+  },
+  {
+    "question": "The port which is a protocol for transferring data to and from digital devices is known as",
+    "options": ["Parallel Port", "PS/2 port", "USB port", "VGA monitor port"],
+    "correctOption": "USB port"
+  },
+  {
+    "question": "What is a group of consecutive data of the same data type called?",
+    "options": ["separation", "array", "class", "object"],
+    "correctOption": "array"
+  },
+  {
+    "question": "What is the full form of COBOL?",
+    "options": ["Computer Based Operating Language", "Common Business Oriented Language", "Common Basic Operating Language", "Computer Basic Oriented Language"],
+    "correctOption": "Common Business Oriented Language"
+  },
+  {
+    "question": "If Bill Gate had his way, what name did Windows OS plan to release under?",
+    "options": ["Clipboard viewer", "Interface Manager", "calculator", "control panel"],
+    "correctOption": "Interface Manager"
+  },
+  {
+    "question": "What was the first domain name registered in the World Wide Web?",
+    "options": ["www.computer.com", "www.linux.com", "www.symbolics.com", "www.server.com"],
+    "correctOption": "www.symbolics.com"
+  },
+  {
+    "question": "Which of the following is a single chip based device which is a complete processor in itself and capable of performing arithmetic and logical operations?",
+    "options": ["operating system", "modem", "microprocessor", "Multi processing"],
+    "correctOption": "microprocessor"
+  },
+  {
+    "question": "In computer terms, the time taken to retrieve data from a storage device or receive data from a peripheral unit is known as.",
+    "options": ["downtime", "access time", "Time sharing", "Time Slicing"],
+    "correctOption": "access time"
+  },
+  {
+    "question": "Who is the co-founder of Apple Computer?",
+    "options": ["Bill Gates", "Paul Allen", "Charles Flint", "Steve Jobs"],
+    "correctOption": "Steve Jobs"
+  },
+  {
+    "question": "What is the full form of FORTRAN?",
+    "options": ["Fortitude Translation", "FoxPro translation", "Foreign Translation", "Formula Translation"],
+    "correctOption": "Formula Translation"
+  },
+  {
+    "question": "What does W3C mean in the field of computers and the Internet?",
+    "options": ["World Wide Web Consortium", "World Wide Web Commission", "World Wide Web Centre", "World Mde Web Content"],
+    "correctOption": "World Wide Web Consortium"
+  },
+  {
+    "question": "Which of the following defines an operating system?",
+    "options": ["It is a software used to convert source program instructions into a set program.", "It is a set of programs that controls the way the computer works and runs other programs", "It is a set of programs used to convert high level language into low level language.", "This is the real way of working on a computer."],
+    "correctOption": "It is a set of programs that controls the way the computer works and runs other programs"
+  },
+  {
+    "question": "Which shortcut key is used to fill the selected cell with the active cell on the right in Excel?",
+    "options": ["Ctrl+R", "Ctrl+V", "Ctrl+S", "Ctrl+D"],
+    "correctOption": "Ctrl+R"
+  },
+  {
+    "question": "In a web address, the domain indicator (appendix) '.com' means:",
+    "options": ["computer", "communication", "common", "commercial"],
+    "correctOption": "commercial"
+  },
+  {
+    "question": "In which generation computers were heavy, vacuum based and expensive?",
+    "options": ["Fourth generation", "third generation", "first generation", "fifth generation"],
+    "correctOption": "first generation"
+  },
+  {
+    "question": "Which of the following for WWW - What protocol is used?",
+    "options": ["HTTP", "TCPJP", "FTP", "SMTP"],
+    "correctOption": "HTTP"
+  },
+  {
+    "question": "A collection of interrelated files and a set of programs that allow users to access and modify these files. known as",
+    "options": ["Data analytical system", "Database Management System", "data file", "System management"],
+    "correctOption": "Database Management System"
+  },
+ {
+    "question": "In the context of GPS, which of the following is correct?",
+    "options": ["Its full form is Galileo Positioning System", "It has been developed by Russia", "Mountains and building blocks can act as obstacles to GPS signals", "Its full form is Global Placing System"],
+    "correctOption": "Mountains and building blocks can act as obstacles to GPS signals"
+  },
+  {
+    "question": "Which of the following units is used to measure the speed of modern printers?",
+    "options": ["LPM", "BIT", "CPM", "PPM"],
+    "correctOption": "PPM"
+  },
+  {
+    "question": "ESS is a computer-based system that allows users to transform enterprise data. What is the full form of ESS?",
+    "options": ["Executive Support System", "Executive Series System", "Executive Senior System", "Executive Service System"],
+    "correctOption": "Executive Support System"
+  },
+  {
+    "question": "A high-level programming language for scientific and mathematical use.",
+    "options": ["EDP", "FORTRAN", "COBOL", "RFID"],
+    "correctOption": "FORTRAN"
+  },
+  {
+    "question": "Which of the following refers to the protection of data against accidental or intentional disclosure to unauthorized persons, or unauthorized modification or destruction?",
+    "options": ["Database", "Data redundancy", "data security", "confidential data"],
+    "correctOption": "data security"
+  },
+  {
+    "question": "Identify the name of the user interface element from the following options that is found on the desktop as a small blinking symbol or arrow.",
+    "options": ["symbol", "cursor", "shortcut", "taskbar"],
+    "correctOption": "cursor"
+  },
+  {
+    "question": "By what name is a computer monitor also known?",
+    "options": ["CCTV", "LED", "CPU", "VDU"],
+    "correctOption": "VDU"
+  },
+  {
+    "question": "What is the correct full form of MPEG?",
+    "options": ["Micro Pictures Expert Group", "Many Pictures Expert Group", "Moving Picture Experts Group", "Motion Pictures Expert Group"],
+    "correctOption": "Moving Picture Experts Group"
+  },
+  {
+    "question": "How many columns are there in a sheet of Excel 2010?",
+    "options": ["16024", "1024", "16384", "1600"],
+    "correctOption": "16384"
+  },
+  {
+    "question": "Which of the following is the largest unit of memory in a computer system?",
+    "options": ["Exabyte", "Yottabyte", "petabyte", "zettabyte"],
+    "correctOption": "Yottabyte"
+  },
+  {
+    "question": "In the context of computing, a 'spider' is a:",
+    "options": ["Search engine", "Application for viewing websites", "Program that lists websites", "Hacker who breaks into corporate computer systems"],
+    "correctOption": "Program that lists websites"
+  },
+  {
+    "question": "Cupcake, donut, eclair, froyo, and gingerbread are various codenames of editions.",
+    "options": ["Piano", "Android", "computer", "CA"],
+    "correctOption": "Android"
+  },
+  {
+    "question": "Which of the following keyboard shortcuts would you use to switch to an already opened program?",
+    "options": ["Ctrl + Home", "Alt + Shift + Tab", "Alt + Tab", "Ctrl + N"],
+    "correctOption": "Alt + Shift + Tab"
+  },
+  {
+    "question": "An interface between a human user and computer hardware is known as",
+    "options": ["modem", "software", "Operating System", "Operating Unit"],
+    "correctOption": "software"
+  },
+  {
+    "question": "FORTRAN is",
+    "options": ["Language of fifth generation computer", "The world's first electronic digital computer", "Link to connect all the universities.", "first high-level programming language"],
+    "correctOption": "first high-level programming language"
+  },
+  {
+    "question": "Who among the following is considered the father of the World Wide Web?",
+    "options": ["Robert Cailliau", "Sir Timothy John Berners-Lee", "James H. Clark", "Pei-Yuan Weiss"],
+    "correctOption": "Sir Timothy John Berners-Lee"
+  },
+  {
+    "question": "What is Optical Distribution Network (ODN)?",
+    "options": ["Physical fibers that distribute signals to users in a telecommunications network.", "Physical fibers that distribute signals to users in electronic circuits.", "Optical devices which cannot deliver signals", "Physical fiber optical devices that distribute signals to users in telecommunication networks."],
+    "correctOption": "Physical fiber optical devices that distribute signals to users in telecommunication networks."
+  },
+  {
+    "question": "Which of the following is not a series of supercomputers developed by Indian scientists?",
+    "options": ["Param 8000", "Param Brahma", "Param 8600", "best friend"],
+    "correctOption": "best friend"
+  },
+  {
+    "question": "Select the option with the full form INCORRECT for related analogies",
+    "options": ["C-DAC: Center for Development of Advanced Computing", "CHOGM: Commonwealth Head of Government Ministers", "CITES: Convention on International Trade in Endangered Species", "CCI: Competition Commission of India"],
+    "correctOption": "CHOGM: Commonwealth Head of Government Ministers"
+  },
+  {
+    "question": "What is the short form of SMPS?",
+    "options": ["Switched-Mode Power Supply", "Single-Mode Power Supply", "Start-Mode Power Supply", "Store-Mode Power Supply"],
+    "correctOption": "Switched-Mode Power Supply"
+  },
+  {
+    "question": "From the given options, select the developer of 'Param 10000' which is a supercomputer of Indian origin",
+    "options": ["Tata", "C-DAC, Pune", "IIT Kanpur", "IIT Kharagpur"],
+    "correctOption": "C-DAC, Pune"
+  },
+  {
+    "question": "Which of the following universities designed and built the first electronic computer (ENIAC)?",
+    "options": ["Oxford University", "Harvard University", "University of Pennsylvania", "Stanford University"],
+    "correctOption": "University of Pennsylvania"
+  },
+  {
+    "question": "What is the full form of PDF in terms of file formats?",
+    "options": ["Portable Document format", "Prefixed Detachable Format", "Picture Disc Format", "Processing Digital File"],
+    "correctOption": "Portable Document format"
+  },
+  {
+    "question": "In the context of computing, which of the following sequences is correct?",
+    "options": ["TB > GB > MB > KB", "GB > TB > MB > KB", "MB > GB > TB > KB", "TB > KB > MB > GB"],
+    "correctOption": "TB > GB > MB > KB"
+  },
+  {
+    "question": "What is the full form of EVM?",
+    "options": ["Electric Voting Machine", "Essential Voting Machine", "Election Voting Machine", "Electronic Voting Machine"],
+    "correctOption": "Electronic Voting Machine"
+  },
+  {
+    "question": "Which of the following is not a type of personal computer?",
+    "options": ["Mainframe computer", "laptop", "Palmtop computer", "desktop computer"],
+    "correctOption": "Mainframe computer"
+  },
+  {
+    "question": "What is the full form of ATM?",
+    "options": ["Automated Teller Machine", "Automatic Totalling Machine", "Automatic Teller Machine", "Automated Totalling Machine"],
+    "correctOption": "Automated Teller Machine"
+  },
+  {
+    "question": "What is the function of WinZip?",
+    "options": ["It compresses large files into one small file", "It is an anti-virus software.", "It expands small files into one large file", "It extracts smaller files from larger files"],
+    "correctOption": "It compresses large files into a smaller file"
+  },
+  {
+    "question": "In Information Technology, what is the full form of DASD?",
+    "options": ["Direct Access Standard Device", "Device for Access and Storage of Domain", "Direct Access Storage Domain", "Direct Access storage Device"],
+    "correctOption": "Direct Access storage Device"
+  },
+  {
+    "question": "Which of the following statements is incorrect?",
+    "options": ["Hotmail is the first free web-based email service launched in 1995", "The first computer in India was installed in the Indian Statistical Institute, Kolkata.", "Vint Cerf is recognized as the 'Father of the Internet'.", "In Internet terminology, IP means Internet Practice"],
+    "correctOption": "In Internet terminology, IP means Internet Practice"
+  },
+ {
+    "question": "Which of the following is incorrect?",
+    "options": ["1 MB = 210 KB", "1 GB = 230byte", "1 GB = 220 byte", "1 MB = 213 byte"],
+    "correctOption": "1 GB = 2 byte"
+  },
+  {
+    "question": "There are different types of desktop computers, laptop computers, tablets, and smartphones.",
+    "options": ["Mainframe computer", "supercomputer", "Mini computer", "Micro-computer"],
+    "correctOption": "Micro-computer"
+  },
+  {
+    "question": "Which software is more useful for presenting in class?",
+    "options": ["Microsoft PowerPoint", "Microsoft Access", "Microsoft Excel", "Microsoft Word"],
+    "correctOption": "Microsoft PowerPoint"
+  },
+  {
+    "question": "What was the basis of the first-generation computer system?",
+    "options": ["Vacuum tube based", "integrated circuit based", "transistor based", "VLSI microprocessor based"],
+    "correctOption": "Vacuum tube based"
+  },
+  {
+    "question": "Where is a file moved to when it is deleted in a computer?",
+    "options": ["outbox", "My Documents", "Recycle Bin", "inbox"],
+    "correctOption": "Recycle Bin"
+  },
+  {
+    "question": "In which year was the World Wide Web invented?",
+    "options": ["1986", "1989", "1987", "1988"],
+    "correctOption": "1989"
+  },
+  {
+    "question": "Internet Uses:",
+    "options": ["Telephone switching", "circuit switching", "packet switching", "telex switching"],
+    "correctOption": "packet switching"
+  },
+  {
+    "question": "There are 10 nibbles. equal to nits",
+    "options": ["20", "80", "40", "60"],
+    "correctOption": "40"
+  },
+  {
+    "question": "Examples are mouse and device. also input",
+    "options": ["Speaker", "monitor", "printer", "scanner"],
+    "correctOption": "scanner"
+  },
+  {
+    "question": "The PNG file is one:",
+    "options": ["video file", "Image file", "batch file", "audio file"],
+    "correctOption": "Image file"
+  },
+  {
+    "question": "Can increase CPU speed.",
+    "options": ["Horse power", "bits per second (bps)", "Megahertz (MHz)", "lux"],
+    "correctOption": "Megahertz (MHz)"
+  },
+  {
+    "question": "The term 'byte' was coined by:",
+    "options": ["Vint Cerf", "Werner Buchholz", "Steve Jobs", "Larry Page"],
+    "correctOption": "Werner Buchholz"
+  },
+  {
+    "question": "In which year was the Ultimate 8000 supercomputer released?",
+    "options": ["198", "2003", "1991", "1996"],
+    "correctOption": "1991"
+  },
+  {
+    "question": "The device or program that enables computers to transmit data over telephone and cable lines is called:",
+    "options": ["monitor", "Mouse", "modem", "motherboard"],
+    "correctOption": "modem"
+  },
+  {
+    "question": "In which language can web pages be written?",
+    "options": ["SQL", "CIC++", "FORTRAN", "HTML"],
+    "correctOption": "HTML"
+  },
+  {
+    "question": "What is logo in computer?",
+    "options": ["programming language", "instructions", "command", "program"],
+    "correctOption": "programming language"
+  },
+  {
+    "question": "ENIAC, the first electronic digital programmable computer device (1943), stands for:",
+    "options": ["Electronic Network Integrator and Computer", "Electronic Numerical Integrator and Computer", "Electronic Numerical Integrator and Analytical Computer", "Electronic Numerical Interactive and Computer"],
+    "correctOption": "Electronic Numerical Integrator and Computer"
+  },
+  {
+    "question": "Who designed the 'first' small computer for home use?",
+    "options": ["Steve Wozniacki", "Chuck pedal", "Steve Leininger", "John Blankenbaker"],
+    "correctOption": "John Blankenbaker"
+  },
+  {
+    "question": "The IBM 370 was one. - generation computer",
+    "options": ["3rd", "2nd", "1st", "4th"],
+    "correctOption": "3rd"
+  },
+  {
+    "question": "Which of the following matching is incorrect?",
+    "options": ["8 bits = 1 byte", "1024 TB = 1 PB", "1024 ZB = 1 YB", "1024 EB = 1 YB"],
+    "correctOption": "1024 EB = 1 YB"
+  },
+  {
+    "question": "Which of the following network types is also called Long Haul Network?",
+    "options": ["Wan", "LAN", "PAN", "body"],
+    "correctOption": "Wan"
+  },
+  {
+    "question": "Enables a user to remotely access other computers and terminals over the Internet.",
+    "options": ["Usenet", "FTP", "Telnet", "HTTP"],
+    "correctOption": "Telnet"
+  },
+  {
+    "question": "How many colors are available in a computer monitor with 16 bits per pixel depth?",
+    "options": ["65536", "256", "16777216", "16"],
+    "correctOption": "65536"
+  },
+  {
+    "question": "Mac is a type of personal computer created by:",
+    "options": ["Apple", "Dell", "Acer", "HP"],
+    "correctOption": "Apple"
+  },
+  {
+    "question": "The main page of a website or browser is called:",
+    "options": ["master page", "Home page", "Grand Page", "first page"],
+    "correctOption": "Home page"
+  },
+  {
+    "question": "Which of the following is an output device in a computer?",
+    "options": ["Mouse", "Printers", "scanner", "web cam"],
+    "correctOption": "Printers"
+  },
+  {
+    "question": "Required to boot the computer.",
+    "options": ["Compiler", "Assembler", "operating system", "translator"],
+    "correctOption": "operating system"
+  },
+  {
+    "question": "In Microsoft Word 2016, to remove paragraph formatting, shortcut keys must be pressed.",
+    "options": ["Ctrl + M", "Ctrl + Q", "Ctrl + J", "Ctrl + Y"],
+    "correctOption": "Ctrl + Q"
+  },
+  {
+    "question": "An additional margin added to a page layout to compensate for the portion of paper rendered useless by the binding process is called:",
+    "options": ["wide margin", "reflected margin", "narrow margin", "gutter margin"],
+    "correctOption": "gutter margin"
+  },
+  {
+    "question": "The name of the world's first electronic digital computer is:",
+    "options": ["TO", "PROLOG", "UNIVAC", "ENIAC"],
+    "correctOption": "ENIAC"
+  },
+ {
+        "question": "The C++ programming language was developed by Bjelm Stoustrup initially at AT&T Bell Laboratories.",
+        "options": ["1960s",
+                    "1970s",
+                    "1980s",
+                    "1990s"],
+        "correctOption": "1980s"
+    },
+    {
+        "question": "is a simple query language used to access, handle, and manage data in relational databases.",
+        "options": ["DML",
+                    "ISO",
+                    "SQL",
+                    "DDL"],
+        "correctOption": "SQL"
+    },
+    {
+        "question": "What is the full form of ASCII?",
+        "options": ["American Standard Code for Information Interchange",
+                    "American Stable Code for Information Interchange",
+                    "American Standard Code for International Interchange",
+                    "American Stable Code for Institutional Interchange"],
+        "correctOption": "American Standard Code for Information Interchange"
+    },
+    {
+        "question": "Which of the following languages is used to process computer data?",
+        "options": ["Basic",
+                    "COBOL",
+                    "Windows",
+                    "binary"],
+        "correctOption": "binary"
+    },
+    {
+        "question": "And there are two types of sound effect files that can be added to Microsoft Power Point",
+        "options": [".wav files, .mid files",
+                    ".jpg files, .pdf files",
+                    ".wav files, .jpg files",
+                    ".doc files, .gif files"],
+        "correctOption": ".wav files, .mid files"
+    },
+    {
+        "question": "Which of the following is an input device?",
+        "options": ["Inkjet printer",
+                    "Optical character reader",
+                    "headphones",
+                    "Projector"],
+        "correctOption": "Projector"
+    },
+    {
+        "question": "Which of the following is an example of a spreadsheet?",
+        "options": ["Microsoft Excel",
+                    "Microsoft Word",
+                    "Microsoft Outlook",
+                    "Microsoft PowerPoint"],
+        "correctOption": "Microsoft Excel"
+    },
+    {
+        "question": "Which of the following is not a part of a personal computer?",
+        "options": ["ROM",
+                    "CPU",
+                    "USB",
+                    "RAM"],
+        "correctOption": "USB"
+    },
+    {
+        "question": "A domain name is a unique name given to each website on the Internet. The last part of the domain name is known as the domain extension. Which of the following is the domain extension of a government website?",
+        "options": [".net",
+                    ".mil",
+                    ".gov",
+                    ".com"],
+        "correctOption": ".gov"
+    },
+    {
+        "question": "Which of the following is not a web browser?",
+        "options": ["Google Chrome",
+                    "Wikipedia",
+                    "Mozilla Firefox",
+                    "Opera"],
+        "correctOption": "Wikipedia"
+    },
+    {
+        "question": "India's first multi-peta-op supercomputer has been installed at the Indian Institute of Tropical Meteorology (IITM), Pune. Developed at a cost of Rs 450 crore. Supercomputers are used to predict weather and climate.",
+        "options": ["direct",
+                    "ultimate",
+                    "Pratyush",
+                    "Aditya"],
+        "correctOption": "Pratyush"
+    },
+    {
+        "question": "The Internet works using a protocol called TCP/IP. What is the full form of TCP/IP?",
+        "options": ["Transmission Computer Programmer Internet Protocol",
+                    "Temporary Computer Protocol Internet Protocol",
+                    "Tele Computer Protocol Internet Protocol",
+                    "Transmission Control Protocol/Internet Protocol"],
+        "correctOption": "Transmission Control Protocol/Internet Protocol"
+    },
+    {
+        "question": "Which of the following determines how different programs exchange data over the Internet?",
+        "options": ["Bluetooth",
+                    "e-mail",
+                    "URL",
+                    "Hypertext Transfer Protocol"],
+        "correctOption": "Hypertext Transfer Protocol"
+    },
+    {
+        "question": "Which of the following is not a search engine?",
+        "options": ["Instagram",
+                    "Google",
+                    "Yahoo",
+                    "Bing"],
+        "correctOption": "Instagram"
+    },
+    {
+        "question": "Where is cache memory located?",
+        "options": ["CPU",
+                    "RAM",
+                    "WITH",
+                    "monitor"],
+        "correctOption": "CPU"
+    },
+    {
+        "question": "In MS Excel, the cell with dark boundary is called active cell.",
+        "options": ["MS Excel",
+                    "MS PowerPoint",
+                    "MS Document",
+                    "MS Word"],
+        "correctOption": "MS Excel"
+    },
+    {
+        "question": "Who among the following is one of the founders of Google?",
+        "options": ["John Koum",
+                    "Larry Page",
+                    "Jerry Yang",
+                    "Mark Zuckerberg"],
+        "correctOption": "Larry Page"
+    },
+    {
+        "question": "Which of the following is not a computer virus but is basically a computer language?",
+        "options": ["Python",
+                    "Conficker",
+                    "Code Red",
+                    "Sacer"],
+        "correctOption": "Python"
+    },
+    {
+        "question": "Which of the following is not wired broadband?",
+        "options": ["cable",
+                    "Digital Subscriber Line",
+                    "satellite",
+                    "dial up"],
+        "correctOption": "satellite"
+    },
+    {
+        "question": "Which component in the URL, https:www.d2h.com/login.php, represents the path to the web page?",
+        "options": ["www.d2h.com",
+                    "https:",
+                    "//www",
+                    "/login.php"],
+        "correctOption": "/login.php"
+    },
+    {
+        "question": "1 petabyte =",
+        "options": ["1024 MB",
+                    "1024 TB",
+                    "1024 GB",
+                    "1024 KB"],
+        "correctOption": "1024 TB"
+    },
+    {
+        "question": "What is the full form of CLI in computer terminology?",
+        "options": ["Code Line Interface",
+                    "Command Line Interface",
+                    "Control Line Interface",
+                    "Central Line Interface"],
+        "correctOption": "Command Line Interface"
+    },
+    {
+        "question": "What type of storage device is hard disk",
+        "options": ["Primary storage",
+                    "Tertiary storage",
+                    "Secondary storage",
+                    "offline storage"],
+        "correctOption": "Secondary storage"
+    },
+    {
+        "question": "Which of the following is an audio file extension?",
+        "options": ["WMA",
+                    "MOV",
+                    "WMV",
+                    "MP5"],
+        "correctOption": "WMA"
+    },
+    {
+        "question": "Which of the following is a shortcut to copy and paste a file on the desktop?",
+        "options": ["Ctrl X + Ctrl V",
+                    "Right click on the file and click on copy + right click and paste",
+                    "Ctrl C + Ctrl V",
+                    "Ctrl Z + Ctrl Y"],
+        "correctOption": "Ctrl C + Ctrl V"
+    },
+    {
+        "question": "Which of the following is called a super-network or meta-network?",
+        "options": ["MAN",
+                    "LAN",
+                    "Internet",
+                    "server"],
+        "correctOption": "Internet"
+    },
+    {
+        "question": "What is the name of the web portal launched by the Department of Telecommunications that will allow tracking of radiations emitted from mobile towers in their locality and check compliance with Electromagnetic Field (EMF) emission norms defined by the government?",
+        "options": ["wave communication",
+                    "communication service",
+                    "wave ray",
+                    "communication knowledge"],
+        "correctOption": "wave communication"
+    },
+    {
+        "question": "Who is given the credit for developing 'C' language?",
+        "options": ["Yashwant Kanetkar",
+                    "Bill Gates",
+                    "Steve Rogers",
+                    "Dennis Ritchie"],
+        "correctOption": "Dennis Ritchie"
+    },
+    {
+        "question": "Which of the following is not a hardware component of a computer?",
+        "options": ["printer",
+                    "keyboard",
+                    "memory",
+                    "mouse"],
+        "correctOption": "memory"
+    },
+    {
+        "question": "Which of the following statements is correct about computers?",
+        "options": ["An electronic device that stores, retrieves and processes data",
+                    "A computer is made up only of hardware",
+                    "A computer is made up of software only",
+                    "A computer can organize all the information automatically"],
+        "correctOption": "An electronic device that stores, retrieves and processes data"
+    },
+ {
+        "question": "Which of the following is not an operating system?",
+        "options": ["masOS",
+                    "Linux",
+                    "MS Windows",
+                    "Microsoft Office"],
+        "correctOption": "Microsoft Office"
+    },
+    {
+        "question": "The testing of computers or software prior to commercial launch. Often said",
+        "options": ["Beta testing",
+                    "Alpha testing",
+                    "Delta test",
+                    "e-test"],
+        "correctOption": "Beta testing"
+    },
+    {
+        "question": "What is the full form of COBOL?",
+        "options": ["Common business-Oriented Language",
+                    "Computer Operative Business Oriented Language",
+                    "Common Open Business Objective Language",
+                    "Computer Operative Business Objective Language"],
+        "correctOption": "Common business-Oriented Language"
+    },
+    {
+        "question": "Which of the following best describes - 'A method of storing and transmitting data in a special coded form so that only those for whom it is intended can read and process it. It involves encoding and decoding of data?",
+        "options": ["block chain",
+                    "programming",
+                    "Cryptography",
+                    "Cloud computing"],
+        "correctOption": "Cryptography"
+    },
+    {
+        "question": "What is the full form of VR in Computer Technology?",
+        "options": ["Virtual Reality",
+                    "Visual Reality",
+                    "Vocal Resonance",
+                    "Visual Range"],
+        "correctOption": "Virtual Reality"
+    },
+    {
+        "question": "Which of the following is the largest unit of memory?",
+        "options": ["petabyte",
+                    "gigabyte",
+                    "Terabyte",
+                    "megabyte"],
+        "correctOption": "petabyte"
+    },
+    {
+        "question": "What is another word for debugging?",
+        "options": ["implemented",
+                    "removing errors",
+                    "compilation",
+                    "not reading the comment"],
+        "correctOption": "removing errors"
+    },
+    {
+        "question": "COBOL language is suitable for",
+        "options": ["Creating graphical interface",
+                    "business objectives",
+                    "Scientific objective",
+                    "educational objectives"],
+        "correctOption": "business objectives"
+    },
+    {
+        "question": "What type of computer application software is Quattro Pro?",
+        "options": ["Spreadsheet software",
+                    "Database software",
+                    "Desktop publishing software",
+                    "Word processing software"],
+        "correctOption": "Spreadsheet software"
+    },
+    {
+        "question": "In 2017, ISRO created a world record by launching satellites on a single rocket from Sriharikota Spaceport in Andhra Pradesh.",
+        "options": ["101",
+                    "114",
+                    "100",
+                    "104"],
+        "correctOption": "104"
+    },
+    {
+        "question": "Which of the following is a hardware input device in a computer?",
+        "options": ["VDU",
+                    "Speech synthesizer",
+                    "scanner",
+                    "Plotter"],
+        "correctOption": "scanner"
+    },
+    {
+        "question": "Which of the following is not an example of an operating system?",
+        "options": ["MS Office",
+                    "Linux",
+                    "Unix",
+                    "Windows"],
+        "correctOption": "MS Office"
+    },
+    {
+        "question": "What is the full form of MB?",
+        "options": ["macrobyte",
+                    "Microbyte",
+                    "megabyte",
+                    "Minibyte"],
+        "correctOption": "megabyte"
+    },
+    {
+        "question": "Which of the following is not a type of social networking application?",
+        "options": ["LinkedIn",
+                    "Dwitter",
+                    "Facebook",
+                    "Hastik"],
+        "correctOption": "Hastik"
+    },
+    {
+        "question": "Which application of internet video chatting in real time uses?",
+        "options": ["Internet Published Chat (IPC)",
+                    "Internet Broadcast Chat (IBC)",
+                    "Internet Transfer Chat (ITC)",
+                    "Internet Relay Chat (IRC)"],
+        "correctOption": "Internet Relay Chat (IRC)"
+    },
+    {
+        "question": "Which function key is used to rename a specific file?",
+        "options": ["ALT + S",
+                    "F4",
+                    "CTRL + E",
+                    "F2"],
+        "correctOption": "F2"
+    },
+    {
+        "question": "What is the full form of ASCII?",
+        "options": ["Asian Schema Code for Information Interchange",
+                    "Asian Standard Code for Internet Interchange",
+                    "American Standard Code for Information Interchange",
+                    "American Standard Code for Internet Information"],
+        "correctOption": "American Standard Code for Information Interchange"
+    },
+    {
+        "question": "E-mail address India@solu.edu, What is India?",
+        "options": ["User name",
+                    "Password",
+                    "domain name",
+                    "Server name"],
+        "correctOption": "User name"
+    },
+    {
+        "question": "Which of the following is defined as 'a program that runs in the background on your computer, sending information about your browsing habits to the company that installed it on your computer'?",
+        "options": ["Greyware",
+                    "Malware",
+                    "Adware",
+                    "spyware"],
+        "correctOption": "spyware"
+    },
+    {
+        "question": "Which of the following software applications is not a part of Microsoft Office?",
+        "options": ["Excel",
+                    "Word",
+                    "Acrobat Reader",
+                    "Power Point"],
+        "correctOption": "Acrobat Reader"
+    },
+    {
+        "question": "India's fastest and first multi-petaflops (OF) supercomputer 'Pratyush' is used for what purpose?",
+        "options": ["Scientific data processing",
+                    "Drug development",
+                    "weather forecast",
+                    "Seismic data analysis"],
+        "correctOption": "weather forecast"
+    },
+    {
+        "question": "What is the official name of JavaScript",
+        "options": ["ECMAScript",
+                    "JavaScript",
+                    "virusscript",
+                    "Livescript"],
+        "correctOption": "ECMAScript"
+    },
+    {
+        "question": "What is the full form of FQDN?",
+        "options": ["File Qualified Division Name",
+                    "Frequency Query Domain Name",
+                    "Fully Qualified Disk Name",
+                    "Fully Qualified Domain Name"],
+        "correctOption": "Fully Qualified Domain Name"
+    },
+    {
+        "question": "What is the full form of BIOS?",
+        "options": ["Browser Input Operating System",
+                    "Basic Input / Output System",
+                    "Basic Input Operating System",
+                    "Browser Input / Output System"],
+        "correctOption": "Basic Input / Output System"
+    },
+    {
+        "question": "There are 100 nibbles. bit equivalent",
+        "options": ["256",
+                    "400",
+                    "512",
+                    "200"],
+        "correctOption": "400"
+    },
+    {
+        "question": "If you have Ctrl+A keys in MS Word, what are you trying to do?",
+        "options": ["Shutting down Windows",
+                    "Copying text from a file",
+                    "pasting the text",
+                    "Selecting all text"],
+        "correctOption": "Selecting all text"
+    },
+    {
+        "question": "Which of the following is not a computer programming language?",
+        "options": ["Java",
+                    "Swift",
+                    "Python",
+                    "c++++"],
+        "correctOption": "c++++"
+    },
+    {
+        "question": "Which of the following was the first supercomputer in Asia?",
+        "options": ["CRAY-3",
+                    "HITAC S-300",
+                    "PARAM",
+                    "EKA"],
+        "correctOption": ""
+    },
+    {
+        "question": "Who among the following is known as the 'Father of Indian Supercomputer'?",
+        "options": ["RA Mashelkar",
+                    "Nandan Nilekani",
+                    "Jayant Narlikar",
+                    "Vijay Bhatkar"],
+        "correctOption": "Vijay Bhatkar"
+    },
+    {
+        "question": "Google Drive, SkyDrive, and Dropbox are perfect examples of?",
+        "options": ["Internet computing",
+                    "Virtual drive",
+                    "Virtual Reality",
+                    "Cloud storage services"],
+        "correctOption": "Cloud storage services"
+    },
+ {
+        "question": "Which of the following is the wrong pair of abbreviation and its full form?",
+        "options": ["DBMS - Database management",
+                    "URL - Uniform Reserve Locator",
+                    "RAM - Ram Access Memory",
+                    "FAX - Facsimile"],
+        "correctOption": "URL - Uniform Reserve Locator"
+    },
+    {
+        "question": "An attempt to obtain sensitive information such as username, password and credit card details etc. for malicious reasons is called:",
+        "options": ["phishing",
+                    "Digging",
+                    "circling",
+                    "netting"],
+        "correctOption": "phishing"
+    },
+    {
+        "question": "'Track ball' falls in which of the following categories?",
+        "options": ["input device",
+                    "storage device",
+                    "processing equipment",
+                    "output device"],
+        "correctOption": "input device"
+    },
+    {
+        "question": "Which of the following is an output device?",
+        "options": ["keyboard",
+                    "monitor",
+                    "Joysticks",
+                    "scanner"],
+        "correctOption": "monitor"
+    },
+    {
+        "question": "SCI: The correct full form of is:",
+        "options": ["International Standard Code for Information Interchange",
+                    "International Standard Code for Indian Communication",
+                    "Indian Standard Code for Information Interchange",
+                    "Indian Standard Code for International Negotiation"],
+        "correctOption": "Indian Standard Code for Information Interchange"
+    },
+    {
+        "question": "A computer is identified on the Internet by:",
+        "options": ["Owner's e-mail address",
+                    "cryptographic code",
+                    "password",
+                    "IP address"],
+        "correctOption": "IP address"
+    },
+    {
+        "question": "Which of the following are two components of a computer's CPU?",
+        "options": ["Control unit and bus",
+                    "Control unit and ALU",
+                    "ALU and Bus",
+                    "Registers and main memory"],
+        "correctOption": "Control unit and ALU"
+    },
+    {
+        "question": "Ubuntu, Mint and Fedora have its versions:",
+        "options": ["MS DOS",
+                    "Windows 10",
+                    "Linux",
+                    "Apple Mac OS"],
+        "correctOption": "Linux"
+    },
+    {
+        "question": "Along with Paul Allen, he founded Microsoft in the year 1975.",
+        "options": ["Bill Gates",
+                    "Larry Wall",
+                    "Mark Zuckerberg",
+                    "Stephen Hawking"],
+        "correctOption": "Bill Gates"
+    },
+    {
+        "question": "What is the correct full form of RODRA?",
+        "options": ["Retired Officers Digital Records Archive",
+                    "Reinstated Officers Digital Records Archive",
+                    "Returned Officers Digital Records Archive",
+                    "Replaced Officers Digital Records Archive"],
+        "correctOption": "Retired Officers Digital Records Archive"
+    },
+    {
+        "question": "When a computer virus attaches itself to another computer program, it is called:",
+        "options": ["host program",
+                    "risky program",
+                    "backward program",
+                    "Trojan horse"],
+        "correctOption": "Trojan horse"
+    },
+    {
+        "question": "What is the full form of RDRAM?",
+        "options": ["Rambus Dynamic Random Access Memory",
+                    "Read Disc Random Access Memory",
+                    "Read Dynamic Random Arrays Material",
+                    "Removable Disc Read Access Module"],
+        "correctOption": "Rambus Dynamic Random Access Memory"
+    },
+    {
+        "question": "What is Visual Display Unit (VDU)?",
+        "options": ["storage unit",
+                    "monitor",
+                    "server",
+                    "system memory"],
+        "correctOption": "monitor"
+    },
+    {
+        "question": "What is the full form of DOS?",
+        "options": ["Device Outsourcing System",
+                    "Device Operating System",
+                    "Different Operating System",
+                    "Disk Operating System"],
+        "correctOption": "Disk Operating System"
+    },
+    {
+        "question": "Which technology is used to provide high speed Internet access on traditional lines?",
+        "options": ["ADSL",
+                    "VDU",
+                    "LAN",
+                    "Routers"],
+        "correctOption": "ADSL"
+    },
+    {
+        "question": "A dial-up connection to physically connect your computer to the phone line. Uses up.",
+        "options": ["Modem",
+                    "Ethernet",
+                    "Multiplexer",
+                    "hub"],
+        "correctOption": "Modem"
+    },
+    {
+        "question": "The shortcut key Ctrl",
+        "options": ["To paste the copied text",
+                    "To cut the selected text",
+                    "To italicize the selected text",
+                    "To copy the selected text"],
+        "correctOption": "To cut the selected text"
+    },
+    {
+        "question": "Which of the following is an example of a primary storage device?",
+        "options": ["magnetic tape",
+                    "Random access memory",
+                    "hard disk",
+                    "Optical disc"],
+        "correctOption": "Random access memory"
+    },
+    {
+        "question": "What was the first computer built without any mechanical parts by JW Mauchly and J Presper Eckert?",
+        "options": ["Mark II",
+                    "EDVAC",
+                    "Mark",
+                    "ENIAC"],
+        "correctOption": "ENIAC"
+    },
+    {
+        "question": "1 gigabyte is equal to how many megabytes in binary?",
+        "options": ["100",
+                    "3004",
+                    "2015",
+                    "1024"],
+        "correctOption": "1024"
+    },
+    {
+        "question": "Which of the following is not a web browser?",
+        "options": ["opera",
+                    "Mozilla Firefox",
+                    "Google",
+                    "Safari"],
+        "correctOption": "Google"
+    },
+    {
+        "question": "Which of the following is an output device?",
+        "options": ["MICR (Magnetic Ink Character Recognition)",
+                    "Mouse",
+                    "Printer",
+                    "OCR (Optical Character Readers)"],
+        "correctOption": "Printer"
+    },
+    {
+        "question": "The first web browser developed by the National Center for Supercomputing Applications was:",
+        "options": ["opera",
+                    "Netscape",
+                    "Mosaic",
+                    "Mozilla Firefox"],
+        "correctOption": "Mosaic"
+    },
+    {
+        "question": "Which of the following is an example of binary number system?",
+        "options": ["10010",
+                    "89056",
+                    "ABCDE",
+                    "009"],
+        "correctOption": "10010"
+    },
+    {
+        "question": "Unix, MS DOS, Linux are examples of:",
+        "options": ["computer",
+                    "Brand of printer",
+                    "operating system",
+                    "printer"],
+        "correctOption": "operating system"
+    },
+ {
+        "question": "Which of the following is not an Office package?",
+        "options": [
+            "WPS",
+            "Microsoft Office 2010",
+            "libr",
+            "quantum"
+        ],
+        "correctOption": "quantum"
+    },
+    {
+        "question": "Which of the following is not an extension of a video file?",
+        "options": [
+            "",
+            ".mov",
+            ".jpeg",
+            ".mp4"
+        ],
+        "correctOption": ".jpeg"
+    },
+    {
+        "question": "Who was one of the founders of the American computer company Sun Microsystems, which was later acquired by Oracle?",
+        "options": [
+            "Vinod Khosla",
+            "Sundar Pichai",
+            "Satya Nadella",
+            "Sabir Bhatia"
+        ],
+        "correctOption": "Vinod Khosla"
+    },
+    {
+        "question": "Which of the following is not an operating system?",
+        "options": [
+            "Java",
+            "minutes",
+            "MS Document",
+            "Ubuntu"
+        ],
+        "correctOption": "Java"
+    },
+    {
+        "question": "Which of the following is an example of non-volatile memory?",
+        "options": [
+            "LSI",
+            "RAM",
+            "ROM",
+            "VLSI"
+        ],
+        "correctOption": "ROM"
+    },
+    {
+        "question": "A computer program which converts the entire program into machine language is called",
+        "options": [
+            "Interpreter",
+            "conformer",
+            "compiler",
+            "converter"
+        ],
+        "correctOption": "compiler"
+    },
+    {
+        "question": "What was the first mechanical computer designed by Charles Babbage called?",
+        "options": [
+            "Abacus",
+            "Analytical Engine",
+            "calculator",
+            "processor"
+        ],
+        "correctOption": "Analytical Engine"
+    },
+    {
+        "question": "What is the full form of DDL in terms of computer jargon?",
+        "options": [
+            "Data Definition Language",
+            "Digital Data Logic",
+            "Dynamic Data Language",
+            "Direct Data Language"
+        ],
+        "correctOption": "Data Definition Language"
+    },
+    {
+        "question": "What are the three components of CPU in a computer?",
+        "options": [
+            "Control unit, ALU, keyboard",
+            "Control unit, ALU, memory",
+            "Monitor, memory, control unit",
+            "Monitor, ALU, memory"
+        ],
+        "correctOption": "Control unit, ALU, memory"
+    },
+    {
+        "question": "Refers to unsolicited commercial email that abounds on the Internet.",
+        "options": [
+            "Spyware",
+            "Trojan Horse",
+            "malware",
+            "Spam"
+        ],
+        "correctOption": "Spam"
+    },
+    {
+        "question": "Which of the following is not a microblogging site?",
+        "options": [
+            "Pinterest",
+            "Dwitter",
+            "Plurk",
+            "Tumblr"
+        ],
+        "correctOption": "Plurk"
+    },
+    {
+        "question": "Who discovered HTML in 1990?",
+        "options": [
+            "Tim Berners-Lee",
+            "David Noble",
+            "Ken Cramer",
+            "Niklaus Wirth"
+        ],
+        "correctOption": "Tim Berners-Lee"
+    },
+    {
+        "question": "MS DOS is an operating system that has a.",
+        "options": [
+            "Command line interface",
+            "Voice line interface",
+            "Open source origin",
+            "Graphical user interface"
+        ],
+        "correctOption": "Command line interface"
+    },
+    {
+        "question": "Which was the first social media site?",
+        "options": [
+            "LinkedIn",
+            "Six degrees",
+            "My Space",
+            "Friendster"
+        ],
+        "correctOption": "Six degrees"
+    },
+    {
+        "question": "In computer terminology, what is a nibble?",
+        "options": [
+            "Half byte",
+            "one kilobyte",
+            "one gigabyte",
+            "one terabyte"
+        ],
+        "correctOption": "Half byte"
+    },
+    {
+        "question": "What is the technology that provides high internet speed over telephone wiring called?",
+        "options": [
+            "ADSL",
+            "ALSD",
+            "ASLD",
+            "ADLS"
+        ],
+        "correctOption": "ADSL"
+    },
+    {
+        "question": "Trojan Horse is a form of ___.",
+        "options": [
+            "Virus attack",
+            "Melissa Worm",
+            "Slammer worm",
+            "Service attack"
+        ],
+        "correctOption": "Virus attack"
+    },
+    {
+        "question": "An interface between a user and hardware.",
+        "options": [
+            "memory",
+            "command",
+            "screen",
+            "operating system"
+        ],
+        "correctOption": "operating system"
+    },
+    {
+        "question": "What was India's first supercomputer called?",
+        "options": [
+            "ENIAC",
+            "SAGA 220",
+            "PARAM 8000",
+            "PARAM 6000"
+        ],
+        "correctOption": "PARAM 8000"
+    },
+    {
+        "question": "Hard disk is an example of which type of data storage device?",
+        "options": [
+            "Tertiary storage",
+            "Initial storage",
+            "Secondary storage",
+            "off-line storage"
+        ],
+        "correctOption": "Secondary storage"
+    },
+    {
+        "question": "Is connected to a modem.",
+        "options": [
+            "mouse",
+            "monitor",
+            "phone line",
+            "motherboard"
+        ],
+        "correctOption": "phone line"
+    },
+    {
+        "question": "Which of the following is not a part of computer hardware?",
+        "options": [
+            "CPU",
+            "Microsoft Office",
+            "monitor",
+            "keyboard"
+        ],
+        "correctOption": "Microsoft Office"
+    },
+    {
+        "question": "Which of the following is a volatile memory?",
+        "options": [
+            "RAM",
+            "EPROM",
+            "ROM",
+            "PROM"
+        ],
+        "correctOption": "RAM"
+    },
+    {
+        "question": "What is the full form of IDN in computer terminology?",
+        "options": [
+            "Internal Digital Networks",
+            "Input Distributed Networks",
+            "Internationalized Domain Name",
+            "Intertwined Disc Networks"
+        ],
+        "correctOption": "Internationalized Domain Name"
+    },
+    {
+        "question": "Non-volatile memory is a type of computer memory that can retain stored information even when",
+        "options": [
+            "not operate",
+            "no processing",
+            "operated intermittently",
+            "operated"
+        ],
+        "correctOption": "not operate"
+    },
+    {
+        "question": "Modern computers follow a set of instructions to perform any task. By what name are these instructions better known?",
+        "options": [
+            "program",
+            "language",
+            "command",
+            "guideline"
+        ],
+        "correctOption": "program"
+    },
+    {
+        "question": "Name the following software components of computer?",
+        "options": [
+            "memory",
+            "CMOS",
+            "program",
+            "CPU"
+        ],
+        "correctOption": "program"
+    },
+    {
+        "question": "Which of the following is a component of the Central Processing Unit?",
+        "options": [
+            "keyboard",
+            "monitor",
+            "Mouse",
+            "memory"
+        ],
+        "correctOption": "memory"
+    },
+    {
+        "question": "Which part of the CPU is responsible for all the functions of the computer? Coordinates tasks?",
+        "options": [
+            "motherboard",
+            "keyboard",
+            "control unit",
+            "mouse"
+        ],
+        "correctOption": "control unit"
+    },
+    {
+        "question": "Spam is one",
+        "options": [
+            "Unsolicited email",
+            "application",
+            "operating system",
+            "news group"
+        ],
+        "correctOption": "Unsolicited email"
+    },
+ {
+        "question": "What is the correct full form of 'VIRUS' in computer programming?",
+        "options": [
+            "Vital Inter Change Result Until Source",
+            "Vital Information Resources Under Seize",
+            "Vital Information Recognize Search",
+            "Vital Information Record User Seize"
+        ],
+        "correctOption": "Vital Information Resources Under Seize"
+    },
+    {
+        "question": "What is the full form of DPI in relation to digital images?",
+        "options": [
+            "data per inch",
+            "dots per inch",
+            "decimal per inch",
+            "points per inch"
+        ],
+        "correctOption": "dots per inch"
+    },
+    {
+        "question": "What are peripheral devices?",
+        "options": [
+            "These devices help in storing and analyzing data",
+            "Which helps in calculation",
+            "These are internal or external devices that connect directly to the computer but do not contribute to the primary functions of the computer.",
+            "Which connect computers to the Internet"
+        ],
+        "correctOption": "These are internal or external devices that connect directly to the computer but do not contribute to the primary functions of the computer."
+    },
+    {
+        "question": "Which of the following is an advantage of LAN?",
+        "options": [
+            "Sharing external devices",
+            "saving all data",
+            "supporting data",
+            "Automatic pricing of data"
+        ],
+        "correctOption": "Sharing external devices"
+    },
+    {
+        "question": "Which of the following is not a part of the MS Office suite?",
+        "options": [
+            "Power Point",
+            "project",
+            "Excel",
+            "Word"
+        ],
+        "correctOption": "project"
+    },
+    {
+        "question": "MB is computer language which is the abbreviation of which of the following?",
+        "options": [
+            "megabyte",
+            "masterboot",
+            "Megaboost",
+            "Megabit"
+        ],
+        "correctOption": "Megabit"
+    },
+    {
+        "question": "Which of the following is not an internal part of a computer?",
+        "options": [
+            "Rem",
+            "flash drive",
+            "video card",
+            "motherboard"
+        ],
+        "correctOption": "flash drive"
+    },
+    {
+        "question": "Computer operating system is an example",
+        "options": [
+            "Application software",
+            "System software",
+            "Hardware",
+            "Application platform"
+        ],
+        "correctOption": "System software"
+    },
+    {
+        "question": "Which of the following is not an Internet browser?",
+        "options": [
+            "Chrome",
+            "Safari",
+            "Panda",
+            "Phyox"
+        ],
+        "correctOption": "Panda"
+    },
+    {
+        "question": "'PSD' is a file extension for which type of computer file?",
+        "options": [
+            "Adobe Acrobat",
+            "Adobe Photoshop",
+            "Microsoft Word",
+            "PaintShop Pro"
+        ],
+        "correctOption": "Adobe Photoshop"
+    },
+    {
+        "question": "Which of the following is an output device in the context of computer system?",
+        "options": [
+            "track ball",
+            "Plotter",
+            "Light pen",
+            "Magnetic scanner"
+        ],
+        "correctOption": "Plotter"
+    },
+    {
+        "question": "Known as a network designed and restricted to be used by external vendors or customers of a particular company.",
+        "options": [
+            "Externalnet",
+            "Internet",
+            "extranet",
+            "Intranet"
+        ],
+        "correctOption": "extranet"
+    },
+    {
+        "question": "Which of the following is not a valid range of alignment in Microsoft Word?",
+        "options": [
+            "left",
+            "Vertical",
+            "Justify",
+            "right"
+        ],
+        "correctOption": "Vertical"
+    },
+    {
+        "question": "COBOL language is an example of generational programming",
+        "options": [
+            "1st",
+            "4th",
+            "2nd",
+            "3rd"
+        ],
+        "correctOption": "3rd"
+    },
+    {
+        "question": "Which of the following is not database software used on computers?",
+        "options": [
+            "FoxPro",
+            "MS Word",
+            "MS Access",
+            "Oracle"
+        ],
+        "correctOption": "MS Word"
+    },
+    {
+        "question": "What is peta byte equal to?",
+        "options": [
+            "1024GB",
+            "1024 PB",
+            "1024 TB",
+            "1024 KB"
+        ],
+        "correctOption": "1024 PB"
+    },
+    {
+        "question": "Which of the following is not a type of desktop operating system?",
+        "options": [
+            "Windows",
+            "Mac",
+            "Android",
+            "Linux"
+        ],
+        "correctOption": "Android"
+    },
+    {
+        "question": "To the CPU. It is called",
+        "options": [
+            "Computer brain",
+            "Backbone of computer",
+            "Heart of computer",
+            "Lung of computer"
+        ],
+        "correctOption": "Computer brain"
+    },
+    {
+        "question": "Junk Email is also known as",
+        "options": [
+            "pieces",
+            "Spam",
+            "spoof",
+            "inbox"
+        ],
+        "correctOption": "Spam"
+    },
+    {
+        "question": "arrange in ascending order megabyte, terabyte, kilobyte, gigabyte",
+        "options": [
+            "megabyte, terabyte, gigabyte, kilobyte",
+            "Kilobyte, Megabyte, Gigabyte, Terabyte",
+            "Kilobyte, Megabyte, Terabyte, Gigabyte",
+            "kilobyte, gigabyte, megabyte, terabyte"
+        ],
+        "correctOption": "Kilobyte, Megabyte, Gigabyte, Terabyte"
+    },
+    {
+        "question": "Which of the following is an input device?",
+        "options": [
+            "Mouse",
+            "Printers",
+            "speaker",
+            "monitor"
+        ],
+        "correctOption": "Mouse"
+    },
+    {
+        "question": "Which is the primary memory of computer?",
+        "options": [
+            "RAM",
+            "DVD",
+            "USB",
+            "CD"
+        ],
+        "correctOption": "RAM"
+    },
+    {
+        "question": "What are the shortcut keys to paste copied text?",
+        "options": [
+            "Ctrl + C",
+            "Ctrl + X",
+            "Ctrl + V",
+            "Ctrl + P"
+        ],
+        "correctOption": "Ctrl + V"
+    },
+    {
+        "question": "What is EB equivalent to?",
+        "options": [
+            "1024GB",
+            "1024 PB",
+            "1024 TB",
+            "1024 MB"
+        ],
+        "correctOption": "1024 PB"
+    },
+    {
+        "question": "Which of the following computer viruses damages the formatting of the document and does not allow it to be edited?",
+        "options": [
+            "File virus",
+            "macro virus",
+            "worm",
+            "Boot sector virus"
+        ],
+        "correctOption": "macro virus"
+    },
+    {
+        "question": "What is the capacity of 3.5 inch floppy disk?",
+        "options": [
+            "1.40 MB",
+            "1.44 MB",
+            "1GB",
+            "2.44 MB"
+        ],
+        "correctOption": "1.44 MB"
+    },
+    {
+        "question": "Which of the following is not an output device for a computer?",
+        "options": [
+            "printer",
+            "scanner",
+            "Projector",
+            "monitor"
+        ],
+        "correctOption": "scanner"
+    },
+    {
+        "question": "Which of the following is not a supercomputer?",
+        "options": [
+            "PARAM",
+            "EKA",
+            "Cray - 3",
+            "PDA"
+        ],
+        "correctOption": "PDA"
+    },
+    {
+        "question": "What is the acronym for Programmable Read Only Memory?",
+        "options": [
+            "RAM",
+            "PPROM",
+            "ROM",
+            "PROM"
+        ],
+        "correctOption": "PROM"
+    },
+    {
+        "question": "1 gigabyte is equal to:",
+        "options": [
+            "1000 megabytes",
+            "100 megabytes",
+            "10 megabytes",
+            "10000 megabytes"
+        ],
+        "correctOption": "1000 megabytes"
+    },
+ {
+        "question": "Which of the following is not open source software?",
+        "options": [
+            "Android",
+            "Linux",
+            "Microsoft Office",
+            "Mozilla Firefox"
+        ],
+        "correctOption": "Microsoft Office"
+    },
+    {
+        "question": "Full form of WORM is:",
+        "options": [
+            "Write once, read many",
+            "Wireless once, receive many",
+            "Write others, read me",
+            "World open, receive many"
+        ],
+        "correctOption": "Write once, read many"
+    },
+    {
+        "question": "Which of the following is not database software in computers?",
+        "options": [
+            "MS Access",
+            "Oracle",
+            "Foxpro",
+            "MS Word"
+        ],
+        "correctOption": "MS Word"
+    },
+    {
+        "question": "In the context of Internet, the full form of ISP is:",
+        "options": [
+            "Internet service provider",
+            "Personal service provider",
+            "Internet security provisions",
+            "Personal security provisions"
+        ],
+        "correctOption": "Internet service provider"
+    },
+    {
+        "question": "A typewriter-like device, which is used to send data or commands to a computer, is called:",
+        "options": [
+            "Joystick",
+            "Optical Character Reader (OCR)",
+            "Mouse",
+            "keyboard"
+        ],
+        "correctOption": "keyboard"
+    },
+    {
+        "question": "In Microsoft Word 2016, what happens when we press the keyboard shortcut 'Ctrl + E'?",
+        "options": [
+            "Selected text is made bold",
+            "A pop-up prompting you to open a new file",
+            "The selected text is cut off",
+            "The selected text is center aligned."
+        ],
+        "correctOption": "The selected text is center aligned."
+    },
+    {
+        "question": "Which of the following devices/interfaces was invented by Douglas Engelbart?",
+        "options": [
+            "compact disc",
+            "USB port",
+            "floppy disk",
+            "computer mouse"
+        ],
+        "correctOption": "computer mouse"
+    },
+    {
+        "question": "'Pen Drive' was invented by IBM in the year.",
+        "options": [
+            "2003",
+            "1988",
+            "1990",
+            "1998"
+        ],
+        "correctOption": "1998"
+    },
+    {
+        "question": "Microsoft Corporation was established in 1975.",
+        "options": [
+            "Albuquerque, New Mexico, United States",
+            "Nihonbashi, Tokyo, Japan",
+            "Cupertino, California, United States.",
+            "Bellevue, Washington, United States"
+        ],
+        "correctOption": "Albuquerque, New Mexico, United States"
+    },
+    {
+        "question": "Which of the following is the extension of Microsoft Word files?",
+        "options": [
+            "docx",
+            "mwd",
+            "dcox",
+            "docd"
+        ],
+        "correctOption": "docx"
+    },
+    {
+        "question": "Alt + Tab is a shortcut:",
+        "options": [
+            "To open editing options in the current program.",
+            "To switch between open programs",
+            "File menu option in the current program to open",
+            "To cut a selected object"
+        ],
+        "correctOption": "To switch between open programs"
+    },
+    {
+        "question": "A hardware device that is usually located on the motherboard of a computer and serves as the internal memory of the CPU.",
+        "options": [
+            "DVD-ROM",
+            "Floppy",
+            "CD-ROM",
+            "RAM"
+        ],
+        "correctOption": "RAM"
+    },
+    {
+        "question": "In the context of computing, which of the following is not an input device?",
+        "options": [
+            "mouse",
+            "scanner",
+            "barcode reader",
+            "Projector"
+        ],
+        "correctOption": "Projector"
+    },
+    {
+        "question": "Which of the following computer devices is not an output device?",
+        "options": [
+            "computer screen",
+            "headphones",
+            "Mouse",
+            "printer"
+        ],
+        "correctOption": "Mouse"
+    },
+    {
+        "question": "Which of the following network types covers the largest geographic area?",
+        "options": [
+            "LAN",
+            "WAN",
+            "MAN",
+            "PAN"
+        ],
+        "correctOption": "WAN"
+    },
+    {
+        "question": "A shared network within an organization that enables all its employees to communicate with each other is called.",
+        "options": [
+            "internet",
+            "extranet",
+            "delnet",
+            "intranet"
+        ],
+        "correctOption": "intranet"
+    },
+    {
+        "question": "Which of the following is a graphical web browser based on the WebKit browser engine?",
+        "options": [
+            "Appy Pie Design",
+            "Adobe Illustrator",
+            "Safari",
+            "CorelDRAW"
+        ],
+        "correctOption": "Safari"
+    },
+    {
+        "question": "A group of four bits is called:",
+        "options": [
+            "megabyte",
+            "Nibble",
+            "byte",
+            "Kilobyte"
+        ],
+        "correctOption": "Nibble"
+    },
+    {
+        "question": "Which of the following is a computer utility program?",
+        "options": [
+            "Inventory control system",
+            "shareware",
+            "package software",
+            "Disk Defragmenter"
+        ],
+        "correctOption": "Disk Defragmenter"
+    },
+    {
+        "question": "Which of the following is not a computer input device?",
+        "options": [
+            "Joystick",
+            "Optical mark recognition",
+            "Light pen",
+            "Plotter"
+        ],
+        "correctOption": "Plotter"
+    },
+    {
+        "question": "Which of the following is a computer programming language?",
+        "options": [
+            "Scratch",
+            "BOSS",
+            "Norton",
+            "UNIX"
+        ],
+        "correctOption": "Scratch"
+    },
+    {
+        "question": "Which of the following is not a version of Android mobile operating system?",
+        "options": [
+            "Candy Bean",
+            "Lollipop",
+            "pie",
+            "Marshmallows"
+        ],
+        "correctOption": "Candy Bean"
+    },
+    {
+        "question": "Which of the following is a multi-user operating system?",
+        "options": [
+            "Unix",
+            "MS-DOS",
+            "Windows 7",
+            "iOS"
+        ],
+        "correctOption": "Unix"
+    },
+    {
+        "question": "Pixel is:",
+        "options": [
+            "a computer program",
+            "A programming language",
+            "smallest part of a picture",
+            "A picture stored in secondary memory"
+        ],
+        "correctOption": "smallest part of a picture"
+    },
+    {
+        "question": "The introductory page of a website, which typically serves as a table of contents for the site. known as",
+        "options": [
+            "desk page",
+            "Home page",
+            "title page",
+            "tool page"
+        ],
+        "correctOption": "Home page"
+    },
+    {
+        "question": "What is Linux?",
+        "options": [
+            "app",
+            "Software",
+            "operating system",
+            "Hardware"
+        ],
+        "correctOption": "operating system"
+    },	
+                
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

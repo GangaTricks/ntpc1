@@ -1,0 +1,5584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTPC Geography 2021</title> 
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Geography NTPC 2021 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+function showQuestion() {
+
+correctOptionText = ''; // Initialize correctOptionText
+    // Rest of your existing showQuestion code
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+
+// Copy question and options
+const copyButton = document.querySelector('.btn-copy');
+copyButton.addEventListener('click', () => {
+    const questionText = document.querySelector('#question').textContent;
+    const optionElements = document.querySelectorAll('.form-check-label');
+    
+    let optionsText = '';
+    let correctOptionText = null;
+    let correctOptionIndex = null;
+
+    optionElements.forEach((optionElement, index) => {
+        const optionText = optionElement.textContent.trim();
+        const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+        optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? ' ☑️Correct' : ''}\n`;
+
+        if (isCorrect) {
+            correctOptionText = optionText;
+            correctOptionIndex = index + 1;
+        }
+    });
+
+    let textToCopy = `${questionText}\n\n${optionsText}\n`;
+
+    if (correctOptionText && correctOptionIndex) {
+        textToCopy += `The Correct Option ${correctOptionIndex}: ${correctOptionText}\n                 ☑️Correct  ☑️Correct\n`;
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+
+    // Toggle button text
+    copyButton.textContent = '✅';
+    setTimeout(() => {
+        copyButton.textContent = '📋';
+    }, 2000); // Reset text after 2 seconds
+});
+
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'technologyntpc2021underntpcfacts';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+    const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+	
+	 // Update correctOptionText for copying
+        correctOptionText = `correctOption ${correctOptionIndex + 1}: ${currentQuestion.correctOption}`;
+		
+	
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+
+  {
+    "question": "0.1. of the mainland of which Indian state coastline is the longest",
+    "options": ["Maharashtra", "Kerala", "Gujarat", "Orissa"],
+    "correctOption": "Gujarat"
+  },
+  {
+    "question": "0.2. Lakshadweep Islands and Andaman and To indicate the coastline of Nicobar Islands The approximate total length of India's coastline is How much is it?",
+    "options": ["14523 km", "5717 km", "7517 km", "5423 km"],
+    "correctOption": "7517 km"
+  },
+  {
+    "question": "0.3. Coromandel Coast home to the following two states?",
+    "options": ["Maharashtra and Gujarat", "Punjab and NCR", "West Bengal and Jharkhand", "Tamil Nadu and Andhra Pradesh"],
+    "correctOption": "Tamil Nadu and Andhra Pradesh"
+  },
+  {
+    "question": "0.4. Which of the following states of Pakistan Is it not at the limit?",
+    "options": ["Gujarat", "Punjab", "Rajasthan", "Haryana"],
+    "correctOption": "Punjab"
+  },
+  {
+    "question": "0.5. Which strip of water is India and Sri Lanka separates?",
+    "options": ["Lombok Strait", "S&S line", "Strait of Malacca", "Palk Strait"],
+    "correctOption": "Palk Strait"
+  },
+  {
+    "question": "0.6. Which of the following neighboring countries Pakistan Formed by the strait and Gulf of Mannar separated from India by a narrow channel of sea It happens?",
+    "options": ["Sri Lanka", "Maldives", "Pakistan", "Nepal"],
+    "correctOption": "Sri Lanka"
+  },
+  {
+    "question": "0.7. Which of the following states is Bangladesh Does not share its border with?",
+    "options": ["Mizoram", "Manipur", "Tripura", "Meghalaya"],
+    "correctOption": "Manipur"
+  },
+  {
+    "question": "0.8. India is its longest international land shares border",
+    "options": ["Pakistan", "China", "Bhutan", "Bangladesh"],
+    "correctOption": "Bangladesh"
+  },
+  {
+    "question": "0.9. Which of the following A from India and Is there a border between Pakistan?",
+    "options": ["Radcliffe Line", "Hindenburg Line", "S&S line", "Mannerheim line"],
+    "correctOption": "Radcliffe Line"
+  },
+  {
+    "question": "0.10. How many Indian states share their relations with Nepal? share a border?",
+    "options": ["5", "4", "8", "3"],
+    "correctOption": "5"
+  },
+  {
+    "question": "0.11. Which of the following states is Borders of other States/Union Territories Shares with the maximum number?",
+    "options": ["Chhattisgarh", "Madhya Pradesh", "Rajasthan", "Uttar Pradesh"],
+    "correctOption": "Uttar Pradesh"
+  },
+  {
+    "question": "0.12. 'Following in the Seven Sisters of Sfear Which of the following states is not included?",
+    "options": ["Meghalaya", "HUA State", "Nagaland", "Sikkim"],
+    "correctOption": "Sikkim"
+  },
+  {
+    "question": "0.13. Which of the following states of Nepal Does not share land border with?",
+    "options": ["Jharkhand", "West Bengal", "Uttarakhand", "Bihar"],
+    "correctOption": "Jharkhand"
+  },
+  {
+    "question": "0.14. Which of the following states of India Does not share any border with Nepal?",
+    "options": ["Uttar Pradesh", "Tripura", "Bihar", "Uttarakhand"],
+    "correctOption": "Tripura"
+  },
+  {
+    "question": "0.15. Which of the following statements is not correct?",
+    "options": ["Sikkim is the least populated in India the state is", "The capital of Mizoram is Kohima", "Rajasthan is the largest in terms of area. Indian state is", "Formation of Telangana state on 2 June 2014 it was done"],
+    "correctOption": "The capital of Mizoram is Kohima"
+  },
+  {
+    "question": "0.16. Which of the following Indian states Located on Bangladesh border?",
+    "options": ["Mizoram, Tripura, Sikkim, Manipur, West Bengal", "West Bengal, Assam, Sikkim, Nagaland, Meghalaya", "Sikkim, Nagaland, Meghalaya, West Bengal, Mizoram", "West Bengal, Assam, Meghalaya, Tripura, Mizoram"],
+    "correctOption": "West Bengal, Assam, Meghalaya, Tripura, Mizoram"
+  },
+  {
+    "question": "0.17. Nepal shares with how many states of India? Shares your range?",
+    "options": ["4", "6", "5", "3"],
+    "correctOption": "5"
+  },
+  {
+    "question": "0.18. StS line divides which two countries does?",
+    "options": ["Afghanistan – Pakistan", "India-Bangladesh", "India-Nepal", "Pakistan-China"],
+    "correctOption": "Afghanistan – Pakistan"
+  },
+  {
+    "question": "0.19. Radcliffe Line between which international The limit has become:",
+    "options": ["India and Bangladesh", "India and China", "India and Pakistan", "India and Nepal"],
+    "correctOption": "India and Pakistan"
+  },
+  {
+    "question": "0.20. According to agricultural census 2015-16 Operating in which of the following states? The number of landholders is highest.",
+    "options": ["Rajasthan", "Bihar", "Uttar Pradesh", "HET"],
+    "correctOption": "Uttar Pradesh"
+  },
+  {
+    "question": "0.21. Bhutan belongs to which of the following Indian Does not share its border with the state?",
+    "options": ["Assam", "West Bengal", "Sikkim", "Odisha"],
+    "correctOption": "Odisha"
+  },
+  {
+    "question": "0.22. Which option is best for Equinox? Can describe?",
+    "options": ["The Earth is revolving around the Sun.", "The North Pole is inclined towards the Sun.", "Neither pole is inclined towards the Sun.", "The South Pole is inclined towards the Sun."],
+    "correctOption": "Neither pole is inclined towards the Sun."
+  },
+  {
+    "question": "Q.126. process of water seeping into the ground ___is referred to as.",
+    "options": ["Bawaris", "Sid: Filtration", "RU", "Aquifer"],
+    "correctOption": "Sid: Filtration"
+  },
+  {
+    "question": "Q.127. By Pattiseema Lift Irrigation Project Which two rivers have been connected?",
+    "options": ["Godavari and Kaveri", "Godavari and Mahanadi", "Godavari and Krishna", "Godavari and Narmada"],
+    "correctOption": "Godavari and Krishna"
+  },
+  {
+    "question": "0.128. Tsangpo and Dihang are the other rivers of which river? are the names?",
+    "options": ["Ganga", "Indus", "Yamuna", "Brahmaputra"],
+    "correctOption": "Brahmaputra"
+  },
+  {
+    "question": "Q.129. On which of the following rivers independent When was India's first river dam built?",
+    "options": ["Krishna", "Yamuna", "Ganga", "Damodar"],
+    "correctOption": "Damodar"
+  },
+  {
+    "question": "Q.130. Which of the following in India The multipurpose project is built on Narmada River?",
+    "options": ["Farakka Project", "Korba Project", "Sardar Sarovar Project", "Mettur Project"],
+    "correctOption": "Sardar Sarovar Project"
+  },
+  {
+    "question": "Q.131. Where is Heads Lake located?",
+    "options": ["Assam", "Gujarat", "Jammu and Kashmir", "Andhra Pradesh"],
+    "correctOption": "Andhra Pradesh"
+  },
+  {
+    "question": "Q.132. Jog Falls, India's highest Waterfall is also known as",
+    "options": ["Yena Falls", "Chachai Falls", "Gersoppa Falls", "Shivnasamudr waterfalls"],
+    "correctOption": "Gersoppa Falls"
+  },
+  {
+    "question": "0.133. Which of the following rivers of India Flows from east to west?",
+    "options": ["Herat", "Godavari", "Narmada", "Tungabhadra"],
+    "correctOption": "Narmada"
+  },
+  {
+    "question": "Q.134. Which of the following ports Located on the east coast of India?",
+    "options": ["Kandla", "Kochi", "Nhawa Shewa", "Tuticorin"],
+    "correctOption": "Tuticorin"
+  },
+  {
+    "question": "Q.135. area between bari doab Is.",
+    "options": ["Beas and Ravi", "Satluj and Ravi", "Ud and Ganga", "Beas and Sutlej"],
+    "correctOption": "Beas and Ravi"
+  },
+  {
+    "question": "0.136. Mechi River is a tributary of which river? ?",
+    "options": ["Hooghly", "Sega", "Mahananda", "Ganga"],
+    "correctOption": "Mahananda"
+  },
+  {
+    "question": "Q.137. Which of the following canal system Not in Haryana?",
+    "options": ["Western Yamuna Canal", "Bhakra Canal System", "TSH Canal", "Nangal Canal"],
+    "correctOption": "TSH Canal"
+  },
+  {
+    "question": "0.138. Which of the following lakes The largest fresh water lake in north-eastern India @?",
+    "options": ["sa lake", "kolleru lake", "Loktak Lake", "Pulicat Lake"],
+    "correctOption": "Loktak Lake"
+  },
+  {
+    "question": "0.139. Majuli (Assam) river island is located in which river? is made of?",
+    "options": ["Brahmaputra", "Krishna", "Narmada", "Kaveri"],
+    "correctOption": "Brahmaputra"
+  },
+  {
+    "question": "Q.140. Indira Gandhi Canal Command area first What was it called?",
+    "options": ["Punjab Canal", "Rajasthan Canal", "Haryana Canal", "Gujarat Canal"],
+    "correctOption": "Rajasthan Canal"
+  },
+  {
+    "question": "0.141. Which of the following is of Himalayan origin? Is there no river?",
+    "options": ["Jhelum", "Mahanadi", "Yamuna", "Ganga"],
+    "correctOption": "Herat"
+  },
+  {
+    "question": "Q.142. 'Paithan Hydroelectric Project' in India where is located?",
+    "options": ["Maharashtra", "Rajasthan", "West Bengal", "Uttar Pradesh"],
+    "correctOption": "Maharashtra"
+  },
+  {
+    "question": "0.143. Which of the following is not correctly matched? @",
+    "options": ["Tehri Dam-Maharashtra", "Hirakud Dam-Orissa", "Sardar Sarovar Dam-Gujarat", "Bhakra Dam-Himachal Pradesh"],
+    "correctOption": "Tehri Dam-Maharashtra"
+  },
+  {
+    "question": "0.144. Where does the SSH of Brahmaputra river originate?",
+    "options": ["Gangotri", "Gaumukh", "Tso cel Lake", "Mansarovar Lake"],
+    "correctOption": "Manasarovar Lake"
+  },
+  {
+    "question": "0.145. In which state is Jog Falls located?",
+    "options": ["Telangana", "Arunachal Pradesh", "Nagaland", "Karnataka"],
+    "correctOption": "Karnataka"
+  },
+  {
+    "question": "0.146. Select the pair that matches correctly does not eat (the river on which the dam was built )I",
+    "options": ["Indira Sagar Dam – Narmada River", "Nathpa Jhakri Dam – Jhelum River", "Nagarjuna Sagar Dam – Krishna River", "Tehri Dam – Bhagirathi River"],
+    "correctOption": "Nathpa Jhakri Dam – Jhelum River"
+  },
+  {
+    "question": "0.147. Known as Jamuna in Bangladesh Wali river is called in India",
+    "options": ["Brahmaputra", "Ganga", "Narmada", "Indus"],
+    "correctOption": "Brahmaputra"
+  },
+  {
+    "question": "0.148. India's largest salt water lake where is located?",
+    "options": ["UR Desert Region", "Krishna Sect", "Ganga Sect", "HeMdtscel"],
+"correctOption": "HeMdtsccl"
+},
+{
+"question": "Q.149. How many types of Indian river system it occurs?",
+"options": ["4", "2", "1", "3"],
+"correctOption": "2"
+},
+{
+"question": "0.150. Which of the following is found in Antarctica Not an Indian research base?",
+"options": ["South Yamunotri", "Bharati", "South Gangotri", "Maitri"],
+"correctOption": "South Yamunotri"
+},
+  {
+    "question": "Q.251. Which option is correct for Tangya system? describes?",
+    "options": [
+      "It is management and conservation of forests and barren To achieve afforestation on land",
+      "It is around trees or bushes or crops or a system of growing among pastures",
+      "It is cultivated between rows of planted trees is a system of growing crops",
+      "It improves the fertility of the soil to set fire to one piece"
+    ],
+    "correctOption": "It is cultivated between rows of planted trees is a system of growing crops"
+  },
+  {
+    "question": "Q.252. Which of the following drought-tolerant crops Known as?",
+    "options": [
+      "Jute",
+      "Rice",
+      "Millet",
+      "Sugarcane"
+    ],
+    "correctOption": "Millet"
+  },
+  {
+    "question": "Q.253. Which of the following is called 'Golden Fiber' Known as?",
+    "options": [
+      "Maize",
+      "Jute",
+      "Cotton",
+      "Millet"
+    ],
+    "correctOption": "Jute"
+  },
+  {
+    "question": "Q.254. What type of Ganga-Brahmaputra in Sccl Where is natural vegetation found?",
+    "options": [
+      "Wedd trees",
+      "Indian chestnut tree",
+      "Hula tree",
+      "Shisham tree"
+    ],
+    "correctOption": "Mangrove trees"
+  },
+  {
+    "question": "Q.255. Brazilian A Coffee. gardens To is referred to as",
+    "options": [
+      "Tanzania",
+      "Miranda",
+      "Torino",
+      "Fazenda"
+    ],
+    "correctOption": "Fazenda"
+  },
+  {
+    "question": "Q.256. Where is tundra vegetation found",
+    "options": [
+      "Eastern Ghats",
+      "Central Plains Region",
+      "Himalayan region",
+      "Western Ghats"
+    ],
+    "correctOption": "Himalayan region"
+  },
+  {
+    "question": "Q.257. Hydroponics' means that type of from farming in which",
+    "options": [
+      "Farming is done using machines",
+      "Crops are sown in large areas",
+      "Plant plants in mineral nutrient solutions and grown without soil",
+      "Cultivation of crops and rearing of animals Is done together."
+    ],
+    "correctOption": "Plant plants in mineral nutrient solutions and grown without soil"
+  },
+  {
+    "question": "Q.258. Or 'Meethi Kranti' is related to whose production? ?",
+    "options": [
+      "Us",
+      "Honey",
+      "Sugar",
+      "Sugarcane"
+    ],
+    "correctOption": "Honey"
+  },
+  {
+    "question": "Q.259. Which period in India was known as 'Golden Revolution' Known by?",
+    "options": [
+      "1991-2001",
+      "1991-2002",
+      "1991-2003",
+      "1990-2001"
+    ],
+    "correctOption": "1991-2003"
+  },
+  {
+    "question": "Q.260. separating cotton fibers from seeds The process of is called:",
+    "options": [
+      "Pals",
+      "Carding",
+      "Scutching",
+      "Ginning"
+    ],
+    "correctOption": "Ginning"
+  },
+  {
+    "question": "Q.261. Which of the following plantations Help prevent soil erosion in the desert does?",
+    "options": [
+      "Shelterbelt",
+      "Contour tillage",
+      "Strip farming",
+      "Agroforestry"
+    ],
+    "correctOption": "Shelterbelt"
+  },
+  {
+    "question": "Q.262. Major rice crop in India Which one is weed?",
+    "options": [
+      "Parthenium hysterophorus (Congress grass)",
+      "Echinochloa crucigalli (Barnyard grass)",
+      "Elymus repens (couch grass)",
+      "Phalaris minor (small canary grass)"
+    ],
+    "correctOption": "Echinochloa crucigalli (Barnyard grass)"
+  },
+  {
+    "question": "Q.263. Which of the following is called golden fiber is referred to as?",
+    "options": [
+      "Sandalwood",
+      "Wheat",
+      "Jute",
+      "Mustard"
+    ],
+    "correctOption": "Jute"
+  },
+  {
+    "question": "Q.264. In decreasing order of sugarcane production in 2019 Arrange the following states of India. (A) Karnataka (8) Uttar Pradesh (0) Maharashtra",
+    "options": [
+      "A, B, C",
+      "B, C, A",
+      "C, A, C",
+      "B, A, C"
+    ],
+    "correctOption": "B, C, A"
+  },
+  {
+    "question": "Q.265. Which of the following is endangered Publishes the Red List of Species?",
+    "options": [
+      "WWF",
+      "WNO",
+      "UNEP",
+      "IUCN"
+    ],
+    "correctOption": "IUCN"
+  },
+  {
+    "question": "Q.266. World's Lightest SA Wed A HA is received :",
+    "options": [
+      "fossil",
+      "sheep",
+      "Nilgai",
+      "Lama"
+    ],
+    "correctOption": "Tibetan antelope"
+  },
+  {
+    "question": "Q.267. Which of the following Kharif crops Not there?",
+    "options": [
+      "Wheat",
+      "Sorghum",
+      "Millet",
+      "Paddy"
+    ],
+    "correctOption": "Wheat"
+  },
+  {
+    "question": "Q.268. Which of the following forest plants/trees The roots are submerged in water",
+    "options": [
+      "Speak वन",
+      "Cedar forest",
+      "Thorny forests and bushes",
+      "Tropical deciduous forest"
+    ],
+    "correctOption": "Mangrove forest"
+  },
+  {
+    "question": "Q.269. All of the following are Kharif wads, subject",
+    "options": [
+      "Ragi",
+      "Maize",
+      "Millet",
+      "Wheat"
+    ],
+    "correctOption": "Wheat"
+  },
+  {
+    "question": "Q.270. vet aA__'s HT important It is an industrial area.",
+    "options": [
+      "France",
+      "Germany",
+      "Denmark",
+      "Hungary"
+    ],
+    "correctOption": "Germany"
+  },
+  {
+    "question": "Q.271. In which of the following places uranium famous for mining",
+    "options": [
+      "Korba",
+      "Panna",
+      "Raniganj",
+     
+"Jaduguda"
+],
+"correctOption": "Jaduguda"
+},
+{
+"question": "Q.272. Largest producer of gold in India Which state is it?",
+"options": [
+"Telangana",
+"Karnataka",
+"Chhattisgarh",
+"Jharkhand"
+],
+"correctOption": "Karnataka"
+},
+{
+"question": "Q.273. Usha Steel Plant started by the then President of India The first happened with the inauguration of the wind furnace.",
+"options": [
+"1968",
+"1969",
+"1959",
+"1958"
+],
+"correctOption": "1959"
+},
+{
+"question": "Q.274. Which of the following cities is located in the state Most important with about half the cotton mills Has emerged as a centre?",
+"options": [
+"Hex",
+"Bengal",
+"Coimbatore",
+"das"
+],
+"correctOption": "Coimbatore"
+},
+{
+"question": "Q.275. Bokaro Steel Plant, which opened in 1972 Started its operations in India, whose Was it installed with help?",
+"options": [
+"Canada",
+"America",
+"Britain",
+"Soviet Union"
+],
+"correctOption": "Soviet Union"
+},
+  {
+    "question": "Q.376. Netaji Subhash Chandra Bose International Airport Where is the base located?",
+    "options": [
+      "Siliguri",
+      "Bhubaneswar",
+      "Kolkata",
+      "Hyderabad"
+    ],
+    "correctOption": "Kolkata"
+  },
+  {
+    "question": "Q.377. Which of the following programs Is it related to the development of road transport in India?",
+    "options": [
+      "NRHM",
+      "NREGP",
+      "Golden Quadrilateral",
+      "MNREGA"
+    ],
+    "correctOption": "Golden Quadrilateral"
+  },
+  {
+    "question": "Q.378. Which of the following ports Is not located on the east coast of India?",
+    "options": [
+      "Haldia",
+      "Kandla",
+      "Tuticorin",
+      "Paradip"
+    ],
+    "correctOption": "Kandla"
+  },
+  {
+    "question": "Q.379. Lumbini, Bodhgaya, Sarnath and Kushinagar Which of the following special trains to go Can be taken?",
+    "options": [
+      "Buddhist train",
+      "Buddhist tourist train",
+      "Buddhist Circuit Tourist Train",
+      "Buddhist Express Special Tourist Train"
+    ],
+    "correctOption": "Buddhist Circuit Tourist Train"
+  },
+  {
+    "question": "Q.380. National Highway Development Project From where to where is the East-West Corridor under",
+    "options": [
+      "Silchar to Porbandar",
+      "Kolkata to Porbandar",
+      "Kolkata to Mumbai",
+      "Guwahati to Dwarka"
+    ],
+    "correctOption": "Silchar to Porbandar"
+  },
+  {
+    "question": "Q.381. Which of the following highways Covers most of Rajasthan Is?",
+    "options": [
+      "NH 8",
+      "NH 7",
+      "NH 15",
+      "NH 47"
+    ],
+    "correctOption": "NH 15"
+  },
+  {
+    "question": "Q.382. National Waterway-3 of India which state Is located in?",
+    "options": [
+      "Kerala",
+      "Andhra Pradesh",
+      "Tamil Nadu",
+      "Karnataka"
+    ],
+    "correctOption": "Kerala"
+  },
+  {
+    "question": "Q.383. Which of the following is included in the golden water?",
+    "options": [
+      "Delhi-Jaipur-Agra-Meerut",
+      "Delhi-Mumbai-Bangalore-Kolkata",
+      "Delhi-Pune-Chennai-Bhubaneswar",
+      "Delhi-Mumbai-Chennai-Kolkata"
+    ],
+    "correctOption": "Delhi-Mumbai-Chennai-Kolkata"
+  },
+  {
+    "question": "Q.384. Which national highway connects Delhi and Connects Mumbai?",
+    "options": [
+      "NH10",
+      "NH1",
+      "NH12",
+      "NH8"
+    ],
+    "correctOption": "NH8"
+  },
+  {
+    "question": "Q.385. On which river is Kolkata port situated? Is?",
+    "options": [
+      "Godavari",
+      "Ganga",
+      "Mahanadi",
+      "Hooghly"
+    ],
+    "correctOption": "Hooghly"
+  },
+  {
+    "question": "Q.386. Which port city is called 'Arabian Sea' Is it called 'Queen'?",
+    "options": [
+      "Chennai",
+      "Mumbai",
+      "Kolkata",
+      "Kochi"
+    ],
+    "correctOption": "Kochi"
+  },
+  {
+    "question": "Q.387. Regarding National Highway the following Which of the following statements is not true?",
+    "options": [
+      "NH-8 is the shortest national highway of India.",
+      "NH-44 is the longest national highway of India.",
+      "NH-47A The smallest national of India There is a highway.",
+      "Development of National Highways with NHAI, Have the right to maintain and manage"
+    ],
+    "correctOption": "NH-8 is the shortest national highway of India."
+  },
+  {
+    "question": "Q.388. Which of the following national waterways South India along the Coromandel Coast Through part of Krishna and Godavari rivers passes?",
+    "options": [
+      "National Waterway - 2",
+      "National Waterway-3",
+      "National Waterway-1",
+      "National Waterway-4"
+    ],
+    "correctOption": "National Waterway-4"
+  },
+  {
+    "question": "Q.389.URd's longest six-lane Which is the controlled vada expressway?",
+    "options": [
+      "Mumbai Pune Express",
+      "PV Narasimha Rao Expressway",
+      "Agra-Lucknow UR",
+      "Western Peripheral Expressway"
+    ],
+    "correctOption": "Agra-Lucknow Expressway"
+  },
+  {
+    "question": "Q.390. Extending from National Highway 48 (NH 48) Has happened",
+    "options": [
+      "Delhi to Kolkata",
+      "Delhi to Hyderabad",
+      "Delhi to Chennai",
+      "Delhi to Guwahati"
+    ],
+    "correctOption": "Delhi to Chennai"
+  },
+  {
+    "question": "Q.391. Total length of the Golden Quadrilateral in India How much is it?",
+    "options": [
+      "5846 km",
+      "6033 km",
+      "4088 km",
+      "7956 km"
+    ],
+    "correctOption": "5846 km"
+  },
+  {
+    "question": "Q.392. Ministry of Road Transport and Highways According to National Highways India's total road carry traffic",
+    "options": [
+      "50%",
+      "30%",
+      "40%",
+      "60%"
+    ],
+    "correctOption": "40%"
+  },
+  {
+    "question": "Q.393. Which of the following rail networks Which is the fourth largest network in the world?",
+    "options": [
+      "China",
+      "America",
+      "India",
+      "Russia"
+    ],
+    "correctOption": "India"
+  },
+  {
+    "question": "Q.394. From National Highway 1 (old number sequence) Which place is connected?",
+    "options": [
+      "Delhi- Chennai...",
+      "Delhi- Kolkata",
+      "Delhi- Atari",
+      "Delhi-Mumbai"
+    ],
+    "correctOption": "Delhi- Attari"
+  },
+  {
+    "question": "Q.395. Name that Indian state In which there are four international air 3S.",
+    "options": [
+      "Kerala",
+      "Maharashtra",
+      "Karnataka",
+      "Gujarat"
+    ],
+    "correctOption": "Kerala"
+  },
+  {
+    "question": "Q.396. In which of the following states is the most there is greater road density",
+    "options": [
+      "Kerala",
+      "Uttar Pradesh",
+      "Madhya Pradesh",
+      "Karnataka"
+    ],
+    "correctOption": "Kerala"
+  },
+  {
+    "question": "Q.397. Construction of Leh-Manali Highway and Which agency has done the maintenance?",
+    "options": [
+      "national highways and infrastructure development",
+      "Himachal Pradesh State Highway Authority",
+      "Border Roads Organization",
+      "National Highway Authority of India"
+    ],
+    "correctOption": "Border Roads Organization"
+  },
+  {
+    "question": "Q.398. Chabahar Port is located at:",
+    "options": [
+      "Muscat",
+      "Afghanistan",
+      "Pakistan",
+      "Iran"
+    ],
+    "correctOption": "Iran"
+  },
+  {
+    "question": "Q.399. Which two places are connected to National Waterway-2? are connected?",
+    "options": [
+      "Kottapuram and Kollam",
+      "Mandvi and Zuarik",
+      "Prayagraj and Haldia",
+      "Saadia and Dhubri"
+    ],
+    "correctOption": "Saadia and Dhubri"
+  },
+  {
+    "question": "Q.400. National Waterway 1 (NW 1) first in the country Between which of the following segments Is it operational/shippable?",
+    "options": [
+      "Dhubri - Sadiya .....",
+      "Haldia - Prayagraj",
+      "Kotrapuram - HI",
+      "Kakinada - GET"
+    ],
+    "correctOption": "Haldia – Prayagraj"
+  },
+  {
+    "question": "0.502. Which of the following passes is located in Sikkim connects to China?",
+    "options": [
+      "Mana Pass",
+      "Nathu La Pass",
+      "Bara Lacha Pass",
+      "Debsa Pass"
+    ],
+    "correctOption": "Nathu La Pass"
+  },
+  {
+    "question": "503 range practically north Forms the border between India and South India.",
+    "options": [
+      "Sahyadri",
+      "Western Ghats",
+      "Vindhya",
+      "Nilgiri Hills"
+    ],
+    "correctOption": "Vindhya"
+  },
+  {
+    "question": "Q.504. Doddabetta peak in South India Can be found with ____.",
+    "options": [
+      "Jaintia Hills",
+      "Anamalai Hills",
+      "Cardamom Hills",
+      "Eucalyptus Hills"
+    ],
+    "correctOption": "Nilgiri Hills"
+  },
+  {
+    "question": "Q.505. Wa mountain sR to ___ Let's separate.",
+    "options": [
+      "Asia, Europe",
+      "Africa, Europe",
+      "North America, South America",
+      "Africa, India"
+    ],
+    "correctOption": "Asia, Europe"
+  },
+  {
+    "question": "Q.506. The Himalayas are divided into:",
+    "options": [
+      "Himachal, Sahyadri and Shivalik",
+      "Satpura, Past Himadri",
+      "Himachal, Himadri and Shivalik",
+      "Himadri, Vindhya and Shivalik"
+    ],
+    "correctOption": "Himachal, Himadri and Shivalik"
+  },
+  {
+    "question": "Q.507. Hasdev Valley in Chhattisgarh Famous for mines.",
+    "options": [
+      "Silicon",
+      "Silver",
+      "Emerald",
+      "Coal"
+    ],
+    "correctOption": "Coal"
+  },
+  {
+    "question": "Q.508. Which of the following India and China one of three trade checkpoints between Not there?",
+    "options": [
+      "Lipulekh Pass",
+      "Shipki La Pass",
+      "Nadhula Pass",
+      "Khyber Pass"
+    ],
+    "correctOption": "Khyber Pass"
+  },
+  {
+    "question": "Q.509. Shillong is in which of the following hills situated at?",
+    "options": [
+      "Naga Hills",
+      "Khasi Hills",
+      "Jaintia Hills",
+      "Garo Hills"
+    ],
+    "correctOption": "Khasi Hills"
+  },
+  {
+    "question": "Q.510. Which of the following volcanic mountains Is an example of?",
+    "options": [
+      "Fujiyama",
+      "Himalaya",
+      "Urali",
+      "Appalachians"
+    ],
+    "correctOption": "Fujiyama"
+  },
+  {
+    "question": "Q.511. Answers to the following ranges of Himalayas What is the correct order from to south?",
+    "options": [
+      "4,2,1,3",
+      "3,1,2,4",
+      "1,2,3,4",
+      "1,3,2,4"
+    ],
+    "correctOption": "3,1,2,4"
+  },
+  {
+    "question": "Q.512. Which of the following animal species Is specific to the Western Ghats?",
+    "options": [
+      "Tiger",
+      "Elephant",
+      "Hornbill",
+      "Nilgiri Tahr"
+    ],
+    "correctOption": "Nilgiri Tahr"
+  },
+  {
+    "question": "Q.513. Which of the following is South-West One of the Ust Ghat mountain ranges in India It is an important mountain pass in the Nilgiris in the north. Hills and Annamalai Hills in the south adds up?",
+    "options": [
+      "Palakkad Pass",
+      "Thal Ghat",
+      "TRH Ghat",
+      "HR Ghat"
+    ],
+    "correctOption": "Palakkad Pass"
+  },
+  {
+    "question": "Q.514. Siachen Glacier area is located in which of the following In which area is it located?",
+    "options": [
+      "Shivalik Hills",
+      "Karakoram Range",
+      "Himalayas",
+      "Jammu Region"
+    ],
+    "correctOption": "Karakoram Range"
+  },
+  {
+    "question": "Q.515. Which of the following is the world's largest Is it a big glacier?",
+    "options": [
+      "Siachen Glacier",
+      "Greenland ice sheet",
+      "Perito Moreno Glacier",
+      "Lambert-Fisher Glacier"
+    ],
+    "correctOption": "Lambert-Fisher Glacier"
+  },
+  {
+    "question": "Q.516. Where is Diphu Pass located?",
+    "options": [
+      "Arunachal Himalaya",
+      "Pir Panjal Range in the Himalayas",
+      "Darjeeling and Sikkim Himalayas",
+      "Kashmir or North Western Himalayas"
+    ],
+    "correctOption": "Arunachal Himalaya"
+  },
+  {
+    "question": "Q.517. karakoram axl, mountain pass which india and China, close to _____.",
+    "options": [
+      "Srinagar",
+      "Pathankot",
+      "Ladakh",
+      "Kargil"
+    ],
+    "correctOption": "Kargil"
+  },
+  {
+    "question": "Q.518. Which of the following volcanoes Not there?",
+    "options": [
+      "Mont Blanc",
+      "Mount Vesuvius",
+      "Cotopaxi",
+      "Mount Etna"
+    ],
+    "correctOption": "Mont Blanc"
+  },
+  {
+    "question": "Q.519. Kilimanjaro is in Africa.",
+    "options": [
+      "Volcanic mountain",
+      "The densest forest",
+      "The largest meadow",
+      "Longest river"
+    ],
+    "correctOption": "Volcanic mountain"
+  },
+  {
+    "question": "Q.520. Which active volcano is known in the Mediterranean The lighthouse of the ocean is called?",
+    "options": [
+      "Cotopaxi",
+      "Stromboli",
+      "Mount Vesuvius",
+      "Mount Etna"
+    ],
+    "correctOption": "Stromboli"
+  },
+  {
+    "question": "Q.521. India's only active volcano is",
+    "options": [
+      "Baran Island",
+      "Baratang",
+      "Port Blair",
+      "Narcondam Island"
+    ],
+    "correctOption": "Barren Island"
+  },
+  {
+    "question": "Q.522. Which one of the following is dead Is it a volcano?",
+    "options": [
+      "Sakurajima in Japan",
+      "Mount Erebus in Antarctica",
+      "Etna in Italy",
+      "Mauna Kea in Hawaii"
+    ],
+    "correctOption": "Mauna Kea in Hawaii"
+  },
+  {
+    "question": "Q.523. What is the name of the active volcano in India?",
+    "options": [
+      "Barren Island",
+      "Neil Island",
+      "Sentinel Island",
+      "Ross Island"
+    ],
+    "correctOption": "Baron Island"
+  },
+  {
+    "question": "Q.524. In which country is the most successful cooperative agriculture?",
+    "options": [
+      "Denmark",
+      "Norway",
+      "Sweden",
+      "Finland"
+    ],
+    "correctOption": "Denmark"
+  },
+  {
+    "question": "Q.525. South America's largest country Which one is it?",
+    "options": [
+      "Bolivia",
+      "Brazil",
+      "Argentina",
+      "Colombia"
+    ],
+    "correctOption": "Brazil"
+  },
+  {
+    "question": "Q.526. dk strait CT adds up.",
+    "options": [
+      "FAA Sea and Atlantic Ocean",
+      "Indian Ocean and Java Sea",
+      "Atlantic Ocean and Hudson Bay",
+      "Arctic Ocean and Pacific Ocean"
+    ],
+    "correctOption": "Arctic Ocean and Pacific Ocean"
+  },
+  {
+    "question": "Which of the following Indian states has no coastline?",
+    "options": ["Gujarat", "Bihar", "Andhra Pradesh", "West Bengal"],
+    "correctOption": "Bihar"
+  },
+  {
+    "question": "Which of the following Indian states has the minimum area?",
+    "options": ["Maharashtra", "Rajasthan", "Uttar Pradesh", "Madhya Pradesh"],
+    "correctOption": "Uttar Pradesh"
+  },
+  {
+    "question": "Which Indian state shares borders with China, Nepal, and Bhutan?",
+    "options": ["Arunachal Pradesh", "Mizoram", "Nagaland", "Sikkim"],
+    "correctOption": "Sikkim"
+  },
+  {
+    "question": "Dholavira is in which state?",
+    "options": ["Rajasthan", "Gujarat", "Chhattisgarh", "Jharkhand"],
+    "correctOption": "Gujarat"
+  },
+  {
+    "question": "Which of the following Indian states does not share a border with Maharashtra?",
+    "options": ["Odisha", "Karnataka", "Chhattisgarh", "Telangana"],
+    "correctOption": "Odisha"
+  },
+  {
+    "question": "When was Nagaland declared a separate state?",
+    "options": ["1 November 1963", "1 November 1964", "1 December 1964", "1 December 1963"],
+    "correctOption": "1 December 1963"
+  },
+  {
+    "question": "Which of the following countries is part of India but does not share its land border?",
+    "options": ["Bangladesh", "China", "Myanmar", "Tajikistan"],
+    "correctOption": "Tajikistan"
+  },
+  {
+    "question": "Which Indian state is the only one to share its border with Sikkim?",
+    "options": ["Assam", "Mizoram", "Odisha", "West Bengal"],
+    "correctOption": "West Bengal"
+  },
+  {
+    "question": "In terms of area, which is the smallest union territory of India?",
+    "options": ["Lakshadweep", "Puducherry", "Andaman and Nicobar Islands", "Chandigarh"],
+    "correctOption": "Lakshadweep"
+  },
+  {
+    "question": "Which is the largest border limit of India?",
+    "options": ["India-Myanmar", "India-Bhutan", "India-Nepal", "India-Bangladesh"],
+    "correctOption": "India-Bangladesh"
+  },
+  {
+    "question": "Who proposed the Big Bang theory?",
+    "options": ["Georges Lemaitre", "Al-Biruni", "Thomas Gould", "Dr. Alan Sundes"],
+    "correctOption": "Georges Lemaitre"
+  },
+  {
+    "question": "Which constellation, also known as 'The Hunter', can be seen in the evening sky?",
+    "options": ["Cassiopeia", "Orion", "SHI", "Saptarshimandal"],
+    "correctOption": "Orion"
+  },
+  {
+    "question": "What causes the gravitational pull on the Earth by the Sun and the Moon?",
+    "options": ["Spring tide", "High tide", "Neap tide", "Low tide"],
+    "correctOption": "Spring tide"
+  },
+  {
+    "question": "Who discovered the planet Pluto?",
+    "options": ["William Exit", "Clyde Tombaugh", "John Adams", "Johann Galle"],
+    "correctOption": "Clyde Tombaugh"
+  },
+  {
+    "question": "Which of the following is not a terrestrial planet?",
+    "options": ["Mars", "Uranus", "Venus", "Earth"],
+    "correctOption": "Uranus"
+  },
+  {
+    "question": "From which ancient word does the term 'comet' originate, meaning 'long-haired star'?",
+    "options": ["Greek", "German", "French", "Latin"],
+    "correctOption": "Greek"
+  },
+  {
+    "question": "Which planet rotates clockwise?",
+    "options": ["Venus", "Mars", "Saturn", "Jupiter"],
+    "correctOption": "Venus"
+  },
+  {
+    "question": "During which lunar phase does an eclipse occur?",
+    "options": ["First Quadrant", "New Moon", "Full Moon", "Third Triangle"],
+    "correctOption": "Full Moon"
+  },
+  {
+    "question": "How many days does it take for the Moon to complete one revolution on its axis?",
+    "options": ["20 Earth days", "25.6 Earth days", "29.8 Earth days", "27.3 Earth days"],
+    "correctOption": "27.3 Earth days"
+  },
+  {
+    "question": "What does the term 'Big Bang Eat' refer to?",
+    "options": ["Origin of human species", "Origin of life", "Origin of the universe", "Origin of animal species"],
+    "correctOption": "Origin of the universe"
+  },
+  {
+    "question": "What is the bright surface of the Sun called?",
+    "options": ["Photosphere", "Chromosphere", "Lithosphere", "Corona"],
+    "correctOption": "Photosphere"
+  },
+  {
+    "question": "Which is the nearest galaxy to the Milky Way?",
+    "options": ["Whirlpool Galaxy", "Andromeda Galaxy", "Faut Stellar Stream", "Triangular Galaxy"],
+    "correctOption": "Andromeda Galaxy"
+  },
+  {
+    "question": "What are the small pieces of rocks that orbit the Sun called?",
+    "options": ["SPAT", "Geoids", "Asteroid", "Meteorite"],
+    "correctOption": "Meteorite"
+  },
+  {
+    "question": "What is the huge system of billions of stars and clouds of dust and gases called?",
+    "options": ["Universe", "Galaxy", "Constellation", "World"],
+    "correctOption": "Galaxy"
+  },
+  {
+    "question": "Which of the following rivers is not a tributary of the Indus River?",
+    "options": ["Beas", "Chenab", "Gomti", "Ravi"],
+    "correctOption": "Gomti"
+  },
+  {
+    "question": "Which of the following tributaries of the Brahmaputra River is not part of it?",
+    "options": ["Fesitadl", "Subansiri River", "Diem River", "Tamsa River"],
+    "correctOption": "Tamsa River"
+  },
+  {
+    "question": "Which of the following rivers is not responsible for the formation of the Northern Plains of India?",
+    "options": ["Ganga", "Godavari", "Brahmaputra", "Indus"],
+    "correctOption": "Godavari"
+  },
+  {
+    "question": "From which rivers does the Sunderban Delta originate?",
+    "options": ["Mahanadi and Brahmaputra", "Ganga and Yamuna", "Ganga and Brahmaputra", "Ganga and Mahanadi"],
+    "correctOption": "Ganga and Brahmaputra"
+  },
+  {
+    "question": "Which of the following is India's largest artificial freshwater lake?",
+    "options": ["Shivaji Sagar Lake", "Hlecke Lake", "Kodai Lake", "Nainital Lake"],
+    "correctOption": "Shivaji Sagar Lake"
+  },
+  {
+    "question": "Which of the following rivers is not a tributary of the Ganga River?",
+    "options": ["Son", "Gomti", "Yamuna", "Indravati"],
+    "correctOption": "Indravati"
+  },
+  {
+    "question": "Which pair of dams and states where they are located is not correct?",
+    "options": ["Nagarjuna Sagar - Andhra Pradesh", "Govind Sagar - Himachal Pradesh", "Stanley Reservoir - Tamil Nadu", "Shanti Sagar - Kerala"],
+    "correctOption": "Shanti Sagar - Kerala"
+  },
+  {
+    "question": "At which place does the confluence of the Indus River and the Zanskar River occur?",
+    "options": ["Pachnad", "Ladakh", "Vijaypura (Bijapur)", "Katihar"],
+    "correctOption": "Ladakh"
+  },
+  {
+    "question": "What is the name of the only lake in India made by a meteorite?",
+    "options": ["Sa", "Wooler", "@AR", "Bhimtal"],
+    "correctOption": "Lonar"
+  },
+  {
+    "question": "Where are saltwater crocodiles found in India?",
+    "options": ["Karnataka Islands", "Daman and Diu Islands", "Andaman and Nicobar Islands", "Kerala Islands"],
+    "correctOption": "Andaman and Nicobar Islands"
+  },
+  {
+    "question": "Which river of Bengal falls into the Bay of Bengal?",
+    "options": ["Cauvery", "Tapi", "Narmada", "Indus"],
+    "correctOption": "Kaveri"
+  },
+  {
+    "question": "Which river flows through Dadra and Nagar Haveli?",
+    "options": ["Godavari", "Tapti", "Fafa", "Dawan"],
+    "correctOption": "Dawan"
+  },
+  {
+    "question": "Which of the following pairs is not correctly matched?",
+    "options": ["Lucknow - Gomti River", "Jabalpur – HAH River", "Surat - Tapti River", "Ujjain – Kshipra River"],
+    "correctOption": "Jabalpur – Jhelum River"
+  },
+  {
+    "question": "Which river system is Arun, Barun, and Tamur rivers a part of?",
+    "options": ["Krishna", "Godavari", "Kosi", "Indus"],
+    "correctOption": "Kosi"
+  },
+  {
+    "question": "Which of the following rivers of India does not originate from the Western Ghats?",
+    "options": ["Cauvery", "Tapti", "Krishna", "Godavari"],
+    "correctOption": "Tapti"
+  },
+  {
+    "question": "Hemavati is a tributary of which river?",
+    "options": ["Kaveri", "Krishna", "Godavari", "Herat"],
+    "correctOption": "Kaveri"
+  },
+  {
+    "question": "Smoky Falls is related to which river?",
+    "options": ["Tapasi", "Mahanadi", "Narmada", "Kaveri"],
+    "correctOption": "Narmada"
+  },
+  {
+    "question": "Which of the following is not a tributary of the Krishna River?",
+    "options": ["Ghataprabha", "Manjira", "Tungabhadra", "Music"],
+    "correctOption": "Music"
+  },
+  {
+    "question": "Where is the source of the Tapi River?",
+    "options": ["Mansarovar Lake", "Satpura", "Amarkantak", "Brahmagiri"],
+    "correctOption": "Satpura"
+  },
+  {
+    "question": "In which state of India is the largest coastal brackish water lake located?",
+    "options": ["Odisha", "West Bengal", "Andhra Pradesh", "Kerala"],
+    "correctOption": "Odisha"
+  },
+  {
+    "question": "Which term describes a dome-like drainage structure?",
+    "options": ["Trellis", "Dendritic", "Rectangular", "Radial"],
+    "correctOption": "Radial"
+  },
+  {
+    "question": "Which river is the Idukki hydroelectric project situated on?",
+    "options": ["Ganga", "Periyar", "Tapti", "Kosi"],
+    "correctOption": "Periyar"
+  },
+  {
+    "question": "On which river is the Indira Sagar Dam built?",
+    "options": ["Kaveri", "Ganga", "Yamuna", "Narmada"],
+    "correctOption": "Narmada"
+  },
+  {
+    "question": "Which rivers form the Triveni Sangam of Uttar Pradesh?",
+    "options": ["Ganga, Yamuna, Narmada", "Ganga, Yamuna, Tapti", "Ganga, Yamuna, Saraswati", "Ganga, Yamuna, Indus"],
+    "correctOption": "Ganga, Yamuna, Saraswati"
+  },
+  {
+    "question": "In which state of India is the Tsomgo Lake situated?",
+    "options": ["Sikkim", "Nagaland", "Arunachal Pradesh", "Goa"],
+    "correctOption": "Sikkim"
+  },
+  {
+    "question": "Which steel plant was established in Durg district of Chhattisgarh in cooperation with Russia and started production in 1959?",
+    "options": ["Rourkela Steel Plant", "Durgapur Steel Plant", "Bokaro Steel Plant", "Bhilai Steel Plant"],
+    "correctOption": "Bhilai Steel Plant"
+  },
+  {
+    "question": "Which industry are Rourkela, FAS, Bokaro, and Visakhapatnam centers of?",
+    "options": ["Cotton and textile industry", "Iron and steel industry", "Chemical plant", "Footloose industry"],
+    "correctOption": "Iron and steel industry"
+  },
+  {
+    "question": "Which was the first large-scale iron and steel plant in India?",
+    "options": ["Bokaro Steel Plant", "Bhilai Steel Plant", "Sterlite Steel Plant", "11500"],
+    "correctOption": "Bhilai Steel Plant"
+  },
+  {
+    "question": "Which statement is not true about cottage industry?",
+    "options": ["Uses local raw materials", "Use of family or part-time labor", "Requires advanced technical skills", "Domestic industry is included"],
+    "correctOption": "Requires advanced technical skills"
+  },
+  {
+    "question": "Which industry is not included in India's core sector industries?",
+    "options": ["Fertilizer", "Crude oil", "Cement", "Sugar"],
+    "correctOption": "Sugar"
+  },
+  {
+    "question": "Which steel plant initially produced steel for Hindustan Steel Limited (HSL) in India?",
+    "options": ["Bhilai", "Rourkela", "Bokaro", "Durgapur"],
+    "correctOption": "Rourkela"
+  },
+  {
+    "question": "In which state of India are the richest chromite deposits found?",
+    "options": ["Orissa", "Karnataka", "Kerala", "Bihar"],
+    "correctOption": "Orissa"
+  },
+  {
+    "question": "In which state of India are the highest graphite reserves according to the Geological Survey of India?",
+    "options": ["Arunachal Pradesh", "Manipur", "Andhra Pradesh", "Orissa"],
+    "correctOption": "Arunachal Pradesh"
+  },
+  {
+    "question": "Which country has the largest reserve of mica?",
+    "options": ["India", "South Africa", "America", "England"],
+    "correctOption": "India"
+  },
+  {
+    "question": "Which government manages Steel Gaal in India?",
+    "options": ["GAIL", "HSL", "SAIL", "DVC"],
+    "correctOption": "SAIL"
+  },
+  {
+    "question": "Which two steel plants were established in collaboration with Russia (USSR)?",
+    "options": ["Bokaro Steel Plant and Bhilai Steel Plant", "Usa Steel Plant and Bokaro Steel Plant", "Durgapur Steel Plant and Gori Steel Plant", "Rourkela Steel Plant and Bhilai Steel Plant"],
+    "correctOption": "Bokaro Steel Plant and Bhilai Steel Plant"
+  },
+  {
+    "question": "Which of the following is not a sub-region of economic geography?",
+    "options": ["Geography of marketing", "Geography of resources", "Demography", "Geography of Tourism"],
+    "correctOption": "Demography"
+  },
+  {
+    "question": "Where are India's richest hematite ores located?",
+    "options": ["Bihar", "Chhattisgarh", "West Bengal", "Odisha"],
+    "correctOption": "Odisha"
+  },
+  {
+    "question": "Which state in India has the largest uranium reserve?",
+    "options": ["Punjab", "Andhra Pradesh", "Odisha", "Himachal Pradesh"],
+    "correctOption": "Andhra Pradesh"
+  },
+  {
+    "question": "The Inga dam on the Congo River has a capacity to produce how many megawatts of electricity?",
+    "options": ["Akosombi", "Inga", "Ere", "Kouga"],
+    "correctOption": "Inga"
+  },
+  {
+    "question": "What revolution is related to leather/cocoa?",
+    "options": ["Tect", "Filled", "Gold", "Black"],
+    "correctOption": "Filled"
+  },
+  {
+    "question": "Which is the highest and lowest quality of coal based on carbon and moisture content respectively?",
+    "options": ["Bauxite, Ligrite", "Ligrite, Enpracite", "Enprasite, Ligrite", "Ligrite, Bauxite"],
+    "correctOption": "Enprasite, Ligrite"
+  },
+  {
+    "question": "In which mineral is bauxite, a clay-like substance, contained?",
+    "options": ["Coal", "Aluminum", "Iron", "Thorium"],
+    "correctOption": "Aluminum"
+  },
+  {
+    "question": "Where is the 'Badampahad' iron ore mine located?",
+    "options": ["Madhya Pradesh", "Odisha", "Karnataka", "Maharashtra"],
+    "correctOption": "Odisha"
+  },
+  {
+    "question": "Where is the Pittsburgh Industrial Area located?",
+    "options": ["Japan", "Germany", "England", "United States"],
+    "correctOption": "United States"
+  },
+  {
+    "question": "What is the area of planet earth where life exists called?",
+    "options": ["Biosphere", "Atmosphere", "Ice sphere", "Hemisphere"],
+    "correctOption": "Biosphere"
+  },
+  {
+    "question": "Which tiger reserve is located in Jim Corbett National Park?",
+    "options": ["Jim Hide National Park", "Gir Wildlife Sanctuary", "Kedarnath Wildlife Sanctuary", "Great Himalayan National Park"],
+    "correctOption": "Jim Corbett National Park"
+  },
+  {
+    "question": "Where is Jim Corbett National Park located?",
+    "options": ["Rajasthan", "Uttarakhand", "Gujarat", "Karnataka"],
+    "correctOption": "Uttarakhand"
+  },
+  {
+    "question": "Which national park is located in Jammu and Kashmir?",
+    "options": ["Dachigam National Park", "Pakhal Wildlife Sanctuary", "Balpakram National Park", "Jaldapara National Park"],
+    "correctOption": "Dachigam National Park"
+  },
+  {
+    "question": "Where is Pakhal Wildlife Sanctuary located?",
+    "options": ["Lakhimpur", "Chandauli", "Seoni", "Warangal"],
+    "correctOption": "Warangal"
+  },
+  {
+    "question": "Which is the longest segment of the Golden Quadrilateral Super Highway?",
+    "options": ["Delhi-Kolkata section", "Kolkata-Chennai section", "Chennai-Mumbai section", "Mumbai-Delhi section"],
+    "correctOption": "Kolkata-Chennai section"
+  },
+  {
+    "question": "Which river is part of National Waterway 5 (NW-5)?",
+    "options": ["Damodar", "Krishna", "Godavari", "Brahmani"],
+    "correctOption": "Brahmani"
+  },
+  {
+    "question": "What is the length of NH 44, the longest national highway in India that connects Srinagar and Kanyakumari?",
+    "options": ["2369 km", "3745 km", "2397 km", "2134 km"],
+    "correctOption": "3745 km"
+  },
+  {
+    "question": "What does the Big Inch Pipeline transport?",
+    "options": ["Water", "Syrup", "Edible oil", "Petroleum"],
+    "correctOption": "Petroleum"
+  },
+  {
+    "question": "How many Indian states and union territories does NH-44 cross?",
+    "options": ["7", "12", "5", "9"],
+    "correctOption": "12"
+  },
+  {
+    "question": "What is the Golden Quadrilateral associated with?",
+    "options": ["Railways", "Roads", "Air transport", "Sea transport"],
+    "correctOption": "Roads"
+  },
+  {
+    "question": "The first double decker train in India, Sinhagarh Express, runs daily between which cities?",
+    "options": ["Mumbai and Surat", "Mumbai and Pune", "Mumbai and Kolhapur", "Mumbai and Manmad"],
+    "correctOption": "Mumbai and Pune"
+  },
+  {
+    "question": "Who is responsible for the construction of 8 National Highways and FER for maintenance?",
+    "options": ["State Legislative Assembly", "Central Government", "Supreme Court", "President of India"],
+    "correctOption": "Central Government"
+  },
+  {
+    "question": "Which National Highway connects Pune and Hyderabad?",
+    "options": ["NH-7", "NH-27", "NH-9", "NH-24"],
+    "correctOption": "NH-9"
+  },
+  {
+    "question": "According to the 2011 census, which is the most literate state of India?",
+    "options": ["Mizoram", "Goa", "Kerala", "Lakshadweep"],
+    "correctOption": "Kerala"
+  },
+  {
+    "question": "What was the sex ratio in India according to the 2011 census?",
+    "options": ["940", "930", "960", "925"],
+    "correctOption": "940"
+  },
+  {
+    "question": "According to the 2011 census, which state has the highest population density?",
+    "options": ["Arunachal Pradesh", "Tripura", "Mizoram", "Sikkim"],
+    "correctOption": "Arunachal Pradesh"
+  },
+  {
+    "question": "According to the 2011 census, which Indian state has the highest population density (excluding Union Territories)?",
+    "options": ["Goa", "Tamil Nadu", "Uttar Pradesh", "Bihar"],
+    "correctOption": "Bihar"
+  },
+  {
+    "question": "According to the 2011 census, what is the approximate percentage of female literacy in India?",
+    "options": ["65.46%", "46.89%", "59.23%", "29.32%"],
+    "correctOption": "65.46%"
+  },
+  {
+    "question": "According to the 2011 census, which state has the highest population density?",
+    "options": ["Arunachal Pradesh", "Tripura", "Mizoram", "Sikkim"],
+    "correctOption": "Arunachal Pradesh"
+  },
+  {
+    "question": "According to the 2011 census, which city in India has the second largest population?",
+    "options": ["Mumbai", "Bengaluru", "Chennai", "Delhi"],
+    "correctOption": "Delhi"
+  },
+  {
+    "question": "According to the 2011 census, which Indian state has the lowest population density?",
+    "options": ["Jharkhand", "Uttarakhand", "Mizoram", "Arunachal Pradesh"],
+    "correctOption": "Arunachal Pradesh"
+  },
+  {
+    "question": "According to the 2011 census, which Indian state has the highest population?",
+    "options": ["Uttar Pradesh", "Bihar", "Rajasthan", "Madhya Pradesh"],
+    "correctOption": "Uttar Pradesh"
+  },
+  {
+    "question": "When was the first census conducted in India?",
+    "options": ["1882", "1951", "1911", "1872"],
+    "correctOption": "1872"
+  },
+  {
+    "question": "According to the 2011 census, what is the population density of India?",
+    "options": ["829 people per square kilometer", "11,320 persons per square km", "400 people per square km", "382 people per square km"],
+    "correctOption": "382 people per square km"
+  },
+  {
+    "question": "When was the first simultaneous census conducted in India?",
+    "options": ["2001", "1972", "1873", "1881"],
+    "correctOption": "1881"
+  },
+  {
+    "question": "According to the 2011 census, what is the population density of India?",
+    "options": ["282 people per square kilometer", "582 people per square km", "482 people per square km", "382 people per square km"],
+    "correctOption": "382 people per square kilometer"
+  },
+  {
+    "question": "In which country did the male to female population ratio reach its peak in 2019?",
+    "options": ["United Arab Emirates", "Latvia", "Bhutan", "Qatar"],
+    "correctOption": "Qatar"
+  },
+  {
+    "question": "Which city is the administrative capital of South Africa?",
+    "options": ["Cape Town", "Bloemfontein", "Pretoria", "Durban"],
+    "correctOption": "Pretoria"
+  },
+  {
+    "question": "Which Indian mine is one of the world's largest uranium mines?",
+    "options": ["Bhatin Mine", "Narvapahad mine", "Tummalpalle mine", "Jaduguda mine"],
+    "correctOption": "Tummalpalle mine"
+  },
+  {
+    "question": "Which desert is a cold desert?",
+    "options": ["Rabi", "Arctic", "Verma", "Sahara"],
+    "correctOption": "Arctic"
+  },
+  {
+    "question": "Which is the world's sixth largest country by area?",
+    "options": ["China", "Australia", "Brazil", "India"],
+    "correctOption": "Australia"
+  },
+  {
+    "question": "Which state in the United States was formerly Russian land?",
+    "options": ["Alaska", "Nevada", "Hawaii", "California"],
+    "correctOption": "Alaska"
+  },
+  {
+    "question": "Which river is not in Africa?",
+    "options": ["Orange", "Blue", "Niger", "Amazon"],
+    "correctOption": "Amazon"
+  },
+  {
+    "question": "What accounted for 80% of Germany's total steel sector production?",
+    "options": ["Stuttgart", "Hanover", "Ruhr", "Munich"],
+    "correctOption": "Ruhr"
+  },
+  {
+    "question": "In which year was the Suez Canal opened?",
+    "options": ["1886", "1888", "1896", "1869"],
+    "correctOption": "1869"
+  },
+  {
+    "question": "Which canal connects the Mediterranean Sea and the Red Sea?",
+    "options": ["Soo Canal", "Suez Canal", "Welland Canal", "Panama Canal"],
+    "correctOption": "Suez Canal"
+  },
+  {
+    "question": "Which country is the largest producer of wheat?",
+    "options": ["Russia", "China", "India", "America"],
+    "correctOption": "China"
+  },
+  {
+    "question": "Where are the Victoria Falls situated in Africa?",
+    "options": ["Congo", "Nile", "Niger", "Zambezi"],
+    "correctOption": "Zambezi"
+  },
+  {
+    "question": "In which country is the Taklamakan Desert located?",
+    "options": ["Mongolia", "Iraq", "China", "Yemen"],
+    "correctOption": "China"
+  },
+  {
+    "question": "From which gulf does the Gulf Stream originate?",
+    "options": ["Kuwait", "Mexico", "Oman", "Saudi Arabia"],
+    "correctOption": "Mexico"
+  },
+  {
+    "question": "Which strait combines the Atlantic Ocean to the Pacific Ocean?",
+    "options": ["Strait of Magellan", "Pak Strait", "Strait of Malacca", "Deadnil's Strait"],
+    "correctOption": "Strait of Magellan"
+  },
+  {
+    "question": "Which country is the largest producer of coffee?",
+    "options": ["Vietnam", "Brazil", "Colombia", "India"],
+    "correctOption": "Brazil"
+  },
+  {
+    "question": "Which is the largest island of the Aegean Sea?",
+    "options": ["He", "Valletta", "Malta", "Sicily"],
+    "correctOption": "Sicily"
+  },
+  {
+    "question": "What are Pampas, steppes, savannas, and prairies famous for?",
+    "options": ["Cyclone", "Rain in America", "Grasslands", "Waterfalls"],
+    "correctOption": "Grasslands"
+  },
+  {
+    "question": "In which mountain range is Switzerland situated?",
+    "options": ["Alps Range", "Urals", "Pyrenees", "Peaks of Caucasus"],
+    "correctOption": "Alps Range"
+  },
+  {
+    "question": "Which of the following is not a grass field?",
+    "options": ["Savanna", "HA", "Steppe", "ORT"],
+    "correctOption": "HA"
+  },
+  {
+    "question": "Which river is the largest in terms of discharge?",
+    "options": ["Congo", "Ganga-Brahmaputra", "Amazon", "Nile"],
+    "correctOption": "Ganga-Brahmaputra"
+  },
+  {
+    "question": "Which strait is located between Russia and the United States?",
+    "options": ["Pak Strait", "Bering Strait", "Strait of Magellan", "Strait of Dover"],
+    "correctOption": "Bering Strait"
+  },
+  {
+    "question": "Which continent is Tierra del Fuego located in?",
+    "options": ["South America", "North America", "Africa", "Europe"],
+    "correctOption": "South America"
+  },
+  {
+    "question": "Which canal connects the Pacific Ocean and the Atlantic Ocean?",
+    "options": ["Suez Canal", "Kiel Canal", "Panama Canal", "HAV Canal"],
+    "correctOption": "Panama Canal"
+  },
+  {
+    "question": "Which statement about El Niño is correct?",
+    "options": ["It is the surface water in the Pacific Ocean to be unusually hot", "India is not affected by El Niño", "It originates from Yas Sagar.", "It is the surface water in the Pacific Ocean to be unusually cold."],
+    "correctOption": "It is the surface water in the Pacific Ocean to be unusually hot"
+  },
+  {
+    "question": "Which statement about the Pacific Ring of Fire is not correct?",
+    "options": ["75% of Earth's volcanic ring of fire are located along Pacific RA North America and South Covers the eastern coasts of America.", "Pacific RA North America and South Covers the eastern coasts of America.", "It is a belt of active volcanoes", "Its length is approximately 40,000 km"],
+    "correctOption": "Pacific RA North America and South Covers the eastern coasts of America."
+  },
+  {
+    "question": "Where is the Great Barrier Reef, the world's largest reef system, located?",
+    "options": ["Beaufort UR", "Caspian Sea", "Celtic Sea", "Coral Sea"],
+    "correctOption": "Coral Sea"
+  },
+  {
+    "question": "From where did Cyclone Amphan, which hit West Bengal in May 2020, originate?",
+    "options": ["Mediterranean Sea", "Persian Gulf", "Bay of Bengal", "Arabian Sea"],
+    "correctOption": "Bay of Bengal"
+  },
+    {
+        "question": "Name the exoplanet which is considered to be a very close cousin of Earth, and it is also known as 'Earth 2.0'.",
+        "options": ["Europa-31", "Neptune", "PUR-452b", "Pluto"],
+        "correctOption": "PUR-452b"
+    },
+    {
+        "question": "At what speed does the Earth move around the Sun?",
+        "options": ["55,000 miles per hour", "67,000 miles per hour", "20,000 miles per hour", "47,000 miles per hour"],
+        "correctOption": "67,000 miles per hour"
+    },
+    {
+        "question": "The outermost region of the Sun is known as?",
+        "options": ["Chromosphere", "Vascular aa", "Radiation field", "Corona"],
+        "correctOption": "Corona"
+    },
+    {
+        "question": "Which planet is called 'Earth's twin'?",
+        "options": ["Mars", "Moon", "Venus", "Carla"],
+        "correctOption": "Venus"
+    },
+    {
+        "question": "'Light year' is a unit used to measure:",
+        "options": ["time", "speed", "at", "गति"],
+        "correctOption": "speed"
+    },
+    {
+        "question": "Between full moon and at full moon, the time period is:",
+        "options": ["30 days", "A little more than 29 days", "29 days", "28 days"],
+        "correctOption": "A little more than 29 days"
+    },
+    {
+        "question": "Which of the following statements is not correct?",
+        "options": ["The solar system is 2.3 billion years old.", "Maximum in the solar system of planet Jupiter are satellites.", "Mercury is the planet closest to the Sun.", "Venus has no natural satellite."],
+        "correctOption": "The solar system is 2.3 billion years old."
+    },
+    {
+        "question": "Which in the early part of summer night constellation can be seen?",
+        "options": ["Cassiopeia", "Leo Major", "34 Major", "Orion"],
+        "correctOption": "34 Major"
+    },
+    {
+        "question": "Neap (low) tides occur when:",
+        "options": ["Sun, Moon and Earth form a circle", "Earth is centered between the Sun and the Moon", "Sun, Moon and Earth form a right triangle", "Sun, Moon and Earth are in the same line"],
+        "correctOption": "Sun, Moon and Earth form a right triangle"
+    },
+    {
+        "question": "Which of the following in terms of radius is the smallest dwarf planet?",
+        "options": ["Haumea", "Makemake", "Wa", "Eris"],
+        "correctOption": "Ceres"
+    },
+    {
+        "question": "Which of the following planets is wrongly associated with the moons?",
+        "options": ["Jupiter – 79", "Neptune – 14", "Earth -1", "Mars - 4"],
+        "correctOption": "Mars - 4"
+    },
+    {
+        "question": "How much time does sunlight take to reach earth?",
+        "options": ["7 minutes 32 seconds", "9 minutes 32 seconds", "7 minutes 56 seconds", "8 minutes 20 seconds"],
+        "correctOption": "8 minutes 20 seconds"
+    },
+    {
+        "question": "The distance between the Sun and the Earth is approximately:",
+        "options": ["150 million km", "120 million km", "140 million km", "130 million km"],
+        "correctOption": "150 million km"
+    },
+    {
+        "question": "The brightest planet in the night sky is:",
+        "options": ["Mercury", "Venus", "Saturn", "Jupiter"],
+        "correctOption": "Venus"
+    },
+    {
+        "question": "The nearest star to earth is:",
+        "options": ["Hecar", "Sun", "Moon", "Vega"],
+        "correctOption": "Sun"
+    },
+    {
+        "question": "Which one of the following is not part of our solar system?",
+        "options": ["Europa", "Moon", "Pole Star", "Sun"],
+        "correctOption": "Pole Star"
+    },
+    {
+        "question": "Which one of the following is not a constellation?",
+        "options": ["34 Major", "Sirius", "Orion", "Cassiopeia"],
+        "correctOption": "Sirius"
+    },
+    {
+        "question": "49° parallel is a boundary between which countries?",
+        "options": ["India and Pakistan", "France and Germany", "North Korea and South Korea", "USA and Canada"],
+        "correctOption": "USA and Canada"
+    },
+    {
+        "question": "Which of the following Indian Standards reflects the time correctly?",
+        "options": ["GMT-4.30", "GMT + 4.30", "GMT-5.30", "GMT + 5.30"],
+        "correctOption": "GMT + 5.30pm"
+    },
+    {
+        "question": "Indian Standard Time (IST) is how far ahead of Greenwich Mean Time (GMT)?",
+        "options": ["3 hours, 30 minutes", "6 hours, 15 minutes", "5 hours, 10 minutes", "5 hours, 30 minutes"],
+        "correctOption": "5 hours, 30 minutes"
+    },
+    {
+        "question": "Traveling from the Arctic Circle to the Equator, what sequence of biomes will one go through?",
+        "options": ["Tropical rain forests, temperate forests, taiga, tundra", "Taiga, tundra, temperate forest, tropical Rainforests", "Tundra, Taiga, Temperate Forest, Tropical Rainforests", "Tundra, temperate forest, taiga, tropical Rainforests"],
+        "correctOption": "Tundra, Taiga, Temperate Forest, Tropical Rainforests"
+    },
+    {
+        "question": "Easternmost of Arunachal Pradesh to sunrise in westernmost Gujarat, how many hours ago does it happen?",
+        "options": ["½ hour", "two and a half hours", "one and a half hour", "one hour"],
+        "correctOption": "two hours"
+    },
+    {
+        "question": "In which of the following countries are there more standard meridians?",
+        "options": ["Japan", "America", "Afghanistan", "India"],
+        "correctOption": "America"
+    },
+    {
+        "question": "1° latitude is approximately equal to how many kilometers?",
+        "options": ["121", "221", "111", "231"],
+        "correctOption": "111"
+    },
+    {
+        "question": "Which of the following countries follows more time zones?",
+        "options": ["America", "Argentina", "China", "India"],
+        "correctOption": "America"
+    },
+    {
+        "question": "Where does Pindar River join Alaknanda?",
+        "options": ["Vishnuprayag", "Karnapriyag", "Rudraprayag", "Daavprayag"],
+        "correctOption": "Karnaprayag"
+    },
+    {
+        "question": "Mechi, flowing through India and Nepal, is a tributary river of which river?",
+        "options": ["Gandak", "Godavari", "Mahananda", "Ganga"],
+        "correctOption": "Ganga"
+    },
+    {
+        "question": "Mahananda River is a tributary of:",
+        "options": ["Damodar River", "Yamuna River", "Satluj River", "Ganga River"],
+        "correctOption": "Ganga River"
+    },
+    {
+        "question": "Tributaries of Ganga and Brahmaputra rivers meet in the Indian subcontinent, i.e. the mountains and foothills of the Himalayas in which region?",
+        "options": ["It is a fertile area in which most of the includes North and East India.", "Sundarban Sect is in the south.", "There is bull-bow sic in the plains.", "Sundarban is sexy in the south."],
+        "correctOption": "Sundarban is sexy in the south."
+    },
+    {
+        "question": "Which of the following mountains is from the Aravali series?",
+        "options": ["Himalaya", "Satpura", "Vindhyachal", "Aravali"],
+        "correctOption": "Aravali"
+    },
+    {
+        "question": "What is a river called when it enters the plains where it turns and makes a big turn?",
+        "options": ["Ox-Bow Lake", "Levees", "Plains of Hise", "Meanders"],
+        "correctOption": "Meanders"
+    },
+    {
+        "question": "Which of the following rivers flows through Andaman and Nicobar Islands?",
+        "options": ["Someshwari", "Simsango", "Kalpong", "Umkhrah"],
+        "correctOption": "Kalpong"
+    },
+    {
+        "question": "Which river flows towards the west and falls into the Arabian Sea?",
+        "options": ["Narmada and Tapti", "Gandak and Kosi", "Luni and Kaveri", "Mahanadi and Krishna"],
+        "correctOption": "Narmada and Tapti"
+    },
+    {
+        "question": "Which river estuary does the Narmada River make?",
+        "options": ["Ganga", "PUT", "Narmada", "Kaveri"],
+        "correctOption": "Narmada"
+    },
+    {
+        "question": "Which river is a good example of a superimposed drainage system?",
+        "options": ["SAYA", "Subarnarekha", "Ganga", "Gomti"],
+        "correctOption": "Subarnarekha"
+    },
+    {
+        "question": "Which is the largest freshwater lake by volume?",
+        "options": ["Lake Superior", "Lake Michigan", "Caspian Sea", "Doa Lake"],
+        "correctOption": "Lake Baikal"
+    },
+    {
+        "question": "Which river is known as the Yellow River?",
+        "options": ["Mekong", "Amur", "Yangtze", "Huang Ho"],
+        "correctOption": "Huang Ho"
+    },
+    {
+        "question": "Which is Europe's busiest sea port?",
+        "options": ["Usa", "Le Havre", "Rotterdam", "ead"],
+        "correctOption": "Rotterdam"
+    },
+    {
+        "question": "Which river flows through London?",
+        "options": ["Usa", "Potomac", "Hudson", "Thames"],
+        "correctOption": "Thames"
+    },
+    {
+        "question": "Which is the longest river of Fay?",
+        "options": ["Yangtze", "Nile", "Amazon", "Ganga"],
+        "correctOption": "Nile"
+    },
+    {
+        "question": "Fay's highest waterfall on earth is?",
+        "options": ["Wide", "Ribbon", "Governi", "Jog"],
+        "correctOption": "Angel"
+    },
+    {
+        "question": "Which of the following is not a hot water stream?",
+        "options": ["Humboldt Current", "Tsushima Current", "Alaska Stream", "Kuroshio Current"],
+        "correctOption": "Humboldt Current"
+    },
+    {
+        "question": "Which of the following pairs is wrong?",
+        "options": ["Niagara Falls- USA and Canada", "Nile River- Egypt and Sudan", "Sutlej River – India and Pakistan", "Andes Mountains- Argentina and Brazil"],
+        "correctOption": "Andes Mountains- Argentina and Brazil"
+    },
+    {
+        "question": "Which famous landmark is present between Lake Ontario and Lake Erie?",
+        "options": ["Niagara Falls", "Rhine Falls", "Iguazu Falls", "Angel Falls"],
+        "correctOption": "Niagara Falls"
+    },
+    {
+        "question": "Fay's largest river by volume is?",
+        "options": ["Indus", "Amazon", "Blue", "Hong Ho"],
+        "correctOption": "Amazon"
+    },
+    {
+        "question": "Diego Garcia Island belongs to which archipelago?",
+        "options": ["Mergui", "Buccaneer", "Chagos", "Bonaparte"],
+        "correctOption": "Chagos"
+    },
+    {
+        "question": "Which is the third longest river of Fay?",
+        "options": ["Nile", "Yellow River", "Parana", "Yangtze"],
+        "correctOption": "Yangtze"
+    },
+    {
+        "question": "Which state is the greatest bauxite producing state?",
+        "options": ["Gujarat", "Jharkhand", "Andhra Pradesh", "Orissa"],
+        "correctOption": "Orissa"
+    },
+    {
+        "question": "In which state of India is the thermal energy highest power generation capacity?",
+        "options": ["Andhra Pradesh", "Uttar Pradesh", "Maharashtra", "Gujarat"],
+        "correctOption": "Maharashtra"
+    },
+    {
+        "question": "Which state of India has maximum coal stock?",
+        "options": ["Orissa", "Jharkhand", "West Bengal", "Gujarat"],
+        "correctOption": "Jharkhand"
+    },
+    {
+        "question": "Hal Wildlife Sanctuary is situated in which state?",
+        "options": ["Punjab", "Karnataka", "Kerala", "Bihar"],
+        "correctOption": "Karnataka"
+    },
+    {
+        "question": "Which of the following is not a national park in India?",
+        "options": ["Sgr National Park", "Balfakaram National Park", "Anshi National Park", "Dachigam National Park"],
+        "correctOption": "Shandur National Park"
+    },
+    {
+        "question": "Where is SRT National Park located?",
+        "options": ["Rajasthan", "Uttarakhand", "Karnataka", "Sikkim"],
+        "correctOption": "Rajasthan"
+    },
+    {
+        "question": "Where is Keoladeo Ghana National Park located?",
+        "options": ["Mizoram", "HERTS", "Rajasthan", "Bihar"],
+        "correctOption": "Rajasthan"
+    },
+    {
+        "question": "Which biosphere reserve of India was declared a UNESCO biosphere reserve in 2018, making it the 11th from India to join the network?",
+        "options": ["Pachmarhi", "Kanchenjunga", "Dal Devi", "Cold Suc"],
+        "correctOption": "Kanchenjunga"
+    },
+    {
+        "question": "In which of the following states is the Panchmarhi Biosphere Reserve located?",
+        "options": ["Ruan", "Madhya Pradesh", "Kerala", "Punjab"],
+        "correctOption": "Madhya Pradesh"
+    },
+    {
+        "question": "Which Indian Wildlife Sanctuary is home to Asiatic lions?",
+        "options": ["Kanha", "Bandhavgarh", "Sariska", "Gir"],
+        "correctOption": "Gir"
+    },
+    {
+        "question": "Which of the following is true about Hala forests?",
+        "options": ["Hala trees oxygenated soil areas grow in.", "Hala forests stabilize beaches, reducing erosion.", "They cannot withstand cold temperatures.", "Hala are salt-tolerant herbs."],
+        "correctOption": "Mangrove trees provide oxygen-rich soil areas grow in."
+    },
+    {
+        "question": "How are forests in the Sundarban Delta in India classified?",
+        "options": ["Thorny bushes", "Alpine", "Evergreen", "Tropical deciduous"],
+        "correctOption": "Evergreen"
+    },
+    {
+        "question": "Where is Mudumalai National Park located?",
+        "options": ["Andhra Pradesh", "Gujarat", "Maharashtra", "Tamil Nadu"],
+        "correctOption": "Tamil Nadu"
+    },
+    {
+        "question": "Which of the following is not a notified biosphere reserve in India?",
+        "options": ["Tees", "Eucalyptus", "Pachmarhi", "Agastpamalai"],
+        "correctOption": "To Nallam"
+    },
+    {
+        "question": "Which Indian state does not rank in the top 5 in terms of forest cover area?",
+        "options": ["Punjab", "Madhya Pradesh", "Chhattisgarh", "Maharashtra"],
+        "correctOption": "Punjab"
+    },
+    {
+        "question": "What does the Red Data Book provide data on?",
+        "options": ["Red Lion", "Endangered plants and animals", "List of plants and animals", "Red bird"],
+        "correctOption": "Endangered plants and animals"
+    },
+    {
+        "question": "Which wild animals sanctuary is located in Goa?",
+        "options": ["Bhagwan Mahavir Wildlife Sanctuary", "Poplar Wildlife Sanctuary", "Interview Island Wildlife Sanctuary", "Dandeli asia Sanctuary"],
+        "correctOption": "Bhagwan Mahavir Wildlife Sanctuary"
+    },
+    {
+        "question": "Which biosphere reserve promotes the conservation of biodiversity and alternative livelihoods in Similipal?",
+        "options": ["Madhya Pradesh", "Orissa", "Uttar Pradesh", "Rajasthan"],
+        "correctOption": "Orissa"
+    },
+    {
+        "question": "Where is Orang Tiger Reserve located in India?",
+        "options": ["Maharashtra", "Himachal Pradesh", "Telangana", "Assam"],
+        "correctOption": "Assam"
+    },
+    {
+        "question": "Which of the following matching is wrong?",
+        "options": ["Jim Bide National Park – Bagh", "Kaziranga National Park – TST", "Little Rann of Kutch – Wild Ass", "Kanha National Park – Birds"],
+        "correctOption": "Kanha National Park – Birds"
+    },
+    {
+        "question": "Where is Dehing Patkai Wildlife Sanctuary situated at?",
+        "options": ["Houta State", "Meghalaya", "Assam", "Nagaland"],
+        "correctOption": "Assam"
+    },
+    {
+        "question": "How many schedules are there in the Wildlife (Protection) Act, 1972?",
+        "options": ["Five", "Seven", "Six", "Four"],
+        "correctOption": "Six"
+    },
+    {
+        "question": "Which of the following is not in Assam?",
+        "options": ["Kaziranga National Park", "Nameri National Park", "Manas National Park", "Sur Tiger Reserve"],
+        "correctOption": "Dampa Tiger Reserve"
+    },
+    {
+        "question": "India's first marine park is situated at",
+        "options": ["Gulf of Far", "Chennai", "Pwd's Bay", "Jamnagar"],
+        "correctOption": "Gulf of Kutch"
+    },
+    {
+        "question": "Which state was granted the 51st tiger reserve status for sanctuaries?",
+        "options": ["Andhra Pradesh", "Uttar Pradesh", "Tamil Nadu", "Madhya Pradesh"],
+        "correctOption": "Tamil Nadu"
+    },
+    {
+        "question": "Which country was the largest producer of uranium in the world in 2019?",
+        "options": ["Namibia", "Kazakhstan", "Australia", "Russia"],
+        "correctOption": "Kazakhstan"
+    },
+    {
+        "question": "Where is Yellowstone National Park located?",
+        "options": ["Canada", "USA", "France", "Spain"],
+        "correctOption": "USA"
+    },
+    {
+        "question": "Which biodiversity hotspot does not exist in India?",
+        "options": ["Sunderland", "Indo-Burma", "Western Ghats", "Wallacea"],
+        "correctOption": "Wallacea"
+    },
+    {
+        "question": "What is the shining surface of the sun known as?",
+        "options": ["Photosphere", "Atmosphere", "Lithosphere", "Spectrum"],
+        "correctOption": "Photosphere"
+    },
+    {
+        "question": "Which layer of the atmosphere has the highest density?",
+        "options": ["Ionosphere", "Exosphere", "Stratosphere", "Mesosphere"],
+        "correctOption": "Exosphere"
+    },
+    {
+        "question": "What is 'heat budget'?",
+        "options": ["Incoming heat absorbed by the earth and balance between heat going out in the form of radiation", "Terrestrial radiation", "Solar radiation", "Sun's outgoing heat and incoming balance between absorbed by the Earth"],
+        "correctOption": "Incoming heat absorbed by the earth and balance between heat going out in the form of radiation"
+    },
+    {
+        "question": "HU is HT study",
+        "options": ["Seismology", "Topography", "Volcanology", "Montology"],
+        "correctOption": "Seismology"
+    },
+    {
+        "question": "Which of the following represents the correct sequence starting from the earth's surface for the formation of layers of the atmosphere?",
+        "options": ["Lithosphere - Stratosphere - Ionosphere - Mesosphere - Outersphere", "Lithosphere - Mesosphere - Stratosphere - Ionosphere - Exosphere", "Lithosphere - Stratosphere - Exosphere - Ionosphere - Mesosphere", "Lithosphere - Stratosphere - Mesosphere - Ionosphere - Exosphere"],
+        "correctOption": "Lithosphere - Stratosphere - Mesosphere - Ionosphere - Exosphere"
+    },
+    {
+        "question": "About Northern Dhruprabha (Aurora Borealis), which of the following statements is correct?",
+        "options": ["It is mainly seen in equatorial regions.", "Emissions of nitrogen into the Earth's atmosphere result in Arunodaya.", "It is also called southern lights.", "It is a beautiful display in the earth's sky with natural light."],
+        "correctOption": "It is a beautiful display in the earth's sky with natural light."
+    },
+    {
+        "question": "Which of the following reasons is attributed to 'Arctic Greening'?",
+        "options": ["Increasing vent", "Depletion of ozone layer", "Ocean current flow", "Global warming"],
+        "correctOption": "Global warming"
+    },
+    {
+        "question": "Which of the following gases is emitted from swamps and paddy fields?",
+        "options": ["Carbon", "Nitrogen", "Oxygen", "Helium"],
+        "correctOption": "Carbon"
+    },
+    {
+        "question": "Which of the following gases is not related to acidic rain?",
+        "options": ["NH3", "SO2", "NO", "NO2"],
+        "correctOption": "NH3"
+    },
+    {
+        "question": "Which of the following is mainly responsible for the depletion of ozone layer?",
+        "options": ["Chlorofluorocarbon", "Aviation fuel", "Radioactive rays", "Volcanic eruption"],
+        "correctOption": "Chlorofluorocarbon"
+    },
+    {
+        "question": "Which of the following causes tsunami?",
+        "options": ["Earthquake", "Hal erosion", "Submarine landslide", "Volcanic eruption"],
+        "correctOption": "Submarine landslide"
+    },
+    {
+        "question": "Which of the following is responsible for global warming?",
+        "options": ["Melting of glaciers and ice sheets", "Proper rainfall", "Rise in sea level", "Irregular weather patterns"],
+        "correctOption": "Proper rainfall"
+    },
+    {
+        "question": "What do you call a narrow area where land, water, and air interact with each other?",
+        "options": ["Biosphere", "Atmosphere", "Hydrosphere", "Lithosphere"],
+        "correctOption": "Biosphere"
+    },
+    {
+        "question": "Which is the outermost part of the Earth?",
+        "options": ["Wall", "PIS", "Crust", "Asthenosphere"],
+        "correctOption": "Crust"
+    },
+    {
+        "question": "What do you call the process of erosion caused by snow action?",
+        "options": ["Insertion", "Moraine Formation", "Biological erosion", "Sedimentation"],
+        "correctOption": "Insertion"
+    },
+    {
+        "question": "What type of resource is water?",
+        "options": ["Non-organic", "Non-renewable", "Cyclical", "Non-cyclical"],
+        "correctOption": "Cyclical"
+    },
+    {
+        "question": "What is the upper part of the Earth's Fed?",
+        "options": ["Weakness Asa", "Isotherm-Sandal", "Lithosphere", "Circle of weakness"],
+        "correctOption": "Circle of weakness"
+    },
+    {
+        "question": "Which earthquake waves have aqueous displacement involved?",
+        "options": ["S-waves", "P-waves", "1-waves", "Rayleigh surface waves"],
+        "correctOption": "S-waves"
+    },
+    {
+        "question": "At the end of summer, especially pre-monsoon showers are common in Kerala and Karnataka, which are often called:",
+        "options": ["Kaal Baisakhi", "STA Rain", "Jet stream", "Western depression"],
+        "correctOption": "STA Rain"
+    },
+    {
+        "question": "Which of the following is a source of marine energy?",
+        "options": ["Solar energy", "Ocean thermal energy", "Wave energy", "Tidal energy"],
+        "correctOption": "Solar energy"
+    },
+    {
+        "question": "The word 'monsoon', the word 'season', which language does it come from?",
+        "options": ["Latin", "Sanskrit", "French", "Arabic"],
+        "correctOption": "Arabic"
+    },
+    {
+        "question": "Which is the biggest country in terms of the world's largest salt desert?",
+        "options": ["China", "India", "Australia", "Brazil"],
+        "correctOption": "Australia"
+    },
+    {
+        "question": "Name the strait which separates Spain and Gibraltar?",
+        "options": ["English Channel", "Bay of Gibraltar", "Hudson Strait", "dh strait"],
+        "correctOption": "Bay of Gibraltar"
+    },
+    {
+        "question": "Which of the following is part of 'Global Commons'?",
+        "options": ["Asia", "Africa", "Antarctica", "Australia"],
+        "correctOption": "Antarctica"
+    },
+    {
+        "question": "Niagara Falls is located on the border of which countries?",
+        "options": ["France and Germany", "Canada and USA", "USA and Mexico", "Mexico and Guatemala"],
+        "correctOption": "Canada and USA"
+    },
+    {
+        "question": "Which of the following South American countries is landlocked?",
+        "options": ["Paraguay", "Peru", "Argentina", "Brazil"],
+        "correctOption": "Paraguay"
+    },
+    {
+        "question": "Which of the following is not the capital of the respective country?",
+        "options": ["New Delhi, India", "Sydney, Australia", "Cairo, Egypt", "Ottawa, Canada"],
+        "correctOption": "Sydney, Australia"
+    },
+    {
+        "question": "Which country has the most area?",
+        "options": ["Canada", "Brazil", "China", "Australia"],
+        "correctOption": "Canada"
+    },
+    {
+        "question": "Which of the following is a transcontinental country?",
+        "options": ["Laos", "Saint Lucia", "Trinidad and Tobago", "Turkey and Georgia"],
+        "correctOption": "Turkey and Georgia"
+    },
+    {
+        "question": "In which desert is the Great Victoria located?",
+        "options": ["South Africa", "United States", "Australia", "United Kingdom"],
+        "correctOption": "Australia"
+    },
+    {
+        "question": "Which of the following are the correct types of winds on a planetary scale?",
+        "options": ["Local winds and periodic sare", "Trade winds and periodic sare", "Trade winds, westerlies, and polar easterly winds", "Polar winds and westerly winds"],
+        "correctOption": "Trade winds, westerly winds, and polar easterly winds"
+    },
+    {
+        "question": "In terms of land area (in square km), which country is the largest in Europe?",
+        "options": ["Italy", "United Kingdom", "Romania", "Russia"],
+        "correctOption": "Russia"
+    },
+    {
+        "question": "In which area is 'Viticulture' a speciality?",
+        "options": ["Mediterranean region", "Australia", "Northern California", "Austria"],
+        "correctOption": "Mediterranean region"
+    },
+    {
+        "question": "From which language was the word 'El Nino' taken?",
+        "options": ["ba", "Italian", "Spanish", "Sa"],
+        "correctOption": "Spanish"
+    },
+    {
+        "question": "Where is the Sahara Desert located?",
+        "options": ["South Africa", "North Africa", "Iran", "Australia"],
+        "correctOption": "North Africa"
+    },
+    {
+        "question": "Where are the Maitri and South Gangotri Research Centers located?",
+        "options": ["South America", "Oceania", "North America", "Antarctica"],
+        "correctOption": "Antarctica"
+    },
+    {
+        "question": "Which of the following was not a part of the ancient supercontinent called Gondwanaland?",
+        "options": ["South Africa", "India", "France", "Australia"],
+        "correctOption": "South Africa"
+    },
+    {
+        "question": "In which country is the largest natural hot spring, 'Frying Pan Lake' located?",
+        "options": ["get", "New Zealand", "Indonesia", "Iceland"],
+        "correctOption": "New Zealand"
+    },
+    {
+        "question": "What is the international boundary line separating North Korea and South Korea known as?",
+        "options": ["Military Demarcation Line", "49th Parallel", "24th parallel", "Radcliffe Line"],
+        "correctOption": "Military Demarcation Line"
+    },
+    {
+        "question": "Name the strait which adds the English Channel and the North Sea.",
+        "options": ["North Channel", "Florida Straits", "Pak Strait", "Strait of Dover"],
+        "correctOption": "Strait of Dover"
+    },
+    {
+        "question": "Who coined the term 'Geography'?",
+        "options": ["Carl Ritter", "Alexander von Humboldt", "Ulisse Aldrovandic", "Eratosthenes"],
+        "correctOption": "Eratosthenes"
+    },
+    {
+        "question": "Which canal connects the Black Sea and the Mediterranean Sea?",
+        "options": ["Black Sea and Mediterranean Sea", "Caspian Sea and Mediterranean Sea", "Black Sea and Red Sea", "Mediterranean Sea and Red Sea"],
+        "correctOption": "Mediterranean Sea and Red Sea"
+    },
+    {
+        "question": "In which country was the construction of the Suez Canal done?",
+        "options": ["Egypt", "Brazil", "Argentina", "Oman"],
+        "correctOption": "Egypt"
+    },
+    {
+        "question": "Which is the world's largest salt desert?",
+        "options": ["Thar Desert", "Sahara Desert", "Negev Desert", "Salar de Uyuni"],
+        "correctOption": "Salar de Uyuni"
+    },
+    {
+        "question": "Which of the following is incorrect in terms of 'field-meadow'?",
+        "options": ["Australia - Downs", "Argentina - Prairie", "South Africa - des", "Central Asia - eet"],
+        "correctOption": "Argentina - Prairie"
+    },
+    {
+        "question": "Which strait adds the Arctic Ocean to the Pacific Ocean?",
+        "options": ["Norwegian Strait", "Beaufort Strait", "Bering Strait", "Pak Strait"],
+        "correctOption": "Bering Strait"
+    },
+  {
+    "question": "an imaginary line on a map or chart or line that runs along the surface of water such as sea water connects all points with the same depth below is, is called:",
+    "options": [
+      "Isotherm (isothermal line)",
+      "Equatorial line",
+      "All seriousness line",
+      "Equatorial"
+    ],
+    "correctOption": "Equatorial"
+  },
+  {
+    "question": "Where is the latitude passing through Kerala pass through?",
+    "options": [
+      "Rajasthan",
+      "Uttarakhand",
+      "Tamil Nadu",
+      "Telangana"
+    ],
+    "correctOption": "Tamil Nadu"
+  },
+  {
+    "question": "Indian Standard Time Greenwich Mean Time is ahead of",
+    "options": [
+      "7 days and 30 minutes",
+      "6 days and 30 minutes",
+      "4 hours and 30 minutes",
+      "5 hours and 30 minutes"
+    ],
+    "correctOption": "5 hours and 30 minutes"
+  },
+  {
+    "question": "When does Apsourika occur early?",
+    "options": [
+      "January",
+      "December",
+      "June",
+      "July"
+    ],
+    "correctOption": "July"
+  },
+  {
+    "question": "The position of the Earth when it faces the Sun occurs at am al, it is called",
+    "options": [
+      "saat",
+      "perigee",
+      "ON",
+      "Apasaurika"
+    ],
+    "correctOption": "Apasaurika"
+  },
+  {
+    "question": "Tropic of Cancer is from which of the following states? Does it not pass?",
+    "options": [
+      "Mizoram",
+      "Rajasthan",
+      "Assam",
+      "Jharkhand"
+    ],
+    "correctOption": "Assam"
+  },
+  {
+    "question": "actual position of the sun above the horizon in passing and seeing his image on earth What is the time difference between being able to?",
+    "options": [
+      "8 minutes",
+      "10 minutes",
+      "4 minutes",
+      "2 minutes"
+    ],
+    "correctOption": "2 minutes"
+  },
+  {
+    "question": "different types formed by different groups of stars what are models called",
+    "options": [
+      "Planet",
+      "Constellation",
+      "astronomical fis",
+      "stars"
+    ],
+    "correctOption": "Constellation"
+  },
+  {
+    "question": "Which of the following channels Andaman And what separates the Nicobar Islands?",
+    "options": [
+      "Hindenburg Channel",
+      "Ten Degree Channel",
+      "Nine Degree Channel",
+      "Eight Degree Channel"
+    ],
+    "correctOption": "Ten degree channel"
+  },
+  {
+    "question": "Gujarat to Arunachal Pradesh is the time interval of.",
+    "options": [
+      "2.30 hours",
+      "2 hours",
+      "1 hours",
+      "1.30 hours"
+    ],
+    "correctOption": "2 hours"
+  },
+  {
+    "question": "passing through Alwar in Rajasthan Also passes through latitude.",
+    "options": [
+      "Himachal Pradesh",
+      "Uttarakhand",
+      "Haryana",
+      "Sikkim"
+    ],
+    "correctOption": "Sikkim"
+  },
+  {
+    "question": "tilt of earth's axis ecliptic plane is at an angle towards:",
+    "options": [
+      "68-06 grees",
+      "73 प० grees",
+      "62 degrees",
+      "66—-degrees"
+    ],
+    "correctOption": "66--degrees"
+  },
+  {
+    "question": "Equatorial plane and Halla plane one At what angle to the other is Ae?",
+    "options": [
+      "23.5°",
+      "66.5°",
+      "13.5°",
+      "67.5°"
+    ],
+    "correctOption": "23.5°"
+  },
+  {
+    "question": "Which of the following is the latitude on the globe? Which is the longest line?",
+    "options": [
+      "Equator",
+      "Arctic Circle",
+      "Tropic of Capricorn",
+      "Tropic of Cancer"
+    ],
+    "correctOption": "Equator"
+  },
+  {
+    "question": "Which of the following is the latitude on the globe? Which is the longest line?",
+    "options": [
+      "Tropic of Cancer",
+      "Tropic of Capricorn",
+      "Arctic Circle",
+      "Equator"
+    ],
+    "correctOption": "Equator"
+  },
+  {
+    "question": "Indian Standard Ale Line from 5 States Passes through. Which of these states is among the five Is it not from?",
+    "options": [
+      "Bihar",
+      "Odisha",
+      "Chhattisgarh",
+      "Andhra Pradesh"
+    ],
+    "correctOption": "Bihar"
+  },
+  {
+    "question": "Indian Standard Time 82.5\" FG Longitude Meridian as standard meridian is determined which is close to passes by.",
+    "options": [
+      "Allahabad",
+      "Nashik",
+      "Nagpur",
+      "Indore"
+    ],
+    "correctOption": "Allahabad"
+  },
+  {
+    "question": "“10 Degree Channel” is related to ____.",
+    "options": [
+      "Andaman and Nicobar gig group",
+      "Gulf of Had",
+      "Malobar Coast",
+      "Lakshadweep Islands"
+    ],
+    "correctOption": "Andaman and Nicobar Islands"
+  },
+  {
+    "question": "Which of the following latitudes is from India? Is it the most tour?",
+    "options": [
+      "South Pole (90°s)",
+      "Arctic Circle (66°30'N)",
+      "North Pole (90°N)",
+      "Tropic of Capricorn (23°30'S)"
+    ],
+    "correctOption": "South Pole (90°)"
+  },
+  {
+    "question": "C's on 21 March and 23 September ae earth The rays fall directly on the equator But day and night are formed. as ___ Known in.",
+    "options": [
+      "faya",
+      "Summer solstice",
+      "Rotation",
+      "Winter Solstice"
+    ],
+    "correctOption": "Equinox"
+  },
+  {
+    "question": "Gobi Desert is located in which of the following Which continent is located in?",
+    "options": [
+      "Europe",
+      "North America",
+      "Asia",
+      "Africa"
+    ],
+    "correctOption": "Asia"
+  },
+  {
+    "question": "In the following two countries of South America Which country is landlocked?",
+    "options": [
+      "Paraguay and Bolivia",
+      "Brazil and Venezuela",
+      "Guyana and Suriname",
+      "Chile and Ecuador"
+    ],
+    "correctOption": "Paraguay and Bolivia"
+  },
+  {
+    "question": "Which of the following continents has the 6th largest Where are the most populous countries located?",
+    "options": [
+      "South America",
+      "Africa",
+      "North America",
+      "Asia"
+    ],
+    "correctOption": "Asia"
+  },
+  {
+    "question": "average surface water of the oceans What is the temperature?",
+    "options": [
+      "32 degree Celsius",
+      "27 degree Celsius",
+      "20 °C",
+      "17 °C"
+    ],
+    "correctOption": "17 degrees Celsius"
+  },
+  {
+    "question": "The study of the universe is known as goes",
+    "options": [
+      "Anthropology",
+      "Ara Science",
+      "Cosmology",
+      "Anatomy"
+    ],
+    "correctOption": "Cosmology"
+  },
+  {
+    "question": "Where was the first oil well in Assam discovered?",
+    "options": [
+      "Moran-Hugrija",
+      "OR Sagar",
+      "Naharkatiya",
+      "Digboi"
+    ],
+    "correctOption": "Digboi"
+  },
+  {
+    "question": "In which of the following states in India is maximum wind energy produced?",
+    "options": [
+      "Orissa",
+      "Maharashtra",
+      "Tamil Nadu",
+      "Karnataka"
+    ],
+    "correctOption": "Tamil Nadu"
+  },
+  {
+    "question": "India's Latest Nuclear Holl Gate which one is it?",
+    "options": [
+      "PSAPAH",
+      "HATHA",
+      "Narora",
+      "Tarapur"
+    ],
+    "correctOption": "Kudankulam"
+  },
+  {
+    "question": "Largest producer of bauxite state which one is it?",
+    "options": [
+      "Madhya Pradesh",
+      "Andhra Pradesh",
+      "West Bengal",
+      "Orissa"
+    ],
+    "correctOption": "Orissa"
+  },
+  {
+    "question": "Which of the following is India's most Which state is the largest bauxite producer?",
+    "options": [
+      "Orissa",
+      "Maharashtra",
+      "Bihar",
+      "Punjab"
+    ],
+    "correctOption": "Orissa"
+  },
+  {
+    "question": "Which of the following is a source of energy Is it a renewable source?",
+    "options": [
+      "Nuclear fission",
+      "Petroleum",
+      "Wood",
+      "Coal"
+    ],
+    "correctOption": "Nuclear fission"
+  },
+  {
+    "question": "Which Indian state has the largest AUP Is there stock?",
+    "options": [
+      "Bihar",
+      "Andhra Pradesh",
+      "Jharkhand",
+      "Odisha"
+    ],
+    "correctOption": "Andhra Pradesh"
+  },
+  {
+    "question": "Koraput district of Odisha Panchpatmali has large reserves of which mineral?",
+    "options": [
+      "Manganese",
+      "Iron ore",
+      "Bauxite",
+      "Dist"
+    ],
+    "correctOption": "Bauxite"
+  },
+  {
+    "question": "Which of the following is natural An appropriate definition of resource can be considered Is?",
+    "options": [
+      "Natural resources are available only in forests.",
+      "Natural resource is a man-made thing.",
+      "Natural resources are a gift of nature which is useful to mankind",
+      "Natural resources are available only on land."
+    ],
+    "correctOption": "Natural resources are a gift of nature which is useful to mankind"
+  },
+  {
+    "question": "Which of the following is a source of energy Is it a renewable source?",
+    "options": [
+      "Nuclear fission",
+      "Petroleum",
+      "Wood",
+      "Coal"
+    ],
+    "correctOption": "Nuclear fission"
+  },
+  {
+    "question": "Land that is cultivated for one or less agricultural years To survive without farming. caste CHCA",
+    "options": [
+      "Sown area",
+      "Qualified wasteland",
+      "Present fallow",
+      "Barren land"
+    ],
+    "correctOption": "Present fallow"
+  },
+  {
+    "question": "The area that specializes only in vegetables are famous for, in what form is this type of farming Known in?",
+    "options": [
+      "Mixed farming",
+      "Collective farming",
+      "Cooperative farming",
+      "Truck farming"
+    ],
+    "correctOption": "Truck farming"
+  },
+  {
+    "question": "In which state of India is the maximum production of fertilizer Is it consumed more (in kg per hectare)?",
+    "options": [
+      "Haryana",
+      "West Bengal",
+      "Andhra Pradesh",
+      "Punjab"
+    ],
+    "correctOption": "Punjab"
+  },
+  {
+    "question": "physical expanse of land on which crops are grown Sown and reaped, Is called.",
+    "options": [
+      "Present fallow",
+      "Agricultural dor land",
+      "Fallow",
+      "Net sown area"
+    ],
+    "correctOption": "Net sown area"
+  },
+  {
+    "question": "What is Viticulture?",
+    "options": [
+      "Flower cultivation",
+      "Grape cultivation",
+      "Mango cultivation",
+      "Vegetable cultivation"
+    ],
+    "correctOption": "Cultivation of grapes"
+  },
+  {
+    "question": "What category of tea and coffee in India Come under crops?",
+    "options": [
+      "Planting crops",
+      "Food crops",
+      "Horticulture Crops",
+      "Cash Crops"
+    ],
+    "correctOption": "Planting crops"
+  },
+  {
+    "question": "Thick clothes, bags, sacks and decorative Which fibrous crop is used to make goods? is used to?",
+    "options": [
+      "Cotton",
+      "Jute",
+      "Jute",
+      "Harpwin"
+    ],
+    "correctOption": "Jute"
+  },
+  {
+    "question": "Department of Agriculture and Cooperation of India According to India's position in the production of pulses in the world Approximately how much is the share?",
+    "options": [
+      "11.2%",
+      "25 %",
+      "21%",
+      "32.5%"
+    ],
+    "correctOption": "25 %"
+  },
+  {
+    "question": "what is contour plowing?",
+    "options": [
+      "Plowing the plains along Gara lines to do",
+      "Plowing barren land along contour lines to do.",
+      "In a zig-zag manner along the contour lines to plow",
+      "On sloping land along contour lines Ploughing."
+    ],
+    "correctOption": "On sloping land along contour lines Ploughing."
+  },
+  {
+    "question": "Cut in which state of India and Burn agriculture is known as beaver?",
+    "options": [
+      "Madhya Pradesh",
+      "Jharkhand",
+      "Andhra Pradesh",
+      "Rajasthan"
+    ],
+    "correctOption": "Madhya Pradesh"
+  },
+  {
+    "question": "Which of the following was the Brown Revolution in India? What is it related to?",
+    "options": [
+      "Coal production",
+      "Fertilizer production",
+      "Crude oil production",
+      "Mustard production"
+    ],
+    "correctOption": "Fertilizer production"
+  },
+  {
+    "question": "What is the main feature of mixed farming?",
+    "options": [
+      "Two or more together in the same field cultivation of crops",
+      "Cultivation of both cash and food crops",
+      "Succession of different crops in the same field to cultivate with",
+      "Rearing of animals and cultivation of crops with"
+    ],
+    "correctOption": "Rearing of animals and cultivation of crops with"
+  },
+  {
+    "question": "What is the practice of intercropping? Refers?",
+    "options": [
+      "Growing two or more crops in close proximity",
+      "Changing crops every time",
+      "Growing a plant year after year",
+      "Different crops at different times to grow"
+    ],
+    "correctOption": "Growing two or more crops in close proximity"
+  },
+  {
+    "question": "Sal and teak most important --are trees",
+    "options": [
+      "Conifer",
+      "Pioneer",
+      "Medicinal",
+      "Deciduous"
+    ],
+    "correctOption": "Deciduous"
+  },
+  {
+    "question": "Silver Hild is related to:",
+    "options": [
+      "Metal",
+      "Egg",
+      "Milk",
+      "Agriculture"
+    ],
+    "correctOption": "Egg"
+  },
+  {
+    "question": "Which of the following forest 'monsoon' Known as 'Forest'?",
+    "options": [
+      "Mountain forest",
+      "Coniferous",
+      "Tropical evergreen",
+      "Tropical deciduous"
+    ],
+    "correctOption": "Tropical deciduous"
+  },
+  {
+    "question": "Establishment of Jim Corbent National Park To save endangered species in 1936 Had gone:",
+    "options": [
+      "Peacock",
+      "White elephant",
+      "Bengal Tiger",
+      "Blue whale"
+    ],
+    "correctOption": "Bengal Tiger"
+  },
+  {
+    "question": "There is a bio reserve in India Which is also a UNESCO World Heritage Site.",
+    "options": [
+      "Sundarban",
+      "Panchmarhi Biosphere Reserve",
+      "Nokrek National Park",
+      "Gulf of Hart"
+    ],
+    "correctOption": "Sundarban"
+  },
+  {
+    "question": "Rajaji National Park is located at:",
+    "options": [
+      "Bihar",
+      "Uttar Pradesh",
+      "Punjab",
+      "Uttarakhand"
+    ],
+    "correctOption": "Uttarakhand"
+  },
+  {
+    "question": "Mangrove Forest ____. Are found in.",
+    "options": [
+      "UR desert aa",
+      "Coast affected by tide",
+      "Vindhya mountain region",
+      "Upper Himalayan region"
+    ],
+    "correctOption": "Coast affected by tide"
+  },
+  {
+    "question": "Which of the following national parks Which UNESCO World Heritage Site?",
+    "options": [
+      "Ile garden",
+      "Jim Corbett National Park",
+      "Kaziranga National Park",
+      "Periyar National Park"
+    ],
+    "correctOption": "Periyar National Park"
+  },
+  {
+    "question": "Sunderbans in West Bengal is one of Example is:",
+    "options": [
+      "Mangrove forest",
+      "Tropical evergreen forest",
+      "Tropical deciduous forest",
+      "Mountain forest"
+    ],
+    "correctOption": "Mangrove forest"
+  },
+  {
+    "question": "What types of mountain forests are there in India? Are trees found?",
+    "options": [
+      "Chir",
+      "Ash",
+      "Aca",
+      "Maple"
+    ],
+    "correctOption": "Chir"
+  },
+  {
+    "question": "Murlen National Park is situated in which state?",
+    "options": [
+      "Telangana",
+      "Himachal Pradesh",
+      "Mizoram",
+      "Jharkhand"
+    ],
+    "correctOption": "Mizoram"
+  },
+  {
+    "question": "Silent Valley National Park A beautiful representation of the rainforest.",
+    "options": [
+      "Meghalaya",
+      "Kerala",
+      "Sikkim",
+      "Manipur"
+    ],
+    "correctOption": "Kerala"
+  },
+  {
+    "question": "facet lake which of the following Which bird/animal is famous for?",
+    "options": [
+      "Rhinoceros",
+      "Pert at",
+      "Penguin",
+      "Flamingo"
+    ],
+    "correctOption": "Flamingo"
+  },
+  {
+    "question": "India for marine conservation in 1982 Which of the following marine national Has the garden been declared?",
+    "options": [
+      "Gulf of Pad",
+      "Mahim Gulf",
+      "Gulf of Far",
+      "Gulf of Khambhat"
+    ],
+    "correctOption": "Gulf of Kutch"
+  },
+  {
+    "question": "Passing through Kaziranga National Park Which of the following National Highways posing a major threat to wildlife?",
+    "options": [
+      "NH-50",
+      "NH-45",
+      "NH-30",
+      "NH-37"
+    ],
+    "correctOption": "NH-37"
+  },
+  {
+    "question": "Where is Kanha Tiger Reserve?",
+    "options": [
+      "Madhya Pradesh",
+      "Maharashtra",
+      "Telangana",
+      "Uttar Pradesh"
+    ],
+    "correctOption": "Madhya Pradesh"
+  },
+  {
+    "question": "Which is the southernmost SR of Indian region?",
+    "options": [
+      "PU Comorin",
+      "Kanyakumari",
+      "Karondi",
+      "Indira Point"
+    ],
+    "correctOption": "Indira Point"
+  },
+  {
+    "question": "of landforms and their development The study is called.",
+    "options": [
+      "Soil Geography",
+      "Climatology",
+      "Geomorphology",
+      "Hydrology"
+    ],
+    "correctOption": "Geomorphology"
+  },
+  {
+    "question": "of kathiawar peninsula ss Geographic and cultural expansion.",
+    "options": [
+      "Raipur",
+      "Rajasthan",
+      "Ahmedabad",
+      "Hyderabad"
+    ],
+    "correctOption": "Rajasthan"
+  },
+  {
+    "question": "India's largest geographical division Which one is it?",
+    "options": [
+      "Glu",
+      "Peninsular Plateau",
+      "Coastal plains",
+      "North Indian plains"
+    ],
+    "correctOption": "Peninsular Plateau"
+  },
+  {
+    "question": "In which part of India is the Great Indian Desert located? situated at?",
+    "options": [
+      "Eastern part",
+      "Northern part",
+      "Southern part",
+      "Western part"
+    ],
+    "correctOption": "Western part"
+  },
+  {
+    "question": "tibetan plateau a et The best example.",
+    "options": [
+      "Volcanic plateau",
+      "Erosion plateau",
+      "Hilly plateau",
+      "Inter-mountain plateau"
+    ],
+    "correctOption": "Inter-mountain plateau"
+  },
+  {
+    "question": "In which of the following states of India Which mainland has the longest coastline?",
+    "options": [
+      "Tamil Nadu",
+      "Gujarat",
+      "Orissa",
+      "Maharashtra"
+    ],
+    "correctOption": "Gujarat"
+  },
+  {
+    "question": "Which of the following areas is situated in the west coast Tell me the name of?",
+    "options": [
+      "Assam region",
+      "Indus plains aa",
+      "Coromandel Coast Region",
+      "Malabar Region"
+    ],
+    "correctOption": "Malabar region"
+  },
+  {
+    "question": "East coast of India is ____",
+    "options": [
+      "Beach with Tals",
+      "Low sedimentary coast",
+      "Concurrent coastline",
+      "Ost Regression Coast"
+    ],
+    "correctOption": "Low sediment de"
+  },
+  {
+    "question": "Which of the following local Which species is not found in the Western Ghats?",
+    "options": [
+      "Nilgiri langur",
+      "Hispid rabbit",
+      "Brown Palm Civet",
+      "Nilgiri der"
+    ],
+    "correctOption": "Hispid rabbit"
+  },
+  {
+    "question": "Name the strait which Tamil Nadu of India and Mannar of Sri Lanka Separates.",
+    "options": [
+      "Bass Strait",
+      "Sunda Strait",
+      "Hudson Strait",
+      "Palk Strait"
+    ],
+    "correctOption": "Palk Strait"
+  },
+  {
+    "question": "Which part of the earth is dominated by magma? is the source?",
+    "options": [
+      "Outer crust",
+      "Inner He",
+      "Core",
+      "Heal"
+    ],
+    "correctOption": "Heal"
+  },
+  {
+    "question": "Which of the following asthenosphere Is the place of?",
+    "options": [
+      "Above the lithosphere",
+      "Below the lithosphere",
+      "Above atmospheres",
+      "Below the atmosphere"
+    ],
+    "correctOption": "Below the lithosphere"
+  },
+  {
+    "question": "Which earthquake waves have transverse Is displacement involved?",
+    "options": [
+      "Rayleigh surface waves",
+      "?-waves",
+      "1-waves",
+      "5-waves"
+    ],
+    "correctOption": "5-waves"
+  },
+  {
+    "question": "In what form are folds formed in a rock? Is known?",
+    "options": [
+      "Backline",
+      "Anticline",
+      "Crestline",
+      "Syncline"
+    ],
+    "correctOption": "Syncline"
+  },
+  {
+    "question": "Where are Elephanta Caves located?",
+    "options": [
+      "Gharpuri Island",
+      "Majuli Island",
+      "Havelock Island",
+      "FART Island"
+    ],
+    "correctOption": "Gharpuri Island"
+  },
+  {
+    "question": "a type of kartzite It is a rock.",
+    "options": [
+      "Sedimentary",
+      "Metamorphic",
+      "Basalt",
+      "Aggrey"
+    ],
+    "correctOption": "Metamorphic"
+  },
+  {
+    "question": "Which of the following is not an igneous rock",
+    "options": [
+      "Basalt",
+      "Granite",
+      "Dolomite",
+      "Diorite"
+    ],
+    "correctOption": "Dolomite"
+  },
+  {
+    "question": "Which of the following is a type of sediment is a rock",
+    "options": [
+      "Sandstone",
+      "Be",
+      "Granite",
+      "Limerite"
+    ],
+    "correctOption": "Sandstone"
+  },
+  {
+    "question": "What are the rocks formed from molten magma? Are called?",
+    "options": [
+      "Metamorphic rock",
+      "Sedimentary rock",
+      "Philitelite rock",
+      "Aggressive rocks"
+    ],
+    "correctOption": "Aggressive rocks"
+  },
+  {
+    "question": "Which of the following statements sup Is true about?",
+    "options": [
+      "It is found in sedimentary rocks.",
+      "It contributes 2 percent to the earth's crust.",
+      "It contributes to 3 percent of the earth's crust",
+      "It also contains iron, silica and magnesium."
+    ],
+    "correctOption": "It also contains iron, silica and magnesium."
+  },
+  {
+    "question": "What types of srt are granite rocks?",
+    "options": [
+      "Metamorphic ASH",
+      "Schist TEA",
+      "Sedimentary rocks",
+      "Agreya ASH"
+    ],
+    "correctOption": "Agreya ASH"
+  },
+  {
+    "question": "'Bhotia' belonged to which of the following people of India? Is it a Scheduled Tribe caste of the state?",
+    "options": [
+      "Rajasthan",
+      "Uttarakhand",
+      "Madhya Pradesh",
+      "Maharashtra"
+    ],
+    "correctOption": "Uttarakhand"
+  },
+  {
+    "question": "Which North-Eastern Indian state is known for its Also called 'Nyemal-ale' by actual residents goes?",
+    "options": [
+      "Meghalaya",
+      "Sikkim",
+      "Manipur",
+      "Nagaland"
+    ],
+    "correctOption": "Sikkim"
+  },
+  {
+    "question": "On which gio does the Mishing tribe live?",
+    "options": [
+      "Lakshadweep",
+      "Andaman Islands",
+      "Majuli Island",
+      "Minicoy"
+    ],
+    "correctOption": "Majuli Island"
+  },
+  {
+    "question": "a most. Famous SES gi eee and Hunter-gatherers, 'Mongols', reside in.",
+    "options": [
+      "South-East Asia",
+      "Arabian Peninsula",
+      "Central Asia",
+      "South Asia"
+    ],
+    "correctOption": "Central Asia"
+  },
+  {
+    "question": "Which of the following passes is located in Srinagar And connects to Leh?",
+    "options": [
+      "Jelepala Pass",
+      "Nathula Pass",
+      "Barala Pass",
+      "Zojila Pass"
+    ],
+    "correctOption": "Zojila Pass"
+  },
+  {
+    "question": "Which of the following is India's most Is it a high peak?",
+    "options": [
+      "Kamet",
+      "Anamudi",
+      "Mount Everest",
+      "Kanchenjunga"
+    ],
+    "correctOption": "Kanchenjunga"
+  },
+  {
+    "question": "Which is the longest highway tunnel of India? Is it C?",
+    "options": [
+      "Jawahar Tunnel",
+      "Aut Tunnel",
+      "Rohtang Tunnel",
+      "Atal Tunnel"
+    ],
+    "correctOption": "Atal Tunnel"
+  },
+  {
+    "question": "Where is 'Zojila Tunnel Project' located?",
+    "options": [
+      "Uttar Pradesh",
+      "Sikkim",
+      "Jammu and Kashmir",
+      "Orissa"
+    ],
+    "correctOption": "Jammu and Kashmir"
+  },
+  {
+    "question": "Which of the following hills Is the Indian desert on the western border?",
+    "options": [
+      "Tart",
+      "Kanchenjunga",
+      "Aravali",
+      "Dhupgarh"
+    ],
+    "correctOption": "Aravali"
+  },
+  {
+    "question": "Which of the following in India aaa is known as RL Mountain ?",
+    "options": [
+      "Hills of TRI",
+      "Khasi Hills",
+      "Nilgiri Hills",
+      "Shivalik hills"
+    ],
+    "correctOption": "Nilgiri Hills"
+  },
+  {
+    "question": "Which of the following mountain ranges What is an example of folded mountains?",
+    "options": [
+      "Himalayas",
+      "Vosges",
+      "Sierra Nevada",
+      "Bet"
+    ],
+    "correctOption": "Himalaya"
+  },
+  {
+    "question": "Which of the following belongs to the Himalayas? The second highest peak is?",
+    "options": [
+      "Everest Uda",
+      "K2",
+      "Dhaulagiri",
+      "Makalu"
+    ],
+    "correctOption": "K2"
+  },
+  {
+    "question": "Which of the following Nilgiris The highest peak of the hills is?",
+    "options": [
+      "Kalsubai",
+      "SRAT HIST",
+      "Anamudi",
+      "Dodabetta"
+    ],
+    "correctOption": "Dodabetta"
+  },
+  {
+    "question": "Which of the following passes is western Situated at the top of the Ghats and connecting Mumbai and Pune. adds up.",
+    "options": [
+      "Asirgarh Fort Pass",
+      "Bhor Ghat Pass",
+      "Amba Ghat Pass",
+      "Tamhini Ghat Pass"
+    ],
+    "correctOption": "Bhor Ghat Pass"
+  },
+  {
+    "question": "Inca ruins of Machu Picchu are in which country? Are located?",
+    "options": [
+      "Peru",
+      "Guatemala",
+      "Mexico",
+      "Greece"
+    ],
+    "correctOption": "Peru"
+  },
+  {
+    "question": "Which of these continents is at its most Correctly matches the larger country (in area)?",
+    "options": [
+      "North America: United States",
+      "South America: Brazil",
+      "Africa: Democratic Republic of the Congo",
+      "Asia: India"
+    ],
+    "correctOption": "South America: Brazil"
+  },
+  {
+    "question": "On the banks of the Suez Canal on 29 March 2021 What about the huge container ship freed from is the name?",
+    "options": [
+      "Ever Supporter",
+      "VaR Given",
+      "Evergreen",
+      "Ever Letters"
+    ],
+    "correctOption": "Ever Given"
+  },
+  {
+    "question": "Which two countries share the 17th parallel border? Was it the middle?",
+    "options": [
+      "North Vietnam and South Vietnam",
+      "America and Canada",
+      "Germany and France",
+      "Brazil and Chile"
+    ],
+    "correctOption": "North Vietnam and South Vietnam"
+  },
+  {
+    "question": "Who is considered the father of geography?",
+    "options": [
+      "Ptolemy",
+      "Aristotle",
+      "Yet",
+      "Eratosthenes"
+    ],
+    "correctOption": "Eratosthenes"
+  },
+  {
+    "question": "Which of the following is from India Isn't it a desert?",
+    "options": [
+      "Spiti Valley cold desert",
+      "Thar Desert",
+      "Rey Valley desert",
+      "Battle of Had"
+    ],
+    "correctOption": "Desert of Rey Valley"
+  },
+  {
+    "question": "Which of the following satellites is located in India The first dedicated multi-wave cet space Is it an observatory?",
+    "options": [
+      "Insat",
+      "Astrosat",
+      "IRS",
+      "Firefly"
+    ],
+    "correctOption": "Astrosat"
+  },
+  {
+    "question": "Which one of the following economic Is it not the scope of geography?",
+    "options": [
+      "Geography of agriculture",
+      "Geography of tourism",
+      "Geography of resources",
+      "Political geography"
+    ],
+    "correctOption": "Political geography"
+  },
+  {
+    "question": "National Tiger Conservation Authority (NTCA) According to, poaching from 2012 to 2018 And the death of tigers due to electric shock Approximately what percentage is it?",
+    "options": [
+      "23%",
+      "12%",
+      "31%",
+      "42%"
+    ],
+    "correctOption": "31%"
+  },
+  {
+    "question": "According to Coffee Board India, Post-monsoon projections of 2018-2019 According to, which of the following is the most Which is the largest coffee producing state?",
+    "options": [
+      "Punjab",
+      "Andhra Pradesh",
+      "Bihar",
+      "Karnataka"
+    ],
+    "correctOption": "Karnataka"
+  },
+  {
+    "question": "Which of the following scholars wrote Geography? (Geography) was given?",
+    "options": [
+      "Plato",
+      "Aristotle",
+      "Herodotus",
+      "Eratosthenes"
+    ],
+    "correctOption": "Eratosthenes"
+  },
+  {
+    "question": "Blue Revolution in India is related to what? Is?",
+    "options": [
+      "Silk production",
+      "Fisheries",
+      "Milk production",
+      "Agriculture"
+    ],
+    "correctOption": "Fisheries"
+  },
+  {
+    "question": "measuring the intensity of earthquakes She goes",
+    "options": [
+      "Bar",
+      "Richter",
+      "Pascal",
+      "Kilogram"
+    ],
+    "correctOption": "Richter scale"
+  },
+  {
+    "question": "Muscovite, Peggatite and Biotite Whose ores are these?",
+    "options": [
+      "Copper",
+      "Iron",
+      "Zinc",
+      "Mica"
+    ],
+    "correctOption": "Mica"
+  },
+  {
+    "question": "Where is Red Uist Winter Carnival celebrated? goes?",
+    "options": [
+      "Nagaland",
+      "Rajasthan",
+      "Tamil Nadu",
+      "Sikkim"
+    ],
+    "correctOption": "Sikkim"
+  },
+  {
+    "question": "Pushkar Fair held in Pushkar goes. Which district does it belong to?",
+    "options": [
+      "Kota",
+      "Ajmer",
+      "Amer",
+      "Bikaner"
+    ],
+    "correctOption": "Ajmer"
+  },
+  {
+    "question": "Elephanta Caves near Mumbai What is the temple dedicated to?",
+    "options": [
+      "Goddess Kali",
+      "Lord Krishna",
+      "Lord Vishnu",
+      "Lord Shiva"
+    ],
+    "correctOption": "Lord Shiva"
+  },
+  {
+    "question": "The world's longest in Lincolnshire Construction work started on subsea power cable which aims to share renewable energy between the two countries Will run between Britain and.",
+    "options": [
+      "France",
+      "Denmark",
+      "Austria",
+      "Belgium"
+    ],
+    "correctOption": "Denmark"
+  },
+  {
+    "question": "What is the height of URN orbit?",
+    "options": [
+      "22,150km",
+      "33,638 km",
+      "42.164 km",
+      "35.786 km"
+    ],
+    "correctOption": "35,786 km"
+  },
+  {
+    "question": "which branch of physical geography Landforms, their development and related Is dedicated to the study of processes?",
+    "options": [
+      "Geomorphology",
+      "Climatology",
+      "Hydrology",
+      "Soil Geography"
+    ],
+    "correctOption": "Geomorphology"
+  },
+  {
+    "question": "Regions or areas of the world that belong to the world which is within the sovereign jurisdiction of any one State are located outside, and therefore the international community As required by general governance Is known",
+    "options": [
+      "Zero line",
+      "Ecosystem",
+      "Global Commons",
+      "Barren"
+    ],
+    "correctOption": "Global Commons"
+  },
+  {
+    "question": "Which of the following in the context of India Which pair (species-category) is correct?",
+    "options": [
+      "Asian elephant – endemic",
+      "Black Buck- Rare",
+      "Great Hornbill – Weak",
+      "Nicobar Pigeon – Endangered"
+    ],
+    "correctOption": "Great Hornbill – Weak"
+  },
+  {
+    "question": "Which of the following is the fastest Are seismic waves?",
+    "options": [
+      "Tidal waves",
+      "Surface waves",
+      "Primary waves",
+      "Secondary waves"
+    ],
+    "correctOption": "Primary waves"
+  },
+  {
+    "question": "Which is the deepest trench in the Indian Ocean?",
+    "options": [
+      "Seychelles ST (0) Antarctica Trench",
+      "Wal ea",
+      "Java Trench",
+      "South Pacific Ridge",
+      "North Atlantic Ridge"
+    ],
+    "correctOption": "Java Trench"
+  },
+  {
+    "question": "North Eastern Pacific and North Atlantic of tropical cyclones originating in which word is used for?",
+    "options": [
+      "Typhoon",
+      "Tristar",
+      "Tornado",
+      "Hurricane"
+    ],
+    "correctOption": "Hurricane"
+  },
+  {
+    "question": "In which of the following continents Mongolia hates the country?",
+    "options": [
+      "Asia",
+      "Antarctica",
+      "Africa",
+      "Europe"
+    ],
+    "correctOption": "Asia"
+  },
+  {
+    "question": "Juh Beach in Mumbai is a part of:",
+    "options": [
+      "Pacific Ocean",
+      "Bay of Bengal",
+      "Arabian Sea",
+      "Indian Ocean"
+    ],
+    "correctOption": "Arabian Sea"
+  },
+  {
+    "question": "Which of the following countries is part of India? Does not share land border with?",
+    "options": [
+      "Nepal",
+      "Sri Lanka",
+      "Pakistan",
+      "Bhutan"
+    ],
+    "correctOption": "Sri Lanka"
+  },
+  {
+    "question": "Which of the following Indian states Does not share its border with Nepal?",
+    "options": [
+      "Uttar Pradesh",
+      "Bihar",
+      "Jharkhand",
+      "West Bengal"
+    ],
+    "correctOption": "Jharkhand"
+  },
+  {
+    "question": "Which of the following regional disputes going on between India and Nepal?",
+    "options": [
+      "Kuril",
+      "Kalapani",
+      "Sino",
+      "Senkaku"
+    ],
+    "correctOption": "Kalapani"
+  },
+  {
+    "question": "Which of the following countries is located in Kutch? Shares some part of the Rann with India?",
+    "options": [
+      "Pakistan",
+      "Nepal",
+      "China",
+      "Afghanistan"
+    ],
+    "correctOption": "Pakistan"
+  },
+  {
+    "question": "Which of the following projects Is it in Uttarakhand?",
+    "options": [
+      "Chamera Hydroelectric Project",
+      "Triple Hydroelectric Project",
+      "PRAT Hydroelectric Project",
+      "Sharavathi Hydroelectric Project"
+    ],
+    "correctOption": "Triple Hydroelectric Project"
+  },
+  {
+    "question": "Cauvery is in the midst of water dispute.",
+    "options": [
+      "Karnataka and Tamil Nadu",
+      "Karnataka and Telangana",
+      "Karnataka and Andhra Pradesh",
+      "Karnataka and Goa"
+    ],
+    "correctOption": "Karnataka and Tamil Nadu"
+  },
+  {
+    "question": "Which of the following rivers flows through Arabia falls into the ocean?",
+    "options": [
+      "PUT",
+      "Tapi",
+      "Godavari",
+      "Mahanadi"
+    ],
+    "correctOption": "Tapi"
+  },
+  {
+    "question": "Kolleru Lake is in which state of India? situated at?",
+    "options": [
+      "Rajasthan",
+      "Kerala",
+      "Maharashtra",
+      "Andhra Pradesh"
+    ],
+    "correctOption": "Andhra Pradesh"
+  },
+  {
+    "question": "In which state was Gandhi Sagar Dam built? Has gone?",
+    "options": [
+      "Maharashtra",
+      "Madhya Pradesh",
+      "Rajasthan",
+      "Himachal Pradesh"
+    ],
+    "correctOption": "Madhya Pradesh"
+  },
+  {
+    "question": "Godavari river flows from which of the following comes out?",
+    "options": [
+      "Brahmagiri hills",
+      "Gangotri",
+      "Koong Hills",
+      "Yamunotri"
+    ],
+    "correctOption": "Brahmagiri hills"
+  },
+  {
+    "question": "On which river was Sardar Sarovar Dam built? Has gone?",
+    "options": [
+      "Yamuna",
+      "Narmada",
+      "Ganga",
+      "Brahmaputra"
+    ],
+    "correctOption": "Narmada"
+  },
+  {
+    "question": "Where is Sambhar Lake located?",
+    "options": [
+      "Gujarat",
+      "Rajasthan",
+      "Madhya Pradesh",
+      "Uttar Pradesh"
+    ],
+    "correctOption": "Rajasthan"
+  },
+  {
+    "question": "Majuli, India's largest river island In which river is it situated?",
+    "options": [
+      "Narmada",
+      "Vyas",
+      "Indus",
+      "Brahmaputra"
+    ],
+    "correctOption": "Brahmaputra"
+  },
+  {
+    "question": "River dolphins in India Is found in.",
+    "options": [
+      "Ghaghra",
+      "Godavari",
+      "Loonie",
+      "Krishna"
+    ],
+    "correctOption": "Ghaghra"
+  },
+  {
+    "question": "Name the main river which flows through the center Through the Union Territory of Dadra and Nagar Haveli It flows.",
+    "options": [
+      "Damanganga",
+      "UR",
+      "Narmada",
+      "Pinjal"
+    ],
+    "correctOption": "Damanganga"
+  },
+  {
+    "question": "In three of the four states given below Ground water consumption is very high. which one State where consumption is not equal to the other three?",
+    "options": [
+      "Rajasthan",
+      "Haryana",
+      "Orissa",
+      "Punjab"
+    ],
+    "correctOption": "Orissa"
+  },
+  {
+    "question": "ss is the largest clay plant in India. It is a dam and is the second largest dam in Asia. The dam was named after Mahabali's son. Hai, who was the king of Kerala.",
+    "options": [
+      "Nagarjuna Sagar Dam",
+      "Banasur Sagar Dam",
+      "Mettur Dam",
+      "Krishna Raja Sagar Dam"
+    ],
+    "correctOption": "Banasur Sagar Dam"
+  },
+  {
+    "question": "Idukki Dam is built on which river?",
+    "options": [
+      "RAR",
+      "Black",
+      "Ghataprabha",
+      "Mahanadi"
+    ],
+    "correctOption": "Periyar"
+  },
+  {
+    "question": "Which of the following river segments National Waterway-2 was declared in 1988?",
+    "options": [
+      "Krishna",
+      "Narmada",
+      "Brahmaputra",
+      "Ganga"
+    ],
+    "correctOption": "Brahmaputra"
+  },
+  {
+    "question": "Name that drainage pattern Where the river rises from a hill and all flows in which directions?",
+    "options": [
+      "Tree-shaped",
+      "Concentric",
+      "net",
+      "radius"
+    ],
+    "correctOption": "radius"
+  },
+  {
+    "question": "Which economic revolution in India led to M.S. Swaminathan is related to?",
+    "options": [
+      "a revolution",
+      "yellow revolution",
+      "Green Revolution",
+      "Pink Revolution"
+    ],
+    "correctOption": "Green Revolution"
+  },
+  {
+    "question": "One in between Rabi and Kharif season gra is the season which is known by this name",
+    "options": [
+      "Zaid season",
+      "Rice season",
+      "GTA season",
+      "Mecca season"
+    ],
+    "correctOption": "Zaid season"
+  },
+  {
+    "question": "Underground water developed in ancient times Name the channels in which the purposes of irrigation of gravity through the slope for Water comes out after use.",
+    "options": [
+      "Assistant Act",
+      "PICS",
+      "Tunnel",
+      "BITCH"
+    ],
+    "correctOption": "Tunnel"
+  },
+  {
+    "question": "In Andaman and Nicobar Islands \"AT AND BURN\" AGRICULTURE IS KNOWN AS:",
+    "options": [
+      "fear",
+      "zooming",
+      "Palma",
+      "Deepa"
+    ],
+    "correctOption": "Deepa"
+  },
+  {
+    "question": "For the most part ADHD plateau What type of soil is found?",
+    "options": [
+      "Alluvial soil",
+      "Yellow soil",
+      "Black soil",
+      "Red soil"
+    ],
+    "correctOption": "Black soil"
+  },
+  {
+    "question": "In semi-arid climatic conditions and of food and fodder grown in low soil What is the crop?",
+    "options": [
+      "Wheat",
+      "Maize",
+      "Jowar",
+      "Millet"
+    ],
+    "correctOption": "Maize"
+  },
+  {
+    "question": "When the soil of plants during rainy season There is more rainfall than the required amount of moisture, So it is called ___.",
+    "options": [
+      "Dry land farming",
+      "Intensive farming",
+      "Wetland farming",
+      "Extensive farming"
+    ],
+    "correctOption": "Wetland farming"
+  },
+  {
+    "question": "What is the ST name of Bharat A Regar soil?",
+    "options": [
+      "Laterite soil",
+      "Red and yellow soil",
+      "Alluvial soil",
+      "Black soil"
+    ],
+    "correctOption": "Black soil"
+  },
+  {
+    "question": "Which of the following regarding black soil Which statement is correct?",
+    "options": [
+      "Black soil rich in phosphorus, nitrogen it occurs",
+      "It covers most of the plateau of ADHD Covers.",
+      "It is the lowest among all types of soils. is fertile",
+      "It includes most of the North Indian Ganga plain is included"
+    ],
+    "correctOption": "It covers most of the plateau of ADHD Covers."
+  },
+  {
+    "question": "Which is the highest on the east coast of India? What type of soil is found?",
+    "options": [
+      "Laterite",
+      "Alluvium",
+      "Red rock",
+      "Black cotton soil"
+    ],
+    "correctOption": "Alluvium"
+  },
+  {
+    "question": "When we travel to rural areas So, we see red soil in many areas. What is the reason for its color?",
+    "options": [
+      "Abundance of ferric oxide",
+      "Abundance of humus",
+      "Presence of magnesium",
+      "Presence of nitrogen"
+    ],
+    "correctOption": "Abundance of humus"
+  },
+  {
+    "question": "Largest and most available in India Which is the most intensively cultivated soil?",
+    "options": [
+      "Alluvial soil",
+      "Desert soil",
+      "Red soil",
+      "Black soil"
+    ],
+    "correctOption": "Alluvial soil"
+  },
+  {
+    "question": "In which soil does cotton grow best? Is?",
+    "options": [
+      "Red soil",
+      "Black soil",
+      "Yellow soil",
+      "Brown soil"
+    ],
+    "correctOption": "Black soil"
+  },
+  {
+    "question": "Black soil is mainly found in the following In which state is it found?",
+    "options": [
+      "Maharashtra",
+      "Jharkhand",
+      "Karnataka",
+      "Orissa"
+    ],
+    "correctOption": "Maharashtra"
+  },
+  {
+    "question": "Which of the following soils is clay? Nutrients like calcium carbonate, magnesium, Rich in potash and lime?",
+    "options": [
+      "Black soil",
+      "Laterite soil",
+      "Red soil",
+      "Yellow soil"
+    ],
+    "correctOption": "Black soil"
+  },
+  {
+    "question": "In which area does laterite soil develop? it occurs :",
+    "options": [
+      "Low temperature and moderate rainfall",
+      "High temperature and heavy rainfall",
+      "High temperature and low rainfall",
+      "Low temperature and heavy rainfall"
+    ],
+    "correctOption": "High temperature and heavy rainfall"
+  },
+  {
+    "question": "Old alluvial soil is called:",
+    "options": [
+      "Regur",
+      "URS",
+      "Khadar",
+      "Bangar"
+    ],
+    "correctOption": "Bangar"
+  },
+  {
+    "question": "What type of soil is found in Deccan Plateau? Covers most of the area?",
+    "options": [
+      "Red soil",
+      "Yellow",
+      "Black soil",
+      "Alluvial soil"
+    ],
+    "correctOption": "Black soil"
+  },
+  {
+    "question": "Of mica in the formation of the earth's crust What is the estimated contribution?",
+    "options": [
+      "12%",
+      "24%",
+      "4%",
+      "8%"
+    ],
+    "correctOption": "4%"
+  },
+  {
+    "question": "Which soil holds moisture Famous for its ability?",
+    "options": [
+      "Dry and",
+      "Alluvial",
+      "Black",
+      "Laterite"
+    ],
+    "correctOption": "Black soil"
+  },
+  {
+    "question": "Which of the following nutrients Dho is provided by soil?",
+    "options": [
+      "Nitrogen",
+      "Carbon",
+      "Oxygen",
+      "Hydrogen"
+    ],
+    "correctOption": "Nitrogen"
+  },
+  {
+    "question": "In which of the following Indian states What is the maximum production from grape cultivation?",
+    "options": [
+      "Uttar Pradesh",
+      "Jammu and Kashmir",
+      "Maharashtra",
+      "Bihar"
+    ],
+    "correctOption": "Maharashtra"
+  },
+  {
+    "question": "How dg, Amaltas, Bel in India? What are the common trees found in the forests of?",
+    "options": [
+      "Tropical thorny forest",
+      "Dry deciduous forest",
+      "Sis deciduous forest",
+      "Mountain forest"
+    ],
+    "correctOption": "Dry deciduous forest"
+  },
+  {
+    "question": "Bamboo, Ul, Sal, Ge and Rosewood ____.can be found in forests",
+    "options": [
+      "Temperate deciduous",
+      "Coniferous",
+      "Temperate",
+      "Alpine"
+    ],
+    "correctOption": "Temperate deciduous"
+  },
+  {
+    "question": "Fay's largest coffee producing country Which one is it?",
+    "options": [
+      "Peru",
+      "Brazil",
+      "India",
+      "Argentina"
+    ],
+    "correctOption": "Brazil"
+  },
+  {
+    "question": "When were the caves of Bhimbetka discovered? Was?",
+    "options": [
+      "1954-55",
+      "1957-58",
+      "1953-54",
+      "1955-56"
+    ],
+    "correctOption": "1957-58"
+  },
+  {
+    "question": "In which plateau is Hyderabad city located?",
+    "options": [
+      "Chhota Nagpur",
+      "Meghalaya Plateau",
+      "Deccan",
+      "Malwa"
+    ],
+    "correctOption": "Deccan"
+  },
+  {
+    "question": "In which of the following areas = rise The area and UR are sandy flats and marshes?",
+    "options": [
+      "Rann of Kutch",
+      "Ganga Brahmaputra Sel",
+      "Konkan Coast",
+      "Malabar Coast"
+    ],
+    "correctOption": "Rann of Kutch"
+  },
+  {
+    "question": "In which of the following places are 12 corals Are islands?",
+    "options": [
+      "Andaman",
+      "Lakshadweep",
+      "Seychelles",
+      "Maldives"
+    ],
+    "correctOption": "Lakshadweep"
+  },
+  {
+    "question": "Which of the following is the world's largest Is it a high plateau?",
+    "options": [
+      "East African Plateau",
+      "Tibetan Plateau",
+      "Deccan Plateau",
+      "Western Plateau"
+    ],
+    "correctOption": "Tibetan Plateau"
+  },
+  {
+    "question": "Which two landmasses are divided by the Palk Strait? differentiates?",
+    "options": [
+      "Indonesians of the Malay Peninsula and Sumatra Fifth note of musical scale",
+      "India and Sri Lanka",
+      "North America and South America",
+      "Africa and Europe"
+    ],
+    "correctOption": "India and Sri Lanka"
+  },
+  {
+    "question": "Which of the following is true about Rann of Kutch? Which statement from is wrong?",
+    "options": [
+      "It is a fresh water lake that flamingos migrate to nest in large numbers",
+      "This is a salt marsh in the Thar desert.",
+      "It is inhabited by the Kutchi people.",
+      "It is a fresh water lake"
+    ],
+    "correctOption": "It is a fresh water lake"
+  },
+  {
+    "question": "Connecting Assam and Arunachal Pradesh Which is India's longest road-rail bridge? Is it like that?",
+    "options": [
+      "Godavari Bridge",
+      "Pamban Bridge",
+      "Howrah Bridge",
+      "Bogibeel Bridge"
+    ],
+    "correctOption": "Bogibeel Bridge"
+  },
+  {
+    "question": "Golden Quadrilateral Project launched Who did it?",
+    "options": [
+      "Jawaharlal Nehru",
+      "Manmohan Singh",
+      "Narendra Modi",
+      "Atal Bihari Vajpayee"
+    ],
+    "correctOption": "Atal Bihari Vajpayee"
+  },
+  {
+    "question": "Inland Waterways Authority of India According to, the navigable inland waterways of India What is the approximate total length of?",
+    "options": [
+      "12400 Km",
+      "15600 Km",
+      "13600 Km",
+      "14500 Km"
+    ],
+    "correctOption": "14500 km"
+  },
+  {
+    "question": "Which port is the largest on the east coast? One of the old artistic ports?",
+    "options": [
+      "Visakhapatnam Port",
+      "Kandla Port",
+      "Paradip Port",
+      "Chennai port"
+    ],
+    "correctOption": "Chennai Port Ltd."
+  },
+  {
+    "question": "Which is the busiest sea route in the world 2",
+    "options": [
+      "South Pacific Sea Route",
+      "North Pacific Sea Route",
+      "North Atlantic Sea Route",
+      "Cape of Good Hope Sea Route"
+    ],
+    "correctOption": "North Atlantic Sea Route"
+  },
+  {
+    "question": "which city golden aqua highway Not part of the network?",
+    "options": [
+      "Mumbai",
+      "Hyderabad",
+      "Delhi",
+      "Kolkata"
+    ],
+    "correctOption": "Hyderabad"
+  },
+  {
+    "question": "Which river section is included in National Waterway-2? Known by?",
+    "options": [
+      "Mahanadi",
+      "Ganga",
+      "Godavari",
+      "Brahmaputra"
+    ],
+    "correctOption": "Brahmaputra"
+  },
+  {
+    "question": "Most of the British in India in 1853 One of the important contributions that made people Enabled to travel to the tall tree.",
+    "options": [
+      "Airway",
+      "Railway",
+      "Road",
+      "Waterway"
+    ],
+    "correctOption": "Railways"
+  },
+  {
+    "question": "National Waterway 1 (4441) in India According; Allahabad (Prayagraj)-Haldia What is the length (expansion) in kilometers?",
+    "options": [
+      "1,620 km",
+      "205 km",
+      "1078 km",
+      "891 km"
+    ],
+    "correctOption": "1,620 km"
+  },
+  {
+    "question": "Establishment of Border Roads Organization in India When did it happen?",
+    "options": [
+      "September 1960",
+      "May 1962",
+      "September 1962",
+      "May 1960"
+    ],
+    "correctOption": "May 1960"
+  },
+  {
+    "question": "Indian in terms of ail and time longest running railway network The train is_____?",
+    "options": [
+      "Yoga Express",
+      "Vivek Express",
+      "Samjhauta Express",
+      "Goldenchariot"
+    ],
+    "correctOption": "Vivek Express"
+  },
+  {
+    "question": "Sri Guru Ram Das Ji International Airport Where is the base located?",
+    "options": [
+      "Chandigarh",
+      "Bareilly",
+      "Shimla",
+      "Amritsar"
+    ],
+    "correctOption": "Amritsar"
+  },
+  {
+    "question": "North-South of Indian Highway Network and East-West (NS – EW) corridors to each other Where do you cut?",
+    "options": [
+      "Jaipur",
+      "Jhansi",
+      "Bhopal",
+      "Delhi"
+    ],
+    "correctOption": "Jhansi"
+  },
+  {
+    "question": "Which two national highways, NH-44 Are the locations connected?",
+    "options": [
+      "Srinagar to Kanyakumari",
+      "Lahaul and Aid to Kanyakumari",
+      "Vijay Nagar to Kutch",
+      "Delhi to Chennai"
+    ],
+    "correctOption": "Srinagar to Kanyakumari"
+  },
+  {
+    "question": "Which of the following cities is tourist The circuit is not part of the \"Golden Triangle\"?",
+    "options": [
+      "Lucknow",
+      "Agra",
+      "Delhi",
+      "Jaipur"
+    ],
+    "correctOption": "Lucknow"
+  },
+  {
+    "question": "In which of the following states The length of railway lines in kilometers is is more?",
+    "options": [
+      "Rajasthan",
+      "Madhya Pradesh",
+      "Uttar Pradesh",
+      "Maharashtra"
+    ],
+    "correctOption": "Uttar Pradesh"
+  },
+  {
+    "question": "Which of the following lines is Arab? Runs parallel to the ocean?",
+    "options": [
+      "Southern Railway",
+      "Central Railway",
+      "Western Railway",
+      "Konkan Railway"
+    ],
+    "correctOption": "Konkan Railway"
+  },
+  {
+    "question": "Kamet, Namcha Ra, Gurla Mandhata Whose names are they?",
+    "options": [
+      "Volcano in the Himalayas",
+      "Mountain peaks of Himalaya",
+      "Tribes living in the Himalayas",
+      "Rivers flowing from the Himalayas"
+    ],
+    "correctOption": "Mountain peaks of Himalaya"
+  },
+  {
+    "question": "Which of the following two regions of India What are the biodiversity hot-spots of?",
+    "options": [
+      "Western Ghats and Eastern Himalayas",
+      "Krishna Wildlife Sanctuary and Kolleru bird sanctuary",
+      "Simlipal National Park and Satkosia tiger reserve",
+      "Kaziranga National Park and Eastern Ghats"
+    ],
+    "correctOption": "Western Ghats and Eastern Himalayas"
+  },
+  {
+    "question": "Aravalli range from India aT Does not pass.",
+    "options": [
+      "Haryana",
+      "Rajasthan",
+      "Gujarat",
+      "Maharashtra"
+    ],
+    "correctOption": "Maharashtra"
+  },
+  {
+    "question": "Following about Nilgiri Hills Which of the following statements is not correct",
+    "options": [
+      "SISTSST SA Highest peak in the hills",
+      "It is located in the Western Ghats of India.",
+      "It is a hilly region of Karnataka",
+      "Tea and coffee are widely grown in these hills."
+    ],
+    "correctOption": "It is a hilly region of Karnataka"
+  },
+  {
+    "question": "highest point of aravalli range Which one is it?",
+    "options": [
+      "Comet",
+      "Jupiter peak",
+      "Om Parvat",
+      "Angle Peak"
+    ],
+    "correctOption": "Comet"
+  },
+  {
+    "question": "Dhupgarh is the highest peak of __Ah",
+    "options": [
+      "Vindhya",
+      "Aravali",
+      "Satpura",
+      "Ajanta"
+    ],
+    "correctOption": "Satpura"
+  },
+  {
+    "question": "A part of Dhauladhar range in the Himalayas",
+    "options": [
+      "Middle Himalaya",
+      "Lesser Himalaya",
+      "Trans-Himalayan",
+      "Shivalik"
+    ],
+    "correctOption": "Lesser Himalayas"
+  },
+  {
+    "question": "Mount Godwin of Austin (9-2) The height is ____.sq. meter",
+    "options": [
+      "8611",
+      "8586",
+      "8126",
+      "8848"
+    ],
+    "correctOption": "8611"
+  },
+  {
+    "question": "Outer Himalayas also known as goes",
+    "options": [
+      "UR Panjal",
+      "Pamir Knot",
+      "Shivalik",
+      "Bomdi-La"
+    ],
+    "correctOption": "Shivalik"
+  },
+  {
+    "question": "In which of the following areas is Kailash Where is the mountain located?",
+    "options": [
+      "Nepal",
+      "Uttarakhand",
+      "Sikkim",
+      "Tibet"
+    ],
+    "correctOption": "Tibet"
+  },
+  {
+    "question": "Which of the following is from the Western Ghats? Is not related?",
+    "options": [
+      "Annamalai fees",
+      "Mahendragiri fees",
+      "Nilgiri Hills",
+      "Mest Hills"
+    ],
+    "correctOption": "Mahendragiri fees"
+  },
+  {
+    "question": "Andaman and Nicobar Islands is called the highest point",
+    "options": [
+      "tide",
+      "saddle tha",
+      "Semeru",
+      "Mount Pulag"
+    ],
+    "correctOption": "Saddle Peak"
+  },
+  {
+    "question": "Western Ghats and Eastern Ghats See you in the hills.",
+    "options": [
+      "Nilgiri",
+      "Amarkantak",
+      "Shivalik",
+      "Maikal"
+    ],
+    "correctOption": "Nilgiri"
+  },
+  {
+    "question": "Alps among the largest mountains in the world There is one. Which European country's geographical boundaries Isn't the Alps range within?",
+    "options": [
+      "Germany",
+      "Liechtenstein",
+      "Belgium",
+      "France"
+    ],
+    "correctOption": "Belgium"
+  },
+  {
+    "question": "Large areas broken up and vertically What type of mountains are formed when displaced?",
+    "options": [
+      "block mountain",
+      "range",
+      "Volcanic mountain",
+      "Fold mountain"
+    ],
+    "correctOption": "block mountain"
+  },
+  {
+    "question": "Mount Vinson is located in which of the following Which continent is located in?",
+    "options": [
+      "South America",
+      "Antarctica",
+      "Australia",
+      "Asia"
+    ],
+    "correctOption": "Antarctica"
+  },
+  {
+    "question": "Which is the highest peak of Na Feg Kush?",
+    "options": [
+      "Udenzom _....",
+      "Karakonam",
+      "Tirich Mir",
+      "Nanda Devi"
+    ],
+    "correctOption": "Tirich Mir"
+  },
+  {
+    "question": "Tista And the fee of the river. between. Located is called",
+    "options": [
+      "Punjab Himalaya",
+      "Kumaon Himalaya",
+      "Kashmir and Himachal Himalayas",
+      "Assam Himalaya"
+    ],
+    "correctOption": "Assam Himalaya"
+  },
+  {
+    "question": "Saltoro Kangri Peak Which of the following On which border is it located?",
+    "options": [
+      "India-China border",
+      "India-Tibet border",
+      "India-Nepal border",
+      "India-Pakistan border"
+    ],
+    "correctOption": "India-Pakistan border"
+  },
+  {
+    "question": "Which of the following mountains Makes ARM of India, China and Myanmar Is?",
+    "options": [
+      "dite",
+      "emit la",
+      "Bum la",
+      "Pensi la"
+    ],
+    "correctOption": "ate"
+  },
+  {
+    "question": "Himachal Pradesh A Lahaul and Spiti Connected to Kullu valley with patios",
+    "options": [
+      "Mayali Pass",
+      "Nadhula Pass",
+      "Bada-Lacha Pass",
+      "Rohtang Pass"
+    ],
+    "correctOption": "Rohtang Pass"
+  },
+  {
+    "question": "Which of the following places is known as its Is wrongly associated with the pass?",
+    "options": [
+      "Zoji La – Great Himalaya",
+      "Banihal – Pir Panjali",
+      "Khardung La – Ladakh Range",
+      "Jelep La – Jaskar"
+    ],
+    "correctOption": "Jalep La - Jaskar"
+  },
+  {
+    "question": "Which of the following belongs to the Western Ghats? Don't have a local name?",
+    "options": [
+      "Syadri Hills in Maharashtra",
+      "Annamalai Hills in Kerala",
+      "Cardamom Hills in Tamil Nadu",
+      "Nilgiri Hills in Karnataka"
+    ],
+    "correctOption": "Cardamom Hills in Tamil Nadu"
+  },
+  {
+    "question": "Which of the following axl sikkim connects to China?",
+    "options": [
+      "Nathu La Pass",
+      "Man Pass",
+      "Debsa Pass",
+      "Badalcha Pass"
+    ],
+    "correctOption": "Nathu La Pass"
+  },
+  {
+    "question": "In which state is Himalayan yew found? could?",
+    "options": [
+      "Arunachal Pradesh",
+      "Jammu and Kashmir",
+      "Sikkim",
+      "Uttarakhand"
+    ],
+    "correctOption": "Arunachal Pradesh"
+  },
+  {
+    "question": "In which of the following plants the body Does not differentiate into roots, stems and leaves?",
+    "options": [
+      "Fern",
+      "Marsilea",
+      "Fodder",
+      "Cedar"
+    ],
+    "correctOption": "Fodder"
+  },
+  {
+    "question": "Golconda Fort is in which state of India? Is located in?",
+    "options": [
+      "Karnataka",
+      "Maharashtra",
+      "Odisha",
+      "Telangana"
+    ],
+    "correctOption": "Telangana"
+  },
+  {
+    "question": "Rock sliding on YI floor Earthquakes occurring due to:",
+    "options": [
+      "Volcanic earthquake",
+      "Explosion earthquake",
+      "Shorten the earthquake",
+      "Tectonic earthquake"
+    ],
+    "correctOption": "Tectonic earthquake"
+  },
+  {
+    "question": "Sriharikota, from where Chandrayaan-2 launch Was done, situated in which district?",
+    "options": [
+      "Chennai",
+      "Thiruvananthapuram",
+      "Bengaluru",
+      "Nellore"
+    ],
+    "correctOption": "Nellore"
+  },
+  
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>
