@@ -1,0 +1,4795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>QUIZ APP</title>
+			<script src="../../urlRewrite.js"></script>
+		<link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Odd out | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+
+ const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'toolspacemonkey-oddout';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+         const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+<script>
+const questions = [
+
+ {
+        "question": "Q1. CPO 12/03/2019(Morning)",
+        "options": [
+            "14 :33 (b)8 : 25",
+            "5 : 15 (d)9: 23"
+        ],
+        "correctOption": "5 : 15 (d)9: 23"
+    },
+    {
+        "question": "Q2. CPO 12/03/2019(Morning)",
+        "options": [
+            "Carpenter/बढ़ई",
+            "Blacksmith/लोहार",
+            "Gardening/ बागवानी",
+            "Tailor/ दज"
+        ],
+        "correctOption": "Gardening/ बागवानी"
+    },
+    {
+        "question": "Q3. CPO 12/03/2019(Morning)",
+        "options": [
+            "10: 99 (b)5: 26",
+            "4: 17 (d)9: 82"
+        ],
+        "correctOption": "10: 99 (b)5: 26"
+    },
+    {
+        "question": "Q4.CPO 12/03/2019(Morning)",
+        "options": [
+            "PYRU (b)CLEH",
+            "MKOH (d)TRVN"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q5. CPO 12/03/2019(Morning)",
+        "options": [
+            "Jealous/ ईा (b)Weep/ रोना",
+            "Sad/ उदास (d)Angry/ ोिधत"
+        ],
+        "correctOption": "Sad/ उदास (d)Angry/ ोिधत"
+    },
+    {
+        "question": "Q6. CPO 12/03/2019(Morning)",
+        "options": [
+            "78:13 (b)18:9 (c) 34:7 (d)56:11"
+        ],
+        "correctOption": "78:13 (b)18:9 (c) 34:7 (d)56:11"
+    },
+    {
+        "question": "Q7. CPO 12/03/2019(Morning)",
+        "options": [
+            "6:18 (b)8:32 (c)12:72 (d)14:94"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q8. CPO 12/03/2019(Morning)",
+        "options": [
+            "ILOU (b)AEIU",
+            "EIOU (d)AIOU"
+        ],
+        "correctOption": "ILOU (b)AEIU"
+    },
+    {
+        "question": "Q9. CPO 12/03/2019(Evening)",
+        "options": [
+            "MNOQ (b) QSUW",
+            "BDFH (d) EGIK"
+        ],
+        "correctOption": "MNOQ (b) QSUW"
+    },
+    {
+        "question": "Q10. CPO 12/03/2019(Evening)",
+        "options": [
+            "HPKM (b) KQNT",
+            "TVUW (d) BFDH"
+        ],
+        "correctOption": "HPKM (b) KQNT"
+    },
+    {
+        "question": "Q11.CPO12/03/2019(Evening)(a) 56 : 75 (b) 36 : 63",
+        "options": [
+            "24 : 48 (d) 48 : 84"
+        ],
+        "correctOption": "24 : 48 (d) 48 : 84"
+    },
+    {
+        "question": "Q12. CPO 12/03/2019(Evening)",
+        "options": [
+            "13 : 29 (b) 9 : 17",
+            "7 : 11 (d) 11 : 25"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q13. CPO 12/03/2019(Evening)",
+        "options": [
+            "Venus/शु (b) Mercury/बुध",
+            "Mars/मंगल (d) Moon/चंमा"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q14. CPO 12/03/2019(Evening)",
+        "options": [
+            "345 : 678 (b) 123 : 456",
+            "234 : 567 (d) 456 : 798"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q15. CPO 12/03/2019(Evening)",
+        "options": [
+            "49 : 82 (b) 36 : 63",
+            "25 : 50 (d) 9 : 26"
+        ],
+        "correctOption": "25 : 50 (d) 9 : 26"
+    },
+    {
+        "question": "Q16. CPO 12/03/2019(Evening)",
+        "options": [
+            "Rhombus/समचतुभुज",
+            "Hexagon/षट्कोण",
+            "Parallelogram/समांतर चतुभुज",
+            "Ellipse/दीघवृ"
+        ],
+        "correctOption": "Ellipse/दीघवृ"
+    },
+    {
+        "question": "Q17. CPO 13/03/2019(Morning)",
+        "options": [
+            "865 : 722 (b)378 : 255",
+            "756 : 633 (d)967 : 844"
+        ],
+        "correctOption": "865 : 722 (b)378 : 255"
+    },
+    {
+        "question": "Q18. CPO 13/03/2019(Morning)",
+        "options": [
+            "Potato /आलू (b)Carrot/गाजर",
+            "Cabbage/ गोभी (d)Turnip/शलजम"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q19. CPO 13/03/2019(Morning)",
+        "options": [
+            "CHEL (b)ZVXT",
+            "VSUP (d)MROV"
+        ],
+        "correctOption": "VSUP (d)MROV"
+    },
+    {
+        "question": "Q20. CPO 13/03/2019(Morning)",
+        "options": [
+            "8 :80 (b)6 :48 (c)4 :26 (d)10:120"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q21. CPO 13/03/2019(Morning)",
+        "options": [
+            "56 : 11 (b) 78 :13",
+            "12 :3 (d) 34 :7"
+        ],
+        "correctOption": "12 :3 (d) 34 :7"
+    },
+    {
+        "question": "Q22. CPO 13/03/2019(Morning)",
+        "options": [
+            "DFIM (b)FHKM",
+            "MORV (d)QSVZ"
+        ],
+        "correctOption": "MORV (d)QSVZ"
+    },
+    {
+        "question": "Q23. CPO 13/03/2019(Morning)",
+        "options": [
+            "49 : 94 (b)56 : 67",
+            "15 : 51 (d)38 : 83"
+        ],
+        "correctOption": "15 : 51 (d)38 : 83"
+    },
+    {
+        "question": "Q24. CPO 13/03/2019(Morning)",
+        "options": [
+            "Pan/ कड़ाही (b)Jug/ जग",
+            "Mug/ मग (d)Cup/ कप"
+        ],
+        "correctOption": "Pan/ कड़ाही (b)Jug/ जग"
+    },
+    {
+        "question": "Q25. CPO 13/03/2019(Evening) 82 Pinnacle SSC Reasoning",
+        "options": [
+            "Stress/ दबाव",
+            "Fatigue/थकान",
+            "Concentration/एकाता",
+            "Tension/तनाव"
+        ],
+        "correctOption": "Concentration/एकाता"
+    },
+    {
+        "question": "Q 26. CPO 13/03/2019(Evening)",
+        "options": [
+            "739:527 (b)456:234",
+            "975:753 (d)697:475"
+        ],
+        "correctOption": "739:527 (b)456:234"
+    },
+    {
+        "question": "Q27. CPO 13/03/2019(Evening)",
+        "options": [
+            "9:20 (b)19:40",
+            "14:30 (d)21:45"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q28. CPO 13/03/2019(Evening)",
+        "options": [
+            "20:30 (b) 12:20",
+            "30:40 (d) 42:56"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q29. CPO 13/03/2019(Evening)",
+        "options": [
+            "35:42 (b)45:55",
+            "15:18 (d)25:30"
+        ],
+        "correctOption": "15:18 (d)25:30"
+    },
+    {
+        "question": "Q30. CPO 13/03/2019(Evening)",
+        "options": [
+            "Intermission/ मांतर",
+            "Conclusion/ समापन",
+            "Valediction/ िवदाई",
+            "Termination / समा"
+        ],
+        "correctOption": "Intermission/ मांतर"
+    },
+    {
+        "question": "Q31. CPO 13/03/2019(Evening)",
+        "options": [
+            "SQOM (b)JMPS",
+            "GHIJ (d)WUTR"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q32. CPO 13/03/2019(Evening)",
+        "options": [
+            "NEHK (b) NSOQ",
+            "RWTV (d) GPKM"
+        ],
+        "correctOption": "NEHK (b) NSOQ"
+    },
+    {
+        "question": "Q33. CPO 14/03/2019(Morning)",
+        "options": [
+            "14,6 (b)7,12 (c)21,4 (d)41,2"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q34. CPO 14/03/2019(Morning)",
+        "options": [
+            "130 (b)60 (c)52 (d)78"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q35. CPO 14/03/2019(Morning)",
+        "options": [
+            "LNPRT (b)NPRTV",
+            "HJMOR (d)DFHJL"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q36. CPO 14/03/2019(Morning)",
+        "options": [
+            "Flaw/ुिट : Defect/दोष",
+            "Mend/सुधारना : Repair/मरत करना",
+            "Vacant/र : Empty/खाली",
+            "Sink/डूबना : Float/तैरना"
+        ],
+        "correctOption": "Sink/डूबना : Float/तैरना"
+    },
+    {
+        "question": "Q37. CPO 14/03/2019(Morning)",
+        "options": [
+            "93 : 117 (b)63 : 81",
+            "133 : 171 (d)119: 153"
+        ],
+        "correctOption": "93 : 117 (b)63 : 81"
+    },
+    {
+        "question": "Q38. CPO 14/03/2019(Morning)",
+        "options": [
+            "KKlmn (b)EEfgg",
+            "CCdee (d)TTuvv"
+        ],
+        "correctOption": "KKlmn (b)EEfgg"
+    },
+    {
+        "question": "Q39. CPO 14/03/2019(Morning)",
+        "options": [
+            "Lawyer/ वकील",
+            "Doctor/ िचिकक",
+            "Engineer/ इंजीिनयर",
+            "Education/ िशा"
+        ],
+        "correctOption": "Education/ िशा"
+    },
+    {
+        "question": "Q40. CPO 14/03/2019(Morning)",
+        "options": [
+            "8 : 20 (b)10: 25",
+            "18 : 81 (d)12: 36"
+        ],
+        "correctOption": "8 : 20 (b)10: 25"
+    },
+    {
+        "question": "Q41. CPO 14/03/2019(Evening)",
+        "options": [
+            "32 (b)28 (c)48 (d)104"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q42. CPO 14/03/2019(Evening)",
+        "options": [
+            "594 (b)693 (c)462 (d)573"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q43. CPO 14/03/2019(Evening)",
+        "options": [
+            "44,2 (b)22,4 (c)7,12 (d)11,8"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q44. CPO 14/03/2019(Evening)",
+        "options": [
+            "152-171 (b) 104-117",
+            "63-72 (d) 136-153"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q45. CPO 14/03/2019(Evening)",
+        "options": [
+            "Success/सफलता",
+            "Victory/िवजय",
+            "Failure /असफलता",
+            "Win /जीत"
+        ],
+        "correctOption": "Failure /असफलता"
+    },
+    {
+        "question": "Q46. CPO 14/03/2019(Evening)",
+        "options": [
+            "Parrot / तोता - Eagle / गड़",
+            "Bear / भालू - Deer / िहरन",
+            "Frog / मढक - Crocodile / मगरम",
+            "Snake / सांप - Lizard / िछपकली"
+        ],
+        "correctOption": "Frog / मढक - Crocodile / मगरम"
+    },
+    {
+        "question": "Q47. CPO14/03/2019(Evening)",
+        "options": [
+            "GHTR (b)CKXP",
+            "AEZV (d)FJUQ"
+        ],
+        "correctOption": "GHTR (b)CKXP"
+    },
+    {
+        "question": "Q48. CPO 14/03/2019(Evening)",
+        "options": [
+            "HKNQT (b)QTWZC",
+            "BEHKN (d)TWYBC"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q49. CPO 15/03/2019(Morning)",
+        "options": [
+            "CXUF (b)DWYA",
+            "HSKP (d)QJTG"
+        ],
+        "correctOption": "HSKP (d)QJTG"
+    },
+    {
+        "question": "Q50. CPO 15/03/2019(Morning)",
+        "options": [
+            "7-56 (b)23-185",
+            "13-104 (d)17-136"
+        ],
+        "correctOption": "13-104 (d)17-136"
+    },
+    {
+        "question": "Q51.CPO 15/03/2019(Morning)",
+        "options": [
+            "Mercury/ बुध (b)Mars/ मंगल",
+            "Moon/ चंमा (d)Venus/ शु"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q52. CPO 15/03/2019(Morning)",
+        "options": [
+            "Division/ िवभाजन",
+            "Addition/ जोड़",
+            "Subtraction/ घटाव",
+            "Mathematics/ गिणत"
+        ],
+        "correctOption": "Mathematics/ गिणत"
+    },
+    {
+        "question": "Q53. CPO 15/03/2019(Morning)",
+        "options": [
+            "29-59 (b)27-55",
+            "21-43 (d)25-53"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q54.CPO 15/03/2019(Morning)",
+        "options": [
+            "13-40 (b)18-55",
+            "9-29 (d)17-52"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q55. CPO 15/03/2019(Morning)",
+        "options": [
+            "FHLO (b)EINT",
+            "KOTZ (d)JNSY"
+        ],
+        "correctOption": "FHLO (b)EINT"
+    },
+    {
+        "question": "Q56. CPO 15/03/2019(Morning)",
+        "options": [
+            "6051 (b)2027",
+            "2306 (d)5024"
+        ],
+        "correctOption": "6051 (b)2027"
+    },
+    {
+        "question": "Q57. CPO 15/03/2019 (Evening)",
+        "options": [
+            "48:81 (b)25:49",
+            "16:36 (d)64:100"
+        ],
+        "correctOption": "48:81 (b)25:49"
+    },
+    {
+        "question": "Q58.CPO 15/03/2019 (Evening)",
+        "options": [
+            "Climb / चढना",
+            "Staircase / सीढ़ी",
+            "Escalator / एेलेटर",
+            "Ladder / जीना"
+        ],
+        "correctOption": "Climb / चढना"
+    },
+    {
+        "question": "Q59.CPO 15/03/2019 (Evening)",
+        "options": [
+            "25 (b)33 (c)27 (d)15"
+        ],
+        "correctOption": "25 (b)33 (c)27 (d)15"
+    },
+    {
+        "question": "Q60.CPO 15/03/2019 (Evening)",
+        "options": [
+            "11:13 (b) 23:29",
+            "17:21 (d) 3:5"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q61.CPO 15/03/2019 (Evening) देना",
+        "options": [
+            "Speak / बोलना : Shout / िचाना",
+            "Morning / सुबह : Night / रात",
+            "Touch / छूना : Push / धा देना",
+            "Deny / इंकार करना : Refuse / मना कर"
+        ],
+        "correctOption": "Morning / सुबह : Night / रात"
+    },
+    {
+        "question": "Q62.CPO 15/03/2019 (Evening)",
+        "options": [
+            "LMOQ (b)DFHJ",
+            "TVXZ (d)GIKM"
+        ],
+        "correctOption": "LMOQ (b)DFHJ"
+    },
+    {
+        "question": "Q63.CPO 15/03/2019 (Evening)",
+        "options": [
+            "EGIKM (b) NPRTV",
+            "MOQSU (d) IKLPS"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q64. CPO 15/03/2019 (Evening)",
+        "options": [
+            "25:65 (b)46:64",
+            "28:82 (d)62:26"
+        ],
+        "correctOption": "25:65 (b)46:64"
+    },
+    {
+        "question": "Q65. CPO 16/03/2019 (Morning)",
+        "options": [
+            "OQSV (b) KMPT",
+            "QSVZ (d) EGJN"
+        ],
+        "correctOption": "OQSV (b) KMPT"
+    },
+    {
+        "question": "Q66. CPO 16/03/2019 (Morning)",
+        "options": [
+            "396 (b) 571 (c) 451 (d) 792"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q67.CPO 16/03/2019 (Morning) 83 Classification (Odd one Out)",
+        "options": [
+            "21 : 2 (b) 14 : 3",
+            "12 : 4 (d) 7 : 6"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q68. CPO 16/03/2019 (Morning)",
+        "options": [
+            "8 (b) 34 (c) 64 (d) 16"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q69.CPO 16/03/2019 (Morning)",
+        "options": [
+            "54 : 64 (b) 91 : 104",
+            "28 : 32 (d) 119 : 136"
+        ],
+        "correctOption": "54 : 64 (b) 91 : 104"
+    },
+    {
+        "question": "Q70. CPO 16/03/2019 (Morning)",
+        "options": [
+            "Barn/खिलहान (b) Den/ माद",
+            "Habitat/ वास थल (d) Stable/ अबल"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q71. CPO 16/03/2019 (Morning)",
+        "options": [
+            "QTWZC (b) CFILO",
+            "HKNQT (d) SWYBE"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q72. CPO 16/03/2019 (Morning)",
+        "options": [
+            "Eraser/ रबड़",
+            "Pen/ पेन",
+            "Paper/ कागज़",
+            "Stationery/ लेखन-सामी"
+        ],
+        "correctOption": "Stationery/ लेखन-सामी"
+    },
+    {
+        "question": "Q73. CPO 16/03/2019 (Afternoon)",
+        "options": [
+            "2047 (b) 4702",
+            "6041 (d) 4306"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q74. CPO 16/03/2019 (Afternoon)",
+        "options": [
+            "Lion/ शेर (b) Whale/ ेल",
+            "Elephant/ हाथी (d) Shark/ शाक"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q75. CPO 16/03/2019 (Afternoon)",
+        "options": [
+            "37 : 75 (b) 29 : 59",
+            "28 : 56 (d) 26 : 53"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q 76. CPO 16/03/2019 (Afternoon)",
+        "options": [
+            "KOTZ (b) DHMS",
+            "GIMP (d) FJOU"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q77. CPO 16/03/2019 (Afternoon)",
+        "options": [
+            "15 : 115 (b) 23 : 161",
+            "29 : 203 (d) 27 : 189"
+        ],
+        "correctOption": "15 : 115 (b) 23 : 161"
+    },
+    {
+        "question": "Q78. CPO 16/03/2019 (Afternoon)",
+        "options": [
+            "UFXC (b) SHBY",
+            "TGPK (d) YAJO"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q79. CPO 16/03/2019 (Afternoon)",
+        "options": [
+            "9 : 729 (b) 13 : 2197",
+            "7 : 343 (d) 17 : 4814"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q80. CPO 16/03/2019 (Afternoon)",
+        "options": [
+            "Potato/ आलू (b)Garlic/ लहसुन",
+            "Tomato/ टमाटर (d)Ginger/ अदरक"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q81. CPO 16/03/2019 (Evening)",
+        "options": [
+            "5 : 29 (b)3 : 7",
+            "8 : 62 (d)6 : 34"
+        ],
+        "correctOption": "5 : 29 (b)3 : 7"
+    },
+    {
+        "question": "Q82. CPO 16/03/2019 (Evening)",
+        "options": [
+            "5 - 25 - 125 (b)10 - 100 - 1000",
+            "6 - 36 - 216 (d)3 - 6 - 27"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q83. CPO 16/03/2019 (Evening)",
+        "options": [
+            "Ottawa/ ओटावा (b)Paris/ पेरस",
+            "Cairo/ कािहरा (d)Kyat/ ात"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q84. CPO 16/03/2019 (Evening)",
+        "options": [
+            "FEDC (b)NMKL",
+            "LKIJ (d)YXVW"
+        ],
+        "correctOption": "FEDC (b)NMKL"
+    },
+    {
+        "question": "Q85. CPO 16/03/2019 (Evening)",
+        "options": [
+            "Warrior : Sword/ योा : तलवार",
+            "Mason : Knife/ मजदूर : चाक़ू",
+            "Author : Pen/ लेखक : कलम",
+            "Carpenter : Saw/ बढ़ई : आरा"
+        ],
+        "correctOption": "Mason : Knife/ मजदूर : चाक़ू"
+    },
+    {
+        "question": "Q86. CPO 16/03/2019 (Evening)",
+        "options": [
+            "IJkLLMM (b)BCdEFFF",
+            "PQrSSTT (d)UVwXXYY"
+        ],
+        "correctOption": "PQrSSTT (d)UVwXXYY"
+    },
+    {
+        "question": "Q87.CPO 16/03/2019 (Evening)",
+        "options": [
+            "4 : 16 (b)10 : 100",
+            "7 : 49 (d)64 : 6"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q88. CPO 16/03/2019 (Evening) CGL 2018 TIER I",
+        "options": [
+            "215 (b)144 (c)169 (d)196"
+        ],
+        "correctOption": "215 (b)144 (c)169 (d)196"
+    },
+    {
+        "question": "Q89. CGL 04/06/2019 (Morning)",
+        "options": [
+            "CFIL (b) GHIJ",
+            "MOQS (d) PSUX"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q90. CGL 04/06/2019 (Morning)",
+        "options": [
+            "126 (b) 189 (c) 254 (d) 217"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q91. CGL 04/06/2019 (Morning)",
+        "options": [
+            "Groundnut/ मूंगफली",
+            "Mustard/ सरसों",
+            "Cumin/जीरा",
+            "Fennel/ सौफं"
+        ],
+        "correctOption": "Groundnut/ मूंगफली"
+    },
+    {
+        "question": "Q92. CGL 04/06/2019- afternoon",
+        "options": [
+            "12 (b) 14 (c) 56 (d) 30"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q93. CGL 04/06/2019- afternoon",
+        "options": [
+            "DGEF (b) HNLJ",
+            "TWUV (d) MSOQ"
+        ],
+        "correctOption": "TWUV (d) MSOQ"
+    },
+    {
+        "question": "Q94. CGL 04/06/2019- afternoon",
+        "options": [
+            "Trend/सामा य वृि",
+            "Perseverance/ढ़ता",
+            "Patience/धीरज",
+            "Stability/थरता"
+        ],
+        "correctOption": "Trend/सामा य वृि"
+    },
+    {
+        "question": "Q95. CGL 04/06/2019 (Evening)",
+        "options": [
+            "123 (b)789 (c)457 (d)567"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q96. CGL 04/06/2019 (Evening)",
+        "options": [
+            "MZLY (b)KXJW",
+            "GESO (d)IVHU"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q97. CGL 04/06/2019 (Evening) िपयन",
+        "options": [
+            "Bangladesh : Taka/ बांादेश : टका",
+            "South Korea : Rupian/ दिण कोरया :",
+            "Russia : Ruble/ स : बल",
+            "Malaysia : Ringgit/ मलेिशया : रट"
+        ],
+        "correctOption": "South Korea : Rupian/ दिण कोरया :"
+    },
+    {
+        "question": "Q98. CGL 04/06/2019 (Evening)",
+        "options": [
+            "TUWZ (b) MNPS",
+            "DEGJ (d) PQTX"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q99. CGL 04/06/2019 (Evening)",
+        "options": [
+            "Benevolence/ परोपकार",
+            "Courtesy/ िशाचार",
+            "Indulgence/ अनुह",
+            "Hindrance/ बाधा"
+        ],
+        "correctOption": "Hindrance/ बाधा"
+    },
+    {
+        "question": "Q100. CGL 06/06/2019 (Morning)",
+        "options": [
+            "RQST (b) FGHT",
+            "MLNO (d) CBDE"
+        ],
+        "correctOption": "MLNO (d) CBDE"
+    },
+    {
+        "question": "Q101. CGL 06/06/2019 (Morning)",
+        "options": [
+            "Krishna/ कृा (b)Mahanadi/ महानदी",
+            "Tapti/ ता (d)Godavari/गोदावरी"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q102. CGL 06/06/19 (Afternoon)",
+        "options": [
+            "ZOOM (b) PAST",
+            "BIRD (d) DECK"
+        ],
+        "correctOption": "ZOOM (b) PAST"
+    },
+    {
+        "question": "Q103. CGL 06/06/19 (Afternoon)",
+        "options": [
+            "Guava/ अमद (b) Pomegranate/अनार",
+            "Cucumber/ खीरा (d) Papaya/ पपीता"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q104. CGL 06/06/19 (Afternoon)",
+        "options": [
+            "166 (b) 341 (c) 132 (d) 209"
+        ],
+        "correctOption": "166 (b) 341 (c) 132 (d) 209"
+    },
+    {
+        "question": "Q105. CGL 06/06/2019(Evening)",
+        "options": [
+            "Interval/मांतर (b) Ending/समापन",
+            "End/अंत (d) Farewell/िवदाई"
+        ],
+        "correctOption": "Interval/मांतर (b) Ending/समापन"
+    },
+    {
+        "question": "Q106. CGL 06/06/2019(Evening)",
+        "options": [
+            "ABOP (b) EFST",
+            "CDQR (d) GHTV"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q107.CGL 06/06/2019(Evening) टेबल लै",
+        "options": [
+            "Garden : Ladle/ बगीचा : करछुल",
+            "Study room : Table lamp/अयन क :",
+            "Kitchen : Karahi/रसोई : कड़ाही",
+            "Bathroom : Shower/ बाथम : शावर"
+        ],
+        "correctOption": "Garden : Ladle/ बगीचा : करछुल"
+    },
+    {
+        "question": "Q108. CGL 06/06/2019(Evening)",
+        "options": [
+            "BFMQ (b) JNPS",
+            "DGKL (d) GKRV"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q109. CGL 07/06/2019 (Morning)",
+        "options": [
+            "325 (b) 416 (c) 544 (d) 143"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q110CGL07/06/2019(Mi)84 Pinnacle SSC Reasoning",
+        "options": [
+            "WVUS (b) JMPS",
+            "DEFG (d) NPRT"
+        ],
+        "correctOption": "WVUS (b) JMPS"
+    },
+    {
+        "question": "Q111. CGL 07/06/2019 (Morning)",
+        "options": [
+            "Camouflage/ छावरण",
+            "Mask/ मुखौटा",
+            "Conceal/ िछपाना",
+            "Horde/ झु"
+        ],
+        "correctOption": "Horde/ झु"
+    },
+    {
+        "question": "Q112.CGL 07/06/2019(Afternoon)",
+        "options": [
+            "39 (b) 57 (c) 43 (d) 63"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q113. CGL 07/06/2019(Afternoon)",
+        "options": [
+            "RSTY (b) HJLO",
+            "BDFA (d) PQRU"
+        ],
+        "correctOption": "RSTY (b) HJLO"
+    },
+    {
+        "question": "Q114. CGL 07/06/2019(Afternoon)",
+        "options": [
+            "Condemn/ िनंदा करना",
+            "Disparage/ उपेा करना",
+            "Denigrate/ बदनाम करना",
+            "awkward/ भा"
+        ],
+        "correctOption": "awkward/ भा"
+    },
+    {
+        "question": "Q115. CGL 07/06/2019(Evening)",
+        "options": [
+            "Nepal/ नेपाल",
+            "Ireland/ आयरलड",
+            "Indonesia/ इंडोनेिशया",
+            "Afghanistan/ अफगािनान"
+        ],
+        "correctOption": "Ireland/ आयरलड"
+    },
+    {
+        "question": "Q116. CGL 07/06/2019(Evening)",
+        "options": [
+            "HLP (b) DHL",
+            "PTX (d) LPQ"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q117. CGL 07/06/2019(Evening)",
+        "options": [
+            "Tamil Nadu : South/ तिमलनाडु : दिण",
+            "Punjab : North/ पंजाब : उर",
+            "Assam : North East / असम : उर पूव",
+            "Kerala : North West/ केरल : उर पिम"
+        ],
+        "correctOption": "Kerala : North West/ केरल : उर पिम"
+    },
+    {
+        "question": "Q118. CGL 07/06/2019(Evening)",
+        "options": [
+            "2197 (b) 1331",
+            "343 (d) 731"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q119.CGL 07/06/2019(Evening)",
+        "options": [
+            "PXWQ (b) SKLV",
+            "BKJC (d) FNMG"
+        ],
+        "correctOption": "BKJC (d) FNMG"
+    },
+    {
+        "question": "Q120. CGL 10/06/2019 (Morning)",
+        "options": [
+            "953 (b) 523 (c) 312 (d) 734"
+        ],
+        "correctOption": "953 (b) 523 (c) 312 (d) 734"
+    },
+    {
+        "question": "Q121. CGL 10/06/2019 (Morning)",
+        "options": [
+            "Steal / चोरी करना",
+            "Hinder/ बाधा पँचाना",
+            "Impede/ कावट डालना",
+            "Arrest/ अव करना"
+        ],
+        "correctOption": "Steal / चोरी करना"
+    },
+    {
+        "question": "Q122. CGL 10/06/2019 (Morning)",
+        "options": [
+            "MLKP (b) TSRN",
+            "XVWZ (d) DCBZ"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q123. CGL 10/06/2019(Afternoon)",
+        "options": [
+            "Big /बड़ा (b) Expensive/महंगा",
+            "Costly/महंगा (d)Valuable /महंगा"
+        ],
+        "correctOption": "Big /बड़ा (b) Expensive/महंगा"
+    },
+    {
+        "question": "Q124. CGL 10/06/2019(Afternoon)",
+        "options": [
+            "56 : 49 (b) 64 : 54",
+            "104 : 91 (d) 32 : 28"
+        ],
+        "correctOption": "104 : 91 (d) 32 : 28"
+    },
+    {
+        "question": "Q125. CGL 10/06/2019(Afternoon)",
+        "options": [
+            "POWZ (b) KNQT",
+            "FILO (d) QTWZ"
+        ],
+        "correctOption": "POWZ (b) KNQT"
+    },
+    {
+        "question": "Q126.CGL 10/06/2019(Evening) सजन",
+        "options": [
+            "Scalpel : Surgeon / िचिककीय छुरी :",
+            "Chisel : Sculptor/ छेनी : मूितकार",
+            "Anvil : Blacksmith/िनहाई : लोहार",
+            "Paper : Book/ कागज़ : िकताब"
+        ],
+        "correctOption": "Paper : Book/ कागज़ : िकताब"
+    },
+    {
+        "question": "Q127. CGL 10/06/2019(Evening) जू और कीर अणाचल देश",
+        "options": [
+            "Dogri : Jammu and Kashmir/ डोगरी :",
+            "Tamil : Kerala/ तिमल : केरल",
+            "Bori : Arunachal Pradesh/ बोरी :",
+            "Konkani : Goa/ कोकणी ं : गोवा"
+        ],
+        "correctOption": "Tamil : Kerala/ तिमल : केरल"
+    },
+    {
+        "question": "Q128. CGL 10/06/2019(Evening)",
+        "options": [
+            "KMT (b) OQV",
+            "FHO (d) QSZ"
+        ],
+        "correctOption": "FHO (d) QSZ"
+    },
+    {
+        "question": "Q129. CGL 10/06/2019(Evening)",
+        "options": [
+            "SUW (b) FHJ",
+            "PQR (d) KMO"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q130. CGL 10/06/2019(Evening)",
+        "options": [
+            "8 : 69 (b) 13 : 179",
+            "12 : 149 (d) 14 : 201"
+        ],
+        "correctOption": "12 : 149 (d) 14 : 201"
+    },
+    {
+        "question": "Q131. CGL 11/06/2019 (Morning)",
+        "options": [
+            "Thorium/ थोरयम (b)Uranium/ यूरेिनयम",
+            "Radium/ रेिडयम (d)Sodium/ सोिडयम"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q132. CGL 11/06/2019 (Morning)",
+        "options": [
+            "4 : 48 (b) 5 : 75",
+            "2 : 6 (d) 3 : 18"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q133 CGL 11/06/2019 (Morning)",
+        "options": [
+            "65 : 101 (b) 26 : 50",
+            "17 : 37 (d) 49 : 82"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q134. CGL 11/06/2019 (Morning)",
+        "options": [
+            "FGE (b) NOR (c) KLJ (d) YZX"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q135. CGL 11/06/2019(Afternoon)",
+        "options": [
+            "Jupiter/ बृहित (b) Mars/ मंगल",
+            "Earth/ पृी (d) Metis/मेटीस"
+        ],
+        "correctOption": "Jupiter/ बृहित (b) Mars/ मंगल"
+    },
+    {
+        "question": "Q136. CGL 11/06/2019(Afternoon)",
+        "options": [
+            "7 - 126 (b) 9 - 164",
+            "13 - 234 (d) 11 - 198"
+        ],
+        "correctOption": "13 - 234 (d) 11 - 198"
+    },
+    {
+        "question": "Q137. CGL 11/06/2019(Afternoon)",
+        "options": [
+            "HSYB (b) DWKO",
+            "GTXC (d) QJUF"
+        ],
+        "correctOption": "GTXC (d) QJUF"
+    },
+    {
+        "question": "Q138. CGL 11/06/2019 (Evening)",
+        "options": [
+            "PUYBD (b) JOSVX",
+            "EJNQS (d) TYBEG"
+        ],
+        "correctOption": "EJNQS (d) TYBEG"
+    },
+    {
+        "question": "Q139. CGL 11/06/2019 (Evening)",
+        "options": [
+            "4 : 16 (b) 14 : 196",
+            "12 : 244 (d) 2 : 4"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q140. CGL 11/06/2019 (Evening)",
+        "options": [
+            "Honesty/ईमानदारी",
+            "Integrity/सिना",
+            "Hypocrisy/पाख",
+            "Truthfulness/साई"
+        ],
+        "correctOption": "Hypocrisy/पाख"
+    },
+    {
+        "question": "Q141. CGL 12/06/2019 (Morning)",
+        "options": [
+            "UVYCH (b) JKNRV",
+            "GHKOT (d) PQTXC"
+        ],
+        "correctOption": "GHKOT (d) PQTXC"
+    },
+    {
+        "question": "Q142. CGL 12/06/2019 (Morning)",
+        "options": [
+            "Inquire/ जांच करना",
+            "Deliberate/ जानबूझकर",
+            "Explore/ अनुसंधान करना",
+            "Examine/ परीण करना"
+        ],
+        "correctOption": "Deliberate/ जानबूझकर"
+    },
+    {
+        "question": "Q143. CGL 12/06/2019 (Morning)",
+        "options": [
+            "13 : 170 (b) 11 : 120",
+            "5 : 24 (d) 7 : 48"
+        ],
+        "correctOption": "13 : 170 (b) 11 : 120"
+    },
+    {
+        "question": "Q144. CGL 12/06/2019 (Afternoon)",
+        "options": [
+            "BDGKP (b) OQTXC",
+            "JLKRW (d) SUXBG"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q145. CGL 12/06/2019 (Afternoon)",
+        "options": [
+            "13 : 171 (b) 7 : 51",
+            "8 : 66 (d) 10 : 98"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q146. CGL 12/06/2019 (Afternoon)",
+        "options": [
+            "Ears/ कान (b) Eyes / आँख",
+            "Noes/ नाक (d) Throat/ गला"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q147 CGL 12/06/2019(Evening)",
+        "options": [
+            "4 : 65 (b) 1 : 2",
+            "3 : 27 (d) 2 : 9"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q148. CGL 12/06/2019(Evening)",
+        "options": [
+            "Diabetes / मधुमेह",
+            "Frustration/ िनराशा",
+            "Anaemia/ राता",
+            "hypertension/ उ रचाप"
+        ],
+        "correctOption": "Frustration/ िनराशा"
+    },
+    {
+        "question": "Q149. CGL 12/06/2019(Evening)",
+        "options": [
+            "ZXUQL (b) NLHDC",
+            "SQNJE (d) PNKGB"
+        ],
+        "correctOption": "SQNJE (d) PNKGB"
+    },
+    {
+        "question": "Q150. CGL 13/06/2019(Morning) 85 Classification (Odd one Out)",
+        "options": [
+            "MOQSU (b)PRTWY",
+            "CEGIK (d)UWYAC"
+        ],
+        "correctOption": "CEGIK (d)UWYAC"
+    },
+    {
+        "question": "Q151. CGL 13/06/2019(Morning)",
+        "options": [
+            "Humorous/हापूण",
+            "Comical/हाकर",
+            "Hilarious/ स",
+            "Gangster/ गगर"
+        ],
+        "correctOption": "Gangster/ गगर"
+    },
+    {
+        "question": "Q152. CGL 13/06/2019(Morning)",
+        "options": [
+            "7:46 (b)9:80",
+            "6:35 (d)4:15"
+        ],
+        "correctOption": "7:46 (b)9:80"
+    },
+    {
+        "question": "Q153. CGL 13/06/2019(Afternoon)",
+        "options": [
+            "4 : 27 (b)49 : 218",
+            "16 : 125 (d)9 : 64"
+        ],
+        "correctOption": "16 : 125 (d)9 : 64"
+    },
+    {
+        "question": "Q154.CGL 13/06/2019(Afternoon)",
+        "options": [
+            "RVZDG (b)DHLPT",
+            "UYCGK (d)AEIMQ"
+        ],
+        "correctOption": "RVZDG (b)DHLPT"
+    },
+    {
+        "question": "Q155. CGL 13/06/2019(Afternoon)",
+        "options": [
+            "Indigo/ नीला (b)Silver/ चाँदी",
+            "Orange/ नारंगी (d)Violet/ बगनी"
+        ],
+        "correctOption": "Orange/ नारंगी (d)Violet/ बगनी"
+    },
+    {
+        "question": "Q156. CGL 13/06/2019(Evening)",
+        "options": [
+            "Pedology/ भूिम िवान",
+            "Seismology/भूकं प िवान",
+            "Terminology/ शावली",
+            "Cardiology/ दयरोग िवान"
+        ],
+        "correctOption": "Terminology/ शावली"
+    },
+    {
+        "question": "Q157.CGL 13/06/2019(Evening)",
+        "options": [
+            "196:14 (b)123:11",
+            "225:15 (d)144:12"
+        ],
+        "correctOption": "225:15 (d)144:12"
+    },
+    {
+        "question": "Q158. CGL 13/06/2019(Evening) CHSL 2018 TIER I",
+        "options": [
+            "E (b)V (c)I (d)U"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q159.CHSL 01-July-19(Evening)",
+        "options": [
+            "Neigh/ िहनिहनाना",
+            "Whoop/   की आवाज़",
+            "Walking/ टहलना",
+            "Roaring/ दहाड़ना"
+        ],
+        "correctOption": "Walking/ टहलना"
+    },
+    {
+        "question": "Q160. CHSL 01-July-19(Evening)",
+        "options": [
+            "HSKPM (b) PKSHV",
+            "DWGTJ (d) JQMNP"
+        ],
+        "correctOption": "HSKPM (b) PKSHV"
+    },
+    {
+        "question": "Q161.CHSL 01-July-19(Evening)",
+        "options": [
+            "5138 (b) 3128",
+            "9178 (d) 7158"
+        ],
+        "correctOption": "9178 (d) 7158"
+    },
+    {
+        "question": "Q162. CHSL 2/7/2019 (Morning)",
+        "options": [
+            "GSVE (b) LOPK",
+            "CXGT (d) MNQJ"
+        ],
+        "correctOption": "GSVE (b) LOPK"
+    },
+    {
+        "question": "Q163. CHSL 2/7/2019 (Morning)",
+        "options": [
+            "Bag/बैग (b) Suitcase/सूटकेस",
+            "Purse/बटुआ (d) Carpet/क़ालीन"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q164.CHSL 2/7/2019 (Morning)",
+        "options": [
+            "4147 (b) 8205",
+            "9368 (d) 7298"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q165. CHSL 2/7/2019 (Afternoon)",
+        "options": [
+            "4836 (b) 3864",
+            "6394 (d) 4638"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q166.CHSL 2/7/2019 (Afternoon)",
+        "options": [
+            "UQJF (b) OKPL",
+            "AWDZ (d) IDWS"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q167.CHSL 2/7/2019 (Evening)",
+        "options": [
+            "83115 (b) 54215",
+            "43217 (d) 12347"
+        ],
+        "correctOption": "83115 (b) 54215"
+    },
+    {
+        "question": "Q168. CHSL 2/7/2019 (Evening)",
+        "options": [
+            "Germany/ जमनी",
+            "Singapore/ िसंगापुर",
+            "Austria/ ऑया",
+            "Italy/ इटली"
+        ],
+        "correctOption": "Singapore/ िसंगापुर"
+    },
+    {
+        "question": "Q169.CHSL 3-7-2019 (Morning)",
+        "options": [
+            "2421 (b) 7261",
+            "5472 (d) 4842"
+        ],
+        "correctOption": "5472 (d) 4842"
+    },
+    {
+        "question": "Q170.CHSL 3-7-2019 (Morning)",
+        "options": [
+            "AVZ (b) UPF",
+            "OKL (d) EZV"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q171.CHSL 3-7-2019 (Morning)",
+        "options": [
+            "Parasailing/ पैरासेिलंग",
+            "Surfing/ सिफग",
+            "Swimming/ तैराकी",
+            "Driving/ वाहन चलाना"
+        ],
+        "correctOption": "Driving/ वाहन चलाना"
+    },
+    {
+        "question": "Q172. CHSL 3-7-2019 (Afternoon)",
+        "options": [
+            "Cells/कोिशकाएं (b)Atoms/परमाणु",
+            "Tissues/उक (d)Organs/अंग"
+        ],
+        "correctOption": "Tissues/उक (d)Organs/अंग"
+    },
+    {
+        "question": "Q173. CHSL 3-7-2019 (Evening)",
+        "options": [
+            "Bleat/िमिमयाना (b)Croak/टरटराना",
+            "Bark/ भौकना ं (d) Larva/ लावा"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q174.CHSL 3-7-2019 (Evening)",
+        "options": [
+            "173 (b) 179 (c) 181 (d) 183"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q175.CHSL 3-7-2019 (Evening)",
+        "options": [
+            "BCEH (b) KLNQ",
+            "TUWZ (d) LMPS"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q176. CHSL 4-7-2019 (Morning)",
+        "options": [
+            "317 (b) 319 (c) 349 (d) 347"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q177.CHSL 4-7-2019 (Morning)",
+        "options": [
+            "DJMG (b) JPSM",
+            "UADX (d) RXBU"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q178.CHSL 4-7-2019 (Morning)",
+        "options": [
+            "Farmer/ िकसान (b) Worker/िमक",
+            "Carpenter/बढ़ई (d) Tailor/दरजी"
+        ],
+        "correctOption": "Carpenter/बढ़ई (d) Tailor/दरजी"
+    },
+    {
+        "question": "Q179.CHSL 4-7-2019 (Afternoon)",
+        "options": [
+            "DGMJ (b) PSZV",
+            "SVBY (d) KNTQ"
+        ],
+        "correctOption": "SVBY (d) KNTQ"
+    },
+    {
+        "question": "Q180.CHSL 4-7-2019 (Afternoon)",
+        "options": [
+            "Shirt/ शट (b) Sandals/ सडल",
+            "Slippers/चल (d) Shoes/ जूते"
+        ],
+        "correctOption": "Shirt/ शट (b) Sandals/ सडल"
+    },
+    {
+        "question": "Q181.CHSL 4-7-2019 (Afternoon)",
+        "options": [
+            "99 (b) 97 (c) 89 (d) 83"
+        ],
+        "correctOption": "99 (b) 97 (c) 89 (d) 83"
+    },
+    {
+        "question": "Q182.CHSL 4-7-2019 (Evening)",
+        "options": [
+            "Nozzle/नोक",
+            "Pitch/िपच",
+            "Skating ring/ेिटंग रंग",
+            "Arena/अखाडा"
+        ],
+        "correctOption": "Pitch/िपच"
+    },
+    {
+        "question": "Q183. CHSL 4-7-2019 (Evening)",
+        "options": [
+            "OQTX (b) EGJN",
+            "IKNQ (d) ACFJ"
+        ],
+        "correctOption": "OQTX (b) EGJN"
+    },
+    {
+        "question": "Q184. CHSL 4-7-2019 (Evening)",
+        "options": [
+            "313 (b) 323 (c) 353 (d) 373"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q185.CHSL 5-7-2019 (Morning)",
+        "options": [
+            "Political Science/ राजनीित िवान",
+            "Biology/ जीविवान",
+            "History/ इितहास",
+            "Sociology/ समाजशा"
+        ],
+        "correctOption": "Biology/ जीविवान"
+    },
+    {
+        "question": "Q186.CHSL 5-7-2019 (Morning)",
+        "options": [
+            "XBFJ (b) HLPT",
+            "DHLP (d) CGKQ"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q187. CHSL 5-7-2019 (Morning)",
+        "options": [
+            "65 (b) 170 (c) 195 (d) 50"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q188.CHSL 5-7-2019 (Afternoon)",
+        "options": [
+            "Photocopier / फोटोकािपयर",
+            "Microwave /माइोवेव",
+            "Scanner / ैनर",
+            "Printer / िंटर"
+        ],
+        "correctOption": "Microwave /माइोवेव"
+    },
+    {
+        "question": "Q189.CHSL 5-7-2019 (Afternoon)",
+        "options": [
+            "PSVY (b)CFJM",
+            "KNQT (d)SVYB"
+        ],
+        "correctOption": "KNQT (d)SVYB"
+    },
+    {
+        "question": "Q190.CHSL 5-7-2019 (Afternoon)",
+        "options": [
+            "277 (b)239 (c)233 (d)253"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q191. CHSL 5-7-2019 (Evening)",
+        "options": [
+            "IMQU (b)AFIM",
+            "UYCG (d)SWAE"
+        ],
+        "correctOption": "UYCG (d)SWAE"
+    },
+    {
+        "question": "Q192. CHSL 5-7-2019 (Evening) 86 Pinnacle SSC Reasoning",
+        "options": [
+            "127 (b)118 (c)130 (d)129"
+        ],
+        "correctOption": "127 (b)118 (c)130 (d)129"
+    },
+    {
+        "question": "Q193. CHSL 5-7-2019 (Evening)",
+        "options": [
+            "Circle/ वृ (b)Triangle/िभुज",
+            "Diagram/ आरेख (d)Rectangle/आयत"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q194. CHSL 8-7-2019 (Morning)",
+        "options": [
+            "193 (b)171 (c)173 (d)191"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q195. CHSL 8-7-2019 (Morning)",
+        "options": [
+            "VXZB (b)BDGJ",
+            "DFHJ (d)JLNP"
+        ],
+        "correctOption": "DFHJ (d)JLNP"
+    },
+    {
+        "question": "Q196. CHSL 8-7-2019 (Morning)",
+        "options": [
+            "Carbohydrates/ काबहाइडेट",
+            "Energy/ ऊजा",
+            "Protein/ ोटीन",
+            "Vitamins/िवटािमन"
+        ],
+        "correctOption": "Energy/ ऊजा"
+    },
+    {
+        "question": "Q197. CHSL 8-7-2019 (Afternoon)",
+        "options": [
+            "Hypertension/ उ रचाप",
+            "Ulcer/ एनीिमया",
+            "Hormone/ हॉमन",
+            "Anaemia / अर"
+        ],
+        "correctOption": "Hormone/ हॉमन"
+    },
+    {
+        "question": "Q198.CHSL 8-7-2019 (Afternoon)",
+        "options": [
+            "224 (b) 336 (c) 226 (d) 448"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q199. CHSL 8-7-2019 (Afternoon)",
+        "options": [
+            "BDGJ (b) DGJM",
+            "KNQT (d) TWZC"
+        ],
+        "correctOption": "BDGJ (b) DGJM"
+    },
+    {
+        "question": "Q200. CHSL 8-7-2019 (Evening)",
+        "options": [
+            "49 (b) 64 (c) 16 (d) 25"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q201. CHSL 8-7-2019 (Evening)",
+        "options": [
+            "DHLP (b) PTXB",
+            "RVZD (d) JNRW"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q202.CHSL 8-7-2019 (Evening)",
+        "options": [
+            "Serene/ शांत",
+            "Nervous/ बेचैन",
+            "Anxious/ िचंितत",
+            "Apprehensive/ भयभीत"
+        ],
+        "correctOption": "Serene/ शांत"
+    },
+    {
+        "question": "Q203.CHSL 9-7-2019 (Morning)",
+        "options": [
+            "Thyroxine/ थाईरोन",
+            "Insulin/ इंसुिलन",
+            "Adrenalin/ एडेनैिलन",
+            "Hormone/ हॉमन"
+        ],
+        "correctOption": "Hormone/ हॉमन"
+    },
+    {
+        "question": "Q204. CHSL 9-7-2019 (Morning)",
+        "options": [
+            "GLQV (b) CHMR",
+            "LQVZ (d) SXCH"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q205.CHSL 9-7-2019 (Morning)",
+        "options": [
+            "216 (b) 159 (c) 512 (d) 343"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q206. CHSL 9-7-2019 (Afternoon)",
+        "options": [
+            "Bark/ भौकना ं (b) Bleat/ िमिमयाना",
+            "Frog/ मढक (d) Moo/ रंभाना"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q207. CHSL 9-7-2019 (Afternoon)",
+        "options": [
+            "PRKI (b) LNOM",
+            "STHI (d) CEXV"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q208.CHSL 9-7-2019 (Afternoon)",
+        "options": [
+            "47 (b) 57 (c) 67 (d) 37"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q209. CHSL 09-July-19 (Evening)",
+        "options": [
+            "Cat/ िबी (b) Wolf/ भेिड़या",
+            "Cow/ गाय (d) Goat/ बकरी"
+        ],
+        "correctOption": "Cow/ गाय (d) Goat/ बकरी"
+    },
+    {
+        "question": "Q210. CHSL 09-July-19 (Evening)",
+        "options": [
+            "NPR (b) BDF (c) HJL (d) SUV"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q211. CHSL 10-July-19 (Morning)",
+        "options": [
+            "EGK (b) IKM (c) BDH (d) DFJ"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q212. CHSL 10-July-19 (Morning)",
+        "options": [
+            "145 (b) 325 (c) 425 (d) 235"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q213.CHSL 10-July-19 (Morning)",
+        "options": [
+            "Lucknow/ लखनऊ",
+            "Punjab/ पंजाब",
+            "Mumbai/ मुंबई",
+            "Patna / पटना"
+        ],
+        "correctOption": "Punjab/ पंजाब"
+    },
+    {
+        "question": "Q214.CHSL 10/7/19 (Afternoon)",
+        "options": [
+            "459 (b) 259 (c) 639 (d) 189"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q215.CHSL 10/7/19 (Afternoon)",
+        "options": [
+            "DGL (b) BFJ (c) KOS (d) MQU"
+        ],
+        "correctOption": "DGL (b) BFJ (c) KOS (d) MQU"
+    },
+    {
+        "question": "Q216. CHSL 10/7/19 (Afternoon)",
+        "options": [
+            "Blackboard/ ैकबोड",
+            "Stationery/ लेखन सामी",
+            "Duster/ डर",
+            "Chalk/ चाक"
+        ],
+        "correctOption": "Stationery/ लेखन सामी"
+    },
+    {
+        "question": "Q217.CHSL 10-July-19 (Evening)",
+        "options": [
+            "CGK (b) LPT (c) BFM (d) NRV"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q218. CHSL 10-July-19 (Evening)",
+        "options": [
+            "Disaster/ आपदा",
+            "Storm/ तूफ़ान",
+            "Cyclone/ चवात",
+            "Flood/ बाढ़"
+        ],
+        "correctOption": "Disaster/ आपदा"
+    },
+    {
+        "question": "Q219. CHSL 10-July-19 (Evening)",
+        "options": [
+            "16 (b) 121 (c) 100 (d) 81"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q220.CHSL 11/7/2019 (Morning)",
+        "options": [
+            "QSUV (b) DFHJ",
+            "JLNP (d) CEGI"
+        ],
+        "correctOption": "QSUV (b) DFHJ"
+    },
+    {
+        "question": "Q221. CHSL 11/7/2019 (Morning)",
+        "options": [
+            "Car/ कार",
+            "Jeep/ जीप",
+            "Truck/ टक",
+            "Ship/ समुंी जहाज"
+        ],
+        "correctOption": "Ship/ समुंी जहाज"
+    },
+    {
+        "question": "Q222.CHSL 11/7/2019 (Morning)",
+        "options": [
+            "65 (b) 95 (c) 75 (d) 85"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q223.CHSL 11/7/2019 (Afternoon)",
+        "options": [
+            "Kiwi/ कीवी (b) Eagle/ चील",
+            "Vulture/ िग (d) Goose/ हंस"
+        ],
+        "correctOption": "Kiwi/ कीवी (b) Eagle/ चील"
+    },
+    {
+        "question": "Q224. CHSL 11/7/2019 (Afternoon)",
+        "options": [
+            "13 (b) 23 (c) 17 (d) 51"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q225. CHSL 11/7/2019 (Afternoon)",
+        "options": [
+            "IKMO (b) PRTW",
+            "BDFH (d) CEGI"
+        ],
+        "correctOption": "BDFH (d) CEGI"
+    },
+    {
+        "question": "Q226. CHSL 11/7/2019 (Evening)",
+        "options": [
+            "7815 (b) 6915",
+            "8715 (d) 8915"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q227. CHSL 11/7/2019 (Evening)",
+        "options": [
+            "Tomato/ टमाटर (b) Onion/ ाज",
+            "Egg/ अंडा (d) Potato/ आलू"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q228. CHSL 11/7/2019 (Evening) MTS 2019 TIER I",
+        "options": [
+            "NRV (b) DHL (c) PTX (d) FKM"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q229. MTS 09/08/2019 (Evening)",
+        "options": [
+            "63:3906 (b) 15:210",
+            "18:306 (d) 37:1331"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q230. MTS 16/08/2019 (Morning)",
+        "options": [
+            "Deer /िहरण (b) Sheep /भेड़",
+            "Cow /गाय (d) Donkey /गधा"
+        ],
+        "correctOption": "Deer /िहरण (b) Sheep /भेड़"
+    },
+    {
+        "question": "Q231. CPO 09/12/2019(Morning)",
+        "options": [
+            "wall/ दीवार (b) ceiling/ छत",
+            "Floor/ फश (d) Fan/ पंखा"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q232. CPO 09/12/2019(Morning)",
+        "options": [
+            "16-3 (b) 50-7",
+            "51-25 (d) 64-32"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q233.CPO 09/12/2019(Morning)",
+        "options": [
+            "798 : 897 : 798",
+            "432 : 324 : 231",
+            "321 : 213 : 123",
+            "564 : 645 : 456"
+        ],
+        "correctOption": "432 : 324 : 231"
+    },
+    {
+        "question": "Q234.CPO 09/12/2019(Morning)",
+        "options": [
+            "113 (b) 117 (c) 103 (d) 107"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q235. CPO 09/12/2019(Morning) 87 Classification (Odd one Out)",
+        "options": [
+            "BEHK (b) GJMQ",
+            "MPSV (d) RUXA"
+        ],
+        "correctOption": "MPSV (d) RUXA"
+    },
+    {
+        "question": "Q236. CPO 09/12/2019(Morning)",
+        "options": [
+            "OLEV - EVOL (b) ARNI - RMIZ",
+            "TSRA - ZIHG (d) XHEP - KVRA"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q237.CPO 09/12/2019(Morning)",
+        "options": [
+            "64 : 100 : 18 (b) 25 : 16 : 9",
+            "16 : 64 : 12 (d) 81 : 9 : 19"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q238. CPO 09/12/2019(Morning)",
+        "options": [
+            "Rockets/ रॉकेट",
+            "Planets/ ह",
+            "Galaxies/ आकाशगंगा",
+            "Stars/ िसतारे"
+        ],
+        "correctOption": "Rockets/ रॉकेट"
+    },
+    {
+        "question": "Q239 CPO 09/12/2019(Evening)",
+        "options": [
+            "19,39 (b) 25,53",
+            "68,137 (d) 37,75"
+        ],
+        "correctOption": "68,137 (d) 37,75"
+    },
+    {
+        "question": "Q240. CPO 09/12/2019(Evening)",
+        "options": [
+            "dEefFF (b) mnNoOO",
+            "uvVwWW (d) pqQrRR"
+        ],
+        "correctOption": "dEefFF (b) mnNoOO"
+    },
+    {
+        "question": "Q241.CPO 09/12/2019(Evening)",
+        "options": [
+            "Steel/ इात",
+            "Tin/ िटन",
+            "Aluminium/ एुमीिनयम",
+            "Zinc/ जा"
+        ],
+        "correctOption": "Steel/ इात"
+    },
+    {
+        "question": "Q242. CPO 09/12/2019(Evening)",
+        "options": [
+            "Steam/ भाप (b) Grill/ िल",
+            "Fire/ आग (d) Roast/ भूनना"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q243.CPO 09/12/2019(Evening)",
+        "options": [
+            "133 (b) 195 (c) 171 (d) 209"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q244. CPO 09/12/2019(Evening)",
+        "options": [
+            "QUAIL (b) PIOUS",
+            "AEONS (d) PENAL"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q245.CPO 09/12/2019(Evening)",
+        "options": [
+            "42, 72 (b) 132, 182",
+            "20, 42 (d) 56, 63"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q246. CPO 09/12/2019(Evening)",
+        "options": [
+            "6, 12 (b) 24, 4",
+            "6, 16 (d) 12, 8"
+        ],
+        "correctOption": "6, 12 (b) 24, 4"
+    },
+    {
+        "question": "Q247. CPO 11/12/2019(Morning)",
+        "options": [
+            "OQRT (b) IKMO",
+            "CEGI (d) TVXZ"
+        ],
+        "correctOption": "OQRT (b) IKMO"
+    },
+    {
+        "question": "Q248. CPO 11/12/2019(Morning)",
+        "options": [
+            "Rial / रयाल (b) Dollar/ डॉलर",
+            "Lira/ लीरा (d) Money/ मुा"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q249.CPO 11/12/2019(Morning)",
+        "options": [
+            "Incision/ चीरा (b) Chisel/ छेनी",
+            "Knife/ चाक़ू (d) Knife/ चाक़ू"
+        ],
+        "correctOption": "Incision/ चीरा (b) Chisel/ छेनी"
+    },
+    {
+        "question": "Q250. CPO 11/12/2019(Morning)",
+        "options": [
+            "61 (b) 109 (c) 73 (d) 91"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q251. CPO 11/12/2019(Morning)",
+        "options": [
+            "126 (b) 91 (c) 196 (d) 169"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q252.CPO 11/12/2019(Morning)",
+        "options": [
+            "7 : 50 (b) 21 : 462",
+            "14 : 210 (d) 25 : 650"
+        ],
+        "correctOption": "7 : 50 (b) 21 : 462"
+    },
+    {
+        "question": "Q253. CPO 11/12/2019(Morning)",
+        "options": [
+            "NVH-KUK (b) CWX-AVZ",
+            "REA-ODD (d) TXB-QWE"
+        ],
+        "correctOption": "REA-ODD (d) TXB-QWE"
+    },
+    {
+        "question": "Q254. CPO 11/12/2019(Morning)",
+        "options": [
+            "761 : 617 : 176",
+            "416 :641 : 461",
+            "236 : 325 : 263",
+            "189 :198 : 819"
+        ],
+        "correctOption": "236 : 325 : 263"
+    },
+    {
+        "question": "Q255.CPO 11/12/2019(Evening)",
+        "options": [
+            "Melon/ खरबूज (b) Apple/ सेब",
+            "Rose/ गुलाब (d) Orange/ संतरा"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q256 CPO 11/12/2019(Evening)",
+        "options": [
+            "632 : 325 : 236",
+            "561 :615 : 165",
+            "289 : 829 : 928",
+            "426 :642 : 246"
+        ],
+        "correctOption": "632 : 325 : 236"
+    },
+    {
+        "question": "Q257 CPO 11/12/2019(Evening)",
+        "options": [
+            "48 - 81 (b) 64 - 100",
+            "25 - 36 (d) 16 - 49"
+        ],
+        "correctOption": "48 - 81 (b) 64 - 100"
+    },
+    {
+        "question": "Q258. CPO 11/12/2019(Evening)",
+        "options": [
+            "Thesaurus/ समांतर कोश",
+            "Dictionary/ शकोष",
+            "Book / पुक",
+            "Encyclopaedia/ इनसाइोपीिडया"
+        ],
+        "correctOption": "Book / पुक"
+    },
+    {
+        "question": "Q259. CPO 11/12/2019(Evening)",
+        "options": [
+            "17 : 102 : 204 (b) 12 : 72 : 144",
+            "14 : 90 : 180 (d) 26 :156 : 312"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q260.CPO 11/12/2019(Evening)",
+        "options": [
+            "18 (b) 25 (c) 24 (d) 33"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q261. CPO 11/12/2019(Evening)",
+        "options": [
+            "GJB - ROW (b) EFR - VUI",
+            "DFL - USM (d) IKN - PNK"
+        ],
+        "correctOption": "DFL - USM (d) IKN - PNK"
+    },
+    {
+        "question": "Q262.CPO 11/12/2019(Evening)",
+        "options": [
+            "NOQST (b) EGIKM",
+            "BDFHJ (d) QSUWY"
+        ],
+        "correctOption": "NOQST (b) EGIKM"
+    },
+    {
+        "question": "Q263. CPO 12/12/2019(Morning)",
+        "options": [
+            "91 (b) 171 (c) 169 (d) 195"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q264. CPO 12/12/2019(Morning)",
+        "options": [
+            "DEFECT (b) FAULT",
+            "FLAW (d) MEND"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q265.CPO 12/12/2019(Morning)",
+        "options": [
+            "73-79 (b) 31-41",
+            "61-71 (d) 83-97"
+        ],
+        "correctOption": "73-79 (b) 31-41"
+    },
+    {
+        "question": "Q266. CPO 12/12/2019(Morning)",
+        "options": [
+            "16-64 (b) 26-168",
+            "34-289 (d) 18-81"
+        ],
+        "correctOption": "34-289 (d) 18-81"
+    },
+    {
+        "question": "Q267.CPO 12/12/2019(Morning)",
+        "options": [
+            "18 : 306 (b) 25 : 650",
+            "23 : 552 (d) 13 : 182"
+        ],
+        "correctOption": "18 : 306 (b) 25 : 650"
+    },
+    {
+        "question": "Q268.CPO 12/12/2019(Morning)",
+        "options": [
+            "Car/गाड़ी (b) Aeroplane/िवमान",
+            "Petrol/पेटोल (d) Bus/बस"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q269. CPO 12/12/2019(Morning)",
+        "options": [
+            "NOQ-MLK (b) EGI-VTR",
+            "QSU- JHF (d) BEG- YVT"
+        ],
+        "correctOption": "NOQ-MLK (b) EGI-VTR"
+    },
+    {
+        "question": "Q270.CPO 12/12/2019(Morning)",
+        "options": [
+            "DGK (b) MLY",
+            "ENR (d) QFW"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q271.CPO 12/12/2019(Evening)",
+        "options": [
+            "197 (b) 193 (c) 195 (d) 191"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q272. CPO 12/12/2019(Evening)",
+        "options": [
+            "Stable/घुड़साल (b) Court/कोट",
+            "Den/गुफ़ा (d) Igloo/िहमकुटी"
+        ],
+        "correctOption": "Den/गुफ़ा (d) Igloo/िहमकुटी"
+    },
+    {
+        "question": "Q273. CPO 12/12/2019(Evening)",
+        "options": [
+            "13 : 182 (b) 25 : 650",
+            "23 : 552 (d) 18 : 306"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q274. CPO 12/12/2019(Evening)",
+        "options": [
+            "34 - 289 (b) 18 - 81",
+            "16 - 64 (d) 26 -168"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q275 CPO 12/12/2019(Evening)",
+        "options": [
+            "Authentic/िवसनीय",
+            "Genuine/वािवक",
+            "Spurious/जाली",
+            "Bonafide/ामािणक"
+        ],
+        "correctOption": "Spurious/जाली"
+    },
+    {
+        "question": "Q276.CPO 12/12/2019(Evening)",
+        "options": [
+            "73 - 79 (b) 31 - 41",
+            "61 - 71 (d) 83 - 97"
+        ],
+        "correctOption": "73 - 79 (b) 31 - 41"
+    },
+    {
+        "question": "Q277. CPO 12/12/2019(Evening)",
+        "options": [
+            "REAYBL (b) ETWAH",
+            "EZAMI (d) SEHCWA"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q278 CPO 12/12/2019(Evening)",
+        "options": [
+            "NIZAM (b) STEIN",
+            "MAINS (d) SAINT"
+        ],
+        "correctOption": "MAINS (d) SAINT"
+    },
+    {
+        "question": "Q279.CPO 13/12/2019(Morning) 88 Pinnacle SSC Reasoning",
+        "options": [
+            "18 : 306 (b) 23 : 552",
+            "13 : 182 (d) 25 : 650"
+        ],
+        "correctOption": "18 : 306 (b) 23 : 552"
+    },
+    {
+        "question": "Q280 CPO 13/12/2019(Morning)",
+        "options": [
+            "Gladsome/ख़ुश",
+            "Morose/उदास",
+            "Joyous/आनंिदत",
+            "Cheerful/हंसमुख"
+        ],
+        "correctOption": "Morose/उदास"
+    },
+    {
+        "question": "Q281 CPO 13/12/2019(Morning)",
+        "options": [
+            "GKR (b) QIZ",
+            "HNU (d) MKX"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q282 CPO 13/12/2019(Morning)",
+        "options": [
+            "90 (b) 165 (c) 195 (d) 170"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q283 CPO 13/12/2019(Morning)",
+        "options": [
+            "5 : 7 (b) 17 : 23",
+            "13 : 19 (d) 31 : 41"
+        ],
+        "correctOption": "5 : 7 (b) 17 : 23"
+    },
+    {
+        "question": "Q284.CPO 13/12/2019(Morning)",
+        "options": [
+            "16 : 64 (b) 34 : 289",
+            "24 : 142 (d) 14 : 49"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q285 CPO 13/12/2019(Morning)",
+        "options": [
+            "Depression/िडेशन",
+            "Malaria/मलेरया",
+            "Typhoid/आं र",
+            "Flu/लू"
+        ],
+        "correctOption": "Depression/िडेशन"
+    },
+    {
+        "question": "Q286. CPO 13/12/2019(Morning)",
+        "options": [
+            "OPR – JKL (b) BFX – YUC",
+            "PHJ – KSQ (d) RTV – IGE"
+        ],
+        "correctOption": "OPR – JKL (b) BFX – YUC"
+    },
+    {
+        "question": "Q287. CPO 13/12/2019(Evening)",
+        "options": [
+            "176 (b) 160 (c) 240 (d) 178"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q288.CPO 13/12/2019(Evening)",
+        "options": [
+            "34 : 3 (b) 17 : 6",
+            "2 : 51 (d) 24 : 4"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q289. CPO 13/12/2019(Evening)",
+        "options": [
+            "7: 37 (b) 18 : 49",
+            "13 : 29 (d) 24 : 51"
+        ],
+        "correctOption": "13 : 29 (d) 24 : 51"
+    },
+    {
+        "question": "Q290.CPO 13/12/2019(Evening)",
+        "options": [
+            "deer/िहरण (b) Cub/शावक",
+            "Calf/बछड़ा (d) Lamb/मेमना"
+        ],
+        "correctOption": "deer/िहरण (b) Cub/शावक"
+    },
+    {
+        "question": "Q291. CPO 13/12/2019(Evening)",
+        "options": [
+            "Mirth/आनंद (b)Morose/उदास",
+            "Desolate/एकाकी (d) sad/दुखी"
+        ],
+        "correctOption": "Mirth/आनंद (b)Morose/उदास"
+    },
+    {
+        "question": "Q292. CPO 13/12/2019(Evening)",
+        "options": [
+            "9 - 81 - 729 (b) 5 - 25 - 225",
+            "3 - 9 - 27 (d) 6 - 36 - 216"
+        ],
+        "correctOption": "3 - 9 - 27 (d) 6 - 36 - 216"
+    },
+    {
+        "question": "Q293.CPO 13/12/2019(Evening)",
+        "options": [
+            "AEW - ZVD (b) QJR - JQH",
+            "SUL - HFO (d) PHK - KSP"
+        ],
+        "correctOption": "SUL - HFO (d) PHK - KSP"
+    },
+    {
+        "question": "Q294. CPO 13/12/2019(Evening) CGL 2019 TIER I",
+        "options": [
+            "HNU (b) MKX",
+            "QLZ (d) GKR"
+        ],
+        "correctOption": "HNU (b) MKX"
+    },
+    {
+        "question": "Q295 CGL 3/3/2020 (Morning)",
+        "options": [
+            "FVKO (b) BYGT",
+            "NMSH (d) DWIR"
+        ],
+        "correctOption": "FVKO (b) BYGT"
+    },
+    {
+        "question": "Q296. CGL 3/3/2020 (Morning)",
+        "options": [
+            "Ferry / फेरी",
+            "Ship / जहाज़",
+            "Submarine / पनडुी",
+            "Yacht / नौका"
+        ],
+        "correctOption": "Submarine / पनडुी"
+    },
+    {
+        "question": "Q297. CGL 3/3/2020 (Afternoon)",
+        "options": [
+            "39-72 (b) 28-60",
+            "42-12 (d) 57-38"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q298. Eight words have been given , out of which Seven are alike in some manner , one is different . Select the odd word . Monitor, Headphone, Mouse, Keyboard, Windows, Printer, Scanner, Speaker आठ श िदए गए ह, िजनमसेसात श िकसी िनित कार से एक जैसेहजबिक कोई एक अलग है | अलग श का चयन कर | मॉिनटर, हेडफोन, माउस, कीबोड, िवंडोज, िंटर, ैनर, ीकर CGL 3/3/2020 (Afternoon) Direction(Q299-Q350) :Four number-pairs have been given, out of which three are alike in some manner and one is different . Select the number-pair that is different from the rest./ संाओं के चार यु िदए गए ह, िजनमसेतीन िकसी कार से एक जैसे हजबिक कोई एक अलग है । उस संा-यु का चयन कीिजए जो शेष युों से अलग है ।",
+        "options": [
+            "Mouse/ माउस (b) Printer/ िंटर",
+            "Monitor / मॉिनटर (d)Windows/िवंडोज"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q299.CGL 3/3/2020 (Afternoon)",
+        "options": [
+            "JMPS (b) BEHK",
+            "ADGJ (d) FHKM"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q300.CGL 3/3/2020 (Evening)",
+        "options": [
+            "Truth / सच",
+            "Non-Violence/ अिहंसा",
+            "Hatred / घृणा",
+            "Peace / शांित"
+        ],
+        "correctOption": "Hatred / घृणा"
+    },
+    {
+        "question": "Q301.CGL 3/3/2020 (Evening)",
+        "options": [
+            "BGLQ (b) KPUZ",
+            "HMRV (d) OTYD"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q302. CGL 3/3/2020 (Evening)",
+        "options": [
+            "33:1085 (b) 11:118",
+            "35:1221 (d) 21:437"
+        ],
+        "correctOption": "35:1221 (d) 21:437"
+    },
+    {
+        "question": "Q303.CGL 4/3/2020 (Morning)",
+        "options": [
+            "TSR (b) YXW",
+            "NML (d) FGH"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q304. CGL 4/3/2020 (Morning)",
+        "options": [
+            "Probity / सिना",
+            "Conduct/ आचरण",
+            "Righteousness / ईमानदारी",
+            "Virtue / सदाचार"
+        ],
+        "correctOption": "Conduct/ आचरण"
+    },
+    {
+        "question": "Q305.CGL 4/3/2020 (Afternoon)",
+        "options": [
+            "8- 38 (b) 11- 143",
+            "6-174 (d) 5-155"
+        ],
+        "correctOption": "8- 38 (b) 11- 143"
+    },
+    {
+        "question": "Q306.CGL 4/3/2020 (Afternoon)",
+        "options": [
+            "HFE (b) GMF",
+            "DVR (d) OVG"
+        ],
+        "correctOption": "HFE (b) GMF"
+    },
+    {
+        "question": "Q. CGL 4/3/2020 (Afternoon)",
+        "options": [
+            "Ahmedabad / अहमदाबाद",
+            "Surat / सूरत",
+            "Jhalrapatan / झालरापाटन",
+            "Rajkot / राजकोट"
+        ],
+        "correctOption": "Jhalrapatan / झालरापाटन"
+    },
+    {
+        "question": "Q308. CGL 4/3/2020 (Evening)",
+        "options": [
+            "10 : 123 (b) 17 : 290",
+            "14 : 227 (d) 11 : 146"
+        ],
+        "correctOption": "14 : 227 (d) 11 : 146"
+    },
+    {
+        "question": "Q309.CGL 4/3/2020 (Evening)",
+        "options": [
+            "Hyderabad / हैदराबाद",
+            "Aurangabad / औरंगाबाद",
+            "Chennai / चेई",
+            "Gangtok / गंगटोक"
+        ],
+        "correctOption": "Aurangabad / औरंगाबाद"
+    },
+    {
+        "question": "Q310. CGL 4/3/2020 (Evening)",
+        "options": [
+            "FGL (b) ABF",
+            "IJN (d) MNR"
+        ],
+        "correctOption": "FGL (b) ABF"
+    },
+    {
+        "question": "Q311.CGL 5/3/2020 (Morning)",
+        "options": [
+            "Meanness/ दरता",
+            "Prosperity/ समृ",
+            "Lack/ अभाव",
+            "Pauperism/ कं गाली"
+        ],
+        "correctOption": "Prosperity/ समृ"
+    },
+    {
+        "question": "Q312.CGL 5/3/2020 (Morning)",
+        "options": [
+            "TVW (b) LNP",
+            "FHJ (d) DFH"
+        ],
+        "correctOption": "TVW (b) LNP"
+    },
+    {
+        "question": "Q313. CGL 5/3/2020 (Morning)",
+        "options": [
+            "225-241 (b) 169-197",
+            "121-145 (d) 289-325"
+        ],
+        "correctOption": "225-241 (b) 169-197"
+    },
+    {
+        "question": "Q. CGL 5/3/2020 (Afternoon)",
+        "options": [
+            "19 : 475 (b) 17 : 323",
+            "11 : 143 (d) 23 : 667"
+        ],
+        "correctOption": "19 : 475 (b) 17 : 323"
+    },
+    {
+        "question": "Q315. CGL 5/3/2020 (Afternoon) 89 Classification (Odd one Out)",
+        "options": [
+            "NRW (b) ADL",
+            "PTY (d) LPU"
+        ],
+        "correctOption": "PTY (d) LPU"
+    },
+    {
+        "question": "Q316.CGL 5/3/2020 (Afternoon)",
+        "options": [
+            "Polio/ पोिलयो",
+            "Measles/ खसरा",
+            "schizophrenia/ िसजोेिनया",
+            "Rabies / रेबीज"
+        ],
+        "correctOption": "schizophrenia/ िसजोेिनया"
+    },
+    {
+        "question": "Q317.CGL 5/3/2020 (Evening)",
+        "options": [
+            "ZCFI (b) JMPS",
+            "PSVX (d) ORUX"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q318.CGL 5/3/2020 (Evening)",
+        "options": [
+            "Pancreas/ अाशय (b) Liver/ यकृत",
+            "Renin/ रेिनन (d) Kidney/ गुदा"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q319.CGL 5/3/2020 (Evening)",
+        "options": [
+            "5121 : 12 (b) 4209 : 15",
+            "7456 : 22 (d) 8101 : 10"
+        ],
+        "correctOption": "5121 : 12 (b) 4209 : 15"
+    },
+    {
+        "question": "Q320.CGL 6/3/2020 (Morning)",
+        "options": [
+            "Trumpet/ तुरही",
+            "Xylophone/ िसलाफन",
+            "Saxophone/ सेोफोन",
+            "Clarinet/ शहनाई"
+        ],
+        "correctOption": "Xylophone/ िसलाफन"
+    },
+    {
+        "question": "Q321. CGL 6/3/2020 (Morning)",
+        "options": [
+            "DDP (b) BJT",
+            "FBL (d) GCV"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q322. CGL 6/3/2020 (Morning)",
+        "options": [
+            "15 : 250 (b) 13 : 169",
+            "17 : 289 (d) 11 : 121"
+        ],
+        "correctOption": "15 : 250 (b) 13 : 169"
+    },
+    {
+        "question": "Q323. CGL 6/3/2020 (Afternoon)",
+        "options": [
+            "LAIM (b) VINE",
+            "NOHA (d) SWJK"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q324.CGL 6/3/2020 (Afternoon)",
+        "options": [
+            "Brass/पीतल (b) Iron/लोहा",
+            "Copper/तांबा (d) Silver/चांदी"
+        ],
+        "correctOption": "Brass/पीतल (b) Iron/लोहा"
+    },
+    {
+        "question": "Q325.CGL 6/3/2020 (Afternoon)",
+        "options": [
+            "16, 7 (b) 14, 8",
+            "28, 5 (d) 56, 2"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q326. CGL 6/3/2020 (Evening)",
+        "options": [
+            "Machine / मशीन",
+            "Television / टेलीिवज़न",
+            "Geyser/ गीजर",
+            "Computer/ कूटर"
+        ],
+        "correctOption": "Machine / मशीन"
+    },
+    {
+        "question": "Q327.CGL 6/3/2020 (Evening)",
+        "options": [
+            "26584 : 25 (b) 85245 : 24",
+            "77052 : 21 (d) 41263 : 18"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q328. CGL 6/3/2020 (Evening)",
+        "options": [
+            "UFW (b) BYD",
+            "CXE (d) KPT"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q329.CGL 7/3/2020 (Morning)",
+        "options": [
+            "Shout/ िचाना",
+            "Mumble/बुदबुदाना",
+            "Scream/ चीखना",
+            "Roar/दहाड़ना"
+        ],
+        "correctOption": "Mumble/बुदबुदाना"
+    },
+    {
+        "question": "Q330. CGL 7/3/2020 (Morning)",
+        "options": [
+            "25/41 : 8 (b) 4 / 5 : 3",
+            "30/ 51 : 9 (d) 16/ 20 : 6"
+        ],
+        "correctOption": "25/41 : 8 (b) 4 / 5 : 3"
+    },
+    {
+        "question": "Q331. CGL 7/3/2020 (Morning)",
+        "options": [
+            "FIK (b) SVY (c) NQT (d) XAD"
+        ],
+        "correctOption": "FIK (b) SVY (c) NQT (d) XAD"
+    },
+    {
+        "question": "Q332 .CGL 7/3/2020 (Afternoon)",
+        "options": [
+            "Litre/ लीटर (b)Distance/ दूरी",
+            "Minute/िमनट (d)Kilogram/िकलोाम"
+        ],
+        "correctOption": "Minute/िमनट (d)Kilogram/िकलोाम"
+    },
+    {
+        "question": "Q333. CGL 7/3/2020 (Afternoon)",
+        "options": [
+            "44 : 136 (b) 27 : 85",
+            "33 : 109 (d) 30 : 94"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q334.CGL 7/3/2020 (Afternoon)",
+        "options": [
+            "NOSV (b) TWZC",
+            "PSVY (d) EHKN"
+        ],
+        "correctOption": "NOSV (b) TWZC"
+    },
+    {
+        "question": "Q335.CGL 7/3/2020 (Evening)",
+        "options": [
+            "28-164 (b) 12-72",
+            "19-114 (d) 17-102"
+        ],
+        "correctOption": "28-164 (b) 12-72"
+    },
+    {
+        "question": "Q336.CGL 7/3/2020 (Evening)",
+        "options": [
+            "BCEHL (b) GHJMP",
+            "ABDGK (d) NOQTX"
+        ],
+        "correctOption": "ABDGK (d) NOQTX"
+    },
+    {
+        "question": "Q337.CGL 7/3/2020 (Evening)",
+        "options": [
+            "Carrot / गाजर (b) Potato/ आलू",
+            "Spinach/ पालक (d)Radish/ मूली"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q338. CGL 9/3/2020 (Morning)",
+        "options": [
+            "TVXZ (b) RSTU",
+            "JNQS (d) ADGJ"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q339.CGL 9/3/2020 (Morning)",
+        "options": [
+            "53 : 378 (b) 37 : 266",
+            "45 : 322 (d) 43 : 318"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q340. CGL 9/3/2020 (Morning)",
+        "options": [
+            "Distance/ दूरी (b)Gallon/गैलन",
+            "Weight/ भार (d)Volume/आयतन"
+        ],
+        "correctOption": "Weight/ भार (d)Volume/आयतन"
+    },
+    {
+        "question": "Q341. CGL 9/3/2020 (Afternoon)",
+        "options": [
+            "GT (b) AZ (c) KN (d) LO"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q342. CGL 9/3/2020 (Afternoon)",
+        "options": [
+            "Diabetes/ मधुमेह",
+            "Cancer/ कसर",
+            "Asthma/ अथमा",
+            "Bone Marrow/ मेदंड"
+        ],
+        "correctOption": "Bone Marrow/ मेदंड"
+    },
+    {
+        "question": "Q343.CGL 9/3/2020 (Afternoon)",
+        "options": [
+            "37 : 256 (b) 31 : 214",
+            "21 : 154 (d) 39 : 270"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q344.CGL 9/3/2020 (Evening)",
+        "options": [
+            "DPG (b) CIF",
+            "BFF (d) EYH"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q345. CGL 9/3/2020 (Evening)",
+        "options": [
+            "76 : 42 (b) 44 : 16",
+            "55 : 25 (d) 28 : 56"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q346. CGL 9/3/2020 (Evening) CHSL 2019 TIER I",
+        "options": [
+            "Russia/ स (b) Africa / अीका",
+            "Asia/ एिशया (d) Europe/ यूरोप"
+        ],
+        "correctOption": "Russia/ स (b) Africa / अीका"
+    },
+    {
+        "question": "Q347. CHSL 2019 17/03/20(Morning)",
+        "options": [
+            "Foal/घोड़े का बा",
+            "Howl/चीख़",
+            "Caw/कांव-कांव",
+            "Chirp/कलरव"
+        ],
+        "correctOption": "Foal/घोड़े का बा"
+    },
+    {
+        "question": "Q348. CHSL 2019 17/03/20(Morning)",
+        "options": [
+            "256 (b)144 (c)81 (d)676"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q349.CHSL 2019 17/03/20(Afternoon)",
+        "options": [
+            "122 (b) 170 (c) 256 (d) 226"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q350. CHSL 2019 17/03/20(Afternoon)",
+        "options": [
+            "Ladakh/लाख",
+            "Shimla/िशमला",
+            "Dehradun/देहरादून",
+            "Gangtok/गंगटोक"
+        ],
+        "correctOption": "Ladakh/लाख"
+    },
+    {
+        "question": "Q351. Identify the letter-cluster that does NOT belong to the following series. / िनिलखत मसेकौन सा िवक दी गयी ृंखला के अनुप नही ंहै ? DE, GH, JK, NM, PQ CHSL 2019 17/03/20(Evening) Direction(Q351-Q408) :Four number-pairs have been given, out of which three are alike in some manner and one is different . Select the number-pair that is different from the rest./ संाओं के चार यु िदए गए ह, िजनमसेतीन िकसी कार से एक जैसे हजबिक कोई एक अलग है । उस संा-यु का चयन कीिजए जो शेष युों से अलग है ।",
+        "options": [
+            "GH (b) JK (c) PQ (d) NM"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q352.CHSL 2019 17/03/20(Evening)",
+        "options": [
+            "12326 (b) 52477",
+            "11982 (d) 14978"
+        ],
+        "correctOption": "11982 (d) 14978"
+    },
+    {
+        "question": "Q353. CHSL 2019 18/03/20(Morning)",
+        "options": [
+            "US (b) OM (c) BE (d) AY"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q354. CHSL 2019 18/03/20(Afternoon) Pinnacle SSC Reasoning",
+        "options": [
+            "2514(b)156890",
+            "2628 (d) 1432"
+        ],
+        "correctOption": "2514(b)156890"
+    },
+    {
+        "question": "Q355. CHSL 2019 18/03/20(Afternoon)",
+        "options": [
+            "Hive/मधुमुखी का छा",
+            "Heifer/कलोर",
+            "Byre/गोशाला",
+            "Eyrie/आँख मारना"
+        ],
+        "correctOption": "Heifer/कलोर"
+    },
+    {
+        "question": "Q356.CHSL 2019 18/03/20(Afternoon)",
+        "options": [
+            "OPTU (b) LMST",
+            "CDJK (d) ABHI"
+        ],
+        "correctOption": "OPTU (b) LMST"
+    },
+    {
+        "question": "Q357. CHSL 2019 18/03/20(Evening)",
+        "options": [
+            "UVS (b) LMH",
+            "HIF (d) YZW"
+        ],
+        "correctOption": "HIF (d) YZW"
+    },
+    {
+        "question": "Q358.CHSL 2019 18/03/20(Evening )",
+        "options": [
+            "Larva/लावा",
+            "Foal/घोड़े का बा",
+            "Nymph/कॉकरोच का बा",
+            "Stag/बारहिसंगा"
+        ],
+        "correctOption": "Stag/बारहिसंगा"
+    },
+    {
+        "question": "Q359. CHSL 2019 18/03/20(Evening)",
+        "options": [
+            "954 : 549 (b) 198 : 981",
+            "132 : 321 (d) 246 : 426"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q360. CHSL 2019 19/03/20(Morning)",
+        "options": [
+            "528 (b)196 (c)224 (d)360"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q361.CHSL 2019 19/03/20(Afternoon)",
+        "options": [
+            "AEIM (b)SVZD",
+            "RVZD (d)CGKO"
+        ],
+        "correctOption": "RVZD (d)CGKO"
+    },
+    {
+        "question": "Q362.CHSL 2019 19/03/20(Afternoon)",
+        "options": [
+            "Africa/अीका",
+            "Europe/यूरोप",
+            "North America /उरी अमेरका",
+            "South Africa/दिण अीका"
+        ],
+        "correctOption": "South Africa/दिण अीका"
+    },
+    {
+        "question": "Q363.CHSL 2019 19/03/20(Evening)",
+        "options": [
+            "YACF (b)LNPR",
+            "SUWY (d)ZBDF"
+        ],
+        "correctOption": "YACF (b)LNPR"
+    },
+    {
+        "question": "Q364. CHSL 2019 19/03/20(Evening)",
+        "options": [
+            "Hour/घंटे (b)Minute/िमनट",
+            "Second/सेकं ड (d)Time/समय"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q365. CHSL 2019 19/03/20(Evening)",
+        "options": [
+            "4:17 (b)11:122",
+            "5:26 (d)13:175"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q366. CHSL 2019 12/10/20(Morning)",
+        "options": [
+            "Chirp / चहचाना",
+            "Frisk / उछल कूद करना",
+            "Bleat / िमिमयाना",
+            "Neigh / िहनिहना"
+        ],
+        "correctOption": "Frisk / उछल कूद करना"
+    },
+    {
+        "question": "Q367. CHSL 2019 12/10/20(Morning)",
+        "options": [
+            "124 (b) 255 (c) 268 (d) 212"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q368. CHSL 2019 12/10/20(Morning)",
+        "options": [
+            "TUGD (b) EGVT",
+            "NOML (d) ADZW"
+        ],
+        "correctOption": "TUGD (b) EGVT"
+    },
+    {
+        "question": "Q369. CHSL 2019 12/10/20(Morning)",
+        "options": [
+            "FHJ (b) DFH",
+            "TVW (d) LNP"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q370. CHSL 2019 12/10/20(Afternoon)",
+        "options": [
+            "PONL (b) WVUT",
+            "TSRQ (d) MLKJ"
+        ],
+        "correctOption": "PONL (b) WVUT"
+    },
+    {
+        "question": "Q371. CHSL 2019 12/10/20(Afternoon)",
+        "options": [
+            "6-35 (b) 4-17 (c) 5-26 (d) 7-50"
+        ],
+        "correctOption": "6-35 (b) 4-17 (c) 5-26 (d) 7-50"
+    },
+    {
+        "question": "Q372. CHSL 2019 12/10/20(Evening)",
+        "options": [
+            "28 : 70 (b) 320 : 480",
+            "120 : 300 (d) 16 : 40"
+        ],
+        "correctOption": "120 : 300 (d) 16 : 40"
+    },
+    {
+        "question": "Q373.CHSL 2019 12/10/20(Evening)",
+        "options": [
+            "MQS (b) FHN",
+            "JPZ (d) DLP"
+        ],
+        "correctOption": "MQS (b) FHN"
+    },
+    {
+        "question": "Q374. CHSL 2019 13/10/20(Morning)",
+        "options": [
+            "BGL (b)PUZ",
+            "AFK (d)NSW"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q375. CHSL 2019 13/10/20(Morning)",
+        "options": [
+            "Typhoid (b)Depression",
+            "Malaria (d)Dengue"
+        ],
+        "correctOption": "Malaria (d)Dengue"
+    },
+    {
+        "question": "Q376. CHSL 2019 13/10/20(Afternoon)",
+        "options": [
+            "NTZ (b) BGQ",
+            "LRX (d) FLR"
+        ],
+        "correctOption": "LRX (d) FLR"
+    },
+    {
+        "question": "Q377. CHSL 2019 13/10/20(Afternoon)",
+        "options": [
+            "22 : 506 (b) 14 : 210",
+            "17 : 306 (d) 11 : 142"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q378. CHSL 2019 13/10/20(Afternoon)",
+        "options": [
+            "Fork (b) Knife",
+            "Spoon (d) Spade"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q379. CHSL 2019 13/10/20(Evening)",
+        "options": [
+            "ADGPI (b) OMKLU",
+            "VDCKA (d) ECVMU"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q380. CHSL 2019 14/10/20(Morning)",
+        "options": [
+            "32 - 45 (b) 13 - 16",
+            "16 - 30 (d) 12 - 15"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q381. CHSL 2019 14/10/20(Morning)",
+        "options": [
+            "Axe (b) Microscope",
+            "Gun (d) Amplify"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q382.CHSL 2019 14/10/20(Morning)",
+        "options": [
+            "CGF (b) MPL",
+            "DGC (d) QTP"
+        ],
+        "correctOption": "CGF (b) MPL"
+    },
+    {
+        "question": "Q383. CHSL 2019 14/10/20(Afternoon)",
+        "options": [
+            "Oyster (b) Shark",
+            "Cod (d) Salmon"
+        ],
+        "correctOption": "Oyster (b) Shark"
+    },
+    {
+        "question": "Q384. CHSL 2019 14/10/20(Afternoon)",
+        "options": [
+            "AMANA (b) UGALI",
+            "EVOLV (d) OMANI"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q385. CHSL 2019 14/10/20(Afternoon)",
+        "options": [
+            "529 (b)49 (c)9 (d)8"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q386. CHSL 2019 14/10/20(Evening)",
+        "options": [
+            "UQNL (b) VXAE",
+            "LNQU (d) YADH"
+        ],
+        "correctOption": "UQNL (b) VXAE"
+    },
+    {
+        "question": "Q387. CHSL 2019 14/10/20(Evening)",
+        "options": [
+            "Assemble (b) Construct",
+            "Disband (d) Create"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q388. CHSL 2019 14/10/20(Evening)",
+        "options": [
+            "CUX (b) BIZ",
+            "MOW (d) ABY"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q389. CHSL 2019 14/10/20(Evening)",
+        "options": [
+            "21:484 (b) 25:676",
+            "24:529 (d) 30:961"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q390. CHSL 2019 15/10/20(Morning)",
+        "options": [
+            "ADHM (b)ORVA",
+            "ILPU (d)YVRO"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q391. CHSL 2019 15/10/20(Morning)",
+        "options": [
+            "FHLQR (b)NKHEB",
+            "SPMJG (d)UROLI"
+        ],
+        "correctOption": "FHLQR (b)NKHEB"
+    },
+    {
+        "question": "Q392.CHSL 2019 15/10/20(Afternoon)",
+        "options": [
+            "CFLXV (b) DHPFL",
+            "BDHPF (d) ABDGN"
+        ],
+        "correctOption": "CFLXV (b) DHPFL"
+    },
+    {
+        "question": "Q393.CHSL 2019 15/10/20(Afternoon)",
+        "options": [
+            "289 : 5832 (b) 576 : 3375",
+            "16 : 125 (d) 25 : 216"
+        ],
+        "correctOption": "16 : 125 (d) 25 : 216"
+    },
+    {
+        "question": "Q394.CHSL 2019 15/10/20(Afternoon)",
+        "options": [
+            "651 (b)725 (c)853 (d)421"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q395. CHSL 2019 15/10/20(Evening)",
+        "options": [
+            "25 : 200 (b) 15 : 120",
+            "22 : 166 (d) 14 : 112"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q396. CHSL 2019 15/10/20(Evening)",
+        "options": [
+            "CUZ (b) DPT",
+            "EYC (d) BDH"
+        ],
+        "correctOption": "CUZ (b) DPT"
+    },
+    {
+        "question": "Q397. CHSL 2019 15/10/20(Evening)",
+        "options": [
+            "Dollar (b) Oslo",
+            "Yuan (d) Dinar"
+        ],
+        "correctOption": "Yuan (d) Dinar"
+    },
+    {
+        "question": "Q398. CHSL 16-10-2020 (Morning) 91 Classification (Odd one Out)",
+        "options": [
+            "dining table / खाने की मेज",
+            "water filter / पानी का िफ़र",
+            "Wardrobe / अलमारी",
+            "Study Table / अयन मेज"
+        ],
+        "correctOption": "water filter / पानी का िफ़र"
+    },
+    {
+        "question": "Q399. CHSL 16-10-2020 (Morning)",
+        "options": [
+            "KITE : TIEK (b) FIRU : RIUF",
+            "MANY : NAYM (d) LICK : ILCK"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q400. CHSL 16-10-2020 (Morning)",
+        "options": [
+            "1331 (b) 1728",
+            "2197 (d) 2306"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q401. CHSL 16/10/2020 (Evening)",
+        "options": [
+            "WXYZ (b) LMNO",
+            "ABCD (d) IJKL"
+        ],
+        "correctOption": "WXYZ (b) LMNO"
+    },
+    {
+        "question": "Q402. CHSL 16/10/2020 (Evening)",
+        "options": [
+            "393 (b)441 (c)384 (d)600"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q403. CHSL 19/10/2020 (Morning)",
+        "options": [
+            "VSPMJ (b) YWUSQ",
+            "TQNKH (d) ROLIF"
+        ],
+        "correctOption": "TQNKH (d) ROLIF"
+    },
+    {
+        "question": "Q404. CHSL 19/10/2020 (Morning)",
+        "options": [
+            "Den (b) Burrow",
+            "Stable (d) Barrack"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q405. CHSL 19-10-2020 (Afternoon)",
+        "options": [
+            "KMOQS (b) PRTVX",
+            "SQOMK (d) FHJLN"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q406. CHSL 19-10-2020 (Evening)",
+        "options": [
+            "TPMKJ (b) UQNLK",
+            "ROLIF (d) WSPNM"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q407. CHSL 20-10-2020 (Morning)",
+        "options": [
+            "Fluorine / ोरीन",
+            "Iodine / आयोडीन",
+            "Bromine / ोमीन",
+            "Iron / आयरन"
+        ],
+        "correctOption": "Iron / आयरन"
+    },
+    {
+        "question": "Q408. CHSL 20-10-2020 (Morning)",
+        "options": [
+            "(273, 546, 819) (b)(192, 384, 576)",
+            "(326, 654, 981) (d)(291, 438, 657)"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q409. Which of the following options is NOT an example of a number triad with the following properties? / िनिलखत मसे िकस िवक मतीनो संाओं मस िदए गए लणो ंका पालन नही ंकरता ? 1. Sum of the digits of the third number is twice the sum of the digits of the first number. / तीसरी संा के अंको का जोड़ पहली संा के अंको ंके जोड़ की दो गुना है | 2. Sum of the digits of the second number is thrice the sum of the digits of the first number. / दूसरी संा के अंको का जोड़ पहली संा के अंको ंके जोड़ के तीन गुना है | CHSL 20-10-2020 (Morning) Direction(Q410-Q433):Four number -pairs have been given, out of which three are alike in some manner and one is different . Select the number-pair that is different from the rest./ संाओंके चार यु िदए गए ह, िजनमसेतीन िकसी कार सेएक जैसे हजबिक कोई एक अलग है। उस संा-यु का चयन कीिजए जो शेष युो ंसे अलग है ।",
+        "options": [
+            "(200, 600, 300) (b)(201, 702, 303)",
+            "(400, 660, 800) (d)(111, 207, 222)"
+        ],
+        "correctOption": "(200, 600, 300) (b)(201, 702, 303)"
+    },
+    {
+        "question": "Q410. CHSL 20-10-2020 (Morning)",
+        "options": [
+            "FX (b) DP (c) ET (d) CK"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q411. CHSL 20/10/2020 (Afternoon)",
+        "options": [
+            "Biomass / बायोमास",
+            "Coal / कोयला",
+            "Natural Gas / ाकृितक गैस",
+            "Nuclear Fuel / परमाणु ईंधन"
+        ],
+        "correctOption": "Nuclear Fuel / परमाणु ईंधन"
+    },
+    {
+        "question": "Q412. CHSL 20/10/2020 (Afternoon)",
+        "options": [
+            "HGIFJ (b) DCEBF",
+            "TUSVR (d) RQSPT"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q413.CHSL 20/10/2020 (Afternoon)",
+        "options": [
+            "(35, 81, 173)",
+            "(71, 108, 182)",
+            "(84, 116, 181)",
+            "(44, 89, 179)"
+        ],
+        "correctOption": "(84, 116, 181)"
+    },
+    {
+        "question": "Q414. CHSL20/10/2020 (Evening)",
+        "options": [
+            "HJR (b) DFU",
+            "CEW (d) KMO"
+        ],
+        "correctOption": "CEW (d) KMO"
+    },
+    {
+        "question": "Q415. CHSL20/10/2020 (Evening)",
+        "options": [
+            "Volleyball / वॉलीबॉल",
+            "Hockey / हॉकी",
+            "Kabaddi / कबी",
+            "Football / फुटबॉल"
+        ],
+        "correctOption": "Kabaddi / कबी"
+    },
+    {
+        "question": "Q416. CHSL20/10/2020 (Evening)",
+        "options": [
+            "17523 (b) 3164",
+            "132 (d) 2685"
+        ],
+        "correctOption": "132 (d) 2685"
+    },
+    {
+        "question": "Q417. CHSL21/10/2020 (Morning)",
+        "options": [
+            "EIMQ (b) CGKO",
+            "DHLN (d) BFJN"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q418. CHSL21/10/2020 (Morning)",
+        "options": [
+            "182 : 13 (b) 156 : 12",
+            "309 : 17 (d) 132 : 11"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q419. CHSL21/10/2020 (Morning)",
+        "options": [
+            "Radish / मूली (b) Potato / आलू",
+            "Peas / मटर (d) Carrot / गाजर"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q420.CHSL21/10/2020 (Morning)",
+        "options": [
+            "Kelvin / केन",
+            "Celsius / सेयस",
+            "Pascal / पाल",
+            "Fahrenheit / फ़ारेनहाइट"
+        ],
+        "correctOption": "Pascal / पाल"
+    },
+    {
+        "question": "Q421CHSL21/10/2020(Afternoon)(a) BFYV (b) MONL",
+        "options": [
+            "NOPE (d) HJSQ"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q422.CHSL21/10/2020 (Afternoon)",
+        "options": [
+            "Paris / पेरस",
+            "Istanbul / इांबुल",
+            "Maputo / मापुटो",
+            "London / लंदन"
+        ],
+        "correctOption": "Istanbul / इांबुल"
+    },
+    {
+        "question": "Q423. CHSL21/10/2020 (Afternoon)",
+        "options": [
+            "729 (b) 125",
+            "216 (d) 676"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q424.CHSL21/10/2020 (Evening)",
+        "options": [
+            "Sincere / ईमानदार",
+            "Naughty / शरारती",
+            "Creative / िएिटव",
+            "Kids / बे"
+        ],
+        "correctOption": "Kids / बे"
+    },
+    {
+        "question": "Q425. CHSL21/10/2020 (Evening)",
+        "options": [
+            "CXGTIR (b) BYIRJQ",
+            "JPLNDW (d) FUEVHS"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q426. CHSL26/10/2020 (Morning)",
+        "options": [
+            "Decibelmeter / डेिसबलमीटर",
+            "Udometer / उडोमीटर",
+            "Ombrometer / ऑोमीटर",
+            "Pluviometer / ुिवओमीटर"
+        ],
+        "correctOption": "Decibelmeter / डेिसबलमीटर"
+    },
+    {
+        "question": "Q427.CHSL 26/10/2020 (Morning)",
+        "options": [
+            "FILO (b) EHKN",
+            "ADGJ (d) CFIM"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q428.CHSL26/10/2020 (Morning)",
+        "options": [
+            "Intact : Unflawed / अत: अनफ़ल",
+            "Bright : Luminous / चमकीला: चमकदार",
+            "Pure : Perfect / शु: िबुल सही",
+            "Entire : Partial / संपूण: आंिशक"
+        ],
+        "correctOption": "Entire : Partial / संपूण: आंिशक"
+    },
+    {
+        "question": "Q429. CHSL26/10/2020 (Morning)",
+        "options": [
+            "210 : 14 (b) 276 : 16",
+            "156 : 12 (d) 240 : 15"
+        ],
+        "correctOption": "156 : 12 (d) 240 : 15"
+    },
+    {
+        "question": "Q430. CHSL26/10/2020 (Afternoon)",
+        "options": [
+            "Angle/कोण (b)Hectare/हेेयर",
+            "Meter/मीटर (d)Volt/वो"
+        ],
+        "correctOption": "Angle/कोण (b)Hectare/हेेयर"
+    },
+    {
+        "question": "Q431. CHSL26/10/2020 (Afternoon)",
+        "options": [
+            "TVX (b)JLN",
+            "NOQ (d)CEG"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q432. CHSL26/10/2020 (Afternoon)",
+        "options": [
+            "360 (b)231",
+            "340 (d)123"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q433.CHSL26/10/2020 (Evening) 92 Pinnacle SSC Reasoning",
+        "options": [
+            "GIK (b)TUV",
+            "BDF (d)NPR"
+        ],
+        "correctOption": "BDF (d)NPR"
+    },
+    {
+        "question": "Q434. Which of the given options is NOT an example of a number triad with the following properties? / िनिलखत मसेकौन सा िवक िदए गए गुणो ंके अनुप नही ंहै ? 1. The second number is the square of the first number / दूसरी संा पहली संा का वग है 2. The third number is the cube of the first number / तीसरा नंबर पहले नंबर का घन है CHSL26/10/2020 (Evening) Direction(Q435-Q448) :Four number-pairs have been given, out of which three are alike in some manner and one is different . Select the number-pair that is different from the rest./ संाओं के चार यु िदए गए ह, िजनमसेतीन िकसी कार से एक जैसे हजबिक कोई एक अलग है । उस संा-यु का चयन कीिजए जो शेष युों से अलग है ।",
+        "options": [
+            "(11,121,1341)",
+            "(17,289,4913)",
+            "(13,169,2197)",
+            "(12,144,1728)"
+        ],
+        "correctOption": "(11,121,1341)"
+    },
+    {
+        "question": "Q435. CHSL26/10/2020 (Evening)",
+        "options": [
+            "(192,384,576)",
+            "(352,436,646)",
+            "(219,438,657)",
+            "(327,654,981)"
+        ],
+        "correctOption": "(352,436,646)"
+    },
+    {
+        "question": "Q436. CHSL26/10/2020 (Evening)",
+        "options": [
+            "April (b)June",
+            "March (d)May"
+        ],
+        "correctOption": "March (d)May"
+    },
+    {
+        "question": "Q437. SSC CPO 23/11/20(Morning)",
+        "options": [
+            "CFILO (b) UXADG",
+            "OMSVY (d) ORUVY"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q438. SSC CPO 23/11/2020 (Morning)",
+        "options": [
+            "BYHE (b) HSNZ",
+            "DWJC (d) UFAL"
+        ],
+        "correctOption": "DWJC (d) UFAL"
+    },
+    {
+        "question": "Q439. SSC CPO 23/11/2020 (Evening)",
+        "options": [
+            "FJNQ (b) SVAD",
+            "LPTW (d) BFJM"
+        ],
+        "correctOption": "LPTW (d) BFJM"
+    },
+    {
+        "question": "Q440. SSC CPO 23/11/2020 (Evening)",
+        "options": [
+            "JYTO (b) YNID",
+            "IXSN (d) CSMH"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q441.SSC CPO 24/11/2020 (Morning)",
+        "options": [
+            "ORVB (b) ZCGL",
+            "KNRW (d) HKOT"
+        ],
+        "correctOption": "ORVB (b) ZCGL"
+    },
+    {
+        "question": "Q442. SSC CPO 24/11/2020 (Morning)",
+        "options": [
+            "BYFC (b) MNRT",
+            "SHWL (d) GTKX"
+        ],
+        "correctOption": "SHWL (d) GTKX"
+    },
+    {
+        "question": "Q443. SSC CPO 24/11/2020(Evening)",
+        "options": [
+            "KFBY (b)TOKH",
+            "BWSP (d)ZUQO"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q444. SSC CPO 24/11/2020(Evening)",
+        "options": [
+            "QTWZC (b) RUXAE",
+            "BEHKN (d) HKNQT"
+        ],
+        "correctOption": "BEHKN (d) HKNQT"
+    },
+    {
+        "question": "Q445. SSC CPO 25/11/2020(Morning)",
+        "options": [
+            "CQLJ (b)DPNH",
+            "GKDT (d)BSMK"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q446. SSC CPO 25/11/2020(Morning)",
+        "options": [
+            "WDVE (b)YACE",
+            "SHRI (d)UFTG"
+        ],
+        "correctOption": "SHRI (d)UFTG"
+    },
+    {
+        "question": "Q447. SSC CPO 25/11/2020 (Evening)",
+        "options": [
+            "HEBY (b) OLIF",
+            "SPLI (d) WTQN"
+        ],
+        "correctOption": ""
+    },
+    {
+        "question": "Q448. SSC CPO 25/11/2020 (Evening)",
+        "options": [
+            "RIVE (b) HSLO",
+            "MNPK (d) DWHS"
+        ],
+        "correctOption": ""
+    },
+
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

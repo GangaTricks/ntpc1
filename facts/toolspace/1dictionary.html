@@ -1,0 +1,483 @@
+
+	 <!doctype html>
+<html lang="en hi">
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="google-signin-scope" content="profile email">
+<meta name="google-signin-client_id"
+      content="480399030790-bv734jeqeoc1eun7rr1kg6m1hqf0cpha.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/9.6.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.5/firebase-database.js"></script>
+
+	
+	
+    <title>GangaTricks</title>
+	<script src="urlRewrite.js"></script>
+	<link rel="shortcut icon" href="icon2.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="canonical" href="https://amp.dev/documentation/examples/style-layout/tab_panels_with_amp-selector/index.html">
+    <meta name="viewport" content="width=device-width">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <!-- ## Setup -->
+    <!-- Import `amp-selector` component in the header which we'll use to implement the tab switching. -->
+  <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    <link rel="manifest" href="manifest.json"> 
+  <!-- Initialize Firebase -->
+  <script>
+    const firebaseConfig = {
+      // Your Firebase configuration
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+<style>
+
+
+        body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white; /* Medium green color */
+    color: #000; /* Set text color to deep black */
+	position: fixed;
+	top: 70px;
+}
+
+@media only screen and (max-width: 600px) {
+    /* Adjust the right margin as needed */
+    body {
+		 padding: 10px;
+		
+    }
+}
+
+button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+	  font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2E58ED;
+      color: white;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1001; /* Ensure the sidebar is above the navbar and navbot */
+}
+
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 500; /* Ensure the navbar is above the sidebar */
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}	
+		.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+.navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+<script>
+
+// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+	
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+	 function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = 'awareness/awareness1.html';
+    }
+
+    function goToWebsite() {
+            var url = 'index'; // The URL without the .html extension
+            history.pushState({}, '', url);
+            // Update the page content here if necessary
+        }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = 'examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = 'english/english1.html';
+    }
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+
+// Add an event listener to the link
+    document.getElementById('popupLink').addEventListener('click', function(event) {
+      // Prevent the default behavior of the link
+      event.preventDefault();
+      
+      // Open the link in a popup window
+      window.open('https://example.com', 'popupWindow', 'width=600,height=400');
+    });
+
+</script>
+
+
+<div class="container">
+   <div class="navbar">
+   
+   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+  
+  <div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks      <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>        
+<a onclick="goToWebsite()" style="text-align: left; background: white; border: 2px solid lightblue;">Home 🏠</a>
+    <a onclick="goToHub()"  style="text-align: left; background: white; border: 2px solid lightblue;">Awareness</a>
+    <a onclick="goToEnglish()" style="text-align: left; background: white; border: 2px solid lightblue;">English</a>
+    <a onclick="examQuiz()"  style="text-align: left; background: white; border: 2px solid lightblue;">ExamQuiz</a>
+    <a href="livemock/livemock.html"  id="popupLink" style="text-align: left; background: white; border: 2px solid lightblue;">Live Mocks</a>
+	<a href="blog/.html"  id="popupLink" style="text-align: left; background: white; border: 2px solid lightblue;">Our Blog</a>
+	  
+	
+	<h3 style="text-align: right; background: lightblue;">Our Android App</h3>
+  <a href="GangaTricks.rar" download="GangaTricks.rar"><img src="icon1.png" height="50" width="50" /> Download APK</a>
+  
+  <h3 style="text-align: right; background: lightblue;">Tools</h3>
+   <div class="container">
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	  <h3 style="text-align: right; background: lightblue;">More</h3>
+
+
+
+
+<p style="height: 130px;"></p>
+  </div>
+</div>
+
+
+	<script src="app.js"></script>
+	<script>
+	
+    
+	let auth2; // The Sign-In object.
+  let googleUser; // The current user.
+  let profile;
+
+  /**
+   * Calls startAuth after Sign in V2 finishes setting up.
+   */
+  const appStart = function() {
+    gapi.load('auth2', initSigninV2);
+  };
+
+  function onSignIn(googleUser) {
+    $("#signInId").hide();
+
+    // Useful data for your client-side scripts:
+    profile = googleUser.getBasicProfile();
+
+    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+    console.log('Full Name: ' + profile.getName());
+    console.log('Given Name: ' + profile.getGivenName());
+    console.log('Family Name: ' + profile.getFamilyName());
+    console.log("Image URL: " + profile.getImageUrl());
+    console.log("Email: " + profile.getEmail());
+    showSidebarMessage('Welcome ' + profile.getGivenName() + '!');
+    showSidebarMessage('Your email ' + profile.getEmail() + '!');
+
+    // The ID token you need to pass to your backend:
+    const id_token = googleUser.getAuthResponse().id_token;
+    console.log("ID Token: " + id_token);
+
+    window.location.replace(window.location.origin + '/login?username=' + profile.getEmail());
+
+    $("#signOutId").show();
+  }
+
+  function signOut() {
+    $("#signOutId").hide();
+
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function() {
+      console.log('User signed out.');
+    });
+
+    showSidebarMessage('See you!');
+    $("#signInId").show();
+  }
+
+  $(document).ready(function() {
+    console.log('ready');
+    console.log(googleUser);
+    if (googleUser && googleUser.isSignedIn()) {
+      showSidebarMessage('Welcome Back!' + profile?profile.getEmail():'');
+      $("#signInId").hide();
+      $("#signOutId").show();
+    } else {
+      showSidebarMessage('Welcome Guest!');
+      $("#signInId").show();
+      $("#signOutId").hide();
+    }
+  });
+	
+	</script>
+
+<h1>GangaTricks | <b style="background: lightblue; padding: 05px;">   DICTIONARY    </b></h1>
+
+
+    <div>
+        <label for="word" style="font-size: 30px;">Search:</label>
+        <input type="text" id="word" style="font-size: 15px;">
+		
+        <button onclick="lookupWord()">Lookup</button>
+    </div>
+    <div id="result" ></div>
+
+    <script>
+   function lookupWord() {
+    const word = document.getElementById('word').value.toLowerCase();
+
+    const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Extract meanings from the response
+            const meanings = data[0]?.meanings;
+
+            if (meanings && meanings.length > 0) {
+                // Create an HTML list to display meanings and examples
+                let meaningsList = '<ul>';
+                meanings.forEach(meaning => {
+                    // Check if examples exist
+                    if (meaning.definitions.some(def => def.example)) {
+                        const examples = meaning.definitions
+                            .filter(def => def.example)
+                            .map(def => `✔ ${def.example}`)
+                            .join('<br>');
+                        meaningsList += `<li><h3>Examples:</h3>${examples}<br></li>`;
+                    }
+
+                    // Check if synonyms exist
+                    if (meaning.synonyms && meaning.synonyms.length > 0) {
+                        const synonyms = meaning.synonyms.map(synonym => `⚝ ${synonym}`).join(', ');
+                        meaningsList += `<li><h3>Synonyms:</h3> ${synonyms}<br></li>`;
+                    }
+
+                    // Check if antonyms exist
+                    if (meaning.antonyms && meaning.antonyms.length > 0) {
+                        const antonyms = meaning.antonyms.map(antonym => `⚝ ${antonym}`).join(', ');
+                        meaningsList += `<li><h3>Antonyms:</h3> ${antonyms}<br></li>`;
+                    }
+
+                    // Split definitions into separate lines and remove semicolons
+                    const definitions = meaning.definitions.map(def => `✔ ${def.definition.replace(/;/g, '')}`);
+                    meaningsList += `<li><h3>Definitions:</h3>${definitions.join('<br>')}<br></li>`;
+                });
+                meaningsList += '</ul>';
+
+                // Display the meanings list in the result div
+                document.getElementById('result').innerHTML = meaningsList;
+            } else {
+                document.getElementById('result').textContent = 'No definitions found.';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('result').textContent = 'Error fetching data.';
+        });
+}
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- footer section -->
+  <footer style="height: 130px;">
+
+  </footer>
+  
+  
+  
+  
+  
+
+<div class="navbot">
+    <div>
+        <button href="index.html" style="font-size: 15px; filter: grayscale(100%);">🏠<span>Home</span>
+        </button>
+		
+       <button onclick="toggleDarkMode()" style="font-size: 15px; filter: grayscale(100%);">🌓<span>Dark</span>
+        </button>
+		
+		<button style="font-size: 15px; filter: grayscale(100%);">🛈<span>Updates</span>
+        </button>
+    </div>
+</div>
+
+</body>
+</html>
