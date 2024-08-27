@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Awareness QUIZ APP</title>
+			<script src="../../urlRewrite.js"></script>
+		<link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		margin-left: 18px;
+		font-size: 10px;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">
+  
+   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+  
+  
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Governor Questions | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+ const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'slidesgovernor002facts';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+
+  function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+        const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+<script>
+const questions = [
+ {
+    "question": "According to Article 153, how many Governors are designated for each state?",
+    "options": ["One", "Two", "Three", "Four"],
+    "correctOption": "One"
+  },
+  {
+    "question": "As per Article 154, where is the executive power of the state vested?",
+    "options": ["President", "Prime Minister", "Governor", "Chief Minister"],
+    "correctOption": "Governor"
+  },
+  {
+    "question": "Who appoints the Governor according to Article 155?",
+    "options": ["Prime Minister", "Chief Minister", "President", "Supreme Court"],
+    "correctOption": "President"
+  },
+  {
+    "question": "How long does the Governor hold office as mentioned in Article 156?",
+    "options": ["Five years", "Ten years", "Pleasure of the Governor", "Pleasure of the President"],
+    "correctOption": "Pleasure of the President"
+  },
+  {
+    "question": "According to Article 159, what oath does the Governor take upon assuming office?",
+    "options": ["Oath of Secrecy", "Oath of Allegiance", "Oath of Office", "Oath of Secularism"],
+    "correctOption": "Oath of Office"
+  },
+  {
+    "question": "Which article mentions the Council of Ministers aiding and advising the Governor?",
+    "options": ["Article 156", "Article 163", "Article 159", "Article 154"],
+    "correctOption": "Article 163"
+  },
+  {
+    "question": "As per Article 164, who are the Council of Ministers collectively responsible to?",
+    "options": ["President", "Governor", "Parliament", "Legislative Assembly"],
+    "correctOption": "Legislative Assembly"
+  },
+  {
+    "question": "Where are the discretionary powers granted, to the President or the Governor?",
+    "options": ["President", "Governor", "Both", "Neither"],
+    "correctOption": "Governor"
+  },
+  {
+    "question": "Who holds the position of Advocate General and for how long?",
+    "options": ["Appointed by the President for a fixed term", "Appointed by the Governor for a fixed term", "Appointed by the Chief Minister for a fixed term", "Appointed by the Legislative Assembly for a fixed term"],
+    "correctOption": "Appointed by the Governor for a fixed term"
+  },
+  {
+    "question": "How can the State Election Commissioner be removed?",
+    "options": ["By the Governor", "By the President", "Only through judicial review", "By the Legislative Assembly"],
+    "correctOption": "Only through judicial review"
+  },
+  {
+    "question": "Who is the head of the Council of Ministers in a state?",
+    "options": ["Governor", "Chief Minister", "President", "Prime Minister"],
+    "correctOption": "Chief Minister"
+  },
+  {
+    "question": "Which article states that the Governor holds office during the pleasure of the President?",
+    "options": ["Article 155", "Article 156", "Article 153", "Article 154"],
+    "correctOption": "Article 156"
+  },
+  {
+    "question": "What is the primary duty of the Governor, according to Article 159?",
+    "options": ["To execute laws passed by the Parliament", "To preserve, protect, and defend the Constitution and the law", "To act as the head of the Council of Ministers", "To represent the state in international affairs"],
+    "correctOption": "To preserve, protect, and defend the Constitution and the law"
+  },
+  {
+    "question": "In which article does it mention the oath-taking ceremony of the Governor?",
+    "options": ["Article 153", "Article 154", "Article 159", "Article 163"],
+    "correctOption": "Article 159"
+  },
+  {
+    "question": "Who has the power to appoint the Chairman and members of the state Public Service Commission?",
+    "options": ["Governor", "Chief Minister", "President", "Prime Minister"],
+    "correctOption": "President"
+  },
+  {
+    "question": "What is the tenure of office for the Advocate General?",
+    "options": ["Pleasure of the Governor", "Pleasure of the President", "Fixed term of five years", "Fixed term of three years"],
+    "correctOption": "Pleasure of the Governor"
+  },
+  {
+    "question": "How are the Council of Ministers responsible to the Legislative Assembly?",
+    "options": ["Collectively", "Individually", "To the President", "To the Prime Minister"],
+    "correctOption": "Collectively"
+  },
+  {
+    "question": "Who holds the discretionary powers according to the constitution?",
+    "options": ["Prime Minister", "President", "Governor", "Chief Minister"],
+    "correctOption": "Governor"
+  },
+  {
+    "question": "Which body has the authority to remove the State Election Commissioner?",
+    "options": ["Governor", "President", "Legislative Assembly", "Judiciary"],
+    "correctOption": "Judiciary"
+  },
+  {
+    "question": "According to Article 164, who is the Council of Ministers collectively responsible to?",
+    "options": ["Governor", "President", "Prime Minister", "Legislative Assembly"],
+    "correctOption": "Legislative Assembly"
+  },
+  {
+    "question": "Who aids and advises the Governor in the exercise of his functions?",
+    "options": ["President", "Prime Minister", "Council of Ministers", "Chief Justice"],
+    "correctOption": "Council of Ministers"
+  },
+  {
+    "question": "Who has the power to appoint the Advocate General?",
+    "options": ["President", "Chief Minister", "Governor", "Prime Minister"],
+    "correctOption": "Governor"
+  },
+  {
+    "question": "According to the given text, who has the power/authority to remove the Chairman and members of the state Public Service Commission?",
+    "options": ["Governor", "President", "Chief Minister", "Legislative Assembly"],
+    "correctOption": "President"
+  },
+  {
+    "question": "Who heads the Council of Ministers in a state?",
+    "options": ["Governor", "Chief Minister", "President", "Prime Minister"],
+    "correctOption": "Chief Minister"
+  },
+  {
+    "question": "Which article specifies the appointment procedure of the Governor?",
+    "options": ["Article 153", "Article 154", "Article 155", "Article 156"],
+    "correctOption": "Article 155"
+  },
+  {
+    "question": "Who is the Constitutional head of a state?",
+    "options": ["President", "Governor", "Prime Minister", "Chief Minister"],
+    "correctOption": "Governor"
+  },
+  {
+    "question": "What type of head is the Governor of a state?",
+    "options": ["Executive head", "De facto head", "De jure head", "Legislative head"],
+    "correctOption": "De jure head"
+  },
+  {
+    "question": "What type of appointment is the position of Governor?",
+    "options": ["Elected", "Nominated", "Selected", "Appointed by the Chief Minister"],
+    "correctOption": "Nominated"
+  },
+  {
+    "question": "Who administers the oath of office to the Governor?",
+    "options": ["President", "Prime Minister", "Chief Justice of the concerned High Court", "Chief Minister"],
+    "correctOption": "Chief Justice of the concerned High Court"
+  },
+  {
+    "question": "Is the Governor of a state an employee under the Central government?",
+    "options": ["Yes", "No"],
+    "correctOption": "No"
+  },
+  {
+    "question": "What type of office is the Governorship considered?",
+    "options": ["Executive office", "Administrative office", "Constitutional office", "Political office"],
+    "correctOption": "Constitutional office"
+  },
+  {
+    "question": "What are the qualifications required to be a Governor?",
+    "options": ["Citizen of India and age above 25 years", "Citizen of India and age above 30 years", "Citizen of India and age above 35 years", "Citizen of India and age above 40 years"],
+    "correctOption": "Citizen of India and age above 35 years"
+  },
+  {
+    "question": "Is the office of Governor subject to the control of the Central government?",
+    "options": ["Yes", "No"],
+    "correctOption": "No"
+  },
+  {
+    "question": "What is the nature of the Governor's office?",
+    "options": ["Dependent", "Independent", "Subordinate", "Autonomous"],
+    "correctOption": "Independent"
+  },
+  {
+    "question": "Is the Governor elected by the people?",
+    "options": ["Yes", "No"],
+    "correctOption": "No"
+  },
+  {
+    "question": "What is the Governor's relationship with the Central government?",
+    "options": ["Subordinate", "Dependent", "Independent", "Autonomous"],
+    "correctOption": "Independent"
+  },
+  {
+    "question": "What is the Governor's status in the state's administrative hierarchy?",
+    "options": ["Highest authority", "Chief executive", "Ceremonial head", "Advisory role"],
+    "correctOption": "Ceremonial head"
+  },
+  {
+    "question": "Does the Governor represent the Central government?",
+    "options": ["Yes", "No"],
+    "correctOption": "No"
+  },
+  {
+    "question": "How is the Governor's position filled?",
+    "options": ["Election", "Appointment", "Selection", "Nomination"],
+    "correctOption": "Nomination"
+  },
+  {
+    "question": "Is the Governor accountable to the Central government?",
+    "options": ["Yes", "No"],
+    "correctOption": "No"
+  },
+  {
+    "question": "Is the Governor's office subject to political influence?",
+    "options": ["Yes", "No"],
+    "correctOption": "No"
+  },
+  {
+    "question": "According to the 7th Constitutional Amendment Act of 1956, how many states can the same person be appointed as Governor for?",
+    "options": ["One", "Two", "Three", "Multiple states"],
+    "correctOption": "Multiple states"
+  },
+  {
+    "question": "What is the official residence of the Governor called?",
+    "options": ["Rashtrapati Bhavan", "Raj Bhavan", "Governor House", "President House"],
+    "correctOption": "Raj Bhavan"
+  },
+  {
+    "question": "Which of the following is NOT a function of the Governor?",
+    "options": ["Executive", "Legislative", "Diplomatic", "Financial"],
+    "correctOption": "Diplomatic"
+  },
+  {
+    "question": "The Governor does not possess which of the following powers, unlike the President of India?",
+    "options": ["Executive", "Legislative", "Diplomatic", "Judicial"],
+    "correctOption": "Diplomatic"
+  },
+  {
+    "question": "Which of the following is NOT appointed by the Governor of a state?",
+    "options": ["Advocate General", "Chief Minister", "State Election Commissioner", "Vice Chancellors of Universities"],
+    "correctOption": "Chief Minister"
+  },
+  {
+    "question": "Under which article does the Governor recommend President's rule in the state?",
+    "options": ["Article 356", "Article 360", "Article 370", "Article 352"],
+    "correctOption": "Article 356"
+  },
+  {
+    "question": "Who acts as the Chancellor of Universities in the state?",
+    "options": ["Chief Minister", "President", "Governor", "Vice Chancellor"],
+    "correctOption": "Governor"
+  },
+  {
+    "question": "In whose name are all executive decisions of the state government taken?",
+    "options": ["Chief Minister", "President", "Prime Minister", "Governor"],
+    "correctOption": "Governor"
+  },
+  {
+    "question": "How many types of powers does the Governor have according to the provided text?",
+    "options": ["Three", "Four", "Five", "Six"],
+    "correctOption": "Four"
+  },
+  {
+    "question": "Who has the authority to recommend the imposition of President's rule in a state?",
+    "options": ["Chief Minister", "Governor", "President", "Prime Minister"],
+    "correctOption": "Governor"
+  },
+  {
+    "question": "Which of the following powers does the Governor NOT have?",
+    "options": ["Judicial", "Legislative", "Diplomatic", "Executive"],
+    "correctOption": "Diplomatic"
+  },
+  {
+    "question": "Who appoints the Chairman and members of the state public service commission?",
+    "options": ["President", "Governor", "Chief Minister", "Prime Minister"],
+    "correctOption": "Governor"
+  },
+  {
+    "question": "The Governor does not have which of the following powers similar to the President?",
+    "options": ["Financial", "Military", "Emergency", "Executive"],
+    "correctOption": "Military"
+  },
+  {
+    "question": "Who appoints the Advocate General of a state?",
+    "options": ["Chief Minister", "President", "Prime Minister", "Governor"],
+    "correctOption": "Governor"
+  },
+  {
+    "question": "Which of the following is NOT appointed by the Governor?",
+    "options": ["Chief Minister", "Advocate General", "Vice Chancellors of Universities", "Members of Parliament"],
+    "correctOption": "Members of Parliament"
+  },
+  {
+    "question": "The Governor does not have which of the following powers similar to the President?",
+    "options": ["Financial", "Legislative", "Judicial", "Emergency"],
+    "correctOption": "Emergency"
+  },
+  {
+    "question": "Who recommends for President’s rule in a state?",
+    "options": ["Prime Minister", "Chief Minister", "President", "Governor"],
+    "correctOption": "Governor"
+  },
+  {
+    "question": "Who appoints the Vice Chancellors of various universities in the state?",
+    "options": ["Chief Minister", "President", "Governor", "Prime Minister"],
+    "correctOption": "Governor"
+  },
+  {
+    "question": "Which article deals with the recommendation of President's rule by the Governor?",
+    "options": ["Article 356", "Article 360", "Article 370", "Article 352"],
+    "correctOption": "Article 356"
+  },
+  {
+    "question": "In whose name are all executive decisions of the state government taken?",
+    "options": ["Chief Minister", "President", "Prime Minister", "Governor"],
+    "correctOption": "Governor"
+  },
+  {
+    "question": "What is one of the roles of the Governor regarding District Court judges?",
+    "options": [
+      "Appointing judges without consultation",
+      "Overruling decisions made by the High Court",
+      "Taking decisions on judicial matters independently",
+      "Making decisions in consultation with the state High Court"
+    ],
+    "correctOption": "Making decisions in consultation with the state High Court"
+  },
+  {
+    "question": "Which of the following can the Governor grant according to the Constitution?",
+    "options": [
+      "Pardons, reprieves, and respite only",
+      "Pardons, reprieves, respites, and remissions only",
+      "Pardons, reprieves, respites, and commutations only",
+      "Pardons, reprieves, respites, remissions, and commutations"
+    ],
+    "correctOption": "Pardons, reprieves, respites, and remissions only"
+  },
+  {
+    "question": "Who holds the power to pardon a death sentence according to the constitution?",
+    "options": [
+      "The Governor",
+      "The Prime Minister",
+      "The President",
+      "The Chief Justice"
+    ],
+    "correctOption": "The President"
+  },
+  {
+    "question": "In which scenario does the President hold power rather than the Governor?",
+    "options": [
+      "Granting reprieves for minor offences",
+      "Commuting sentences for serious offences",
+      "Pardoning death sentences",
+      "Suspending sentences for military personnel"
+    ],
+    "correctOption": "Suspending sentences for military personnel"
+  },
+  {
+    "question": "What is the limitation on the Governor's power regarding court martial cases?",
+    "options": [
+      "Cannot grant reprieves",
+      "Cannot commute sentences",
+      "Cannot grant pardons",
+      "Cannot remit punishments"
+    ],
+    "correctOption": "Cannot grant pardons"
+  },
+  {
+    "question": "Which entity is involved in decisions related to appointments, postings, and promotions of District Court judges?",
+    "options": [
+      "Governor and President jointly",
+      "Governor and Prime Minister jointly",
+      "Governor and State High Court jointly",
+      "Governor and Chief Justice jointly"
+    ],
+    "correctOption": "Governor and State High Court jointly"
+  },
+  {
+    "question": "What action can the Governor take regarding the sentence of a person convicted of an offence?",
+    "options": [
+      "Granting pardon in all cases",
+      "Suspending sentences indefinitely",
+      "Pardoning minor offences only",
+      "Granting pardons, reprieves, and remissions"
+    ],
+    "correctOption": "Granting pardons, reprieves, and remissions"
+  },
+  {
+    "question": "Which of the following statements about the Governor's powers is true?",
+    "options": [
+      "The Governor has sole authority over court martial cases.",
+      "The Governor can independently pardon death sentences.",
+      "The Governor must consult the state High Court for judicial decisions.",
+      "The Governor holds more executive power than the President."
+    ],
+    "correctOption": "The Governor must consult the state High Court for judicial decisions."
+  },
+  {
+    "question": "What distinguishes the President's power from the Governor's regarding death sentences?",
+    "options": [
+      "The President can grant pardons for death sentences.",
+      "The Governor can suspend death sentences indefinitely.",
+      "The President can only grant reprieves for death sentences.",
+      "The Governor's power regarding death sentences is unlimited."
+    ],
+    "correctOption": "The President can grant pardons for death sentences."
+  },
+  {
+    "question": "Which of the following accurately represents the Governor's role in court martial cases?",
+    "options": [
+      "The Governor holds exclusive authority.",
+      "The Governor can commute sentences.",
+      "The Governor cannot grant pardons.",
+      "The Governor can grant reprieves."
+    ],
+    "correctOption": "The Governor cannot grant pardons."
+  },
+  {
+    "question": "In which situation does the Governor's power extend over that of the President?",
+    "options": [
+      "Granting pardons for state-level offences",
+      "Overruling decisions of the District Court judges",
+      "Commuting sentences for offences against state laws",
+      "Suspending sentences for offences against national security"
+    ],
+    "correctOption": "Granting pardons for state-level offences"
+  },
+  {
+    "question": "What is the primary purpose of the Governor's consultation with the state High Court?",
+    "options": [
+      "To share executive power equally",
+      "To ensure judicial independence",
+      "To expedite legal proceedings",
+      "To circumvent legal restrictions"
+    ],
+    "correctOption": "To ensure judicial independence"
+  },
+  {
+    "question": "Which entity shares responsibility with the Governor in decisions related to District Court judges?",
+    "options": [
+      "The State Legislature",
+      "The President",
+      "The Prime Minister",
+      "The State High Court"
+    ],
+    "correctOption": "The State High Court"
+  },
+  {
+    "question": "What specific action can the Governor take regarding a person's sentence under state laws?",
+    "options": [
+      "Granting reprieves and commutations",
+      "Pardoning all offences unilaterally",
+      "Suspending sentences for indefinite periods",
+      "Remitting punishments without consultation"
+    ],
+    "correctOption": "Granting reprieves and commutations"
+  },
+  {
+    "question": "What is the responsibility of the Governor regarding the budget in a State Legislature?",
+    "options": [
+      "Reviewing the budget",
+      "Approving the budget",
+      "Presenting the budget",
+      "Laying the budget before the State Legislature"
+    ],
+    "correctOption": "Laying the budget before the State Legislature"
+  },
+  {
+    "question": "In a State Legislature, when can Money bills be introduced?",
+    "options": [
+      "On the recommendation of the Chief Minister",
+      "On the recommendation of the President",
+      "On the prior recommendation of the Governor",
+      "On the recommendation of the Finance Minister"
+    ],
+    "correctOption": "On the prior recommendation of the Governor"
+  },
+  {
+    "question": "What is required for a demand for a grant to be made in a State Legislature?",
+    "options": [
+      "Approval of the Chief Minister",
+      "Approval of the State Legislature",
+      "Approval of the Governor",
+      "Approval of the President"
+    ],
+    "correctOption": "Approval of the Governor"
+  },
+  {
+    "question": "Which fund can the Governor utilize to meet unforeseen expenditures in a State?",
+    "options": [
+      "Reserve Fund",
+      "Contingency Fund",
+      "Development Fund",
+      "Emergency Fund"
+    ],
+    "correctOption": "Contingency Fund"
+  },
+  {
+    "question": "How often does the Governor constitute a State Finance Commission?",
+    "options": [
+      "Every three years",
+      "Every four years",
+      "Every five years",
+      "Every six years"
+    ],
+    "correctOption": "Every five years"
+  },
+  {
+    "question": "What is the purpose of the State Finance Commission constituted by the Governor?",
+    "options": [
+      "To oversee state elections",
+      "To review the financial position of the Central Government",
+      "To review the financial position of the Panchayats and Municipalities",
+      "To audit state-owned enterprises"
+    ],
+    "correctOption": "To review the financial position of the Panchayats and Municipalities"
+  },
+  {
+    "question": "Who is responsible for making advances out of the Contingency Fund in a State?",
+    "options": [
+      "Chief Minister",
+      "Finance Minister",
+      "Governor",
+      "State Treasurer"
+    ],
+    "correctOption": "Governor"
+  },
+  {
+    "question": "Which of the following statements about Money bills in a State Legislature is TRUE?",
+    "options": [
+      "They can be introduced without the Governor's recommendation.",
+      "They can only be introduced on the Governor's recommendation.",
+      "They can be introduced by any member of the State Legislature.",
+      "They can only be introduced during an emergency session."
+    ],
+    "correctOption": "They can only be introduced on the Governor's recommendation."
+  },
+  {
+    "question": "What does the Governor do with the budget (Annual Financial Statement) in a State Legislature?",
+    "options": [
+      "Approves it",
+      "Presents it",
+      "Lays it before the State Legislature",
+      "Reviews it"
+    ],
+    "correctOption": "Lays it before the State Legislature"
+  },
+  {
+    "question": "What does the Governor review with the State Finance Commission?",
+    "options": [
+      "Industrial growth",
+      "Financial position of the State Government",
+      "Financial position of the Central Government",
+      "Financial position of the Panchayats and Municipalities"
+    ],
+    "correctOption": "Financial position of the Panchayats and Municipalities"
+  },
+  {
+    "question": "In which situation can the Governor make advances out of the Contingency Fund?",
+    "options": [
+      "To fund routine government expenditures",
+      "To meet any unforeseen expenditure",
+      "To distribute among state officials",
+      "To fund personal expenses"
+    ],
+    "correctOption": "To meet any unforeseen expenditure"
+  },
+  {
+    "question": "What is the frequency with which the Governor constitutes a State Finance Commission?",
+    "options": [
+      "Every two years",
+      "Every four years",
+      "Every five years",
+      "Every ten years"
+    ],
+    "correctOption": "Every five years"
+  },
+  {
+    "question": "Who is considered a part of the State Legislature?",
+    "options": [
+      "Only the Legislative Assembly",
+      "Only the Legislative Council",
+      "Only the Governor",
+      "The Governor, Legislative Assembly, and Legislative Council"
+    ],
+    "correctOption": "The Governor, Legislative Assembly, and Legislative Council"
+  },
+  {
+    "question": "In a unicameral legislature, who constitutes the legislative body?",
+    "options": [
+      "Governor and Legislative Assembly",
+      "Governor, Legislative Assembly, and Legislative Council",
+      "Governor and Legislative Council",
+      "Legislative Assembly only"
+    ],
+    "correctOption": "Governor and Legislative Assembly"
+  },
+  {
+    "question": "What is the role of the Governor regarding summoning the State Legislature?",
+    "options": [
+      "Proroguing the session",
+      "Dissolving the Legislative Assembly",
+      "Calling for the beginning of a session",
+      "Abolishing the Legislative Council"
+    ],
+    "correctOption": "Calling for the beginning of a session"
+  },
+  {
+    "question": "What does 'prorogue' mean in the context of the State Legislature?",
+    "options": [
+      "Abolishing the Legislative Council",
+      "Summoning the session",
+      "Ending a session",
+      "Dissolving the Legislative Assembly"
+    ],
+    "correctOption": "Ending a session"
+  },
+  {
+    "question": "Who has the authority to dissolve the State Legislative Assembly?",
+    "options": [
+      "Legislative Council",
+      "Legislative Assembly",
+      "Governor",
+      "Chief Minister"
+    ],
+    "correctOption": "Governor"
+  },
+  {
+    "question": "Which house of the State Legislature is permanent and cannot be dissolved?",
+    "options": [
+      "Legislative Assembly",
+      "Legislative Council",
+      "Both Legislative Assembly and Legislative Council",
+      "Governor's house"
+    ],
+    "correctOption": "Legislative Council"
+  },
+  {
+    "question": "Can the Legislative Council be dissolved?",
+    "options": [
+      "Yes",
+      "No",
+      "Only during emergencies",
+      "Only with the approval of the Governor"
+    ],
+    "correctOption": "No"
+  },
+  {
+    "question": "What is the primary legislative body in a bicameral legislature?",
+    "options": [
+      "Legislative Assembly",
+      "Legislative Council",
+      "Governor's House",
+      "Both Legislative Assembly and Legislative Council"
+    ],
+    "correctOption": "Both Legislative Assembly and Legislative Council"
+  },
+  {
+    "question": "What does a bicameral legislature consist of?",
+    "options": [
+      "Governor and Legislative Assembly",
+      "Legislative Assembly and Legislative Council",
+      "Legislative Assembly and Chief Minister",
+      "Legislative Council and Chief Minister"
+    ],
+    "correctOption": "Legislative Assembly and Legislative Council"
+  },
+  {
+    "question": "Which action is within the Governor's authority regarding the State Legislature?",
+    "options": [
+      "Forming laws",
+      "Enforcing laws",
+      "Dissolving Legislative Council",
+      "Summoning Legislative Assembly"
+    ],
+    "correctOption": "Summoning Legislative Assembly"
+  },
+  {
+    "question": "What distinguishes a unicameral legislature from a bicameral legislature?",
+    "options": [
+      "Presence of Legislative Assembly only",
+      "Presence of Legislative Council only",
+      "Presence of Governor only",
+      "Presence of both Legislative Assembly and Legislative Council"
+    ],
+    "correctOption": "Presence of Legislative Assembly only"
+  },
+  {
+    "question": "What is the Governor's role in relation to the Legislative Council?",
+    "options": [
+      "Can dissolve it",
+      "Can prorogue it",
+      "Can summon it",
+      "Can abolish it"
+    ],
+    "correctOption": "Can abolish it"
+  },
+  {
+    "question": "When does the proroguing of the State Legislature occur?",
+    "options": [
+      "Beginning of a session",
+      "Ending of a session",
+      "During emergencies",
+      "During dissolution"
+    ],
+    "correctOption": "Ending of a session"
+  },
+  {
+    "question": "Who holds the power to end a session of the State Legislature?",
+    "options": [
+      "Governor",
+      "Chief Minister",
+      "Speaker of the Legislative Assembly",
+      "Leader of Opposition"
+    ],
+    "correctOption": "Governor"
+  },
+  {
+    "question": "Which component forms part of the State Legislature in a bicameral system?",
+    "options": [
+      "Only Legislative Assembly",
+      "Only Legislative Council",
+      "Both Legislative Assembly and Legislative Council",
+      "Governor's Council"
+    ],
+    "correctOption": "Both Legislative Assembly and Legislative Council"
+  },
+  {
+    "question": "When does the Governor address the state legislature at the beginning of the first session each year?",
+    "options": [
+      "Financial year",
+      "Anytime in the year",
+      "Calendar year",
+      "Biennial year"
+    ],
+    "correctOption": "Calendar year"
+  },
+  {
+    "question": "Which session is generally addressed by the Governor at the beginning of each year?",
+    "options": [
+      "Monsoon session",
+      "Budget session",
+      "Winter session",
+      "Summer session"
+    ],
+    "correctOption": "Budget session"
+  },
+  {
+    "question": "When does the Governor address the state legislature after each general election?",
+    "options": [
+      "Before the election",
+      "During the election",
+      "After the election",
+      "Never"
+    ],
+    "correctOption": "After the election"
+  },
+  {
+    "question": "What action can the Governor take regarding a bill pending in the legislature?",
+    "options": [
+      "Amend the bill personally",
+      "Veto the bill",
+      "Send messages to the houses",
+      "Ignore the bill"
+    ],
+    "correctOption": "Send messages to the houses"
+  },
+  {
+    "question": "In the event of vacancies in both Speaker and Deputy Speaker positions, who can the Governor appoint to preside over the State Legislative Assembly meetings?",
+    "options": [
+      "Governor's advisor",
+      "Chief Minister",
+      "Member of Parliament",
+      "Member of the State Legislative Assembly"
+    ],
+    "correctOption": "Member of the State Legislative Assembly"
+  },
+  {
+    "question": "What is the duration of the session when the Governor addresses the state legislature each year?",
+    "options": [
+      "Weekly",
+      "Monthly",
+      "Annually",
+      "Biennially"
+    ],
+    "correctOption": "Annually"
+  },
+  {
+    "question": "When does the budget session, usually addressed by the Governor, commence?",
+    "options": [
+      "January",
+      "February",
+      "March",
+      "April"
+    ],
+    "correctOption": "February"
+  },
+  {
+    "question": "What does the Governor address at the beginning of the first session after each general election?",
+    "options": [
+      "State budget",
+      "State of the nation",
+      "State legislature",
+      "State of emergency"
+    ],
+    "correctOption": "State legislature"
+  },
+  {
+    "question": "How does the Governor communicate with the houses of the state legislatures regarding pending bills?",
+    "options": [
+      "Through personal visits",
+      "Through written messages",
+      "Through press conferences",
+      "Through social media"
+    ],
+    "correctOption": "Through written messages"
+  },
+  {
+    "question": "Which session typically follows a general election in terms of the Governor's address to the state legislature?",
+    "options": [
+      "Monsoon session",
+      "Budget session",
+      "Winter session",
+      "Special session"
+    ],
+    "correctOption": "Budget session"
+  },
+  {
+    "question": "What is the primary purpose of the Governor's address to the state legislature?",
+    "options": [
+      "To dictate legislative agenda",
+      "To provide updates on state finances",
+      "To communicate the government's policies",
+      "To entertain the legislators"
+    ],
+    "correctOption": "To communicate the government's policies"
+  },
+  {
+    "question": "Who nominates one Anglo-Indian member to the state legislative Assembly?",
+    "options": [
+      "The President",
+      "The Chief Minister",
+      "The Governor",
+      "The Prime Minister"
+    ],
+    "correctOption": "The Governor"
+  },
+  {
+    "question": "How many members does the Governor nominate to the state legislative Council from persons with special knowledge or practical experience?",
+    "options": [
+      "1/4th",
+      "1/6th",
+      "1/8th",
+      "1/10th"
+    ],
+    "correctOption": "1/6th"
+  },
+  {
+    "question": "Among which of the following fields can the nominated members of the state legislative Council have special knowledge or practical experience?",
+    "options": [
+      "Mathematics",
+      "Sports",
+      "Literature",
+      "Politics"
+    ],
+    "correctOption": "Literature"
+  },
+  {
+    "question": "Who decides the question of disqualification of members of the State Legislature?",
+    "options": [
+      "The Chief Minister",
+      "The Election Commission of India",
+      "The Prime Minister",
+      "The President"
+    ],
+    "correctOption": "The Election Commission of India"
+  },
+  {
+    "question": "How does a bill become a law at the state level?",
+    "options": [
+      "With the approval of the President",
+      "With the approval of the Prime Minister",
+      "With the assent of the Governor",
+      "With the assent of the Chief Minister"
+    ],
+    "correctOption": "With the assent of the Governor"
+  },
+  {
+    "question": "What can the Governor do when a bill is sent for assent?",
+    "options": [
+      "Give assent to the bill",
+      "Withhold the assent to the bill",
+      "Both a and b",
+      "None of the above"
+    ],
+    "correctOption": "Both a and b"
+  },
+  {
+    "question": "When can the Governor return a non-money bill for reconsideration by the state legislature?",
+    "options": [
+      "If the bill is passed without amendments",
+      "If the bill is passed by a simple majority",
+      "If the bill is not a money bill",
+      "If the bill is related to taxation"
+    ],
+    "correctOption": "If the bill is not a money bill"
+  },
+  {
+    "question": "Under what circumstances can the Governor reserve a bill for the consideration of the President?",
+    "options": [
+      "If the bill is related to education",
+      "If the bill is related to healthcare",
+      "If the bill endangers the position of the state high court",
+      "If the bill is related to infrastructure"
+    ],
+    "correctOption": "If the bill endangers the position of the state high court"
+  },
+  {
+    "question": "How many Anglo-Indian members are nominated to the state legislative Assembly by the Governor?",
+    "options": [
+      "Two",
+      "One",
+      "Three",
+      "None"
+    ],
+    "correctOption": "One"
+  },
+  {
+    "question": "Who has the final authority in deciding the disqualification of members of the State Legislature?",
+    "options": [
+      "The Chief Justice of India",
+      "The Election Commission of India",
+      "The Governor",
+      "The President"
+    ],
+    "correctOption": "The Election Commission of India"
+  },
+  {
+    "question": "What is the decisive factor for the Governor to give assent to a bill?",
+    "options": [
+      "Majority vote in the state legislature",
+      "Recommendation of the Chief Minister",
+      "Compliance with constitutional provisions",
+      "Personal preference of the Governor"
+    ],
+    "correctOption": "Compliance with constitutional provisions"
+  },
+  {
+    "question": "Who can nominate members to the state legislative Council based on their expertise?",
+    "options": [
+      "The Chief Minister",
+      "The Governor",
+      "The President",
+      "The Prime Minister"
+    ],
+    "correctOption": "The Governor"
+  },
+  {
+    "question": "What happens if a bill is returned by the Governor for reconsideration and is passed again by the state legislature?",
+    "options": [
+      "It automatically becomes law",
+      "The Governor can still withhold assent",
+      "The Governor is obliged to give assent",
+      "It gets referred to the President"
+    ],
+    "correctOption": "The Governor is obliged to give assent"
+  },
+  {
+    "question": "When the governor reserves a bill for the consideration of the President, what is his subsequent role?",
+    "options": [
+      "He enacts the bill",
+      "He approves the bill",
+      "He has no further role",
+      "He vetoes the bill"
+    ],
+    "correctOption": "He has no further role"
+  },
+  {
+    "question": "If a bill is returned by the President for reconsideration and is passed again, what is the next step?",
+    "options": [
+      "It becomes an act",
+      "It is sent back to the President",
+      "It must be presented again for presidential assent",
+      "It is referred to the Supreme Court"
+    ],
+    "correctOption": "It must be presented again for presidential assent"
+  },
+  {
+    "question": "Upon receiving presidential assent, what happens to the role of the Governor concerning the bill?",
+    "options": [
+      "His assent is required",
+      "He can still veto the bill",
+      "His assent is no longer required",
+      "He can still amend the bill"
+    ],
+    "correctOption": "His assent is no longer required"
+  },
+  {
+    "question": "Under what circumstances can the Governor of a state promulgate ordinances?",
+    "options": [
+      "When the state legislature is in session",
+      "When advised by the President",
+      "When the state legislature is not in session",
+      "When directed by the judiciary"
+    ],
+    "correctOption": "When the state legislature is not in session"
+  },
+  {
+    "question": "What is the nature of an ordinance promulgated by the Governor?",
+    "options": [
+      "Permanent law",
+      "Advisory law",
+      "Temporary law",
+      "Constitutional law"
+    ],
+    "correctOption": "Temporary law"
+  },
+  {
+    "question": "Within what timeframe must an ordinance be approved by the State legislature?",
+    "options": [
+      "3 months",
+      "6 weeks",
+      "1 year",
+      "2 weeks"
+    ],
+    "correctOption": "6 weeks"
+  },
+  {
+    "question": "How can the Governor withdraw an ordinance?",
+"options": [
+"Unilaterally",
+"Only after approval from the President",
+"On the advice of the council of ministers",
+"Through a referendum"
+],
+"correctOption": "On the advice of the council of ministers"
+},
+{
+"question": "Is the Governor's power to make ordinances discretionary?",
+"options": [
+"Yes",
+"No"
+],
+"correctOption": "No"
+},
+{
+"question": "Who advises the Governor regarding the promulgation or withdrawal of an ordinance?",
+"options": [
+"President",
+"State Legislature",
+"Council of ministers headed by the chief minister",
+"Judiciary"
+],
+"correctOption": "Council of ministers headed by the chief minister"
+},
+{
+"question": "Whose report does the Governor lay in the state legislature?",
+"options": [
+"President's",
+"Prime Minister's",
+"Comptroller and Auditor General's",
+"Chief Minister's"
+],
+"correctOption": "Comptroller and Auditor General's"
+},
+{
+"question": "Which of the following commissions' report is laid by the Governor in the state legislature?",
+"options": [
+"Election Commission",
+"Finance Commission",
+"Planning Commission",
+"Human Rights Commission"
+],
+"correctOption": "Finance Commission"
+},
+{
+"question": "Is there a separate constitutional office of the Comptroller and Auditor General (CAG) at the state level?",
+"options": [
+"Yes",
+"No"
+],
+"correctOption": "No"
+},
+{
+"question": "What is the full form of SPSC as mentioned in the constitution?",
+"options": [
+"State Public Services Committee",
+"State Public Service Commission",
+"State Planning and Service Committee",
+"State Political Services Commission"
+],
+"correctOption": "State Public Service Commission"
+},
+{
+"question": "Which body does not have a separate constitutional office at the state level according to the constitution?",
+"options": [
+"State Finance Commission",
+"Comptroller and Auditor General",
+"State Public Service Commission",
+"Election Commission"
+],
+"correctOption": "Comptroller and Auditor General"
+},
+{
+"question": "What is the term for a law promulgated by the Governor during the state legislature's recess?",
+"options": [
+"Statute",
+"Ordinance",
+"Resolution",
+"Proclamation"
+],
+"correctOption": "Ordinance"
+},
+ 
+ 
+ 
+ 
+ ];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>
