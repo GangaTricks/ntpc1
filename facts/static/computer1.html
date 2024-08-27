@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Part 1 QUIZ APP</title> 
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Subject Name | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'computer1';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+         const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+ 
+ {
+    "question": "AIX is the operating system of which company?",
+    "options": ["Apple", "Unisys", "IBM", "Microsoft"],
+    "correctOption": "IBM"
+  },
+  {
+    "question": "In which year was Google incorporated as a private company?",
+    "options": ["2000", "2005", "2002", "1998"],
+    "correctOption": "1998"
+  },
+  {
+    "question": "A region of computer memory where frequently accessed data can be stored for rapid access is called:",
+    "options": ["Cookie", "Plug-in", "Token", "Cache"],
+    "correctOption": "Cache"
+  },
+  {
+    "question": "In computer terminology, what is the full form of RAM?",
+    "options": ["Random Access Memory", "Repeated Access Memory", "Rapid Access Memory", "Regular Access Memory"],
+    "correctOption": "Random Access Memory"
+  },
+  {
+    "question": "In the world of Computers, what is ‘Ubuntu’?",
+    "options": ["A firewall developed by Microsoft", "Open Source Linux Operating System", "An ERP system from SAP", "Latest financial software package by Infosys"],
+    "correctOption": "Open Source Linux Operating System"
+  },
+  {
+    "question": "‘Pivot Table’ is a feature of which of the following softwares?",
+    "options": ["Microsoft Excel", "Microsoft Word", "Microsoft Access", "Microsoft PowerPoint"],
+    "correctOption": "Microsoft Excel"
+  },
+  {
+    "question": "Which of the following is NOT one of the tools of Robotics Process Automation?",
+    "options": ["Blue Prism", "Ui Path", "Automation Anywhere", "Power Center"],
+    "correctOption": "Power Center"
+  },
+  {
+    "question": "A database used by Microsoft Windows for storing configuration information is known as:",
+    "options": ["Registry", "Record", "Cookie", "Cache"],
+    "correctOption": "Registry"
+  },
+  {
+    "question": "Who among the following invented the Computer language, COBOL?",
+    "options": ["Grace Murray Hopper", "John McCarthy", "Guido van Rossum", "Brendan Eich"],
+    "correctOption": "Grace Murray Hopper"
+  },
+  {
+    "question": "Second Generation computers can be characterized largely by their use of:",
+    "options": ["Integrated Circuits", "Vacuum Tubes", "Microprocessors", "Transistors"],
+    "correctOption": "Transistors"
+  },
+  {
+    "question": "Who among the following pioneered Binary Logic and Arithmetic in Computers Programming?",
+    "options": ["Noam Chomsky", "Leslie Lamport", "John Backus", "Claude Shannon"],
+    "correctOption": "Claude Shannon"
+  },
+  {
+    "question": "Desktop Computers, Laptop Computers, tablets and smartphones are different types of ________.",
+    "options": ["Supercomputers", "Mainframe Computers", "Microcomputers", "Minicomputers"],
+    "correctOption": "Microcomputers"
+  },
+  {
+    "question": "______ is the smallest unit of data in a computer.",
+    "options": ["Gigabyte", "Bit", "Byte", "Terabyte"],
+    "correctOption": "Bit"
+  },
+  {
+    "question": "In computing, ________ is a network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules.",
+    "options": ["Cookie", "Spyware", "Spam", "Firewall"],
+    "correctOption": "Firewall"
+  },
+  {
+    "question": "Who designed the first analog computer in India?",
+    "options": ["Samarendra Kumar Mitra", "Deb Kumar Bose", "Subodh Chandra Das Gupta", "Bimal Kumar Bhattacharyya"],
+    "correctOption": "Samarendra Kumar Mitra"
+  },
+  {
+    "question": "Which of the following is NOT an e-commerce website?",
+    "options": ["Uber", "Swiggy", "Flipkart", "Google Maps"],
+    "correctOption": "Google Maps"
+  },
+  {
+    "question": "The first barcode system was developed by:",
+    "options": ["Norman Joseph Woodland", "John McCarthy", "John Barger", "David Bradley"],
+    "correctOption": "Norman Joseph Woodland"
+  },
+  {
+    "question": "'Nibble' in computer terminology is also called ________.",
+    "options": ["Bit", "Half bit", "Half byte", "Byte"],
+    "correctOption": "Half byte"
+  },
+  {
+    "question": "Which company manufactured the first microprocessor 4004?",
+    "options": ["ENOcean Private Company", "NVIDIA Corporation", "PLX Devices", "INTEL Corporation"],
+    "correctOption": "INTEL Corporation"
+  },
+  {
+    "question": "Python is a _______.",
+    "options": ["High-level language", "Assembly language", "Low-level language", "Machine language"],
+    "correctOption": "High-level language"
+  },
+  {
+    "question": "Linux is ______.",
+    "options": ["An interpreter", "An operating system", "An assembly language", "A high-level language"],
+    "correctOption": "An operating system"
+  },
+  {
+    "question": "In the context of memory size in computer data storage, one gigabyte is equal to how many megabytes?",
+    "options": ["32 MB", "1012 MB", "64 MB", "1024 MB"],
+    "correctOption": "1024 MB"
+  },
+  {
+    "question": "A hard disk is an example of which type of data storage device?",
+    "options": ["Primary Storage", "Secondary Storage", "Offline Storage", "Tertiary Storage"],
+    "correctOption": "Secondary Storage"
+  },
+  {
+    "question": "Which of the following is an input device that utilizes a light-sensitive detector to select objects on a display screen?",
+    "options": ["Light pen", "Barcode reader", "Optical mark recognition (OMR)", "Magnetic ink character recognition (MICR)"],
+    "correctOption": "Light pen"
+  },
+  
+  
+{
+"question": "The speed of the Central Processing Unit (CPU) is measured in_________, which represents a CPU cycle.",
+"options": ["Gigabyte (GB)", "Hertz (Hz)", "Terabyte (TB)", "Kilobyte (KB)"],
+"correctOption": "Hertz (Hz)"
+},
+{
+"question": "Which unit of the computer is considered as the brain of the computer?",
+"options": ["Memory unit", "Input unit", "CPU", "Output unit"],
+"correctOption": "CPU"
+},
+{
+"question": "Which of the following options correctly defines a firewall (in the context of computing)?",
+"options": [
+"It is the name of a software.",
+"It is a hardware device.",
+"It is a combination of both software and hardware devices to permit or deny network transmission based on a set of rules.",
+"It is a combination of software and hardware-based devices to permit any and every network transmission."
+],
+"correctOption": "It is a combination of both software and hardware devices to permit or deny network transmission based on a set of rules."
+},
+{
+"question": "Which technology do third generation computers use?",
+"options": ["Integrated circuits", "Transistors", "Microprocessors", "Vacuum tubes"],
+"correctOption": "Integrated circuits"
+},
+{
+"question": "In the field of computing, what does VRML stand for?",
+"options": ["Virtual Reality MarkUp Language",
+"Visual Reality MarkUp Language",
+"Virtual Reality Machine Language",
+"Visual Reality Machine Language"],
+"correctOption": "Virtual Reality MarkUp Language"
+},
+{
+"question": "Which function key is used for opening help?",
+"options": ["F4", "F3", "F1", "F2"],
+"correctOption": "F1"
+},
+{
+"question": "In the field of computing, what does VGA stand for?",
+"options": ["Visual Graphics Array",
+"Video Graphics Array",
+"Video Graphics Audio",
+"Visual Graphics Audio"],
+"correctOption": "Video Graphics Array"
+},
+{
+"question": "In a computer, which unit is responsible for processing data and is also called the electronic brain of the computer?",
+"options": ["Central Processing Unit(CPU)", "Hard Disk", "RAM", "Keyboard"],
+"correctOption": "Central Processing Unit(CPU)"
+},
+{
+"question": "The F7 key is commonly used in Microsoft programs such as Microsoft Word, Outlook, etc. for:",
+"options": [
+"Opening help",
+"Checking spellings and grammar",
+"Searching content in various apps",
+"Renaming files and folders"
+],
+"correctOption": "Checking spellings and grammar"
+},
+{
+"question": "In the context of computing, what does ENIAC stand for?",
+"options": ["Electronic Numerical Integrator and Computer",
+"Electronic Numerical Integrated Advanced Computer",
+"Electronic Numerals Integration and Computing",
+"Electronic Numbers Integration and Computer"],
+"correctOption": "Electronic Numerical Integrator and Computer"
+},
+{
+"question": "Which of the following statements about firewall (in the context of computing) is INCORRECT?",
+"options": [
+"It permits network transmission based on a set of rules.",
+"It is a combination of both software and hardware devices.",
+"It is frequently used to protect a computer network from unauthorized",
+"It is unable to permit legitimate communication to pass."
+],
+"correctOption": "It is unable to permit legitimate communication to pass."
+},
+{
+"question": "What is the full form of PROM?",
+"options": ["Program read-only memory", "Primary read-only memory", "Programmable read-only memory", "Program read-output memory"],
+"correctOption": "Programmable read-only memory"
+},
+{
+"question": "Which function key displays the Print Preview window in Microsoft Office?",
+"options": ["Alt+F2", "Alt+Ctrl+F2", "Ctrl+F2", "Shift+F2"],
+"correctOption": "Ctrl+F2"
+},
+{
+"question": "In which year did the JavaScript Programming language come into existence?",
+"options": ["2000", "1990", "1995", "1999"],
+"correctOption": "1995"
+},
+{
+"question": "Which of the following is a lever that can be moved in several directions to control the movement of an image on a computer monitor or similar display screen?",
+"options": ["MIDI Devices", "Optical Mark Reader", "Joystick", "Visual Display Unit"],
+"correctOption": "Joystick"
+},
+{
+"question": "Which of the following converts analogue information into digital form?",
+"options": ["Optical Mark Reading", "Barcode reader", "Digitizer", "Gamepad"],
+"correctOption": "Digitizer"
+},
+{
+"question": "In the context of computing, what is the full form of URL?",
+"options": [
+"Undistributed Resource Locator",
+"Unified Resource Locator",
+"Uniform Resource Locator",
+"Uniform Region Locator"
+],
+"correctOption": "Uniform Resource Locator (URL)"
+},
+{
+"question": "Which of the following is used to receive and send computer files over telephone lines?",
+"options": ["Modem", "MICR device", "Floppy disk", "Light pen"],
+"correctOption": "Modem"
+},
+{
+"question": "Which of the following is an input device used to enter motion data in computers or other electronic devices?",
+"options": ["Monitor", "Trackball", "Plotter", "Joystick"],
+"correctOption": "Trackball"
+},
+{
+"question": "In the context of computing, a byte is equal to ______ bits.",
+"options": ["4", "16", "24", "8"],
+"correctOption": "8"
+},
+{
+"question": "Which of the following is a type of memory and is similar to RAM? It is used by computers to move data between the RAM and the CPU.",
+"options": ["Hypertext Link", "ROM", "Cache", "I Beam"],
+"correctOption": "Cache"
+},
+{
+"question": "Which of the following is a very high-speed semiconductor memory which can speed up the CPU?",
+"options": ["Cache Memory", "Main Memory", "Secondary Memory", "Primary Memory"],
+"correctOption": "Cache Memory"
+},
+{
+"question": "Which of the following consists of an electronic writing area and a special ‘pen’ that works with it?",
+"options": ["Trackball", "Plotters", "Abacus", "Graphics Tablet"],
+"correctOption": "Graphics Tablet"
+},
+{
+"question": "______ is a small, portable flash memory card that plugs into a computer’s USB port and functions as a portable hard drive.",
+"options": ["Flash drive/ ैश ड ाइव", "CD-RW", "DVD-ROM", "CD-ROM"],
+"correctOption": "Flash drive/ ैश ड ाइव"
+},
+{
+"question": "______ is the fastest to read from and write to than the other kinds of storage in a computer.",
+"options": ["CD ROM", "Floppy Disk", "RAM", "Hard Disk"],
+"correctOption": "RAM"
+},
+{
+"question": "______ is a diagrammatic representation of a program logic.",
+"options": ["Process", "Flowchart", "Data", "Legend"],
+"correctOption": "Flowchart"
+},
+{
+"question": "Which of the following symbols must be used before a formula in a Microsoft Excel sheet?",
+"options": ["=", "&", "$", "@"],
+"correctOption": "="
+},
+{
+"question": "What is the full form of BASIC in context of the BASIC computer language?",
+"options": [
+"Beginner’s All-purpose Symbolic Input Code",
+"Beginner’s All-purpose Systematic Instruction Code",
+"Beginner’s All-purpose Symbolic Input-output Code",
+"Beginner’s All-purpose Symbolic Instruction Code"
+],
+"correctOption": "Beginner’s All-purpose Symbolic Instruction Code (BASIC)"
+},
+{
+"question": "Third generation computers used:",
+"options": ["Vacuum tubes", "Integrated circuits", "Transistors", "VLSI technique"],
+"correctOption": "Integrated circuits"
+},
+{
+"question": "____ is the central server in computer network which lets the concerned user utilize the storage capacity of the server.",
+"options": ["Application Server", "File Server", "Print Server", "Web Server"],
+"correctOption": "File Server"
+},
+
+{
+"question": "Which of the following devices is NOT used to enter data into a computer?",
+"options": ["Mouse", "Keyboard", "Scanner", "Monitor"],
+"correctOption": "Monitor"
+},
+
+{
+"question": "What is the shortcut key for the central alignment of a line or text in MS Office software?",
+"options": ["Ctrl+E", "Ctrl+C", "Ctrl+G", "Ctrl+A"],
+"correctOption": "Ctrl+E"
+},
+
+{
+"question": "Which of the following is an input device of a computer?",
+"options": ["Speaker", "Printer", "Scanner", "Monitor"],
+"correctOption": "Scanner"
+},
+
+{
+"question": "Which of the following is NOT a portable device?",
+"options": ["iPods", "Laptops", "Desktop computers", "Thumb drives"],
+"correctOption": "Desktop computers"
+},
+
+{
+"question": "Transistors belong to which of the following generations of the computers?",
+"options": ["First", "Second", "Third", "Fourth"],
+"correctOption": "Second"
+},
+
+{
+"question": "Which of the following is not a softcopy device?",
+"options": ["Plotter", "Projector", "Monitor", "Speaker"],
+"correctOption": "Plotter"
+},
+
+{
+"question": "In the context of computers, WORM is an acronym of:",
+"options": ["Write Once, Read Many", "Wireless Operating, Read Module", "Word Optical, Recognition Malware", "Word On, RAM Memory"],
+"correctOption": "Write Once, Read Many"
+},
+
+{
+"question": "Who has developed the Automatically Programmable Tool (APT)?",
+"options": ["Gary Kildall", "Douglas T Ross", "Ralph H Baer", "Jonathan Fletcher"],
+"correctOption": "Douglas T Ross"
+},
+
+{
+"question": "1 Petabyte (PB) = 1024_____.",
+"options": ["Zettabytes", "Exabytes", "Terabytes", "Gigabytes"],
+"correctOption": "Terabytes"
+},
+
+{
+"question": "What does HLL stand for in computing?",
+"options": ["High Low Language", "Hyper Level Language", "High Level List", "High Level Language"],
+"correctOption": "High Level Language"
+},
+
+{
+"question": "In which of the following countries was the first Electronic Numerical Integrator and Computer, the first programmable general-purpose electronic digital computer, developed?",
+"options": ["United Kingdom", "China", "Japan", "United States of America"],
+"correctOption": "United States of America"
+},
+
+{
+"question": "Trackball is which of the following devices?",
+"options": ["Input device", "Touchpad", "Output device", "Barcode reader"],
+"correctOption": "Input device"
+},
+
+{
+"question": "In Microsoft Office 2016, which shortcut key is used to open the Design tab?",
+"options": ["Ctrl + A", "Shift + F3", "Alt + G", "Ctrl + K"],
+"correctOption": "Alt + G"
+},
+
+{
+"question": "Which type of computers is used to control air traffic and radar of national defense?",
+"options": ["Personal computers", "Analogue computers", "Hybrid computers", "Digital computers"],
+"correctOption": "Hybrid computers"
+},
+
+{
+"question": "______ was a web browser developed by the National Centre for Supercomputing Application (NCSA).",
+"options": ["Opera", "Mosaic", "Navigator", "Safari"],
+"correctOption": "Mosaic"
+},
+
+{
+"question": "How many function keys are present on a standard PC keyboard?",
+"options": ["10", "9", "12", "15"],
+"correctOption": "12"
+},
+
+{
+"question": "Which of the following pairs is NOT matched correctly?",
+"options": ["Alt + E – Edit options in current program", "Alt + Shift + D – Insert the current date", "Ctrl + K – Cut selected text", "Ctrl + A – Select all text"],
+"correctOption": "Ctrl + K – Cut selected text"
+},
+
+{
+"question": "Who has created LISP, the Programming Language for Artificial Intelligence?",
+"options": ["Grace Hopper", "John McCarthy", "Charles Bachman", "Leslie Lamport"],
+"correctOption": "John McCarthy"
+},
+
+{
+"question": "A computer on the Internet that uses HTTP protocol is known as:",
+"options": ["LAN", "Web Server", "WAP", "WLAN"],
+"correctOption": "Web Server"
+},
+
+{
+"question": "Which of the following is an extension of a temporary file?",
+"options": [".tnt", ".tar", ".tmp", ".txt"],
+"correctOption": ".tmp"
+},
+
+{
+"question": "Which of the following is NOT an open-source operating system?",
+"options": ["Windows", "Ubuntu", "Linux", "Drupal"],
+"correctOption": "Windows"
+},
+
+{
+"question": "What do you call an event where a computer becomes unresponsive due to either a program or the system itself becoming unresponsive and no longer taking input?",
+"options": ["Booting", "Hanging", "Ejecting", "Moving"],
+"correctOption": "Hanging"
+},
+
+{
+"question": "In the context of computers, what is Ubuntu?",
+"options": ["An open-source operating system sponsored by Canonical Ltd.", "A search engine by Mozilla Foundation.", "An anti-virus software by Microsoft.", "An android-based search engine by Microsoft."],
+"correctOption": "An open-source operating system sponsored by Canonical Ltd."
+},
+
+{
+"question": "A file with the ______ file extension is a Word Open XML Macro-Enabled Document file.",
+"options": [".docm", ".pdf", ".docx", ".org"],
+"correctOption": ".docm"
+},
+
+{
+"question": "Which of the following is the output device of a computer?",
+"options": ["Plotter", "Pen drive", "Joystick", "Scanner"],
+"correctOption": "Plotter"
+},
+
+{
+"question": "A ______ is an ordered list in which all insertions and deletions are made at one end.",
+"options": ["front", "rear", "stack", "queue"],
+"correctOption": "stack"
+},
+
+{
+"question": "While working in MS Office software, which of the following commands will you give on a US keyboard layout to undo the previous action?",
+"options": ["Ctrl + U", "Ctrl + Z", "Ctrl + C", "Ctrl + N"],
+"correctOption": "Ctrl + Z"
+},
+
+{
+"question": "______ is the easy way to check your favorite websites for updates without having to visit them all.",
+"options": ["PDF", "RSS", "HTML", "URI"],
+"correctOption": "RSS"
+},
+
+{
+"question": "Which of the following is a pointing device used to move an object on the screen of a computer in any direction?",
+"options": ["Modem", "Joystick", "Floptical", "Server"],
+"correctOption": "Joystick"
+},
+
+{
+"question": "Which type of malware is a program or piece of code that is loaded onto a person's computer without his knowledge and runs against his wishes?",
+"options": ["adware", "phishing", "trojan horse", "computer virus"],
+"correctOption": "computer virus"
+},
+
+{
+"question": "Which of the following languages is an example of a fourth-generation language in computer programming?",
+"options": ["ALGOL", "SQL", "SNOBOL", "Pascal"],
+"correctOption": "SQL"
+},
+{
+"question": "What is the full form of LCD in the context of monitors?",
+"options": ["Laser Crystal Display", "Liquid Crystal Diode", "Light Component Device", "Liquid Crystal Display"],
+"correctOption": "Liquid Crystal Display"
+},
+{
+"question": "Chad Hurley and Steve Chen are computer innovators credited with co-founding ______.",
+"options": ["Instagram", "Facebook", "WhatsApp", "YouTube"],
+"correctOption": "YouTube"
+},
+{
+"question": "In which year was Microsoft’s Windows operating system first introduced?",
+"options": ["1985", "1989", "1991", "1993"],
+"correctOption": "1985"
+},
+{
+"question": "Which of the following is the core of an operating system?",
+"options": ["Kernel", "Xenix", "Device Driver", "Ventura"],
+"correctOption": "Kernel"
+},
+{
+"question": "What kind of file has the extension .png?",
+"options": ["Document file", "Video file", "Audio file", "Image file"],
+"correctOption": "Image file"
+},
+{
+"question": "In which year was the first-ever version of Microsoft Word - Word 1.0 launched?",
+"options": ["1985", "1996", "1992", "1983"],
+"correctOption": "1983"
+},
+{
+"question": "JPEG is a commonly used method of lossy compression for digital images. What is the full form of JPEG?",
+"options": ["Jet Prints Editing Graphics", "Joint Photographic Experts Group", "Jet Protocol Experts Group", "Joint Pages Enhanced Graphics"],
+"correctOption": "Joint Photographic Experts Group"
+},
+{
+"question": "Which of the following is a small piece of software that uses computer networks and security holes to replicate itself?",
+"options": ["Trojan horse", "Application", "Worm", "Operating System"],
+"correctOption": "Worm"
+},
+{
+"question": "Which of the following operating systems guarantees a response within specified time constraints?",
+"options": ["Time sharing operating system", "Distributed operating system", "Real-time operating system", "Interactive operating system"],
+"correctOption": "Real-time operating system"
+},
+{
+"question": "GIMP is a/an .",
+"options": ["Application software", "Diagnostic utility program", "Text editor", "Operating system"],
+"correctOption": "Application software"
+},
+{
+"question": "A ______ is a software program that travels the web locating and indexing websites for search engines.",
+"options": ["Bug", "Spider", "Python", "Penguin"],
+"correctOption": "Spider"
+},
+{
+"question": "What is the full form of ASCII?",
+"options": ["American Standard Code for Information Interchange", "Asian Standard Code for Information Interchange", "Analytical Scientific Code for Information Interchange", "Analytical Standard Code for Intermitted Information"],
+"correctOption": "American Standard Code for Information Interchange"
+},
+{
+"question": "An/A ______ is a finite set of instructions which, when followed, accomplish a particular task.",
+"options": ["Array", "Algorithm", "Data", "Node"],
+"correctOption": "Algorithm"
+},
+{
+"question": "A ______ is a computer program that can self-replicate and propagate over the network with or without human intervention and has malicious intent.",
+"options": ["Kernel", "Virus", "Trojan horse", "Worm"],
+"correctOption": "Worm"
+},
+{
+"question": "A User Interface is the part of ______ that allows the user to enter and receive information.",
+"options": ["Computer network", "Operating system", "Computer hardware", "Data science"],
+"correctOption": "Operating system"
+},
+{
+"question": "Which of the following is an input device?",
+"options": ["Speaker", "Scanner", "Projector", "Monitor"],
+"correctOption": "Scanner"
+},
+{
+"question": "A topology for a Local Area Network in which all nodes are individually connected to a central connection point like a hub or switch is called:",
+"options": ["Star topology", "Tree topology", "Ring topology", "Bus topology"],
+"correctOption": "Star topology"
+},
+{
+"question": " is the process of turning on a computer and powering up the system.",
+"options": ["Booting", "Loading", "Saving", "Execution"],
+"correctOption": "Booting"
+},
+{
+"question": "What do you call a key on a computer keyboard that is used to move the pointer (cursor) around on the screen?",
+"options": ["Navigation key", "Numeric key", "Function key", "Control key"],
+"correctOption": "Navigation key"
+},
+{
+"question": "Which of the following keyboard shortcuts will you press in order to minimise all programs on a computer screen and display the desktop?",
+"options": ["Windows + C", "Windows + M", "Windows + F", "Windows + D"],
+"correctOption": "Windows + D"
+},
+{
+"question": "CorelDraw is an example of a/an:",
+"options": ["Database software", "Accounting software", "Spreadsheet software", "Desktop publishing software"],
+"correctOption": "Desktop publishing software"
+},
+{
+"question": "Which of the following is the full form of EBCDIC?",
+"options": ["Extended Binary-Coded-Decimal Interchange Code", "Extended Binary-Control-Device Interchange Code", "Electronic Binary-Coded-Device Interchange Code", "Electronic Binary-Control-Decimal Interchange Code"],
+"correctOption": "Extended Binary-Coded-Decimal Interchange Code"
+},
+{
+"question": "Which of the following devices accepts the results produced by the computer in a machine-readable form?",
+"options": ["Microphone", "Printer", "Graphics tablet", "Mouse"],
+"correctOption": "Printer"
+},
+{
+"question": "Which of the following file formats does MS Paint use to open and save files in Windows?",
+"options": [".DOC", ".XlS", ".JPEG", ".PPT"],
+"correctOption": ".JPEG"
+},
+
+
+{
+"question": "Which of the following is a computer application software?",
+"options": ["Word processor", "RAM", "Visual Basic", "Java"],
+"correctOption": "Word processor"
+},
+{
+"question": "Which keyboard shortcut in Microsoft Excel 2016 should you use to insert a new worksheet for Windows 10 operating system?",
+"options": ["Shift + F12", "Shift + F7", "Shift + F5", "Shift + F11"],
+"correctOption": "Shift + F12"
+},
+{
+"question": "Which of the following was the first operating system written in 'C' language?",
+"options": ["UNIX", "Windows 95", "Xenix", "LINUX"],
+"correctOption": "UNIX"
+},
+{
+"question": "Which of the following is a primary storage device in a personal computer?",
+"options": ["Hard disk", "Compact disk", "Pen drive", "Random-access memory"],
+"correctOption": "Random-access memory"
+},
+{
+"question": "Which one of the following is a computer virus?",
+"options": ["Penguin", "Panda", "Spider", "Creeper"],
+"correctOption": "Creeper"
+},
+{
+"question": "Second-generation computers (1955-1964) were made of:",
+"options": ["Large scale integrated circuit chips", "Vacuum tubes", "Transistors", "Small scale integrated circuit chips"],
+"correctOption": "Transistors"
+},
+{
+"question": "A message that tries to trick a person into providing information such as his social security number, bank account information, or login username and password for a website is a type of malware called:",
+"options": ["Worms", "Zombie", "Macro Virus", "Phishing"],
+"correctOption": "Phishing"
+},
+{
+"question": "Which of the following types of computer is used in climate research and weather forecasting?",
+"options": ["Mainframe computers", "Micro-computers", "Supercomputers", "Mini-computers"],
+"correctOption": "Supercomputers"
+},
+{
+"question": "Which of the following keys will you press in Windows 10 to turn the volume up?",
+"options": ["F4", "F5", "F6", "F8"],
+"correctOption": "F8"
+},
+{
+"question": "On a computer keyboard, the Shift and Alt keys are examples of:",
+"options": ["Numeric keys", "Modifier keys", "Function keys", "Cursor movement keys"],
+"correctOption": "Modifier keys"
+},
+{
+"question": "Which of the following is the slowest type of internet connection?",
+"options": ["Dial-up", "Satellite", "Cable", "Digital subscriber line (DSL)"],
+"correctOption": "Dial-up"
+},
+{
+"question": "The ______ is a three or four-letter abbreviation that signifies the file type.",
+"options": ["Extension", "Search", "Virus", "Name"],
+"correctOption": "Extension"
+},
+{
+"question": "Which of the following ports is used to connect a computer to a wired network?",
+"options": ["Universal serial bus port", "Ethernet port", "Parallel port", "Super-video port"],
+"correctOption": "Ethernet port"
+},
+{
+"question": "Where in a computer would you use a 'joystick' for computer games and assistive technology?",
+"options": ["Mail merge", "Cursor control", "Increase memory", "Storage space"],
+"correctOption": "Cursor control"
+},
+{
+"question": "Which of the following is a part of the central processing unit of a computer?",
+"options": ["Mouse", "Scanner", "Memory registers", "Joystick"],
+"correctOption": "Memory registers"
+},
+{
+"question": "Which of the following is an open-source operating system?",
+"options": ["Windows 10", "Windows Vista", "Android", "iOS"],
+"correctOption": "Android"
+},
+{
+"question": "Which of the following is an input device used to verify the legitimacy or originality of paper documents, especially cheques?",
+"options": ["Non-impact printer", "Optical mark reader", "Electronic card reader", "Magnetic ink character recognition"],
+"correctOption": "Magnetic ink character recognition"
+},
+{
+"question": "What is the other name for 'transistor computer'?",
+"options": ["First Generation Computer", "Third Generation Computer", "Second Generation Computer", "Fourth Generation Computer"],
+"correctOption": "Second Generation Computer"
+},
+{
+"question": "Who created FORTRAN — the first high-level computer programming language?",
+"options": ["Dan Bricklin", "Marc Andreessen", "Larry Ellison", "John Backus"],
+"correctOption": "John Backus"
+},
+{
+"question": "Which of the following is a method of describing computer algorithms using a combination of natural language and programming language?",
+"options": ["Node", "Pseudocode", "Flowchart", "Array"],
+"correctOption": "Pseudocode"
+},
+{
+"question": "______ is an interpreted, high-level and general-purpose programming language.",
+"options": ["Python", "Spider", "Penguin", "Cookie"],
+"correctOption": "Python"
+},
+{
+"question": "______ contains and manages all the programs and applications that a computer or other device is able to run.",
+"options": ["Data Science", "Operating system", "Computer hardware", "Computer software"],
+"correctOption": "Operating system"
+},
+{
+"question": "What is the keyboard shortcut to add a new row above a given row in Microsoft Excel?",
+"options": ["Alt + I + R", "Alt + C + I", "Shift + Spacebar", "Shift + I + R"],
+"correctOption": "Alt + I + R"
+},
+{
+"question": "Which of the following is NOT an example of an optical disk?",
+"options": ["Blue Ray Disk", "PROM", "CD ROM", "DVD"],
+"correctOption": "PROM"
+},
+{
+"question": "A device or program that enables a computer to transmit data over telephone or cable lines is called:",
+"options": ["Motherboard", "Modem", "Monitor", "Mouse"],
+"correctOption": "Modem"
+},
+
+ 
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

@@ -1,0 +1,2102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports 1 QUIZ APP</title> 
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Sport Part  1 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'sport1';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+   const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+ 
+  {
+      "question": "Asian Games, also named as Asiad, is a multi-sport event held every ________ years among athletes from all over Asia.",
+      "options": ["six", "four", "five", "three"],
+      "correctOption": "four"
+    },
+    {
+      "question": "Special Olympics, held every ________ years, is a global movement of people creating a new world of inclusion, where every single person is accepted and welcomed, regardless of their ability or disability.",
+      "options": ["five", "two", "three", "four"],
+      "correctOption": "two"
+    },
+    {
+      "question": "The term 'Putt' is used in the sport _______",
+      "options": ["Cricket", "Table Tennis", "Golf", "Football"],
+      "correctOption": "Golf"
+    },
+    {
+      "question": "The term 'Cherry Picking' is used in which sport?",
+      "options": ["Table Tennis", "Swimming", "Basketball", "Cricket"],
+      "correctOption": "Basketball"
+    },
+    {
+      "question": "The Indian Badminton player who won the Canadian Open Women’s Doubles title in 2015 along with Ashwini Ponnappa was ________.",
+      "options": ["Saina Nehwal", "Jwala Gutta", "P C Tulasi", "P V Sindhu"],
+      "correctOption": "Jwala Gutta"
+    },
+    {
+      "question": "Who among the following is the only Indian to have won the Amateur World title in both, snooker and billiards?",
+      "options": ["Geet Sethi", "Michael Ferreira", "Subhash Agrawal", "Pankaj Advani"],
+      "correctOption": "Pankaj Advani"
+    },
+    {
+      "question": "The term ‘Dolphin Kick’ is associated with which sport?",
+      "options": ["Football", "Rugby", "Swimming", "Cricket"],
+      "correctOption": "Swimming"
+    },
+    {
+      "question": "With which of the following sports is Karan Chandhok associated?",
+      "options": ["Lawn Tennis", "Badminton", "Table Tennis", "Car Racing"],
+      "correctOption": "Car Racing"
+    },
+    {
+      "question": "Scissor Cup is associated with which sports?",
+      "options": ["Badminton", "Cricket", "Hockey", "Football"],
+      "correctOption": "Football"
+    },
+    {
+      "question": "Paan Singh Tomar, who was a seven-time national champion, was associated with which of the following sports?",
+      "options": ["Hockey", "Swimming", "Shot Put", "Steeplechase"],
+      "correctOption": "Steeplechase"
+    },
+    {
+      "question": "The world body Governing of which sport has introduced a new game format called ‘Triples’?",
+      "options": ["Table Tennis", "Tennis", "Badminton", "Squash"],
+      "correctOption": "Badminton"
+    },
+    {
+      "question": "The helmet of the wicket-keeper is kept on the ground and the ball that the batsman strikes hits the helmet. How many penalty runs are given to the batting team for this occurrence?",
+      "options": ["4", "2", "6", "5"],
+      "correctOption": "5"
+    },
+    {
+      "question": "In March 2019, K. Govindaraj has been unanimously re-elected as president of which of the following organizations?",
+      "options": ["Basketball Federation of India", "All India Tennis Association", "Table Tennis Federation of India", "Sports Authority of India"],
+      "correctOption": "Basketball Federation of India"
+    },
+    {
+      "question": "Which of the following sports is played in a velodrome?",
+      "options": ["Cycling", "Fencing", "Boxing", "Wrestling"],
+      "correctOption": "Cycling"
+    },
+    {
+      "question": "Rafael Nadal, one of the top male tennis players in the world, hails from which European country?",
+      "options": ["Spain", "Switzerland", "Serbia", "Austria"],
+      "correctOption": "Spain"
+    },
+    {
+      "question": "With which of the following sports is the term 'Jab' associated?",
+      "options": ["Cricket", "Boxing", "Billiards", "Basketball"],
+      "correctOption": "Boxing"
+    },
+    {
+      "question": "With which sport is the Indian player Neeraj Chopra associated?",
+      "options": ["Boxing", "Swimming", "Javelin Throw", "Billiards"],
+      "correctOption": "Javelin Throw"
+    },
+    {
+      "question": "With which of the following sports is the term 'bib' associated? The word refers to sheets printed with numbers.",
+      "options": ["Hockey", "Football", "Lawn Tennis", "Running"],
+      "correctOption": "Running"
+    },
+    {
+      "question": "With which of the following sports is the term 'tumble turns' associated?",
+      "options": ["Long Jump", "Cycling", "Swimming", "Running"],
+      "correctOption": "Swimming"
+    },
+    {
+      "question": "With which of the following sports is the term 'twiddle' associated?",
+      "options": ["Table Tennis", "Cricket", "Rugby", "Hockey"],
+      "correctOption": "Table Tennis"
+    },
+    {
+      "question": "Humpy Koneru is associated with which of the following sports?",
+      "options": ["Swimming", "Cricket", "Badminton", "Chess"],
+      "correctOption": "Chess"
+    },
+    {
+      "question": "The term 'address' is associated with which of the following sports?",
+      "options": ["Cricket", "Golf", "Swimming", "Hockey"],
+      "correctOption": "Golf"
+    },
+    {
+      "question": "The term 'Jamming' is associated with which of the following sports?",
+      "options": ["Boxing", "Swimming", "Lawn Tennis", "Cricket"],
+      "correctOption": "Lawn Tennis"
+    },
+    {
+      "question": "______ created history and became the first Indian medalist at the 2003 World Athletics Championships in Paris when she won a bronze medal in women's long jump (6.70 m).",
+      "options": ["Dutee Chand", "Anju Bobby George", "KM Beenamol", "Jyotirmoyee Sikdar"],
+      "correctOption": "Anju Bobby George"
+    },
+    {
+      "question": "With which of the following sports is the Derby Trophy associated?",
+      "options": ["Horse Racing", "Snooker", "Chess", "Golf"],
+      "correctOption": "Horse Racing"
+    },
+    {
+      "question": "Which of the following is a ProKabbadi Team?",
+      "options": ["Telugu Titans", "Sunrisers Hyderabad", "Delhi Capitals", "Mumbai Indians"],
+      "correctOption": "Mumbai Indians"
+    },
+    {
+      "question": "The IAAF Male Athlete of the Year Award has been won by Usain Bolt ______ time(s).",
+      "options": ["one", "five", "six", "two"],
+      "correctOption": "six"
+    },
+    {
+      "question": "Pradeep Kumar Banerjee, who bagged the ESPN Multi-Sports Award for Lifetime Achievement, is related to ______.",
+      "options": ["shooting", "football", "hockey", "archery"],
+      "correctOption": "football"
+    },
+    {
+      "question": "Apart from the first edition, New Delhi also hosted the ___edition of the Asian Games.",
+      "options": ["7th", "9th", "8th", "11th"],
+      "correctOption": "9th"
+    },
+    {
+      "question": "The Union Government bestows national sports awards every year to recognize and reward excellence in sports of India. Which of the following is NOT one of these awards?",
+      "options": ["Arjuna Award", "Khelo India Award", "Dhyan Chand Award", "Dronacharya Award"],
+      "correctOption": "Khelo India Award"
+    },
+	
+	{
+      "question": "In which year did Independent India win its first Olympic gold medal?",
+      "options": ["2008", "1948", "1972", "1960"],
+      "correctOption": "1948"
+    },
+    {
+      "question": "A minor planet is named after which of the following legends?",
+      "options": ["Milkha Singh", "A.R. Rehman", "Viswanathan Anand", "Sachin Tendulkar"],
+      "correctOption": "Viswanathan Anand"
+    },
+    {
+      "question": "The Indian Olympic Association expressed interest to host the ________summer Olympics.",
+      "options": ["2028", "2024", "2020", "2032"],
+      "correctOption": "2032"
+    },
+    {
+      "question": "The Khelo India Youth Games was previously called_____.",
+      "options": ["Khel Khelo India", "Chalo India School Games", "Khelo Bharat School Games", "Khelo India School Games"],
+      "correctOption": "Khelo India School Games"
+    },
+    {
+      "question": "______was constructed in 1994 for the National Games, 1994.",
+      "options": ["Shree Shiv Chhatrapati Sports Complex, Pune", "DY Patil Stadium, Navi Mumbai", "Kalinga Stadium, Bhubaneshwar", "Jawaharlal Nehru Stadium, Kochi"],
+      "correctOption": "Shree Shiv Chhatrapati Sports Complex, Pune"
+    },
+    {
+      "question": "Who was the first Indian woman to win an Olympic medal?",
+      "options": ["Karnam Malleswari", "Saina Nehwal", "Mary Kom", "Sakshi Malik"],
+      "correctOption": "Karnam Malleswari"
+    },
+    {
+      "question": "Who among the following is the highest-rated visually impaired chess player in India?",
+      "options": ["Darpan Inani", "Baskaran Adhiban", "Krishnan Sasikiran", "Pentala Harikrishna"],
+      "correctOption": "Darpan Inani"
+    },
+    {
+      "question": "_____was Independent India's first individual Olympic medalist.",
+      "options": ["Norman Pritchard", "KD Jadhav", "Leander Paes", "Karnam Malleshwari"],
+      "correctOption": "KD Jadhav"
+    },
+    {
+      "question": "Dibyendu Barua is associated with which of the following sports?",
+      "options": ["Chess", "Hockey", "Snooker", "Tennis"],
+      "correctOption": "Chess"
+    },
+    {
+      "question": "Gurjeet Kaur is associated with which sport?",
+      "options": ["Hockey", "Wrestling", "Weightlifting", "Swimming"],
+      "correctOption": "Hockey"
+    },
+    {
+      "question": "Which of the following is referred to as Dhing Express?",
+      "options": ["Hima Das", "Milkha Singh", "Dutee Chand", "P.T. Usha"],
+      "correctOption": "Hima Das"
+    },
+    {
+      "question": "The term ‘time trial’ is associated with which of the following sports?",
+      "options": ["Cycling", "Hockey", "Shooting", "Swimming"],
+      "correctOption": "Cycling"
+    },
+    {
+      "question": "R. Pragnananda is associated with which sport?",
+      "options": ["Badminton", "Tennis", "Golf", "Chess"],
+      "correctOption": "Chess"
+    },
+    {
+      "question": "How many players are there in Kho-Kho?",
+      "options": ["7", "8", "10", "12"],
+      "correctOption": "12"
+    },
+    {
+      "question": "Pranti Nayak is associated with which Sport?",
+      "options": ["Gymnastics", "Golf", "Boxing", "Skating"],
+      "correctOption": "Gymnastics"
+    },
+    {
+      "question": "Dronacharya Award is related to which field?",
+      "options": ["Education", "Dance", "Music", "Sports"],
+      "correctOption": "Sports"
+    },
+    {
+      "question": "The famous swimmer Micheal Philips belongs to _____.",
+      "options": ["Australia", "Norway", "Switzerland", "America"],
+      "correctOption": "America"
+    },
+    {
+      "question": "Dipa Karmakar is associated with which of the following sports?",
+      "options": ["Golf", "Gymnastics", "Tennis", "Badminton"],
+      "correctOption": "Gymnastics"
+    },
+    {
+      "question": "Bruny Surin, the Olympian athlete belongs to which of the following countries?",
+      "options": ["Spain", "Austria", "Mexico", "Canada"],
+      "correctOption": "Canada"
+    },
+    {
+      "question": "King Jay Adams is associated with which of the following Sports?",
+      "options": ["Horce Racing", "Billiards", "Skateboarding", "Golf"],
+      "correctOption": "Skateboarding"
+    },
+    {
+      "question": "What is the National Game of USA?",
+      "options": ["Baseball", "Basketball", "Cricket", "Football"],
+      "correctOption": "Baseball"
+    },
+    {
+      "question": "Vaibhav Yadav is associated with which of the following sports?",
+      "options": ["Boxing", "Badminton", "Tennis", "Weightlifting"],
+      "correctOption": "Boxing"
+    },
+    {
+      "question": "The first modern Olympic Games were held in which of the following cities?",
+      "options": ["Athens", "Stockholm", "Paris", "London"],
+      "correctOption": "Athens"
+    },
+    {
+      "question": "Which of the following game is originated in India?",
+      "options": ["Tennis", "Chess", "Skating", "Snooker"],
+      "correctOption": "Chess"
+    },
+    {
+      "question": "Divya Kakran is associated with which of the following sports?",
+      "options": ["Swimming", "Gymnastics", "Wrestling", "Weightlifting"],
+      "correctOption": "Wrestling"
+    },
+    {
+      "question": "Deepika Kumari is associated with which Sport?",
+      "options": ["Archery", "Squash", "Swimming", "Badminton"],
+      "correctOption": "Archery"
+    },
+    {
+      "question": "Bhavisha Singh is associated with which of the following sports?",
+      "options": ["Karate", "Badminton", "Table Tennis", "Volleyball"],
+      "correctOption": "Karate"
+    },
+    {
+      "question": "Which of the following Trophy/Cup is associated with the game ‘Bridge’?",
+      "options": ["Holkar Trophy", "Amit Diwan Trophy", "Thomas Cup", "Jai Laxmi Cup"],
+      "correctOption": "Holkar Trophy"
+    },
+    {
+      "question": "Which city will be the host of the Summer Olympic 2020?",
+      "options": ["Tokyo", "Paris", "London", "Beijing"],
+      "correctOption": "Tokyo"
+    },
+    {
+      "question": "FIFA was established in ______.",
+      "options": ["Italy", "France", "England", "Spain"],
+      "correctOption": "France"
+    },
+	{
+  question: "Mouma Das is associated with which sport?",
+  options: ["Shooting", "Table Tennis", "Hockey", "Archery"],
+  correctOption: "Table Tennis"
+},
+{
+  question: "Which of the following colours is NOT present in the Olympic Ring?",
+  options: ["Pink", "Green", "Blue", "Red"],
+  correctOption: "Pink"
+},
+{
+  question: "Which of the following is not a weight classification in Boxing?",
+  options: ["Underweight", "Heavy Weight", "Middleweight", "Light Weight"],
+  correctOption: "Underweight"
+},
+{
+  question: "Which of the following countries hosted the first South Asian Games?",
+  options: ["Nepal", "India", "Bangladesh", "Pakistan"],
+  correctOption: "Nepal"
+},
+{
+  question: "Which of the following awards is given to recognize players 'Lifetime Achievement in Sports'?",
+  options: ["Dronacharya Award", "Dhyan Chand Award", "Rajiv Gandhi Khel Ratna", "Arjuna Award"],
+  correctOption: "Dhyan Chand Award"
+},
+{
+  question: "Where is the Roland Garros Grand Slam of Tennis held?",
+  options: ["Brussels", "Paris", "London", "Zurich"],
+  correctOption: "Paris"
+},
+{
+  question: "In which country will the 2020 Summer Olympics Games be held?",
+  options: ["South Korea", "Japan", "China", "Brazil"],
+  correctOption: "Japan"
+},
+{
+  question: "Which of the following organizations is the governing body of World Tennis?",
+  options: ["Tennis Council", "International Tennis Council", "Tennis Federation", "International Tennis Federation"],
+  correctOption: "International Tennis Federation"
+},
+{
+  question: "Indian boxer Mary Kom belongs to which North-Eastern State?",
+  options: ["Mizoram", "Tripura", "Meghalaya", "Manipur"],
+  correctOption: "Manipur"
+},
+{
+  question: "Sunil Chhetri represents India in which sport?",
+  options: ["Basketball", "Football", "Cricket", "Hockey"],
+  correctOption: "Football"
+},
+{
+  question: "To which sports are the terms 'Wazir, Knight, King, and Queen' associated?",
+  options: ["Badminton", "Billiards", "Chess", "Tennis"],
+  correctOption: "Chess"
+},
+{
+  question: "Which of the following sports has NOT been played at the Olympics since 1900?",
+  options: ["Cricket", "Badminton", "Hockey", "Archery"],
+  correctOption: "Cricket"
+},
+{
+  question: "Which of the following Traditional sports-State pair is INCORRECT?",
+  options: ["Thang-ta - Manipur", "Silambam - Madhya Pradesh", "Mukna - Manipur", "Gatka - Punjab"],
+  correctOption: "Silambam - Madhya Pradesh"
+},
+{
+  question: "Usain Bolt is associated with which sport?",
+  options: ["Boxing", "Gymnastics", "Athletics", "Keno Sprint"],
+  correctOption: "Athletics"
+},
+{
+  question: "What is the name of the International Organization that regulates basketball in the world?",
+  options: ["FIBA", "NBA", "IBA", "RBA"],
+  correctOption: "FIBA"
+},
+{
+  question: "Knockout and Knockdown are the terms related to which sport?",
+  options: ["Hockey", "Boxing", "Cricket", "Badminton"],
+  correctOption: "Boxing"
+},
+{
+  question: "The player who has won _____ Grand Slam Tournaments along with the Olympic Gold Medal is awarded with the Golden Slam.",
+  options: ["3", "5", "4", "2"],
+  correctOption: "4"
+},
+{
+  question: "International Kabaddi Federation was founded in which year?",
+  options: ["2015", "2004", "1950", "2010"],
+  correctOption: "2004"
+},
+{
+  question: "Which of the following sportsperson is not associated with Hockey?",
+  options: ["Harmanpreet Kaur", "P.A. Raphael", "Sardar Singh", "S.V. Sunil"],
+  correctOption: "Harmanpreet Kaur"
+},
+{
+  question: "Who became the first player of Indian origin to play in an NBA game?",
+  options: ["Sim Bhullar", "Palpreet Singh", "Amjyot Singh", "Satnam Singh"],
+  correctOption: "Sim Bhullar"
+},
+{
+  question: "Who is the first Indian rower to win a gold at the Asian Games in the year 2010?",
+  options: ["Sawarn Singh", "Bajrang Lal Takhar", "Dattu Baban Bhokanal", "Dushyant Chauhan"],
+  correctOption: "Bajrang Lal Takhar"
+},
+{
+  question: "Who became the first Indian Squash player to enter the top ten in PSA world rankings?",
+  options: ["Cyrus Poncha", "Ramit Tandon", "Saurav Ghosal", "Mahesh Mangaonkar"],
+  correctOption: "Saurav Ghosal"
+},
+{
+  question: "In which city are the summer Olympic Games 2024 to be held?",
+  options: ["Beijing", "Los Angeles", "London", "Paris"],
+  correctOption: "Paris"
+},
+{
+  question: "Which athlete won a Gold Medal for India in the Men's triple jump event after a gap of 48 years in the Asian Games?",
+  options: ["Amarjeet Singh", "Renjith Maheshwary", "Rakesh Babu", "Arpinder Singh"],
+  correctOption: "Arpinder Singh"
+},
+{
+  question: "What was India’s rank in the Commonwealth Games 2018 in terms of the number of gold medals won?",
+  options: ["Fourth", "First", "Third", "Second"],
+  correctOption: "Third"
+},
+{
+  question: "With which sport is Dattu Bhokanal associated?",
+  options: ["Kabaddi", "Archery", "Equestrian", "Rowing"],
+  correctOption: "Rowing"
+},
+{
+  question: "As per the data released by the Sample Registration System for the year 2016, what is the infant mortality rate in India?",
+  options: ["34 per 1000 live births", "23 per 1000 live births", "47 per 1000 live births", "43 per 1000 live births"],
+  correctOption: "34 per 1000 live births"
+},
+{
+  question: "Sultan of Johor Cup is a tournament of which sport?",
+  options: ["Badminton", "Cricket", "Football", "Hockey"],
+  correctOption: "Hockey"
+},
+{
+  question: "Sportsperson Duryodhan Singh Negi is renowned for which sport?",
+  options: ["Archery", "Boxing", "Lawn Tennis", "Shooting"],
+  correctOption: "Boxing"
+},
+{
+  question: "Who holds the record of scoring the fastest goal (in the eleventh second) in a FIFA World Cup match?",
+  options: ["Hakan Sukur", "Pele", "Cristiano Ronaldo", "Kylian Mbappe"],
+  correctOption: "Hakan Sukur"
+},
+{
+  "question": "Where was the venue of the US Open Tennis Championship before it shifted to the Flushing Meadows?",
+  "options": ["Forest Hills", "Plaza District", "Woodmond Hills", "Lexington"],
+  "correctOption": "Forest Hills"
+},
+{
+  "question": "Who among the following female Indian boxers does NOT hold the distinction of reaching the final at the World Boxing Championships in her debut?",
+  "options": ["Manju Rani", "Sonia Chahal", "Jamuna Boro", "Sarjubala Devi"],
+  "correctOption": "Jamuna Boro"
+},
+{
+  "question": "Indian sportsperson Lakshya Sen is a ______ player.",
+  "options": ["Judo", "Badminton", "Kabaddi", "Wrestling"],
+  "correctOption": "Badminton"
+},
+{
+  "question": "Eight times world champion squash player Nicol David belongs to which country?",
+  "options": ["Germany", "Malaysia", "Ghana", "Argentina"],
+  "correctOption": "Malaysia"
+},
+{
+  "question": "Who was the first Indian to receive the International Shooting Federation (ISSF) Blue Cross?",
+  "options": ["Ronjan Sodhi", "Vijay Kumar", "Abhinav Bindra", "Gagan Narang"],
+  "correctOption": "Abhinav Bindra"
+},
+{
+  "question": "The major component of modern Olympic gold medals is ______.",
+  "options": ["Bronze", "Gold", "Silver", "Copper"],
+  "correctOption": "Silver"
+},
+{
+  "question": "To which of the following Indian states does Mardani Khel, one of the famous martial art forms in India belong?",
+  "options": ["Maharashtra", "Uttar Pradesh", "Rajasthan", "Madhya Pradesh"],
+  "correctOption": "Maharashtra"
+},
+{
+  "question": "With which sport is Archana Kamath associated?",
+  "options": ["Table Tennis", "Badminton", "Squash", "Lawn Tennis"],
+  "correctOption": "Table Tennis"
+},
+{
+  "question": "On which date is National Sports Day observed in India?",
+  "options": ["4th May", "5th July", "29th August", "17th September"],
+  "correctOption": "29th August"
+},
+{
+  "question": "Where was the Pullela Gopichand Badminton Academy founded in 2008?",
+  "options": ["New Delhi", "Bangalore", "Hyderabad", "Mumbai"],
+  "correctOption": "Hyderabad"
+},
+{
+  "question": "How many Grand Slam tournaments are played in a year in tennis?",
+  "options": ["3", "6", "4", "5"],
+  "correctOption": "4"
+},
+{
+  "question": "Where were the first Winter Paralympics Games held?",
+  "options": ["Italy", "Korea", "Russia", "Sweden"],
+  "correctOption": "Sweden"
+},
+{
+  "question": "Magnus Carlsen is associated with which game?",
+  "options": ["Chess", "Lawn Tennis", "Squash", "Badminton"],
+  "correctOption": "Chess"
+},
+{
+  "question": "How many times did Pankaj Advani win the ‘IBSF World Billiards Championship’?",
+  "options": ["24", "21", "22", "20"],
+  "correctOption": "22"
+},
+{
+  "question": "National Sports Day of India is celebrated on 29 August every year in honour of which sportsperson?",
+  "options": ["Balbir Singh Sr.", "Milkha Singh", "Leslie Walter Claudius", "Major Dhyan Chand Singh"],
+  "correctOption": "Major Dhyan Chand Singh"
+},
+{
+  "question": "The Maharaja Ranjit Singh Gold Cup is associated with _______.",
+  "options": ["Football", "Polo", "Cricket", "Hockey"],
+  "correctOption": "Hockey"
+},
+{
+  "question": "Which among the following is NOT an Indian weightlifter?",
+  "options": ["Dipika Pallikal", "Karnam Malleswari", "Rakhi Haldar", "Mirabai Chanu"],
+  "correctOption": "Dipika Pallikal"
+},
+{
+  "question": "Which of the following nations won the FIFA World Cup the most number of times?",
+  "options": ["Germany (including West Germany)", "Argentina", "France", "Brazil"],
+  "correctOption": "Brazil"
+},
+{
+  "question": "How many gold medals did India win at the ‘1986 Asian Games’ held in Seoul, South Korea?",
+  "options": ["9", "5", "6", "8"],
+  "correctOption": "5"
+},
+{
+  "question": "With which of the following sports is Manika Batra associated?",
+  "options": ["Badminton", "Cricket", "Table Tennis", "Gymnastics"],
+  "correctOption": "Table Tennis"
+},
+{
+  "question": "Who among the following is NOT a lawn tennis champion?",
+  "options": ["Leander Paes", "Rohan Bopanna", "Sania Mirza", "Manika Batra"],
+  "correctOption": "Manika Batra"
+},
+{
+  "question": "‘Santosh Trophy’ is an award for the winning team of ______.",
+  "options": ["Hockey", "Football", "Volleyball", "Basketball"],
+  "correctOption": "Football"
+},
+{
+  "question": "Who among the following was given the ‘Rajiv Gandhi Khel Ratna’ award and which game did she/he excel in?",
+  "options": ["Gagan Narang – Shooting", "Sania Mirza – Table Tennis", "Yogeshwar Dutt – Boxing", "Ranjan Sodhi – Weightlifting"],
+  "correctOption": "Gagan Narang – Shooting"
+},
+{
+  "question": "Vinesh Phogat is an ace Indian ______.",
+  "options": ["Boxer", "Wrestler", "Sprinter", "Sumo Wrestler"],
+  "correctOption": "Wrestler"
+},
+{
+  "question": "Who had proposed the motto of Olympics?",
+  "options": ["Didon", "Pierre de Coubertin", "Hirohito", "Moon Jae-in"],
+  "correctOption": "Pierre de Coubertin"
+},
+{
+  "question": "'A Shot At History: My Obsessive Journey to Olympic Gold' is the autobiography of which Indian shooter?",
+  "options": ["Rajyavardhan Singh Rathore", "Jitu Rai", "Abhinav Bindra", "Gagan Narang"],
+  "correctOption": "Abhinav Bindra"
+},
+{
+  "question": "______ is a traditional Indian sport, whereby athletes perform various types of gymnastics moves and hold various poses on a vertical wooden pole.",
+  "options": ["Kalaripayattu", "Nadan Panthu Kali", "Mallakhamb", "Yubi Lakpi"],
+  "correctOption": "Mallakhamb"
+},
+{
+  "question": "______ is the oldest hockey tournament in India.",
+  "options": ["Beighton Cup", "Bombay Gold Cup", "Obaidullah Khan Gold Cup", "MCC Murugappa Gold Cup"],
+  "correctOption": "Beighton Cup"
+},
+{
+  "question": "‘Tenpins’ refers to the game of ______.",
+  "options": ["Baseball", "Basketball", "Billiards", "Bowling"],
+  "correctOption": "Bowling"
+},
+{
+  "question": "Who is the only Indian to have won an individual Olympic gold medal?",
+  "options": ["PV Sindhu", "Leander Paes", "Abhinav Bindra", "Karnam Malleswari"],
+  "correctOption": "Abhinav Bindra"
+},
+ {
+      "question": "Who among the following has been a goalkeeper of the Indian national football team in the 1980s?",
+      "options": ["Atanu Bhattacharya", "Inder Singh", "Gautam Sarkar", "IM Vijayan"],
+      "correctOption": "Atanu Bhattacharya"
+    },
+    {
+      "question": "The term ‘Penalty Corner’ is associated with which of the following games?",
+      "options": ["Hockey", "Football", "Volleyball", "Basketball"],
+      "correctOption": "Hockey"
+    },
+    {
+      "question": "With which sport do you associate the name of Koneru Humpy?",
+      "options": ["Basketball", "Chess", "Volleyball", "Table Tennis"],
+      "correctOption": "Chess"
+    },
+    {
+      "question": "Who among the following is the only Indian shuttler to have won a Summer Olympics silver medal?",
+      "options": ["Prakash Padukone", "Saina Nehwal", "Pullela Gopichand", "PV Sindhu"],
+      "correctOption": "PV Sindhu"
+    },
+    {
+      "question": "Sagol Kangjei, an indigenous game of Manipur, is similar to the modern-day sports of:",
+      "options": ["Cricket", "Polo", "Hockey", "Boxing"],
+      "correctOption": "Polo"
+    },
+    {
+      "question": "How many medals in total did India win at the Summer Olympic Games, 2012?",
+      "options": ["6", "4", "2", "3"],
+      "correctOption": "6"
+    },
+    {
+      "question": "Which of the following statements is NOT true about the game of Kho Kho?",
+      "options": ["It is one of the oldest traditional tag games of India", "It is a team game", "Three defenders of opposite team try to avoid being touched by the chasers", "Ten players take the field in the beginning to start the match"],
+      "correctOption": "Ten players take the field in the beginning to start the match"
+    },
+    {
+      "question": "With which of the following sports is the Ruia Gold Cup associated?",
+      "options": ["Water Polo", "Bridge", "Badminton", "Swimming"],
+      "correctOption": "Bridge"
+    },
+    {
+      "question": "Lakshya Sen is associated with which of the following sports?",
+      "options": ["Lawn Tennis", "Badminton", "Basketball", "Table Tennis"],
+      "correctOption": "Badminton"
+    },
+    {
+      "question": "With which of the following sports is the term ‘Chinaman’ associated?",
+      "options": ["Cricket", "Table Tennis", "Polo", "Swimming"],
+      "correctOption": "Cricket"
+    },
+    {
+      "question": "Who among the following is an Indian Paralympic swimmer?",
+      "options": ["Gaurav Khanna", "Sukant Kadam", "Pramod Bhagat", "Sharath M Gayakwad"],
+      "correctOption": "Sharath M Gayakwad"
+    },
+    {
+      "question": "Who became India's first badminton world champion in 2019?",
+      "options": ["Saina Nehwal", "Jwala Gutta", "Kidambi Srikanth", "PV Sindhu"],
+      "correctOption": "PV Sindhu"
+    },
+    {
+      "question": "With which of the following sports do you associate the term '16-yard hit'?",
+      "options": ["Lawn Tennis", "Golf", "Field Hockey", "Cricket"],
+      "correctOption": "Field Hockey"
+    },
+    {
+      "question": "In which of the following sports is the shakehand grip used?",
+      "options": ["Badminton", "Squash", "Cricket", "Table Tennis"],
+      "correctOption": "Table Tennis"
+    },
+    {
+      "question": "Hima Das is an Indian ______.",
+      "options": ["Boxer", "Swimmer", "Sprinter", "Cricketer"],
+      "correctOption": "Sprinter"
+    },
+    {
+      "question": "Who among the following cricketers is a left-arm pace bowler?",
+      "options": ["Ashish Nehra", "Ishant Sharma", "Bhuvneshwar Kumar", "Umesh Yadav"],
+      "correctOption": "Ashish Nehra"
+    },
+    {
+      "question": "Birdie, eagle, and albatross are all terms used in ______.",
+      "options": ["Golf", "Polo", "Baseball", "Football"],
+      "correctOption": "Golf"
+    },
+    {
+      "question": "Who among the following became the first ever Indian female wrestler to win an Olympic medal?",
+      "options": ["Sakshi Malik", "Babita Kumari", "Kavita Devi", "Vinesh Phogat"],
+      "correctOption": "Sakshi Malik"
+    },
+    {
+      "question": "With which sport are Vijay Amritraj and Anand Amritraj associated?",
+      "options": ["Table Tennis", "Cricket", "Lawn Tennis", "Football"],
+      "correctOption": "Lawn Tennis"
+    },
+    {
+      "question": "Manitombi Singh was a ______ player from Manipur.",
+      "options": ["Hockey", "Football", "Volleyball", "Cricket"],
+      "correctOption": "Football"
+    },
+    {
+      "question": "Indian athlete Joshna Chinappa represents the country in:",
+      "options": ["Judo", "Squash", "Discus Throw", "Kabaddi"],
+      "correctOption": "Squash"
+    },
+    {
+      "question": "In which of the following cities is the headquarters of the All India Chess Federation situated?",
+      "options": ["Chennai", "Bengaluru", "Hyderabad", "Mumbai"],
+      "correctOption": "Chennai"
+    },
+    {
+      "question": "Where is the headquarters of the Khelo India Youth Games?",
+      "options": ["Mumbai", "New Delhi", "Guwahati", "Kolkata"],
+      "correctOption": "New Delhi"
+    },
+    {
+      "question": "In which Olympic Games did Karnam Malleswari become India’s first woman to win an Olympic medal?",
+      "options": ["Atlanta 1996 Olympic Games", "Brazil 2016 Olympic Games", "London 2012 Olympic Games", "Sydney 2000 Olympic Games"],
+      "correctOption": "Sydney 2000 Olympic Games"
+    },
+    {
+      "question": "Who among the following was the first para-athlete to receive the Rajiv Gandhi Khel Ratna?",
+      "options": ["Mariyappan Thangavelu", "Devendra Jhajharia", "Varun Singh Bhati", "Naresh Kumar Sharma"],
+      "correctOption": "Devendra Jhajharia"
+    },
+    {
+      "question": "______ was the first Test cricket captain of an independent Indian team.",
+      "options": ["Vijay Hazare", "Hemu Adhikari", "Bishan Singh Bedi", "Lala Amarnath"],
+      "correctOption": "Lala Amarnath"
+    },
+    {
+      "question": "Which of the following nations won the first T20 World Cup in 2007?",
+      "options": ["Pakistan", "Sri Lanka", "India", "Bangladesh"],
+      "correctOption": "India"
+    },
+    {
+      "question": "Who among the following is a professional Indian gymnast?",
+      "options": ["Ngangom Bala Devi", "Dipa Karmakar", "Mary Kom", "Yashasvi Jaiswal"],
+      "correctOption": "Dipa Karmakar"
+    },
+    {
+      "question": "Which two Indians became the first pair to reach the finals of all Grand Slams in a year in the Open era, winning the French Open and Wimbledon as top seeds?",
+      "options": ["Leander Paes and Mahesh Bhupathi", "Yuki Bhambri and Leander Paes", "Rohan Bopanna and Mahesh Bhupathi", "Rohan Bopanna and Yuki Bhambri"],
+      "correctOption": "Leander Paes and Mahesh Bhupathi"
+    },
+	 {
+      "question": "With which of the following sports is Samiya Imad Farooqui associated?",
+      "options": ["Basketball", "Badminton", "Tennis", "Boxing"],
+      "correctOption": "Badminton"
+    },
+    {
+      "question": "In which of the following states are the snake boat races held in the months of August and September?",
+      "options": ["Jharkhand", "Arunachal Pradesh", "Kerala", "Telangana"],
+      "correctOption": "Kerala"
+    },
+    {
+      "question": "At the 1992 Summer Olympics, who became the first woman to carry the flag of India at the opening ceremony of any Olympics?",
+      "options": ["Karnam Malleswari", "Shiny Abraham Wilson", "PT Usha", "Nilima Ghose"],
+      "correctOption": "Shiny Abraham Wilson"
+    },
+    {
+      "question": "With which of the following sports is Sebastian Korda associated?",
+      "options": ["Cricket", "Badminton", "Volleyball", "Tennis"],
+      "correctOption": "Tennis"
+    },
+    {
+      "question": "Who among the following is the first Indian pistol shooter to reach number one in world rankings by the International Shooting Sport Federation?",
+      "options": ["Heena Sidhu", "Kajal Saini", "Tejaswini Sawant", "Suma Shirur"],
+      "correctOption": "Heena Sidhu"
+    },
+    {
+      "question": "With which of the following sports is Murugappa Gold Cup associated?",
+      "options": ["Table tennis", "Hockey", "Football", "Cricket"],
+      "correctOption": "Hockey"
+    },
+    {
+      "question": "Indian boxer Lovlina Borgohain plays in which of the following categories?",
+      "options": ["69 kg", "91 kg", "81 kg", "75 kg"],
+      "correctOption": "69 kg"
+    },
+    {
+      "question": "What was the total number of gold medals won by India at Commonwealth Games 2018?",
+      "options": ["44", "33", "26", "18"],
+      "correctOption": "26"
+    },
+    {
+      "question": "With which of the following sports is Indian sportsperson Bhavani Devi associated?",
+      "options": ["Wrestling", "Boxing", "Fencing", "Rowing"],
+      "correctOption": "Fencing"
+    },
+    {
+      "question": "Who among the following is the only Indian to have won an individual gold medal at the Olympics?",
+      "options": ["Vijender Singh", "Abhinav Bindra", "P. V. Sindhu", "Karnam Malleswari"],
+      "correctOption": "Abhinav Bindra"
+    },
+    {
+      "question": "Who among the following represented India at the international level in shooting?",
+      "options": ["Aditi Chauhan", "Anjum Moudgil", "Amit Panghal", "Ashalata Devi"],
+      "correctOption": "Anjum Moudgil"
+    },
+    {
+      "question": "In which Olympic Games did Shabana Akhtar, the first female athlete to represent Pakistan, participate?",
+      "options": ["Beijing Olympics", "Atlanta Olympics", "Sydney Olympics", "Barcelona Olympics"],
+      "correctOption": "Atlanta Olympics"
+    },
+    {
+      "question": "How many bits does an IP address consist of?",
+      "options": ["24", "32", "16", "12"],
+      "correctOption": "32"
+    },
+    {
+      "question": "Who among the following is the first table tennis player to win the Rajiv Gandhi Khel Ratna Award?",
+      "options": ["Manika Batra", "Sharath Kamal", "Poulomi Ghatak", "Soumyajit Ghosh"],
+      "correctOption": "Manika Batra"
+    },
+    {
+      "question": "With which of the following sports is the FedEx Cup associated?",
+      "options": ["Golf", "Tennis", "Football", "Badminton"],
+      "correctOption": "Golf"
+    },
+    {
+      "question": "Which player from Pakistan is credited with 10 British Open titles and six World Championship crowns in professional squash?",
+      "options": ["Jahangir Khan", "Azam Khan", "Hashim Khan", "Farhan Zaman"],
+      "correctOption": "Jahangir Khan"
+    },
+    {
+      "question": "Which of the following schools in Shillong is the first Khelo India Sports school in North East India?",
+      "options": ["Mawroh Government LP School", "Assam Rifles Public School", "Army Public School", "Government Boys Higher Secondary School"],
+      "correctOption": "Assam Rifles Public School"
+    },
+    {
+      "question": "Who among the following was the first female hockey player to have won the Rajiv Gandhi Khel Ratna Award?",
+      "options": ["Gurjit Kaur", "Reena Khokhar", "Rani Rampal", "Lilima Minz"],
+      "correctOption": "Rani Rampal"
+    },
+    {
+      "question": "______ was the first athlete to win an Olympic medal for Sri Lanka.",
+      "options": ["Parami Wasanthi Maristela", "Duncan White", "Greshan Dananjaya", "Susanthika Jayasinghe"],
+      "correctOption": "Duncan White"
+    },
+    {
+      "question": "Annu Rani is the first Indian woman to cross a distance of 60 m in ______ throw.",
+      "options": ["javelin", "discus", "Shot put", "hammer"],
+      "correctOption": "javelin"
+    },
+    {
+      "question": "Who is the second Indian footballer to play 100 international games?",
+      "options": ["Bhaichung Bhutia", "Sunil Chhetri", "Gurpreet Singh Sandhu", "Udanta Singh"],
+      "correctOption": "Sunil Chhetri"
+    },
+    {
+      "question": "Who among the following won the 2002 International Shooting Sport Federation (ISSF) Champion of Champions combined-air-rifle event to become the first Indian to win that competition?",
+      "options": ["Anjali Bhagwat", "Manu Bhaker", "Rahi Sarnobat", "Anisa Sayyed"],
+      "correctOption": "Anjali Bhagwat"
+    },
+    {
+      "question": "Who among the following is a professional football player?",
+      "options": ["Boris Gelfand", "Sadio Mane", "Peter Svidler", "Magnus Carlsen"],
+      "correctOption": "Sadio Mane"
+    },
+    {
+      "question": "Which of the following sportspersons won a silver medal at the 2012 London Olympics?",
+      "options": ["Saina Nehwal", "Sushil Kumar", "Gagan Narang", "MC Mary Kom"],
+      "correctOption": "Sushil Kumar"
+    },
+    {
+      "question": "In which of the following weight categories did Sakshi Malik win an Olympic medal in the year 2016?",
+      "options": ["53 kg", "63 kg", "58 kg", "48 kg"],
+      "correctOption": "58 kg"
+    },
+    {
+      "question": "Which of the following badminton players has NEVER won an Arjuna Award?",
+      "options": ["PV Sindhu", "Neha Pandit", "Parul Parmar", "Ashwini Ponnappa"],
+      "correctOption": "Neha Pandit"
+    },
+    {
+      "question": "The Indian Super League (ISL) is a ______ championship.",
+      "options": ["cricket", "kabaddi", "kho-kho", "football"],
+      "correctOption": "football"
+    },
+    {
+      "question": "The European Champions Cup or Heineken Cup is associated with which sport?",
+      "options": ["Rugby", "Cricket", "Football", "Hockey"],
+      "correctOption": "Rugby"
+    },
+    {
+      "question": "Which of the following is NOT an Olympic event?",
+      "options": ["Rhythmic gymnastics", "Artistic gymnastics", "Acrobatic gymnastics", "Trampoline gymnastics"],
+      "correctOption": "Trampoline gymnastics"
+    },
+	{
+  question: "Who among the following was India's first world champion in any sport after independence?",
+  options: ["Milkha Singh", "Lila Ram", "Ramanathan Krishnan", "Wilson Jones"],
+  correctOption: "Wilson Jones"
+},
+{
+  question: "With which of the following games/sports is the ‘Sultan Azlan Shah Cup’ associated?",
+  options: ["Tennis", "Hockey", "Kabaddi", "Shooting"],
+  correctOption: "Hockey"
+},
+{
+  question: "What kind of a traditional sport is 'Vallam Kali'?",
+  options: ["Boxing", "Running", "Boat racing", "Wrestling"],
+  correctOption: "Boat racing"
+},
+{
+  question: "Which of the following is the oldest tennis tournament in the world?",
+  options: ["Wimbledon", "French Open", "Australian Open", "US Open"],
+  correctOption: "Wimbledon"
+},
+{
+  question: "The La Liga Trophy is associated with which sport?",
+  options: ["Tennis", "Football", "Weightlifting", "Cricket"],
+  correctOption: "Football"
+},
+{
+  question: "Anju Bobby George is associated with which of the following sports?",
+  options: ["Boxing", "Athletics", "Shooting", "Hockey"],
+  correctOption: "Athletics"
+},
+{
+  question: "The gymnast Dipa Karmakar belongs to the state of ______.",
+  options: ["Maharashtra", "Haryana", "Manipur", "Tripura"],
+  correctOption: "Tripura"
+},
+{
+  question: "Produnova is related to which of the following sports?",
+  options: ["Cycling", "Gymnastics", "Diving", "Solitary swimming"],
+  correctOption: "Gymnastics"
+},
+{
+  question: "With which sports discipline is Dhanraj Pillay associated?",
+  options: ["Basketball", "Shooting", "Tennis", "Hockey"],
+  correctOption: "Hockey"
+},
+{
+  question: "Name the country which has the most AFC (AFC) Asian Cup titles.",
+  options: ["South Korea", "Saudi Arabia", "Japan", "Iran"],
+  correctOption: "Japan"
+},
+{
+  question: "Which state in India houses The National Institute of Water Sports?",
+  options: ["Maharashtra", "Goa", "Karnataka", "Assam"],
+  correctOption: "Goa"
+},
+{
+  question: "'Sagol Kangjei' of Manipur has been adapted worldwide by the enthusiasts of this sport as ______.",
+  options: ["Polo", "Fencing", "Rugby", "Judo"],
+  correctOption: "Polo"
+},
+{
+  question: "Which soccer player holds the distinction of having the most wins of the FIFA World Cup by any player?",
+  options: ["Pele", "Diego Maradona", "Zinedine Zidane", "George Best"],
+  correctOption: "Pele"
+},
+{
+  question: "For which of the following countries does cricketer Ben Stokes play?",
+  options: ["South Africa", "Australia", "New Zealand", "England"],
+  correctOption: "England"
+},
+{
+  question: "With which sports/games is Rani Rampal associated?",
+  options: ["Hockey", "Badminton", "Cricket", "Boxing"],
+  correctOption: "Hockey"
+},
+{
+  question: "Niki Poonacha is a professional ______ player.",
+  options: ["Squash", "Polo", "Tennis", "Basketball"],
+  correctOption: "Tennis"
+},
+{
+  question: "Who among the following is an ace pistol shooter?",
+  options: ["Saurabh Chaudhary", "Pankaj Advani", "Sandeep Chaudhary", "Amit Panghal"],
+  correctOption: "Saurabh Chaudhary"
+},
+{
+  question: "Who was the first Indian swimmer to swim across the English Channel in 1958?",
+  options: ["Shamsher Khan", "Mihir Sen", "Brojen Das", "Virdhawal Khade"],
+  correctOption: "Mihir Sen"
+},
+{
+  question: "Who is known as the ‘Wizard of Hockey’?",
+  options: ["Balbir Singh", "Dhanraj Pillay", "Mohammed Shahid", "Major Dhyan Chand"],
+  correctOption: "Major Dhyan Chand"
+},
+{
+  question: "With which of the following sports is Fouaad Mirza associated?",
+  options: ["Swimming", "Rugby", "Judo", "Equestrian"],
+  correctOption: "Equestrian"
+},
+ 
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

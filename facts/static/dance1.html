@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dance Part 1 QUIZ APP</title> 
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>Subject Name | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'dance1';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+         const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+ 
+ {
+  question: "________ dance, performed by Buddhists to ward off evil spirits, is a dance form of Himachal Pradesh.",
+  options: ["(a) Chham", "(b) Natya", "(c) Dham", "(d) Gogra"],
+  correctOption: "(a) Chham"
+},
+{
+  question: "‘Thoda’ a sport dance belongs to which of the following states?",
+  options: ["(a) Sikkim", "(b) Andhra Pradesh", "(c) Haryana", "(d) Himachal Pradesh"],
+  correctOption: "(d) Himachal Pradesh"
+},
+{
+  question: "_______ is a group folk dance of Sikkim performed in honour of Mount Khangchendzonga, the guardian deity of the Sikkimese people.",
+  options: ["(a) Zo-Mal-Lok", "(b) Tendong Lo Rum Faat", "(c) Chu-Faat", "(d) Kinchum-Chu-Bomsa"],
+  correctOption: "(c) Chu-Faat"
+},
+{
+  question: "_______ is the traditional musical instrument of the Limboo community of Sikkim.",
+  options: ["(a) Chyap-Brung", "(b) Jeurum Silly", "(c) Naumati", "(d) Chutkay"],
+  correctOption: "(a) Chyap-Brung"
+},
+{
+  question: "Poush Mela displays local artisans displaying folk dances, music, food and culture of____.",
+  options: ["(a) Gujarat", "(b) West Bengal", "(c) Rajasthan", "(d) Uttarakhand"],
+  correctOption: "(b) West Bengal"
+},
+{
+  question: "\"Viyahula Giddha\" is a popular folk dance performed during marriages in the Indian state of:",
+  options: ["(a) Odisha", "(b) Gujarat", "(c) Punjab", "(d) Jharkhand"],
+  correctOption: "(c) Punjab"
+},
+{
+  question: "Which tribe of Pakistan performs a traditional dance form called ‘Waziri Dance’?",
+  options: ["(a) Sindhi", "(b) Baloch", "(c) Pashtu", "(d) Brahuis"],
+  correctOption: "(c) Pashtu"
+},
+{
+  question: "‘Kandyan Dance’ is the common dance of _______ country.",
+  options: ["(a) India", "(b) Bhutan", "(c) Sri Lanka", "(d) Nepal"],
+  correctOption: "(c) Sri Lanka"
+},
+{
+  question: "Bhavai is a traditional dance form of ____.",
+  options: ["(a) Gujarat", "(b) Bihar", "(c) Punjab", "(d) Maharashtra"],
+  correctOption: "(a) Gujarat"
+},
+{
+  question: "Which of the following art forms of Kerala is in UNESCO’s list of the Intangible Cultural Heritage of Humanity?",
+  options: ["(a) Theyyam", "(b) Kutiyattam", "(c) Chakyar Koothu", "(d) Thiruvathirakali"],
+  correctOption: "(b) Kutiyattam"
+},
+
+{
+  question: "‘Ottamthullal’ is a traditional dance form that is popular in the state of:",
+  options: ["(a) Andhra Pradesh", "(b) Karnataka", "(c) Kerala", "(d) Tamil Nadu"],
+  correctOption: "(c) Kerala"
+},
+{
+  question: "To which state does the traditional folk dance ‘Gotipua’ belong?",
+  options: ["(a) West Bengal", "(b) Odisha", "(c) Bihar", "(d) Chhattisgarh"],
+  correctOption: "(b) Odisha"
+},
+{
+  question: "Who amongst the following established an institution named 'Kalashram' for imparting training in dance and associated disciplines?",
+  options: ["(a) Shambhu Maharaj", "(b) Pandit Birju Maharaj", "(c) Sitara Devi", "(d) Lachhu Maharaj"],
+  correctOption: "(b) Pandit Birju Maharaj"
+},
+{
+  question: "The famous dancer Chemancheri Kunhiraman Nair is associated with which of the following dance forms?",
+  options: ["(a) Sattriya", "(b) Mohiniyattam", "(c) Kathakali", "(d) Manipuri"],
+  correctOption: "(c) Kathakali"
+},
+{
+  question: "Jhijhia dance originated in the Indian state of ________.",
+  options: ["(a) Bihar", "(b) West Bengal", "(c) Rajasthan", "(d) Gujarat"],
+  correctOption: "(a) Bihar"
+},
+{
+  question: "Which of the following is a dance form from Karnataka?",
+  options: ["(a) Rouf", "(b) Karma", "(c) Lava", "(d) Bayalata"],
+  correctOption: "(d) Bayalata"
+},
+{
+  question: "Which of the following is a dance form from Rajasthan?",
+  options: ["(a) Jhulan", "(b) Kumi", "(c) Dappu", "(d) Maruni"],
+  correctOption: "(a) Jhulan"
+},
+{
+  question: "The dance form ‘Dandia’ is synonymous with____",
+  options: ["(a) Bihu", "(b) Navratri", "(c) Onam", "(d) Ganesh Chaturthi"],
+  correctOption: "(b) Navratri"
+},
+{
+  question: "The _________ dance is performed by the shepherd community of Goa during Navratri.",
+  options: ["(a) Lava", "(b) Dhangar", "(c) Fugdi", "(d) Kolkali"],
+  correctOption: "(b) Dhangar"
+},
+{
+  question: "Karma is a dance form from which of the following states?",
+  options: ["(a) Jharkhand", "(b) Rajasthan", "(c) Gujarat", "(d) Maharashtra"],
+  correctOption: "(a) Jharkhand"
+},
+{
+  question: "‘Rauf is a folk dance associated with the state of______.",
+  options: ["(a) Haryana", "(b) Punjab", "(c) Rajasthan", "(d) Jammu and Kashmir"],
+  correctOption: "(d) Jammu and Kashmir"
+},
+{
+  question: "The _____ dance form originated as a tribal dance in the forests of Odisha in the 18th century and attained the status of a martial art-based dance form in the 19th century.",
+  options: ["(a) Chhobia", "(b) Kalaripayattu", "(c) Chhau", "(d) Bawai"],
+  correctOption: "(c) Chhau"
+},
+{
+  question: "Which among the following is a dance form from the state of Arunachal Pradesh?",
+  options: ["(a) Popir", "(b) Bhavai", "(c) Sattriya", "(d) Purbi"],
+  correctOption: "(a) Popir"
+},
+{
+  question: "Panthi is a dance form from which of the following states?",
+  options: ["(a) Odisha", "(b) Rajasthan", "(c) Chhattisgarh", "(d) Bihar"],
+  correctOption: "(c) Chhattisgarh"
+},
+{
+  question: "With which of the following folk dances did India make its entry into the Guinness Book of World Records in the year 2015?",
+  options: ["(a) Nati", "(b) Garba", "(c) Bihu", "(d) Bhangra"],
+  correctOption: "(a) Nati"
+},
+{
+  question: "Which of the following is NOT recognized as an Intangible Cultural Heritage (ICH) by UNESCO?",
+  options: ["(a) Sitar Vadan", "(b) Yoga", "(c) Kumbh Mela", "(d) Chhau dance"],
+  correctOption: "(a) Sitar Vadan"
+},
+{
+  question: "This contemporary Indian dancer who merged Kathak and Kathakali with other dance forms has been awarded the Sangeet Natak Akademi Award in 1996 and Padma Shri in 2007. His/her name is:",
+  options: ["(a) Birju Maharaj", "(b) Jailal Misra", "(c) Astad Deboo", "(d) Uday Shankar"],
+  correctOption: "(c) Astad Deboo"
+},
+{
+  question: "Pung Cholam is a folk dance of which state?",
+  options: ["(a) Kerala", "(b) Manipur", "(c) Madhya Pradesh", "(d) Karnataka"],
+  correctOption: "(b) Manipur"
+},
+{
+  question: "‘Paithani' is a form of____ from Maharashtra.",
+  options: ["(a) Dance", "(b) Textile weaving", "(c) Agriculture", "(d) Classical music"],
+  correctOption: "(b) Textile weaving"
+},
+{
+  question: "Bhawai is a folk dance of which state?",
+  options: ["(a) Haryana", "(b) Maharashtra", "(c) Gujarat", "(d) Rajasthan"],
+  correctOption: "(d) Rajasthan"
+},
+{
+  question: "Which of the following is a folk dance of Goa?",
+  options: ["(a) Fagua", "(b) Fugadi", "(c) Bihu", "(d) Manch"],
+  correctOption: "(b) Fugadi"
+},
+{
+  question: "In which of the following is reference to Indian Dance forms found?",
+  options: ["(a) Abhang", "(b) Natya Shastra", "(c) Kama Sutra", "(d) Brahma Sutra"],
+  correctOption: "(b) Natya Shastra"
+},
+{
+  question: "Which of the following is NOT correctly matched?",
+  options: ["(a) Mohiniattam - Odisha", "(b) Yakshgan - Karnataka", "(c) Garba - Gujarat", "(d) Kuchipudi - Andhra Pradesh"],
+  correctOption: "(a) Mohiniattam - Odisha"
+},
+{
+  question: "The Jagoi Dance is a dance form of which state?",
+  options: ["(a) Odisha", "(b) Manipur", "(c) Andhra Pradesh", "(d) Assam"],
+  correctOption: "(b) Manipur"
+},
+{
+  question: "Which of the following is the traditional theatre of Jammu and Kashmir?",
+  options: ["(a) Jatra", "(b) Swaang", "(c) Maach", "(d) Bhand Pather"],
+  correctOption: "(d) Bhand Pather"
+},
+{
+  question: "In which of the following states is the 'Hampi Dance Festival' celebrated?",
+  options: ["(a) Kerala", "(b) Karnataka", "(c) Tamil Nadu", "(d) Telangana"],
+  correctOption: "(b) Karnataka"
+},
+{
+  question: "The famous dancer Chemancheri Kunhiraman Nair is associated with",
+  options: ["(a) Kathakali", "(b) Manipuri", "(c) Odissi", "(d) Sattriya"],
+  correctOption: "(a) Kathakali"
+},
+{
+  question: "Which of the following puppet dances is performed in Orissa?",
+  options: ["(a) Pavakoothu", "(b) Kandhei", "(c) Kathputli", "(d) Putul Nautch"],
+  correctOption: "(b) Kandhei"
+},
+{
+  question: "Which of the following is a traditional theatre form of Haryana?",
+  options: ["(a) Swang", "(b) Tamasha", "(c) Dashavatar", "(d) Nautanki"],
+  correctOption: "(a) Swang"
+},
+{
+  question: "Lavani is a folk dance of which of the following states of India?",
+  options: ["(a) Rajasthan", "(b) Jharkhand", "(c) Gujarat", "(d) Maharashtra"],
+  correctOption: "(d) Maharashtra"
+},
+{
+  "question": "'Matki' is a popular folk dance of which of the following states?",
+  "options": ["Madhya Pradesh", "Assam", "Rajasthan", "Bihar"],
+  "correctOption": "Madhya Pradesh"
+},
+{
+  "question": "Which of the following is a popular dance form of Lakshadweep island?",
+  "options": ["Kuchipudi", "Koli", "Kathak", "Kolkali"],
+  "correctOption": "Kolkali"
+},
+{
+  "question": "'Behdienkhlam' is a traditional dance festival in which state?",
+  "options": ["Tamil Nadu", "Gujarat", "Chhattisgarh", "Meghalaya"],
+  "correctOption": "Meghalaya"
+},
+{
+  "question": "In which state did the 'Saila' dance originate? The dance is performed by boys after the harvest season.",
+  "options": ["Bihar", "Jharkhand", "Chhattisgarh", "Odisha"],
+  "correctOption": "Chhattisgarh"
+},
+{
+  "question": "Which of the following Indian classical dancers has been INCORRECTLY matched with her dance form?",
+  "options": ["Madhavi Mudgal – Odissi", "Nandini Singh – Kathak", "Radha Reddy – Kuchipudi", "Saswati Sen – Bharatanatyam"],
+  "correctOption": "Saswati Sen – Kathak"
+},
+{
+  "question": "The ‘Loor dance’ is a traditional folk dance, performed only by women, in the state of:",
+  "options": ["Haryana", "Madhya Pradesh", "Punjab", "Rajasthan"],
+  "correctOption": "Haryana"
+},
+{
+  "question": "The traditional rod puppet of Bihar is known as ______.",
+  "options": ["Bommalattam", "Sakhi Kundhei", "Yampuri", "Malasutri Bahulya"],
+  "correctOption": "Yampuri"
+},
+{
+  "question": "Bhand Pather theatre is a tradition primarily of which of the following States/UTs of India?",
+  "options": ["Dadra and Nagar Haveli", "Goa", "Jammu and Kashmir", "Kerala"],
+  "correctOption": "Jammu and Kashmir"
+},
+{
+  "question": "Hallisaka is a group dance native to ______.",
+  "options": ["Rajasthan", "Goa", "Maharashtra", "Gujarat"],
+  "correctOption": "Gujarat"
+},
+{
+  "question": "Birhor dance is a tribal folk dance from ______.",
+  "options": ["Himachal Pradesh", "Punjab", "Jharkhand", "Karnataka"],
+  "correctOption": "Jharkhand"
+},
+{
+  "question": "Kadsa is a dance style performed by women in Jharkhand, carrying a _____.",
+  "options": ["Kalasha", "Kamandalu", "Kumbha", "Kapala"],
+  "correctOption": "Kalasha"
+},
+{
+  "question": "Bhootada Kola is a spiritual folk dance in which some rituals involve walking on a bed of hot coal and is practised in coastal districts of ____.",
+  "options": ["Andhra Pradesh", "Karnataka", "Tamil Nadu", "Kerala"],
+  "correctOption": "Karnataka"
+},
+{
+  "question": "'Aaluyattu' is a folk-dance form from the state of ______.",
+  "options": ["Goa", "Nagaland", "Kerala", "Haryana"],
+  "correctOption": "Nagaland"
+},
+{
+  "question": "‘Bolak-aat’ is a ______ from the state of Karnataka.",
+  "options": ["music form", "painting form", "dance form", "sculpting form"],
+  "correctOption": "dance form"
+},
+{
+  "question": "The ‘Lezim’ dance form is peculiar to which of the following states?",
+  "options": ["Karnataka", "Bihar", "Maharashtra", "Gujarat"],
+  "correctOption": "Maharashtra"
+},
+{
+  "question": "______ is one of the most popular folk dances of Odisha.",
+  "options": ["Giddha", "Hojagiri", "Dalkhai", "Rauf"],
+  "correctOption": "Dalkhai"
+},
+{
+  "question": "Ghoomar is a folk-dance form from the state of ______.",
+  "options": ["Tripura", "Rajasthan", "Bihar", "Jharkhand"],
+  "correctOption": "Rajasthan"
+},
+{
+  "question": "Which of the following is a dance form in Mizoram participated exclusively by 'village guests'?",
+  "options": ["Khuallam", "Cheraw", "Solakia", "Chailam"],
+  "correctOption": "Khuallam"
+},
+{
+  "question": "With which of the following classical dances is ‘Kottakkal Sivaraman’ associated?",
+  "options": ["Mohiniyattam", "Odissi", "Kathakali", "Bharatanatyam"],
+  "correctOption": "Kathakali"
+},
+{
+  "question": "‘Ranapa’, a folk dance form of Odisha, consists of enacting chapters from the life of Lord ______.",
+  "options": ["Indra", "Ram", "Krishna", "Hanuman"],
+  "correctOption": "Krishna"
+},
+{
+  "question": "To which of the following states does the dance drama ‘Khyal’ belong?",
+  "options": ["Rajasthan", "Gujarat", "Madhya Pradesh", "Punjab"],
+  "correctOption": "Rajasthan"
+},
+{
+  "question": "Which of the following is a dance form of West Bengal where there is a confluence of dancing, singing, drama and recital?",
+  "options": ["Bhavai", "Alkap", "Tippani", "Hudo"],
+  "correctOption": "Alkap"
+},
+{
+  "question": "'Maimata' is a popular dance of the Kaloi community from the state of ______.",
+  "options": ["Chattisgarh", "Odisha", "Tripura", "Assam"],
+  "correctOption": "Tripura"
+},
+{
+  "question": "Kalbelia folk songs and dance forms are an expression of the Kalbelia community’s traditional way of life. It is associated with which of the following states?",
+  "options": ["Maharashtra", "Haryana", "Rajasthan", "Punjab"],
+  "correctOption": "Rajasthan"
+},
+{
+  "question": "“Bhand Pather” is the dance form of which of the following states? SSC CHSL 12/8/2021 (Afternoon) (a) Goa (b) Kashmir (c) Haryana (d) Sikkim",
+  "options": ["Goa", "Kashmir", "Haryana", "Sikkim"],
+  "correctOption": "Kashmir"
+},
+{
+  "question": "Which of the following is a dance form of Mizoram participated exclusively by 'village guests'?",
+  "options": ["Khuallam", "Cheraw", "Solakia", "Chailam"],
+  "correctOption": "Khuallam"
+},
+{
+  "question": "With which of the following classical dances is ‘Kottakkal Sivaraman’ associated?",
+  "options": ["Mohiniyattam", "Odissi", "Kathakali", "Bharatanatyam"],
+  "correctOption": "Kathakali"
+},
+{
+  "question": "‘Ranapa’, a folk dance form of Odisha, consists of enacting chapters from the life of Lord ______.",
+  "options": ["Indra", "Ram", "Krishna", "Hanuman"],
+  "correctOption": "Krishna"
+},
+{
+  "question": "To which of the following states does the dance drama ‘Khyal’ belong?",
+  "options": ["Rajasthan", "Gujarat", "Madhya Pradesh", "Punjab"],
+  "correctOption": "Rajasthan"
+},
+{
+  "question": "Which of the following is a dance form of West Bengal where there is a confluence of dancing, singing, drama and recital?",
+  "options": ["Bhavai", "Alkap", "Tippani", "Hudo"],
+  "correctOption": "Alkap"
+},
+{
+  "question": "'Maimata' is a popular dance of the Kaloi community from the state of ______.",
+  "options": ["Chattisgarh", "Odisha", "Tripura", "Assam"],
+  "correctOption": "Tripura"
+},
+{
+  "question": "Kalbelia folk songs and dance forms are an expression of the Kalbelia community’s traditional way of life. It is associated with which of the following states?",
+  "options": ["Maharashtra", "Haryana", "Rajasthan", "Punjab"],
+  "correctOption": "Rajasthan"
+},
+{
+  "question": "“Bhand Pather” is the dance form of which of the following states?",
+  "options": ["Goa", "Kashmir", "Haryana", "Sikkim"],
+  "correctOption": "Kashmir"
+},
+{
+      "question": "Which state is associated with the folk dance 'Matki'?",
+      "options": ["a) Madhya Pradesh", "b) Assam", "c) Rajasthan", "d) Bihar"],
+      "correctOption": "a) Madhya Pradesh"
+    },
+    {
+      "question": "Which dance form is popular in Lakshadweep islands?",
+      "options": ["a) Kuchipudi", "b) Koli", "c) Kathak", "d) Kolkali"],
+      "correctOption": "d) Kolkali"
+    },
+    {
+      "question": "'Behdienkhlam' is a traditional dance festival in which state?",
+      "options": ["a) Tamil Nadu", "b) Gujarat", "c) Chhattisgarh", "d) Meghalaya"],
+      "correctOption": "d) Meghalaya"
+    },
+    {
+      "question": "In which state did the 'Saila' dance originate, performed by boys after the harvest season?",
+      "options": ["a) Bihar", "b) Jharkhand", "c) Chhattisgarh", "d) Odisha"],
+      "correctOption": "c) Chhattisgarh"
+    },
+    {
+      "question": "Which Indian classical dancer has been incorrectly matched with her dance form?",
+      "options": [
+        "a) Madhavi Mudgal – Odissi",
+        "b) Nandini Singh – Kathak",
+        "c) Radha Reddy – Kuchipudi",
+        "d) Saswati Sen – Bharatanatyam"
+      ],
+      "correctOption": "d) Saswati Sen – Bharatanatyam"
+    },
+    {
+      "question": "Which state is associated with the 'Loor dance', performed only by women?",
+      "options": ["a) Haryana", "b) Madhya Pradesh", "c) Punjab", "d) Rajasthan"],
+      "correctOption": "a) Haryana"
+    },
+    {
+      "question": "The traditional rod puppet of Bihar is known as ______.",
+      "options": ["a) Bommalattam", "b) Sakhi Kundhei", "c) Yampuri", "d) Malasutri Bahulya"],
+      "correctOption": "c) Yampuri"
+    },
+    {
+      "question": "Bhand Pather theatre is a tradition primarily of which of the following States/UTs of India?",
+      "options": ["a) Dadra and Nagar Haveli", "b) Goa", "c) Jammu and Kashmir", "d) Kerala"],
+      "correctOption": "c) Jammu and Kashmir"
+    },
+    {
+      "question": "Hallisaka is a group dance native to ______.",
+      "options": ["a) Rajasthan", "b) Goa", "c) Maharashtra", "d) Gujarat"],
+      "correctOption": "d) Gujarat"
+    },
+    {
+      "question": "Birhor dance is a tribal folk dance from ______.",
+      "options": ["a) Himachal Pradesh", "b) Punjab", "c) Jharkhand", "d) Karnataka"],
+      "correctOption": "c) Jharkhand"
+    },
+    {
+      "question": "Kadsa is a dance style performed by women in Jharkhand, carrying a ______.",
+      "options": ["a) Kalasha", "b) Kamandalu", "c) Kumbha", "d) Kapala"],
+      "correctOption": "a) Kalasha"
+    },
+    {
+      "question": "Bhootada Kola is a spiritual folk dance in which some rituals involve walking on a bed of hot coal and is practiced in coastal districts of _____.",
+      "options": ["a) Andhra Pradesh", "b) Karnataka", "c) Tamil Nadu", "d) Kerala"],
+      "correctOption": "b) Karnataka"
+    },
+    {
+      "question": "'Aaluyattu' is a folk-dance form from the state of ______.",
+      "options": ["a) Goa", "b) Nagaland", "c) Kerala", "d) Haryana"],
+      "correctOption": "b) Nagaland"
+    },
+    {
+      "question": "‘Bolak-aat’ is a ______ from the state of Karnataka.",
+      "options": ["a) music form", "b) painting form", "c) dance form", "d) sculpting form"],
+      "correctOption": "c) dance form"
+    },
+    {
+      "question": "The ‘Lezim’ dance form is peculiar to which of the following states?",
+      "options": ["a) Karnataka", "b) Bihar", "c) Maharashtra", "d) Gujarat"],
+      "correctOption": "c) Maharashtra"
+    },
+    {
+      "question": "______ is one of the most popular folk dances of Odisha.",
+      "options": ["a) Giddha", "b) Hojagiri", "c) Dalkhai", "d) Rauf"],
+      "correctOption": "c) Dalkhai"
+    },
+    {
+      "question": "Ghoomar is a folk-dance form from the state of ______.",
+      "options": ["a) Tripura", "b) Rajasthan", "c) Bihar", "d) Jharkhand"],
+      "correctOption": "b) Rajasthan"
+    },
+    {
+      "question": "Which of the following is a dance form in Mizoram participated exclusively by 'village guests'?",
+      "options": ["a) Khuallam", "b) Cheraw", "c) Solakia", "d) Chailam"],
+      "correctOption": "a) Khuallam"
+    },
+    {
+      "question": "With which of the following classical dances is ‘Kottakkal Sivaraman’ associated?",
+      "options": ["a) Mohiniyattam", "b) Odissi", "c) Kathakali", "d) Bharatanatyam"],
+      "correctOption": "c) Kathakali"
+    },
+    {
+      "question": "‘Ranapa’, a folk dance form of Odisha, consists of enacting chapters from the life of Lord ______.",
+      "options": ["a) Indra", "b) Ram", "c) Krishna", "d) Hanuman"],
+      "correctOption": "c) Krishna"
+    },
+    {
+      "question": "To which of the following states does the dance drama ‘Khyal’ belong?",
+      "options": ["a) Rajasthan", "b) Gujarat", "c) Madhya Pradesh", "d) Punjab"],
+      "correctOption": "a) Rajasthan"
+    },
+    {
+      "question": "Which of the following is a dance form of West Bengal where there is a confluence of dancing, singing, drama and recital?",
+      "options": ["a) Bhavai", "b) Alkap", "c) Tippani", "d) Hudo"],
+      "correctOption": "b) Alkap"
+    },
+	 {
+    "question": "What does 'weigh out' mean in the sentence, 'Before packaging, they had to weigh out the ingredients'?",
+    "options": ["Physically weigh out", "Measure", "Cease", "Create a weighing motion out"],
+    "correctOption": "Measure"
+  },
+  {
+    "question": "Choose the correct meaning of 'weigh up' in the sentence, 'They decided to weigh up the pros and cons before making a decision.'",
+    "options": ["Physically weigh up", "Evaluate", "Cease", "Create a weighing motion up"],
+    "correctOption": "Evaluate"
+  },
+  {
+    "question": "In the sentence, 'The strange noises began to weird out the campers,' what does 'weird out' mean?",
+    "options": ["Physically weird out", "Make someone feel uncomfortable", "Cease", "Create a weirding motion out"],
+    "correctOption": "Make someone feel uncomfortable"
+  },
+  {
+    "question": "What is the meaning of 'well up' in the sentence, 'Emotions began to well up as they heard the touching story'?",
+    "options": ["Physically well up", "Rise", "Cease", "Create a welling motion up"],
+    "correctOption": "Rise"
+  },
+  {
+    "question": "The phrase 'wheel around' in the sentence, 'He decided to wheel around and confront the person calling his name,' means:",
+    "options": ["Physically wheel around", "Turn", "Cease", "Create a wheeling motion around"],
+    "correctOption": "Turn"
+  },
+  {
+    "question": "Choose the correct meaning of 'wheel out' in the sentence, 'The hospital staff had to wheel out the patient for tests.'",
+    "options": ["Physically wheel out", "Move", "Cease", "Create a wheeling motion out"],
+    "correctOption": "Move"
+  },
+  {
+    "question": "In the sentence, 'To get a better view, they decided to wheel round the telescope,' what does 'wheel round' mean?",
+    "options": ["Physically wheel round", "Rotate", "Cease", "Create a wheeling motion round"],
+    "correctOption": "Rotate"
+  },
+  {
+    "question": "What is the meaning of 'while away' in the sentence, 'They decided to while away the afternoon by reading in the garden'?",
+    "options": ["Physically while away", "Spend time idly", "Cease", "Create a whiling motion away"],
+    "correctOption": "Spend time idly"
+  },
+  {
+    "question": "Choose the correct definition of 'whip into' in the sentence, 'The coach had to whip into shape the team before the tournament.'",
+    "options": ["Physically whip into", "Urgently prepare", "Cease", "Create a whipping motion into"],
+    "correctOption": "Urgently prepare"
+  },
+  {
+    "question": "In the sentence, 'He decided to whip out his phone to capture the unexpected moment,' what does 'whip out' mean?",
+    "options": ["Physically whip out", "Take out", "Cease", "Create a whipping motion out"],
+    "correctOption": "Take out"
+  },
+  {
+    "question": "What does 'whip out of' mean in the sentence, 'She managed to whip out of the crowded room unnoticed'?",
+    "options": ["Physically whip out of", "Move quickly", "Cease", "Create a whipping motion out of"],
+    "correctOption": "Move quickly"
+  },
+  {
+    "question": "Choose the correct meaning of 'whip through' in the sentence, 'They decided to whip through the remaining items on the agenda to finish the meeting on time.'",
+    "options": ["Physically whip through", "Go through quickly", "Cease", "Create a whipping motion through"],
+    "correctOption": "Go through quickly"
+  },
+  {
+    "question": "In the sentence, 'To meet the deadline, they had to whip up a quick solution,' what does 'whip up' mean?",
+    "options": ["Physically whip up", "Create", "Cease", "Create a whipping motion up"],
+    "correctOption": "Create"
+  },
+  {
+    "question": "What is the meaning of 'whisk away' in the sentence, 'The strong wind began to whisk away the fallen leaves'?",
+    "options": ["Physically whisk away", "Carry", "Cease", "Create a whisking motion away"],
+    "correctOption": "Carry"
+  },
+  {
+    "question": "Choose the correct definition of 'white out' in the sentence, 'The blizzard caused a temporary white out on the roads.'",
+    "options": ["Physically white out", "Cover", "Cease", "Create a whiting motion out"],
+    "correctOption": "Cover"
+  },
+  {
+    "question": "In the sentence, 'The unexpected turn of events caused him to wig out,' what does 'wig out' mean?",
+    "options": ["Physically wig out", "React with extreme", "Cease", "Create a wigging motion out"],
+    "correctOption": "React with extreme"
+  },
+  {
+    "question": "What is the meaning of 'wiggle out' in the sentence, 'The cat managed to wiggle out of the tight space'?",
+    "options": ["Physically wiggle out", "Move", "Cease", "Create a wiggling motion out"],
+    "correctOption": "Move"
+  },
+  {
+    "question": "Choose the correct definition of 'wiggle out of' in the sentence, 'He tried to wiggle out of taking responsibility for the mistake.'",
+    "options": ["Physically wiggle out of", "Avoid", "Cease", "Create a wiggling motion out of"],
+    "correctOption": "Avoid"
+  },
+  {
+    "question": "In the sentence, 'Faced with a challenging situation, he decided to wimp out,' what does 'wimp out' mean?",
+    "options": ["Physically wimp out", "Fail to face a difficult situation", "Cease", "Create a wimping motion out"],
+    "correctOption": "Fail to face a difficult situation"
+  },
+  {
+    "question": "What does 'wind down' mean in the sentence, 'After a busy day, they decided to wind down with a relaxing evening at home'?",
+    "options": ["Physically wind down", "Relax", "Cease", "Create a winding motion down"],
+    "correctOption": "Relax"
+  },
+  {
+    "question": "Choose the correct meaning of 'wind on' in the sentence, 'The clock began to wind on as the minutes passed.'",
+    "options": ["Physically wind on", "Move forward", "Cease", "Create a winding motion on"],
+    "correctOption": "Move forward"
+  },
+  {
+    "question": "In the sentence, 'They decided to wind up the meeting with final remarks,' what does 'wind up' mean?",
+    "options": ["Physically wind up", "Conclude", "Cease", "Create a winding motion up"],
+    "correctOption": "Conclude"
+  },
+  {
+    "question": "What is the meaning of 'winkle out' in the sentence, 'They had to winkle out the information from the reluctant witness'?",
+    "options": ["Physically winkle out", "Extract", "Cease", "Create a winkling motion out"],
+    "correctOption": "Extract"
+  },
+  {
+    "question": "Choose the correct definition of 'wipe out' in the sentence, 'The strong waves threatened to wipe out the sandcastle on the shore.'",
+    "options": ["Physically wipe out", "Destroy", "Cease", "Create a wiping motion out"],
+    "correctOption": "Destroy"
+  },
+  {
+    "question": "In the sentence, 'They decided to wire up the new electronic equipment in the office,' what does 'wire up' mean?",
+    "options": ["Physically wire up", "Connect", "Cease", "Create a wiring motion up"],
+    "correctOption": "Connect"
+  },
+  {
+    "question": "What does 'wise up' mean in the sentence, 'After a few setbacks, they began to wise up to the challenges of the project'?",
+    "options": ["Physically wise up", "Become aware", "Cease", "Create a wisening motion up"],
+    "correctOption": "Become aware"
+  },
+  {
+    "question": "Choose the correct definition of 'word up' in the sentence, 'He decided to word up his friends about the change in plans.'",
+    "options": ["Physically word up", "Inform", "Cease", "Create a wording motion up"],
+    "correctOption": "Inform"
+  },
+  {
+    "question": "In the sentence, 'After a hearty meal, they decided to work off the calories at the gym,' what does 'work off' mean?",
+    "options": ["Physically work off", "Burn", "Cease", "Create a working motion off"],
+    "correctOption": "Burn"
+  },
+  {
+  "question": "Which of the following is a performing art from the state of Maharashtra?",
+  "options": ["Kalbelia", "Kheliran", "Dandi Gair", "Lavani"],
+  "correctOption": "Lavani"
+},
+{
+  "question": "In which of the following cities is the Jawaharlal Nehru Manipur Dance Academy located?",
+  "options": ["Guwahati", "Bengaluru", "Imphal", "Hyderabad"],
+  "correctOption": "Imphal"
+},
+{
+  "question": "'Kamsale' is a dance form traditional to the state of ______.",
+  "options": ["Karnataka", "Gujarat", "Goa", "Assam"],
+  "correctOption": "Karnataka"
+},
+{
+  "question": "'Rikhampada' is a traditional dance of ______.",
+  "options": ["Arunachal Pradesh", "Uttar Pradesh", "Himachal Pradesh", "Madhya Pradesh"],
+  "correctOption": "Arunachal Pradesh"
+},
+{
+  "question": "Which of the following dance forms is popular in Himachal Pradesh?",
+  "options": ["Laho", "Nati", "Ronf", "Thora"],
+  "correctOption": "Nati"
+},
+{
+  "question": "With which of the following states is the dance form ‘Povadas’ associated?",
+  "options": ["Odisha", "Bihar", "Maharashtra", "West Bengal"],
+  "correctOption": "Maharashtra"
+},
+ 
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>

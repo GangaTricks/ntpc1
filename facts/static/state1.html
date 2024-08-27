@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Awareness QUIZ APP</title> 
+			<script src="../../urlRewrite.js"></script><link rel="shortcut icon" href="../../icon2.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <style>
+  
+         body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		   font-size: 12px;
+}
+ 
+
+    
+.text-success-transparent {
+  color: rgba(0,160, 0, 1); /* Transparent green color */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-5px); }
+  20%, 80% { transform: translateX(5px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.1s ease-in-out;
+}
+
+/* Additional CSS for the option border */
+.option-border {
+    position: relative; /* Make the container relative for absolute positioning */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+/* Hide the default radio button */
+.form-check-input {
+    display: none;
+}
+
+/* Style the label to look like a clickable option */
+.form-check-label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+/* Add styles to label when hovering over it */
+.form-check-label:hover .option-border {
+    background-color: #f0f0f0;
+}
+
+/* Adjustments to form-check-label */
+.form-check-label:before {
+    content: '';
+    display: inline-block;
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px; /* Adjust spacing between circle and text */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Change styles of label when radio button is checked */
+.form-check-input:checked + .form-check-label:before {
+    background-color: #007bff; /* Change color when checked */
+}
+
+
+    label {
+      font-weight: bold;
+	  font-size: 20px;
+    }
+
+
+button.cool {
+		background: white;
+		font-size: 10px;
+		display: block;
+		width: 100%;
+      padding: 02px;
+	  margin-bottom: 10px;
+      border: 2px solid indigo;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	
+	button.cool:hover {
+	display: none;
+	}
+	
+
+
+
+button {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: orange;
+      color: blue;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    input[type="number"] {
+      padding: 7px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 60px;
+    }
+
+
+.sidebar {
+  height: 100%;
+  margin-top: 35px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 0;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1; /* Ensure the sidebar is above the content */
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 2; /* Ensure the navbar is above the sidebar */
+}
+	    /* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 1000;
+		}
+
+ .navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+        .navbot.hidden {
+            transform: translateY(100%); /* Move the navbar outside the viewport */
+        }
+
+               .navbot div {
+            display: flex;
+            gap: 10px;
+        }
+		
+		.exim {
+		position: fixed;
+		top: 70px;
+		height:60px;
+		width: 100%;
+		background: #4169E1;
+		color: white;
+		     z-index: 1000;
+
+		}
+
+main {
+padding-top: 60px;
+padding-left: 05px;
+padding-left: 05px;
+padding-bottom: 200px;
+margin-bottom: 03px;
+}
+
+.btn-bookmark {
+position: absolute;
+right: 5%;
+font-size: 15px;
+border: 2px solid gray;
+margin-left: 30px;}
+
+.takemargin {
+margin-bottom: 10px;
+}
+  </style>
+</head>
+<body> 
+	
+<div class="container">
+  <div class="navbar">   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+<div id="sidebar" class="sidebar">
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
+<a href="#" onclick="goToWebsite()">Home 🏠</a>
+    <a href="#" onclick="goToHub()">Awareness</a>
+    <a href="#" onclick="goToEnglish()">English</a>
+    <a href="#" onclick="examQuiz()">ExamQuiz</a>
+    <a href="#">Live Mocks</a>
+<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
+    
+<div class="container">
+        <h3 style="text-align: right;">Tools🔨</h3>
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	
+	
+	
+	
+  </div>
+</div>
+<script>
+ // Load the completed work count when the page loads
+    window.onload = function() {
+        displayCompletedWork();
+        // Ensure input field reflects the saved count
+        document.getElementById('completedCount').value = getCompletedWork();
+    };
+
+    function saveCompletedWork() {
+        var completedCount = document.getElementById('completedCount').value;
+        localStorage.setItem(`completedCount_${uniqueIdentifier}`, completedCount);
+        displayCompletedWork(); // Update the displayed count immediately
+
+        // Update input field value
+        document.getElementById('completedCount').value = completedCount;
+    }
+
+    // Function to retrieve the completed work count from local storage
+    function getCompletedWork() {
+        return localStorage.getItem(`completedCount_${uniqueIdentifier}`) || '0';
+    }
+
+    // Function to display the completed work count from local storage
+    function displayCompletedWork() {
+        var completedCount = getCompletedWork();
+        var displayCountElement = document.getElementById('displayCount');
+        if (displayCountElement) {
+            displayCountElement.textContent = completedCount; // Set count inside span
+        }
+        var completedCountDisplayElement = document.getElementById('completedCountDisplay');
+        if (completedCountDisplayElement) {
+            completedCountDisplayElement.textContent = `Mark: ${completedCount}🏃`; // Set count outside input field
+        }
+    }
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
+</script>
+
+<main>
+
+<div class="layer" id="layer1">
+
+<h6>State Part 1 | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
+
+		<div class="takemargin">
+			<label for="jumpToQuestion"></label>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
+			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
+    </div>
+	
+  </div>
+
+
+</div>
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
+            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
+<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
+<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
+
+<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+    </script>
+
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+
+
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+
+  <h2>Bookmarked Questions</h2>
+
+
+</div>
+
+
+
+
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+<script>
+let bookmarks = [];
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+
+
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
+
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    }
+
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
+
+
+
+
+
+function showQuestion() {
+    // Get the current question
+    let currentQuestion;
+
+    // Check if only bookmarked questions should be populated
+    if (populateBookmarkedQuestions) {
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // If there are bookmarked questions, select the current one
+        if (bookmarkedIndices.length > 0) {
+            // Select the current bookmarked question
+            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            
+            // Update current bookmark index for cycling through bookmarked questions
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
+        }
+    }
+
+    // Get the current question
+    currentQuestion = questions[currentQuestionIndex]; 
+
+    // Shuffle the options
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    // Display the question text
+        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+
+
+     <!-- Generate HTML for options -->
+const optionsHTML = shuffledOptions.map((option, index) => {
+    return `
+        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">
+                    ${option}
+                </div>
+            </label>
+        </div>`;
+}).join('');
+
+// Set the HTML for options
+optionsElement.innerHTML = optionsHTML;
+
+    // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100); // Adjust the delay as needed
+    });
+
+    // Update bookmark button text
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
+}
+
+
+    function togglePopulateBookmarkedQuestions() {
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
+
+
+    function getCurrentQuestion() {
+        // Modify this function to return the current question based on the currentQuestionIndex
+    }
+
+    function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
+
+
+
+
+
+
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+
+
+
+// Function to update bookmark count
+function updateBookmarkedCount() {
+  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
+  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+}
+
+// Function to toggle bookmark for the current question
+function toggleBookmark() {
+  // Toggle the bookmarked state for the current question
+  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
+  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
+  
+  // Update the UI to reflect the new bookmarked state
+  showQuestion();
+  
+  // Update the bookmark count
+  updateBookmarkedCount();
+}
+
+// Call the updateBookmarkedCount function when the window is fully loaded
+window.addEventListener('load', function() {
+  updateBookmarkedCount();
+});
+
+ 
+
+
+
+// Function to load the current question index from local storage
+function loadCurrentQuestionIndex() {
+  const storedIndex = localStorage.getItem(`${uniqueIdentifier}_currentQuestionIndex`); // Using unique identifier
+  if (storedIndex !== null) {
+    currentQuestionIndex = parseInt(storedIndex);
+  }
+}
+
+// Call the function to load the current question index from local storage when the page loads
+window.addEventListener('load', function() {
+  loadCurrentQuestionIndex();
+  showQuestion();
+});
+
+// Function to save the current question index to local storage
+function saveCurrentQuestionIndex() {
+  localStorage.setItem(`${uniqueIdentifier}_currentQuestionIndex`, currentQuestionIndex); // Using unique identifier
+}
+
+// Call the function to save the current question index to local storage when the user navigates to the next or previous question
+window.addEventListener('beforeunload', function() {
+  saveCurrentQuestionIndex();
+});
+
+
+
+
+ const uniqueIdentifier = 'state1';
+
+        loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+
+        function saveUserDataAndBookmarksToLocalStorage(identifier) {
+            localStorage.setItem(`userdata_bookmarks_${identifier}`, JSON.stringify(bookmarks));
+        }
+
+        function loadUserDataAndBookmarksFromLocalStorage(identifier) {
+            const storedData = localStorage.getItem(`userdata_bookmarks_${identifier}`);
+            if (storedData) {
+                bookmarks = JSON.parse(storedData);
+            }
+        }
+
+ function saveBookmarksToLocalStorage() {
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+        }
+	
+		function exportBookmarksToFile() {
+    const bookmarksData = JSON.stringify(bookmarks);
+    const blob = new Blob([bookmarksData], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${document.title.replace(/[^a-zA-Z0-9]/g, '')}_bookmarks.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+
+function importBookmarksFromFile(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const importedBookmarks = JSON.parse(e.target.result);
+        if (importedBookmarks) {
+            bookmarks = importedBookmarks;
+            saveUserDataAndBookmarksToLocalStorage(uniqueIdentifier);
+            showQuestion();
+        }
+    };
+    reader.readAsText(file);
+}
+		
+		
+		
+	
+// Call the function to load bookmarks from local storage when the page loads
+window.addEventListener('load', function() {
+    loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+    showQuestion();
+});
+function showBookmarkedQuestions() {
+  // Hide layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'none';
+
+  // Get the container for bookmarked questions
+  const bookmarkedQuestionsContainer = document.getElementById('bookmarkedQuestions');
+  bookmarkedQuestionsContainer.innerHTML = ''; // Clear previous content
+
+  // Initialize count for bookmarked questions
+  let bookmarkedCount = 0;
+
+  // Iterate through all questions to collect bookmarked ones
+  for (let i = 0; i < questions.length; i++) {
+    if (bookmarks[i]) {
+      bookmarkedCount++; // Increment bookmarked count
+
+      // Create a div for each bookmarked question
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('bookmarked-question');
+
+      // Display the question
+      const questionText = document.createElement('p');
+      questionText.textContent = `Question ${i + 1}: ${questions[i].question}`;
+	  questionText.style.fontSize = '18px'; // Change the font size as needed
+      questionDiv.appendChild(questionText);
+
+      // Display the options as radio buttons
+      const optionsList = document.createElement('ul');
+      optionsList.style.listStyleType = 'none';
+      for (let j = 0; j < questions[i].options.length; j++) {
+        const optionItem = document.createElement('li');
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question${i}`;
+        optionInput.value = j;
+        optionInput.addEventListener('change', function() {
+          // Highlight the correct option when any option is selected
+          const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+          const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+          correctOptionLabel.style.backgroundColor = 'lightgreen';
+        });
+        optionLabel.textContent = questions[i].options[j];
+        optionLabel.prepend(optionInput);
+        optionItem.appendChild(optionLabel);
+        optionsList.appendChild(optionItem);
+      }
+      questionDiv.appendChild(optionsList);
+
+      // Add a button to check the correct answer
+      const checkAnswerButton = document.createElement('button');
+      checkAnswerButton.textContent = 'Check Answer';
+      checkAnswerButton.onclick = function() {
+        // Get the selected option
+        const selectedOption = optionsList.querySelector('input:checked');
+        if (selectedOption) {
+          const selectedIndex = parseInt(selectedOption.value);
+          if (questions[i].options[selectedIndex] === questions[i].correctOption) {
+            // Highlight the correct option
+            const correctOptionIndex = questions[i].options.indexOf(questions[i].correctOption);
+            const correctOptionLabel = optionsList.querySelectorAll('label')[correctOptionIndex];
+            correctOptionLabel.style.backgroundColor = 'gray';
+          }
+        } else {
+          // No option selected
+          alert('Please select an option.');
+        }
+      };
+      questionDiv.appendChild(checkAnswerButton);
+
+      // Add a button to remove the bookmark
+      const removeBookmarkButton = document.createElement('button');
+      removeBookmarkButton.textContent = 'Remove Bookmark';
+      removeBookmarkButton.onclick = function() {
+        // Remove the bookmark for this question
+        bookmarks[i] = false;
+        // Update the UI to reflect the change
+        showBookmarkedQuestions(); // Update the bookmarked questions list
+      };
+      questionDiv.appendChild(removeBookmarkButton);
+
+      // Add the bookmarked question to the container
+      bookmarkedQuestionsContainer.appendChild(questionDiv);
+    }
+  }
+// Display total bookmarked questions count
+const bookmarkedCountElement = document.createElement('p');
+bookmarkedCountElement.textContent = `Total Bookmarked Questions: ${bookmarkedCount}`;
+bookmarkedCountElement.style.color = 'black'; // Set text color to blue
+bookmarkedCountElement.style.fontWeight = 'bold'; // Make text bold
+bookmarkedCountElement.style.fontSize = '14px'; // Set font size
+bookmarkedCountElement.style.backgroundColor = 'gold'; // Add background color
+bookmarkedCountElement.style.padding = '8px'; // Add padding for better appearance
+bookmarkedCountElement.style.marginBottom = '10px'; // Add some margin bottom for spacing
+bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
+
+  // Show layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'block';
+}
+
+
+
+
+
+function hideBookmarkedQuestions() {
+  // Hide layer 2
+  const layer2 = document.getElementById('layer2');
+  layer2.style.display = 'none';
+
+  // Show layer 1
+  const layer1 = document.getElementById('layer1');
+  layer1.style.display = 'block';
+}
+
+
+  function showNextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+      resetQuestionContainer();
+      currentQuestionIndex++;
+      showQuestion();
+    }
+  }
+
+function showPreviousQuestion() {
+    resetQuestionContainer();
+    if (populateBookmarkedQuestions) {
+        const bookmarkedIndices = getBookmarkedIndices();
+        if (bookmarkedIndices.length > 0) {
+            // Find the nearest previous bookmarked question index
+            let nearestIndex = -1;
+            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
+                if (bookmarkedIndices[i] < currentQuestionIndex) {
+                    nearestIndex = i;
+                    break;
+                }
+            }
+            // Update current bookmark index
+            if (nearestIndex !== -1) {
+                currentBookmarkIndex = nearestIndex;
+                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
+            }
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+    }
+    showQuestion();
+}
+
+function showAnswer() {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+
+     // Display selected option feedback
+    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+    // Display correct option feedback
+ // Display correct option feedback
+const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+if (correctOptionBorder) {
+  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+  correctOptionBorder.classList.add('text-success-transparent');
+  correctOptionBorder.classList.add('shake'); // Apply shake class
+}
+
+// Preserve existing option texts
+currentQuestion.options.forEach((option, index) => {
+  if (index !== correctOptionIndex) {
+    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
+    if (optionLabel) {
+      optionLabel.innerHTML = option; // Reset option text
+    }
+  }
+});
+
+    // Display explanation
+   const explanation = document.createElement('p');
+    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
+    optionsElement.appendChild(explanation);
+  }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      showPreviousQuestion();
+      break;
+    case 'ArrowRight':
+      showNextQuestion();
+      break;
+    case 'ArrowUp':
+      showAnswer();
+      break;
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+	case '5':
+      // Convert the key to an index (0-based)
+      const index = parseInt(event.key) - 1;
+      const radios = document.getElementsByName('option');
+      if (index >= 0 && index < radios.length) {
+        radios[index].checked = true;
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let isSwipe = false;
+
+
+document.addEventListener('touchstart', function(event) {
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+  isSwipe = false; // Reset the flag for each touchstart
+});
+
+document.addEventListener('touchmove', function(event) {
+  touchEndX = event.touches[0].clientX;
+  touchEndY = event.touches[0].clientY;
+
+  // Calculate the distance moved in the X and Y directions
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // If the distance moved in the X direction is greater than the threshold, consider it a swipe
+  if (Math.abs(deltaX) > 10) {
+    isSwipe = true;
+  }
+});
+
+document.addEventListener('touchend', function(event) {
+  if (isSwipe) {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const touchSensitivity = 50; // Adjust as needed
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > touchSensitivity) {
+      if (deltaX > 0) {
+        // Swipe right (previous question)
+        showPreviousQuestion();
+      } else {
+        // Swipe left (next question)
+        showNextQuestion();
+      }
+    } else if (Math.abs(deltaY) > touchSensitivity) {
+      if (deltaY < 0) {
+        // Swipe up (open answer)
+        showAnswer();
+      }
+    }
+  }
+});
+  
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+</script>
+
+<script>
+const questions = [
+ 
+ {
+  "question": "Which of the following states is NOT famous for the Bhut Jolokia pepper?",
+  "options": ["Odisha", "Nagaland", "Manipur", "Assam"],
+  "correctOption": "Odisha"
+},
+{
+  "question": "Which day has been proclaimed as The International Day for Biological Diversity (IDB) by The United Nations?",
+  "options": ["18 October", "10 November", "24 April", "22 May"],
+  "correctOption": "22 May"
+},
+{
+  "question": "In which city of India would you find the Swami Vivekananda Airport?",
+  "options": ["Kanyakumari", "Raipur", "Ranchi", "Durgapur"],
+  "correctOption": "Raipur"
+},
+{
+  "question": "Sanjhi Art is associated with which of the following states of India?",
+  "options": ["Uttar Pradesh", "Rajasthan", "West Bengal", "Gujarat"],
+  "correctOption": "Uttar Pradesh"
+},
+{
+  "question": "Which of the following states is the biggest Jute producer in India?",
+  "options": ["West Bengal", "Nagaland", "Karnataka", "Rajasthan"],
+  "correctOption": "West Bengal"
+},
+{
+  "question": "Which of the districts listed as options is not one of the three districts in the Chambal division of the state of Madhya Pradesh?",
+  "options": ["Bhind", "Chhindwara", "Sheopur", "Morena"],
+  "correctOption": "Chhindwara"
+},
+{
+  "question": "Which one of the following caves is situated in Maharashtra?",
+  "options": ["Badami", "Amarnath", "Ellora", "Borra"],
+  "correctOption": "Ellora"
+},
+{
+  "question": "Paithani Saree belongs to the state of _____?",
+  "options": ["Maharashtra", "Karnataka", "Tamil Nadu", "Kerala"],
+  "correctOption": "Maharashtra"
+},
+{
+  "question": "The hill station of Chail is located in __________.",
+  "options": ["Himachal Pradesh", "Uttar Pradesh", "Arunachal Pradesh", "Madhya Pradesh"],
+  "correctOption": "Himachal Pradesh"
+},
+{
+  "question": "Which of the following is the capital of the Union Territory Dadra and Nagar Haveli?",
+  "options": ["Port Blair", "Kavaratti", "Daman", "Silvassa"],
+  "correctOption": "Silvassa"
+},
+{
+  "question": "Jawaharlal Nehru port is located in:",
+  "options": ["Kerala", "Maharashtra", "Andhra Pradesh", "West Bengal"],
+  "correctOption": "Maharashtra"
+},
+{
+  "question": "The National Institute of Mental Health and Neuro Sciences (NIMHANS) is located in:",
+  "options": ["Bengaluru", "Puducherry", "Kolkata", "Indore"],
+  "correctOption": "Bengaluru"
+},
+{
+  "question": "The Hill station of Matheran is located in ______.",
+  "options": ["Maharashtra", "Manipur", "Madhya Pradesh", "Kerala"],
+  "correctOption": "Maharashtra"
+},
+{
+  "question": "The Khurja pottery is associated with which state of India?",
+  "options": ["Andhra Pradesh", "Uttar Pradesh", "Madhya Pradesh", "Himachal Pradesh"],
+  "correctOption": "Uttar Pradesh"
+},
+{
+  "question": "Blue Jay or Indian Roller is the state bird of how many Indian states?",
+  "options": ["4", "5", "2", "3"],
+  "correctOption": "3"
+},
+{
+  "question": "In which state of India is Gol Gumbaz situated?",
+  "options": ["Andhra Pradesh", "Karnataka", "Maharashtra", "Kerala"],
+  "correctOption": "Karnataka"
+},
+{
+  "question": "What was the name of the only female Orangutan of India which died in the zoo of Odisha?",
+  "options": ["Pinny", "Tinny", "Binny", "Ginny"],
+  "correctOption": "Binny"
+},
+{
+  "question": "Red Panda is a state animal of which of the following state?",
+  "options": ["Mizoram", "Manipur", "Meghalaya", "Sikkim"],
+  "correctOption": "Sikkim"
+},
+{
+  "question": "In which city of India is the multi-art complex called Bharat Bhavan located? It was inaugurated by the then Prime Minister Mrs. Indira Gandhi in 1982.",
+  "options": ["Lucknow", "Bhopal", "Bangalore", "Pune"],
+  "correctOption": "Bhopal"
+},
+{
+  "question": "Which of the following Monument-Place pairs is correct?",
+  "options": ["Hawa Mahal - Punjab", "Victoria Mahal - West Bengal", "Nalanda - Assam", "Lal Kila - Uttar Pradesh"],
+  "correctOption": "Victoria Mahal - West Bengal"
+},
+{
+  "question": "Which of the following is NOT a twin city of India?",
+  "options": ["Ahmedabad and Gandhinagar", "Hubli and Dharwad", "Thrissur and Thiruvalla", "Cuttack and Bhubaneswar"],
+  "correctOption": "Thrissur and Thiruvalla"
+},
+{
+  "question": "Minhaj-i-Siraj, a chronicler used the term “Hindustan” to represent the areas of _______.",
+  "options": ["Afghanistan, Iran, and India", "Punjab, Haryana and lands between Ganga and Yamuna", "Central India and Deccan", "Punjab and Sindh"],
+  "correctOption": "Punjab, Haryana and lands between Ganga and Yamuna"
+},
+{
+  "question": "Amaravati Stupa is located in which state of India?",
+  "options": ["Madhya Pradesh", "Chhattisgarh", "Andhra Pradesh", "Maharashtra"],
+  "correctOption": "Andhra Pradesh"
+},
+
+ {
+    "question": "Which state of India is given the popular name of ‘India’s bread-basket’?",
+    "options": ["Punjab", "Maharashtra", "Assam", "Uttar Pradesh"],
+    "correctOption": "Punjab"
+  },
+  {
+    "question": "Which city of India is known as 'Athens of the East'?",
+    "options": ["Allahabad", "Patna", "Madurai", "Kochi"],
+    "correctOption": "Madurai"
+  },
+  {
+    "question": "______ is also known as the 'Golden City'.",
+    "options": ["Jaisalmer", "Jodhpur", "Dungarpur", "Bundi"],
+    "correctOption": "Jaisalmer"
+  },
+  {
+    "question": "In which year did Telangana become the 29th state of India?",
+    "options": ["2011", "2002", "2004", "2014"],
+    "correctOption": "2014"
+  },
+  {
+    "question": "Kudankulam Nuclear Power Plant in Tamil Nadu is set up in collaboration with:",
+    "options": ["US", "France", "Russia", "Australia"],
+    "correctOption": "Russia"
+  },
+  {
+    "question": "Salsette Island is situated in which state of India?",
+    "options": ["Tamil Nadu", "Andhra Pradesh", "Maharashtra", "Kerala"],
+    "correctOption": "Maharashtra"
+  },
+  {
+    "question": "Vivekananda Rock Memorial is in which state of India?",
+    "options": ["Tamil Nadu", "Maharashtra", "Andhra Pradesh", "Kerala"],
+    "correctOption": "Tamil Nadu"
+  },
+  {
+    "question": "As per state census 2011, which of the following is the least populous state of India?",
+    "options": ["Sikkim", "Tamil Nadu", "Kerala", "Odisha"],
+    "correctOption": "Sikkim"
+  },
+  {
+    "question": "As per Census 2011, which of the following is the most thickly populated state in India?",
+    "options": ["Bihar", "West Bengal", "Goa", "Maharashtra"],
+    "correctOption": "Bihar"
+  },
+  {
+    "question": "In which of the following states/union territories are you more likely to find the natural habitat of the one-horned rhinoceros (Indian Rhino)?",
+    "options": ["Sikkim", "Jammu & Kashmir", "Assam", "Ladakh"],
+    "correctOption": "Assam"
+  },
+  {
+    "question": "Tagore Centre for the Study of Culture and Civilization is located in ______.",
+    "options": ["Madhya Pradesh", "Himachal Pradesh", "West Bengal", "Andhra Pradesh"],
+    "correctOption": "Himachal Pradesh"
+  },
+  {
+    "question": "Which of the following tiger reserves is NOT located in Karnataka?",
+    "options": ["Bhadra", "Pench", "Dandeli-Anshi", "Nagarhole"],
+    "correctOption": "Pench"
+  },
+  {
+    "question": "The Buddhist sites Vaishali and Nalanda are situated in which of the following states?",
+    "options": ["Chhattisgarh", "Bihar", "Telangana", "Odisha"],
+    "correctOption": "Bihar"
+  },
+  {
+    "question": "Which of the following places in India would you visit to see Mughal emperor Humayun's library?",
+    "options": ["Aurangabad", "Agra", "Aligarh", "New Delhi"],
+    "correctOption": "New Delhi"
+  },
+  {
+    "question": "At which of the following hill stations can tourists visiting in winter experience living in igloos?",
+    "options": ["Nainital", "Shimla", "Kashmir", "Manali"],
+    "correctOption": "Manali"
+  },
+  {
+    "question": "The Char-Dham Highway Project will connect four holy places: Yamunotri, Gangotri, Kedarnath and Badrinath. To which Indian state do these places belong?",
+    "options": ["Uttarakhand", "Madhya Pradesh", "Uttar Pradesh", "Jharkhand"],
+    "correctOption": "Uttarakhand"
+  },
+  {
+    "question": "Which state in India was the first to introduce the 'Mid-day Meal Scheme' for school children?",
+    "options": ["Maharashtra", "Gujarat", "Tamil Nadu", "Kerala"],
+    "correctOption": "Tamil Nadu"
+  },
+  {
+    "question": "The Indian Government annexed ______ in 1948 under the code name 'Operation Polo'.",
+    "options": ["Hyderabad", "Gwalior", "Mysore", "Baroda"],
+    "correctOption": "Hyderabad"
+  },
+  {
+    "question": "Yadgir, Bidar and Gadag are districts in the state of ______.",
+    "options": ["Karnataka", "Tamil Nadu", "Andhra Pradesh", "Kerala"],
+    "correctOption": "Karnataka"
+  },
+  {
+    "question": "National Highway 18 does NOT pass through which of the following states?",
+    "options": ["Bihar", "West Bengal", "Odisha", "Jharkhand"],
+    "correctOption": "Bihar"
+  },
+  {
+    "question": "Which of the following forms of martial arts is from Kerala?",
+    "options": ["Paika Akhada", "Gatka", "Kalarippayattu", "Silambam"],
+    "correctOption": "Kalarippayattu"
+  },
+  {
+    "question": "At which place was the Saffron Mission initiated in 2010?",
+    "options": ["Andhra Pradesh", "Karnataka", "Jammu and Kashmir", "Haryana"],
+    "correctOption": "Jammu and Kashmir"
+  },
+  {
+    "question": "‘Kalamezhuthu' is a ritual art form found in:",
+    "options": ["Maharashtra", "Kerala", "Karnataka", "Tamil Nadu"],
+    "correctOption": "Kerala"
+  },
+  {
+    "question": "‘Aloo Posto’ is a traditional delicacy of which state of India?",
+    "options": ["Haryana", "Uttarakhand", "Gujarat", "West Bengal"],
+    "correctOption": "West Bengal"
+  },
+  {
+    "question": "Which of the following states was formed in the year 2000?",
+    "options": ["Odisha", "Uttarakhand", "Goa", "Sikkim"],
+    "correctOption": "Uttarakhand"
+  },
+  {
+    "question": "The Barabati Sports Stadium is located in the state of:",
+    "options": ["Goa", "Himachal Pradesh", "Assam", "Odisha"],
+    "correctOption": "Odisha"
+  },
+  {
+    "question": "In which state is the hill station Matheran located?",
+    "options": ["Maharashtra", "Madhya Pradesh", "Karnataka", "Tamil Nadu"],
+    "correctOption": "Maharashtra"
+  },
+  {
+    "question": "‘Ramoji Film City’ is located close to which of the following cities?",
+    "options": ["Pune", "Hyderabad", "Mumbai", "Gurugram"],
+    "correctOption": "Hyderabad"
+  },
+  {
+    "question": "The Silent Valley Movement was started in 1973 in the state of:",
+    "options": ["Kerala", "Himachal Pradesh", "Odisha", "Andhra Pradesh"],
+    "correctOption": "Kerala"
+  },
+  {
+    "question": "Vailankanni (Velankanni) is a pilgrim centre located in the ______ district of Tamil Nadu.",
+    "options": ["Theni", "Salem", "Nagapattinam", "Madurai"],
+    "correctOption": "Nagapattinam"
+  },
+  
+  {
+    "question": "The longest continuous wall in India, the second longest in the world, is at ______ Fort.",
+    "options": ["Kumbhalgarh", "Chittorgarh", "Mehrangarh", "Kangra"],
+    "correctOption": "Kumbhalgarh"
+  },
+  {
+    "question": "At which of the following places is the Nehru Memorial Museum and Library located?",
+    "options": ["Kolkata", "New Delhi", "Prayagraj", "Mumbai"],
+    "correctOption": "New Delhi"
+  },
+  {
+    "question": "Which of the following states came into being as the 23rd, 24th, and 25th states of the Indian Union in 1987?",
+    "options": ["Uttarakhand, Jharkhand, Chhattisgarh", "Maharashtra, Gujarat, Rajasthan", "Manipur, Tripura, Meghalaya", "Mizoram, Arunachal Pradesh, Goa"],
+    "correctOption": "Mizoram, Arunachal Pradesh, Goa"
+  },
+  {
+    "question": "______ is famous for Muga silk.",
+    "options": ["Nagaland", "Assam", "Odisha", "Manipur"],
+    "correctOption": "Assam"
+  },
+  {
+    "question": "‘Margomkali’, a ritual folk art form, is from the state of ______.",
+    "options": ["Assam", "Kerala", "Nagaland", "Punjab"],
+    "correctOption": "Kerala"
+  },
+  {
+    "question": "The language ‘Idu Mishmi’ is spoken in the state of ______.",
+    "options": ["Kerala", "Punjab", "Arunachal Pradesh", "Madhya Pradesh"],
+    "correctOption": "Arunachal Pradesh"
+  },
+  {
+    "question": "Virupaksha Temple is situated in which of the following districts of Karnataka?",
+    "options": ["Chikkaballapur", "Bidar", "Ballari", "Bagalkot"],
+    "correctOption": "Ballari"
+  },
+  {
+    "question": "'Panche' is a traditional sarong worn by the men in the state of ______.",
+    "options": ["Kerala", "Karnataka", "Assam", "Sikkim"],
+    "correctOption": "Karnataka"
+  },
+  {
+    "question": "Which of the following cities is closest to the location of Pushkar Fair?",
+    "options": ["Ahmedabad", "Ajmer", "Prayagraj", "Amravati"],
+    "correctOption": "Ajmer"
+  },
+  {
+    "question": "In which present-day state will you find the Megudi temple?",
+    "options": ["Tamil Nadu", "Odisha", "Karnataka", "Kerala"],
+    "correctOption": "Karnataka"
+  },
+  {
+    "question": "Which of the following is the most literate district in India as per Census 2011?",
+    "options": ["Ernakulam", "Kottayam", "Serchhip", "Champhai"],
+    "correctOption": "Serchhip"
+  },
+  {
+    "question": "Which of the following cities is situated on the banks of river Saryu?",
+    "options": ["Ahmedabad", "Jaipur", "Hyderabad", "Ayodhya"],
+    "correctOption": "Ayodhya"
+  },
+  {
+    "question": "Which of the following Indian states has the famous tourist destination called Pamban Island?",
+    "options": ["Kerala", "Andhra Pradesh", "Odisha", "Tamil Nadu"],
+    "correctOption": "Tamil Nadu"
+  },
+  {
+    "question": "In which state is India’s least densely populated district Dibang Valley located as per Census 2011?",
+    "options": ["Himachal Pradesh", "Nagaland", "Telangana", "Arunachal Pradesh"],
+    "correctOption": "Arunachal Pradesh"
+  },
+  {
+    "question": "Where is the Kudremukh iron ore mine located?",
+    "options": ["Andhra Pradesh", "Bihar", "Odisha", "Karnataka"],
+    "correctOption": "Karnataka"
+  },
+  {
+    "question": "In which of the following districts of Gujarat is the ‘Statue of Unity’ located?",
+    "options": ["Narmada", "Navsari", "Surat", "Vadodara"],
+    "correctOption": "Narmada"
+  },
+  {
+    "question": "In which of the following states/union territories is India’s highest Meteorological Centre situated?",
+    "options": ["Assam", "Meghalaya", "Ladakh", "Jammu and Kashmir"],
+    "correctOption": "Ladakh"
+  },
+  {
+    "question": "In which of the following states is the famous Chitradurga Fort located?",
+    "options": ["Kerala", "Karnataka", "Tamil Nadu", "Rajasthan"],
+    "correctOption": "Karnataka"
+  },
+  {
+    "question": "In which of the following cities is the corporate centre of State Bank of India (SBI) situated?",
+    "options": ["Hyderabad", "Kolkata", "Mumbai", "Bengaluru"],
+    "correctOption": "Mumbai"
+  },
+  {
+    "question": "In which of the following states is Sri Bhramaramba Mallikarjuna Temple located?",
+    "options": ["Andhra Pradesh", "Odisha", "Maharashtra", "Tamil Nadu"],
+    "correctOption": "Andhra Pradesh"
+  },
+  {
+    "question": "The Sufi shrine Charar-e-Sharief (or Sharif) is located near ______ city.",
+    "options": ["Srinagar", "Mumbai", "Hyderabad", "Lucknow"],
+    "correctOption": "Srinagar"
+  },
+  {
+    "question": "'Puanchei' is the traditional dress of ______.",
+    "options": ["Karnataka", "Mizoram", "Goa", "Sikkim"],
+    "correctOption": "Mizoram"
+  },
+  {
+    "question": "Which of the following is the state flower of Manipur?",
+    "options": ["Foxtail Orchids", "Shirui Lily", "Pink Rhododendron", "Retusa"],
+    "correctOption": "Shirui Lily"
+  },
+  {
+    "question": "Which of the following states emerged as a separate state in 1963?",
+    "options": ["Nagaland", "Mizoram", "Arunachal Pradesh", "Tripura"],
+    "correctOption": "Nagaland"
+  },
+  {
+    "question": "Which present-day Indian state came into existence as the Mysore state in 1953?",
+    "options": ["Kerala", "Karnataka", "Tamil Nadu", "Andhra Pradesh"],
+    "correctOption": "Karnataka"
+  },
+  {
+    "question": "'Rahide' is a long scarf worn by the women of ______ to protect their head from cool breeze as well as to show their traditional social affinity.",
+    "options": ["Madhya Pradesh", "Himachal Pradesh", "Uttar Pradesh", "Arunachal Pradesh"],
+    "correctOption": "Himachal Pradesh"
+  },
+  {
+    "question": "In which of the following states is the Ajanta caves situated?",
+    "options": ["Uttar Pradesh", "Maharashtra", "Kerala", "Madhya Pradesh"],
+    "correctOption": "Maharashtra"
+  },
+  {
+    "question": "Which of the following states was NOT formed in the year 2000?",
+    "options": ["Jharkhand", "Telangana", "Uttarakhand", "Chhattisgarh"],
+    "correctOption": "Telangana"
+  },
+  {
+    "question": "Which modern-day Indian state was created on 1 April 1937 as the United Provinces by the Britishers?",
+    "options": ["Andhra Pradesh", "Arunachal Pradesh", "Uttar Pradesh", "Madhya Pradesh"],
+    "correctOption": "Uttar Pradesh"
+  },
+  {
+    "question": "Which state in India has the highest number of Districts? SSC CHSL 11/8/2021 (Morning)",
+    "options": ["Uttar Pradesh", "Tamil Nadu", "Madhya Pradesh", "Rajasthan"],
+    "correctOption": "Uttar Pradesh"
+  },
+  
+  
+  {
+"question": "India's first lithium refinery, which will process lithium ore to produce battery-grade material, will be set up in:",
+"options": ["Uttar Pradesh", "Rajasthan", "Madhya Pradesh", "Gujarat"],
+"correctOption": "Gujarat"
+},
+{
+"question": "In which year was Jharkhand made a separate state of India?",
+"options": ["1997", "1999", "2004", "2000"],
+"correctOption": "2000"
+},
+{
+"question": "In which year did the state of Himachal Pradesh come into existence?",
+"options": ["1971", "1947", "1956", "1965"],
+"correctOption": "1971"
+},
+{
+"question": "'Sandalwood' is the state tree of .",
+"options": ["Madhya Pradesh", "Karnataka", "Punjab", "Rajasthan"],
+"correctOption": "Karnataka"
+},
+{
+"question": "In which state will you find Mayurbhanj district, the last among the princely states, that merged with the state?",
+"options": ["Kerala", "Jharkhand", "Odisha", "Chhattisgarh"],
+"correctOption": "Odisha"
+},
+{
+"question": "In 2020, _______ becomes the first state to provide 100% piped tap water to rural households.",
+"options": ["Mizoram", "Kerala", "Sikkim", "Goa"],
+"correctOption": "Goa"
+},
+{
+"question": "Dogri language is mainly spoken in which of the following states/union territories?",
+"options": ["Uttarakhand", "Jammu and Kashmir", "Lakshadweep", "Assam"],
+"correctOption": "Jammu and Kashmir"
+},
+{
+"question": "Which of the following states was popularly known as the ‘Land of Gods’? It got a separate identity as a state on 9 November 2000.",
+"options": ["Telangana", "Goa", "Karnataka", "Uttarakhand"],
+"correctOption": "Uttarakhand"
+},
+{
+"question": "Litti Chokha is a famous cuisine of which of the following states?",
+"options": ["Maharashtra", "Bihar", "Gujarat", "Odisha"],
+"correctOption": "Bihar"
+},
+{
+"question": "In the context of the culture of Uttarakhand, 'Kafuli' is the name of a:",
+"options": ["cuisine", "folk dance", "festival", "style of painting"],
+"correctOption": "cuisine"
+},
+{
+"question": "In which of the following states of India is the buffalo breed named 'Banni' mainly reared?",
+"options": ["Kerala", "West Bengal", "Gujarat", "Odisha"],
+"correctOption": "Gujarat"
+},
+{
+"question": "Which State/Union Territory is traditionally associated with a yogurt-based gravy dish called 'Yakhni'?",
+"options": ["Jammu and Kashmir", "Uttar Pradesh", "Madhya Pradesh", "Jharkhand"],
+"correctOption": "Jammu and Kashmir"
+},
+{
+"question": " is a palace in Jaipur, built by Sawai Pratap Singh.",
+"options": ["Lallgarh Palace", "Umaid Bhavan", "Hawa Mahal", "Sajjangarh Palace"],
+"correctOption": "Sajjangarh Palace"
+},
+{
+"question": "Which of the following Indian states was one of the worst affected by the tsunami on 26th December 2004?",
+"options": ["Bihar", "Maharashtra", "Tamil Nadu", "Uttar Pradesh"],
+"correctOption": "Tamil Nadu"
+},
+{
+"question": "In which of the following states is Bishnupur, famous for terracotta temples, located?",
+"options": ["Telangana", "Gujarat", "West Bengal", "Meghalaya"],
+"correctOption": "West Bengal"
+},
+{
+"question": "Which of the following palaces is located in Thiruvananthapuram?",
+"options": ["Chowmahalla Palace", "Amber Palace", "Ujjayanta Palace", "Kanakakkunnu Palace"],
+"correctOption": "Kanakakkunnu Palace"
+},
+{
+"question": "Janapada Geete, which includes the vachanas of Basavanna, is associated with the state of ______.",
+"options": ["Odisha", "Kerala", "West Bengal", "Karnataka"],
+"correctOption": "Karnataka"
+},
+{
+"question": "Pochampally Ikat sarees and dress materials, famous for their traditional geometric patterns belong to the state of ______.",
+"options": ["Telangana", "Tamil Nadu", "Karnataka", "Kerala"],
+"correctOption": "Telangana"
+},
+{
+"question": "'Muya Awandru' is a traditional food of this Indian state.",
+"options": ["Gujarat", "Karnataka", "Chhattisgarh", "Tripura"],
+"correctOption": "Tripura"
+},
+{
+"question": "Which of the following is NOT a town of Karnataka?",
+"options": ["Chikmagalur", "Bijapur", "Chitradurga", "Bhusawal"],
+"correctOption": "Bhusawal"
+},
+{
+"question": "The Hemkund Sahib Gurudwara is located in the state of :",
+"options": ["Uttarakhand", "Bihar", "Himachal Pradesh", "Punjab"],
+"correctOption": "Uttarakhand"
+},
+{
+"question": "Bombay state was split along linguistic lines, forming Maharashtra and ______, in the year 1960.",
+"options": ["Gujarat", "Karnataka", "Rajasthan", "Goa"],
+"correctOption": "Gujarat"
+},
+{
+"question": "In which Indian state is the Tsomgo Lake located?",
+"options": ["Nagaland", "Arunachal Pradesh", "Sikkim", "Mizoram"],
+"correctOption": "Sikkim"
+},
+{
+"question": "In which of the following states is the Stanley Reservoir located?",
+"options": ["Tamil Nadu", "Goa", "Maharashtra", "Andhra Pradesh"],
+"correctOption": "Tamil Nadu"
+},
+{
+"question": "'Tholu Bommalatta', a shadow puppet theatre tradition, belongs to the state of:",
+"options": ["Andhra Pradesh", "Karnataka", "Kerala", "Maharashtra"],
+"correctOption": "Andhra Pradesh"
+},
+{
+"question": "In which Indian state is the 'Pookode Lake' located?",
+"options": ["Punjab", "Gujarat", "Kerala", "Tamil Nadu"],
+"correctOption": "Kerala"
+},
+{
+"question": "In which state of India does the 'Weinia Falls' lie?",
+"options": ["Sikkim", "Himachal Pradesh", "Meghalaya", "Goa"],
+"correctOption": "Meghalaya"
+},
+{
+"question": "Churahi, Mandeali, and Keonthali are dialects spoken in the state of:",
+"options": ["Madhya Pradesh", "Arunachal Pradesh", "Uttar Pradesh", "Himachal Pradesh"],
+"correctOption": "Himachal Pradesh"
+},
+{
+"question": "Which of the following is the State Tree of Maharashtra?",
+"options": ["Mango", "Jammi", "Banyan", "Ashok"],
+"correctOption": "Mango"
+},
+{
+"question": "Which of the following is the state bird of Rajasthan?",
+"options": ["Indian Roller", "Crane Crane", "Asian Cuckoo", "Son Chidiya (Great Indian Bustard)"],
+"correctOption": "Indian Roller"
+},
+
+{
+  "question": "The Mattancherry palace is situated in:",
+  "options": ["Odisha", "Kerala", "Andhra Pradesh", "Tamil Nadu"],
+  "correctOption": "Kerala"
+},
+{
+  "question": "Which state among the following is the largest producer of coffee?",
+  "options": ["Karnataka", "Tamil Nadu", "Andhra Pradesh", "Kerala"],
+  "correctOption": "Karnataka"
+},
+{
+  "question": "The caves of Bagh, which are a marvellous vestige of Indian rock-cut architecture, are situated in:",
+  "options": ["Bihar", "Chhattisgarh", "Punjab", "Madhya Pradesh"],
+  "correctOption": "Madhya Pradesh"
+},
+{
+  "question": "Kakinada, which enjoys a special place in the gas pipeline network of India, is located in:",
+  "options": ["Kerala", "Odisha", "Tamil Nadu", "Andhra Pradesh"],
+  "correctOption": "Andhra Pradesh"
+},
+{
+  "question": "Kavaratti is the capital of which of the following Union Territories?",
+  "options": ["Jammu and Kashmir", "Ladakh", "Andaman and Nicobar Islands", "Lakshadweep"],
+  "correctOption": "Lakshadweep"
+},
+{
+  "question": "'Balchão' and 'Sorpotel' are the traditional culinary dishes of:",
+  "options": ["Karnataka", "Uttarakhand", "Goa", "Punjab"],
+  "correctOption": "Goa"
+},
+{
+  "question": "'Tolu Bommalata' (leather shadow puppet show) is a traditional art form from the state of:",
+  "options": ["Karnataka", "Kerala", "Tamil Nadu", "Andhra Pradesh"],
+  "correctOption": "Andhra Pradesh"
+},
+{
+  "question": "Who was the first woman chief secretary of Punjab?",
+  "options": ["Akanksha Juneja", "Dr. Navjot Kaur Sidhu", "Vini Mahajan", "Kiran Bedi"],
+  "correctOption": "Vini Mahajan"
+},
+{
+  "question": "Which of the following is a site of archaeological importance in Jammu and Kashmir?",
+  "options": ["Maski", "Burzahom", "Brahmagiri", "Watkal"],
+  "correctOption": "Burzahom"
+},
+{
+  "question": "Chutka Atomic Power Plant is situated in which of the following states?",
+  "options": ["Haryana", "Gujarat", "Madhya Pradesh", "Rajasthan"],
+  "correctOption": "Madhya Pradesh"
+},
+{
+  "question": "'Kafuli' is a delicacy of which of the following states’ cuisine?",
+  "options": ["Punjab", "Assam", "Sikkim", "Uttarakhand"],
+  "correctOption": "Uttarakhand"
+},
+ 
+      // Add more questions as needed
+];
+
+showQuestion(); // Initial display of the first question
+ function updateTotalQuestionCount() {
+      const totalQuestionCount = questions.length;
+      document.getElementById('totalQuestionCount').textContent = totalQuestionCount;
+    }
+
+    // Call the function to update total question count initially
+    updateTotalQuestionCount();
+</script>
+</body>
+</html>
