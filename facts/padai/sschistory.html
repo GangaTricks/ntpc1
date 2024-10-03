@@ -7,302 +7,200 @@
 			<script src="../../urlRewrite.js"></script>
 		<link rel="shortcut icon" href="../../icon2.png">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-   <style>
-  
-         body { 
-           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-		   font-size: 12px;
-}
  
 
-    
-.text-success-transparent {
-  color: rgba(0,160, 0, 1); /* Transparent green color */
-}
 
-@keyframes shake {
-  0% { transform: translateX(0); }
-  10%, 90% { transform: translateX(-5px); }
-  20%, 80% { transform: translateX(5px); }
-  30%, 50%, 70% { transform: translateX(-5px); }
-  40%, 60% { transform: translateX(5px); }
-  100% { transform: translateX(0); }
-}
-
-.shake {
-  animation: shake 0.1s ease-in-out;
-}
-
-/* Additional CSS for the option border */
-.option-border {
-    position: relative; /* Make the container relative for absolute positioning */
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding: 3px;
-}
-
-/* Hide the default radio button */
-.form-check-input {
-    display: none;
-}
-
-/* Style the label to look like a clickable option */
-.form-check-label {
-    cursor: pointer;
-    display: block;
-    position: relative;
-}
-
-/* Add styles to label when hovering over it */
-.form-check-label:hover .option-border {
-    background-color: #f0f0f0;
-}
-
-/* Adjustments to form-check-label */
-.form-check-label:before {
-    content: '';
-    display: inline-block;
-    width: 20px; /* Adjust width as needed */
-    height: 20px; /* Adjust height as needed */
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    position: absolute;
-    left: -30px; /* Adjust spacing between circle and text */
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-/* Change styles of label when radio button is checked */
-.form-check-input:checked + .form-check-label:before {
-    background-color: #007bff; /* Change color when checked */
-}
-
-
-    label {
-      font-weight: bold;
-	  font-size: 20px;
-    }
-
-
-
-button.cool {
-		background: white;
-		font-size: 10px;
-		display: block;
-		width: 100%;
-      padding: 02px;
-	  margin-bottom: 10px;
-      border: 2px solid indigo;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
 	
-	button.cool:hover {
-	display: none;
-	}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../stylequiz.css" />
 	
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- my style file gangatricks -->
+ 
+<!-- Initialize Firebase -->
+<script type="module" src="../../app.js"></script>
 
 
-
-button {
-      padding: 5px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-
-    button:hover {
-      background-color: orange;
-      color: blue;
-    }
-
-    .btn-primary {
-      background-color: ;
-    }
-
-    .btn-success {
-      background-color: ;
-    }
-
-    .btn-primary:hover {
-      background-color: ;
-    }
-
-    .btn-success:hover {
-      background-color: #218838;
-    }
-
-    .btn-container {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-
-    .btn-container button {
-      flex: 1;
-      margin: 0 5px;
-    }
-
-    input[type="number"] {
-      padding: 7px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      width: 60px;
-    }
-
-
-.sidebar {
-  height: 100%;
-  margin-top: 35px;
-  width: 250px;
-  position: fixed; /* Change position to fixed */
-  top: 0;
-  left: -250px; /* Move sidebar off-screen initially */
-  background-color: #f2f2f2;
-  overflow-x: hidden;
-  padding-top: 20px;
-  transition: 0.5s;
-  z-index: 1; /* Ensure the sidebar is above the content */
-}
-.sidebar a {
-  padding: 10px 15px;
-  text-decoration: none;
-  font-size: 20px;
-  display: block;
-  transition: 0.1s;
-}
-.sidebar a:hover {
-  background-color: #ddd;
-}
-.container {
-  padding-left: 0; /* Remove padding from the container */
-  transition: 0.5s;
-}
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: ;
-  padding: 10px;
-  z-index: 2; /* Ensure the navbar is above the sidebar */
-}
-	    /* Dark mode styles */
-body.dark-mode {
-    background-color: #333;
-    color: #fff;
-}
-
-.headerbar {
-		background: orange;
-		color: #FFF;
-		line-height: 50px;
-		position: fixed;
-		top: 0;
-		left: 0px;
-		right: 0px;
-		height: 60px;
-		display: flex;
-		padding: 02px;
-		justify-content: space-between;
-		z-index: 1000;
-		}
-
- .navbot {
-            background: white;
-            color: #FFF;
-            line-height: 30px;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 60px;
-			box-shadow: 0 -5px 5px -5px #333;
-			padding-top: 10px;
-			padding-bottom: 10px;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-around;
-            transition: transform 0.3s; /* Add a smooth transition effect */
-        }
-
-        .navbot.hidden {
-            transform: translateY(100%); /* Move the navbar outside the viewport */
-        }
-
-               .navbot div {
-            display: flex;
-            gap: 10px;
-        }
-		
-		.exim {
-		position: fixed;
-		top: 70px;
-		height:60px;
-		width: 100%;
-		background: #4169E1;
-		color: white;
-		     z-index: 1000;
-
-		}
-
-main {
-padding-top: 60px;
-padding-left: 05px;
-padding-left: 05px;
-padding-bottom: 200px;
-margin-bottom: 03px;
-}
-
-.btn-bookmark {
-position: absolute;
-right: 5%;
-font-size: 15px;
-border: 2px solid gray;
-margin-left: 30px;}
-
-.takemargin {
-margin-bottom: 10px;
-}
-  </style>
 </head>
 <body> 
+
+
+<div class="container">
+	<div class="navbar">
+   
+				<header class="headerbar">
+						<div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+						<div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+				</header>
+
+
+		<div id="sidebar" class="sidebar">
+			
+				<h3 onclick="toggleSidebar()" style="text-align: right; margin-right: 15px;">⛌</h3>
+				
+		<div style="font-size: 10px; display: flex; justify-content: space-around;">
+				
+				<h6 id="userFullName"></h6>
+				<img id="userPhoto" src="../../default-profile.png" width="50" height="50" alt="User Photo" />
+
+		</div>
+				<h6 id="userEmail"></h6>
+				<button id="googleSignOutBtn" style="padding-left: 79%; display: none;">Sign Out</button>
+				
+				
+				
+				
+				
+				<a onclick="goToWebsite()" style="text-align: left; background: white; border: 2px solid lightblue;">Dashboard</a>
+				<a onclick="goToHub()"  style="text-align: left; background: white; border: 2px solid lightblue;">Courses</a>
+				<a onclick="goToEnglish()" style="text-align: left; background: white; border: 2px solid lightblue;">Free Study Material</a>
+				<a onclick="examQuiz()"  style="text-align: left; background: white; border: 2px solid lightblue;">Tests</a>
+				<a onclick="examQuiz()"  style="text-align: left; background: white; border: 2px solid lightblue;">Quiz</a>
+				<a onclick="examQuiz()"  style="text-align: left; background: white; border: 2px solid lightblue;">Live Mocks</a>
+				<a onclick="examQuiz()"  style="text-align: left; background: white; border: 2px solid lightblue;">Saved Questions</a>
+				<a onclick="examQuiz()"  style="text-align: left; background: white; border: 2px solid lightblue;">Order Details</a>
+				<a onclick="examQuiz()"  style="text-align: left; background: white; border: 2px solid lightblue;">Settings</a>
+				<a href="blog/.html"  id="popupLink" style="text-align: left; background: white; border: 2px solid lightblue;">Blog</a>
+				
+
+  
+				<h3 style="text-align: right; background: lightblue;">Tools</h3>
+						<button id="installButton">Install App</button>
+						<button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+						
+					
+
+
+				<p style="height: 130px;"></p>
+				
+		</div>
+    </div>
+</div>
+
+
+
+<main>
+
+<div>
+<div class="progress" style="height: 2px;">
+  <div id="shuffleProgress" class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<div class="layer" id="layer1">
+
+<div style="display: flex; justify-content: space-around; padding-bottom: 02px; font-weight: bold;">
+			<h6> Hi!   <span id="userFirstName"></span> </h6>
+			
+
+
+
+<h6>SSC HISTORY </h6>
+
 	
-<div class="container">
-  <div class="navbar">
-  
-   <header class="headerbar">
-   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
-   <div><img src="../../icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
-   </header>
-  
-  
-<div id="sidebar" class="sidebar">
-<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>    
-<a href="#" onclick="goToWebsite()">Home 🏠</a>
-    <a href="#" onclick="goToHub()">Awareness</a>
-    <a href="#" onclick="goToEnglish()">English</a>
-    <a href="#" onclick="examQuiz()">ExamQuiz</a>
-    <a href="#">Live Mocks</a>
-<a href="#" onclick="showBookmarkedQuestions()">🔖 Bookmarks</a>
-    
-<div class="container">
-        <h3 style="text-align: right;">Tools🔨</h3>
-        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+
+																													
+																																
+</div>
+
+	<div style="display: flex; justify-content: space-between; padding-bottom: 02px;">
+			
+			<div>
+			<input type="number" id="jumpToQuestion" min="1">
+			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button></div>
+			<button id="shuffleToggle" class="btn btn-warning" onclick="toggleShuffle()">Start</button>
+			
+			<div><input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Complete</button></div>
+	</div>
+
+
+
+		<div class="takemargin" style="padding-bottom: 05px; color: white; font-size: 15px; font-weight: bold;">
+		
+		
+				<button style=" font-size: 15px; font-weight: bold;">Q   <span id="totalQuestionCount" class="badge badge-light"></span> Save <span id="bookmarkedCount" class="badge badge-light"></span> Mark <span id="displayCount" class="badge badge-light"></span> </button><div id="toast" class="toast"></div>
+				
+		 
+				<b class="btn-copy" style="cursor: pointer; font-size: 20px; ">📋</b>
+				
+				
+			
+				<button class="btn btn-bookmark" onclick="toggleBookmark()">✨</button>
+		</div>
+
+  <div class="question-container" id="question-container">
+			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
+			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
+			<div class="explanation"></div>
+
+	<div class="btn-container">
+      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
+      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
+      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
     </div>
 	
-	
-	
-	
   </div>
+
+
 </div>
-<script>
- // Load the completed work count when the page loads
+   </main>
+   
+   <div class="navbot" id="navbot">
+        <div>
+		<a href="../../index.html" style="cursor: pointer; font-size: 15px; font-weight: bold; padding: 05px; border-radius: 04px; background: none; color: black; box-shadow: -03px 02px 01px 0px rgba(0, 0, 0, 0.3); filter: grayscale(50%);">🏠<span>Home</span>
+        </a>
+		<button onclick="hideBookmarkedQuestions()" style="font-size: 15px; font-weight: bold; padding: 00px; background: none; color: black; box-shadow: 00px 2px 00px rgba(0, 0, 0, 0.3); filter: grayscale(50%);">📝<span>Quiz</span>
+        </button>
+       <button onclick="toggleDarkMode()" style="font-size: 15px; font-weight: bold; padding: 00px; background: none; color: black; box-shadow: 00px 02px 00px rgba(0, 0, 0, 0.3); filter: grayscale(100%);">🌓<span>Dark</span>
+        </button>
+		<button id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="font-size: 15px; font-weight: bold; padding: 00px; background: none; color: black; box-shadow: 00px 2px 00px rgba(0, 0, 0, 0.3); filter: grayscale(50%);">🔖<span>Save</span>
+        </button>
+		<button onclick="showBookmarkedQuestions()" style="cursor: pointer; font-size: 15px; font-weight: bold; padding: 00px; background: none;  color: black; box-shadow: 03px 2px 00px rgba(0, 0, 0, 0.3); filter: grayscale(50%);">✨<span>Booked</span>
+        </button>
+
+ </div>
+    </div>
+
+ 
+
+<!-- Layer 2 to display bookmarked questions -->
+<div class="layer" id="layer2" style="display: none;">
+
+<div class="exim">
+<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
+<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
+<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
+  <h2>Bookmarked Questions</h2>
+</div>
+
+  <!-- Close button to hide layer 2 and show layer 1 -->
+  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
+
+  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
+</div>
+
+
+
+
+<script> 	
+
+ const uniqueIdentifier = 'padaisschistory';
+
+let bookmarks = [];
+let originalQuestionIndex; // Declare this variable at a higher scope
+let currentQuestionIndex = 0;
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
+let populateBookmarkedQuestions = false;
+let isShuffled = false;
+let shuffledQuestions = [];
+let shuffledBookmarkedIndices = [];
+let totalBookmarkedQuestions = 0;
+const shuffleToggle = document.getElementById('shuffleToggle');
+const shuffleProgressBar = document.getElementById('shuffleProgress');
+
+
+// Load the completed work count when the page loads
     window.onload = function() {
         displayCompletedWork();
         // Ensure input field reflects the saved count
@@ -336,287 +234,9 @@ margin-bottom: 10px;
         }
     }
 
-	// Function to toggle dark mode
-function toggleDarkMode() {
-    const body = document.body;
-    const isDarkMode = body.classList.contains('dark-mode');
-    
-    // Toggle the class and set the cookie
-    if (isDarkMode) {
-        body.classList.remove('dark-mode');
-        setDarkModeCookie(false); // Set cookie to false (light mode)
-    } else {
-        body.classList.add('dark-mode');
-        setDarkModeCookie(true); // Set cookie to true (dark mode)
-    }
-}
-
-// Function to set the dark mode cookie
-function setDarkModeCookie(isDarkMode) {
-    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
-}
-
-// Function to check if dark mode preference is stored in the cookie and apply it
-function applyDarkModeFromCookie() {
-    const cookies = document.cookie.split(';');
-    for (let cookie of cookies) {
-        const [name, value] = cookie.trim().split('=');
-        if (name === 'darkMode' && value === 'true') {
-            document.body.classList.add('dark-mode');
-            return;
-        }
-    }
-}
-
-// Apply dark mode preference from the cookie on page load
-applyDarkModeFromCookie();
-
-function toggleSidebar() {
-  var sidebar = document.getElementById("sidebar");
-  if (sidebar.style.left === "-250px") {
-    sidebar.style.left = "0";
-  } else {
-    sidebar.style.left = "-250px";
-  }
-}
-
- function goToHub() {
-        // Change 'https://example.com' to the actual URL you want to redirect to
-        window.location.href = '../../awareness/awareness1.html';
-    }
-
-  function goToWebsite() {
-        // Change 'https://example.com' to the actual URL you want to redirect to
-        window.location.href = '../../index.html';
-    }
- function examQuiz() {
-        // Change 'https://example.com' to the actual URL you want to redirect to
-        window.location.href = '../../examquiz/examquiz.html';
-    }
-
- function goToEnglish() {
-        // Change 'https://example.com' to the actual URL you want to redirect to
-        window.location.href = '../../english/english1.html';
-    }
-
-
-</script>
-
-<main>
-
-<div class="layer" id="layer1">
-
-<h6>SSC HISTORY | Total Questions :  <span id="totalQuestionCount"></span>/<span id="bookmarkedCount"></span>|<b id="completedCountDisplay" style="text-align: left;">Mark: <span id="displayCount"></span>🏃</b>|<b class="btn-copy" style="cursor: pointer;">📋</b>|<input type="number" class="displayCount" id="completedCount"/><button onclick="saveCompletedWork()" style="border: 2px solid gray;">Save</button></h6>
-
-		<div class="takemargin">
-			<label for="jumpToQuestion"></label>
-			<input type="number" id="jumpToQuestion" min="1">
-			<button onclick="jumpToQuestion()" style="border: 2px solid gray; font-size: 15px;">Jump</button>
-			<button class="btn btn-bookmark" onclick="toggleBookmark()">Bookmark</button>
-		</div>
-
-  <div class="question-container" id="question-container">
-			<div id="question" class="h4" style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; padding: 10px;"></div>
-			<div id="options" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; padding: 20px;"></div>
-			<div class="explanation"></div>
-
-	<div class="btn-container">
-      <button class="btn btn-primary" onclick="showPreviousQuestion()" style="display: none;">Previous</button>
-      <button class="btn btn-success" onclick="showAnswer()" style="display: none;">Open</button>
-      <button class="btn btn-primary" onclick="showNextQuestion()" style="display: none;">Next</button>
-    </div>
-	
-  </div>
-
-
-</div>
-   </main>
-   
-   <div class="navbot" id="navbot">
-        <div>
-            <button class="h5" onclick="hideBookmarkedQuestions()" style="border: 3px solid orange; padding: 01px; font-size: 10px; filter: grayscale(50%);"><h5>𖠿Home</h5></button>
-            <button class="h5" onclick="toggleDarkMode()" style="border: 3px solid orange; padding: 00px; font-size: 10px; filter: grayscale(50%);"><h5>◐Dark</h5></button>
-<button class="h6" id="toggleBookmarkQuestions" onclick="togglePopulateBookmarkedQuestions()" style="border: 3px solid orange; font-size: 15px; padding: 00px; filter: grayscale(50%);"><h5>🔖<span>Saved</span></h5></button>
-<button class="h6" onclick="showBookmarkedQuestions()" style="font-size: 10px; border: 3px solid orange; padding: 00px; filter: grayscale(50%);"><h5>✨</h5></button>
-
-<button class="h6" onclick="goBack()" style="border: 3px solid orange; padding: 00px; font-size: 10px;"><h5>🔙</h5></button>          </div>
-    </div>
-
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-	
-        var prevScrollpos = window.pageYOffset;
-
-        window.onscroll = function() {
-            var currentScrollPos = window.pageYOffset;
-            var navbar = document.getElementById('navbot');
-
-            if (prevScrollpos > currentScrollPos) {
-                navbar.classList.remove('hidden');
-            } else {
-                navbar.classList.add('hidden');
-            }
-
-            prevScrollpos = currentScrollPos;
-        };
-    </script>
-
-
-<!-- Layer 2 to display bookmarked questions -->
-<div class="layer" id="layer2" style="display: none;">
-
-<div class="exim">
-
-
-<button onclick="exportBookmarksToFile()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Export ⬇️</button>
-<input type="file" id="importFileInput" style="display: none;" onchange="importBookmarksFromFile(event)">
-<button onclick="document.getElementById('importFileInput').click()" style="background: indigo; color: white; font-size: 15px; padding: 02px;">Import ⬆️</button>
-
-  <h2>Bookmarked Questions</h2>
-
-
-</div>
-
-
-
-
-
-  <!-- Close button to hide layer 2 and show layer 1 -->
-  <button class="btn btn-secondary" onclick="hideBookmarkedQuestions()" style="display: none;">Close</button>
-
-  <div id="bookmarkedQuestions" style="overflow-y: scroll; position: fixed; top: 140px; max-height: 70%;"></div>
-</div>
-
-<script>
-let bookmarks = [];
-let currentQuestionIndex = 0;
-const questionContainer = document.getElementById('question-container');
-const questionElement = document.getElementById('question');
-const optionsElement = document.getElementById('options');
-let currentBookmarkIndex = 0; // Keep track of the current bookmarked question index
-let populateBookmarkedQuestions = false;
-
-
-    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
-    var lastScrollTop = 0;
-
-    // Function to load more content when the user scrolls to the bottom
-    function loadMoreContent() {
-      var scrollTop = bookmarkedQuestions.scrollTop;
-      var scrollHeight = bookmarkedQuestions.scrollHeight;
-      var clientHeight = bookmarkedQuestions.clientHeight;
-
-      if (scrollTop > lastScrollTop) {
-        if (scrollTop + clientHeight >= scrollHeight) {
-          // Load more content here
-          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
-
-          // For example:
-          // fetch('/load-more-bookmarked-questions')
-          //   .then(response => response.json())
-          //   .then(data => {
-          //     // Append the new questions to the #bookmarkedQuestions element
-          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
-          //   });
-        }
-      }
-
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
-    }
-
-    // Add event listener for scroll events
-    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
-
-
-
-
-function showQuestion() {
-    // Get the current question
-    let currentQuestion;
-
-    // Check if only bookmarked questions should be populated
-    if (populateBookmarkedQuestions) {
-        // Get the bookmarked indices
-        const bookmarkedIndices = getBookmarkedIndices();
-        
-        // If there are bookmarked questions, select the current one
-        if (bookmarkedIndices.length > 0) {
-            // Select the current bookmarked question
-            currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
-            
-            // Update current bookmark index for cycling through bookmarked questions
-            currentBookmarkIndex = (currentBookmarkIndex + 1) % bookmarkedIndices.length;
-        }
-    }
-
-    // Get the current question
-    currentQuestion = questions[currentQuestionIndex]; 
-
-    // Shuffle the options
-    const shuffledOptions = shuffleArray(currentQuestion.options);
-
-    // Display the question text
-        questionElement.textContent = `Q.${currentQuestionIndex + 1}: ${currentQuestion.question}`;
-
-
-     <!-- Generate HTML for options -->
-const optionsHTML = shuffledOptions.map((option, index) => {
-    return `
-        <div class="form-check" style="margin-bottom: 10px; opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease;">
-            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
-            <label class="form-check-label" for="option${index}">
-                <div class="option-border">
-                    ${option}
-                </div>
-            </label>
-        </div>`;
-}).join('');
-
-// Set the HTML for options
-optionsElement.innerHTML = optionsHTML;
-
-    // Apply animations after rendering
-    const optionContainers = document.querySelectorAll('.form-check');
-    optionContainers.forEach((optionContainer, index) => {
-        setTimeout(() => {
-            optionContainer.style.opacity = '1';
-            optionContainer.style.transform = 'translateY(0)';
-        }, index * 100); // Adjust the delay as needed
-    });
-
-    // Update bookmark button text
-    const bookmarkButton = document.querySelector('.btn-bookmark');
-    bookmarkButton.textContent = bookmarks[currentQuestionIndex] ? '🤩' : '✨ Bookmark';
-}
-
-
-    function togglePopulateBookmarkedQuestions() {
-        populateBookmarkedQuestions = !populateBookmarkedQuestions;
-        const toggleButton = document.getElementById('toggleBookmarkQuestions');
-        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
-        showQuestion();
-    }
-
-
     function getCurrentQuestion() {
         // Modify this function to return the current question based on the currentQuestionIndex
     }
-
-    function getBookmarkedIndices() {
-        const bookmarkedIndices = [];
-        for (let i = 0; i < bookmarks.length; i++) {
-            if (bookmarks[i]) {
-                bookmarkedIndices.push(i);
-            }
-        }
-        return bookmarkedIndices;
-    }
-
-
-
-
 
 
 // Function to shuffle an array using Fisher-Yates algorithm
@@ -628,70 +248,133 @@ function shuffleArray(array) {
   return array;
 }
 
+		
+		function getBookmarkedIndices() {
+        const bookmarkedIndices = [];
+        for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i]) {
+                bookmarkedIndices.push(i);
+            }
+        }
+        return bookmarkedIndices;
+    }
 
- const copyButton = document.querySelector('.btn-copy');
+  function togglePopulateBookmarkedQuestions() {
+  resetQuestionContainer();
+        populateBookmarkedQuestions = !populateBookmarkedQuestions;
+        const toggleButton = document.getElementById('toggleBookmarkQuestions');
+        toggleButton.textContent = populateBookmarkedQuestions ? '⛔Exit' : '🔖Saved';
+        showQuestion();
+    }
 
-        // Add a click event listener to the "Copy to Clipboard" button
-        copyButton.addEventListener('click', () => {
-            const questionText = document.querySelector('#question').textContent;
-            const optionElements = document.querySelectorAll('.form-check-label');
-            
-            let optionsText = '';
-            let correctOption = null;
-
-            optionElements.forEach((optionElement, index) => {
-                const optionText = optionElement.textContent.trim();
-                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
-                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
-
-                if (isCorrect) {
-                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
-                }
-            });
-
-            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
-
-            const textarea = document.createElement('textarea');
-            textarea.value = textToCopy;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-
-            // Toggle button text
-            copyButton.textContent = '✅';
-            setTimeout(() => {
-                copyButton.textContent = '📋';
-            }, 2000); // Reset text after 2 seconds
+function getBookmarkedIndices() {
+    const bookmarkedIndices = [];
+    
+    if (Array.isArray(bookmarks)) {
+        // Process as an array
+        bookmarks.forEach((isBookmarked, index) => {
+            if (isBookmarked) {
+                bookmarkedIndices.push(index);
+            }
         });
+    } else if (typeof bookmarks === 'object' && bookmarks !== null) {
+        // Process as an object
+        for (let key in bookmarks) {
+            if (bookmarks[key]) {
+                const index = parseInt(key, 10);
+                if (!isNaN(index)) {
+                    bookmarkedIndices.push(index);
+                }
+            }
+        }
+    } else {
+        console.warn('Bookmarks data is not in the expected format.');
+    }
+
+    return bookmarkedIndices;
+}
 
 
-// Function to update bookmark count
 function updateBookmarkedCount() {
-  const bookmarkedCount = bookmarks.filter(Boolean).length; // Count the number of true values (bookmarked questions)
-  const bookmarkedCountElement = document.getElementById('bookmarkedCount');
-  bookmarkedCountElement.textContent = `See: ${bookmarkedCount}`;
+    let bookmarkedCount = 0;
+
+    // Check the type of bookmarks and process accordingly
+    if (Array.isArray(bookmarks)) {
+        // Process as an array
+        bookmarkedCount = bookmarks.filter(Boolean).length;
+    } else if (typeof bookmarks === 'object' && bookmarks !== null) {
+        // Process as an object
+        bookmarkedCount = Object.values(bookmarks).filter(Boolean).length;
+    } else {
+        console.warn('Bookmarks is neither an array nor an object. Count will be zero.');
+    }
+
+    // Update the UI with the count
+    const bookmarkedCountElement = document.getElementById('bookmarkedCount');
+    if (bookmarkedCountElement) {
+        bookmarkedCountElement.textContent = `${bookmarkedCount}`;
+    } else {
+        console.error('Element with id "bookmarkedCount" not found');
+    }
 }
 
-// Function to toggle bookmark for the current question
-function toggleBookmark() {
-  // Toggle the bookmarked state for the current question
-  bookmarks[currentQuestionIndex] = !bookmarks[currentQuestionIndex];
-  saveBookmarksToLocalStorage(); // Save bookmarks to local storage
-  
-  // Update the UI to reflect the new bookmarked state
-  showQuestion();
-  
-  // Update the bookmark count
-  updateBookmarkedCount();
+// toast message on bookmarking
+function showToast(message) {
+    var toast = document.getElementById("toast");
+    toast.innerHTML = message;
+    toast.className = "toast show";
+    setTimeout(function () {
+        toast.className = toast.className.replace("show", "");
+    }, 3000); // The toast will disappear after 3 seconds
 }
+function toggleBookmark() {
+    // Determine the original index based on currentQuestionIndex
+    let originalQuestionIndex;
+
+    // If in shuffle mode, find the original index from the shuffled questions
+    if (isShuffled) {
+        originalQuestionIndex = questions.indexOf(shuffledQuestions[currentQuestionIndex]);
+    } else {
+        // In normal mode, use the current question index directly
+        originalQuestionIndex = currentQuestionIndex;
+    }
+
+    // Toggle the bookmarked state for the original question index
+    bookmarks[originalQuestionIndex] = !bookmarks[originalQuestionIndex];
+
+    // Save bookmarks to local storage
+    saveBookmarksToLocalStorage();
+
+    // Update the UI to reflect the new bookmarked state
+    updateBookmarkButtonState(originalQuestionIndex);
+
+    // Update the bookmark count
+    updateBookmarkedCount();
+	
+	
+
+    // Show a toast message indicating success or removal
+    if (bookmarks[originalQuestionIndex]) {
+        showToast("Question saved successfully!");
+    } else {
+        showToast("Question removed successfully!");
+    }
+}
+
+
+function updateBookmarkButtonState(originalIndex) {
+    const bookmarkButton = document.querySelector('.btn-bookmark');
+    bookmarkButton.textContent = bookmarks[originalIndex] ? '🔖' : '✨';
+	
+	
+}
+
+
 
 // Call the updateBookmarkedCount function when the window is fully loaded
 window.addEventListener('load', function() {
   updateBookmarkedCount();
 });
-
-
 
 
 // Function to load the current question index from local storage
@@ -718,10 +401,6 @@ window.addEventListener('beforeunload', function() {
   saveCurrentQuestionIndex();
 });
 
-
-
-
- const uniqueIdentifier = 'padaisschistory';
 
         loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
 
@@ -768,16 +447,243 @@ function importBookmarksFromFile(event) {
     reader.readAsText(file);
 }
 		
-		
-		
-	
 // Call the function to load bookmarks from local storage when the page loads
 window.addEventListener('load', function() {
     loadUserDataAndBookmarksFromLocalStorage(uniqueIdentifier);
+	
     showQuestion();
 });
 
-  function showBookmarkedQuestions() {
+// Shuffle function to handle both normal and shuffled questions
+function toggleShuffle() {
+    isShuffled = !isShuffled;
+    shuffleToggle.textContent = isShuffled ? 'Stop' : 'Start';
+
+    if (isShuffled) {
+        shuffledQuestions = shuffleArray([...questions]); // Shuffle questions
+    } else {
+        shuffledQuestions = [...questions]; // Reset to normal order
+    }
+
+    if (populateBookmarkedQuestions) {
+        shuffledBookmarkedIndices = shuffleArray([...getBookmarkedIndices()]); // Shuffle bookmarked questions
+    }
+
+    currentQuestionIndex = 0; // Reset question index
+    showQuestion(); // Show the first question
+}
+
+// Function to initialize and display bookmarked questions in normal order
+function initializeBookmarkedQuestions() {
+    const bookmarkedIndices = getBookmarkedIndices();
+    if (bookmarkedIndices.length > 0) {
+        shuffledBookmarkedIndices = [...bookmarkedIndices]; // Keep bookmarked questions in normal order initially
+        totalBookmarkedQuestions = bookmarkedIndices.length;
+        currentBookmarkIndex = 0;
+    } else {
+        totalBookmarkedQuestions = 0;
+        shuffledBookmarkedIndices = [];
+    }
+}
+
+// Show question function
+function showQuestion() {
+    let currentQuestion;
+
+    // Initialize bookmarked questions if needed
+    if (populateBookmarkedQuestions && shuffledBookmarkedIndices.length === 0) {
+        initializeBookmarkedQuestions();
+    }
+
+    if (populateBookmarkedQuestions) {
+        if (totalBookmarkedQuestions > 0) {
+            currentQuestionIndex = shuffledBookmarkedIndices[currentBookmarkIndex];
+            originalQuestionIndex = currentQuestionIndex; // Keep track of original index
+            currentQuestion = questions[originalQuestionIndex]; // Get the original question
+        } else {
+            console.error('No bookmarked questions available.');
+            return;
+        }
+    } else {
+        if (isShuffled) {
+            // Get the current question from the shuffled array
+            currentQuestion = shuffledQuestions[currentQuestionIndex]; // Use the shuffled question
+            originalQuestionIndex = questions.indexOf(currentQuestion); // Find original index
+			
+        } else {
+            originalQuestionIndex = currentQuestionIndex; // In normal mode
+            currentQuestion = questions[originalQuestionIndex]; // Use the normal question
+        }
+    }
+
+    // Shuffle options and update UI
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+	
+    questionElement.textContent = `Q.${currentQuestionIndex + 1}/${originalQuestionIndex + 1}: ${currentQuestion.question}`;
+
+    // Render options
+    const optionsHTML = shuffledOptions.map((option, index) => `
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="option" value="${index}" id="option${index}">
+            <label class="form-check-label" for="option${index}">
+                <div class="option-border">${option}</div>
+            </label>
+        </div>
+    `).join('');
+
+    optionsElement.innerHTML = optionsHTML;
+	
+	 // Apply animations after rendering
+    const optionContainers = document.querySelectorAll('.form-check');
+    optionContainers.forEach((optionContainer, index) => {
+        setTimeout(() => {
+            optionContainer.style.opacity = '1';
+            optionContainer.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
+
+    // Update bookmark button state based on the original index
+    updateBookmarkButtonState(originalQuestionIndex);
+
+    // Update progress bar
+    updateProgressBar(populateBookmarkedQuestions ? totalBookmarkedQuestions : questions.length);
+}
+
+
+
+
+
+// Function to update progress bar
+function updateProgressBar(totalQuestions) {
+    const currentProgressIndex = populateBookmarkedQuestions ? currentBookmarkIndex + 1 : currentQuestionIndex + 1;
+    const progress = (currentProgressIndex / totalQuestions) * 100;
+
+    shuffleProgressBar.style.width = `${progress}%`;
+    shuffleProgressBar.setAttribute('aria-valuenow', progress);
+    shuffleProgressBar.textContent = ``; // write this code `${Math.round(progress)}%` into the blank field to shows percentage indication for question attempted so far
+}
+
+// Function to show the next question
+function showNextQuestion() {
+    resetQuestionContainer();
+
+    if (populateBookmarkedQuestions) {
+        if (totalBookmarkedQuestions > 0) {
+            currentBookmarkIndex = (currentBookmarkIndex + 1) % totalBookmarkedQuestions;
+            currentQuestionIndex = shuffledBookmarkedIndices[currentBookmarkIndex];
+        } else {
+            console.error('No bookmarked questions available.');
+            return;
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex + 1) % (isShuffled ? shuffledQuestions.length : questions.length);
+    }
+
+    showQuestion();
+}
+
+// Function to show the previous question
+function showPreviousQuestion() {
+    resetQuestionContainer();
+
+    if (populateBookmarkedQuestions) {
+        if (totalBookmarkedQuestions > 0) {
+            currentBookmarkIndex = (currentBookmarkIndex - 1 + totalBookmarkedQuestions) % totalBookmarkedQuestions;
+            currentQuestionIndex = shuffledBookmarkedIndices[currentBookmarkIndex];
+        } else {
+            console.error('No bookmarked questions available.');
+            return;
+        }
+    } else {
+        currentQuestionIndex = (currentQuestionIndex - 1 + (isShuffled ? shuffledQuestions.length : questions.length)) % (isShuffled ? shuffledQuestions.length : questions.length);
+    }
+
+    showQuestion();
+}
+
+
+function jumpToQuestion() {
+    const jumpInput = document.getElementById('jumpToQuestion');
+    const questionNumber = parseInt(jumpInput.value);
+    
+    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
+        let targetIndex = questionNumber - 1;
+        
+        // Get the bookmarked indices
+        const bookmarkedIndices = getBookmarkedIndices();
+        
+        // Check if the target index is bookmarked
+        if (populateBookmarkedQuestions) {
+            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
+            if (bookmarkedIndices.includes(targetIndex)) {
+                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
+                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
+                currentQuestionIndex = targetIndex;
+                showQuestion();
+            } else {
+                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
+            }
+        } else {
+            // If all questions are being populated, directly jump to the target index
+            currentQuestionIndex = targetIndex;
+            showQuestion();
+        }
+    } else {
+        alert('Please enter a valid question number between 1 and ' + questions.length);
+    }
+}
+
+function showAnswer() {
+    const selectedOption = document.querySelector('input[name="option"]:checked');
+    if (selectedOption) {
+        // Check if we are in shuffle mode
+        const currentQuestion = populateBookmarkedQuestions ? questions[shuffledBookmarkedIndices[currentBookmarkIndex]] : (isShuffled ? shuffledQuestions[currentQuestionIndex] : questions[currentQuestionIndex]);
+        const selectedValue = parseInt(selectedOption.value);
+        const isCorrect = currentQuestion.correctOption === currentQuestion.options[selectedValue];
+
+        // Display selected option feedback
+        const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
+        selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
+        selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
+
+        // Display correct option feedback
+        const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
+        const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
+
+        if (correctOptionBorder) {
+            correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
+            correctOptionBorder.classList.add('text-success-transparent');
+            correctOptionBorder.classList.add('shake'); // Apply shake class
+        }
+
+        // Display explanation
+        const explanation = document.createElement('p');
+        explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6 class="explanation-text">${currentQuestion.explanation || ''}</h6>`.replace(/\n/g, '<br>');
+        optionsElement.appendChild(explanation);
+    }
+}
+
+document.addEventListener('change', function(event) {
+  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
+    showAnswer();
+  }
+});
+
+
+
+
+
+function resetQuestionContainer() {
+    questionContainer.classList.remove('current-question');
+    setTimeout(() => {
+      questionContainer.classList.add('current-question');
+    }, 10); // Small delay to ensure smooth transition
+  }
+  
+
+
+
+function showBookmarkedQuestions() {
   // Hide layer 1
   const layer1 = document.getElementById('layer1');
   layer1.style.display = 'none';
@@ -880,9 +786,6 @@ bookmarkedQuestionsContainer.prepend(bookmarkedCountElement);
 }
 
 
-
-
-
 function hideBookmarkedQuestions() {
   // Hide layer 2
   const layer2 = document.getElementById('layer2');
@@ -893,95 +796,39 @@ function hideBookmarkedQuestions() {
   layer1.style.display = 'block';
 }
 
+// Unlimited Scrolling codes start from here
 
-  function showNextQuestion() {
-    if (currentQuestionIndex < questions.length - 1) {
-      resetQuestionContainer();
-      currentQuestionIndex++;
-      showQuestion();
-    }
-  }
+    var bookmarkedQuestions = document.getElementById('bookmarkedQuestions');
+    var lastScrollTop = 0;
 
-function showPreviousQuestion() {
-    resetQuestionContainer();
-    if (populateBookmarkedQuestions) {
-        const bookmarkedIndices = getBookmarkedIndices();
-        if (bookmarkedIndices.length > 0) {
-            // Find the nearest previous bookmarked question index
-            let nearestIndex = -1;
-            for (let i = bookmarkedIndices.length - 1; i >= 0; i--) {
-                if (bookmarkedIndices[i] < currentQuestionIndex) {
-                    nearestIndex = i;
-                    break;
-                }
-            }
-            // Update current bookmark index
-            if (nearestIndex !== -1) {
-                currentBookmarkIndex = nearestIndex;
-                currentQuestionIndex = bookmarkedIndices[currentBookmarkIndex];
-            }
+    // Function to load more content when the user scrolls to the bottom
+    function loadMoreContent() {
+      var scrollTop = bookmarkedQuestions.scrollTop;
+      var scrollHeight = bookmarkedQuestions.scrollHeight;
+      var clientHeight = bookmarkedQuestions.clientHeight;
+
+      if (scrollTop > lastScrollTop) {
+        if (scrollTop + clientHeight >= scrollHeight) {
+          // Load more content here
+          // Example: fetch more bookmarked questions from the server and append them to the #bookmarkedQuestions element
+
+          // For example:
+          // fetch('/load-more-bookmarked-questions')
+          //   .then(response => response.json())
+          //   .then(data => {
+          //     // Append the new questions to the #bookmarkedQuestions element
+          //     // Example: data.forEach(question => { /* Append question to #bookmarkedQuestions */ });
+          //   });
         }
-    } else {
-        currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length;
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
     }
-    showQuestion();
-}
 
-function showAnswer() {
-  const selectedOption = document.querySelector('input[name="option"]:checked');
-  if (selectedOption) {
-    const currentQuestion = questions[currentQuestionIndex];
-    const isCorrect = currentQuestion.correctOption === currentQuestion.options[parseInt(selectedOption.value)];
+    // Add event listener for scroll events
+    bookmarkedQuestions.addEventListener('scroll', loadMoreContent);
 
-     // Display selected option feedback
-    const selectedLabel = selectedOption.parentElement.querySelector('.form-check-label');
-    selectedLabel.innerHTML += isCorrect ? ' <i class="fas fa-check text-success"></i>' : ' <i class="fas fa-times text-danger"></i>';
-    selectedLabel.classList.add(isCorrect ? 'text-success' : 'text-danger');
-
-    // Display correct option feedback
- // Display correct option feedback
-const correctOptionIndex = currentQuestion.options.findIndex(option => option === currentQuestion.correctOption);
-const correctOptionBorder = document.querySelector(`#option${correctOptionIndex} + .form-check-label .option-border`);
-
-if (correctOptionBorder) {
-  correctOptionBorder.innerHTML += ' <span class="text-success-transparent">☑Correct</span>';
-  correctOptionBorder.classList.add('text-success-transparent');
-  correctOptionBorder.classList.add('shake'); // Apply shake class
-}
-
-// Preserve existing option texts
-currentQuestion.options.forEach((option, index) => {
-  if (index !== correctOptionIndex) {
-    const optionLabel = document.querySelector(`#option${index} + .form-check-label .option-border`);
-    if (optionLabel) {
-      optionLabel.innerHTML = option; // Reset option text
-    }
-  }
-});
-
-    // Display explanation
-       const explanation = document.createElement('p');
-    explanation.innerHTML = `<button class="cool">${currentQuestion.correctOption || ''}</button><br><h6>${currentQuestion.explanation || ''}</h6>`;
-    optionsElement.appendChild(explanation);
-  }
-}
-
-document.addEventListener('change', function(event) {
-  if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'radio' && event.target.name === 'option') {
-    showAnswer();
-  }
-});
-
-
-
-
-
-function resetQuestionContainer() {
-    questionContainer.classList.remove('current-question');
-    setTimeout(() => {
-      questionContainer.classList.add('current-question');
-    }, 10); // Small delay to ensure smooth transition
-  }
+// Unlimited Scrolling codes end here
 
 document.addEventListener('keydown', function(event) {
   switch (event.key) {
@@ -1056,44 +903,145 @@ document.addEventListener('touchend', function(event) {
     } else if (Math.abs(deltaY) > touchSensitivity) {
       if (deltaY < 0) {
         // Swipe up (open answer)
-        showAnswer();
+        ; 				// write showAnswer(); to enable it in this very line 
       }
     }
   }
 });
+
+
+
+
+ function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../awareness/awareness1.html';
+    }
+
+  function goToWebsite() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../index.html';
+    }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = '../../english/english1.html';
+    }
+
+
   
-function jumpToQuestion() {
-    const jumpInput = document.getElementById('jumpToQuestion');
-    const questionNumber = parseInt(jumpInput.value);
+
+	// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
     
-    if (!isNaN(questionNumber) && questionNumber >= 1 && questionNumber <= questions.length) {
-        let targetIndex = questionNumber - 1;
-        
-        // Get the bookmarked indices
-        const bookmarkedIndices = getBookmarkedIndices();
-        
-        // Check if the target index is bookmarked
-        if (populateBookmarkedQuestions) {
-            // If only bookmarked questions are being populated, then target index should be among bookmarked indices
-            if (bookmarkedIndices.includes(targetIndex)) {
-                // Set currentBookmarkIndex to the index of targetIndex in bookmarkedIndices
-                currentBookmarkIndex = bookmarkedIndices.indexOf(targetIndex);
-                currentQuestionIndex = targetIndex;
-                showQuestion();
-            } else {
-                alert('Please enter a valid question number between 1 and ' + questions.length + ' that is bookmarked.');
-            }
-        } else {
-            // If all questions are being populated, directly jump to the target index
-            currentQuestionIndex = targetIndex;
-            showQuestion();
-        }
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
     } else {
-        alert('Please enter a valid question number between 1 and ' + questions.length);
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
     }
 }
 
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+   function goBack() {
+            window.history.back();
+        }
+	
+        var prevScrollpos = window.pageYOffset;
+
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            var navbar = document.getElementById('navbot');
+
+            if (prevScrollpos > currentScrollPos) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+
+            prevScrollpos = currentScrollPos;
+        };
+	
+
+const copyButton = document.querySelector('.btn-copy');
+
+        // Add a click event listener to the "Copy to Clipboard" button
+        copyButton.addEventListener('click', () => {
+            const questionText = document.querySelector('#question').textContent;
+            const optionElements = document.querySelectorAll('.form-check-label');
+            
+            let optionsText = '';
+            let correctOption = null;
+
+            optionElements.forEach((optionElement, index) => {
+                const optionText = optionElement.textContent.trim();
+                const isCorrect = optionElement.querySelector('.text-info'); // Check for correct answer indication
+                optionsText += `Option ${index + 1}: ${optionText}${isCorrect ? '' : ''}\n`;
+
+                if (isCorrect) {
+                    correctOption = `correctOption is Option ${index + 1}: ${optionText}`;
+                }
+            });
+
+            const textToCopy = `${questionText}\n\n${optionsText}\n${correctOption ? correctOption : ''}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Toggle button text
+            copyButton.textContent = '✅';
+            setTimeout(() => {
+                copyButton.textContent = '📋';
+            }, 2000); // Reset text after 2 seconds
+        });
+		
+	
+
+
+
 </script>
+
+		
+	   
 <script>
 const questions = [
   
