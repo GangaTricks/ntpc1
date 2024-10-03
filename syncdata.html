@@ -1,0 +1,989 @@
+<!doctype html>
+<html lang="en hi">
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>GangaTricks</title>
+	<link rel="shortcut icon" href="icon2.png">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<link rel="canonical" href="https://amp.dev/documentation/examples/style-layout/tab_panels_with_amp-selector/index.html">
+		<meta name="viewport" content="width=device-width">
+		<script async src="https://cdn.ampproject.org/v0.js"></script>
+		<!-- ## Setup -->
+		<!-- Import `amp-selector` component in the header which we'll use to implement the tab switching. -->
+		<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+		<script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    
+
+  
+  
+
+<style amp-custom>
+
+
+        body { 
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+width: 100%;
+height: 100%;
+position: fixed;
+top: 60px;
+    background-color: white; /* Medium green color */
+    color: #000; /* Set text color to deep black */
+}
+@media only screen and (max-width: 600px) {
+    /* Adjust the right margin as needed */
+    body {
+        padding-right: 05px;
+		 padding-left: 05px;
+		
+    }
+}
+
+        :root {
+          --color-primary: #005AF0;
+          --space-1: .5rem;  /* 8px */
+          --space-4: 2rem;   /* 32px */
+        }
+
+        /* Styles for the flex layout based tabs */
+        amp-selector[role=tablist].tabs-with-flex {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        amp-selector[role=tablist].tabs-with-flex [role=tab] {
+            flex-grow: 1;
+            /* custom styling, feel free to change */
+            text-align: center;
+            padding: var(--space-1);
+        }
+        amp-selector[role=tablist].tabs-with-flex [role=tab][selected] {
+            outline: none;
+            /* custom styling, feel free to change */
+            border-bottom: 2px solid var(--color-primary);
+        }
+        amp-selector[role=tablist].tabs-with-flex [role=tabpanel] {
+            display: none;
+            width: 100%;
+            order: 1; /* must be greater than the order of the tab buttons to flex to the next line */
+            /* custom styling, feel free to change */
+            padding: var(--space-4);
+        }
+        amp-selector[role=tablist].tabs-with-flex [role=tab][selected] + [role=tabpanel] {
+            display: block;
+        }
+
+        /* Styles for the selector based tabs */
+        amp-selector[role=tablist].tabs-with-selector {
+            display: flex;
+        }
+        amp-selector[role=tablist].tabs-with-selector [role=tab][selected] {
+            outline: none;
+            /* custom styling, feel free to change */
+            border-bottom: 2px solid var(--color-primary);
+        }
+        amp-selector[role=tablist].tabs-with-selector {
+            display: flex;
+        }
+        amp-selector[role=tablist].tabs-with-selector [role=tab] {
+          /* custom styling, feel free to change */
+          width: 100%;
+          text-align: center;
+          padding: var(--space-1);
+        }
+        amp-selector.tabpanels [role=tabpanel] {
+          display: none;
+          /* custom styling, feel free to change */
+          padding: var(--space-4);
+        }
+        amp-selector.tabpanels [role=tabpanel][selected] {
+          outline: none;
+          display: block;
+        }
+
+:root {
+  --color-primary: #005AF0;
+  --color-text-light: #fff;
+  --color-text-dark: #000;
+  --color-bg-light: #FAFAFC;
+
+  --space-1: .5rem;  /* 8px */
+  --space-2: 1rem;   /* 16px */
+  --space-3: 1.5rem; /* 24px */
+  --space-4: 2rem;   /* 32px */
+  --space-5: 3rem;   /* 48px */
+}
+/* Simple Stepper */
+.stepper.simple .step-dots {
+  user-select: none;
+}
+.stepper.simple .step-dot {
+  display: inline-block;
+  background: #ddd;
+  overflow: hidden;
+  text-indent: -999px;
+  border-radius: 100%;
+  width: 10px;
+  height: 10px;
+  box-shadow: inset 0 1px 1px 0 #999;
+}
+.stepper.simple .step-dot.active {
+  background: linear-gradient(#00CFFF, #1584bc);
+  box-shadow: inset 0 0 1px 1px #087DC0;
+}
+.stepper.simple section {
+background: ;
+
+}
+.stepper.simple .content {
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stepper.simple .top-bar,
+.stepper.simple .bottom-bar {
+  height: var(--space-5);
+  line-height: var(--space-5);
+  background-color: ;
+  color: black;
+}
+.stepper.simple .top-bar {
+  padding: 0 var(--space-3);
+  font-size: var(--space-2);
+}
+.stepper.simple .bottom-bar {
+  height: var(--space-5);
+  line-height: var(--space-5);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stepper.simple .bottom-bar .button-next,
+.stepper.simple .bottom-bar .button-prev {
+  position: absolute;
+  text-transform: uppercase;
+  user-select: none;
+  background: #4169E1;
+  padding-bottom: 00px;
+  padding-top: 00px;
+  font-size: 18px;
+  
+  
+}
+.stepper.simple .bottom-bar .button-prev {
+  top: 0;
+  left: 0;
+}
+.stepper.simple .bottom-bar .button-next {
+  top: 0;
+  right: 0;
+}
+.stepper.simple .bottom-bar .button-next:after {
+  padding: var(--space-1);
+  font-weight: 500;
+}
+.stepper.simple .bottom-bar .button-prev:before {
+  padding: var(--space-1);
+  font-weight: 500;
+}
+
+a {
+  font-weight: bold;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none; /* Added to remove the default underline */
+}
+
+
+
+button {
+      padding: 07px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+	  font-weight: bold;
+	  background: #4169E1;
+	  color: white;
+    }
+
+    button:hover {
+		border: 03px solid white;
+      background-color: #2E58ED;
+      color: orange;
+    }
+
+    .btn-primary {
+      background-color: ;
+    }
+
+    .btn-success {
+      background-color: ;
+    }
+
+    .btn-primary:hover {
+      background-color: ;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      flex: 1;
+      margin: 0 5px;
+    }
+	
+	
+.sidebarr {
+  height: 450px;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 130px;
+ right: -250px; /* Move sidebar off-screen initially  */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 500; /* Ensure the sidebar is above the navbar and navbot */
+}
+
+.sidebarr a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.1s;
+}
+.sidebarr a:hover {
+  background-color: #ddd;
+}
+
+
+
+	
+	
+	.gbar {
+		background: Lavender;
+		color: black;
+		position: absolute;
+		top: 00px;
+		left: 0px;
+		right: 0px;
+		height: 40px;
+		z-index: 100;
+		}
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed; /* Change position to fixed */
+  top: 00px;
+  left: -250px; /* Move sidebar off-screen initially */
+  background-color: #f2f2f2;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  z-index: 1000; /* Ensure the sidebar is above the navbar and navbot */
+}
+
+.sidebar a {
+  padding: 03px 05px;
+  text-decoration: none;
+  font-size: 15px;
+  display: block;
+  pointer-events: none;
+  transition: 0.1s;
+}
+.sidebar a:hover {
+  background-color: #ddd;
+
+}
+.container {
+  padding-left: 0; /* Remove padding from the container */
+  transition: 0.5s;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: ;
+  padding: 10px;
+  z-index: 500; /* Ensure the navbar is above the sidebar */
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.about_section .row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about_section .img-box img {
+  width: 100%;
+}
+
+.about_section .detail-box p {
+  margin-top: 25px;
+}
+
+.about_section .detail-box a {
+  display: inline-block;
+  padding: 12px 45px;
+  background-color: #fb1004;
+  color: #ffffff;
+  border-radius: 10px;
+  margin-top: 25px;
+}
+
+.about_section .detail-box a:hover {
+  background-color: #b00b03;
+  color: #ffffff;
+}
+
+/* footer section*/
+.footer_section {
+  background-color: #201f33;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+.footer_section p {
+  border-top: 1px solid #ffffff;
+  width: 100%;
+  color: #ffffff;
+  margin: 0 auto;
+  text-align: Left;
+  padding: 10px 35px;
+}
+
+.footer_section a {
+  color: #ffffff;
+}
+ .footer-link {
+      color: gray; /* Set the color to white */
+      text-decoration: none; /* Remove underline */
+    }
+	
+		.headerbar {
+		background: orange;
+		color: #FFF;
+		line-height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0px;
+		right: 0px;
+		height: 60px;
+		display: flex;
+		padding: 02px;
+		justify-content: space-between;
+		z-index: 500;
+		}
+
+.navbot {
+            background: white;
+            color: #FFF;
+            line-height: 30px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+			box-shadow: 0 -5px 5px -5px #333;
+			padding-top: 10px;
+			padding-bottom: 10px;
+            z-index: 100;
+            display: flex;
+            justify-content: space-around;
+            transition: transform 0.3s; /* Add a smooth transition effect */
+        }
+
+.impo {
+display: flex;
+justify-content: space-between;
+background: #FFF5EE;
+}
+
+
+/* CSS */
+.a-52 {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 05px;
+  margin: 05px;
+  border: 2px solid white;
+  cursor: pointer;
+  position: relative;
+color: gold;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.a-52:after {
+  content: "";
+  background-color: purple;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 04px;
+  left: 04px;
+  border-radius: 02px;
+  transition: 0.2s;
+}
+
+.a-52:hover {
+  top: 00px;
+  left: 00px;
+  color: purple;
+  background-color: gold;
+}
+
+
+@media (min-width: 768px) {
+  .a-52 {
+    padding: 05px;
+  }
+}
+
+
+
+ /* Style to make the image round */
+    #userPhoto {
+      width: 30px; /* Set the width as desired */
+      height: 30px; /* Set the height as desired */
+      border-radius: 50%; /* This makes the image round */
+      object-fit: cover; /* Ensures the image covers the container */
+    }
+	
+	.separator {
+	00px 01px 00px rgba(0, 0, 0, 0.3);
+
+}
+
+    </style>
+</head>
+<body>
+
+<script>
+
+// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+	
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar.style.left === "-250px") {
+    sidebar.style.left = "0";
+  } else {
+    sidebar.style.left = "-250px";
+  }
+}
+
+	 function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = 'awareness/awareness1.html';
+    }
+
+    function goToWebsite() {
+            var url = 'index.html'; // The URL without the .html extension
+            history.pushState({}, '', url);
+            // Update the page content here if necessary
+        }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = 'examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = 'english/english1.html';
+    }
+
+</script>
+
+
+<div class="container">
+   <div class="navbar">
+   
+   <header class="headerbar">
+   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+   <div><img src="icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+   </header>
+
+  
+  <div id="sidebar" class="sidebar">
+  
+   
+  
+  <img id="userPhoto" src="default-profile.png" alt="User Photo" />
+   
+  <p id="userFullName"></p>
+  
+  <p id="userEmail"></p>
+  
+  
+   <p class="separator"></p>
+  
+  <button id="googleSignOutBtn" style="display: none;">Sign out</button>
+ <p class="separator"></p>
+
+
+  
+  
+<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks      <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>        
+<a onclick="goToWebsite()" style="text-align: left; background: white; border: 2px solid lightblue;">Home 🏠</a>
+    <a onclick="goToHub()"  style="text-align: left; background: white; border: 2px solid lightblue;">Awareness</a>
+    <a onclick="goToEnglish()" style="text-align: left; background: white; border: 2px solid lightblue;">English</a>
+    <a onclick="examQuiz()"  style="text-align: left; background: white; border: 2px solid lightblue;">ExamQuiz</a>
+    <a href="livemock/livemock.html"  id="popupLink" style="text-align: left; background: white; border: 2px solid lightblue;">Live Mocks</a>
+	<a href="blog/.html"  id="popupLink" style="text-align: left; background: white; border: 2px solid lightblue;">Our Blog</a>
+	  
+	
+	<h3 style="text-align: right; background: lightblue;">Our Android App</h3>
+  <a href="GangaTricks.rar" download="GangaTricks.rar"><img src="icon1.png" height="50" width="50" /> Download APK</a>
+  
+  <h3 style="text-align: right; background: lightblue;">Tools</h3>
+   <div class="container">
+        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+    </div>
+	  <h3 style="text-align: right; background: lightblue;">More</h3>
+<button id="installButton">Install App</button>
+
+
+
+<p style="height: 130px;"></p>
+  </div>
+</div>
+
+
+	
+ 	
+<h5 style="margin-top: 10px;">Hello! ‍<b style="color: blue;"><span id="userFirstName"></span></b></h5>
+
+<div style="background: #4169E1; border-radius: 05px; padding: 05px; color: white; font-size: 15px; font-weight: bold;">
+ <h4>Offline Synchronization</h4>
+  <p id="status"></p>
+  
+ <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; border: white">
+
+
+    <button id="exportButton" style="background: white; color: black;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="25" viewBox="0 0 24 24"><path fill="currentColor" d="M20.65 7.048c-.4-.998-3.12-3.133-3.89-3.932a4.15 4.15 0 0 0-2.39-1.067c.11-.11-6 0-6.16 0a5 5 0 0 0-3.622 1.336A5 5 0 0 0 3 6.898v10.277a4.98 4.98 0 0 0 1.605 3.501a5 5 0 0 0 3.625 1.319h7.56a5 5 0 0 0 3.623-1.337A5 5 0 0 0 21 17.145v-8.55a3.8 3.8 0 0 0-.35-1.547m-4.84 6.984c-1 1.058-2.15-.878-2.81-1.397v4.61a.997.997 0 0 1-1 .998a1 1 0 0 1-1-.998v-4.61l-1.4 1.397c-.9.928-2.34-.509-1.41-1.407l2.66-2.654a1.64 1.64 0 0 1 2.3 0l2.66 2.654a1 1 0 0 1 0 1.417zm.22-6.605c-1.67 0-.94-2.744-1.09-3.702a23.8 23.8 0 0 1 4.21 3.702z"/></svg>Json Export Data</button>
+    <input type="file" id="importInput" style="display:none;" accept=".json">
+    <button id="importButton" style="background: white; color: black;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="25" viewBox="0 0 24 24"><path fill="currentColor" d="M20.68 7.014a3.85 3.85 0 0 0-.92-1.22l-3-2.72a4.15 4.15 0 0 0-2.39-1.07H8.21A5 5 0 0 0 3 6.864v10.3a5 5 0 0 0 3.31 4.53a4.7 4.7 0 0 0 1.92.3h7.56a5 5 0 0 0 5.21-4.86v-8.57a3.75 3.75 0 0 0-.32-1.55m-4.84 8.08l-2.66 2.67a1.7 1.7 0 0 1-.53.35q-.201.09-.42.11a.9.9 0 0 1-.4 0a1.3 1.3 0 0 1-.42-.11a1.7 1.7 0 0 1-.53-.35l-2.66-2.67a1 1 0 0 1 1.41-1.41l1.4 1.4v-4.61a1 1 0 1 1 2 0v4.61l1.4-1.4a1 1 0 0 1 1.41 1.41m.22-7.69a1.08 1.08 0 0 1-1.09-1.08v-2.65q.42.228.81.51l3 2.73q.25.211.42.49z"/></svg>Json Import Data</button>
+</div>
+</div><br>
+
+
+<div style="width: 100%; border-radius: 05px; padding: 15px; background: lightgreen;  border: white">
+
+<h4>Cloud Synchronisation</h4>
+
+<div id="progressArea" style="display: none; background: #4169E1; border-radius: 05px; padding: 05px; color: white; font-size: 15px; font-weight: bold;">
+ <p id="dataUsage">Data Used: 0 KB</p> 
+ <p id="completionTime">Time Taken: 0 seconds</p> 
+ <p id="fileCount">Files Processed: 0</p> <!-- New element to show file count -->
+</div>
+<br>
+
+<div style="width: 100%; border-radius: 05px; padding: 05px; background: black; display: flex; justify-content: space-between; align-items: center; border: white">
+    <button id="saveButton"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="25" viewBox="0 0 24 24"><path fill="currentColor" d="M20.65 7.048c-.4-.998-3.12-3.133-3.89-3.932a4.15 4.15 0 0 0-2.39-1.067c.11-.11-6 0-6.16 0a5 5 0 0 0-3.622 1.336A5 5 0 0 0 3 6.898v10.277a4.98 4.98 0 0 0 1.605 3.501a5 5 0 0 0 3.625 1.319h7.56a5 5 0 0 0 3.623-1.337A5 5 0 0 0 21 17.145v-8.55a3.8 3.8 0 0 0-.35-1.547m-4.84 6.984c-1 1.058-2.15-.878-2.81-1.397v4.61a.997.997 0 0 1-1 .998a1 1 0 0 1-1-.998v-4.61l-1.4 1.397c-.9.928-2.34-.509-1.41-1.407l2.66-2.654a1.64 1.64 0 0 1 2.3 0l2.66 2.654a1 1 0 0 1 0 1.417zm.22-6.605c-1.67 0-.94-2.744-1.09-3.702a23.8 23.8 0 0 1 4.21 3.702z"/></svg> Save to Cloud</button>
+    <button id="loadButton"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="25" viewBox="0 0 24 24"><path fill="currentColor" d="M20.68 7.014a3.85 3.85 0 0 0-.92-1.22l-3-2.72a4.15 4.15 0 0 0-2.39-1.07H8.21A5 5 0 0 0 3 6.864v10.3a5 5 0 0 0 3.31 4.53a4.7 4.7 0 0 0 1.92.3h7.56a5 5 0 0 0 5.21-4.86v-8.57a3.75 3.75 0 0 0-.32-1.55m-4.84 8.08l-2.66 2.67a1.7 1.7 0 0 1-.53.35q-.201.09-.42.11a.9.9 0 0 1-.4 0a1.3 1.3 0 0 1-.42-.11a1.7 1.7 0 0 1-.53-.35l-2.66-2.67a1 1 0 0 1 1.41-1.41l1.4 1.4v-4.61a1 1 0 1 1 2 0v4.61l1.4-1.4a1 1 0 0 1 1.41 1.41m.22-7.69a1.08 1.08 0 0 1-1.09-1.08v-2.65q.42.228.81.51l3 2.73q.25.211.42.49z"/></svg> Load from Cloud</button>
+   
+</div></div>
+
+
+
+<br>
+
+	<div><ul id="progressList" style="font-size: 07px;"></ul>	</div>
+
+
+
+<script type="module">
+
+import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js';
+import { getDatabase, ref, set, get, child } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC9HOOsT5ynGk4I0PlBnhMUFaxdMr0GC3A",
+  authDomain: "gangasolvo.firebaseapp.com",
+  databaseURL: "https://gangasolvo-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "gangasolvo",
+  storageBucket: "gangasolvo.appspot.com",
+  messagingSenderId: "16985429162",
+  appId: "1:16985429162:web:3d77dafc70cbda944b6cd3",
+  measurementId: "G-B0616MY411"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const database = getDatabase(app);
+
+// Function to display progress in the HTML
+function updateProgress(statusText, isError = false) {
+    const progressList = document.getElementById('progressList');
+    const li = document.createElement('li');
+    li.textContent = statusText;
+    li.style.color = isError ? 'red' : 'green';
+    progressList.appendChild(li);
+}
+
+// Function to update the number of files processed
+function updateFileCount(count) {
+    const fileCountElement = document.getElementById('fileCount');
+    fileCountElement.textContent = `Files Processed: ${count}`;
+}
+
+// Function to calculate and update data usage
+function updateDataUsage(bytes) {
+    const dataUsageElement = document.getElementById('dataUsage');
+    let currentUsage = parseFloat(dataUsageElement.textContent.split(' ')[2]);
+    const newUsage = currentUsage + bytes / 1024; // Convert bytes to KB
+    dataUsageElement.textContent = `Data Used: ${newUsage.toFixed(2)} KB`;
+}
+
+// Function to calculate and display completion time
+function updateCompletionTime(startTime) {
+    const completionTimeElement = document.getElementById('completionTime');
+    const endTime = Date.now();
+    const timeTaken = (endTime - startTime) / 1000; // Time in seconds
+    completionTimeElement.textContent = `Time Taken: ${timeTaken.toFixed(2)} seconds`;
+}
+
+// Function to save data to the database using localStorage keys
+function saveDataToDatabase(userId) {
+    const startTime = Date.now(); // Track start time
+    let totalBytesSent = 0; // Track total bytes sent
+    let filesProcessed = 0; // Track number of files processed
+
+    const savePromises = [];
+    const progressArea = document.getElementById('progressArea');
+    progressArea.style.display = 'block'; // Show progress area
+
+    // Clear the progress list before starting
+    document.getElementById('progressList').innerHTML = '';
+
+    // Iterate through localStorage keys and save data to the database
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+		
+		
+        if (key.startsWith('userdata_bookmarks_')) {
+            const data = JSON.parse(localStorage.getItem(key));
+            const userRef = ref(database, `users/${userId}/pages/${key}`);
+            
+            // Estimate the size of the data being saved
+            const dataSize = new Blob([JSON.stringify(data)]).size;
+            totalBytesSent += dataSize;
+
+            // Add the save promise to the array
+            const savePromise = set(userRef, data)
+                .then(() => {
+                    filesProcessed++; // Increment the file count
+                    updateProgress(`Successfully saved: ${key}`);
+                    updateFileCount(filesProcessed); // Update file count after each file
+                    updateDataUsage(dataSize); // Update data usage after each file
+                })
+                .catch((error) => {
+                    updateProgress(`Error saving: ${key} - ${error.message}`, true);
+                });
+
+            savePromises.push(savePromise);
+        }
+    }
+
+    // Wait for all save promises to finish
+    Promise.all(savePromises)
+        .then(() => {
+            // After all files are saved, update the completion time
+            updateCompletionTime(startTime);
+        })
+        .catch((error) => {
+            updateProgress(`Unexpected error: ${error.message}`, true);
+			
+			// Set the key on error if needed
+            localStorage.setItem('previous_websocket_failure', 'true');
+        });
+}
+
+// Function to load data from the database and display progress
+function loadDataFromDatabase(userId) {
+    const startTime = Date.now(); // Track start time
+    let totalBytesReceived = 0; // Track total bytes received
+    let filesProcessed = 0; // Track number of files processed
+
+    const progressArea = document.getElementById('progressArea');
+    progressArea.style.display = 'block'; // Show progress area
+
+    // Clear the progress list before starting
+    document.getElementById('progressList').innerHTML = '';
+
+    const dbRef = ref(database, `users/${userId}/pages`);
+
+    get(dbRef)
+        .then((snapshot) => {
+            if (snapshot.exists()) {
+                const data = snapshot.val();
+                const keys = Object.keys(data); // Array to hold all keys
+
+                // Iterate through the retrieved data and update local storage
+                keys.forEach((key) => {
+                    const dataSize = new Blob([JSON.stringify(data[key])]).size;
+                    totalBytesReceived += dataSize;
+
+                    localStorage.setItem(key, JSON.stringify(data[key]));
+                    filesProcessed++; // Increment the file count
+                    updateProgress(`Successfully loaded: ${key}`);
+                    updateFileCount(filesProcessed); // Update file count after each file
+                    updateDataUsage(dataSize); // Update data usage after each file
+                });
+
+                updateCompletionTime(startTime); // After all files are loaded, update completion time
+            } else {
+                updateProgress('No data available in the database', true);
+            }
+            
+            // Clear the key after data loading completes
+            localStorage.removeItem('previous_websocket_failure');
+        })
+        .catch((error) => {
+            console.error('Error loading data:', error);
+            updateProgress(`Error loading data: ${error.message}`, true);
+
+            // Set the key on error if needed
+            localStorage.setItem('previous_websocket_failure', 'true'); // you can remove this code as it is superfluous, or just to show you are offline mean client is offline
+        });
+}
+
+
+
+
+// Check user authentication status
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // Get full name from user's displayName
+        const fullName = user.displayName || '';
+        const firstName = fullName.split(' ')[0] || 'User';
+
+        // Display user info
+        document.getElementById('userFullName').textContent = fullName;
+        document.getElementById('userFirstName').textContent = firstName;
+        document.getElementById('userEmail').textContent = user.email;
+        document.getElementById('userPhoto').src = user.photoURL || 'default-profile.png';
+        document.getElementById('googleSignOutBtn').style.display = 'inline-block';
+
+
+    // Attach event listeners to save and load buttons
+    document.getElementById('saveButton').addEventListener('click', () => saveDataToDatabase(user.uid));
+    document.getElementById('loadButton').addEventListener('click', () => loadDataFromDatabase(user.uid));
+
+  } else {
+    window.location.href = 'signin.html';
+  }
+});
+
+// Sign out button event listener
+document.getElementById('googleSignOutBtn').addEventListener('click', () => {
+  signOut(auth)
+    .then(() => {
+      console.log('User signed out');
+      window.location.href = 'signin.html';
+    })
+    .catch((error) => {
+      console.error('Error during sign-out:', error);
+      alert(`Error during sign-out: ${error.message}`);
+    });
+});
+
+
+
+// Function to clear the 'previous_websocket_failure' key from localStorage
+function clearWebSocketFailureKey() {
+    if (localStorage.getItem('firebase:previous_websocket_failure')) {
+        console.log('');
+        localStorage.removeItem('firebase:previous_websocket_failure');
+    } else {
+        console.log('');
+    }
+}
+
+// Call the function on page load
+window.addEventListener('load', clearWebSocketFailureKey);
+
+// Set up an interval to continuously check and remove the key
+const checkInterval = 500; // Check every 5 seconds
+setInterval(clearWebSocketFailureKey, checkInterval);
+
+
+</script>
+
+
+
+
+
+
+
+
+    <script>
+        // Function to export userdata from localStorage
+        function exportData() {
+            const userdata = {};
+
+            // Collect userdata from localStorage
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.startsWith('userdata_bookmarks_')) {
+                    userdata[key] = JSON.parse(localStorage.getItem(key));
+                }
+            }
+
+            // Create a blob of the JSON data
+            const dataStr = JSON.stringify(userdata, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+
+            // Create a download link
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'userdata.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+
+            // Show status
+            document.getElementById('status').textContent = "Data exported successfully!";
+        }
+
+        // Function to import userdata into localStorage
+        function importData(file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                try {
+                    const userdata = JSON.parse(event.target.result);
+
+                    // Save imported data into localStorage
+                    for (const key in userdata) {
+                        localStorage.setItem(key, JSON.stringify(userdata[key]));
+                    }
+
+                    // Show success message
+                    document.getElementById('status').textContent = "Data imported successfully!";
+                } catch (error) {
+                    console.error("Error parsing JSON", error);
+                    document.getElementById('status').textContent = "Failed to import data!";
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // Event listeners for buttons
+        document.getElementById('exportButton').addEventListener('click', exportData);
+        
+        document.getElementById('importButton').addEventListener('click', function() {
+            document.getElementById('importInput').click(); // Trigger file input
+        });
+
+        document.getElementById('importInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                importData(file); // Import selected .json file
+            }
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- footer section -->
+  <footer style="height: 130px;">
+
+  </footer>
+  
+  
+  
+
+<div class="navbot">
+    <div>
+        <a href="index.html" style="font-size: 15px; padding: 05px; background: none; color: black; box-shadow: -03px 02px 01px 0px rgba(0, 0, 0, 0.3); filter: grayscale(100%);">🏠<span>Home</span>
+        </a>
+		
+       <a onclick="toggleDarkMode()" style="font-size: 15px; padding: 05px; background: none; color: black; box-shadow: 00px 02px 00px rgba(0, 0, 0, 0.3); filter: grayscale(100%);">🌓<span>Dark</span>
+        </a>
+		
+		<a style="font-size: 15px; padding: 05px; background: none; color: black; box-shadow: 00px 2px 00px rgba(0, 0, 0, 0.3); filter: grayscale(100%);">🛈<span>Updates</span>
+        </a>
+		
+		<a href="syncdata.html" style="cursor: pointer; font-size: 15px; padding: 05px; background: none; color: black; box-shadow: 03px 2px 00px rgba(0, 0, 0, 0.3); filter: grayscale(100%);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M19.91 15.51h-4.53a1 1 0 0 0 0 2h2.4A8 8 0 0 1 4 12a1 1 0 0 0-2 0a10 10 0 0 0 16.88 7.23V21a1 1 0 0 0 2 0v-4.5a1 1 0 0 0-.97-.99M12 2a10 10 0 0 0-6.88 2.77V3a1 1 0 0 0-2 0v4.5a1 1 0 0 0 1 1h4.5a1 1 0 0 0 0-2h-2.4A8 8 0 0 1 20 12a1 1 0 0 0 2 0A10 10 0 0 0 12 2"/></svg><span>Sync Data</span>
+        </a>
+		
+    </div>
+</div>
+</body>
+</html>

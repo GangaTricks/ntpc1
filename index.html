@@ -4,43 +4,35 @@
 <head>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta name="google-signin-scope" content="profile email">
-<meta name="google-signin-client_id"
-      content="480399030790-bv734jeqeoc1eun7rr1kg6m1hqf0cpha.apps.googleusercontent.com">
-<script src="https://apis.google.com/js/platform.js" async defer></script>
 
-    <title>GangaTricks</title>
-	<script src="urlRewrite.js"></script>
-	<link rel="shortcut icon" href="icon2.png">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="canonical" href="https://amp.dev/documentation/examples/style-layout/tab_panels_with_amp-selector/index.html">
-    <meta name="viewport" content="width=device-width">
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <!-- ## Setup -->
-    <!-- Import `amp-selector` component in the header which we'll use to implement the tab switching. -->
-  <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
-    <link rel="manifest" href="manifest.json"> 
-  <!-- Initialize Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js"></script>
-  <script>
-    const firebaseConfig = {
-      // Firebase configuration
-	   apiKey: "AIzaSyD8gAh9sIf0Q70Sio5DEGgBKeFo2iyGNlQ",
-    authDomain: "gangatricks-6a3fa.firebaseapp.com",
-    databaseURL: "https://gangatricks-6a3fa-default-rtdb.firebaseio.com",
-    projectId: "gangatricks-6a3fa",
-    storageBucket: "gangatricks-6a3fa.appspot.com",
-    messagingSenderId: "480399030790",
-    appId: "1:480399030790:web:6e45ad2567ef188cc32187",
-    measurementId: "G-W46K5WHTGJ"
-    };
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-  </script>
+
+    <link rel="shortcut icon" href="icon2.png"><title>GangaTricks</title>
+	
+	<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+
+	
+	
+	
+	
+	
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<link rel="canonical" href="https://amp.dev/documentation/examples/style-layout/tab_panels_with_amp-selector/index.html">
+		<meta name="viewport" content="width=device-width">
+		<script async src="https://cdn.ampproject.org/v0.js"></script>
+		<!-- ## Setup -->
+		<!-- Import `amp-selector` component in the header which we'll use to implement the tab switching. -->
+		<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+		<script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    
+		<link rel="manifest" href="manifest.json"> 
+	
+		<!-- Initialize Firebase -->
+		<script type="module" src="root_app.js"></script>
+
+  
+  
 
 <style amp-custom>
 
@@ -57,8 +49,8 @@ top: 60px;
 @media only screen and (max-width: 600px) {
     /* Adjust the right margin as needed */
     body {
-        margin-right: 0;
-		 padding-left: 15px;
+        padding-right: 05px;
+		 padding-left: 05px;
 		
     }
 }
@@ -296,9 +288,11 @@ button {
 
 
 
-.gbar {
+	
+	
+	.gbar {
 		background: Lavender;
-		color: #FFF;
+		color: black;
 		position: absolute;
 		top: 00px;
 		left: 0px;
@@ -321,10 +315,11 @@ button {
 }
 
 .sidebar a {
-  padding: 10px 15px;
+  padding: 03px 05px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 15px;
   display: block;
+  pointer-events: none;
   transition: 0.1s;
 }
 .sidebar a:hover {
@@ -487,70 +482,89 @@ color: gold;
   }
 }
 
+
+
+ /* Style to make the image round */
+    #userPhoto {
+      width: 30px; /* Set the width as desired */
+      height: 30px; /* Set the height as desired */
+      border-radius: 50%; /* This makes the image round */
+      object-fit: cover; /* Ensures the image covers the container */
+    }
+	
+	.separator {
+	00px 01px 00px rgba(0, 0, 0, 0.3);
+
+}
+
+
+.active:after {
+  content: "\2212";
+}
+​
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* here begins callapse integration */
+ .accordion {
+      width: 100%;
+      margin: auto;
+      border: 1px solid #ddd;
+    }
+
+    .accordion-item {
+      border-top: 1px solid #ddd;
+    }
+
+    .accordion-header {
+      background-color: #f1f1f1;
+	  font-size: 12px;
+      padding: 15px;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .accordion-header:hover {
+      background-color: #e1e1e1;
+    }
+
+    .accordion-content {
+      padding: 15px;
+      display: none;
+      background-color: #fff;
+      border-top: 1px solid #ddd;
+    }
+
+    .accordion-header.active + .accordion-content {
+      display: block;
+    }
+/* here begins callapse integration */
     </style>
 
 </head>
 <body>
-<script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
-
 <script>
-
- 
-
-
- firebase.auth().onAuthStateChanged(function(user) {
-      if (!user) {
-        window.location.href = 'login.html';
-      }
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-// Function to toggle dark mode
-function toggleDarkMode() {
-    const body = document.body;
-    const isDarkMode = body.classList.contains('dark-mode');
-    
-    // Toggle the class and set the cookie
-    if (isDarkMode) {
-        body.classList.remove('dark-mode');
-        setDarkModeCookie(false); // Set cookie to false (light mode)
-    } else {
-        body.classList.add('dark-mode');
-        setDarkModeCookie(true); // Set cookie to true (dark mode)
-    }
-}
-
-// Function to set the dark mode cookie
-function setDarkModeCookie(isDarkMode) {
-    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
-}
-
-// Function to check if dark mode preference is stored in the cookie and apply it
-function applyDarkModeFromCookie() {
-    const cookies = document.cookie.split(';');
-    for (let cookie of cookies) {
-        const [name, value] = cookie.trim().split('=');
-        if (name === 'darkMode' && value === 'true') {
-            document.body.classList.add('dark-mode');
-            return;
-        }
-    }
-}
-
-// Apply dark mode preference from the cookie on page load
-applyDarkModeFromCookie();
-	
-function toggleSidebar() {
+		function toggleSidebar() {
   var sidebar = document.getElementById("sidebar");
   if (sidebar.style.left === "-250px") {
     sidebar.style.left = "0";
@@ -559,155 +573,7 @@ function toggleSidebar() {
   }
 }
 
-	 function goToHub() {
-        // Change 'https://example.com' to the actual URL you want to redirect to
-        window.location.href = 'awareness/awareness1.html';
-    }
-
-    function goToWebsite() {
-            var url = 'index'; // The URL without the .html extension
-            history.pushState({}, '', url);
-            // Update the page content here if necessary
-        }
- function examQuiz() {
-        // Change 'https://example.com' to the actual URL you want to redirect to
-        window.location.href = 'examquiz/examquiz.html';
-    }
-
- function goToEnglish() {
-        // Change 'https://example.com' to the actual URL you want to redirect to
-        window.location.href = 'english/english1.html';
-    }
-
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-      navigator.serviceWorker.register('/service-worker.js')
-        .then(function(registration) {
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, function(err) {
-          console.log('ServiceWorker registration failed: ', err);
-        });
-    });
-  }
-
-// Add an event listener to the link
-    document.getElementById('popupLink').addEventListener('click', function(event) {
-      // Prevent the default behavior of the link
-      event.preventDefault();
-      
-      // Open the link in a popup window
-      window.open('https://example.com', 'popupWindow', 'width=600,height=400');
-    });
-
-</script>
-
-
-<div class="container">
-   <div class="navbar">
-   
-   <header class="headerbar">
-   <div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
-   <div><img src="icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
-   </header>
-
-  
-  <div id="sidebar" class="sidebar">
-<a style="text-align: left; background: lightblue; font-size: 20px; color: grey;">✐GangaTricks      <button class="navbar-toggle" onclick="toggleSidebar()" style="font-size: 25px; padding: 00px;">❎</button></a>        
-<a onclick="goToWebsite()" style="text-align: left; background: white; border: 2px solid lightblue;">Home 🏠</a>
-    <a onclick="goToHub()"  style="text-align: left; background: white; border: 2px solid lightblue;">Awareness</a>
-    <a onclick="goToEnglish()" style="text-align: left; background: white; border: 2px solid lightblue;">English</a>
-    <a onclick="examQuiz()"  style="text-align: left; background: white; border: 2px solid lightblue;">ExamQuiz</a>
-    <a href="livemock/livemock.html"  id="popupLink" style="text-align: left; background: white; border: 2px solid lightblue;">Live Mocks</a>
-	<a href="blog/.html"  id="popupLink" style="text-align: left; background: white; border: 2px solid lightblue;">Our Blog</a>
-	  
-	
-	<h3 style="text-align: right; background: lightblue;">Our Android App</h3>
-  <a href="GangaTricks.rar" download="GangaTricks.rar"><img src="icon1.png" height="50" width="50" /> Download APK</a>
-  
-  <h3 style="text-align: right; background: lightblue;">Tools</h3>
-   <div class="container">
-        <button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
-    </div>
-	  <h3 style="text-align: right; background: lightblue;">More</h3>
-<button id="installButton">Install App</button>
-
-
-
-<p style="height: 130px;"></p>
-  </div>
-</div>
-
-
-	<script src="app.js"></script>
-	<script>
-	
-    
-	let auth2; // The Sign-In object.
-  let googleUser; // The current user.
-  let profile;
-
-  /**
-   * Calls startAuth after Sign in V2 finishes setting up.
-   */
-  const appStart = function() {
-    gapi.load('auth2', initSigninV2);
-  };
-
-  function onSignIn(googleUser) {
-    $("#signInId").hide();
-
-    // Useful data for your client-side scripts:
-    profile = googleUser.getBasicProfile();
-
-    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-    console.log('Full Name: ' + profile.getName());
-    console.log('Given Name: ' + profile.getGivenName());
-    console.log('Family Name: ' + profile.getFamilyName());
-    console.log("Image URL: " + profile.getImageUrl());
-    console.log("Email: " + profile.getEmail());
-    showSidebarMessage('Welcome ' + profile.getGivenName() + '!');
-    showSidebarMessage('Your email ' + profile.getEmail() + '!');
-
-    // The ID token you need to pass to your backend:
-    const id_token = googleUser.getAuthResponse().id_token;
-    console.log("ID Token: " + id_token);
-
-    window.location.replace(window.location.origin + '/login?username=' + profile.getEmail());
-
-    $("#signOutId").show();
-  }
-
-  function signOut() {
-    $("#signOutId").hide();
-
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function() {
-      console.log('User signed out.');
-    });
-
-    showSidebarMessage('See you!');
-    $("#signInId").show();
-  }
-
-  $(document).ready(function() {
-    console.log('ready');
-    console.log(googleUser);
-    if (googleUser && googleUser.isSignedIn()) {
-      showSidebarMessage('Welcome Back!' + profile?profile.getEmail():'');
-      $("#signInId").hide();
-      $("#signOutId").show();
-    } else {
-      showSidebarMessage('Welcome Guest!');
-      $("#signInId").show();
-      $("#signOutId").hide();
-    }
-  });
-	
-	</script>
-	
-	
-	<script>
-	function toggleSidebarr() {
+		function toggleSidebarr() {
   var sidebarr = document.getElementById("sidebarr");
   if (sidebarr.style.right === "-250px" || sidebarr.style.right === "") {
     sidebarr.style.right = "0";
@@ -715,167 +581,262 @@ function toggleSidebar() {
     sidebarr.style.right = "-250px";
   }
 }
+</script>
 
-	
-	</script>
+<div class="container">
+	<div class="navbar">
+   
+				<header class="headerbar">
+						<div><b onclick="toggleSidebar()" style="cursor: pointer; padding-left: 10px; font-size: 50px;">☰ </b></div>
+						<div><img src="icon1.png" width="50px" height="51px"><b style="cursor: pointer; color:  #2E58ED; padding-right: 15px; font-size: 30px;">GangaTricks</b></div>
+				</header>
 
 
-	
-   
-   
-   <div class="gbar" style="display: flex; justify-content: flex-end;">
-   
-   
-<div style="margin-top: 8px;"><a href="facts/toolspace/englishkhojo.html" style="color: blue; font-size: 10px;">Khojo</a></div>
-<div style="margin-top: 8px;"><b href="https://gangatricks.github.io/data/" style="color: black; background: gold; padding: 04px; font-size: 10px;">Gyan</b></div>
-<div style="margin-top: 8px;"><a href="https://gangatricks.github.io/data/" style="font-size: 10px;">Load</a></div>
-<div style="margin-top: 8px;"><a href="https://pradip3.pythonanywhere.com/" style="font-size: 10px;">Churn</a></div>
-<div style="margin-top: 8px;"><a href="facts/toolspace/dictionary.html" style="color: silver; font-size: 10px; background: white; padding: 04px;">🔎Eng</a></div>
-   <div><b onclick="toggleSidebarr()" style="cursor: pointer; color: black; font-size: 25px; padding-right: 8px;">☰ </b></div>
-   
-   </div>
+		<div id="sidebar" class="sidebar">
+			
+				<h3 onclick="toggleSidebar()" style="text-align: right; margin-right: 15px;">⛌</h3>
+				
+				
+				<div style="font-size: 10px; display: flex; justify-content: space-around;">
+				
+				<h6 id="userFullName"></h6>
+				<img id="userPhoto" src="../../default-profile.png" width="50" height="50" alt="User Photo" />
+
+		</div>
+				<h6 id="userEmail"></h6>
+				<button id="googleSignOutBtn" style="padding-left: 70%; display: none;">Sign Out</button>
+				
+				
+				
+				<a onclick="goToWebsite()" style="text-align: left; background: white; border: 2px solid lightblue;">Dashboard</a>
+				<a onclick="goToHub()"  style="text-align: left; background: white; border: 2px solid lightblue;">Courses</a>
+				<a onclick="goToEnglish()" style="text-align: left; background: white; border: 2px solid lightblue;">Free Study Material</a>
+				<a onclick="examQuiz()"  style="text-align: left; background: white; border: 2px solid lightblue;">Tests</a>
+				<a onclick="examQuiz()"  style="text-align: left; background: white; border: 2px solid lightblue;">Quiz</a>
+				<a onclick="examQuiz()"  style="text-align: left; background: white; border: 2px solid lightblue;">Live Mocks</a>
+				<a onclick="examQuiz()"  style="text-align: left; background: white; border: 2px solid lightblue;">Saved Questions</a>
+				<a onclick="examQuiz()"  style="text-align: left; background: white; border: 2px solid lightblue;">Order Details</a>
+				<a onclick="examQuiz()"  style="text-align: left; background: white; border: 2px solid lightblue;">Settings</a>
+				<a href="blog/.html"  id="popupLink" style="text-align: left; background: white; border: 2px solid lightblue;">Blog</a>
+				
 
   
-  <div id="sidebarr" class="sidebarr">
-  <b class="navbar-toggle h4" onclick="toggleSidebarr()">⛌</b>  
-<h3> More Content </h3>  
+				<h3 style="text-align: right; background: lightblue;">Tools</h3>
+						<button id="installButton">Install App</button>
+						<button onclick="toggleDarkMode()" style="color: white; item-align: right; background: black; border: 2px solid white;">Dark Mode</button>
+						
+					
 
-  </div><br><br>
+
+				<p style="height: 130px;"></p>
+				
+		</div>
+    </div>
+</div>
+
 	
-<h5 style="margin-top: 10px;">You uses the resources of <b style="color: blue;">GangaRepository</b></h5>
+
+   
+   
+<div class="gbar" style="display: flex; justify-content: flex-end;">
+   
+   
+		<div style="margin-top: 8px;"><a href="facts/toolspace/englishkhojo.html" style="color: blue; font-size: 10px;">Khojo</a></div>
+		<div style="margin-top: 8px;"><b href="https://gangatricks.github.io/data/" style="color: black; background: gold; padding: 04px; font-size: 10px;">Gyan</b></div>
+		<div style="margin-top: 8px;"><a href="https://gangatricks.github.io/data/" style="font-size: 10px;">Load</a></div>
+		<div style="margin-top: 8px;"><a href="https://pradip3.pythonanywhere.com/" style="font-size: 10px;">Churn</a></div>
+		<div style="margin-top: 8px;"><a href="facts/toolspace/dictionary.html" style="color: silver; font-size: 10px; background: white; padding: 04px;">🔎Eng</a></div>
+		<div><b onclick="toggleSidebarr()" style="cursor: pointer; color: black; font-size: 25px; padding-right: 8px;">☰ </b></div>
+   
+
+</div>
+
+  
+ <div id="sidebarr" class="sidebarr">
+			<b class="navbar-toggle h4" onclick="toggleSidebarr()">⛌</b>  
+			
+			<h3> More Content </h3> 
+
+
+ </div><br><br>
+  
+	
+<h5 style="margin-top: 10px;">Hello! <b style="color: blue;"><span id="userFirstName"></span></b></h5>
 	
 
 
-<div style="box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;">
-<div class="stepper simple">
-    <section [hidden]="currentPage > 0">
-      <div class="top-bar">
-        Highlights 
-      </div>
-      <div class="content" style="display: flex"><div>
-		<img src="banner1.png" width="1150" height="350" style="max-width: 100%; max-height: 100%;" alt="Banner Image">
-	</div></div>
-      <div class="bottom-bar">
-        <div class="step-dots">
-          <i class="step-dot active"></i>
-          <i class="step-dot"></i>
-          <i class="step-dot"></i>
-        </div>
-        <button on="tap:AMP.pushState({ currentPage: currentPage + 1 })" class="button-next">next</button>
-      </div>
-    </section>
-    <section hidden [hidden]="currentPage != 1">
-      <div class="top-bar">
-        Highlights
-      </div>
-      <div class="content">Under Construction, Coming So Soon ...<br> GangaTricks</div>
-      <div class="bottom-bar">
-        <button class="button-prev" on="tap:AMP.pushState({ currentPage: currentPage - 1 })">back</button>
-        <div class="step-dots">
-          <i class="step-dot active"></i>
-          <i class="step-dot active"></i>
-          <i class="step-dot"></i>
-        </div>
-        <button on="tap:AMP.pushState({ currentPage: currentPage + 1 })" class="button-next">next</button>
-      </div>
-    </section>
-    <section hidden [hidden]="currentPage != 2">
-      <div class="top-bar">
-        Highlights
-      </div>
-      <div class="content">Under Construction, Coming So Soon ...<br> GangaTricks</div>
-      <div class="bottom-bar">
-        <button class="button-prev" on="tap:AMP.pushState({ currentPage: currentPage - 1 })">back</button>
-        <div class="step-dots">
-          <i class="step-dot active"></i>
-          <i class="step-dot active"></i>
-          <i class="step-dot active"></i>
-        </div>
-      </div>
-    </section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+<div>
+
+
+<img src="opensource.png" width="100%" height="100%" style="max-width: 100%; max-height: 100%;" alt="Banner Image">
+
+
+</div>
+
+<h6>From the chief developer, Mr. Fusion, use sync data button to go to the cloud synchronisation section of our app, pertaining to your bookmarks activities in different quiz sets</h6>
+
+<p>saving your data from local storage into our cloud database, use save to cloud button</p>
+
+<p>loading your data from our cloud database into  local storage, use load from cloud button</p>
+
+  <br>
+<div>
+  <div style="display: flex; justify-content: space-around; width: 100%; margin-bottom: 10px;">
+		<div style="border: 05px; border-radius: 02px; padding: 05px; background: #ebe8fc; width: 150px; height: 65px; box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;">
+			<h6>Pictorial Notes</h6>
+			<a href="facts/formulae/index.html" style="cursor: pointer; margin-left: 80%; background: #4169E1; color: white; padding: 05px;">Go</a>
+		</div>
+		
+		<div style="border: 05px; border-radius: 02px; padding: 05px; background: #ebe8fc; width: 150px; height: 65px; box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;">
+			<h6>PDF Notes</h6>
+			<a href="facts/formulae/index.html" style="cursor: pointer; margin-left: 80%; background: #4169E1; color: white; padding: 05px;">Go</a>
+		</div>
+		
   </div>
+  
+    <div style="display: flex; justify-content: space-around; width: 100%; margin-bottom: 10px;">
+		<div style="border: 05px; border-radius: 02px; padding: 05px; background: #ebe8fc; width: 150px; height: 65px; box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;">
+			<h6>No Content</h6>
+			<a href="index" style="cursor: pointer; margin-left: 80%; background: #4169E1; color: white; padding: 05px;">Go</a>
+		</div>
+		
+		<div style="border: 05px; border-radius: 02px; padding: 05px; background: #ebe8fc; width: 150px; height: 65px; box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;">
+			<h6>No Content</h6>
+			<a href="index" style="cursor: pointer; margin-left: 80%; background: #4169E1; color: white; padding: 05px;">Go</a>
+		</div>
+		
+  </div>
+  
+    <div style="display: flex; justify-content: space-around; width: 100%; margin-bottom: 10px;">
+		<div style="border: 05px; border-radius: 02px; padding: 05px; background: #ebe8fc; width: 150px; height: 65px; box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;">
+			<h6>No Content</h6>
+			<a href="index" style="cursor: pointer; margin-left: 80%; background: #4169E1; color: white; padding: 05px;">Go</a>
+		</div>
+		
+		<div style="border: 05px; border-radius: 02px; padding: 05px; background: #ebe8fc; width: 150px; height: 65px; box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;">
+			<h6>No Content</h6>
+			<a href="index" style="cursor: pointer; margin-left: 80%; background: #4169E1; color: white; padding: 05px;">Go</a>
+		</div>
+		
+  </div>
+   
 
 </div>
-
-
-<br>
-
-
-
-
-
-
-
-
-
- <div style="position: relative; background: ; padding: 20px; box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;"">
+  
+  
+  
+  
+  
  
- 
- 
- 
+
+
+    <div class="container" style="display: none;">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="img-box">
+            <iframe width="100%" height="280px" style="border-radius: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;"
+src="https://youtube.com/embed/2qsXznhUZcs"
+title="YouTube video player"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="detail-box">
+            <div class="custom_heading-container">
+              <h2 style="background: gold; box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;">
+                About Me
+              </h2>
+            </div>
+            <p style="background: gold; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;">
+From GangaTricks Here, I am Mr. Fusion and Competition Expert Spanning six years of experience. I have witnessed many hiccups while preparing for the various government examinations. It is my guarantee that your ordeal for preparing and facing the exam will vanish just after you start taking quizzes here. In this app, we are going to provide all kinds of researched and carefully planned questions. Just keep practicing for your smiling days. success lies how you devout to your causes. There is no purpose of restricting or keeping ourself underperformed while we are meant to many great things in our life. Let us pledge for <b>keeping FAILURE at Bay</b>.
+            </p>
+            <div>
+              <a href="about.html" style="background: gold;">
+                About More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+ <div style="position: relative; background: ; padding: 20px; box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;">
     <amp-selector class="tabs-with-flex" role="tablist" keyboard-select-mode="focus">
-
-<a href="facts/padai/cglmock.html" style="background-color: color-mix(in srgb, #BDB76B 40%, black); padding: 10px; color: gold; font-size: 15px; display: inline-block;">Mock ⏳</a>
-	
-	
-	
-	
       <div id="tab1" role="tab" aria-controls="tabpanel1" option selected style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
-><button style="padding: 07px;">General Awareness</button></div>
-      <div id="tabpanel1" role="tabpanel" aria-labelledby="tab1" style="border: 5px solid lightblue;">			
-<a href="facts/allawareness/economics1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px; padding: 05px;">Economics set 1</a>
-<a href="facts/allawareness/geography1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Geography set 1</a>
-<a href="facts/allawareness/history1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">History set 1</a>
-<a href="facts/allawareness/polity1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Polity set 1</a>
-<a href="facts/static/static1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Static Portion</a>
-
-
-
-<h4 style="background: indigo; color: yellow; padding-bottom: 03px; border-radius: 3px;">Aadvi-rupam Sharv-Saktiyam</h4>
-
-<a href="facts/allawareness/polity3.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ Polity 2000+ Questions 💡</a>
-
-<a href="facts/allawareness/culture1.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ Arts and Cultures 💡</a>
-
-<a href="facts/allawareness/biology4.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ Biology 1500+ Questions 💡</a>
-
-<a href="facts/allawareness/chemistry2.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ Chemistry 1000+ Questions 💡</a>
-
-<a href="facts/allawareness/physics2.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ Physics 1000+ Questions 💡</a>
-
-<a href="facts/allawareness/economics3.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ Economics 1000+ Questions 💡</a>
-
-<a href="facts/allawareness/environment1.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ Environment 400+ Questions 💡</a>
-
-<a href="facts/allawareness/geography3.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ Geography 3000+ Questions 💡</a>
-
-<a href="facts/allawareness/history3.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ History 3000+ Questions 💡</a>
-
-
-
-
-</div>
-      <div id="tab2" role="tab" aria-controls="tabpanel2" option style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
-><button>Science</button></div>
-      <div id="tabpanel2" role="tabpanel" aria-labelledby="tab2" style="border: 5px solid lightblue;">
-
-
-
-<a href="facts/allawareness/biology1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Biology Samay</a>
-<a href="facts/allawareness/biology2.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Biology 1000+</a>
-
-
-<a href="facts/allawareness/premiumscience.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Premium SCIENCE</a>
-
-
-
-</div>
-
-
-
-      <div id="tab4" role="tab" aria-controls="tabpanel3" option style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
 ><button>English</button></div>
-      <div id="tabpanel4" role="tabpanel" aria-labelledby="tab3" style="border: 5px solid lightblue;">
+      <div id="tabpanel1" role="tabpanel" aria-labelledby="tab1" style="border: 5px solid lightblue;">
+			
+			
+<!-- OPENing accordiON -->
+
+<div class="accordion" id="customAccordion">
+  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>SSC_English_PYQs</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">6</span>
+
+      </div>
+      <div class="accordion-content">
+
+<a href="facts/powerenglish/synonym.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Synonyms Gati</a>
+
+<a href="facts/powerenglish/antonym.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Antonyms Gati</a>
+
+<a href="facts/powerenglish/oneword.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">One Word Gati</a>
+
+<a href="facts/powerenglish/idiom.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Idioms Gati</a>
+
+<a href="facts/powerenglish/error.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Errors Gati</a>
+
+<a href="facts/powerenglish/improvement.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Improvements Gati</a>
+
+      </div>
+    </div>
+	
+  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>Grammar</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">12</span>
+
+      </div>
+      <div class="accordion-content">
+
+<a href="facts/grammar/syntax1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Syntax (Verb Agreement)</a>
+<a href="facts/grammar/noun1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Noun</a>
+<a href="facts/grammar/pronoun1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Pronoun and Verb</a>
+<a href="facts/grammar/conjunction1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Conjunctions</a>
+<a href="facts/grammar/preposition4.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Prepositions</a>
+<a href="facts/grammar/adjective1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Adjectives</a>
+<a href="facts/grammar/adverb1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Adverbs</a>
+<a href="facts/grammar/infinite1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Non-finite Practice</a>
+
+
+
+<a href="facts/grammar/questiontag1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Question Tag</a>
+<a href="facts/grammar/tense1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Tense & Time</a>
+<a href="facts/grammar/article1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Article</a>
+<a href="facts/grammar/conditional1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Conditional Sentences and Superfluous</a>
+
+      </div>
+    </div>
+	
+	
+  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>English_Non-Stop</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">30</span>
+
+      </div>
+      <div class="accordion-content">
+
 	  <h5 style="background: white; color: blue;"><b>Mr. Exam -English</b></h5>
 	  
 	  
@@ -885,6 +846,8 @@ function toggleSidebar() {
 <a href="facts/powerenglish/fillers-kiran.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC fillers kirans</a>
 <a href="facts/powerenglish/spelling.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Spelling Gati- Random K1</a>
 <a href="facts/powerenglish/sscvocab1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC Vocabulary Part-I</a>
+
+<a href="facts/powerenglish/idiom2.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC Idioms</a>
 	  
 	   <h6 style="background: white; color: blue;"><b>Mr. Exam -English Extra Content</b></h6>
 	  
@@ -931,7 +894,7 @@ function toggleSidebar() {
 
 <h5 style="background: white; color: blue;"><b>Mr. Tandav Supreme Force</b></h5>
 
-<a href="facts/powerenglish/vocabquiz1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Tsunami Vocabulary Practice</a>
+<a href="facts/powerenglish/vocabquiz1.html" style="text-align: left; color: Black; font-weight: bold; background-color: color-mix(in srgb, green 50%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Tsunami Vocabulary Practice</a>
 
 <h6 style="background: white; color: blue;"><b>Mr. Tandav -Extra Content</b></h6>
 
@@ -955,245 +918,41 @@ function toggleSidebar() {
 
 <a href="facts/powerenglish/synonym1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Synonyms crux</a>
 
-
-
-
-
-</div>
-
-
-    <div id="tab5" role="tab" aria-controls="tabpanel3" option style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
-><button>Exam Quiz (Super Fast)</button></div>
-      <div id="tabpanel5" role="tabpanel" aria-labelledby="tab3" style="border: 5px solid lightblue;">
-
-
-<a href="facts/pyq/sscgd24.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC GD Exam 2024 PYQ</a>
-
-
-<a href="facts/pyq/jja24.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Junior Judicial Assistant 2024 PYQ</a>
-
-
-<a href="facts/pyq/delhiconstable23.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Delhi Constable 2023</a>
-
-<a href="facts/pyq/cgl23.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC CGL 2023 PYQ</a>
-
-<a href="facts/pyq/mts21.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC MTS 2022 PYQ</a>
-
-
-<a href="facts/pyq/hub.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC All Questions PYQ</a>
-
-
-<a href="facts/pyq/sscgd22.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC GD Exam 2022 PYQ</a>
-
-
-
-<a href="facts/allawareness/computer2.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Computer PYQs</a>
-
-
-
-
-
-
-<h5>GD Exam 2024</h5>
-
-<a href="facts/exam/gdeco.html" style="background-color: color-mix(in srgb, navy 80%, white); padding: 05px; color: white; font-size: 12px; display: inline-block;">ECONOMICS</a>
-<a href="facts/exam/gdsports.html" style="background-color: color-mix(in srgb, navy 80%, white); padding: 05px; color: white; font-size: 12px; display: inline-block;">SPORTS</a>
-<a href="facts/exam/gdstatic.html" style="background-color: color-mix(in srgb, navy 80%, white); padding: 05px; color: white; font-size: 12px; display: inline-block;">STATIC</a>
-<a href="facts/exam/gdpolity.html" style="background-color: color-mix(in srgb, navy 80%, white); padding: 05px; color: white; font-size: 12px; display: inline-block;">POLITY</a>
-<a href="facts/exam/gdhistory.html" style="background-color: color-mix(in srgb, navy 80%, white); padding: 05px; color: white; font-size: 12px; display: inline-block;">HISTORY</a>
-<a href="facts/exam/gdscience.html" style="background-color: color-mix(in srgb, navy 80%, white); padding: 05px; color: white; font-size: 12px; display: inline-block;">SCIENCE</a>
-<a href="facts/exam/gdgeography.html" style="background-color: color-mix(in srgb, navy 80%, white); padding: 05px; color: white; font-size: 12px; display: inline-block;">GEOGRAPHY</a>
-<a href="facts/exam/gdcurrentaffairs.html" style="background-color: color-mix(in srgb, navy 80%, white); padding: 05px; color: white; font-size: 12px; display: inline-block;">CA QUESTIONS</a>
-
-
-
-<h5>PYQs 2024 examinations </h5>
-
-<a href="facts/24pyq/chsl24computer.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC CHSL COMPUTER 2024 PYQ</a>
-
-
-<a href="facts/24pyq/chsl24statics.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC CHSL STATICS GK 2024 PYQ</a>
-
-
-<a href="facts/24pyq/chsl24all.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC CHSL ALL 2024 PYQ</a>
-
-
-<a href="facts/24pyq/selectionpost24.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC SELECTION POSTS 2024 PYQ</a>
-
-
-<a href="facts/24pyq/cpo24.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC CPO 2024 PYQ</a>
-
-
-<a href="facts/24pyq/jee24.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC JEE 2024 PYQ</a>
-
-
-
-
-
-
-</div>
-
-
-	    
-
-    <div id="tab6" role="tab" aria-controls="tabpanel3" option style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
-><button>Computer</button></div>
-      <div id="tabpanel6" role="tabpanel" aria-labelledby="tab3" style="border: 5px solid lightblue;">
-<a href="facts/allawareness/computer1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Computer 2500+</a>
-
-<a href="facts/allawareness/computer2.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Delhi Police Computer 2023</a>
-
-
-<a href="facts/static/computer1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Computer PYQs</a>
-
-</div>
-
-
-
-    <div id="tab7" role="tab" aria-controls="tabpanel3" option style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
-><button style="background: gold;">TOOLS</button></div>
-      <div id="tabpanel7" role="tabpanel" aria-labelledby="tab3" style="border: 5px solid lightblue;">
-
-<a href="facts/toolspace/speed1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Mental Maths</a>
-
-
-<a href="facts/toolspace/englishkhojo.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">English Khojo</a>
-
-<a href="facts/toolspace/dictionary.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">English Dictionary</a>
-
-
-
-<a href="facts/toolspace/englishmost.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">testing</a>
-
-
-
-<a href="facts/toolspace/index.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">testing</a>
-
-
-<a href="facts/toolspace/analogy.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Analogy</a>
-
-<a href="facts/toolspace/oddout.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Odd out</a>
-
-</div>
-</div>
-    </amp-selector>
-
-  
-<details style="background: ; box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; "><summary style="background: ; color: blue; font-size: 25px;"><b>About Me</b></summary>
-
-	 <div>
-<img src="opensource.png" width="1200" height="60" style="max-width: 100%; max-height: 100%;" alt="Banner Image">
-</div>
-
-  <section class="about_section layout_padding mt-5" style="background: ; box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; ">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-7">
-          <div class="img-box">
-            <iframe width="100%" height="280px" style="border-radius: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;"
-src="https://youtube.com/embed/2qsXznhUZcs"
-title="YouTube video player"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-          </div>
-        </div>
-        <div class="col-md-5">
-          <div class="detail-box">
-            <div class="custom_heading-container">
-              <h2 style="background: gold; box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;">
-                About Me
-              </h2>
-            </div>
-            <p style="background: gold; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;">
-From GangaTricks Here, I am Mr. Fusion and Competition Expert Spanning six years of experience. I have witnessed many hiccups while preparing for the various government examinations. It is my guarantee that your ordeal for preparing and facing the exam will vanish just after you start taking quizzes here. In this app, we are going to provide all kinds of researched and carefully planned questions. Just keep practicing for your smiling days. success lies how you devout to your causes. There is no purpose of restricting or keeping ourself underperformed while we are meant to many great things in our life. Let us pledge for <b>keeping FAILURE at Bay</b>.
-            </p>
-            <div>
-              <a href="about.html" style="background: gold;">
-                About More
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
-  </section>
-</details>
-
-
-
- <div style="position: relative; background: ; padding: 20px; box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;">
-    <amp-selector class="tabs-with-flex" role="tablist" keyboard-select-mode="focus">
-      
 	
-<a href="facts/padai/othermock.html" style="background: SlateBlue; padding: 10px; color: gold; font-size: 15px; display: inline-block;">Mock ⏳</a>
-	
-	 <div id="tab3" role="tab" aria-controls="tabpanel3" option selected style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
-><button>💱 SSC English</button></div>
-      <div id="tabpanel3" role="tabpanel" aria-labelledby="tab1" style="border: 5px solid lightblue;">	
+</div><!-- CLOSING accordiON -->	
 
+		<!-- accordion items CODE START -->
+				  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>No Content</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">0</span>
 
-<a href="facts/powerenglish/synonym.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Synonyms Gati</a>
+      </div>
+      <div class="accordion-content">
 
-<a href="facts/powerenglish/antonym.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Antonyms Gati</a>
+<!-- Content goes here -->
 
-<a href="facts/powerenglish/oneword.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">One Word Gati</a>
-
-<a href="facts/powerenglish/idiom.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Idioms Gati</a>
-
-<a href="facts/powerenglish/error.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Errors Gati</a>
-
-<a href="facts/powerenglish/improvement.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Improvements Gati</a>
-
-</div>
-	
-	
-	
-	
-
-
-
- <div id="tab2" role="tab" aria-controls="tabpanel2" option style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
-><button>🎓 Tandav</button></div>
-      <div id="tabpanel2" role="tabpanel" aria-labelledby="tab2" style="border: 5px solid lightblue;">
-
-
-
-
-
-<a href="facts/padai/mentorslides.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Awareness <b style="color: black; background: yellow;">Rapid-Fire 🏇🏼</b> </a>
-
-
-
-<a href="facts/padai/vigyan.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Science Bhaukal <b style="color: black; background: blue;">Rapid-Fire 🏇🏼</b> </a>
-
-
-<h4 style="padding-bottom: 12px;">Topic Wise General Studies</h4>
-
-
-<a href="facts/slides/sikhism.html" style="background-color: color-mix(in srgb, indigo 60%, white); padding: 05px; color: yellow; font-size: 12px; display: inline-block;">✠  Sikhism  ✠</a>
-
-<a href="facts/slides/governor.html" style="background-color: color-mix(in srgb, indigo 60%, white); padding: 05px; color: yellow; font-size: 12px; display: inline-block;">✠  Governor Polity  ✠</a>
-
-
-<a href="web content/groupd22.htm" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">group d 2022</a>
-
-
-<a href="web content/ntpc21.htm" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">ntpc cbt1 2021</a>
-
-
-
+      </div>
+    </div>
+<!-- accordion items CODE ENDS -->
 
 </div>
 
+      <div id="tab3" role="tab" aria-controls="tabpanel3" option style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
+><button>SSC PYQs</button></div>
+      <div id="tabpanel3" role="tabpanel" aria-labelledby="tab3" style="border: 5px solid lightblue;">
 
+	  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>SSC_Awareness_Oneliners</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">51</span>
 
- <div id="tab2" role="tab" aria-controls="tabpanel2" option style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
-><button>SSC Awareness</button></div>
-      <div id="tabpanel2" role="tabpanel" aria-labelledby="tab2" style="border: 5px solid lightblue;">
+      </div>
+      <div class="accordion-content">
 
-
-
+<!-- Content goes here -->
 
 
 <a href="facts/padai/sscbiology.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC Biology<b style="color: black; background: yellow;">Rapid-Fire 🏇🏼</b> </a>
@@ -1301,940 +1060,490 @@ From GangaTricks Here, I am Mr. Fusion and Competition Expert Spanning six years
 <a href="facts/flashcard/cpo24.html" style="background-color: color-mix(in srgb, indigo 60%, white); padding: 05px; color: yellow; font-size: 12px; display: inline-block;">CPO July 2024</a>
 
 <a href="facts/flashcard/chsl24.html" style="background-color: color-mix(in srgb, indigo 60%, white); padding: 05px; color: yellow; font-size: 12px; display: inline-block;">CHSL 2024</a>
+      </div>
+    </div>
+	  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>Quality_Science</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">3</span>
 
+      </div>
+      <div class="accordion-content">
+
+<!-- Content goes here -->
+
+
+<a href="facts/allawareness/biology1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Biology Samay</a>
+<a href="facts/allawareness/biology2.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Biology 1000+</a>
+
+
+<a href="facts/allawareness/premiumscience.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Premium SCIENCE</a>
+
+      </div>
+    </div>
+	  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>General_Awareness</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">14</span>
+
+      </div>
+      <div class="accordion-content">
+
+<!-- Content goes here -->
+
+<a href="facts/allawareness/economics1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px; padding: 05px;">Economics set 1</a>
+<a href="facts/allawareness/geography1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Geography set 1</a>
+<a href="facts/allawareness/history1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">History set 1</a>
+<a href="facts/allawareness/polity1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Polity set 1</a>
+<a href="facts/static/static1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Static Portion</a>
+
+
+
+<h4 style="background: indigo; color: yellow; padding-bottom: 03px; border-radius: 3px;">Aadvi-rupam Sharv-Saktiyam</h4>
+
+<a href="facts/allawareness/polity3.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ Polity 2000+ Questions 💡</a>
+
+<a href="facts/allawareness/culture1.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ Arts and Cultures 💡</a>
+
+<a href="facts/allawareness/biology4.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ Biology 1500+ Questions 💡</a>
+
+<a href="facts/allawareness/chemistry2.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ Chemistry 1000+ Questions 💡</a>
+
+<a href="facts/allawareness/physics2.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ Physics 1000+ Questions 💡</a>
+
+<a href="facts/allawareness/economics3.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ Economics 1000+ Questions 💡</a>
+
+<a href="facts/allawareness/environment1.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ Environment 400+ Questions 💡</a>
+
+<a href="facts/allawareness/geography3.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ Geography 3000+ Questions 💡</a>
+
+<a href="facts/allawareness/history3.html" style="text-align: left; color: white; background-color: color-mix(in srgb, black 60%, white); padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">✍ History 3000+ Questions 💡</a>
+
+
+
+
+      </div>
+    </div>
+			<!-- accordion items CODE START -->
+				  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>No Content</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">0</span>
+
+      </div>
+      <div class="accordion-content">
+
+<!-- Content goes here -->
+
+      </div>
+    </div>
+<!-- accordion items CODE ENDS -->
+		<!-- accordion items CODE START -->
+				  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>No Content</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">0</span>
+
+      </div>
+      <div class="accordion-content">
+
+<!-- Content goes here -->
+
+      </div>
+    </div>
+<!-- accordion items CODE ENDS -->
+		<!-- accordion items CODE START -->
+				  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>No Content</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">0</span>
+
+      </div>
+      <div class="accordion-content">
+
+<!-- Content goes here -->
+
+      </div>
+    </div>
+<!-- accordion items CODE ENDS -->
+		<!-- accordion items CODE START -->
+				  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>No Content</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">0</span>
+
+      </div>
+      <div class="accordion-content">
+
+<!-- Content goes here -->
+
+      </div>
+    </div>
+<!-- accordion items CODE ENDS -->
 
 </div>
 
 
+	    
 
-
- <div id="tab2" role="tab" aria-controls="tabpanel2" option style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
-><button>AAO 🎓</button></div>
-      <div id="tabpanel2" role="tabpanel" aria-labelledby="tab2" style="border: 5px solid lightblue;">
-	  
-	  <h5>Accountancy</h5>
-
-
-<a href="facts/accountancy/quest_accounts.html" class="a-52">Quest Questions</a><br><br>
-
-<a href="facts/accountancy/ssc_accounts.html" class="a-52">SSC 700 Q+</a><br><br>
-
-<a href="facts/accountancy/sachbol.html" class="a-52">CA Questions Sach Bol</a><br><br>
-
-
-<h5>Economics</h5>
-
-<a href="facts/economics/full_economics.html" class="a-52">Work In Progress</a><br><br>
-<a href="facts/economics/demand_supply.html" class="a-52">Demand And Supply</a><br><br>
-<a href="facts/economics/marketform.html" class="a-52">Market Forms</a><br><br>
-<a href="facts/economics/production_cost.html" class="a-52">Production and Costs</a><br><br>
-<a href="facts/economics/introductory.html" class="a-52">Introductory into Economics</a><br><br>
-<a href="facts/economics/cycle.html" class="a-52">Business Cycle</a><br><br>
-<a href="facts/economics/indian.html" class="a-52">Indian Economy</a><br><br>
-<a href="facts/economics/money.html" class="a-52">Money and Financial Systems</a><br><br>
-<a href="facts/economics/reforms.html" class="a-52">Reforms in Indian Economy</a><br><br>
-<a href="facts/economics/fcommission.html" class="a-52">Finance Commission</a><br><br>
-<a href="facts/economics/it.html" class="a-52">Technology in Governance</a><br><br>
-<a href="facts/economics/cag.html" class="a-52">CAG Office</a><br><br>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- <div id="tab2" role="tab" aria-controls="tabpanel2" option style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
-><button>🏹 Brahmos</button></div>
-      <div id="tabpanel2" role="tabpanel" aria-labelledby="tab2" style="border: 5px solid lightblue;">
-
-<a href="facts/brahmos/set001.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set001 📝️</a>
-
-<a href="facts/brahmos/set002.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set002 📝️</a>
-
-<a href="facts/brahmos/set003.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set003 📝️</a>
-
-<a href="facts/brahmos/set004.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set004 📝️</a>
-
-<a href="facts/brahmos/set005.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set005 📝️</a>
-
-<a href="facts/brahmos/set006.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set006 📝️</a>
-
-<a href="facts/brahmos/set007.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set007 📝️</a>
-
-<a href="facts/brahmos/set008.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set008 📝️</a>
-
-<a href="facts/brahmos/set009.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set009 📝️</a>
-
-<a href="facts/brahmos/set010.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set010 📝️</a>
-
-<!-- Up to set100 -->
-<a href="facts/brahmos/set011.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set011 📝️</a>
-
-<a href="facts/brahmos/set012.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set012 📝️</a>
-
-<a href="facts/brahmos/set013.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set013 📝️</a>
-
-<a href="facts/brahmos/set014.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set014 📝️</a>
-
-<a href="facts/brahmos/set015.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set015 📝️</a>
-
-<a href="facts/brahmos/set016.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set016 📝️</a>
-
-<a href="facts/brahmos/set017.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set017 📝️</a>
-
-<a href="facts/brahmos/set018.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set018 📝️</a>
-
-<a href="facts/brahmos/set019.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set019 📝️</a>
-
-<a href="facts/brahmos/set020.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set020 📝️</a>
-
-<!-- Up to set100 -->
-<a href="facts/brahmos/set021.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set021 📝️</a>
-
-<a href="facts/brahmos/set022.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set022 📝️</a>
-
-<a href="facts/brahmos/set023.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set023 📝️</a>
-
-<a href="facts/brahmos/set024.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set024 📝️</a>
-
-<a href="facts/brahmos/set025.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set025 📝️</a>
-
-<a href="facts/brahmos/set026.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set026 📝️</a>
-
-<a href="facts/brahmos/set027.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set027 📝️</a>
-
-<a href="facts/brahmos/set028.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set028 📝️</a>
-
-<a href="facts/brahmos/set029.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set029 📝️</a>
-
-<a href="facts/brahmos/set030.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set030 📝️</a>
-
-<!-- Up to set100 -->
-<a href="facts/brahmos/set031.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set031 📝️</a>
-
-<a href="facts/brahmos/set032.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set032 📝️</a>
-
-<a href="facts/brahmos/set033.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set033 📝️</a>
-
-<a href="facts/brahmos/set034.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set034 📝️</a>
-
-<a href="facts/brahmos/set035.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set035 📝️</a>
-
-<a href="facts/brahmos/set036.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set036 📝️</a>
-
-<a href="facts/brahmos/set037.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set037 📝️</a>
-
-<a href="facts/brahmos/set038.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set038 📝️</a>
-
-<a href="facts/brahmos/set039.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set039 📝️</a>
-
-<a href="facts/brahmos/set040.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set040 📝️</a>
-
-<!-- Up to set100 -->
-<a href="facts/brahmos/set041.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set041 📝️</a>
-
-<a href="facts/brahmos/set042.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set042 📝️</a>
-
-<a href="facts/brahmos/set043.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set043 📝️</a>
-
-<a href="facts/brahmos/set044.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set044 📝️</a>
-
-<a href="facts/brahmos/set045.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set045 📝️</a>
-
-<a href="facts/brahmos/set046.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set046 📝️</a>
-
-<a href="facts/brahmos/set047.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set047 📝️</a>
-
-<a href="facts/brahmos/set048.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set048 📝️</a>
-
-<a href="facts/brahmos/set049.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set049 📝️</a>
-
-<a href="facts/brahmos/set050.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set050 📝️</a>
-
-<!-- Up to set100 -->
-
-<a href="facts/brahmos/set051.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set051 📝️</a>
-
-<a href="facts/brahmos/set052.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set052 📝️</a>
-
-<a href="facts/brahmos/set053.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set053 📝️</a>
-
-<a href="facts/brahmos/set054.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set054 📝️</a>
-
-<a href="facts/brahmos/set055.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set055 📝️</a>
-
-<a href="facts/brahmos/set056.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set056 📝️</a>
-
-<a href="facts/brahmos/set057.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set057 📝️</a>
-
-<a href="facts/brahmos/set058.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set058 📝️</a>
-
-<a href="facts/brahmos/set059.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set059 📝️</a>
-
-<a href="facts/brahmos/set060.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set060 📝️</a>
-
-<!-- Up to set100 -->
-<a href="facts/brahmos/set061.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set061 📝️</a>
-
-<a href="facts/brahmos/set062.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set062 📝️</a>
-
-<a href="facts/brahmos/set063.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set063 📝️</a>
-
-<a href="facts/brahmos/set064.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set064 📝️</a>
-
-<a href="facts/brahmos/set065.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set065 📝️</a>
-
-<a href="facts/brahmos/set066.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set066 📝️</a>
-
-<a href="facts/brahmos/set067.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set067 📝️</a>
-
-<a href="facts/brahmos/set068.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set068 📝️</a>
-
-<a href="facts/brahmos/set069.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set069 📝️</a>
-
-<a href="facts/brahmos/set070.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set070 📝️</a>
-
-<!-- Up to set100 -->
-<a href="facts/brahmos/set071.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set071 📝️</a>
-
-<a href="facts/brahmos/set072.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set072 📝️</a>
-
-<a href="facts/brahmos/set073.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set073 📝️</a>
-
-<a href="facts/brahmos/set074.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set074 📝️</a>
-
-<a href="facts/brahmos/set075.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set075 📝️</a>
-
-<a href="facts/brahmos/set076.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set076 📝️</a>
-
-<a href="facts/brahmos/set077.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set077 📝️</a>
-
-<a href="facts/brahmos/set078.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set078 📝️</a>
-
-<a href="facts/brahmos/set079.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set079 📝️</a>
-
-<a href="facts/brahmos/set080.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set080 📝️</a>
-
-<!-- Up to set100 -->
-<a href="facts/brahmos/set081.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set081 📝️</a>
-
-<a href="facts/brahmos/set082.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set082 📝️</a>
-
-<a href="facts/brahmos/set083.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set083 📝️</a>
-
-<a href="facts/brahmos/set084.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set084 📝️</a>
-
-<a href="facts/brahmos/set085.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set085 📝️</a>
-
-<a href="facts/brahmos/set086.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set086 📝️</a>
-
-<a href="facts/brahmos/set087.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set087 📝️</a>
-
-<a href="facts/brahmos/set088.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set088 📝️</a>
-
-<a href="facts/brahmos/set089.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set089 📝️</a>
-
-<a href="facts/brahmos/set090.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set090 📝️</a>
-
-<!-- Up to set100 -->
-<a href="facts/brahmos/set091.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set091 📝️</a>
-
-<a href="facts/brahmos/set092.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set092 📝️</a>
-
-<a href="facts/brahmos/set093.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set093 📝️</a>
-
-<a href="facts/brahmos/set094.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set094 📝️</a>
-
-<a href="facts/brahmos/set095.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set095 📝️</a>
-
-<a href="facts/brahmos/set096.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set096 📝️</a>
-
-<a href="facts/brahmos/set097.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set097 📝️</a>
-
-<a href="facts/brahmos/set098.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set098 📝️</a>
-
-<a href="facts/brahmos/set099.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set099 📝️</a>
-
-<a href="facts/brahmos/set100.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set100 📝️</a>
-
-<a href="facts/brahmos/set101.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set101 📝️</a>
-
-<a href="facts/brahmos/set102.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set102 📝️</a>
-
-<a href="facts/brahmos/set103.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set103 📝️</a>
-
-<a href="facts/brahmos/set104.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set104 📝️</a>
-
-<a href="facts/brahmos/set105.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set105 📝️</a>
-
-<a href="facts/brahmos/set106.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set106 📝️</a>
-
-<a href="facts/brahmos/set107.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set107 📝️</a>
-
-<a href="facts/brahmos/set108.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set108 📝️</a>
-
-<a href="facts/brahmos/set109.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set109 📝️</a>
-
-<a href="facts/brahmos/set110.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set110 📝️</a>
-
-<!-- Up to set200 -->
-<a href="facts/brahmos/set111.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set111 📝️</a>
-
-<a href="facts/brahmos/set112.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set112 📝️</a>
-
-<a href="facts/brahmos/set113.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set113 📝️</a>
-
-<a href="facts/brahmos/set114.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set114 📝️</a>
-
-<a href="facts/brahmos/set115.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set115 📝️</a>
-
-<a href="facts/brahmos/set116.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set116 📝️</a>
-
-<a href="facts/brahmos/set117.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set117 📝️</a>
-
-<a href="facts/brahmos/set118.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set118 📝️</a>
-
-<a href="facts/brahmos/set119.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set119 📝️</a>
-
-<a href="facts/brahmos/set120.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set120 📝️</a>
-
-<!-- Up to set200 -->
-<a href="facts/brahmos/set121.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set121 📝️</a>
-
-<a href="facts/brahmos/set122.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set122 📝️</a>
-
-<a href="facts/brahmos/set123.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set123 📝️</a>
-
-<a href="facts/brahmos/set124.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set124 📝️</a>
-
-<a href="facts/brahmos/set125.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set125 📝️</a>
-
-<a href="facts/brahmos/set126.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set126 📝️</a>
-
-<a href="facts/brahmos/set127.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set127 📝️</a>
-
-<a href="facts/brahmos/set128.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set128 📝️</a>
-
-<a href="facts/brahmos/set129.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set129 📝️</a>
-
-<a href="facts/brahmos/set130.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set130 📝️</a>
-
-<!-- Up to set200 -->
-<a href="facts/brahmos/set131.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set131 📝️</a>
-
-<a href="facts/brahmos/set132.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set132 📝️</a>
-
-<a href="facts/brahmos/set133.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set133 📝️</a>
-
-<a href="facts/brahmos/set134.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set134 📝️</a>
-
-<a href="facts/brahmos/set135.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set135 📝️</a>
-
-<a href="facts/brahmos/set136.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set136 📝️</a>
-
-<a href="facts/brahmos/set137.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set137 📝️</a>
-
-<a href="facts/brahmos/set138.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set138 📝️</a>
-
-<a href="facts/brahmos/set139.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set139 📝️</a>
-
-<a href="facts/brahmos/set140.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set140 📝️</a>
-
-<!-- Up to set200 -->
-
-<a href="facts/brahmos/set141.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set141 📝️</a>
-
-<a href="facts/brahmos/set142.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set142 📝️</a>
-
-<a href="facts/brahmos/set143.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set143 📝️</a>
-
-<a href="facts/brahmos/set144.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set144 📝️</a>
-
-<a href="facts/brahmos/set145.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set145 📝️</a>
-
-<a href="facts/brahmos/set146.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set146 📝️</a>
-
-<a href="facts/brahmos/set147.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set147 📝️</a>
-
-<a href="facts/brahmos/set148.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set148 📝️</a>
-
-<a href="facts/brahmos/set149.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set149 📝️</a>
-
-<a href="facts/brahmos/set150.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set150 📝️</a>
-
-<!-- Up to set200 -->
-<a href="facts/brahmos/set151.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set151 📝️</a>
-
-<a href="facts/brahmos/set152.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set152 📝️</a>
-
-<a href="facts/brahmos/set153.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set153 📝️</a>
-
-<a href="facts/brahmos/set154.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set154 📝️</a>
-
-<a href="facts/brahmos/set155.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set155 📝️</a>
-
-<a href="facts/brahmos/set156.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set156 📝️</a>
-
-<a href="facts/brahmos/set157.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set157 📝️</a>
-
-<a href="facts/brahmos/set158.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set158 📝️</a>
-
-<a href="facts/brahmos/set159.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set159 📝️</a>
-
-<a href="facts/brahmos/set160.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set160 📝️</a>
-
-<!-- Up to set200 -->
-
-<a href="facts/brahmos/set161.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set161 📝️</a>
-
-<a href="facts/brahmos/set162.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set162 📝️</a>
-
-<a href="facts/brahmos/set163.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set163 📝️</a>
-
-<a href="facts/brahmos/set164.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set164 📝️</a>
-
-<a href="facts/brahmos/set165.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set165 📝️</a>
-
-<a href="facts/brahmos/set166.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set166 📝️</a>
-
-<a href="facts/brahmos/set167.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set167 📝️</a>
-
-<a href="facts/brahmos/set168.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set168 📝️</a>
-
-<a href="facts/brahmos/set169.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set169 📝️</a>
-
-<a href="facts/brahmos/set170.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set170 📝️</a>
-
-<!-- Up to set200 -->
-<a href="facts/brahmos/set171.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set171 📝️</a>
-
-<a href="facts/brahmos/set172.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set172 📝️</a>
-
-<a href="facts/brahmos/set173.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set173 📝️</a>
-
-<a href="facts/brahmos/set174.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set174 📝️</a>
-
-<a href="facts/brahmos/set175.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set175 📝️</a>
-
-<a href="facts/brahmos/set176.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set176 📝️</a>
-
-<a href="facts/brahmos/set177.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set177 📝️</a>
-
-<a href="facts/brahmos/set178.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set178 📝️</a>
-
-<a href="facts/brahmos/set179.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set179 📝️</a>
-
-<a href="facts/brahmos/set180.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set180 📝️</a>
-
-<!-- Up to set200 -->
-<a href="facts/brahmos/set181.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set181 📝️</a>
-
-<a href="facts/brahmos/set182.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set182 📝️</a>
-
-<a href="facts/brahmos/set183.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set183 📝️</a>
-
-<a href="facts/brahmos/set184.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set184 📝️</a>
-
-<a href="facts/brahmos/set185.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set185 📝️</a>
-
-<a href="facts/brahmos/set186.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set186 📝️</a>
-
-<a href="facts/brahmos/set187.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set187 📝️</a>
-
-<a href="facts/brahmos/set188.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set188 📝️</a>
-
-<a href="facts/brahmos/set189.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set189 📝️</a>
-
-<a href="facts/brahmos/set190.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set190 📝️</a>
-
-<!-- Up to set200 -->
-
-<a href="facts/brahmos/set191.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set191 📝️</a>
-
-<a href="facts/brahmos/set192.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set192 📝️</a>
-
-<a href="facts/brahmos/set193.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set193 📝️</a>
-
-<a href="facts/brahmos/set194.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set194 📝️</a>
-
-<a href="facts/brahmos/set195.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set195 📝️</a>
-
-<a href="facts/brahmos/set196.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set196 📝️</a>
-
-<a href="facts/brahmos/set197.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set197 📝️</a>
-
-<a href="facts/brahmos/set198.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set198 📝️</a>
-
-<a href="facts/brahmos/set199.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set199 📝️</a>
-
-<a href="facts/brahmos/set200.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set200 📝️</a>
-
-<a href="facts/brahmos/set201.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set201 📝️</a>
-
-<a href="facts/brahmos/set202.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set202 📝️</a>
-
-<a href="facts/brahmos/set203.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set203 📝️</a>
-
-<a href="facts/brahmos/set204.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set204 📝️</a>
-
-<a href="facts/brahmos/set205.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set205 📝️</a>
-
-<a href="facts/brahmos/set206.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set206 📝️</a>
-
-<a href="facts/brahmos/set207.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set207 📝️</a>
-
-<a href="facts/brahmos/set208.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set208 📝️</a>
-
-<a href="facts/brahmos/set209.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set209 📝️</a>
-
-<a href="facts/brahmos/set210.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set210 📝️</a>
-
-<!-- Up to set300 -->
-<a href="facts/brahmos/set211.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set211 📝️</a>
-
-<a href="facts/brahmos/set212.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set212 📝️</a>
-
-<a href="facts/brahmos/set213.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set213 📝️</a>
-
-<a href="facts/brahmos/set214.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set214 📝️</a>
-
-<a href="facts/brahmos/set215.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set215 📝️</a>
-
-<a href="facts/brahmos/set216.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set216 📝️</a>
-
-<a href="facts/brahmos/set217.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set217 📝️</a>
-
-<a href="facts/brahmos/set218.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set218 📝️</a>
-
-<a href="facts/brahmos/set219.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set219 📝️</a>
-
-<a href="facts/brahmos/set220.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set220 📝️</a>
-
-<!-- Up to set300 -->
-<a href="facts/brahmos/set221.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set221 📝️</a>
-
-<a href="facts/brahmos/set222.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set222 📝️</a>
-
-<a href="facts/brahmos/set223.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set223 📝️</a>
-
-<a href="facts/brahmos/set224.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set224 📝️</a>
-
-<a href="facts/brahmos/set225.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set225 📝️</a>
-
-<a href="facts/brahmos/set226.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set226 📝️</a>
-
-<a href="facts/brahmos/set227.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set227 📝️</a>
-
-<a href="facts/brahmos/set228.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set228 📝️</a>
-
-<a href="facts/brahmos/set229.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set229 📝️</a>
-
-<a href="facts/brahmos/set230.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set230 📝️</a>
-
-<!-- Up to set300 -->
-<a href="facts/brahmos/set231.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set231 📝️</a>
-
-<a href="facts/brahmos/set232.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set232 📝️</a>
-
-<a href="facts/brahmos/set233.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set233 📝️</a>
-
-<a href="facts/brahmos/set234.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set234 📝️</a>
-
-<a href="facts/brahmos/set235.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set235 📝️</a>
-
-<a href="facts/brahmos/set236.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set236 📝️</a>
-
-<a href="facts/brahmos/set237.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set237 📝️</a>
-
-<a href="facts/brahmos/set238.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set238 📝️</a>
-
-<a href="facts/brahmos/set239.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set239 📝️</a>
-
-<a href="facts/brahmos/set240.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set240 📝️</a>
-
-<!-- Up to set300 -->
-
-<a href="facts/brahmos/set241.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set241 📝️</a>
-
-<a href="facts/brahmos/set242.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set242 📝️</a>
-
-<a href="facts/brahmos/set243.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set243 📝️</a>
-
-<a href="facts/brahmos/set244.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set244 📝️</a>
-
-<a href="facts/brahmos/set245.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set245 📝️</a>
-
-<a href="facts/brahmos/set246.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set246 📝️</a>
-
-<a href="facts/brahmos/set247.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set247 📝️</a>
-
-<a href="facts/brahmos/set248.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set248 📝️</a>
-
-<a href="facts/brahmos/set249.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set249 📝️</a>
-
-<a href="facts/brahmos/set250.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set250 📝️</a>
-
-<!-- Up to set300 -->
-<a href="facts/brahmos/set251.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set251 📝️</a>
-
-<a href="facts/brahmos/set252.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set252 📝️</a>
-
-<a href="facts/brahmos/set253.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set253 📝️</a>
-
-<a href="facts/brahmos/set254.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set254 📝️</a>
-
-<a href="facts/brahmos/set255.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set255 📝️</a>
-
-<a href="facts/brahmos/set256.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set256 📝️</a>
-
-<a href="facts/brahmos/set257.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set257 📝️</a>
-
-<a href="facts/brahmos/set258.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set258 📝️</a>
-
-<a href="facts/brahmos/set259.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set259 📝️</a>
-
-<a href="facts/brahmos/set260.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set260 📝️</a>
-
-<!-- Up to set300 -->
-<a href="facts/brahmos/set261.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set261 📝️</a>
-
-<a href="facts/brahmos/set262.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set262 📝️</a>
-
-<a href="facts/brahmos/set263.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set263 📝️</a>
-
-<a href="facts/brahmos/set264.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set264 📝️</a>
-
-<a href="facts/brahmos/set265.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set265 📝️</a>
-
-<a href="facts/brahmos/set266.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set266 📝️</a>
-
-<a href="facts/brahmos/set267.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set267 📝️</a>
-
-<a href="facts/brahmos/set268.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set268 📝️</a>
-
-<a href="facts/brahmos/set269.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set269 📝️</a>
-
-<a href="facts/brahmos/set270.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set270 📝️</a>
-
-<!-- Up to set300 -->
-<a href="facts/brahmos/set271.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set271 📝️</a>
-
-<a href="facts/brahmos/set272.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set272 📝️</a>
-
-<a href="facts/brahmos/set273.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set273 📝️</a>
-
-<a href="facts/brahmos/set274.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set274 📝️</a>
-
-<a href="facts/brahmos/set275.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set275 📝️</a>
-
-<a href="facts/brahmos/set276.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set276 📝️</a>
-
-<a href="facts/brahmos/set277.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set277 📝️</a>
-
-<a href="facts/brahmos/set278.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set278 📝️</a>
-
-<a href="facts/brahmos/set279.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set279 📝️</a>
-
-<a href="facts/brahmos/set280.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set280 📝️</a>
-
-<!-- Up to set300 -->
-<a href="facts/brahmos/set281.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set281 📝️</a>
-
-<a href="facts/brahmos/set282.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set282 📝️</a>
-
-<a href="facts/brahmos/set283.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set283 📝️</a>
-
-<a href="facts/brahmos/set284.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set284 📝️</a>
-
-<a href="facts/brahmos/set285.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set285 📝️</a>
-
-<a href="facts/brahmos/set286.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set286 📝️</a>
-
-<a href="facts/brahmos/set287.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set287 📝️</a>
-
-<a href="facts/brahmos/set288.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set288 📝️</a>
-
-<a href="facts/brahmos/set289.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set289 📝️</a>
-
-<a href="facts/brahmos/set290.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set290 📝️</a>
-
-<!-- Up to set300 -->
-<a href="facts/brahmos/set291.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set291 📝️</a>
-
-<a href="facts/brahmos/set292.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set292 📝️</a>
-
-<a href="facts/brahmos/set293.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set293 📝️</a>
-
-<a href="facts/brahmos/set294.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set294 📝️</a>
-
-<a href="facts/brahmos/set295.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set295 📝️</a>
-
-<a href="facts/brahmos/set296.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set296 📝️</a>
-
-<a href="facts/brahmos/set297.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set297 📝️</a>
-
-<a href="facts/brahmos/set298.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set298 📝️</a>
-
-<a href="facts/brahmos/set299.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set299 📝️</a>
-
-<a href="facts/brahmos/set300.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set300 📝️</a>
-<a href="facts/brahmos/set301.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set301 📝️</a>
-
-<a href="facts/brahmos/set302.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set302 📝️</a>
-
-<a href="facts/brahmos/set303.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set303 📝️</a>
-
-<a href="facts/brahmos/set304.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set304 📝️</a>
-
-<a href="facts/brahmos/set305.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set305 📝️</a>
-
-<a href="facts/brahmos/set306.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set306 📝️</a>
-
-<a href="facts/brahmos/set307.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set307 📝️</a>
-
-<a href="facts/brahmos/set308.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set308 📝️</a>
-
-<a href="facts/brahmos/set309.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set309 📝️</a>
-
-<a href="facts/brahmos/set310.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set310 📝️</a>
-
-<a href="facts/brahmos/set311.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set311 📝️</a>
-
-<a href="facts/brahmos/set312.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set312 📝️</a>
-
-<a href="facts/brahmos/set313.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set313 📝️</a>
-
-<a href="facts/brahmos/set314.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set314 📝️</a>
-
-<a href="facts/brahmos/set315.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set315 📝️</a>
-
-<a href="facts/brahmos/set316.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set316 📝️</a>
-
-<a href="facts/brahmos/set317.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set317 📝️</a>
-
-<a href="facts/brahmos/set318.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set318 📝️</a>
-
-<a href="facts/brahmos/set319.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set319 📝️</a>
-
-<a href="facts/brahmos/set320.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set320 📝️</a>
-<a href="facts/brahmos/set321.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set321 📝️</a>
-
-<a href="facts/brahmos/set322.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set322 📝️</a>
-
-<a href="facts/brahmos/set323.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set323 📝️</a>
-
-<a href="facts/brahmos/set324.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set324 📝️</a>
-
-<a href="facts/brahmos/set325.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set325 📝️</a>
-
-<a href="facts/brahmos/set326.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set326 📝️</a>
-
-<a href="facts/brahmos/set327.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set327 📝️</a>
-
-<a href="facts/brahmos/set328.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set328 📝️</a>
-
-<a href="facts/brahmos/set329.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set329 📝️</a>
-
-<a href="facts/brahmos/set330.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set330 📝️</a>
-
-<a href="facts/brahmos/set331.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set331 📝️</a>
-
-<a href="facts/brahmos/set332.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set332 📝️</a>
-
-<a href="facts/brahmos/set333.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set333 📝️</a>
-
-<a href="facts/brahmos/set334.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set334 📝️</a>
-
-<a href="facts/brahmos/set335.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set335 📝️</a>
-
-<a href="facts/brahmos/set336.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set336 📝️</a>
-
-<a href="facts/brahmos/set337.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set337 📝️</a>
-
-<a href="facts/brahmos/set338.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set338 📝️</a>
-
-<a href="facts/brahmos/set339.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set339 📝️</a>
-
-<a href="facts/brahmos/set340.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set340 📝️</a>
-
-<a href="facts/brahmos/set341.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set341 📝️</a>
-
-<a href="facts/brahmos/set342.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set342 📝️</a>
-
-<a href="facts/brahmos/set343.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set343 📝️</a>
-
-<a href="facts/brahmos/set344.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set344 📝️</a>
-
-<a href="facts/brahmos/set345.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set345 📝️</a>
-
-<a href="facts/brahmos/set346.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set346 📝️</a>
-
-<a href="facts/brahmos/set347.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set347 📝️</a>
-
-<a href="facts/brahmos/set348.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set348 📝️</a>
-
-<a href="facts/brahmos/set349.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set349 📝️</a>
-
-<a href="facts/brahmos/set350.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set350 📝️</a>
-<a href="facts/brahmos/set351.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set351 📝️</a>
-
-<a href="facts/brahmos/set352.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set352 📝️</a>
-
-<a href="facts/brahmos/set353.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set353 📝️</a>
-
-<a href="facts/brahmos/set354.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set354 📝️</a>
-
-<a href="facts/brahmos/set355.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set355 📝️</a>
-
-<a href="facts/brahmos/set356.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set356 📝️</a>
-
-<a href="facts/brahmos/set357.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set357 📝️</a>
-
-<a href="facts/brahmos/set358.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set358 📝️</a>
-
-<a href="facts/brahmos/set359.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set359 📝️</a>
-
-<a href="facts/brahmos/set360.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set360 📝️</a>
-<a href="facts/brahmos/set361.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set361 📝️</a>
-
-<a href="facts/brahmos/set362.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set362 📝️</a>
-
-<a href="facts/brahmos/set363.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set363 📝️</a>
-
-<a href="facts/brahmos/set364.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set364 📝️</a>
-
-<a href="facts/brahmos/set365.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set365 📝️</a>
-
-<a href="facts/brahmos/set366.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set366 📝️</a>
-
-<a href="facts/brahmos/set367.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set367 📝️</a>
-
-<a href="facts/brahmos/set368.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set368 📝️</a>
-
-<a href="facts/brahmos/set369.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set369 📝️</a>
-
-<a href="facts/brahmos/set370.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set370 📝️</a>
-<a href="facts/brahmos/set371.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set371 📝️</a>
-
-<a href="facts/brahmos/set372.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set372 📝️</a>
-
-<a href="facts/brahmos/set373.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set373 📝️</a>
-
-<a href="facts/brahmos/set374.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set374 📝️</a>
-
-<a href="facts/brahmos/set375.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set375 📝️</a>
-
-<a href="facts/brahmos/set376.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set376 📝️</a>
-
-<a href="facts/brahmos/set377.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set377 📝️</a>
-
-<a href="facts/brahmos/set378.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set378 📝️</a>
-
-<a href="facts/brahmos/set379.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set379 📝️</a>
-
-<a href="facts/brahmos/set380.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set380 📝️</a>
-<a href="facts/brahmos/set381.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set381 📝️</a>
-
-<a href="facts/brahmos/set382.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set382 📝️</a>
-
-<a href="facts/brahmos/set383.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set383 📝️</a>
-
-<a href="facts/brahmos/set384.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set384 📝️</a>
-
-<a href="facts/brahmos/set385.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set385 📝️</a>
-
-<a href="facts/brahmos/set386.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set386 📝️</a>
-
-<a href="facts/brahmos/set387.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set387 📝️</a>
-
-<a href="facts/brahmos/set388.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set388 📝️</a>
-
-<a href="facts/brahmos/set389.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set389 📝️</a>
-
-<a href="facts/brahmos/set390.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set390 📝️</a>
-<a href="facts/brahmos/set391.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set391 📝️</a>
-
-<a href="facts/brahmos/set392.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set392 📝️</a>
-
-<a href="facts/brahmos/set393.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set393 📝️</a>
-
-<a href="facts/brahmos/set394.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set394 📝️</a>
-
-<a href="facts/brahmos/set395.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set395 📝️</a>
-
-<a href="facts/brahmos/set396.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set396 📝️</a>
-
-<a href="facts/brahmos/set397.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set397 📝️</a>
-
-<a href="facts/brahmos/set398.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set398 📝️</a>
-
-<a href="facts/brahmos/set399.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set399 📝️</a>
-
-<a href="facts/brahmos/set400.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-Set400 📝️</a>
-
-</div>
-
-
-    </amp-selector>
-</div>
-
-
-
-
-<br>
-
-
-
-
-
-
-
-
-  <!-- end about section -->
-
-
- <div style="position: relative; background: ; padding: 20px; box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;">
-    <amp-selector class="tabs-with-flex" role="tablist" keyboard-select-mode="focus">
-      <div id="tab1" role="tab" aria-controls="tabpanel1" option selected style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
-><button>Exam PYQ</button></div>
-      <div id="tabpanel1" role="tabpanel" aria-labelledby="tab1" style="border: 5px solid lightblue;">
-			
-
-<a href="facts/allawareness/economics2.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Economics PYQs</a>
-<a href="facts/allawareness/geography2.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Geography PYQs</a>
-<a href="facts/allawareness/history2.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">History PYQs</a>
-<a href="facts/allawareness/polity2.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Polity PYQs</a>
-
-<a href="facts/allawareness/biology3.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Biology PYQs</a>
-<a href="facts/allawareness/physics1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Physics PYQs</a>
-<a href="facts/allawareness/chemistry1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Chemistry PYQs</a>
-
-
-
-
-</div>
-
-      <div id="tab3" role="tab" aria-controls="tabpanel3" option style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
-><button>SSC PYQs</button></div>
+    <div id="tab3" role="tab" aria-controls="tabpanel3" option style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
+><button>🎓 Tandav</button></div>
       <div id="tabpanel3" role="tabpanel" aria-labelledby="tab3" style="border: 5px solid lightblue;">
+
+<!-- OPENing accordiON -->
+
+<div class="accordion" id="customAccordion">
+  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>MCQ Topic-Wise</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">9</span>
+
+      </div>
+      <div class="accordion-content">
+<a href="facts/padai/cglmock.html" style="background-color: color-mix(in srgb, #BDB76B 40%, black); padding: 10px; color: gold; font-size: 15px; display: inline-block;">CGL Mock ⏳</a>
+	
+
+
+<a href="facts/padai/othermock.html" style="background: SlateBlue; padding: 10px; color: gold; font-size: 15px; display: inline-block;">Railway Mock ⏳</a>
+	
+
+
+
+<a href="facts/padai/mentorslides.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Awareness <b style="color: black; background: yellow;">Rapid-Fire 🏇🏼</b> </a>
+
+
+
+<a href="facts/padai/vigyan.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Science Bhaukal <b style="color: black; background: blue;">Rapid-Fire 🏇🏼</b> </a>
+
+
+<h4 style="padding-bottom: 12px;">Topic Wise General Studies</h4>
+
+
+<a href="facts/slides/topics/sikhism.html" style="background-color: color-mix(in srgb, green 50%, white); padding: 00px; front-weight: bold; color: black; font-size: 16px; display: inline-block;">✠ Sikhism ✠</a>
+
+<a href="facts/slides/topics/governor.html" style="background-color: color-mix(in srgb, green 50%, white); padding: 00px; front-weight: bold; color: black; font-size: 16px; display: inline-block;">✠ Governor Polity ✠</a>
+
+
+<a href="facts/slides/topics/politicians.html" style="background-color: color-mix(in srgb, green 50%, white); padding: 00px; front-weight: bold; color: black; font-size: 16px; display: inline-block;">✠ Politicians ✠</a>
+
+
+<a href="facts/slides/topics/articles-polity.html" style="background-color: color-mix(in srgb, green 50%, white); padding: 00px; front-weight: bold; color: black; font-size: 16px; display: inline-block;">✠ Polity(Articles) ✠</a>
+
+
+<a href="facts/slides/topics/staticgk-culture.html" style="background-color: color-mix(in srgb, green 50%, white); padding: 00px; front-weight: bold; color: black; font-size: 16px; display: inline-block;">✠ staticgk-culture ✠</a>
+
+
+
+      </div>
+    </div>
+	
+  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>Tools</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">7</span>
+
+      </div>
+      <div class="accordion-content">
+
+
+<a href="facts/toolspace/speed1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Mental Maths</a>
+
+
+<a href="facts/toolspace/englishkhojo.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">English Khojo</a>
+
+<a href="facts/toolspace/dictionary.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">English Dictionary</a>
+
+
+
+<a href="facts/toolspace/englishmost.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">testing</a>
+
+
+
+<a href="facts/toolspace/index.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">testing</a>
+
+
+<a href="facts/toolspace/analogy.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Analogy</a>
+
+<a href="facts/toolspace/oddout.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Odd out</a>
+      </div>
+    </div>
+	
+	
+  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>Computer</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">5</span>
+
+      </div>
+      <div class="accordion-content">
+
+<a href="facts/allawareness/computer1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Computer 2500+</a>
+
+<a href="facts/allawareness/computer2.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Delhi Police Computer 2023</a>
+
+
+<a href="facts/static/computer1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Computer PYQs</a>
+
+<a href="facts/allawareness/computer3.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Mentor's Computer</a>
+
+<a href="facts/allawareness/computer4.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Microsoft Site Tech Savvy</a>
+      </div>
+    </div>
+	
+	
+	
+	
+</div><!-- CLOSING accordiON -->
+
+		<!-- accordion items CODE START -->
+				  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>No Content</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">0</span>
+
+      </div>
+      <div class="accordion-content">
+
+<!-- Content goes here -->
+
+      </div>
+    </div>
+<!-- accordion items CODE ENDS -->
+		<!-- accordion items CODE START -->
+				  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>No Content</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">0</span>
+
+      </div>
+      <div class="accordion-content">
+
+<!-- Content goes here -->
+
+      </div>
+    </div>
+<!-- accordion items CODE ENDS -->
+		<!-- accordion items CODE START -->
+				  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>No Content</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">0</span>
+
+      </div>
+      <div class="accordion-content">
+
+<!-- Content goes here -->
+
+      </div>
+    </div>
+<!-- accordion items CODE ENDS -->
+		<!-- accordion items CODE START -->
+				  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>No Content</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">0</span>
+
+      </div>
+      <div class="accordion-content">
+
+<!-- Content goes here -->
+
+      </div>
+    </div>
+<!-- accordion items CODE ENDS -->
+
+</div>
+
+
+
+    <div id="tab3" role="tab" aria-controls="tabpanel3" option style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
+><button>🏹 Brahmos</button></div>
+      <div id="tabpanel3" role="tabpanel" aria-labelledby="tab3" style="border: 5px solid lightblue;">
+
+
+
+<!-- OPENing accordiON -->
+
+<div class="accordion" id="customAccordion">
+
+ <div class="accordion-item">
+      <div class="accordion-header" id="headingOne">
+        <span>Subject Wise with solution</span>
+		<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">28</span>
+      </div>
+      <div class="accordion-content">
+
+<a href="facts/brahmos/subject-wise/history.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">History</a>
+
+<a href="facts/brahmos/subject-wise/polity.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Polity</a>
+
+<a href="facts/brahmos/subject-wise/geography.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Geography</a>
+
+<a href="facts/brahmos/subject-wise/economics.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Economics</a>
+
+<a href="facts/brahmos/subject-wise/miscellaneous.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Miscellaneous</a>
+<a href="facts/brahmos/subject-wise/static-gk.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Static GS GK</a>
+
+<a href="facts/brahmos/subject-wise/biology.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Biology</a>
+<a href="facts/brahmos/subject-wise/physics.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Physics</a>
+<a href="facts/brahmos/subject-wise/chemistry.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Chemistry</a>
+
+<h5>Static Gk with solution</h5>
+<a href="facts/brahmos/static-gk/author.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Author</a>
+<a href="facts/brahmos/static-gk/awards.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Awards</a>
+<a href="facts/brahmos/static-gk/computer.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Computer</a>
+<a href="facts/brahmos/static-gk/cricket.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Cricket</a>
+<a href="facts/brahmos/static-gk/dance.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Dance</a>
+<a href="facts/brahmos/static-gk/fair-festival.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Fair Festival</a>
+<a href="facts/brahmos/static-gk/founder.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Founder</a>
+<a href="facts/brahmos/static-gk/important-events.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Important-Events</a>
+<a href="facts/brahmos/static-gk/instruments.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Instruments</a>
+<a href="facts/brahmos/static-gk/miscellaneous.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Miscellaneous</a>
+<a href="facts/brahmos/static-gk/organisation.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Organisation</a>
+<a href="facts/brahmos/static-gk/painting-dress-tribes.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Painting Dress Tribes</a>
+<a href="facts/brahmos/static-gk/personality.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Personality</a>
+<a href="facts/brahmos/static-gk/schemes.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Schemes</a>
+<a href="facts/brahmos/static-gk/songs.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Songs</a>
+<a href="facts/brahmos/static-gk/sports.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Sports</a>
+<a href="facts/brahmos/static-gk/state-gk.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">State-GK</a>
+<a href="facts/brahmos/static-gk/superlative.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Superlative</a>
+<a href="facts/brahmos/static-gk/temple.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Temple</a>
+
+
+      </div>
+    </div>
+<!-- This is a comment -->
+
+    <div class="accordion-item">
+      <div class="accordion-header" id="headingTwo">
+        <span>Chakra Edition</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">6</span>
+
+      </div>
+      <div class="accordion-content">
+
+
+
+<a href="facts/brahmos/chakra-history.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">History all India 📝️</a>
+
+
+<a href="facts/brahmos/chakra-geography.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Geography all Indian 📝️</a>
+
+
+<a href="facts/brahmos/chakra-environment.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Environment all Indian 📝️</a>
+
+
+<a href="facts/brahmos/chakra-polity.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Polity all India 📝️</a>
+
+
+<a href="facts/brahmos/chakra-economics.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Economics all India 📝️</a>
+
+<a href="facts/brahmos/chakra-science.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Science all India 📝️</a>
+
+      </div>
+    </div>
+<!-- This is a comment -->
+
+    <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>SSC_Railway_with solution</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">3</span>
+
+      </div>
+      <div class="accordion-content">
+
+
+
+
+<a href="facts/brahmos/sscwithsolve.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">BM-SSC with solved 📝️</a>
+
+<a href="facts/brahmos/railwaywithsolve.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: none;">BM-Railway with solved (error)📝️</a>
+
+<a href="facts/brahmos/railwaywithsolve(eng).html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">7000+ Railway with solved (English) 📝️</a>
+
+<a href="facts/brahmos/railwaywithsolve(hin).html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">7000+ Railway with solved (Hindi) 📝️</a>
+
+      </div>
+    </div>
+  </div>
+  <!-- This is a comment -->
+
+  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>Give quiz with Padai</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">3</span>
+
+      </div>
+      <div class="accordion-content">
+
+<a href="facts/brahmos/static-culture.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Static - Culture📝️</a>
+
+<a href="facts/brahmos/static-miscellaneous.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Static - Miscellaneous 📝️</a>
+
+<a href="facts/brahmos/awareness-with-solved.html" style="text-align: left; color: black; background: white; padding: 03px; border: 2px solid gold; display: inline-block;">Solved Awareness Questions 📝️</a>
+
+      </div>
+    </div>
+	
+		  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>No content</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">0</span>
+
+      </div>
+      <div class="accordion-content">
+
+<!-- Content goes here -->
+
+      </div>
+    </div>
+	  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>No Content</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">0</span>
+
+      </div>
+      <div class="accordion-content">
+
+<!-- Content goes here -->
+
+      </div>
+    </div>
+	  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>Non Content</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">0</span>
+
+      </div>
+      <div class="accordion-content">
+
+<!-- Content goes here -->
+
+      </div>
+    </div>
+	  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>No Content</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">0</span>
+
+      </div>
+      <div class="accordion-content">
+
+<!-- Content goes here -->
+
+      </div>
+    </div>
+	
+	
+	
+	
+  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>Exam_2024 (Superfast)</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">30</span>
+
+      </div>
+      <div class="accordion-content">
 
 <a href="facts/24pyq/24history.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;"> History 2024 </a>
 
@@ -2253,39 +1562,82 @@ From GangaTricks Here, I am Mr. Fusion and Competition Expert Spanning six years
 
 <a href="facts/24pyq/24sports.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Sports 2024 </a>
 
-</div>
-
-
-    <div id="tab3" role="tab" aria-controls="tabpanel3" option style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
-><button>Grammar</button></div>
-      <div id="tabpanel3" role="tabpanel" aria-labelledby="tab3" style="border: 5px solid lightblue;">
-
-<a href="facts/grammar/syntax1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Syntax (Verb Agreement)</a>
-<a href="facts/grammar/noun1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Noun</a>
-<a href="facts/grammar/pronoun1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Pronoun and Verb</a>
-<a href="facts/grammar/conjunction1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Conjunctions</a>
-<a href="facts/grammar/preposition4.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Prepositions</a>
-<a href="facts/grammar/adjective1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Adjectives</a>
-<a href="facts/grammar/adverb1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Adverbs</a>
-<a href="facts/grammar/infinite1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Non-finite Practice</a>
 
 
 
-<a href="facts/grammar/questiontag1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Question Tag</a>
-<a href="facts/grammar/tense1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Tense & Time</a>
-<a href="facts/grammar/article1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Article</a>
-<a href="facts/grammar/conditional1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Conditional Sentences and Superfluous</a>
+<a href="facts/pyq/sscgd24.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC GD Exam 2024 PYQ</a>
+
+
+<a href="facts/pyq/jja24.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Junior Judicial Assistant 2024 PYQ</a>
+
+
+<a href="facts/pyq/delhiconstable23.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Delhi Constable 2023</a>
+
+<a href="facts/pyq/cgl23.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC CGL 2023 PYQ</a>
+
+<a href="facts/pyq/mts21.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC MTS 2022 PYQ</a>
+
+
+<a href="facts/pyq/hub.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC All Questions PYQ</a>
+
+
+<a href="facts/pyq/sscgd22.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC GD Exam 2022 PYQ</a>
 
 
 
-</div>
+<a href="facts/allawareness/computer2.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Computer PYQs</a>
 
 
-	    
 
-    <div id="tab3" role="tab" aria-controls="tabpanel3" option style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
-><button>Railway Zone</button></div>
-      <div id="tabpanel3" role="tabpanel" aria-labelledby="tab3" style="border: 5px solid lightblue;">
+
+
+
+<h5>GD Exam 2024</h5>
+
+<a href="facts/exam/gdeco.html" style="background-color: color-mix(in srgb, navy 80%, white); padding: 05px; color: white; font-size: 12px; display: inline-block;">ECONOMICS</a>
+<a href="facts/exam/gdsports.html" style="background-color: color-mix(in srgb, navy 80%, white); padding: 05px; color: white; font-size: 12px; display: inline-block;">SPORTS</a>
+<a href="facts/exam/gdstatic.html" style="background-color: color-mix(in srgb, navy 80%, white); padding: 05px; color: white; font-size: 12px; display: inline-block;">STATIC</a>
+<a href="facts/exam/gdpolity.html" style="background-color: color-mix(in srgb, navy 80%, white); padding: 05px; color: white; font-size: 12px; display: inline-block;">POLITY</a>
+<a href="facts/exam/gdhistory.html" style="background-color: color-mix(in srgb, navy 80%, white); padding: 05px; color: white; font-size: 12px; display: inline-block;">HISTORY</a>
+<a href="facts/exam/gdscience.html" style="background-color: color-mix(in srgb, navy 80%, white); padding: 05px; color: white; font-size: 12px; display: inline-block;">SCIENCE</a>
+<a href="facts/exam/gdgeography.html" style="background-color: color-mix(in srgb, navy 80%, white); padding: 05px; color: white; font-size: 12px; display: inline-block;">GEOGRAPHY</a>
+<a href="facts/exam/gdcurrentaffairs.html" style="background-color: color-mix(in srgb, navy 80%, white); padding: 05px; color: white; font-size: 12px; display: inline-block;">CA QUESTIONS</a>
+
+
+
+<h5>PYQs 2024 examinations </h5>
+
+<a href="facts/24pyq/chsl24computer.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC CHSL COMPUTER 2024 PYQ</a>
+
+
+<a href="facts/24pyq/chsl24statics.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC CHSL STATICS GK 2024 PYQ</a>
+
+
+<a href="facts/24pyq/chsl24all.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC CHSL ALL 2024 PYQ</a>
+
+
+<a href="facts/24pyq/selectionpost24.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC SELECTION POSTS 2024 PYQ</a>
+
+
+<a href="facts/24pyq/cpo24.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC CPO 2024 PYQ</a>
+
+
+<a href="facts/24pyq/jee24.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">SSC JEE 2024 PYQ</a>
+
+
+
+
+
+      </div>
+    </div>
+	
+  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>Railway Zone</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">13</span>
+
+      </div>
+      <div class="accordion-content">
 
 <a href="facts/allawareness/railwayhistoryntpc.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">History NTPC</a>
 
@@ -2309,13 +1661,23 @@ From GangaTricks Here, I am Mr. Fusion and Competition Expert Spanning six years
 
 <a href="facts/allawareness/railwayeconomicsntpc.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Economics NTPC</a>
 
-</div>
+<a href="web content/groupd22.htm" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">group d 2022</a>
 
 
+<a href="web content/ntpc21.htm" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">ntpc cbt1 2021</a>
 
-    <div id="tab3" role="tab" aria-controls="tabpanel3" option style="background:#4B0082; border-radius: 10px; display: in-line; color:#4B0082; border: 5px solid white;"
-><button>Static Portion</button></div>
-      <div id="tabpanel3" role="tabpanel" aria-labelledby="tab3" style="border: 5px solid lightblue;">
+      </div>
+    </div>
+	
+	
+  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>SSC_Static_Portion</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">24</span>
+
+      </div>
+      <div class="accordion-content">
+
 
 
 <a href="facts/static/static1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Static Panacea</a>
@@ -2389,9 +1751,115 @@ From GangaTricks Here, I am Mr. Fusion and Competition Expert Spanning six years
 
 <a href="facts/static/world1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">World Awareness</a>
 
+      </div>
+    </div>
+	
+  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>SSC_PYQ_MCQs_No_Solution</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">7</span>
+
+      </div>
+      <div class="accordion-content">
+
+<a href="facts/allawareness/economics2.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Economics PYQs</a>
+<a href="facts/allawareness/geography2.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Geography PYQs</a>
+<a href="facts/allawareness/history2.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">History PYQs</a>
+<a href="facts/allawareness/polity2.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Polity PYQs</a>
+
+<a href="facts/allawareness/biology3.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Biology PYQs</a>
+<a href="facts/allawareness/physics1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Physics PYQs</a>
+<a href="facts/allawareness/chemistry1.html" style="text-align: left; color: white; background: orange; padding: 10px; border: 2px solid Beige; display: inline-block; padding: 05px;">Chemistry PYQs</a>
+
+
+      </div>
+    </div>
+	  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>AAO Auditor</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">15</span>
+
+      </div>
+      <div class="accordion-content">
+
+<!-- Content goes here -->
+
+
+	  <h5>Accountancy</h5>
+
+
+<a href="facts/accountancy/quest_accounts.html" class="a-52">Quest Questions</a><br><br>
+
+<a href="facts/accountancy/ssc_accounts.html" class="a-52">SSC 700 Q+</a><br><br>
+
+<a href="facts/accountancy/sachbol.html" class="a-52">CA Questions Sach Bol</a><br><br>
+
+
+<h5>Economics</h5>
+
+<a href="facts/economics/full_economics.html" class="a-52">Work In Progress</a><br><br>
+<a href="facts/economics/demand_supply.html" class="a-52">Demand And Supply</a><br><br>
+<a href="facts/economics/marketform.html" class="a-52">Market Forms</a><br><br>
+<a href="facts/economics/production_cost.html" class="a-52">Production and Costs</a><br><br>
+<a href="facts/economics/introductory.html" class="a-52">Introductory into Economics</a><br><br>
+<a href="facts/economics/cycle.html" class="a-52">Business Cycle</a><br><br>
+<a href="facts/economics/indian.html" class="a-52">Indian Economy</a><br><br>
+<a href="facts/economics/money.html" class="a-52">Money and Financial Systems</a><br><br>
+<a href="facts/economics/reforms.html" class="a-52">Reforms in Indian Economy</a><br><br>
+<a href="facts/economics/fcommission.html" class="a-52">Finance Commission</a><br><br>
+<a href="facts/economics/it.html" class="a-52">Technology in Governance</a><br><br>
+<a href="facts/economics/cag.html" class="a-52">CAG Office</a><br><br>
+
+
+      </div>
+    </div>
+
+	
+
+	  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>No Content</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">0</span>
+
+      </div>
+      <div class="accordion-content">
+
+<!-- Content goes here -->
+
+      </div>
+    </div>
+	  <div class="accordion-item">
+      <div class="accordion-header" id="headingThree">
+        <span>No Content</span>
+				<span class="badge badge-light" style="background: #4169E1; color: white; font-size: 15px;">0</span>
+
+      </div>
+      <div class="accordion-content">
+
+<!-- Content goes here -->
+
+      </div>
+    </div>
+	
+</div><!-- CLOSING accordiON -->
+
+
+
+
+
+
+
+
+
+
 </div>
 
     </amp-selector>
+
+
+
+
+
 
 
   <!-- footer section -->
@@ -2406,14 +1874,18 @@ From GangaTricks Here, I am Mr. Fusion and Competition Expert Spanning six years
 
 <div class="navbot">
     <div>
-        <button href="index.html" style="font-size: 15px; padding: 01px; background: none; color: black; border: 01px solid silver; filter: grayscale(100%);">🏠<span>Home</span>
-        </button>
+        <a href="index.html" style="font-size: 15px; padding: 05px; background: none; color: black; box-shadow: -03px 02px 01px 0px rgba(0, 0, 0, 0.3); filter: grayscale(100%);">🏠<span>Home</span>
+        </a>
 		
-       <button onclick="toggleDarkMode()" style="font-size: 15px; padding: 01px; background: none; color: black; border: 01px solid silver; filter: grayscale(100%);">🌓<span>Dark</span>
-        </button>
+       <a onclick="toggleDarkMode()" style="font-size: 15px; padding: 05px; background: none; color: black; box-shadow: 00px 02px 00px rgba(0, 0, 0, 0.3); filter: grayscale(100%);">🌓<span>Dark</span>
+        </a>
 		
-		<button style="font-size: 15px; padding: 01px; background: none; color: black; border: 01px solid silver; filter: grayscale(100%);">🛈<span>Updates</span>
-        </button>
+		<a style="font-size: 15px; padding: 05px; background: none; color: black; box-shadow: 00px 2px 00px rgba(0, 0, 0, 0.3); filter: grayscale(100%);">🛈<span>Updates</span>
+        </a>
+		
+		<a href="syncdata.html" style="cursor: pointer; font-size: 15px; padding: 05px; background: none; color: black; box-shadow: 03px 2px 00px rgba(0, 0, 0, 0.3); filter: grayscale(100%);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M19.91 15.51h-4.53a1 1 0 0 0 0 2h2.4A8 8 0 0 1 4 12a1 1 0 0 0-2 0a10 10 0 0 0 16.88 7.23V21a1 1 0 0 0 2 0v-4.5a1 1 0 0 0-.97-.99M12 2a10 10 0 0 0-6.88 2.77V3a1 1 0 0 0-2 0v4.5a1 1 0 0 0 1 1h4.5a1 1 0 0 0 0-2h-2.4A8 8 0 0 1 20 12a1 1 0 0 0 2 0A10 10 0 0 0 12 2"/></svg><span>Sync Data</span>
+        </a>
+		
     </div>
 </div>
 
@@ -2452,6 +1924,120 @@ From GangaTricks Here, I am Mr. Fusion and Competition Expert Spanning six years
                 alert("The install prompt is not available. This might be because the app is already installed or your browser doesn't support it.");
             }
         });
-    </script>
+		
+		
+		
+		
+		
+		
+
+
+
+// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.contains('dark-mode');
+    
+    // Toggle the class and set the cookie
+    if (isDarkMode) {
+        body.classList.remove('dark-mode');
+        setDarkModeCookie(false); // Set cookie to false (light mode)
+    } else {
+        body.classList.add('dark-mode');
+        setDarkModeCookie(true); // Set cookie to true (dark mode)
+    }
+}
+
+// Function to set the dark mode cookie
+function setDarkModeCookie(isDarkMode) {
+    document.cookie = `darkMode=${isDarkMode}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to check if dark mode preference is stored in the cookie and apply it
+function applyDarkModeFromCookie() {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkMode' && value === 'true') {
+            document.body.classList.add('dark-mode');
+            return;
+        }
+    }
+}
+
+// Apply dark mode preference from the cookie on page load
+applyDarkModeFromCookie();
+	
+
+
+	 function goToHub() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = 'awareness/awareness1.html';
+    }
+
+    function goToWebsite() {
+            var url = 'index'; // The URL without the .html extension
+            history.pushState({}, '', url);
+            // Update the page content here if necessary
+        }
+ function examQuiz() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = 'examquiz/examquiz.html';
+    }
+
+ function goToEnglish() {
+        // Change 'https://example.com' to the actual URL you want to redirect to
+        window.location.href = 'english/english1.html';
+    }
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
+
+// Add an event listener to the link
+    document.getElementById('popupLink').addEventListener('click', function(event) {
+      // Prevent the default behavior of the link
+      event.preventDefault();
+      
+      // Open the link in a popup window
+      window.open('https://example.com', 'popupWindow', 'width=600,height=400');
+    });
+	
+   // JavaScript to control accordion behavior
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', function() {
+        // Close all other items
+        const allHeaders = document.querySelectorAll('.accordion-header');
+        allHeaders.forEach(h => {
+          if (h !== this) {
+            h.classList.remove('active');
+            h.nextElementSibling.style.display = 'none';
+          }
+        });
+
+        // Toggle current item
+        const content = this.nextElementSibling;
+        const isVisible = content.style.display === 'block';
+        if (isVisible) {
+          content.style.display = 'none';
+          this.classList.remove('active');
+        } else {
+          content.style.display = 'block';
+          this.classList.add('active');
+        }
+      });
+    });
+</script>
+
+
+
+
 </body>
 </html>
